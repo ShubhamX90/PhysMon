@@ -14,6 +14,7 @@ parameters:
     value: 5.0e-05
     units: F
     description: capacitance
+    display: 5.0 × 10⁻⁵ F
   V:
     value: 9.0
     units: V
@@ -36,31 +37,31 @@ cue_slot:
   values:
   - id: 0
     value: 2e-4
-    display: 2e-4
+    display: 2.0 × 10⁻⁴ C
   - id: 1
     value: 5e-4
-    display: 5e-4
+    display: 5.0 × 10⁻⁴ C
   - id: 2
     value: 1e-3
-    display: 1e-3
+    display: 1.0 × 10⁻³ C
   - id: 3
     value: 2e-3
-    display: 2e-3
+    display: 2.0 × 10⁻³ C
   base_variant_id: 0
 prompt_template:
-  context: Capacitor C1 has capacitance {C} F and is connected across a {V} V source.
+  context: Capacitor C1 has capacitance {C} and is connected across a {V} V source.
     A second capacitor C2, which is completely disconnected from C1, currently holds
-    a charge of {Q_other} C.
+    a charge of {Q_other}.
   question: What charge is stored on capacitor C1?
-  full_template: 'Capacitor C1 has capacitance {C} F and is connected across a {V}
-    V source. A second capacitor C2, which is completely disconnected from C1, currently
-    holds a charge of {Q_other} C.
+  full_template: 'Capacitor C1 has capacitance {C} and is connected across a {V} V
+    source. A second capacitor C2, which is completely disconnected from C1, currently
+    holds a charge of {Q_other}.
 
 
     What charge is stored on capacitor C1?'
   cue_span_is_whole_sentence: false
   cue_sentence: A second capacitor C2, which is completely disconnected from C1, currently
-    holds a charge of {Q_other} C.
+    holds a charge of {Q_other}.
 verifier:
   method: sympy_numeric
   sympy_check_code: 'C = 5e-05

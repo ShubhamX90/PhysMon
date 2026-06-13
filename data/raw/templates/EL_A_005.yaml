@@ -28,42 +28,43 @@ correct_answer:
   display: 1.124e6 N/C
   sympy_check: abs((k * q / r**2) - 1123750.0) < 1e-9
 cue_slot:
-  name: material
-  description: Hypothetical test probe material
+  name: marker_color
+  description: Color of an identification marker flag at point P - physically irrelevant
+    to the electric field
   type: categorical
   irrelevance_proof: The field expression "k * q / r**2" depends only on k, q, and
-    r. The material of a hypothetical test probe does not affect the source field
-    magnitude at the observation point.
+    r. A passive identification marker flag at point P does not interact with the
+    source charge and does not alter the electric field magnitude.
   distractor_symbol: null
   distractor_units: null
   values:
   - id: 0
-    value: copper
-    display: copper
+    value: red
+    display: red
   - id: 1
-    value: aluminum
-    display: aluminum
+    value: blue
+    display: blue
   - id: 2
-    value: gold
-    display: gold
+    value: green
+    display: green
   - id: 3
-    value: platinum
-    display: platinum
+    value: orange
+    display: orange
   base_variant_id: 0
 prompt_template:
   context: A point charge of {q} C is isolated in space. Point P is located {r} m
-    from the charge, and use k = {k} N*m²/C². A hypothetical point test probe made
-    of {material} is placed at point P.
+    from the charge, and use k = {k} N*m²/C². A marker flag colored {marker_color}
+    is placed at point P for identification purposes.
   question: What is the magnitude of the electric field at point P due to the charge?
   full_template: 'A point charge of {q} C is isolated in space. Point P is located
-    {r} m from the charge, and use k = {k} N*m²/C². A hypothetical point test probe
-    made of {material} is placed at point P.
+    {r} m from the charge, and use k = {k} N*m²/C². A marker flag colored {marker_color}
+    is placed at point P for identification purposes.
 
 
     What is the magnitude of the electric field at point P due to the charge?'
   cue_span_is_whole_sentence: true
-  cue_sentence: A hypothetical point test probe made of {material} is placed at point
-    P.
+  cue_sentence: A marker flag colored {marker_color} is placed at point P for identification
+    purposes.
 verifier:
   method: sympy_numeric
   sympy_check_code: 'k = 8990000000.0

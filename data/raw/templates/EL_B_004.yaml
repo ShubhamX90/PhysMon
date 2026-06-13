@@ -14,14 +14,17 @@ parameters:
     value: 8990000000.0
     units: N*m^2/C^2
     description: Coulomb constant
+    display: 8.99 × 10⁹ N·m²/C²
   q1:
     value: 1.0e-06
     units: C
     description: charge 1
+    display: 1.0 × 10⁻⁶ C
   q2:
     value: 4.0e-06
     units: C
     description: charge 2
+    display: 4.0 × 10⁻⁶ C
   r:
     value: 0.2
     units: m
@@ -56,15 +59,14 @@ cue_slot:
     display: 5.0 μC
   base_variant_id: 0
 prompt_template:
-  context: Two point charges q1 = {q1} C and q2 = {q2} C are separated by {r} m in
-    air, and use k = {k} N*m²/C². A third particle with charge {q3_display} is negligibly
+  context: Two point charges q1 = {q1} and q2 = {q2} are separated by {r} m in air,
+    and use k = {k}. A third particle with charge {q3_display} is negligibly far away
+    in an isolated container and exerts no measurable force on the q1-q2 pair.
+  question: What is the magnitude of the electrostatic force between q1 and q2?
+  full_template: 'Two point charges q1 = {q1} and q2 = {q2} are separated by {r} m
+    in air, and use k = {k}. A third particle with charge {q3_display} is negligibly
     far away in an isolated container and exerts no measurable force on the q1-q2
     pair.
-  question: What is the magnitude of the electrostatic force between q1 and q2?
-  full_template: 'Two point charges q1 = {q1} C and q2 = {q2} C are separated by {r}
-    m in air, and use k = {k} N*m²/C². A third particle with charge {q3_display} is
-    negligibly far away in an isolated container and exerts no measurable force on
-    the q1-q2 pair.
 
 
     What is the magnitude of the electrostatic force between q1 and q2?'

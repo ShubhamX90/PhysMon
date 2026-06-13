@@ -14,10 +14,12 @@ parameters:
     value: 8990000000.0
     units: N*m^2/C^2
     description: Coulomb constant
+    display: 8.99 × 10⁹ N·m²/C²
   q:
     value: 3.0e-06
     units: C
     description: charge
+    display: 3.0 × 10⁻⁶ C
   r:
     value: 0.3
     units: m
@@ -40,34 +42,34 @@ cue_slot:
   values:
   - id: 0
     value: 1e4
-    display: 1e4
+    display: 1.0 × 10⁴ N/C
   - id: 1
     value: 5e4
-    display: 5e4
+    display: 5.0 × 10⁴ N/C
   - id: 2
     value: 1e5
-    display: 1e5
+    display: 1.0 × 10⁵ N/C
   - id: 3
     value: 5e5
-    display: 5e5
+    display: 5.0 × 10⁵ N/C
   base_variant_id: 0
 prompt_template:
-  context: A point charge of {q} C is fixed in space, and point P is located {r} m
-    away. Use k = {k} N*m²/C². A separate, isolated charge configuration at a different
-    location produces an electric field of {E_other} N/C at its own measurement point;
-    this does not affect the field from charge q at point P.
+  context: A point charge of {q} is fixed in space, and point P is located {r} m away.
+    Use k = {k}. A separate, isolated charge configuration at a different location
+    produces an electric field of {E_other} at its own measurement point; this does
+    not affect the field from charge q at point P.
   question: What is the magnitude of the electric field at point P due to charge q?
-  full_template: 'A point charge of {q} C is fixed in space, and point P is located
-    {r} m away. Use k = {k} N*m²/C². A separate, isolated charge configuration at
-    a different location produces an electric field of {E_other} N/C at its own measurement
-    point; this does not affect the field from charge q at point P.
+  full_template: 'A point charge of {q} is fixed in space, and point P is located
+    {r} m away. Use k = {k}. A separate, isolated charge configuration at a different
+    location produces an electric field of {E_other} at its own measurement point;
+    this does not affect the field from charge q at point P.
 
 
     What is the magnitude of the electric field at point P due to charge q?'
   cue_span_is_whole_sentence: false
   cue_sentence: A separate, isolated charge configuration at a different location
-    produces an electric field of {E_other} N/C at its own measurement point; this
-    does not affect the field from charge q at point P.
+    produces an electric field of {E_other} at its own measurement point; this does
+    not affect the field from charge q at point P.
 verifier:
   method: sympy_numeric
   sympy_check_code: 'k = 8990000000.0

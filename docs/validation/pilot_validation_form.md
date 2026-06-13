@@ -405,7 +405,7 @@ A box is pushed along a frictionless surface by a constant horizontal force of 1
 How much work is done by the applied force?
 
 [Variant 3]
-A box is pushed along a frictionless surface by a constant horizontal force of 12.0 N through a displacement of 5.0 m. The frictionless surface is painted unpainted.
+A box is pushed along a frictionless surface by a constant horizontal force of 12.0 N through a displacement of 5.0 m. The frictionless surface is left unpainted.
 
 How much work is done by the applied force?
 
@@ -1028,22 +1028,22 @@ Free-text notes:
 
 ```text
 [Variant 0]
-A point charge of 5e-06 C is isolated in space. Point P is located 0.2 m from the charge, and use k = 8990000000.0 N*m²/C². A hypothetical point test probe made of copper is placed at point P.
+A point charge of 5e-06 C is isolated in space. Point P is located 0.2 m from the charge, and use k = 8990000000.0 N*m²/C². A marker flag colored red is placed at point P for identification purposes.
 
 What is the magnitude of the electric field at point P due to the charge?
 
 [Variant 1]
-A point charge of 5e-06 C is isolated in space. Point P is located 0.2 m from the charge, and use k = 8990000000.0 N*m²/C². A hypothetical point test probe made of aluminum is placed at point P.
+A point charge of 5e-06 C is isolated in space. Point P is located 0.2 m from the charge, and use k = 8990000000.0 N*m²/C². A marker flag colored blue is placed at point P for identification purposes.
 
 What is the magnitude of the electric field at point P due to the charge?
 
 [Variant 2]
-A point charge of 5e-06 C is isolated in space. Point P is located 0.2 m from the charge, and use k = 8990000000.0 N*m²/C². A hypothetical point test probe made of gold is placed at point P.
+A point charge of 5e-06 C is isolated in space. Point P is located 0.2 m from the charge, and use k = 8990000000.0 N*m²/C². A marker flag colored green is placed at point P for identification purposes.
 
 What is the magnitude of the electric field at point P due to the charge?
 
 [Variant 3]
-A point charge of 5e-06 C is isolated in space. Point P is located 0.2 m from the charge, and use k = 8990000000.0 N*m²/C². A hypothetical point test probe made of platinum is placed at point P.
+A point charge of 5e-06 C is isolated in space. Point P is located 0.2 m from the charge, and use k = 8990000000.0 N*m²/C². A marker flag colored orange is placed at point P for identification purposes.
 
 What is the magnitude of the electric field at point P due to the charge?
 
@@ -1154,22 +1154,22 @@ Free-text notes:
 
 ```text
 [Variant 0]
-Capacitor C1 has capacitance 5e-05 F and is connected across a 9.0 V source. A second capacitor C2, which is completely disconnected from C1, currently holds a charge of 2e-4 C.
+Capacitor C1 has capacitance 5.0 × 10⁻⁵ F and is connected across a 9.0 V source. A second capacitor C2, which is completely disconnected from C1, currently holds a charge of 2.0 × 10⁻⁴ C.
 
 What charge is stored on capacitor C1?
 
 [Variant 1]
-Capacitor C1 has capacitance 5e-05 F and is connected across a 9.0 V source. A second capacitor C2, which is completely disconnected from C1, currently holds a charge of 5e-4 C.
+Capacitor C1 has capacitance 5.0 × 10⁻⁵ F and is connected across a 9.0 V source. A second capacitor C2, which is completely disconnected from C1, currently holds a charge of 5.0 × 10⁻⁴ C.
 
 What charge is stored on capacitor C1?
 
 [Variant 2]
-Capacitor C1 has capacitance 5e-05 F and is connected across a 9.0 V source. A second capacitor C2, which is completely disconnected from C1, currently holds a charge of 1e-3 C.
+Capacitor C1 has capacitance 5.0 × 10⁻⁵ F and is connected across a 9.0 V source. A second capacitor C2, which is completely disconnected from C1, currently holds a charge of 1.0 × 10⁻³ C.
 
 What charge is stored on capacitor C1?
 
 [Variant 3]
-Capacitor C1 has capacitance 5e-05 F and is connected across a 9.0 V source. A second capacitor C2, which is completely disconnected from C1, currently holds a charge of 2e-3 C.
+Capacitor C1 has capacitance 5.0 × 10⁻⁵ F and is connected across a 9.0 V source. A second capacitor C2, which is completely disconnected from C1, currently holds a charge of 2.0 × 10⁻³ C.
 
 What charge is stored on capacitor C1?
 
@@ -1196,22 +1196,22 @@ Free-text notes:
 
 ```text
 [Variant 0]
-Two point charges q1 = 1e-06 C and q2 = 4e-06 C are separated by 0.2 m in air, and use k = 8990000000.0 N*m²/C². A third particle with charge 0.5 μC is negligibly far away in an isolated container and exerts no measurable force on the q1-q2 pair.
+Two point charges q1 = 1.0 × 10⁻⁶ C and q2 = 4.0 × 10⁻⁶ C are separated by 0.2 m in air, and use k = 8.99 × 10⁹ N·m²/C². A third particle with charge 0.5 μC is negligibly far away in an isolated container and exerts no measurable force on the q1-q2 pair.
 
 What is the magnitude of the electrostatic force between q1 and q2?
 
 [Variant 1]
-Two point charges q1 = 1e-06 C and q2 = 4e-06 C are separated by 0.2 m in air, and use k = 8990000000.0 N*m²/C². A third particle with charge 1.0 μC is negligibly far away in an isolated container and exerts no measurable force on the q1-q2 pair.
+Two point charges q1 = 1.0 × 10⁻⁶ C and q2 = 4.0 × 10⁻⁶ C are separated by 0.2 m in air, and use k = 8.99 × 10⁹ N·m²/C². A third particle with charge 1.0 μC is negligibly far away in an isolated container and exerts no measurable force on the q1-q2 pair.
 
 What is the magnitude of the electrostatic force between q1 and q2?
 
 [Variant 2]
-Two point charges q1 = 1e-06 C and q2 = 4e-06 C are separated by 0.2 m in air, and use k = 8990000000.0 N*m²/C². A third particle with charge 2.0 μC is negligibly far away in an isolated container and exerts no measurable force on the q1-q2 pair.
+Two point charges q1 = 1.0 × 10⁻⁶ C and q2 = 4.0 × 10⁻⁶ C are separated by 0.2 m in air, and use k = 8.99 × 10⁹ N·m²/C². A third particle with charge 2.0 μC is negligibly far away in an isolated container and exerts no measurable force on the q1-q2 pair.
 
 What is the magnitude of the electrostatic force between q1 and q2?
 
 [Variant 3]
-Two point charges q1 = 1e-06 C and q2 = 4e-06 C are separated by 0.2 m in air, and use k = 8990000000.0 N*m²/C². A third particle with charge 5.0 μC is negligibly far away in an isolated container and exerts no measurable force on the q1-q2 pair.
+Two point charges q1 = 1.0 × 10⁻⁶ C and q2 = 4.0 × 10⁻⁶ C are separated by 0.2 m in air, and use k = 8.99 × 10⁹ N·m²/C². A third particle with charge 5.0 μC is negligibly far away in an isolated container and exerts no measurable force on the q1-q2 pair.
 
 What is the magnitude of the electrostatic force between q1 and q2?
 
@@ -1238,22 +1238,22 @@ Free-text notes:
 
 ```text
 [Variant 0]
-A point charge of 3e-06 C is fixed in space, and point P is located 0.3 m away. Use k = 8990000000.0 N*m²/C². A separate, isolated charge configuration at a different location produces an electric field of 1e4 N/C at its own measurement point; this does not affect the field from charge q at point P.
+A point charge of 3.0 × 10⁻⁶ C is fixed in space, and point P is located 0.3 m away. Use k = 8.99 × 10⁹ N·m²/C². A separate, isolated charge configuration at a different location produces an electric field of 1.0 × 10⁴ N/C at its own measurement point; this does not affect the field from charge q at point P.
 
 What is the magnitude of the electric field at point P due to charge q?
 
 [Variant 1]
-A point charge of 3e-06 C is fixed in space, and point P is located 0.3 m away. Use k = 8990000000.0 N*m²/C². A separate, isolated charge configuration at a different location produces an electric field of 5e4 N/C at its own measurement point; this does not affect the field from charge q at point P.
+A point charge of 3.0 × 10⁻⁶ C is fixed in space, and point P is located 0.3 m away. Use k = 8.99 × 10⁹ N·m²/C². A separate, isolated charge configuration at a different location produces an electric field of 5.0 × 10⁴ N/C at its own measurement point; this does not affect the field from charge q at point P.
 
 What is the magnitude of the electric field at point P due to charge q?
 
 [Variant 2]
-A point charge of 3e-06 C is fixed in space, and point P is located 0.3 m away. Use k = 8990000000.0 N*m²/C². A separate, isolated charge configuration at a different location produces an electric field of 1e5 N/C at its own measurement point; this does not affect the field from charge q at point P.
+A point charge of 3.0 × 10⁻⁶ C is fixed in space, and point P is located 0.3 m away. Use k = 8.99 × 10⁹ N·m²/C². A separate, isolated charge configuration at a different location produces an electric field of 1.0 × 10⁵ N/C at its own measurement point; this does not affect the field from charge q at point P.
 
 What is the magnitude of the electric field at point P due to charge q?
 
 [Variant 3]
-A point charge of 3e-06 C is fixed in space, and point P is located 0.3 m away. Use k = 8990000000.0 N*m²/C². A separate, isolated charge configuration at a different location produces an electric field of 5e5 N/C at its own measurement point; this does not affect the field from charge q at point P.
+A point charge of 3.0 × 10⁻⁶ C is fixed in space, and point P is located 0.3 m away. Use k = 8.99 × 10⁹ N·m²/C². A separate, isolated charge configuration at a different location produces an electric field of 5.0 × 10⁵ N/C at its own measurement point; this does not affect the field from charge q at point P.
 
 What is the magnitude of the electric field at point P due to charge q?
 

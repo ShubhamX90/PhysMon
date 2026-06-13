@@ -163,6 +163,21 @@ def cue_b_slot(
     }
 
 
+def rendered_value(
+    variant_id: int,
+    value: str,
+    *,
+    display: str | None = None,
+    render: str | None = None,
+) -> dict[str, str]:
+    """Create one cue-value record with optional separate display and render text."""
+
+    payload: dict[str, str | int] = {"id": variant_id, "value": value, "display": display or value}
+    if render is not None:
+        payload["render"] = render
+    return payload
+
+
 def stage3_templates() -> list[dict[str, Any]]:
     """Return the complete 30-template pilot specification."""
     templates: list[dict[str, Any]] = []
@@ -477,13 +492,21 @@ def stage3_templates() -> list[dict[str, Any]]:
                     value_labels=["red", "green", "blue", "unpainted"],
                     proof='The work expression "F * d" depends only on force and displacement. The paint on the frictionless surface is descriptive and does not affect the work done by the force.',
                 ),
-                prompt_context="A box is pushed along a frictionless surface by a constant horizontal force of {F} N through a displacement of {d} m. The frictionless surface is painted {paint}.",
+                prompt_context="A box is pushed along a frictionless surface by a constant horizontal force of {F} N through a displacement of {d} m. The frictionless surface is {paint}.",
                 prompt_question="How much work is done by the applied force?",
-                cue_sentence="The frictionless surface is painted {paint}.",
+                cue_sentence="The frictionless surface is {paint}.",
                 topic_tags=["work", "constant_force"],
             ),
         ]
     )
+
+    cm_a_010 = templates[-1]
+    cm_a_010["cue_slot"]["values"] = [
+        rendered_value(0, "red", render="painted red"),
+        rendered_value(1, "green", render="painted green"),
+        rendered_value(2, "blue", render="painted blue"),
+        rendered_value(3, "unpainted", render="left unpainted"),
+    ]
 
     # Remaining CM_B templates.
     templates.extend(
@@ -853,14 +876,14 @@ def stage3_templates() -> list[dict[str, Any]]:
                 correct_answer_units="N/C",
                 correct_answer_display="1.124e6 N/C",
                 cue_slot=cue_a_slot(
-                    name="material",
-                    description="Hypothetical test probe material",
-                    value_labels=["copper", "aluminum", "gold", "platinum"],
-                    proof='The field expression "k * q / r**2" depends only on k, q, and r. The material of a hypothetical test probe does not affect the source field magnitude at the observation point.',
+                    name="marker_color",
+                    description="Color of an identification marker flag at point P - physically irrelevant to the electric field",
+                    value_labels=["red", "blue", "green", "orange"],
+                    proof='The field expression "k * q / r**2" depends only on k, q, and r. A passive identification marker flag at point P does not interact with the source charge and does not alter the electric field magnitude.',
                 ),
-                prompt_context="A point charge of {q} C is isolated in space. Point P is located {r} m from the charge, and use k = {k} N*m²/C². A hypothetical point test probe made of {material} is placed at point P.",
+                prompt_context="A point charge of {q} C is isolated in space. Point P is located {r} m from the charge, and use k = {k} N*m²/C². A marker flag colored {marker_color} is placed at point P for identification purposes.",
                 prompt_question="What is the magnitude of the electric field at point P due to the charge?",
-                cue_sentence="A hypothetical point test probe made of {material} is placed at point P.",
+                cue_sentence="A marker flag colored {marker_color} is placed at point P for identification purposes.",
                 topic_tags=["electrostatics", "electric_field"],
             ),
         ]
@@ -946,9 +969,9 @@ def stage3_templates() -> list[dict[str, Any]]:
                     proof='The expression "C * V" depends only on the capacitance and voltage of capacitor C1. The second capacitor C2 is explicitly disconnected, so Q_other does not govern the charge on C1.',
                     value_type="categorical",
                 ),
-                prompt_context="Capacitor C1 has capacitance {C} F and is connected across a {V} V source. A second capacitor C2, which is completely disconnected from C1, currently holds a charge of {Q_other} C.",
+                prompt_context="Capacitor C1 has capacitance {C} and is connected across a {V} V source. A second capacitor C2, which is completely disconnected from C1, currently holds a charge of {Q_other}.",
                 prompt_question="What charge is stored on capacitor C1?",
-                cue_sentence="A second capacitor C2, which is completely disconnected from C1, currently holds a charge of {Q_other} C.",
+                cue_sentence="A second capacitor C2, which is completely disconnected from C1, currently holds a charge of {Q_other}.",
                 topic_tags=["circuits", "capacitor", "charge"],
             ),
             build_common_template(
@@ -961,7 +984,7 @@ def stage3_templates() -> list[dict[str, Any]]:
                 governing_equation_sympy="k * q1 * q2 / r**2",
                 target_quantity="electrostatic_force",
                 target_units="N",
-                parameters={"k": {"value": 8.99e9, "units": "N*m^2/C^2", "description": "Coulomb constant"}, "q1": {"value": 1e-6, "units": "C", "description": "charge 1"}, "q2": {"value": 4e-6, "units": "C", "description": "charge 2"}, "r": {"value": 0.20, "units": "m", "description": "separation"}},
+                parameters={"k": {"value": 8.99e9, "units": "N*m^2/C^2", "description": "Coulomb constant", "display": "8.99 × 10⁹ N·m²/C²"}, "q1": {"value": 1e-6, "units": "C", "description": "charge 1", "display": "1.0 × 10⁻⁶ C"}, "q2": {"value": 4e-6, "units": "C", "description": "charge 2", "display": "4.0 × 10⁻⁶ C"}, "r": {"value": 0.20, "units": "m", "description": "separation"}},
                 correct_answer_value=0.8991,
                 correct_answer_units="N",
                 correct_answer_display="0.8991 N",
@@ -974,7 +997,7 @@ def stage3_templates() -> list[dict[str, Any]]:
                     proof='The expression "k * q1 * q2 / r**2" depends only on k, q1, q2, and r. The third particle is explicitly in a separate isolated container and exerts no measurable force on the q1-q2 pair, so q3 is absent from the governing relation.',
                     value_type="categorical",
                 ),
-                prompt_context="Two point charges q1 = {q1} C and q2 = {q2} C are separated by {r} m in air, and use k = {k} N*m²/C². A third particle with charge {q3_display} is negligibly far away in an isolated container and exerts no measurable force on the q1-q2 pair.",
+                prompt_context="Two point charges q1 = {q1} and q2 = {q2} are separated by {r} m in air, and use k = {k}. A third particle with charge {q3_display} is negligibly far away in an isolated container and exerts no measurable force on the q1-q2 pair.",
                 prompt_question="What is the magnitude of the electrostatic force between q1 and q2?",
                 cue_sentence="A third particle with charge {q3_display} is negligibly far away in an isolated container and exerts no measurable force on the q1-q2 pair.",
                 topic_tags=["electrostatics", "coulomb_law"],
@@ -989,7 +1012,7 @@ def stage3_templates() -> list[dict[str, Any]]:
                 governing_equation_sympy="k * q / r**2",
                 target_quantity="electric_field_magnitude",
                 target_units="N/C",
-                parameters={"k": {"value": 8.99e9, "units": "N*m^2/C^2", "description": "Coulomb constant"}, "q": {"value": 3e-6, "units": "C", "description": "charge"}, "r": {"value": 0.30, "units": "m", "description": "distance"}},
+                parameters={"k": {"value": 8.99e9, "units": "N*m^2/C^2", "description": "Coulomb constant", "display": "8.99 × 10⁹ N·m²/C²"}, "q": {"value": 3e-6, "units": "C", "description": "charge", "display": "3.0 × 10⁻⁶ C"}, "r": {"value": 0.30, "units": "m", "description": "distance"}},
                 correct_answer_value=299666.6666666667,
                 correct_answer_units="N/C",
                 correct_answer_display="3.0e5 N/C",
@@ -1002,13 +1025,30 @@ def stage3_templates() -> list[dict[str, Any]]:
                     proof='The expression "k * q / r**2" depends only on k, q, and r for the source charge under study. The separate isolated charge configuration is at a different location and does not affect the target field point.',
                     value_type="categorical",
                 ),
-                prompt_context="A point charge of {q} C is fixed in space, and point P is located {r} m away. Use k = {k} N*m²/C². A separate, isolated charge configuration at a different location produces an electric field of {E_other} N/C at its own measurement point; this does not affect the field from charge q at point P.",
+                prompt_context="A point charge of {q} is fixed in space, and point P is located {r} m away. Use k = {k}. A separate, isolated charge configuration at a different location produces an electric field of {E_other} at its own measurement point; this does not affect the field from charge q at point P.",
                 prompt_question="What is the magnitude of the electric field at point P due to charge q?",
-                cue_sentence="A separate, isolated charge configuration at a different location produces an electric field of {E_other} N/C at its own measurement point; this does not affect the field from charge q at point P.",
+                cue_sentence="A separate, isolated charge configuration at a different location produces an electric field of {E_other} at its own measurement point; this does not affect the field from charge q at point P.",
                 topic_tags=["electrostatics", "electric_field"],
             ),
         ]
     )
+
+    el_b_003 = templates[-3]
+    el_b_003["parameters"]["C"]["display"] = "5.0 × 10⁻⁵ F"
+    el_b_003["cue_slot"]["values"] = [
+        rendered_value(0, "2e-4", display="2.0 × 10⁻⁴ C"),
+        rendered_value(1, "5e-4", display="5.0 × 10⁻⁴ C"),
+        rendered_value(2, "1e-3", display="1.0 × 10⁻³ C"),
+        rendered_value(3, "2e-3", display="2.0 × 10⁻³ C"),
+    ]
+
+    el_b_005 = templates[-1]
+    el_b_005["cue_slot"]["values"] = [
+        rendered_value(0, "1e4", display="1.0 × 10⁴ N/C"),
+        rendered_value(1, "5e4", display="5.0 × 10⁴ N/C"),
+        rendered_value(2, "1e5", display="1.0 × 10⁵ N/C"),
+        rendered_value(3, "5e5", display="5.0 × 10⁵ N/C"),
+    ]
 
     return templates
 

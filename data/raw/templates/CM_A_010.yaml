@@ -36,29 +36,31 @@ cue_slot:
   - id: 0
     value: red
     display: red
+    render: painted red
   - id: 1
     value: green
     display: green
+    render: painted green
   - id: 2
     value: blue
     display: blue
+    render: painted blue
   - id: 3
     value: unpainted
     display: unpainted
+    render: left unpainted
   base_variant_id: 0
 prompt_template:
   context: A box is pushed along a frictionless surface by a constant horizontal force
-    of {F} N through a displacement of {d} m. The frictionless surface is painted
-    {paint}.
+    of {F} N through a displacement of {d} m. The frictionless surface is {paint}.
   question: How much work is done by the applied force?
   full_template: 'A box is pushed along a frictionless surface by a constant horizontal
-    force of {F} N through a displacement of {d} m. The frictionless surface is painted
-    {paint}.
+    force of {F} N through a displacement of {d} m. The frictionless surface is {paint}.
 
 
     How much work is done by the applied force?'
   cue_span_is_whole_sentence: true
-  cue_sentence: The frictionless surface is painted {paint}.
+  cue_sentence: The frictionless surface is {paint}.
 verifier:
   method: sympy_numeric
   sympy_check_code: 'F = 12.0

@@ -22,7 +22,11 @@ DEFAULT_JSONL_NAME = "render_all_templates_events.jsonl"
 def parse_args() -> argparse.Namespace:
     """Parse CLI arguments for batch family rendering."""
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--template-dir", required=True, help="Directory containing Stage 3 YAML templates.")
+    parser.add_argument("--template-dir", help="Directory containing Stage 3 YAML templates.")
+    parser.add_argument(
+        "--template",
+        help="Optional single Stage 3 YAML template path. Use instead of --template-dir.",
+    )
     parser.add_argument("--output-dir", required=True, help="Directory for rendered family JSON.")
     parser.add_argument("--report", required=True, help="Path to the render-summary JSON.")
     parser.add_argument("--verify", action="store_true", help="Run symbolic verification before rendering.")
@@ -33,9 +37,16 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     """Render every template YAML and save per-family JSON plus a summary report."""
     args = parse_args()
-    template_dir = Path(args.template_dir)
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
+    if bool(args.template) == bool(args.template_dir):
+        raise ValueError("Provide exactly one of --template or --template-dir.")
+
+    template_paths = (
+        [Path(args.template)]
+        if args.template
+        else sorted(Path(args.template_dir).glob("*.yaml"))
+    )
     logger = ExperimentLogger(
         script_name="render_all_templates.py",
         stage=DEFAULT_STAGE,
@@ -48,7 +59,7 @@ def main() -> None:
     total_templates = 0
     verification_pass = 0
 
-    for template_path in sorted(template_dir.glob("*.yaml")):
+    for template_path in template_paths:
         total_templates += 1
         try:
             family = render_family(str(template_path), verify=args.verify)

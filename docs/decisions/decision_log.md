@@ -168,3 +168,38 @@ log-probabilities, prompt-sensitive log-prob changes, and deterministic greedy g
 
 Per Part IV.5, no work beyond Stage 2 should be treated as authorized until [D1] is
 explicitly confirmed by the PI.
+
+## 2026-06-14 - PI Self-Validation Complete
+
+- Date: 2026-06-14
+- Decision: PI self-validation of all 30 pilot families complete. 26 families pass
+  Q1-Q4 without qualification. 4 families received required fixes (`CM_A_010` grammar,
+  `EL_A_005` conductor cue values, `EL_B_003`/`EL_B_004`/`EL_B_005` notation). 2
+  families received design notes (`CM_A_002`, `EL_A_003`). All fixes applied and
+  verified before Stage 4 job submission.
+- Proposal section(s): Validation Protocol (§7), Stage 3 (§11)
+- Supplementary decision/assumption IDs: A4, A6
+
+## Stage 3 Decision Gate
+
+Gate question: Does the pilot benchmark satisfy invariance, agreement,
+and surface-artefact requirements?
+
+Evidence:
+- [x] All 30 templates written and verified (`data/raw/templates/`)
+- [x] All 30 families pass SymPy verifier (`results/stage3/verification/`)
+- [x] Artefact Checks 1, 2, 4, 5 all PASS for all 30 families
+- [x] Pilot validation form generated (`docs/validation/pilot_validation_form.md`)
+- [x] PI self-validation completed: 26 clean pass, 4 fixed, 2 design notes
+- [x] `run_behavioural.py` implemented and dry-run tested
+- [x] Literature gap check (A3) VERIFIED - no near-fatal scoop found
+- [x] DeepSeek validation PASS with caveats (logprob+determinism confirmed;
+      `has_think_tags` caveat noted and accepted)
+- [x] D1/D2/D3/D5 all recorded in `decision_log.md`
+- [x] Compute estimate revised (targeted extraction added to `results/stage2/`)
+- [ ] Second validator (D9): still pending - not blocking CONDITIONAL PASS
+
+Gate result: [x] CONDITIONAL PASS
+  Reason: All 30 templates verifier-certified + PI validation complete + parser 100%
+  coverage. Second validator is pending per decision D9, which was never blocking Stage
+  4 job submission per the Stage 3 brief.

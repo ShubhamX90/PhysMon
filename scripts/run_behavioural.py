@@ -10,19 +10,21 @@ family-level summary record after each family finishes.
 from __future__ import annotations
 
 import argparse
+from datetime import datetime, timezone
 import json
 from pathlib import Path
 import random
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import numpy as np
 import torch
 
 from physmon.benchmark.parser import parse_answer
-from physmon.models.loader import LoadedModelBundle, load_model, load_model_registry, resolve_model_spec
-from physmon.models.logprob import compute_reference_answer_logprob
 from physmon.utils.io import append_jsonl
 from physmon.utils.logging import ExperimentLogger
+
+if TYPE_CHECKING:
+    from physmon.models.loader import LoadedModelBundle
 
 
 DEFAULT_STAGE = 4
@@ -32,6 +34,7 @@ DEFAULT_JSONL_NAME = "run_behavioural_events.jsonl"
 DEFAULT_PROMPT_RECORDS_NAME = "prompt_records.jsonl"
 DEFAULT_FAMILY_SUMMARIES_NAME = "family_summaries.jsonl"
 DEFAULT_TEMPERATURE = 1.0
+TIMESTAMP_FORMAT = "%Y%m%dT%H%M%SZ"
 
 
 def parse_args() -> argparse.Namespace:
@@ -101,6 +104,8 @@ def resolve_registry_selection(model_role: str, model_key: str | None) -> tuple[
         Tuple of `(resolved_model_key, resolved_role_label)`.
     """
 
+    from physmon.models.loader import load_model_registry, resolve_model_spec
+
     registry = load_model_registry()
     if model_key is not None:
         spec = resolve_model_spec(model_key=model_key)
@@ -129,7 +134,7 @@ def load_rendered_families(family_dir: str | Path) -> list[dict[str, Any]]:
     return [json.loads(path.read_text(encoding="utf-8")) for path in family_paths]
 
 
-def generate_completion(bundle: LoadedModelBundle, prompt: str, max_new_tokens: int) -> str:
+def generate_completion(bundle: "LoadedModelBundle", prompt: str, max_new_tokens: int) -> str:
     """Run deterministic greedy generation and return only the newly generated text.
 
     Args:
@@ -193,6 +198,7 @@ def make_prompt_record(
     """
 
     return {
+        "record_type": "variant_record",
         "git_commit": git_commit,
         "script_name": "run_behavioural.py",
         "stage": DEFAULT_STAGE,
@@ -205,6 +211,7 @@ def make_prompt_record(
         "cue_type": family_payload["cue_type"],
         "variant_id": variant_payload["variant_id"],
         "cue_value": variant_payload["cue_value"],
+        "prompt": variant_payload["prompt"],
         "correct_answer": family_payload["correct_answer"],
         "generated_text": generated_text,
         "parsed_answer": parsed_answer,
@@ -254,6 +261,7 @@ def summarize_family(
         answer_flip_rate = (flips / comparisons) if comparisons else 0.0
 
     return {
+        "record_type": "family_summary",
         "git_commit": git_commit,
         "script_name": "run_behavioural.py",
         "stage": DEFAULT_STAGE,
@@ -265,6 +273,7 @@ def summarize_family(
         "domain": family_payload["domain"],
         "cue_type": family_payload["cue_type"],
         "num_variants": len(family_payload["variants"]),
+        "num_valid_parses": len(confident_records),
         "num_confident_parses": len(confident_records),
         "unique_parsed_answers": unique_parsed_answers,
         "answer_flip_rate": answer_flip_rate,
@@ -287,22 +296,28 @@ def main() -> None:
 
     resolved_model_key, resolved_role = resolve_registry_selection(args.model_role, args.model_key)
     families = load_rendered_families(args.family_dir)
-    bundle: LoadedModelBundle | None = None
+    bundle: "LoadedModelBundle" | None = None
     model_name = resolved_model_key
     model_role = resolved_role
 
     if not args.dry_run:
+        from physmon.models.loader import load_model
+
         bundle = load_model(model_key=resolved_model_key, device=args.device)
         model_name = bundle.spec.name
         model_role = bundle.spec.role
     else:
+        from physmon.models.loader import resolve_model_spec
+
         spec = resolve_model_spec(model_key=resolved_model_key)
         model_name = spec.name
 
     logger.model_name = model_name
     logger.model_role = model_role
+    run_timestamp = datetime.now(timezone.utc).strftime(TIMESTAMP_FORMAT)
     prompt_records_path = output_dir / DEFAULT_PROMPT_RECORDS_NAME
     family_summaries_path = output_dir / DEFAULT_FAMILY_SUMMARIES_NAME
+    combined_records_path = output_dir / f"{args.model_role}_{run_timestamp}.jsonl"
 
     logger.log_event(
         "BEHAVIOURAL_RUN_START",
@@ -334,6 +349,8 @@ def main() -> None:
                     dry_run=True,
                 )
             else:
+                from physmon.models.logprob import compute_reference_answer_logprob
+
                 assert bundle is not None
                 generated_text = generate_completion(bundle, variant_payload["prompt"], args.max_new_tokens)
                 parse_result = parse_answer(generated_text)
@@ -358,6 +375,7 @@ def main() -> None:
                 )
 
             append_jsonl(prompt_records_path, prompt_record)
+            append_jsonl(combined_records_path, prompt_record)
             family_prompt_records.append(prompt_record)
             logger.log_event(
                 "PROMPT_EVALUATED",
@@ -379,6 +397,7 @@ def main() -> None:
             dry_run=args.dry_run,
         )
         append_jsonl(family_summaries_path, family_summary)
+        append_jsonl(combined_records_path, family_summary)
         logger.log_event("FAMILY_COMPLETE", **family_summary)
 
     logger.log_event(
@@ -390,6 +409,7 @@ def main() -> None:
         dry_run=args.dry_run,
         prompt_records_path=str(prompt_records_path.resolve()),
         family_summaries_path=str(family_summaries_path.resolve()),
+        combined_records_path=str(combined_records_path.resolve()),
     )
 
 

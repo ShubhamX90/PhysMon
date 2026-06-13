@@ -72,13 +72,16 @@ def _render_variants(template_payload: dict[str, Any]) -> list[dict[str, Any]]:
     """Render all cue variants for one template YAML."""
     prompt_template = template_payload["prompt_template"]
     parameters = {
-        parameter_name: parameter_spec["value"]
+        parameter_name: parameter_spec.get("display", parameter_spec["value"])
         for parameter_name, parameter_spec in template_payload["parameters"].items()
     }
     cue_slot = template_payload["cue_slot"]
     rendered_variants: list[dict[str, Any]] = []
     for cue_value_spec in cue_slot["values"]:
-        format_values = {**parameters, str(cue_slot["name"]): cue_value_spec["display"]}
+        format_values = {
+            **parameters,
+            str(cue_slot["name"]): cue_value_spec.get("render", cue_value_spec["display"]),
+        }
         rendered_variants.append(
             {
                 "variant_id": int(cue_value_spec["id"]),

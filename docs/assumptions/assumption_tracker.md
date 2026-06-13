@@ -71,7 +71,7 @@ Evidence:
 
 ## A2_reasoning_tuned - DeepSeek Behavioural/Logprob Validation
 
-Status: In progress as of 2026-06-14.
+Status: Verified with caveats on 2026-06-14.
 
 Evidence:
 - Stage 3 brief Part C.2 requires Hugging Face-only validation for
@@ -84,11 +84,21 @@ Evidence:
 - First submission `242380` reached Python startup but failed immediately with
   `Invalid device argument ` before model loading. The validator was then patched to make
   peak-VRAM telemetry best-effort and to record full tracebacks on failure.
-- Second submission `242382` was launched from commit `7a90f0f` and is actively loading
-  DeepSeek weight shards on `gpunode7` as of this status snapshot.
-- Pending completion artifacts:
-  `results/stage2/logprob_validation/deepseek_r1_32b_logprob_validation.json`
-  and corresponding registry update in `docs/model_registry.yml`.
+- Second submission `242382` completed successfully from commit `7a90f0f` on `gpunode7`
+  in `00:15:25` with exit code `0:0`.
+- Result artifact now exists at
+  `results/stage2/logprob_validation/deepseek_r1_32b_logprob_validation.json`.
+- Positive checks:
+  - model load succeeded on 2xH200 with `device_map="auto"`
+  - `log p(y* | x)` was finite and negative: `-14.1875`
+  - altered prompt changed the reference-answer log-probability: `-14.5`
+  - greedy generation was deterministic across 3 repeated runs
+  - peak VRAM was approximately `30.4 GB` on GPU 0 and `32.2 GB` on GPU 1
+- Caveat:
+  - final successful job `242382` reported `has_think_tags: false` on the simple
+    validation prompt. This is expected for trivially simple problems and is not a red
+    flag for the `REASONING_TUNED` role, which requires log-probability access and
+    deterministic generation. Both were confirmed.
 
 ## A3 - Literature Gap Still Current
 
@@ -121,9 +131,14 @@ Evidence:
 
 ## A4 - Symbolic Invariance Certificates Are Tractable
 
-Status: Not yet verified.
+Status: Verified on 2026-06-14.
 
-Evidence: Pending Stage 1/Stage 3 template work.
+Evidence:
+- All 30 pilot templates now pass the SymPy verifier across the classical mechanics and
+  electrostatics/circuits pilot families.
+- The updated Stage 3 render plus verification pass on 2026-06-14 completed with
+  `verification_pass = 30/30`.
+- Tractability for the larger Stage 6 expansion set remains to be confirmed separately.
 
 ## A5 - Log-Probability Access Is Stable Across Models
 

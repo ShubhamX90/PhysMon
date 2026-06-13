@@ -44,10 +44,10 @@ models:
     family: "deepseek"
     hook_backend: "baukit"
     hook_validated: false
-    logprob_validated: false
+    logprob_validated: true
     hidden_dim: null
     num_layers: null
-    notes: "REASONING_TUNED [PI CONFIRMED 2026-06-14]. Behavioural/logprob role only; TransformerLens support not required."
+    notes: "REASONING_TUNED [PI CONFIRMED 2026-06-14]. HF logprob/generation validation completed on 2026-06-14 via H200 job 242382 (finite logprob, input-sensitive logprob, deterministic greedy generation, peak VRAM ~30.4/32.2 GB across 2xH200). Caveat: the tested prompt did not emit <think>...</think> tags."
 
   large_judge_pilot:
     name: "Qwen/Qwen2.5-32B-Instruct"
