@@ -44,3 +44,32 @@ section references.
   the canonical GPU environment specification in `environment.yml` for Sharanga.
 - Proposal section(s): Environment Setup (§I.3)
 - Supplementary decision/assumption IDs: A1, A2
+
+## Stage 1 Decision Gate
+
+**Gate question:** Can shortcut sensitivity be defined and measured
+objectively without reliance on prompt-condition labels alone?
+
+**Evidence:**
+- [x] `construct_spec.md` exists and covers all 7 required sections
+- [x] `constructs.py` implements all formal definitions with docstrings
+- [x] `sensitivity.py` computes all three measures from raw outputs
+- [x] `parser.py` passes all 30+ unit tests
+- [x] `test_constructs.py` passes
+- [x] No function in `formal/` takes prompt condition as a required input
+- [x] `SensitivityRecord.binary_sensitive` is gated behind pre-registration
+
+**Gate result:** [x] PASS - reason: Stage 1 now defines shortcut sensitivity through
+solver-certified family invariance plus Level-2 behavioural measurements
+(`hat{S}_theta`, `S_theta`, `S_theta^lp`) rather than prompt-condition labels, and the
+formal layer enforces that separation in code.
+
+**Verification run:**
+- `pytest tests/ -v` -> PASS on 2026-06-13
+- `./.venv/bin/ruff check src scripts tests` -> PASS on 2026-06-13
+
+**Decisions flagged to PI for confirmation:**
+- [D2] Sensitivity threshold for binarisation: open; deferred to the Stage 5
+  pre-registration block in `docs/construct_spec.md`
+- [D5] Value of `m` (variants per family): open; Stage 1 keeps `m` explicit in the
+  formal layer without prematurely fixing the benchmark-wide family size
