@@ -69,6 +69,24 @@ Evidence:
   than the full Stage 2 hook-extraction suite, so layer-by-layer activation extraction,
   patching, and determinism still belong to Part IV rather than Part II.
 
+## A2_reasoning_tuned - DeepSeek Behavioural/Logprob Validation
+
+Status: In progress as of 2026-06-14.
+
+Evidence:
+- Stage 3 brief Part C.2 requires Hugging Face-only validation for
+  `deepseek-ai/DeepSeek-R1-Distill-Qwen-32B`; TransformerLens support is explicitly not
+  required for this role.
+- Submission script prepared at
+  `slurm/submitted/validate_logprob_deepseek_r1_32b.sh` with 2xH200, `device_map="auto"`,
+  `torch_dtype=torch.bfloat16`, deterministic greedy generation checks, and
+  reference-answer log-prob validation.
+- Job `242380` was submitted on 2026-06-14 and entered the `RUNNING` state on
+  `gpunode7`.
+- Pending completion artifacts:
+  `results/stage2/logprob_validation/deepseek_r1_32b_logprob_validation.json`
+  and corresponding registry update in `docs/model_registry.yml`.
+
 ## A3 - Literature Gap Still Current
 
 Status: Verified on 2026-06-14.

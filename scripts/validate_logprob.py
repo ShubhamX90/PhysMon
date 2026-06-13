@@ -10,6 +10,7 @@ import argparse
 from pathlib import Path
 import math
 import time
+import traceback
 
 import torch
 
@@ -131,9 +132,7 @@ def main() -> None:
     }
 
     try:
-        if torch.cuda.is_available():
-            for device_index in range(torch.cuda.device_count()):
-                torch.cuda.reset_peak_memory_stats(device_index)
+        reset_peak_vram_stats()
         bundle = load_model_from_spec(
             spec=spec,
             device=args.device,
@@ -174,6 +173,7 @@ def main() -> None:
         logger.log_event("LOGPROB_VALIDATION_COMPLETE", **report)
     except Exception as error:  # noqa: BLE001
         report["notes"].append(str(error))
+        report["notes"].append(traceback.format_exc())
         report["timing_seconds"]["total"] = round(time.perf_counter() - start_time, 3)
         logger.log_error(str(error), report=report)
     finally:
@@ -198,6 +198,22 @@ def collect_peak_vram_usage_mb() -> dict[str, float]:
             3,
         )
     return usage_by_gpu
+
+
+def reset_peak_vram_stats() -> None:
+    """Best-effort reset of PyTorch peak-memory counters on visible CUDA devices.
+
+    Returns:
+        `None`.
+    """
+
+    if not torch.cuda.is_available():
+        return
+    for device_index in range(torch.cuda.device_count()):
+        try:
+            torch.cuda.reset_peak_memory_stats(device_index)
+        except Exception:  # noqa: BLE001
+            continue
 
 
 if __name__ == "__main__":
