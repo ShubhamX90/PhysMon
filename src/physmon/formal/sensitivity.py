@@ -35,6 +35,10 @@ def ensure_family_is_certified(family: CounterfactualFamily) -> None:
         not be used for sensitivity measurement.
     """
 
+    assert family.verifier_certified, (
+        f"Family {family.template.template_id} is not verifier-certified. "
+        "Sensitivity measurement is disallowed."
+    )
     if not family.verifier_certified:
         raise ValueError(
             f"Family {family.template.template_id} is not verifier-certified. "

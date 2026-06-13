@@ -11,6 +11,7 @@ import argparse
 from pathlib import Path
 
 from physmon.utils.io import write_json
+from physmon.utils.logging import ExperimentLogger
 
 
 DEFAULT_STAGE = 2
@@ -21,6 +22,7 @@ DEFAULT_TOKENS_PER_PROBLEM = 2000
 DEFAULT_PROMPT_POSITIONS = 2
 DEFAULT_PER_FORWARD_SECONDS = 2.0
 DEFAULT_SCRATCH_AVAILABLE_GB = 175000.0
+DEFAULT_JSONL_NAME = "compute_estimate_events.jsonl"
 BYTES_PER_DTYPE = {"float16": 2, "float32": 4}
 
 
@@ -49,6 +51,13 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     """Compute and save the Stage 2 storage/compute estimate."""
     args = parse_args()
+    output_path = Path(args.output_path)
+    logger = ExperimentLogger(
+        script_name="estimate_compute.py",
+        stage=DEFAULT_STAGE,
+        jsonl_path=output_path.parent / DEFAULT_JSONL_NAME,
+        repo_root=Path(__file__).resolve().parents[1],
+    )
     bytes_per_element = BYTES_PER_DTYPE[args.activation_dtype]
 
     activations_per_variant_bytes = (
@@ -93,7 +102,8 @@ def main() -> None:
         "exceeds_80_percent_scratch_capacity": full_storage_gb > scratch_threshold_gb,
     }
 
-    write_json(Path(args.output_path), payload)
+    write_json(output_path, payload)
+    logger.log_event("COMPUTE_ESTIMATE_COMPLETE", **payload)
     print(payload)
 
 

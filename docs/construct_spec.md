@@ -276,7 +276,8 @@ Repository language policy:
 
 - Use: "predicts sensitivity", "tracks sensitivity", "monitor signal", "prompt-side
   contribution", "localized intervention effect".
-- Avoid: "reasoning circuit", "identified the shortcut mechanism", "proved shortcut use".
+- Avoid: mechanistic-overclaim wording that asserts a shortcut circuit was found, that a
+  shortcut mechanism was conclusively isolated, or that shortcut use was proven.
 
 ## 7. Sensitivity Threshold Pre-Registration Record
 

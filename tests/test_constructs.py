@@ -137,7 +137,7 @@ def test_probe_target_rejects_invalid_extraction_site() -> None:
 
 def test_ensure_family_is_certified_raises_for_uncertified_family() -> None:
     """Behavioural sensitivity must be blocked on uncertified families."""
-    with pytest.raises(ValueError):
+    with pytest.raises((AssertionError, ValueError)):
         ensure_family_is_certified(make_family(verifier_certified=False))
 
 

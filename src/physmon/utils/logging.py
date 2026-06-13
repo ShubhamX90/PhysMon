@@ -10,6 +10,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+import os
 import logging
 import subprocess
 
@@ -18,6 +19,7 @@ from physmon.utils.io import append_jsonl, ensure_parent_dir
 
 DEFAULT_LOG_FORMAT = "%(asctime)s | %(levelname)s | %(message)s"
 UTC_DATE_FORMAT = "%Y-%m-%dT%H:%M:%SZ"
+GIT_COMMIT_FALLBACK_FILENAME = ".physmon_git_commit"
 
 
 def get_git_commit(repo_root: str | Path | None = None) -> str:
@@ -30,6 +32,10 @@ def get_git_commit(repo_root: str | Path | None = None) -> str:
         Short Git commit hash or `UNKNOWN`.
     """
 
+    environment_commit = os.environ.get("PHYSMON_GIT_COMMIT", "").strip()
+    if environment_commit:
+        return environment_commit
+
     command = ["git", "rev-parse", "--short", "HEAD"]
     try:
         completed = subprocess.run(
@@ -40,6 +46,12 @@ def get_git_commit(repo_root: str | Path | None = None) -> str:
             text=True,
         )
     except (OSError, subprocess.CalledProcessError):
+        repo_path = Path(repo_root).resolve() if repo_root is not None else Path.cwd()
+        fallback_path = repo_path / GIT_COMMIT_FALLBACK_FILENAME
+        if fallback_path.exists():
+            fallback_commit = fallback_path.read_text(encoding="utf-8").strip()
+            if fallback_commit:
+                return fallback_commit
         return "UNKNOWN"
     return completed.stdout.strip() or "UNKNOWN"
 

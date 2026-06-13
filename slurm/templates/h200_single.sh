@@ -20,6 +20,9 @@ export PHYSMON_ROOT="$HOME/PhysMons"
 export PYTHONPATH="$PHYSMON_ROOT/src:${PYTHONPATH:-}"
 export HF_HOME="$SCRATCH/physmon/hf_cache"
 export TRANSFORMERS_CACHE="$SCRATCH/physmon/hf_cache"
+if [ -f "$PHYSMON_ROOT/.physmon_git_commit" ]; then
+  export PHYSMON_GIT_COMMIT="$(cat "$PHYSMON_ROOT/.physmon_git_commit")"
+fi
 
 echo "=== PhysMon Job Start ==="
 echo "Reminder: run 'make sync-up' from the Mac repo before submitting jobs."

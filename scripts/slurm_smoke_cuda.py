@@ -4,12 +4,25 @@ from __future__ import annotations
 
 import json
 import socket
+from pathlib import Path
 
 import torch
+
+from physmon.utils.logging import ExperimentLogger
+
+
+DEFAULT_STAGE = 1
+DEFAULT_JSONL_PATH = "results/infrastructure/slurm_smoke_cuda_events.jsonl"
 
 
 def main() -> None:
     """Print a small JSON payload describing CUDA visibility inside a job."""
+    logger = ExperimentLogger(
+        script_name="slurm_smoke_cuda.py",
+        stage=DEFAULT_STAGE,
+        jsonl_path=Path(DEFAULT_JSONL_PATH),
+        repo_root=Path(__file__).resolve().parents[1],
+    )
     payload = {
         "hostname": socket.gethostname(),
         "torch_version": torch.__version__,
@@ -20,6 +33,7 @@ def main() -> None:
         if torch.cuda.is_available()
         else None,
     }
+    logger.log_event("SLURM_SMOKE_COMPLETE", **payload)
     print(json.dumps(payload, indent=2, sort_keys=True))
 
 
