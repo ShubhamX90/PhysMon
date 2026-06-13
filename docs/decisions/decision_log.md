@@ -73,3 +73,38 @@ formal layer enforces that separation in code.
   pre-registration block in `docs/construct_spec.md`
 - [D5] Value of `m` (variants per family): open; Stage 1 keeps `m` explicit in the
   formal layer without prematurely fixing the benchmark-wide family size
+
+## Stage 2 Decision Gate
+
+**Gate question:** Is activation extraction and intervention hook support
+stable on both primary models?
+
+**Evidence:**
+- [x] `qwen_primary`: hook_validation -> PASS, logprob_validation -> PASS
+- [x] `llama_primary`: hook_validation -> PASS, logprob_validation -> PASS
+- [x] compute estimate completed; scratch capacity confirmed adequate
+- [x] `model_registry.yml` updated with confirmed paths and validated flags
+- [x] Slurm templates tested on live Sharanga resources with caveat: A100 executed
+  successfully end to end for Stage 2, while H100/H200 template submission paths were
+  accepted by Slurm but same-session runtime remained constrained by `QOSMaxCpuPerUserLimit`
+  as recorded under A1
+
+**Gate result:** [x] PASS - reason: both required primary dense models completed the Stage 2
+hook and log-prob validation suites on A100 with successful extraction, successful
+zero-ablation perturbation, deterministic repeated extraction, finite reference-answer
+log-probabilities, prompt-sensitive log-prob changes, and deterministic greedy generation.
+
+**Artifact summary:**
+- `results/stage2/hook_validation/qwen_primary_hook_validation.json`
+- `results/stage2/hook_validation/llama_primary_hook_validation.json`
+- `results/stage2/logprob_validation/qwen_primary_logprob_validation.json`
+- `results/stage2/logprob_validation/llama_primary_logprob_validation.json`
+- `results/stage2/compute_estimate.json`
+
+**Primary-model lock ready for PI confirmation:**
+- [D1] Proposed locked primary models:
+  - `Qwen/Qwen2.5-7B-Instruct`
+  - `meta-llama/Llama-3.1-8B-Instruct`
+
+Per Part IV.5, no work beyond Stage 2 should be treated as authorized until [D1] is
+explicitly confirmed by the PI.

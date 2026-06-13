@@ -83,9 +83,21 @@ Evidence: Pending Stage 1/Stage 3 template work.
 
 ## A5 - Log-Probability Access Is Stable Across Models
 
-Status: Not yet verified.
+Status: Verified with caveats.
 
-Evidence: Pending Stage 2 validation.
+Evidence:
+- Stage 2 log-probability validation completed successfully for both required primary
+  dense models on A100:
+  - `242356`: `Qwen/Qwen2.5-7B-Instruct`
+    - finite `log p(y* | x)` for reference answer `10 m/s`
+    - altered prompt changed the reference-answer log-probability
+    - greedy generation was deterministic across repeated runs
+  - `242358`: `meta-llama/Llama-3.1-8B-Instruct`
+    - finite `log p(y* | x)` for reference answer `10 m/s`
+    - altered prompt changed the reference-answer log-probability
+    - greedy generation was deterministic across repeated runs
+- Caveat: these validations use one controlled physics prompt and a short reference answer,
+  so broader benchmark stability still depends on the full Stage 4 behavioural sweep.
 
 ## A6 - Dual Validators Are Available
 
