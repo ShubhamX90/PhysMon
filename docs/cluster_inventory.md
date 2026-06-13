@@ -205,8 +205,9 @@ Current status:
   official-ID plus local-weights paths on A100:
   - `242323`: `Qwen/Qwen2.5-7B-Instruct` with local
     `/scratch/pabitra/rag-reason/models/Qwen2.5-7B-Instruct`
-  - `242332`: `mistralai/Mistral-7B-Instruct-v0.1` with local
-    `/scratch/pabitra/rag-reason/models/Mistral-7B-Instruct-v0.3`
+  - `242335`: `Qwen/Qwen2.5-7B-Instruct` with focused stage-marker logging
+  - `242336`: `meta-llama/Llama-3.1-8B-Instruct` with local
+    `/scratch/pabitra/rag-reason/models/Llama-3.1-8B-Instruct`
 - These corrected jobs showed active GPU-backed weight ingestion and no immediate
   architecture-mapping failure, but they still did not reach a completed dummy-forward
   result within a practical Part II inventory window.
@@ -217,6 +218,9 @@ Interim conclusion:
 - `Qwen2.5-7B-Instruct` is partially validated because the corrected official-ID plus
   local-weights path on A100 proceeded into sustained TransformerLens weight loading
   without an immediate architecture error.
+- `Llama-3.1-8B-Instruct` is partially validated in the same narrower sense: the official-ID
+  plus local-weights path starts correctly on A100 and enters TransformerLens/HF shard
+  loading without an immediate architecture mismatch.
 - Final `PRIMARY_DENSE` confirmation still requires a deliberately scoped Stage 2
   hook-validation script that finishes a full dummy forward and records layer-level hooks
   cleanly.

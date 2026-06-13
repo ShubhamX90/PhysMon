@@ -56,8 +56,8 @@ Evidence:
   TransformerLens version expects an official model identifier rather than the raw local
   path string.
 - Corrected official-ID plus local-weights A100 jobs were launched for
-  `Qwen/Qwen2.5-7B-Instruct` and a Mistral-family candidate; both progressed into active
-  TransformerLens weight loading without immediate architecture errors.
+  `Qwen/Qwen2.5-7B-Instruct` and `meta-llama/Llama-3.1-8B-Instruct`; both progressed into
+  active TransformerLens/HF weight loading without immediate architecture errors.
 - Those corrected jobs still did not complete a full dummy-forward result within the
   practical Part II inventory window.
 - Candidate `PRIMARY_DENSE` models therefore remain plausible rather than fully confirmed;
