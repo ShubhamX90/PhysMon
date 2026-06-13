@@ -5,13 +5,14 @@ Reference: `physmon_proposal.pdf` §9 and Part IV.1 of the implementation brief.
 
 from __future__ import annotations
 
-from typing import Any
+from typing import TYPE_CHECKING, Any
 import random
 
 import numpy as np
 import torch
 
-from physmon.models.loader import LoadedModelBundle
+if TYPE_CHECKING:
+    from physmon.models.loader import LoadedModelBundle
 
 
 HOOK_RESID_POST = "hook_resid_post"
