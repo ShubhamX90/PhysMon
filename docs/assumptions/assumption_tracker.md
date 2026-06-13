@@ -25,15 +25,16 @@ Evidence:
   failures observed during Part I.5.
 - Direct hardware probes recorded `Driver Version 580.126.20` and
   `CUDA Version 13.0` on A100 and H200 nodes.
-- H100 smoke job submission succeeded, but runtime verification was blocked by current
-  partition availability (`ReqNodeNotAvail` while one node is drained and the other is
-  occupied).
-- H200 smoke job submission succeeded, but runtime verification is currently blocked by
-  the user's existing running H200 allocation causing `QOSMaxCpuPerUserLimit`.
+- Later on 2026-06-13, fresh H100 and H200 template-smoke submissions were both accepted
+  by Slurm as jobs `242344` and `242345`, which confirms that the partition names,
+  scratch paths, and template entrypoints are correct.
+- Immediate runtime for those fresh H100/H200 smoke jobs was deferred by
+  `QOSMaxCpuPerUserLimit`, so same-session execution on those partitions remains subject
+  to live scheduler policy rather than a repo-side misconfiguration.
 
 ## A2 - Hooking Support for Selected Models
 
-Status: Partially verified.
+Status: Verified with caveats.
 
 Evidence:
 - Sharanga `physmon` environment created successfully and exported to
@@ -48,21 +49,25 @@ Evidence:
   support on Sharanga.
 - `baukit` had to be installed from GitHub because no matching PyPI release was
   available.
-- TransformerLens successfully began loading the local
-  `Qwen2.5-7B-Instruct` checkpoint on A100, which is evidence that the local-path
-  architecture conversion is working, but the full-depth load path is slow on shared
-  storage.
 - A direct local-path TransformerLens load attempt then showed that this
   TransformerLens version expects an official model identifier rather than the raw local
   path string.
-- Corrected official-ID plus local-weights A100 jobs were launched for
-  `Qwen/Qwen2.5-7B-Instruct` and `meta-llama/Llama-3.1-8B-Instruct`; both progressed into
-  active TransformerLens/HF weight loading without immediate architecture errors.
-- Those corrected jobs still did not complete a full dummy-forward result within the
-  practical Part II inventory window.
-- Candidate `PRIMARY_DENSE` models therefore remain plausible rather than fully confirmed;
-  the last missing evidence is a clean Stage 2 hook-validation script that completes and
-  records a dummy forward on the chosen dense candidates.
+- Corrected official-ID plus local-weights A100 jobs then completed cleanly for both
+  required dense candidates:
+  - `242337`: `Qwen/Qwen2.5-7B-Instruct`
+    - `hf_loaded` after `527.03s`
+    - `tl_loaded` after `10.64s`
+    - `dummy_forward_ok` with `logits_shape=[1, 33, 152064]`
+  - `242338`: `meta-llama/Llama-3.1-8B-Instruct`
+    - `hf_loaded` after `1257.49s`
+    - `tl_loaded` after `2.90s`
+    - `dummy_forward_ok` with `logits_shape=[1, 32, 128256]`
+- This is sufficient to confirm that the selected Qwen and Llama dense candidates are
+  compatible with the intended TransformerLens loading path for the upcoming Stage 2
+  validation scripts.
+- Remaining caveat: this was a deliberately narrow smoke test (`first_n_layers=2`) rather
+  than the full Stage 2 hook-extraction suite, so layer-by-layer activation extraction,
+  patching, and determinism still belong to Part IV rather than Part II.
 
 ## A3 - Literature Gap Still Current
 

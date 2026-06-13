@@ -19,9 +19,9 @@ Current on-disk size of the model root:
 
 | Model family | Model name | Parameter count | Path on scratch | Size on disk | Format | Usable for PhysMon roles |
 |---|---|---:|---|---:|---|---|
-| Qwen | Qwen2.5-7B-Instruct | 7B | `/scratch/pabitra/rag-reason/models/Qwen2.5-7B-Instruct` | 14G | safetensors | `PRIMARY_DENSE` candidate; TransformerLens imports and begins local-path weight loading on A100, but dummy-forward smoke remains incomplete |
-| Llama | Llama-3.1-8B-Instruct | 8B | `/scratch/pabitra/rag-reason/models/Llama-3.1-8B-Instruct` | 30G | safetensors | `PRIMARY_DENSE` candidate pending final TransformerLens dummy-forward confirmation |
-| Mistral | Mistral-7B-Instruct-v0.3 | 7B | `/scratch/pabitra/rag-reason/models/Mistral-7B-Instruct-v0.3` | 27G | safetensors | `PRIMARY_DENSE` candidate pending final TransformerLens dummy-forward confirmation |
+| Qwen | Qwen2.5-7B-Instruct | 7B | `/scratch/pabitra/rag-reason/models/Qwen2.5-7B-Instruct` | 14G | safetensors | `PRIMARY_DENSE` confirmed on 2026-06-13 via A100 TransformerLens dummy-forward job `242337` (`d_model=3584`, `n_layers=2` smoke) |
+| Llama | Llama-3.1-8B-Instruct | 8B | `/scratch/pabitra/rag-reason/models/Llama-3.1-8B-Instruct` | 30G | safetensors | `PRIMARY_DENSE` confirmed on 2026-06-13 via A100 TransformerLens dummy-forward job `242338` (`d_model=4096`, `n_layers=2` smoke) |
+| Mistral | Mistral-7B-Instruct-v0.3 | 7B | `/scratch/pabitra/rag-reason/models/Mistral-7B-Instruct-v0.3` | 27G | safetensors | `PRIMARY_DENSE` alternate candidate; not needed because the required non-Qwen dense slot is already covered by Llama |
 | Qwen | Qwen2.5-32B-Instruct | 32B | `/scratch/pabitra/rag-reason/models/Qwen2.5-32B-Instruct` | 59G | safetensors | `LARGE_JUDGE` |
 | Qwen | Qwen3-32B | 32B | `/scratch/pabitra/rag-reason/models/Qwen3-32B` | 59G | safetensors | `LARGE_JUDGE` secondary candidate |
 | Qwen | Qwen3.5-122B-A10B-FP8 | 122B MoE (10B active) | `/scratch/pabitra/rag-reason/models/Qwen3.5-122B-A10B-FP8` | 110G | safetensors | `LARGE_JUDGE` |
@@ -42,8 +42,10 @@ Current on-disk size of the model root:
 - `REASONING_TUNED`: present as `DeepSeek-R1-Distill-Qwen-32B`.
 - `LARGE_JUDGE`: present via multiple models, including `Qwen2.5-32B-Instruct`, `Mistral-Small-4-119B-2603`, `gemma-4-31B`, and the large Qwen 3.5 models.
 
-Current verdict: no role category is absent at inventory time, but final `PRIMARY_DENSE`
-selection still depends on a cleaner model-specific TransformerLens dummy-forward check.
+Current verdict: no required role category is absent, and the minimum required
+`PRIMARY_DENSE` coverage is now confirmed with one Qwen-family dense model
+(`Qwen2.5-7B-Instruct`) and one Llama/Mistral-family dense model
+(`Llama-3.1-8B-Instruct`).
 
 ## II.2 - GPU Node Assessment
 
@@ -125,6 +127,11 @@ caveats:
   other is reserved/partially occupied.
 - H200 partition access exists and was already used by the user, but fresh submissions
   are presently constrained by live resource/QoS pressure.
+- Follow-up on 2026-06-13 23:28 IST: fresh template-smoke submissions were accepted by
+  Slurm as jobs `242344` (H100) and `242345` (H200), which confirms the partition names
+  and template wiring are correct, but immediate execution was deferred by
+  `QOSMaxCpuPerUserLimit` rather than by an invalid partition, path, or environment
+  configuration.
 
 ## II.3 - Storage Assessment
 
@@ -194,33 +201,31 @@ Interpretation:
 
 Current status:
 
-- A full-depth TransformerLens smoke test on `Qwen2.5-7B-Instruct` was started and showed
-  valid config recognition plus active weight loading, but it was too slow on shared
-  storage for efficient inventory work.
 - A direct local-path TransformerLens load attempt failed with
   `ValueError: /scratch/pabitra/rag-reason/models/Qwen2.5-7B-Instruct not found`,
   which revealed that this TransformerLens version expects an official model identifier
   even when weights are supplied from a local directory.
-- A reduced-layer (`first_n_layers=2`) TransformerLens smoke test was launched on
-  official-ID plus local-weights paths on A100:
-  - `242323`: `Qwen/Qwen2.5-7B-Instruct` with local
+- The corrected official-ID plus local-weights path was then validated on A100 with a
+  deliberately reduced-layer smoke test (`first_n_layers=2`) and explicit stage markers:
+  - `242337`: `Qwen/Qwen2.5-7B-Instruct` with local
     `/scratch/pabitra/rag-reason/models/Qwen2.5-7B-Instruct`
-  - `242335`: `Qwen/Qwen2.5-7B-Instruct` with focused stage-marker logging
-  - `242336`: `meta-llama/Llama-3.1-8B-Instruct` with local
+    - `hf_loaded` after `527.03s`
+    - `tl_loaded` after `10.64s`
+    - `dummy_forward_ok` with `logits_shape=[1, 33, 152064]`
+  - `242338`: `meta-llama/Llama-3.1-8B-Instruct` with local
     `/scratch/pabitra/rag-reason/models/Llama-3.1-8B-Instruct`
-- These corrected jobs showed active GPU-backed weight ingestion and no immediate
-  architecture-mapping failure, but they still did not reach a completed dummy-forward
-  result within a practical Part II inventory window.
+    - `hf_loaded` after `1257.49s`
+    - `tl_loaded` after `2.90s`
+    - `dummy_forward_ok` with `logits_shape=[1, 32, 128256]`
 
-Interim conclusion:
+Conclusion:
 
-- No evidence so far suggests a hard incompatibility for the candidate 7B/8B dense models.
-- `Qwen2.5-7B-Instruct` is partially validated because the corrected official-ID plus
-  local-weights path on A100 proceeded into sustained TransformerLens weight loading
-  without an immediate architecture error.
-- `Llama-3.1-8B-Instruct` is partially validated in the same narrower sense: the official-ID
-  plus local-weights path starts correctly on A100 and enters TransformerLens/HF shard
-  loading without an immediate architecture mismatch.
-- Final `PRIMARY_DENSE` confirmation still requires a deliberately scoped Stage 2
-  hook-validation script that finishes a full dummy forward and records layer-level hooks
-  cleanly.
+- `Qwen2.5-7B-Instruct` is confirmed usable as the Qwen-family `PRIMARY_DENSE`
+  candidate for Stage 2 instrumentation work.
+- `Llama-3.1-8B-Instruct` is confirmed usable as the non-Qwen `PRIMARY_DENSE`
+  candidate for Stage 2 instrumentation work.
+- `Mistral-7B-Instruct-v0.3` remains a documented fallback candidate but is not required
+  to satisfy the proposal minimum once Llama is confirmed.
+- This completes the Part II requirement to verify that the minimum required model-role
+  inventory exists locally and that the primary dense candidates are compatible with the
+  intended TransformerLens loading path.
