@@ -52,10 +52,14 @@ Evidence:
   `Qwen2.5-7B-Instruct` checkpoint on A100, which is evidence that the local-path
   architecture conversion is working, but the full-depth load path is slow on shared
   storage.
-- A reduced-layer (`first_n_layers=2`) A100 dummy-forward smoke test for
-  `Qwen2.5-7B-Instruct`, `Llama-3.1-8B-Instruct`, and `Mistral-7B-Instruct-v0.3` was
-  launched during Part II, but it was cancelled after failing to reach a completed
-  per-model dummy-forward result within a reasonable inventory window.
+- A direct local-path TransformerLens load attempt then showed that this
+  TransformerLens version expects an official model identifier rather than the raw local
+  path string.
+- Corrected official-ID plus local-weights A100 jobs were launched for
+  `Qwen/Qwen2.5-7B-Instruct` and a Mistral-family candidate; both progressed into active
+  TransformerLens weight loading without immediate architecture errors.
+- Those corrected jobs still did not complete a full dummy-forward result within the
+  practical Part II inventory window.
 - Candidate `PRIMARY_DENSE` models therefore remain plausible rather than fully confirmed;
   the last missing evidence is a clean Stage 2 hook-validation script that completes and
   records a dummy forward on the chosen dense candidates.

@@ -197,16 +197,26 @@ Current status:
 - A full-depth TransformerLens smoke test on `Qwen2.5-7B-Instruct` was started and showed
   valid config recognition plus active weight loading, but it was too slow on shared
   storage for efficient inventory work.
+- A direct local-path TransformerLens load attempt failed with
+  `ValueError: /scratch/pabitra/rag-reason/models/Qwen2.5-7B-Instruct not found`,
+  which revealed that this TransformerLens version expects an official model identifier
+  even when weights are supplied from a local directory.
 - A reduced-layer (`first_n_layers=2`) TransformerLens smoke test was launched on
-  `Qwen2.5-7B-Instruct`, `Llama-3.1-8B-Instruct`, and `Mistral-7B-Instruct-v0.3`, but it
-  did not reach a completed per-model dummy-forward result within a reasonable inventory
-  window, so it was cancelled rather than continue burning A100 time.
+  official-ID plus local-weights paths on A100:
+  - `242323`: `Qwen/Qwen2.5-7B-Instruct` with local
+    `/scratch/pabitra/rag-reason/models/Qwen2.5-7B-Instruct`
+  - `242332`: `mistralai/Mistral-7B-Instruct-v0.1` with local
+    `/scratch/pabitra/rag-reason/models/Mistral-7B-Instruct-v0.3`
+- These corrected jobs showed active GPU-backed weight ingestion and no immediate
+  architecture-mapping failure, but they still did not reach a completed dummy-forward
+  result within a practical Part II inventory window.
 
 Interim conclusion:
 
 - No evidence so far suggests a hard incompatibility for the candidate 7B/8B dense models.
-- `Qwen2.5-7B-Instruct` is at least partially validated because TransformerLens on Sharanga
-  recognized the local checkpoint path and began GPU-side weight loading successfully.
+- `Qwen2.5-7B-Instruct` is partially validated because the corrected official-ID plus
+  local-weights path on A100 proceeded into sustained TransformerLens weight loading
+  without an immediate architecture error.
 - Final `PRIMARY_DENSE` confirmation still requires a deliberately scoped Stage 2
   hook-validation script that finishes a full dummy forward and records layer-level hooks
   cleanly.
