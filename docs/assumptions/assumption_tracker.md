@@ -81,8 +81,11 @@ Evidence:
   `slurm/submitted/validate_logprob_deepseek_r1_32b.sh` with 2xH200, `device_map="auto"`,
   `torch_dtype=torch.bfloat16`, deterministic greedy generation checks, and
   reference-answer log-prob validation.
-- Job `242380` was submitted on 2026-06-14 and entered the `RUNNING` state on
-  `gpunode7`.
+- First submission `242380` reached Python startup but failed immediately with
+  `Invalid device argument ` before model loading. The validator was then patched to make
+  peak-VRAM telemetry best-effort and to record full tracebacks on failure.
+- Second submission `242382` was launched from commit `7a90f0f` and is actively loading
+  DeepSeek weight shards on `gpunode7` as of this status snapshot.
 - Pending completion artifacts:
   `results/stage2/logprob_validation/deepseek_r1_32b_logprob_validation.json`
   and corresponding registry update in `docs/model_registry.yml`.
