@@ -8,13 +8,15 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import torch
-from transformer_lens import HookedTransformer
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from physmon.utils.io import read_yaml
+
+if TYPE_CHECKING:
+    from transformer_lens import HookedTransformer
 
 
 DEFAULT_MODEL_REGISTRY_PATH = Path(__file__).resolve().parents[3] / "docs" / "model_registry.yml"
@@ -164,6 +166,7 @@ def load_model(
     registry_path: str | Path = DEFAULT_MODEL_REGISTRY_PATH,
     device: str = "cpu",
     torch_dtype: torch.dtype | None = None,
+    device_map: str | dict[str, Any] | None = None,
     first_n_layers: int | None = None,
 ) -> LoadedModelBundle:
     """Load a registry-backed model bundle for Stage 2 validation.
@@ -175,6 +178,7 @@ def load_model(
         registry_path: Registry YAML path.
         device: Torch device string.
         torch_dtype: Optional torch dtype override.
+        device_map: Optional Hugging Face device map such as `"auto"`.
         first_n_layers: Optional TransformerLens layer cap for smoke tests.
 
     Returns:
@@ -186,6 +190,7 @@ def load_model(
         spec=spec,
         device=device,
         torch_dtype=torch_dtype,
+        device_map=device_map,
         first_n_layers=first_n_layers,
     )
 
@@ -194,6 +199,7 @@ def load_model_from_spec(
     spec: ModelSpec,
     device: str = "cpu",
     torch_dtype: torch.dtype | None = None,
+    device_map: str | dict[str, Any] | None = None,
     first_n_layers: int | None = None,
 ) -> LoadedModelBundle:
     """Load model objects from one resolved registry spec.
@@ -202,6 +208,7 @@ def load_model_from_spec(
         spec: Resolved model specification.
         device: Torch device string.
         torch_dtype: Optional torch dtype override.
+        device_map: Optional Hugging Face device map such as `"auto"`.
         first_n_layers: Optional TransformerLens layer cap for smoke tests.
 
     Returns:
@@ -215,10 +222,18 @@ def load_model_from_spec(
         torch_dtype=resolved_dtype,
         trust_remote_code=True,
         local_files_only=True,
+        device_map=device_map,
     )
     hf_model.eval()
 
     if spec.hook_backend == "transformer_lens":
+        from transformer_lens import HookedTransformer
+
+        if device_map is not None:
+            raise ValueError(
+                "TransformerLens-backed loads do not support a Hugging Face device_map. "
+                "Use a single explicit device for prompt-side hook extraction."
+            )
         hooked_model = HookedTransformer.from_pretrained_no_processing(
             spec.name,
             hf_model=hf_model,
@@ -238,7 +253,8 @@ def load_model_from_spec(
             hooked_model=hooked_model,
         )
 
-    hf_model.to(device)
+    if device_map is None:
+        hf_model.to(device)
     return LoadedModelBundle(
         spec=spec,
         backend="baukit",

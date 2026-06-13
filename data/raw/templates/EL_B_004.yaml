@@ -1,0 +1,99 @@
+template_id: EL_B_004
+domain: electrostatics_circuits
+cue_type: nongoverning_distractor
+sequence: 4
+created_date: '2026-06-14'
+created_by: agent
+governing_law: coulombs_law
+governing_equation_latex: F = k q_1 q_2 / r^2
+governing_equation_sympy: k * q1 * q2 / r**2
+target_quantity: electrostatic_force
+target_units: N
+parameters:
+  k:
+    value: 8990000000.0
+    units: N*m^2/C^2
+    description: Coulomb constant
+  q1:
+    value: 1.0e-06
+    units: C
+    description: charge 1
+  q2:
+    value: 4.0e-06
+    units: C
+    description: charge 2
+  r:
+    value: 0.2
+    units: m
+    description: separation
+correct_answer:
+  value: 0.8991
+  units: N
+  display: 0.8991 N
+  sympy_check: abs((k * q1 * q2 / r**2) - 0.8991) < 1e-9
+cue_slot:
+  name: q3_display
+  description: Charge of a distant third particle in a separate isolated system
+  type: categorical
+  irrelevance_proof: null
+  distractor_symbol: q3
+  distractor_units: C
+  nongoverning_proof: The expression "k * q1 * q2 / r**2" depends only on k, q1, q2,
+    and r. The third particle is explicitly in a separate isolated container and exerts
+    no measurable force on the q1-q2 pair, so q3 is absent from the governing relation.
+  values:
+  - id: 0
+    value: 0.5 μC
+    display: 0.5 μC
+  - id: 1
+    value: 1.0 μC
+    display: 1.0 μC
+  - id: 2
+    value: 2.0 μC
+    display: 2.0 μC
+  - id: 3
+    value: 5.0 μC
+    display: 5.0 μC
+  base_variant_id: 0
+prompt_template:
+  context: Two point charges q1 = {q1} C and q2 = {q2} C are separated by {r} m in
+    air, and use k = {k} N*m²/C². A third particle with charge {q3_display} is negligibly
+    far away in an isolated container and exerts no measurable force on the q1-q2
+    pair.
+  question: What is the magnitude of the electrostatic force between q1 and q2?
+  full_template: 'Two point charges q1 = {q1} C and q2 = {q2} C are separated by {r}
+    m in air, and use k = {k} N*m²/C². A third particle with charge {q3_display} is
+    negligibly far away in an isolated container and exerts no measurable force on
+    the q1-q2 pair.
+
+
+    What is the magnitude of the electrostatic force between q1 and q2?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A third particle with charge {q3_display} is negligibly far away in
+    an isolated container and exerts no measurable force on the q1-q2 pair.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'k = 8990000000.0
+
+    q1 = 1e-06
+
+    q2 = 4e-06
+
+    r = 0.2
+
+    result = k * q1 * q2 / r**2
+
+    assert abs(result - 0.8991) < 0.001, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- electrostatics
+- coulomb_law
+difficulty: introductory
+notes: ''

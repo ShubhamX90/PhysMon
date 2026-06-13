@@ -1,0 +1,99 @@
+template_id: CM_B_009
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 9
+created_date: '2026-06-14'
+created_by: agent
+governing_law: perfectly_inelastic_collision
+governing_equation_latex: v_f = (m_1 v_1 + m_2 v_2)/(m_1 + m_2)
+governing_equation_sympy: (m1 * v1 + m2 * v2) / (m1 + m2)
+target_quantity: final_velocity_after_collision
+target_units: m/s
+parameters:
+  m1:
+    value: 3.0
+    units: kg
+    description: mass 1
+  v1:
+    value: 5.0
+    units: m/s
+    description: initial velocity 1
+  m2:
+    value: 2.0
+    units: kg
+    description: mass 2
+  v2:
+    value: 0.0
+    units: m/s
+    description: initial velocity 2
+correct_answer:
+  value: 3.0
+  units: m/s
+  display: 3.0 m/s
+  sympy_check: abs(((m1 * v1 + m2 * v2) / (m1 + m2)) - 3.0) < 1e-9
+cue_slot:
+  name: J_other
+  description: Impulse on an unrelated third object
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: J_other
+  distractor_units: N*s
+  nongoverning_proof: The expression "(m1 * v1 + m2 * v2) / (m1 + m2)" depends only
+    on the colliding masses and velocities. The separate impulse on an unrelated third
+    object does not govern the collision outcome.
+  values:
+  - id: 0
+    value: '2.0'
+    display: '2.0'
+  - id: 1
+    value: '5.0'
+    display: '5.0'
+  - id: 2
+    value: '10.0'
+    display: '10.0'
+  - id: 3
+    value: '15.0'
+    display: '15.0'
+  base_variant_id: 0
+prompt_template:
+  context: Object 1 of mass {m1} kg moves at {v1} m/s toward object 2 of mass {m2}
+    kg, which is initially at rest. The two objects stick together after colliding.
+    Simultaneously, an impulse of {J_other} N*s is applied to a third, completely
+    unrelated object.
+  question: What is the final speed of the combined object immediately after the collision?
+  full_template: 'Object 1 of mass {m1} kg moves at {v1} m/s toward object 2 of mass
+    {m2} kg, which is initially at rest. The two objects stick together after colliding.
+    Simultaneously, an impulse of {J_other} N*s is applied to a third, completely
+    unrelated object.
+
+
+    What is the final speed of the combined object immediately after the collision?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: Simultaneously, an impulse of {J_other} N*s is applied to a third,
+    completely unrelated object.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm1 = 3.0
+
+    v1 = 5.0
+
+    m2 = 2.0
+
+    v2 = 0.0
+
+    result = (m1 * v1 + m2 * v2) / (m1 + m2)
+
+    assert abs(result - 3.0) < 3e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- inelastic_collision
+- momentum
+difficulty: introductory
+notes: ''

@@ -1,0 +1,91 @@
+template_id: CM_B_007
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 7
+created_date: '2026-06-14'
+created_by: agent
+governing_law: centripetal_force
+governing_equation_latex: F_c = m v^2 / r
+governing_equation_sympy: m * v**2 / r
+target_quantity: centripetal_force
+target_units: N
+parameters:
+  m:
+    value: 1.0
+    units: kg
+    description: mass
+  v:
+    value: 4.0
+    units: m/s
+    description: speed
+  r:
+    value: 2.0
+    units: m
+    description: radius
+correct_answer:
+  value: 8.0
+  units: N
+  display: 8.0 N
+  sympy_check: abs((m * v**2 / r) - 8.0) < 1e-9
+cue_slot:
+  name: F_other
+  description: Centripetal force in an adjacent independent system
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: F_other
+  distractor_units: N
+  nongoverning_proof: The expression "m * v**2 / r" has free symbols {m, v, r}. The
+    separate circular-motion setup is independent, so F_other does not govern the
+    target system.
+  values:
+  - id: 0
+    value: '3.0'
+    display: '3.0'
+  - id: 1
+    value: '6.0'
+    display: '6.0'
+  - id: 2
+    value: '10.0'
+    display: '10.0'
+  - id: 3
+    value: '18.0'
+    display: '18.0'
+  base_variant_id: 0
+prompt_template:
+  context: A 1.0 kg object moves at constant speed {v} m/s in a circle of radius {r}
+    m. In an adjacent setup, a separate object C moves in a circle and requires a
+    centripetal force of {F_other} N; this system is independent.
+  question: What centripetal force is required for the object under study?
+  full_template: 'A 1.0 kg object moves at constant speed {v} m/s in a circle of radius
+    {r} m. In an adjacent setup, a separate object C moves in a circle and requires
+    a centripetal force of {F_other} N; this system is independent.
+
+
+    What centripetal force is required for the object under study?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: In an adjacent setup, a separate object C moves in a circle and requires
+    a centripetal force of {F_other} N; this system is independent.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm = 1.0
+
+    v = 4.0
+
+    r = 2.0
+
+    result = m * v**2 / r
+
+    assert abs(result - 8.0) < 8e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- centripetal_force
+- circular_motion
+difficulty: introductory
+notes: ''

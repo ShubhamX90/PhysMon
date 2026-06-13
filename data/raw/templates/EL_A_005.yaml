@@ -1,0 +1,90 @@
+template_id: EL_A_005
+domain: electrostatics_circuits
+cue_type: irrelevant_variable
+sequence: 5
+created_date: '2026-06-14'
+created_by: agent
+governing_law: electric_field_point_charge
+governing_equation_latex: E = k q / r^2
+governing_equation_sympy: k * q / r**2
+target_quantity: electric_field_magnitude
+target_units: N/C
+parameters:
+  k:
+    value: 8990000000.0
+    units: N*m^2/C^2
+    description: Coulomb constant
+  q:
+    value: 5.0e-06
+    units: C
+    description: charge
+  r:
+    value: 0.2
+    units: m
+    description: distance
+correct_answer:
+  value: 1123750.0
+  units: N/C
+  display: 1.124e6 N/C
+  sympy_check: abs((k * q / r**2) - 1123750.0) < 1e-9
+cue_slot:
+  name: material
+  description: Hypothetical test probe material
+  type: categorical
+  irrelevance_proof: The field expression "k * q / r**2" depends only on k, q, and
+    r. The material of a hypothetical test probe does not affect the source field
+    magnitude at the observation point.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: copper
+    display: copper
+  - id: 1
+    value: aluminum
+    display: aluminum
+  - id: 2
+    value: gold
+    display: gold
+  - id: 3
+    value: platinum
+    display: platinum
+  base_variant_id: 0
+prompt_template:
+  context: A point charge of {q} C is isolated in space. Point P is located {r} m
+    from the charge, and use k = {k} N*m²/C². A hypothetical point test probe made
+    of {material} is placed at point P.
+  question: What is the magnitude of the electric field at point P due to the charge?
+  full_template: 'A point charge of {q} C is isolated in space. Point P is located
+    {r} m from the charge, and use k = {k} N*m²/C². A hypothetical point test probe
+    made of {material} is placed at point P.
+
+
+    What is the magnitude of the electric field at point P due to the charge?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: A hypothetical point test probe made of {material} is placed at point
+    P.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'k = 8990000000.0
+
+    q = 5e-06
+
+    r = 0.2
+
+    result = k * q / r**2
+
+    assert abs(result - 1123750.0) < 1.12375, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- electrostatics
+- electric_field
+difficulty: introductory
+notes: ''

@@ -1,0 +1,81 @@
+template_id: EL_A_003
+domain: electrostatics_circuits
+cue_type: irrelevant_variable
+sequence: 3
+created_date: '2026-06-14'
+created_by: agent
+governing_law: capacitor_charge
+governing_equation_latex: Q = C V
+governing_equation_sympy: C * V
+target_quantity: capacitor_charge
+target_units: C
+parameters:
+  C:
+    value: 0.0001
+    units: F
+    description: capacitance
+  V:
+    value: 12.0
+    units: V
+    description: potential difference
+correct_answer:
+  value: 0.0012
+  units: C
+  display: 1.2e-3 C
+  sympy_check: abs((C * V) - 0.0012) < 1e-9
+cue_slot:
+  name: color
+  description: Capacitor plate color
+  type: categorical
+  irrelevance_proof: The charge relation "C * V" depends only on capacitance and voltage.
+    The plate color is descriptive and does not affect the stored charge.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: silver
+    display: silver
+  - id: 1
+    value: gold
+    display: gold
+  - id: 2
+    value: copper
+    display: copper
+  - id: 3
+    value: black
+    display: black
+  base_variant_id: 0
+prompt_template:
+  context: A capacitor has capacitance {C} F and is charged to a potential difference
+    of {V} V. The capacitor plates are {color}.
+  question: What charge is stored on the capacitor?
+  full_template: 'A capacitor has capacitance {C} F and is charged to a potential
+    difference of {V} V. The capacitor plates are {color}.
+
+
+    What charge is stored on the capacitor?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The capacitor plates are {color}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'C = 0.0001
+
+    V = 12.0
+
+    result = C * V
+
+    assert abs(result - 0.0012) < 1.1999999999999998e-09, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- capacitor
+- charge
+difficulty: introductory
+notes: ''

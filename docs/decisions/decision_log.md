@@ -45,6 +45,66 @@ section references.
 - Proposal section(s): Environment Setup (§I.3)
 - Supplementary decision/assumption IDs: A1, A2
 
+## 2026-06-14 - [PI CONFIRMED 2026-06-14] D1 Model Lock
+
+- Date: 2026-06-14
+- Decision: Lock the Stage 3+ model assignments as:
+  - `Qwen/Qwen2.5-7B-Instruct` at
+    `/scratch/pabitra/rag-reason/models/Qwen2.5-7B-Instruct`
+    for `PRIMARY_DENSE A`
+  - `meta-llama/Llama-3.1-8B-Instruct` at
+    `/scratch/pabitra/rag-reason/models/Llama-3.1-8B-Instruct`
+    for `PRIMARY_DENSE B`
+  - `deepseek-ai/DeepSeek-R1-Distill-Qwen-32B` at
+    `/scratch/pabitra/rag-reason/models/DeepSeek-R1-Distill-Qwen-32B`
+    for `REASONING_TUNED`
+  - `Qwen/Qwen2.5-32B-Instruct` at
+    `/scratch/pabitra/rag-reason/models/Qwen2.5-32B-Instruct`
+    for pilot-stage `LARGE_JUDGE`
+  - `Qwen/Qwen3.5-397B-A17B-NVFP4` at
+    `/scratch/pabitra/rag-reason/models/Qwen3.5-397B-A17B-NVFP4`
+    as the full-study reserve `LARGE_JUDGE`
+- Rationale: These assignments satisfy the required role coverage while preserving the
+  already validated Qwen/Llama primary dense pair, a 32B reasoning-tuned replication
+  model, and a tractable single-GPU judge for pilot stages.
+- Proposal section(s): Model Selection (§6), Stage 2/3 transition (§11)
+- Supplementary decision/assumption IDs: D1, A2, A8
+
+## 2026-06-14 - [PI CONFIRMED 2026-06-14] D2 Sensitivity Threshold Policy
+
+- Date: 2026-06-14
+- Decision: Keep `hat{S}_theta(tau)` as the primary binary probe target,
+  `S_theta(tau)` as the secondary continuous target, and `S_theta^lp` as a saved
+  tertiary cross-check. Determine the binary threshold only after the Stage 4 pilot
+  behavioural sweep, using training families alone and targeting roughly a 30-40%
+  positive-class rate. Pre-register the chosen threshold in a dedicated Stage 5 commit.
+- Rationale: This preserves the construct in `docs/construct_spec.md` while making the
+  threshold policy concrete without leaking validation/test information into label design.
+- Proposal section(s): Formal Measures (§3.3), Monitor Study (§9), Ordered Gates (§11)
+- Supplementary decision/assumption IDs: D2
+
+## 2026-06-14 - [PI CONFIRMED 2026-06-14] D3 Paraphrase Generation Timing
+
+- Date: 2026-06-14
+- Decision: Use `Qwen/Qwen2.5-32B-Instruct` for adversarial paraphrase generation and
+  artefact-search prompting only, and defer all paraphrase-generation implementation to
+  Stage 6. Do not use paraphrase generation in Stage 3 pilot construction.
+- Rationale: The pilot benchmark should concentrate on solver-verifiable Cue A and Cue B
+  families before introducing paraphrase variability that is harder to certify exactly.
+- Proposal section(s): Artefact Controls (§10), Ordered Stages (§11)
+- Supplementary decision/assumption IDs: D3
+
+## 2026-06-14 - [PI CONFIRMED 2026-06-14] D5 Family Size
+
+- Date: 2026-06-14
+- Decision: Fix `m = 4` variants per family uniformly across Cue A, Cue B, and any
+  future Cue C family.
+- Rationale: `m = 4` yields 6 pairwise comparisons for answer-flip/JSD estimates while
+  keeping the 30-family pilot at 120 prompts per model, which is compatible with the
+  single-load batched behavioural-job design.
+- Proposal section(s): Counterfactual Families (§3.2), Pilot Stage Design (§11)
+- Supplementary decision/assumption IDs: D5
+
 ## Stage 1 Decision Gate
 
 **Gate question:** Can shortcut sensitivity be defined and measured

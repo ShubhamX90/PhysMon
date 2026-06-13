@@ -1,0 +1,86 @@
+template_id: EL_B_001
+domain: electrostatics_circuits
+cue_type: nongoverning_distractor
+sequence: 1
+created_date: '2026-06-14'
+created_by: agent
+governing_law: ohms_law_voltage
+governing_equation_latex: V = I R_{circuit}
+governing_equation_sympy: I * R_circuit
+target_quantity: circuit_voltage
+target_units: V
+parameters:
+  I:
+    value: 0.3
+    units: A
+    description: current
+  R_circuit:
+    value: 100.0
+    units: Ω
+    description: circuit resistance
+correct_answer:
+  value: 30.0
+  units: V
+  display: 30.0 V
+  sympy_check: abs((I * R_circuit) - 30.0) < 1e-9
+cue_slot:
+  name: R_other
+  description: Resistance of a disconnected resistor on the workbench
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: R_other
+  distractor_units: Ω
+  nongoverning_proof: The expression "I * R_circuit" depends only on I and R_circuit.
+    The disconnected resistor on the workbench is not part of the measured circuit,
+    so R_other is absent from the governing law.
+  values:
+  - id: 0
+    value: '47'
+    display: '47'
+  - id: 1
+    value: '68'
+    display: '68'
+  - id: 2
+    value: '150'
+    display: '150'
+  - id: 3
+    value: '220'
+    display: '220'
+  base_variant_id: 0
+prompt_template:
+  context: A circuit contains a resistor of resistance {R_circuit} Ω carrying a steady
+    current of {I} A. On the workbench beside the circuit, there is a disconnected
+    {R_other} Ω resistor.
+  question: What is the voltage across the resistor in the operating circuit?
+  full_template: 'A circuit contains a resistor of resistance {R_circuit} Ω carrying
+    a steady current of {I} A. On the workbench beside the circuit, there is a disconnected
+    {R_other} Ω resistor.
+
+
+    What is the voltage across the resistor in the operating circuit?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: On the workbench beside the circuit, there is a disconnected {R_other}
+    Ω resistor.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'I = 0.3
+
+    R_circuit = 100.0
+
+    result = I * R_circuit
+
+    assert abs(result - 30.0) < 2.9999999999999997e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- ohms_law
+- voltage
+difficulty: introductory
+notes: ''

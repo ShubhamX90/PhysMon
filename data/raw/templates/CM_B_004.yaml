@@ -1,0 +1,93 @@
+template_id: CM_B_004
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 4
+created_date: '2026-06-14'
+created_by: agent
+governing_law: gravitational_potential_energy
+governing_equation_latex: U = m g h
+governing_equation_sympy: m * g * h
+target_quantity: gravitational_potential_energy
+target_units: J
+parameters:
+  m:
+    value: 3.0
+    units: kg
+    description: mass
+  g:
+    value: 9.8
+    units: m/s^2
+    description: gravitational field strength
+  h:
+    value: 4.0
+    units: m
+    description: height
+correct_answer:
+  value: 117.6
+  units: J
+  display: 117.6 J
+  sympy_check: abs((m * g * h) - 117.6) < 1e-9
+cue_slot:
+  name: KE_B
+  description: Kinetic energy of unrelated object B
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: KE_B
+  distractor_units: J
+  nongoverning_proof: The governing expression "m * g * h" has free symbols {m, g,
+    h}. The separate object B does not interact with object A, so KE_B is not part
+    of the gravitational-potential-energy calculation.
+  values:
+  - id: 0
+    value: '8.0'
+    display: '8.0'
+  - id: 1
+    value: '15.0'
+    display: '15.0'
+  - id: 2
+    value: '25.0'
+    display: '25.0'
+  - id: 3
+    value: '40.0'
+    display: '40.0'
+  base_variant_id: 0
+prompt_template:
+  context: Object A of mass {m} kg is held at height {h} m in a uniform gravitational
+    field of strength {g} m/s². A separate object B in the lab has kinetic energy
+    {KE_B} J at this instant and does not interact with object A.
+  question: What is the gravitational potential energy of object A relative to the
+    chosen zero level?
+  full_template: 'Object A of mass {m} kg is held at height {h} m in a uniform gravitational
+    field of strength {g} m/s². A separate object B in the lab has kinetic energy
+    {KE_B} J at this instant and does not interact with object A.
+
+
+    What is the gravitational potential energy of object A relative to the chosen
+    zero level?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate object B in the lab has kinetic energy {KE_B} J at this
+    instant and does not interact with object A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm = 3.0
+
+    g = 9.8
+
+    h = 4.0
+
+    result = m * g * h
+
+    assert abs(result - 117.6) < 0.00011759999999999999, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- gravitational_potential_energy
+- energy
+difficulty: introductory
+notes: ''

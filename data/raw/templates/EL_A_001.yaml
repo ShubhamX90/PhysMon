@@ -1,0 +1,82 @@
+template_id: EL_A_001
+domain: electrostatics_circuits
+cue_type: irrelevant_variable
+sequence: 1
+created_date: '2026-06-14'
+created_by: agent
+governing_law: ohms_law_voltage
+governing_equation_latex: V = I R
+governing_equation_sympy: I * R
+target_quantity: voltage
+target_units: V
+parameters:
+  I:
+    value: 0.5
+    units: A
+    description: current
+  R:
+    value: 80.0
+    units: Ω
+    description: resistance
+correct_answer:
+  value: 40.0
+  units: V
+  display: 40.0 V
+  sympy_check: abs((I * R) - 40.0) < 1e-9
+cue_slot:
+  name: color
+  description: Wire insulation color
+  type: categorical
+  irrelevance_proof: The Ohm-law expression "I * R" depends only on current and resistance.
+    Wire insulation color is descriptive and does not affect the circuit voltage in
+    this problem.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: red
+    display: red
+  - id: 1
+    value: black
+    display: black
+  - id: 2
+    value: green
+    display: green
+  - id: 3
+    value: blue
+    display: blue
+  base_variant_id: 0
+prompt_template:
+  context: A resistor of resistance {R} Ω carries a steady current of {I} A. The wire
+    insulation is {color}.
+  question: What is the voltage across the resistor?
+  full_template: 'A resistor of resistance {R} Ω carries a steady current of {I} A.
+    The wire insulation is {color}.
+
+
+    What is the voltage across the resistor?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The wire insulation is {color}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'I = 0.5
+
+    R = 80.0
+
+    result = I * R
+
+    assert abs(result - 40.0) < 3.9999999999999996e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- ohms_law
+- voltage
+difficulty: introductory
+notes: ''

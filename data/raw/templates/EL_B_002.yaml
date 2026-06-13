@@ -1,0 +1,85 @@
+template_id: EL_B_002
+domain: electrostatics_circuits
+cue_type: nongoverning_distractor
+sequence: 2
+created_date: '2026-06-14'
+created_by: agent
+governing_law: power_from_voltage_and_resistance
+governing_equation_latex: P = V^2 / R
+governing_equation_sympy: V**2 / R
+target_quantity: power
+target_units: W
+parameters:
+  V:
+    value: 12.0
+    units: V
+    description: voltage
+  R:
+    value: 6.0
+    units: Ω
+    description: resistance
+correct_answer:
+  value: 24.0
+  units: W
+  display: 24.0 W
+  sympy_check: abs((V**2 / R) - 24.0) < 1e-9
+cue_slot:
+  name: P_other
+  description: Power consumed by an adjacent disconnected device
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: P_other
+  distractor_units: W
+  nongoverning_proof: The expression "V**2 / R" depends only on V and R. The adjacent
+    device is explicitly disconnected from the circuit of interest, so P_other does
+    not govern the target power dissipation.
+  values:
+  - id: 0
+    value: '5.0'
+    display: '5.0'
+  - id: 1
+    value: '10.0'
+    display: '10.0'
+  - id: 2
+    value: '25.0'
+    display: '25.0'
+  - id: 3
+    value: '50.0'
+    display: '50.0'
+  base_variant_id: 0
+prompt_template:
+  context: A resistor of resistance {R} Ω has a potential difference of {V} V across
+    it. An adjacent electronic device, disconnected from this circuit, consumes {P_other}
+    W when operational.
+  question: What power is dissipated by the resistor in the circuit of interest?
+  full_template: 'A resistor of resistance {R} Ω has a potential difference of {V}
+    V across it. An adjacent electronic device, disconnected from this circuit, consumes
+    {P_other} W when operational.
+
+
+    What power is dissipated by the resistor in the circuit of interest?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: An adjacent electronic device, disconnected from this circuit, consumes
+    {P_other} W when operational.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'V = 12.0
+
+    R = 6.0
+
+    result = V**2 / R
+
+    assert abs(result - 24.0) < 2.4e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- power
+difficulty: introductory
+notes: ''

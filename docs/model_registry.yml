@@ -1,3 +1,5 @@
+d1_confirmed: true
+
 models:
   qwen_primary:
     name: "Qwen/Qwen2.5-7B-Instruct"
@@ -9,7 +11,7 @@ models:
     logprob_validated: true
     hidden_dim: 3584
     num_layers: 28
-    notes: "Validated on 2026-06-13 in Stage 2: hook job 242355 and logprob job 242356."
+    notes: "PRIMARY_DENSE A [PI CONFIRMED 2026-06-14]. Validated on 2026-06-13 in Stage 2: hook job 242355 and logprob job 242356."
 
   llama_primary:
     name: "meta-llama/Llama-3.1-8B-Instruct"
@@ -21,7 +23,7 @@ models:
     logprob_validated: true
     hidden_dim: 4096
     num_layers: 32
-    notes: "Validated on 2026-06-13/14 in Stage 2: hook job 242357 and logprob job 242358."
+    notes: "PRIMARY_DENSE B [PI CONFIRMED 2026-06-14]. Validated on 2026-06-13/14 in Stage 2: hook job 242357 and logprob job 242358."
 
   mistral_alt:
     name: "mistralai/Mistral-7B-Instruct-v0.3"
@@ -35,26 +37,38 @@ models:
     num_layers: null
     notes: "Documented fallback primary-dense candidate."
 
-  reasoning_model:
+  deepseek_reasoning:
     name: "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"
     path: "/scratch/pabitra/rag-reason/models/DeepSeek-R1-Distill-Qwen-32B"
     role: "REASONING_TUNED"
     family: "deepseek"
-    hook_backend: "transformer_lens"
+    hook_backend: "baukit"
     hook_validated: false
     logprob_validated: false
     hidden_dim: null
     num_layers: null
-    notes: "Reasoning-tuned external-validity replication model."
+    notes: "REASONING_TUNED [PI CONFIRMED 2026-06-14]. Behavioural/logprob role only; TransformerLens support not required."
 
-  large_judge:
+  large_judge_pilot:
     name: "Qwen/Qwen2.5-32B-Instruct"
     path: "/scratch/pabitra/rag-reason/models/Qwen2.5-32B-Instruct"
     role: "LARGE_JUDGE"
     family: "qwen"
-    hook_backend: "transformer_lens"
+    hook_backend: "baukit"
     hook_validated: false
     logprob_validated: false
     hidden_dim: null
     num_layers: null
-    notes: "Primary large behavioural/judge model."
+    notes: "LARGE_JUDGE pilot model [PI CONFIRMED 2026-06-14]. Single-GPU behavioural/judge role only."
+
+  large_judge_full_reserve:
+    name: "Qwen/Qwen3.5-397B-A17B-NVFP4"
+    path: "/scratch/pabitra/rag-reason/models/Qwen3.5-397B-A17B-NVFP4"
+    role: "LARGE_JUDGE"
+    family: "qwen"
+    hook_backend: "baukit"
+    hook_validated: false
+    logprob_validated: false
+    hidden_dim: null
+    num_layers: null
+    notes: "LARGE_JUDGE reserve for full-study Stage 7+ [PI CONFIRMED 2026-06-14]. Requires dedicated multi-H200 brief."

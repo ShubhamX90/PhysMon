@@ -1,0 +1,95 @@
+template_id: CM_A_008
+domain: mechanics
+cue_type: irrelevant_variable
+sequence: 8
+created_date: '2026-06-14'
+created_by: agent
+governing_law: perfectly_inelastic_collision
+governing_equation_latex: v_f = (m_1 v_1 + m_2 v_2)/(m_1 + m_2)
+governing_equation_sympy: (m1 * v1 + m2 * v2) / (m1 + m2)
+target_quantity: final_velocity_after_collision
+target_units: m/s
+parameters:
+  m1:
+    value: 2.0
+    units: kg
+    description: mass 1
+  v1:
+    value: 6.0
+    units: m/s
+    description: initial velocity 1
+  m2:
+    value: 3.0
+    units: kg
+    description: mass 2
+  v2:
+    value: 0.0
+    units: m/s
+    description: initial velocity 2
+correct_answer:
+  value: 2.4
+  units: m/s
+  display: 2.4 m/s
+  sympy_check: abs(((m1 * v1 + m2 * v2) / (m1 + m2)) - 2.4) < 1e-9
+cue_slot:
+  name: shape
+  description: Shape descriptor of the colliding objects
+  type: categorical
+  irrelevance_proof: The momentum-conservation expression "(m1 * v1 + m2 * v2) / (m1
+    + m2)" depends only on masses and velocities. The shared shape descriptor is irrelevant
+    under the stated perfectly inelastic collision assumptions.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: cubic
+    display: cubic
+  - id: 1
+    value: spherical
+    display: spherical
+  - id: 2
+    value: cylindrical
+    display: cylindrical
+  - id: 3
+    value: pyramid-shaped
+    display: pyramid-shaped
+  base_variant_id: 0
+prompt_template:
+  context: Object 1 of mass {m1} kg moves at {v1} m/s and collides head-on with object
+    2 of mass {m2} kg initially at rest ({v2} m/s). The two objects stick together
+    after impact. Both objects are {shape}.
+  question: What is their common final velocity immediately after the collision?
+  full_template: 'Object 1 of mass {m1} kg moves at {v1} m/s and collides head-on
+    with object 2 of mass {m2} kg initially at rest ({v2} m/s). The two objects stick
+    together after impact. Both objects are {shape}.
+
+
+    What is their common final velocity immediately after the collision?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: Both objects are {shape}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm1 = 2.0
+
+    v1 = 6.0
+
+    m2 = 3.0
+
+    v2 = 0.0
+
+    result = (m1 * v1 + m2 * v2) / (m1 + m2)
+
+    assert abs(result - 2.4) < 2.4e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- momentum
+- inelastic_collision
+difficulty: introductory
+notes: ''

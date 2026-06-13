@@ -1,0 +1,85 @@
+template_id: CM_B_008
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 8
+created_date: '2026-06-14'
+created_by: agent
+governing_law: work_constant_force
+governing_equation_latex: W = F d
+governing_equation_sympy: F * d
+target_quantity: work_done
+target_units: J
+parameters:
+  F:
+    value: 20.0
+    units: N
+    description: force
+  d:
+    value: 8.0
+    units: m
+    description: displacement
+correct_answer:
+  value: 160.0
+  units: J
+  display: 160.0 J
+  sympy_check: abs((F * d) - 160.0) < 1e-9
+cue_slot:
+  name: E_battery
+  description: Energy stored in a disconnected battery
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: E_battery
+  distractor_units: J
+  nongoverning_proof: The expression "F * d" has free symbols {F, d}. The battery
+    is explicitly disconnected from the box-pushing system, so E_battery does not
+    affect the work done by the applied force.
+  values:
+  - id: 0
+    value: '50.0'
+    display: '50.0'
+  - id: 1
+    value: '100.0'
+    display: '100.0'
+  - id: 2
+    value: '200.0'
+    display: '200.0'
+  - id: 3
+    value: '500.0'
+    display: '500.0'
+  base_variant_id: 0
+prompt_template:
+  context: A constant horizontal force of {F} N pushes a box through a displacement
+    of {d} m on a frictionless floor. A battery pack on the shelf stores {E_battery}
+    J of electrical energy and is not connected to the box-pushing system.
+  question: How much work is done on the box by the applied force?
+  full_template: 'A constant horizontal force of {F} N pushes a box through a displacement
+    of {d} m on a frictionless floor. A battery pack on the shelf stores {E_battery}
+    J of electrical energy and is not connected to the box-pushing system.
+
+
+    How much work is done on the box by the applied force?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A battery pack on the shelf stores {E_battery} J of electrical energy
+    and is not connected to the box-pushing system.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'F = 20.0
+
+    d = 8.0
+
+    result = F * d
+
+    assert abs(result - 160.0) < 0.00015999999999999999, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- work
+- energy
+difficulty: introductory
+notes: ''

@@ -1,0 +1,85 @@
+template_id: CM_B_010
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 10
+created_date: '2026-06-14'
+created_by: agent
+governing_law: torque_perpendicular_force
+governing_equation_latex: \tau = r F
+governing_equation_sympy: r * F
+target_quantity: torque
+target_units: N*m
+parameters:
+  r:
+    value: 0.5
+    units: m
+    description: lever arm
+  F:
+    value: 30.0
+    units: N
+    description: perpendicular force
+correct_answer:
+  value: 15.0
+  units: N*m
+  display: 15.0 N*m
+  sympy_check: abs((r * F) - 15.0) < 1e-9
+cue_slot:
+  name: tau_B
+  description: Torque in a separate independent lever system
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: tau_B
+  distractor_units: N*m
+  nongoverning_proof: The expression "r * F" has free symbols {r, F}. The separate
+    lever system is mechanically independent, so tau_B does not govern the torque
+    on the wrench under study.
+  values:
+  - id: 0
+    value: '5.0'
+    display: '5.0'
+  - id: 1
+    value: '12.0'
+    display: '12.0'
+  - id: 2
+    value: '20.0'
+    display: '20.0'
+  - id: 3
+    value: '40.0'
+    display: '40.0'
+  base_variant_id: 0
+prompt_template:
+  context: A perpendicular force of {F} N is applied to a wrench at a distance {r}
+    m from its pivot. A separate lever system B in the workshop produces a torque
+    of {tau_B} N*m and is mechanically independent from the wrench under study.
+  question: What torque is applied by the wrench?
+  full_template: 'A perpendicular force of {F} N is applied to a wrench at a distance
+    {r} m from its pivot. A separate lever system B in the workshop produces a torque
+    of {tau_B} N*m and is mechanically independent from the wrench under study.
+
+
+    What torque is applied by the wrench?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate lever system B in the workshop produces a torque of {tau_B}
+    N*m and is mechanically independent from the wrench under study.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'r = 0.5
+
+    F = 30.0
+
+    result = r * F
+
+    assert abs(result - 15.0) < 1.4999999999999999e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- torque
+- rotation
+difficulty: introductory
+notes: ''

@@ -1,0 +1,83 @@
+template_id: CM_B_005
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 5
+created_date: '2026-06-14'
+created_by: agent
+governing_law: hookes_law
+governing_equation_latex: F = k x
+governing_equation_sympy: k * x
+target_quantity: spring_force
+target_units: N
+parameters:
+  k:
+    value: 150.0
+    units: N/m
+    description: spring constant
+  x:
+    value: 0.08
+    units: m
+    description: extension
+correct_answer:
+  value: 12.0
+  units: N
+  display: 12.0 N
+  sympy_check: abs((k * x) - 12.0) < 1e-9
+cue_slot:
+  name: x_B
+  description: Extension of disconnected spring B
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: x_B
+  distractor_units: m
+  nongoverning_proof: The expression "k * x" has free symbols {k, x}. Spring B is
+    explicitly disconnected from spring A, so x_B does not enter the force calculation
+    for spring A.
+  values:
+  - id: 0
+    value: '0.02'
+    display: '0.02'
+  - id: 1
+    value: '0.05'
+    display: '0.05'
+  - id: 2
+    value: '0.10'
+    display: '0.10'
+  - id: 3
+    value: '0.15'
+    display: '0.15'
+  base_variant_id: 0
+prompt_template:
+  context: Spring A has spring constant {k} N/m and is stretched by {x} m. A separate,
+    disconnected spring B on the bench is extended by {x_B} m.
+  question: What is the magnitude of the force exerted by spring A?
+  full_template: 'Spring A has spring constant {k} N/m and is stretched by {x} m.
+    A separate, disconnected spring B on the bench is extended by {x_B} m.
+
+
+    What is the magnitude of the force exerted by spring A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate, disconnected spring B on the bench is extended by {x_B}
+    m.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'k = 150.0
+
+    x = 0.08
+
+    result = k * x
+
+    assert abs(result - 12.0) < 1.2e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- hookes_law
+- spring_force
+difficulty: introductory
+notes: ''

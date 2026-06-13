@@ -1,0 +1,82 @@
+template_id: EL_A_002
+domain: electrostatics_circuits
+cue_type: irrelevant_variable
+sequence: 2
+created_date: '2026-06-14'
+created_by: agent
+governing_law: power_dissipation_i_squared_r
+governing_equation_latex: P = I^2 R
+governing_equation_sympy: I**2 * R
+target_quantity: power
+target_units: W
+parameters:
+  I:
+    value: 2.0
+    units: A
+    description: current
+  R:
+    value: 5.0
+    units: Ω
+    description: resistance
+correct_answer:
+  value: 20.0
+  units: W
+  display: 20.0 W
+  sympy_check: abs((I**2 * R) - 20.0) < 1e-9
+cue_slot:
+  name: brand
+  description: Resistor brand label
+  type: categorical
+  irrelevance_proof: The power expression "I**2 * R" depends only on current and resistance.
+    The resistor brand label is an identifier and has no effect on the dissipated
+    power.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: A
+    display: A
+  - id: 1
+    value: B
+    display: B
+  - id: 2
+    value: C
+    display: C
+  - id: 3
+    value: D
+    display: D
+  base_variant_id: 0
+prompt_template:
+  context: A resistor of resistance {R} Ω carries a current of {I} A. The resistor
+    carries the brand label {brand}.
+  question: What power does the resistor dissipate?
+  full_template: 'A resistor of resistance {R} Ω carries a current of {I} A. The resistor
+    carries the brand label {brand}.
+
+
+    What power does the resistor dissipate?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The resistor carries the brand label {brand}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'I = 2.0
+
+    R = 5.0
+
+    result = I**2 * R
+
+    assert abs(result - 20.0) < 1.9999999999999998e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- power
+- ohms_law
+difficulty: introductory
+notes: ''

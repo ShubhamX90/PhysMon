@@ -1,0 +1,85 @@
+template_id: CM_B_006
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 6
+created_date: '2026-06-14'
+created_by: agent
+governing_law: momentum
+governing_equation_latex: p = m v
+governing_equation_sympy: m * v
+target_quantity: momentum
+target_units: kg*m/s
+parameters:
+  m:
+    value: 2.0
+    units: kg
+    description: mass
+  v:
+    value: 7.0
+    units: m/s
+    description: speed
+correct_answer:
+  value: 14.0
+  units: kg*m/s
+  display: 14.0 kg*m/s
+  sympy_check: abs((m * v) - 14.0) < 1e-9
+cue_slot:
+  name: J_B
+  description: Impulse applied to unrelated object B
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: J_B
+  distractor_units: N*s
+  nongoverning_proof: The expression "m * v" has free symbols {m, v}. The impulse
+    J_B is applied in a separate experiment to an unrelated object B and does not
+    affect the momentum of the object under study.
+  values:
+  - id: 0
+    value: '2.0'
+    display: '2.0'
+  - id: 1
+    value: '5.0'
+    display: '5.0'
+  - id: 2
+    value: '10.0'
+    display: '10.0'
+  - id: 3
+    value: '20.0'
+    display: '20.0'
+  base_variant_id: 0
+prompt_template:
+  context: An object of mass {m} kg moves at speed {v} m/s in a straight line. In
+    a separate experiment happening simultaneously, an impulse of {J_B} N*s is applied
+    to an unrelated object B.
+  question: What is the momentum of the object under study?
+  full_template: 'An object of mass {m} kg moves at speed {v} m/s in a straight line.
+    In a separate experiment happening simultaneously, an impulse of {J_B} N*s is
+    applied to an unrelated object B.
+
+
+    What is the momentum of the object under study?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: In a separate experiment happening simultaneously, an impulse of {J_B}
+    N*s is applied to an unrelated object B.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm = 2.0
+
+    v = 7.0
+
+    result = m * v
+
+    assert abs(result - 14.0) < 1.4e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- momentum
+- impulse
+difficulty: introductory
+notes: ''

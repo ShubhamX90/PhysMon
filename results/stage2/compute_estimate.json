@@ -1,9 +1,18 @@
 {
   "estimated_full_activation_gpu_hours": 0.134,
   "estimated_pilot_gpu_hours": 0.027,
-  "exceeds_80_percent_scratch_capacity": false,
+  "exceeds_80_percent_scratch_capacity": {
+    "exhaustive_upper_bound": false,
+    "targeted_stage5": false
+  },
+  "exhaustive_upper_bound": {
+    "storage_per_family_per_model_mb": 5242.88,
+    "total_full_storage_gb": 1572.864,
+    "total_pilot_storage_gb": 314.573
+  },
   "inputs": {
     "activation_dtype": "float16",
+    "exhaustive_activation_sites": 80,
     "full_families": 150,
     "hidden_dim": 4096,
     "num_layers": 32,
@@ -16,7 +25,9 @@
     "tokens_per_problem": 2000
   },
   "stage": 2,
-  "storage_per_family_per_model_mb": 4194.304,
-  "total_full_storage_gb": 1258.291,
-  "total_pilot_storage_gb": 251.658
+  "targeted_stage5": {
+    "storage_per_family_per_model_mb": 2.097,
+    "total_full_storage_gb": 0.629,
+    "total_pilot_storage_gb": 0.126
+  }
 }

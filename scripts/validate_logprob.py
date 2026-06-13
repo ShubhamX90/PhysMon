@@ -11,6 +11,8 @@ from pathlib import Path
 import math
 import time
 
+import torch
+
 from physmon.models.hooks import set_global_seed
 from physmon.models.loader import ModelSpec, load_model_from_spec
 from physmon.models.logprob import (
@@ -34,6 +36,7 @@ DEFAULT_ALTERED_PROMPT = (
 )
 DEFAULT_REFERENCE_ANSWER = "10 m/s"
 DEFAULT_JSONL_NAME = "validate_logprob_events.jsonl"
+DEFAULT_DETERMINISM_RUNS = 2
 
 
 def parse_args() -> argparse.Namespace:
@@ -47,6 +50,33 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--model-role", default="PRIMARY_DENSE", help="Role label for structured logs.")
     parser.add_argument("--model-family", default="unknown", help="Family label for structured logs.")
     parser.add_argument("--hook-backend", default="transformer_lens", help="Hook backend to use.")
+    parser.add_argument("--prompt", default=DEFAULT_PROMPT, help="Reference prompt for validation.")
+    parser.add_argument(
+        "--altered-prompt",
+        default=DEFAULT_ALTERED_PROMPT,
+        help="Slightly altered prompt used for log-prob sensitivity validation.",
+    )
+    parser.add_argument(
+        "--reference-answer",
+        default=DEFAULT_REFERENCE_ANSWER,
+        help="Reference answer string whose log-probability will be evaluated.",
+    )
+    parser.add_argument(
+        "--expect-think-tags",
+        action="store_true",
+        help="Require the generated output to contain a <think>...</think> block.",
+    )
+    parser.add_argument(
+        "--determinism-runs",
+        type=int,
+        default=DEFAULT_DETERMINISM_RUNS,
+        help="Number of repeated greedy generations used for the determinism check.",
+    )
+    parser.add_argument(
+        "--device-map",
+        default=None,
+        help='Optional Hugging Face device map such as "auto" for multi-GPU sharding.',
+    )
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED, help="Deterministic seed.")
     return parser.parse_args()
 
@@ -85,36 +115,62 @@ def main() -> None:
     report = {
         "model": args.model_name,
         "hook_backend": args.hook_backend,
-        "reference_answer": DEFAULT_REFERENCE_ANSWER,
+        "reference_answer": args.reference_answer,
         "reference_logprob": None,
         "altered_prompt_logprob": None,
         "top_k_distribution": [],
         "logprob_finite": False,
         "logprob_changes_with_input": False,
         "generation_determinism_ok": False,
+        "determinism_runs": args.determinism_runs,
+        "deterministic_generation": None,
+        "has_think_tags": None,
+        "peak_vram_usage_mb": {},
         "notes": [],
         "timing_seconds": {},
     }
 
     try:
-        bundle = load_model_from_spec(spec=spec, device=args.device)
-        reference_logprob = compute_reference_answer_logprob(bundle, DEFAULT_PROMPT, DEFAULT_REFERENCE_ANSWER)
-        altered_logprob = compute_reference_answer_logprob(bundle, DEFAULT_ALTERED_PROMPT, DEFAULT_REFERENCE_ANSWER)
-        top_k_distribution = get_next_token_topk(bundle, DEFAULT_PROMPT)
+        if torch.cuda.is_available():
+            for device_index in range(torch.cuda.device_count()):
+                torch.cuda.reset_peak_memory_stats(device_index)
+        bundle = load_model_from_spec(
+            spec=spec,
+            device=args.device,
+            device_map=args.device_map,
+            torch_dtype=None if args.device == "cpu" else torch.bfloat16,
+        )
+        reference_logprob = compute_reference_answer_logprob(bundle, args.prompt, args.reference_answer)
+        altered_logprob = compute_reference_answer_logprob(
+            bundle,
+            args.altered_prompt,
+            args.reference_answer,
+        )
+        top_k_distribution = get_next_token_topk(bundle, args.prompt)
 
-        set_global_seed(args.seed)
-        first_generation = run_deterministic_generation(bundle, DEFAULT_PROMPT)
-        set_global_seed(args.seed)
-        second_generation = run_deterministic_generation(bundle, DEFAULT_PROMPT)
+        deterministic_generations: list[str] = []
+        generation_start = time.perf_counter()
+        for _ in range(args.determinism_runs):
+            set_global_seed(args.seed)
+            deterministic_generations.append(run_deterministic_generation(bundle, args.prompt))
+        generation_elapsed = time.perf_counter() - generation_start
 
         report["reference_logprob"] = reference_logprob
         report["altered_prompt_logprob"] = altered_logprob
         report["top_k_distribution"] = top_k_distribution
         report["logprob_finite"] = math.isfinite(reference_logprob) and math.isfinite(altered_logprob)
         report["logprob_changes_with_input"] = abs(reference_logprob - altered_logprob) > 1e-6
-        report["generation_determinism_ok"] = first_generation == second_generation
-        report["notes"].append(f"first_generation={first_generation}")
+        report["generation_determinism_ok"] = len(set(deterministic_generations)) == 1
+        report["deterministic_generation"] = deterministic_generations[0]
+        report["has_think_tags"] = (
+            "<think>" in deterministic_generations[0] and "</think>" in deterministic_generations[0]
+        )
+        if args.expect_think_tags and not report["has_think_tags"]:
+            report["notes"].append("Expected <think>...</think> tags but did not observe them.")
+        report["notes"].append(f"deterministic_generation={deterministic_generations[0]}")
+        report["peak_vram_usage_mb"] = collect_peak_vram_usage_mb()
         report["timing_seconds"]["total"] = round(time.perf_counter() - start_time, 3)
+        report["timing_seconds"]["generation"] = round(generation_elapsed, 3)
         logger.log_event("LOGPROB_VALIDATION_COMPLETE", **report)
     except Exception as error:  # noqa: BLE001
         report["notes"].append(str(error))
@@ -123,6 +179,25 @@ def main() -> None:
     finally:
         report_path = output_dir / f"{args.model_key}_logprob_validation.json"
         write_json(report_path, report)
+
+
+def collect_peak_vram_usage_mb() -> dict[str, float]:
+    """Collect peak PyTorch-tracked GPU memory usage in MB.
+
+    Returns:
+        Mapping from GPU index string to peak memory-used values in MB.
+    """
+
+    if not torch.cuda.is_available():
+        return {}
+
+    usage_by_gpu: dict[str, float] = {}
+    for device_index in range(torch.cuda.device_count()):
+        usage_by_gpu[str(device_index)] = round(
+            torch.cuda.max_memory_allocated(device_index) / (1024 ** 2),
+            3,
+        )
+    return usage_by_gpu
 
 
 if __name__ == "__main__":

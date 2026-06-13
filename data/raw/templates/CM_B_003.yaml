@@ -1,0 +1,85 @@
+template_id: CM_B_003
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 3
+created_date: '2026-06-14'
+created_by: agent
+governing_law: kinetic_energy
+governing_equation_latex: KE = \frac{1}{2} m v^2
+governing_equation_sympy: 0.5 * m * v**2
+target_quantity: kinetic_energy
+target_units: J
+parameters:
+  m:
+    value: 4.0
+    units: kg
+    description: mass
+  v:
+    value: 5.0
+    units: m/s
+    description: speed
+correct_answer:
+  value: 50.0
+  units: J
+  display: 50.0 J
+  sympy_check: abs((0.5 * m * v**2) - 50.0) < 1e-9
+cue_slot:
+  name: PE_spring
+  description: Elastic potential energy stored in a separate spring
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: PE_spring
+  distractor_units: J
+  nongoverning_proof: The governing expression "0.5 * m * v**2" has free symbols {m,
+    v}. The separate spring is explicitly isolated and not connected to the moving
+    ball, so PE_spring is absent from the kinetic-energy calculation.
+  values:
+  - id: 0
+    value: '5.0'
+    display: '5.0'
+  - id: 1
+    value: '12.0'
+    display: '12.0'
+  - id: 2
+    value: '20.0'
+    display: '20.0'
+  - id: 3
+    value: '35.0'
+    display: '35.0'
+  base_variant_id: 0
+prompt_template:
+  context: A ball of mass {m} kg moves at speed {v} m/s. A separate isolated spring
+    in the lab stores {PE_spring} J of elastic potential energy and is not connected
+    to the ball.
+  question: What is the kinetic energy of the ball?
+  full_template: 'A ball of mass {m} kg moves at speed {v} m/s. A separate isolated
+    spring in the lab stores {PE_spring} J of elastic potential energy and is not
+    connected to the ball.
+
+
+    What is the kinetic energy of the ball?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate isolated spring in the lab stores {PE_spring} J of elastic
+    potential energy and is not connected to the ball.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm = 4.0
+
+    v = 5.0
+
+    result = 0.5 * m * v**2
+
+    assert abs(result - 50.0) < 4.9999999999999996e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- kinetic_energy
+- energy
+difficulty: introductory
+notes: ''

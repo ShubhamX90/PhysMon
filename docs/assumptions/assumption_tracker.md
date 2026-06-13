@@ -71,9 +71,32 @@ Evidence:
 
 ## A3 - Literature Gap Still Current
 
-Status: Not yet verified.
+Status: Verified on 2026-06-14.
 
-Evidence: Fresh literature search required before benchmark development.
+Evidence:
+- Fresh 2025-2026 literature search completed on 2026-06-14 using the Stage 3 brief
+  query set:
+  1. `arXiv 2025 2026 physics counterfactual LLM shortcut benchmark invariant`
+  2. `"physics shortcut" language model hidden state 2025`
+  3. `"invariant physics problems" LLM reasoning 2025 2026`
+  4. `UGPhysics PhysReason shortcut sensitivity 2026`
+  5. `physics reasoning benchmark controlled editing language model`
+- Related work located includes:
+  - `CounterBench` (counterfactual reasoning benchmark; not physics-specific and not a
+    hidden-state monitor study)
+  - `PRL-Bench` / related physics-research benchmark work (physics-oriented, but not
+    solver-verified invariant family editing plus hidden-state sensitivity prediction)
+  - `PhysGym`, `PHYBench`, and `ABench-Physics` style physics-reasoning benchmarks
+    (physics-focused, but not combining invariant counterfactual families with internal
+    monitoring of sensitivity)
+  - `Are language models aware of the road not taken?`-style hidden-state work
+    (internal-state/uncertainty related, but not a solver-verified physics benchmark)
+- Outcome: no near-fatal scoop was found that combines BOTH
+  (a) solver-verified invariant physics counterfactual families and
+  (b) hidden-state prediction of shortcut sensitivity before it appears in output.
+- Interpretation: the literature landscape contains adjacent work on physics reasoning,
+  counterfactual evaluation, and hidden-state monitoring separately, but the exact
+  PhysMon combination remains open enough to proceed.
 
 ## A4 - Symbolic Invariance Certificates Are Tractable
 
