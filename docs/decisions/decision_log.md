@@ -203,3 +203,16 @@ Gate result: [x] CONDITIONAL PASS
   Reason: All 30 templates verifier-certified + PI validation complete + parser 100%
   coverage. Second validator is pending per decision D9, which was never blocking Stage
   4 job submission per the Stage 3 brief.
+
+## 2026-06-14 - Stage 4 Behavioural Jobs Submitted
+
+- Date: 2026-06-14
+- Decision: Submitted the two Stage 4 PRIMARY_DENSE behavioural sweep jobs after the
+  remote Sharanga dry-run sanity check passed from commit `31a7857`.
+- Evidence:
+  - `242396`: `physmon_stage4_qwen`
+  - `242397`: `physmon_stage4_llama`
+  - Pre-submit dry run completed remotely with final `BEHAVIOURAL_RUN_COMPLETE` log
+    for `qwen_primary` over all 30 families and `data/generated`.
+- Proposal section(s): Behavioural Sensitivity Sweep (§10), Ordered Stages (§11)
+- Supplementary decision/assumption IDs: A1, A9

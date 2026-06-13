@@ -9,7 +9,7 @@ from physmon.causal.patching import (
     validate_prompt_side_positions,
     zero_ablate_prompt_positions,
 )
-from physmon.models.hooks import compare_activation_runs
+from physmon.models.hooks import compare_activation_runs, extract_targeted_activations
 
 
 def test_validate_prompt_side_positions_accepts_in_range_indices() -> None:
@@ -77,3 +77,89 @@ def test_compare_activation_runs_detects_tensor_differences() -> None:
     }
 
     assert compare_activation_runs(first_run, second_run) is False
+
+
+class _MockCfg:
+    """Minimal config stub for targeted-activation tests."""
+
+    def __init__(self, n_layers: int, d_model: int) -> None:
+        self.n_layers = n_layers
+        self.d_model = d_model
+
+
+class _MockHookedTransformer:
+    """Tiny TransformerLens-like stub used for targeted extraction tests."""
+
+    def __init__(self, n_layers: int = 2, d_model: int = 64) -> None:
+        self.cfg = _MockCfg(n_layers=n_layers, d_model=d_model)
+        self._parameter = torch.nn.Parameter(torch.zeros(1))
+
+    def parameters(self):  # noqa: ANN202
+        """Yield one CPU parameter so device inference works."""
+
+        yield self._parameter
+
+    def run_with_cache(self, tokens: torch.Tensor, names_filter=None):  # noqa: ANN001
+        """Return deterministic cache tensors for each supported activation site."""
+
+        batch_size, prompt_length = tokens.shape
+        cache: dict[str, torch.Tensor] = {}
+        site_order = ("hook_resid_post", "hook_attn_out", "hook_mlp_out")
+        for layer_index in range(self.cfg.n_layers):
+            for site_offset, hook_name in enumerate(site_order):
+                cache_key = f"blocks.{layer_index}.{hook_name}"
+                if names_filter is not None and not names_filter(cache_key):
+                    continue
+                base = (layer_index + 1) * 1000 + site_offset * 100
+                values = torch.arange(
+                    batch_size * prompt_length * self.cfg.d_model,
+                    dtype=torch.float32,
+                ).reshape(batch_size, prompt_length, self.cfg.d_model)
+                cache[cache_key] = values + base
+        return None, cache
+
+
+def test_extract_targeted_activations_returns_only_requested_positions() -> None:
+    """Targeted extraction should return only cue-span and last-prompt activations."""
+
+    model = _MockHookedTransformer()
+    activations = extract_targeted_activations(
+        model=model,
+        prompt="dummy prompt",
+        prompt_token_ids=[11, 22, 33, 44, 55],
+        cue_span_token_ids=[1, 3],
+        layers=[0, 1],
+        sites=["resid_post", "mlp_out"],
+        dtype="float16",
+    )
+
+    expected_keys = {
+        "resid_post_last_prompt_layer0",
+        "resid_post_cue_token0_layer0",
+        "resid_post_cue_token1_layer0",
+        "resid_post_last_prompt_layer1",
+        "resid_post_cue_token0_layer1",
+        "resid_post_cue_token1_layer1",
+        "mlp_out_last_prompt_layer0",
+        "mlp_out_cue_token0_layer0",
+        "mlp_out_cue_token1_layer0",
+        "mlp_out_last_prompt_layer1",
+        "mlp_out_cue_token0_layer1",
+        "mlp_out_cue_token1_layer1",
+    }
+    assert set(activations) == expected_keys
+    assert all(tensor.shape == (64,) for tensor in activations.values())
+    assert all(tensor.dtype == torch.float16 for tensor in activations.values())
+
+
+def test_extract_targeted_activations_rejects_non_prompt_indices() -> None:
+    """Targeted extraction should reject indices outside the prompt span."""
+
+    model = _MockHookedTransformer()
+    with pytest.raises(ValueError):
+        extract_targeted_activations(
+            model=model,
+            prompt="dummy prompt",
+            prompt_token_ids=[1, 2, 3],
+            cue_span_token_ids=[3],
+        )

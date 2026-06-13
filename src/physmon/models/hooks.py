@@ -24,6 +24,12 @@ EXTRACTION_SITE_TO_HOOK = {
     "mlp_out": HOOK_MLP_OUT,
 }
 ACTIVATION_SITES = ("resid_post", "attn_out", "mlp_out")
+DEFAULT_TARGET_SITES = ("resid_post", "attn_out", "mlp_out")
+DTYPE_NAME_TO_TORCH = {
+    "float16": torch.float16,
+    "float32": torch.float32,
+    "bfloat16": torch.bfloat16,
+}
 
 
 def set_global_seed(seed: int) -> None:
@@ -188,3 +194,167 @@ def compare_activation_runs(
             ):
                 return False
     return True
+
+
+def extract_targeted_activations(
+    model: Any,
+    prompt: str,
+    prompt_token_ids: list[int],
+    cue_span_token_ids: list[int],
+    layers: list[int] | None = None,
+    sites: list[str] = list(DEFAULT_TARGET_SITES),
+    dtype: str = "float16",
+) -> dict[str, torch.Tensor]:
+    """Extract prompt-side activations at only the scientifically targeted positions.
+
+    Args:
+        model: TransformerLens-compatible model supporting `run_with_cache(tokens, ...)`.
+        prompt: Original prompt text, used for validation messages and auditability.
+        prompt_token_ids: Token ids for the prompt exactly as provided to the model.
+        cue_span_token_ids: Prompt-side token indices covering the cue span.
+        layers: Optional explicit layer indices. `None` means all model layers.
+        sites: Activation sites to extract. Supported values are `resid_post`,
+            `attn_out`, and `mlp_out`.
+        dtype: Output tensor dtype name. One of `float16`, `float32`, or `bfloat16`.
+
+    Returns:
+        Flat mapping from stable activation names such as
+        `resid_post_last_prompt_layer0` or `mlp_out_cue_token1_layer12`
+        to 1D hidden-state tensors on CPU.
+
+    Reference:
+        `physmon_proposal.pdf` §9 and the Stage 4/5 targeted extraction plan.
+    """
+
+    if not prompt_token_ids:
+        raise ValueError("prompt_token_ids must be non-empty for prompt-side extraction.")
+    if not cue_span_token_ids:
+        raise ValueError("cue_span_token_ids must identify at least one prompt-side cue token.")
+    if not prompt.strip():
+        raise ValueError("prompt must be non-empty for targeted activation extraction.")
+
+    prompt_length = len(prompt_token_ids)
+    last_prompt_index = prompt_length - 1
+    normalized_sites = _normalize_sites(sites)
+    validated_layers = _validate_layers(model, layers)
+    validated_cue_indices = _validate_prompt_indices(cue_span_token_ids, prompt_length)
+    target_dtype = _resolve_output_dtype(dtype)
+    token_tensor = torch.tensor(
+        [prompt_token_ids],
+        dtype=torch.long,
+        device=_infer_model_device(model),
+    )
+
+    def names_filter(name: str) -> bool:
+        return any(name.endswith(EXTRACTION_SITE_TO_HOOK[site_name]) for site_name in normalized_sites)
+
+    _, cache = model.run_with_cache(token_tensor, names_filter=names_filter)
+    extracted: dict[str, torch.Tensor] = {}
+
+    for site_name in normalized_sites:
+        hook_name = EXTRACTION_SITE_TO_HOOK[site_name]
+        for layer_index in validated_layers:
+            cache_key = f"blocks.{layer_index}.{hook_name}"
+            if cache_key not in cache:
+                raise KeyError(f"Activation cache is missing expected key '{cache_key}' for prompt {prompt!r}.")
+            cached_tensor = cache[cache_key]
+            if cached_tensor.ndim != 3 or cached_tensor.shape[1] < prompt_length:
+                raise ValueError(
+                    f"Cached tensor '{cache_key}' has shape {tuple(cached_tensor.shape)}, "
+                    f"which is incompatible with prompt length {prompt_length}."
+                )
+            extracted[f"{site_name}_last_prompt_layer{layer_index}"] = _slice_hidden_state(
+                cached_tensor,
+                token_index=last_prompt_index,
+                output_dtype=target_dtype,
+            )
+            for cue_offset, cue_index in enumerate(validated_cue_indices):
+                extracted[f"{site_name}_cue_token{cue_offset}_layer{layer_index}"] = _slice_hidden_state(
+                    cached_tensor,
+                    token_index=cue_index,
+                    output_dtype=target_dtype,
+                )
+
+    return extracted
+
+
+def _normalize_sites(sites: list[str]) -> list[str]:
+    """Validate extraction-site names and preserve caller order without duplicates."""
+
+    if not sites:
+        raise ValueError("sites must contain at least one supported activation site.")
+    normalized: list[str] = []
+    for site_name in sites:
+        if site_name not in EXTRACTION_SITE_TO_HOOK:
+            raise ValueError(
+                f"Unsupported activation site '{site_name}'. Expected one of "
+                f"{sorted(EXTRACTION_SITE_TO_HOOK)}."
+            )
+        if site_name not in normalized:
+            normalized.append(site_name)
+    return normalized
+
+
+def _validate_layers(model: Any, layers: list[int] | None) -> list[int]:
+    """Resolve and validate the requested layer indices."""
+
+    total_layers = int(model.cfg.n_layers)
+    if layers is None:
+        return list(range(total_layers))
+    if not layers:
+        raise ValueError("layers must be non-empty when provided explicitly.")
+    validated: list[int] = []
+    for layer_index in layers:
+        if layer_index < 0 or layer_index >= total_layers:
+            raise ValueError(
+                f"Layer index {layer_index} is out of range for a model with {total_layers} layers."
+            )
+        if layer_index not in validated:
+            validated.append(layer_index)
+    return validated
+
+
+def _validate_prompt_indices(token_indices: list[int], prompt_length: int) -> list[int]:
+    """Validate prompt-side token indices against the prompt length."""
+
+    validated: list[int] = []
+    for token_index in token_indices:
+        if token_index < 0 or token_index >= prompt_length:
+            raise ValueError(
+                f"Prompt-side token index {token_index} is invalid for prompt length {prompt_length}."
+            )
+        validated.append(token_index)
+    return validated
+
+
+def _resolve_output_dtype(dtype_name: str) -> torch.dtype:
+    """Resolve a human-readable dtype name into a Torch dtype."""
+
+    try:
+        return DTYPE_NAME_TO_TORCH[dtype_name]
+    except KeyError as error:
+        raise ValueError(
+            f"Unsupported output dtype '{dtype_name}'. Expected one of {sorted(DTYPE_NAME_TO_TORCH)}."
+        ) from error
+
+
+def _infer_model_device(model: Any) -> torch.device:
+    """Infer the device for prompt-token tensors from a model-like object."""
+
+    if hasattr(model, "parameters"):
+        try:
+            return next(model.parameters()).device
+        except (StopIteration, TypeError):
+            pass
+    return torch.device("cpu")
+
+
+def _slice_hidden_state(
+    cached_tensor: torch.Tensor,
+    *,
+    token_index: int,
+    output_dtype: torch.dtype,
+) -> torch.Tensor:
+    """Extract one hidden-state vector and move it to CPU in the requested dtype."""
+
+    return cached_tensor[0, token_index, :].detach().to(dtype=output_dtype).cpu()
