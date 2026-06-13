@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.env
+*.egg-info/
+dist/
+build/
+.ruff_cache/
+.pytest_cache/
+.venv/
+
+# Large model files (never commit)
+*.pt
+*.bin
+*.safetensors
+*.gguf
+*.ckpt
+
+# Activations and large data (live on scratch)
+activations/
+data/generated/
+data/raw/*.jsonl
+results/**/*.pt
+results/**/*.npy
+
+# Slurm working files
+slurm/submitted/
+*.out
+*.err
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/*.ipynb
+
+# Wandb
+wandb/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
