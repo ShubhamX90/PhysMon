@@ -54,9 +54,9 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--probe-type",
-        choices=("mean", "contrast"),
+        choices=("mean", "contrast", "variance"),
         default="mean",
-        help="Probe over family means or within-family contrast pairs.",
+        help="Probe over family means, within-family variance, or pairwise contrasts.",
     )
     parser.add_argument(
         "--pca-dims",
@@ -508,6 +508,148 @@ def build_contrast_dataset(
     return contrast_entries, np.stack(contrast_tensors, axis=0), np.asarray(contrast_labels, dtype=int)
 
 
+def build_family_feature_tensors(
+    tensors: np.ndarray,
+    entries: list[dict[str, Any]],
+    *,
+    reducer: str,
+) -> tuple[list[str], np.ndarray]:
+    """Aggregate 4 variant tensors into one family-level feature tensor per family."""
+
+    grouped = group_variant_positions(entries)
+    family_ids = sorted(grouped)
+    family_tensors: list[np.ndarray] = []
+    for template_id in family_ids:
+        positions = grouped[template_id]
+        if len(positions) != 4:
+            raise ValueError(f"Expected 4 variants for {template_id}, got {len(positions)}.")
+        variant_tensor = np.stack([tensors[position] for position, _ in positions], axis=0)
+        if reducer == "mean":
+            family_tensors.append(variant_tensor.mean(axis=0))
+        elif reducer == "variance":
+            family_tensors.append(variant_tensor.std(axis=0, ddof=0))
+        else:
+            raise ValueError(f"Unsupported family reducer '{reducer}'.")
+    return family_ids, np.stack(family_tensors, axis=0)
+
+
+def run_layerwise_binary_loo_family_features(
+    feature_tensors: np.ndarray,
+    family_ids: list[str],
+    labels: np.ndarray,
+    *,
+    layer_indices: list[int],
+    pca_dims: int | None,
+    probe_type: str,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Run layer-wise family-level LOO logistic probing over one feature tensor per family."""
+
+    del probe_type
+    layer_summaries: list[dict[str, Any]] = []
+    best_layer_predictions: list[dict[str, Any]] = []
+    best_auroc = -np.inf
+
+    for layer_index in layer_indices:
+        x_layer = feature_tensors[:, layer_index, :]
+        family_prediction_rows: list[dict[str, Any]] = []
+        for held_out_index, held_out_family in enumerate(family_ids):
+            test_mask = np.asarray([index == held_out_index for index in range(len(family_ids))], dtype=bool)
+            train_mask = ~test_mask
+            x_train = x_layer[train_mask]
+            y_train = labels[train_mask]
+            train_groups = [family_ids[index] for index in np.where(train_mask)[0]]
+            chosen_c = choose_logistic_c(
+                x_train,
+                y_train,
+                train_groups,
+                aggregation_mode=AGGREGATE_MEAN,
+                pca_dims=pca_dims,
+            )
+            x_train_projected, x_test_projected = fit_pca_projection(
+                x_train,
+                x_layer[test_mask],
+                pca_dims,
+            )
+            model = LogisticRegression(
+                C=chosen_c,
+                class_weight="balanced",
+                max_iter=2000,
+                solver="liblinear",
+                random_state=DEFAULT_SEED,
+            )
+            model.fit(x_train_projected, y_train)
+            test_scores = model.predict_proba(x_test_projected)[:, 1]
+            family_prediction_rows.append(
+                {
+                    "template_id": held_out_family,
+                    "layer_index": layer_index,
+                    "prediction": float(test_scores[0]),
+                    "true_label": int(labels[held_out_index]),
+                    "selected_c": chosen_c,
+                }
+            )
+
+        ordered_predictions = sorted(family_prediction_rows, key=lambda item: item["template_id"])
+        y_true = np.asarray([row["true_label"] for row in ordered_predictions], dtype=int)
+        y_score = np.asarray([row["prediction"] for row in ordered_predictions], dtype=float)
+        summary = {
+            "layer_index": layer_index,
+            "auroc": compute_auroc(y_true, y_score),
+            "auprc": compute_auprc(y_true, y_score),
+            "brier": compute_brier(y_true, y_score),
+        }
+        layer_summaries.append(summary)
+        if summary["auroc"] > best_auroc:
+            best_auroc = summary["auroc"]
+            best_layer_predictions = ordered_predictions
+
+    return layer_summaries, best_layer_predictions
+
+
+def run_layerwise_continuous_loo_family_features(
+    feature_tensors: np.ndarray,
+    family_ids: list[str],
+    targets: np.ndarray,
+    *,
+    layer_indices: list[int],
+    pca_dims: int | None,
+) -> list[dict[str, Any]]:
+    """Run layer-wise family-level LOO ridge regression over one feature tensor per family."""
+
+    layer_summaries: list[dict[str, Any]] = []
+    for layer_index in layer_indices:
+        x_layer = feature_tensors[:, layer_index, :]
+        family_predictions: list[float] = []
+        family_targets: list[float] = []
+        for held_out_index, _held_out_family in enumerate(family_ids):
+            test_mask = np.asarray([index == held_out_index for index in range(len(family_ids))], dtype=bool)
+            train_mask = ~test_mask
+            x_train_projected, x_test_projected = fit_pca_projection(
+                x_layer[train_mask],
+                x_layer[test_mask],
+                pca_dims,
+            )
+            model = Ridge(alpha=DEFAULT_RIDGE_ALPHA)
+            model.fit(x_train_projected, targets[train_mask])
+            predicted = model.predict(x_test_projected)
+            family_predictions.append(float(predicted[0]))
+            family_targets.append(float(targets[held_out_index]))
+        if np.std(family_predictions) == 0.0 or np.std(family_targets) == 0.0:
+            pearson_r = 0.0
+        else:
+            pearson_r = float(np.corrcoef(family_targets, family_predictions)[0, 1])
+        layer_summaries.append(
+            {
+                "layer_index": layer_index,
+                "pearson_r": pearson_r,
+                "rmse": float(
+                    np.sqrt(np.mean((np.asarray(family_targets) - np.asarray(family_predictions)) ** 2))
+                ),
+            }
+        )
+    return layer_summaries
+
+
 def run_layerwise_binary_loo_contrast(
     contrast_tensors: np.ndarray,
     contrast_entries: list[dict[str, Any]],
@@ -730,6 +872,8 @@ def artifact_stem(site: str, probe_type: str, pca_dims: int | None) -> str:
 
     if probe_type == "contrast":
         return "contrast"
+    if probe_type == "variance":
+        return "variance"
     if pca_dims is not None:
         return f"pca{pca_dims}"
     return site
@@ -814,6 +958,71 @@ def main() -> None:
         save_json(output_dir / f"layer_auroc_{stem}.json", layer_binary)
         save_json(output_dir / f"loo_predictions_{stem}.json", ordered_best_predictions)
         save_json(output_dir / f"summary_{stem}.json", summary_payload)
+    elif args.probe_type == "variance":
+        family_ids, feature_tensors = build_family_feature_tensors(tensors, entries, reducer="variance")
+        binary_labels = binary_labels_for_templates(family_ids)
+        continuous_targets = continuous_targets_for_templates(
+            family_ids,
+            family_rows=family_rows,
+            model_role=args.model_role,
+        )
+        layer_binary, best_predictions = run_layerwise_binary_loo_family_features(
+            feature_tensors,
+            family_ids,
+            binary_labels,
+            layer_indices=layer_indices,
+            pca_dims=args.pca_dims,
+            probe_type=args.probe_type,
+        )
+        layer_continuous = run_layerwise_continuous_loo_family_features(
+            feature_tensors,
+            family_ids,
+            continuous_targets,
+            layer_indices=layer_indices,
+            pca_dims=args.pca_dims,
+        )
+        best_binary = max(layer_binary, key=lambda item: item["auroc"])
+        best_continuous = max(layer_continuous, key=lambda item: item["pearson_r"])
+        plot_layer_curve(layer_binary, output_dir / f"layer_auroc_curve_{stem}.png")
+
+        ordered_best_predictions = sorted(best_predictions, key=lambda item: item["template_id"])
+        best_labels = np.asarray([row["true_label"] for row in ordered_best_predictions], dtype=int)
+        best_scores = np.asarray([row["prediction"] for row in ordered_best_predictions], dtype=float)
+        bootstrap_summary = bootstrap_auroc_ci(best_labels, best_scores)
+        random_baseline = random_direction_baseline(
+            feature_tensors,
+            family_ids,
+            binary_labels,
+            layer_index=int(best_binary["layer_index"]),
+            aggregation_mode=AGGREGATE_MEAN,
+        )
+
+        embedding_layer_auroc = next(
+            (float(item["auroc"]) for item in layer_binary if item["layer_index"] == 0),
+            None,
+        )
+        summary_payload = {
+            "model_role": args.model_role,
+            "site": args.site,
+            "probe_type": args.probe_type,
+            "target_measure": args.target_measure,
+            "pca_dims": args.pca_dims,
+            "evaluated_layers": layer_indices,
+            "best_layer": int(best_binary["layer_index"]),
+            "best_auroc": float(best_binary["auroc"]),
+            "best_auprc": float(best_binary["auprc"]),
+            "best_brier": float(best_binary["brier"]),
+            "best_pearson_r": float(best_continuous["pearson_r"]),
+            "bootstrap_auroc": bootstrap_summary,
+            "random_direction_baseline": random_baseline,
+            "embedding_layer_auroc": embedding_layer_auroc,
+            "cross_model_validation": None,
+        }
+
+        save_json(output_dir / f"layer_auroc_{stem}.json", layer_binary)
+        save_json(output_dir / f"loo_predictions_{stem}.json", ordered_best_predictions)
+        save_json(output_dir / f"summary_{stem}.json", summary_payload)
+        save_json(output_dir / f"layer_pearson_{stem}.json", layer_continuous)
     else:
         binary_labels = binary_labels_for_templates(template_ids)
         continuous_targets = continuous_targets_for_templates(
