@@ -552,9 +552,29 @@ Evidence:
 - [x] Revised S_lp gate: 9/30 families at threshold 0.5 nats — PASS
 - [x] S_lp stability check: values match prior repair analysis (slp_stability_check.matches_prior_repair = true)
 - [x] Surface artefact check on S_lp labels: TF-IDF baseline near-random on Qwen labels (expected)
-- [x] Pre-registration committed: fb43907
+- [x] Pre-registration committed: 5a72370
 
 Gate result: [x] CONDITIONAL PASS (S_lp revised gate)
   Note: hat_S gate remains FAIL. S_lp gate passes under the PI-authorised H1 reframing.
   Stage 5 proceeds under the S_lp-primary framing. hat_S monitoring continues as
   secondary measure; any hat_S signal in Stage 6 expansion will be reported.
+
+## 2026-06-14 — Stage 5 Kickoff
+
+- Date: 2026-06-14
+- Decision: Stage 5 work started only after the S_lp pre-registration record and
+  revised Stage 4 gate were written. The Stage 5 scaffold now includes the fixed
+  positive-family catalogue, S_lp-targeted surface baselines, cue-token indexing,
+  activation extraction entrypoint, and probe-training entrypoint.
+- Pre-registration commit: `5a72370`
+- Local validation:
+  - `ruff check` PASS on Stage 5 files
+  - `pytest tests -q` PASS (`90 passed, 1 warning`)
+- Sharanga sync:
+  - `make sync-up` completed before job submission
+  - Stage 5 extraction Slurm scripts copied to `~/PhysMons/slurm/submitted/`
+- Stage 5 extraction:
+  - Qwen Tier 1 extraction dry run PASS (`30 families`, `120 files`,
+    `~22.97 MB` estimated storage)
+  - Qwen Tier 1 extraction job submitted on A100 as Slurm job `242554`
+  - Llama extraction intentionally deferred until Qwen manifest validation completes

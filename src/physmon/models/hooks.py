@@ -49,6 +49,49 @@ def set_global_seed(seed: int) -> None:
         torch.cuda.manual_seed_all(seed)
 
 
+def find_cue_token_index(prompt: str, cue_sentence: str, tokenizer: Any) -> int:
+    """Locate the first token whose span begins inside the cue sentence.
+
+    Args:
+        prompt: Full formatted prompt string used for model input.
+        cue_sentence: Cue sentence as stored in the rendered family JSON.
+        tokenizer: Hugging Face tokenizer used for the model.
+
+    Returns:
+        Prompt-side token index of the cue sentence's first token.
+
+    Reference:
+        Stage 5 brief Part C.2.
+    """
+
+    if not prompt.strip():
+        raise ValueError("prompt must be non-empty when locating cue-token indices.")
+    if not cue_sentence.strip():
+        raise ValueError("cue_sentence must be non-empty when locating cue-token indices.")
+
+    cue_start = prompt.find(cue_sentence)
+    if cue_start < 0:
+        raise ValueError("cue_sentence could not be found inside the formatted prompt.")
+
+    try:
+        tokenized = tokenizer(
+            prompt,
+            add_special_tokens=False,
+            return_offsets_mapping=True,
+        )
+        offset_mapping = tokenized.get("offset_mapping")
+    except (NotImplementedError, TypeError, ValueError):
+        offset_mapping = None
+
+    if offset_mapping:
+        for token_index, (start, end) in enumerate(offset_mapping):
+            if start >= cue_start and end > start:
+                return int(token_index)
+
+    prefix_token_ids = tokenizer(prompt[:cue_start], add_special_tokens=False).input_ids
+    return int(len(prefix_token_ids))
+
+
 def find_token_positions(
     bundle: LoadedModelBundle, prompt: str, cue_substring: str
 ) -> tuple[torch.Tensor, int, int]:

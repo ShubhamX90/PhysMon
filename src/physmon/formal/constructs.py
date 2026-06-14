@@ -41,6 +41,20 @@ PRE_REGISTRATION_PLACEHOLDER = "[TO BE FILLED"
 DEFAULT_CONSTRUCT_SPEC_PATH = (
     Path(__file__).resolve().parents[3] / "docs" / "construct_spec.md"
 )
+STAGE5_POSITIVE_FAMILIES = frozenset(
+    {
+        "CM_A_003",
+        "CM_A_006",
+        "CM_A_008",
+        "CM_B_005",
+        "CM_B_006",
+        "EL_A_003",
+        "EL_B_002",
+        "EL_B_004",
+        "EL_B_005",
+    }
+)
+STAGE5_SLP_THRESHOLD = 0.5
 
 
 def is_preregistration_complete(spec_path: Path | None = None) -> bool:
@@ -67,6 +81,22 @@ def is_preregistration_complete(spec_path: Path | None = None) -> bool:
     if "## PRE-REGISTRATION" not in spec_text:
         return False
     return PRE_REGISTRATION_PLACEHOLDER not in spec_text
+
+
+def get_binary_slp_label(template_id: str) -> bool:
+    """Return the pre-registered Stage 5 binary S_lp sensitivity label.
+
+    Args:
+        template_id: Canonical family identifier.
+
+    Returns:
+        `True` when the family belongs to the PI-approved Stage 5 positive set.
+
+    Reference:
+        Stage 5 brief Part B and the 2026-06-14 pre-registration record.
+    """
+
+    return template_id in STAGE5_POSITIVE_FAMILIES
 
 
 @dataclass(frozen=True)

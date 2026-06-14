@@ -9,7 +9,11 @@ from physmon.causal.patching import (
     validate_prompt_side_positions,
     zero_ablate_prompt_positions,
 )
-from physmon.models.hooks import compare_activation_runs, extract_targeted_activations
+from physmon.models.hooks import (
+    compare_activation_runs,
+    extract_targeted_activations,
+    find_cue_token_index,
+)
 
 
 def test_validate_prompt_side_positions_accepts_in_range_indices() -> None:
@@ -163,3 +167,36 @@ def test_extract_targeted_activations_rejects_non_prompt_indices() -> None:
             prompt_token_ids=[1, 2, 3],
             cue_span_token_ids=[3],
         )
+
+
+class _MockTokenizer:
+    """Tiny tokenizer stub exposing offset mappings for cue-index tests."""
+
+    def __call__(
+        self,
+        text: str,
+        add_special_tokens: bool = False,
+        return_offsets_mapping: bool = False,
+    ):  # noqa: ANN001, D401
+        del add_special_tokens
+        words = []
+        offsets = []
+        cursor = 0
+        for token in text.split():
+            start = text.index(token, cursor)
+            end = start + len(token)
+            cursor = end
+            words.append(token)
+            offsets.append((start, end))
+        if return_offsets_mapping:
+            return {"input_ids": list(range(len(words))), "offset_mapping": offsets}
+        return type("TokenOutput", (), {"input_ids": list(range(len(words)))})()
+
+
+def test_find_cue_token_index_uses_offset_mapping() -> None:
+    """Cue-token lookup should return the first token that begins inside the cue sentence."""
+
+    tokenizer = _MockTokenizer()
+    prompt = "System wrapper User: A block slides. The cue sentence begins here."
+    cue_sentence = "The cue sentence begins here."
+    assert find_cue_token_index(prompt, cue_sentence, tokenizer) == 6

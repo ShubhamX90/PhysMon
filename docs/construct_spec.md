@@ -298,4 +298,4 @@ Rationale:               Targets 30% positive-class rate (9/30 pilot families) i
 
 Date pre-registered:     2026-06-14
 
-Commit:                  fb43907
+Commit:                  5a72370

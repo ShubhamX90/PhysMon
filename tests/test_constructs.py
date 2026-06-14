@@ -13,7 +13,9 @@ from physmon.formal.constructs import (
     PhysicsTemplate,
     ProbeTarget,
     SensitivityRecord,
+    STAGE5_POSITIVE_FAMILIES,
     is_preregistration_complete,
+    get_binary_slp_label,
 )
 from physmon.formal.sensitivity import (
     compute_all_sensitivity_measures,
@@ -202,6 +204,7 @@ def test_compute_all_sensitivity_measures_populates_single_record() -> None:
         {
             "parsed_answer": ParseResult(
                 answer="a",
+                display_answer="a",
                 confidence=0.99,
                 is_confident=True,
                 answer_type="symbolic",
@@ -230,3 +233,20 @@ def test_compute_all_sensitivity_measures_populates_single_record() -> None:
     assert math.isclose(record.jsd_sensitivity or 0.0, 0.5408520829727552, rel_tol=1e-6)
     assert math.isclose(record.logprob_drop or 0.0, 1.0, rel_tol=1e-6)
     assert record.generation_seed == 42
+
+
+def test_stage5_positive_family_count() -> None:
+    """The pre-registered Stage 5 positive family set should contain nine families."""
+    assert len(STAGE5_POSITIVE_FAMILIES) == 9
+
+
+def test_stage5_positive_positive_rate() -> None:
+    """The pre-registered Stage 5 positive family rate should be 30% of the pilot."""
+    total_families = 30
+    assert len(STAGE5_POSITIVE_FAMILIES) / total_families == pytest.approx(0.3, abs=0.01)
+
+
+def test_get_binary_slp_label_uses_preregistered_family_set() -> None:
+    """Binary S_lp labels should come directly from the pre-registered family set."""
+    assert get_binary_slp_label("CM_B_006") is True
+    assert get_binary_slp_label("CM_A_001") is False
