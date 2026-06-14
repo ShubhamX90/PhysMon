@@ -826,13 +826,13 @@ def stage3_templates() -> list[dict[str, Any]]:
                 correct_answer_display="1.2e-3 C",
                 cue_slot=cue_a_slot(
                     name="color",
-                    description="Capacitor plate color",
-                    value_labels=["silver", "gold", "copper", "black"],
-                    proof='The charge relation "C * V" depends only on capacitance and voltage. The plate color is descriptive and does not affect the stored charge.',
+                    description="Identification color of the capacitor plates",
+                    value_labels=["red", "blue", "green", "orange"],
+                    proof='The charge relation "C * V" depends only on capacitance and voltage. The stated plate color is for identification only and does not affect the stored charge under the ideal-capacitor assumption.',
                 ),
-                prompt_context="A capacitor has capacitance {C} F and is charged to a potential difference of {V} V. The capacitor plates are {color}.",
+                prompt_context="A capacitor has capacitance {C} F and is charged to a potential difference of {V} V. The capacitor plates are colored {color} for identification purposes.",
                 prompt_question="What charge is stored on the capacitor?",
-                cue_sentence="The capacitor plates are {color}.",
+                cue_sentence="The capacitor plates are colored {color} for identification purposes.",
                 topic_tags=["circuits", "capacitor", "charge"],
             ),
             build_common_template(

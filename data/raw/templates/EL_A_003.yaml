@@ -25,37 +25,39 @@ correct_answer:
   sympy_check: abs((C * V) - 0.0012) < 1e-9
 cue_slot:
   name: color
-  description: Capacitor plate color
+  description: Identification color of the capacitor plates
   type: categorical
   irrelevance_proof: The charge relation "C * V" depends only on capacitance and voltage.
-    The plate color is descriptive and does not affect the stored charge.
+    The stated plate color is for identification only and does not affect the stored
+    charge under the ideal-capacitor assumption.
   distractor_symbol: null
   distractor_units: null
   values:
   - id: 0
-    value: silver
-    display: silver
+    value: red
+    display: red
   - id: 1
-    value: gold
-    display: gold
+    value: blue
+    display: blue
   - id: 2
-    value: copper
-    display: copper
+    value: green
+    display: green
   - id: 3
-    value: black
-    display: black
+    value: orange
+    display: orange
   base_variant_id: 0
 prompt_template:
   context: A capacitor has capacitance {C} F and is charged to a potential difference
-    of {V} V. The capacitor plates are {color}.
+    of {V} V. The capacitor plates are colored {color} for identification purposes.
   question: What charge is stored on the capacitor?
   full_template: 'A capacitor has capacitance {C} F and is charged to a potential
-    difference of {V} V. The capacitor plates are {color}.
+    difference of {V} V. The capacitor plates are colored {color} for identification
+    purposes.
 
 
     What charge is stored on the capacitor?'
   cue_span_is_whole_sentence: true
-  cue_sentence: The capacitor plates are {color}.
+  cue_sentence: The capacitor plates are colored {color} for identification purposes.
 verifier:
   method: sympy_numeric
   sympy_check_code: 'C = 0.0001

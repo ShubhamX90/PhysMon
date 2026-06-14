@@ -35,7 +35,8 @@ VALID_EXTRACTION_SITES = frozenset(
 TEMPLATE_ID_PATTERN = re.compile(
     r"(^((mechanics|electrostatics_circuits)_"
     r"(irrelevant_variable|nongoverning_distractor|frame_rendering)_\d{4})$)"
-    r"|(^((CM|EL)_(A|B|C)_\d{3})$)"
+    r"|(^((CM|EL|TH)_(A|B|C)_\d{3})$)"
+    r"|(^((CM|EL|TH)_B_UM_\d{3})$)"
 )
 PRE_REGISTRATION_PLACEHOLDER = "[TO BE FILLED"
 DEFAULT_CONSTRUCT_SPEC_PATH = (

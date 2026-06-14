@@ -809,3 +809,20 @@ Design note:
 
 Follow-up action:
 - `validation.verifier_certified` set to `true` in all 14 PI-validated YAML files.
+
+## 2026-06-15 — PI Self-Validation of CM_B_UM_001-040
+
+PI self-validation of `CM_B_UM_001`-`CM_B_UM_040`: ALL PASS (40/40) — 2026-06-15
+
+Q1/Q2/Q3/Q4 = Y for all 40 families.
+Answers verified spot-checked: all correct.
+
+Design notes (not blockers):
+- Matching-distractor feature confirmed intentional in approximately 30/40 families.
+- `CM_B_UM_020` (KCL): distractor value `4.0 A` coincides with a problem
+  parameter (the known branch current). Watch this family in `S_lp` analysis.
+- `CM_B_UM_032` and `CM_B_UM_034` share the same answer (`1.592 Hz`) despite
+  differing parameter ratios. Valid as separate families.
+- Frequency/Frequency families (`CM_B_UM_032`-`CM_B_UM_036`) are expected to
+  show weaker `S_lp` than the force/current/voltage classes because Hz is less
+  semantically interchangeable than N, A, or V.

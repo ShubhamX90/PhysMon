@@ -18,6 +18,7 @@ from typing import TYPE_CHECKING, Any
 
 import numpy as np
 import torch
+from transformers import AutoTokenizer
 
 from physmon.benchmark.parser import parse_answer
 from physmon.utils.io import append_jsonl
@@ -29,12 +30,17 @@ if TYPE_CHECKING:
 
 DEFAULT_STAGE = 4
 DEFAULT_SEED = 42
-DEFAULT_MAX_NEW_TOKENS = 32
+DEFAULT_MAX_NEW_TOKENS = 512
 DEFAULT_JSONL_NAME = "run_behavioural_events.jsonl"
 DEFAULT_PROMPT_RECORDS_NAME = "prompt_records.jsonl"
 DEFAULT_FAMILY_SUMMARIES_NAME = "family_summaries.jsonl"
 DEFAULT_TEMPERATURE = 1.0
 TIMESTAMP_FORMAT = "%Y%m%dT%H%M%SZ"
+SYSTEM_PROMPT = (
+    "You are a precise physics problem solver. "
+    "Work through the problem and state your final numerical answer with units "
+    "on the last line of your response, in the form: Answer: [value] [unit]"
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -62,6 +68,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", required=True, help="Directory for behavioural outputs.")
     parser.add_argument("--device", default="cuda", help="Torch device used for model loading.")
     parser.add_argument(
+        "--family-filter",
+        nargs="+",
+        default=None,
+        help="Optional list of template IDs to evaluate instead of the full rendered directory.",
+    )
+    parser.add_argument(
         "--max-new-tokens",
         type=int,
         default=DEFAULT_MAX_NEW_TOKENS,
@@ -71,6 +83,11 @@ def parse_args() -> argparse.Namespace:
         "--dry-run",
         action="store_true",
         help="Validate inputs and emit planned workload metadata without loading a model.",
+    )
+    parser.add_argument(
+        "--print-first-prompt",
+        action="store_true",
+        help="Print the formatted chat-template prompt for the first selected variant, then exit.",
     )
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED, help="Deterministic seed.")
     return parser.parse_args()
@@ -117,11 +134,15 @@ def resolve_registry_selection(model_role: str, model_key: str | None) -> tuple[
     return spec.key, spec.role
 
 
-def load_rendered_families(family_dir: str | Path) -> list[dict[str, Any]]:
+def load_rendered_families(
+    family_dir: str | Path,
+    family_filter: list[str] | None = None,
+) -> list[dict[str, Any]]:
     """Load all rendered family JSON payloads from disk.
 
     Args:
         family_dir: Directory containing one JSON file per rendered family.
+        family_filter: Optional template IDs to keep.
 
     Returns:
         Ordered list of loaded family payloads.
@@ -131,7 +152,71 @@ def load_rendered_families(family_dir: str | Path) -> list[dict[str, Any]]:
     family_paths = sorted(directory.glob("*.json"))
     if not family_paths:
         raise FileNotFoundError(f"No rendered family JSON files found in {directory}.")
-    return [json.loads(path.read_text(encoding="utf-8")) for path in family_paths]
+    payloads = [json.loads(path.read_text(encoding="utf-8")) for path in family_paths]
+    if family_filter is None:
+        return payloads
+
+    requested = set(family_filter)
+    filtered_payloads = [payload for payload in payloads if payload["template_id"] in requested]
+    missing = sorted(requested - {payload["template_id"] for payload in filtered_payloads})
+    if missing:
+        raise FileNotFoundError(f"Requested template IDs not found in rendered families: {missing}")
+    return filtered_payloads
+
+
+def load_chat_tokenizer(model_path: str, model_name: str):
+    """Load the local tokenizer used for chat-template formatting.
+
+    Args:
+        model_path: Local model directory.
+        model_name: Canonical model name, for diagnostics only.
+
+    Returns:
+        Tokenizer with a valid pad token configured.
+    """
+
+    resolved_path = Path(model_path)
+    if not resolved_path.exists():
+        raise FileNotFoundError(
+            f"Tokenizer assets for {model_name} were not found at {resolved_path}. "
+            "Run --print-first-prompt on Sharanga, where the registry paths exist."
+        )
+
+    tokenizer = AutoTokenizer.from_pretrained(
+        str(resolved_path),
+        local_files_only=True,
+        trust_remote_code=True,
+    )
+    if tokenizer.pad_token is None and tokenizer.eos_token is not None:
+        tokenizer.pad_token = tokenizer.eos_token
+    if tokenizer.chat_template is None:
+        raise ValueError(
+            f"Tokenizer for {model_name} does not expose a chat_template. "
+            "Check tokenizer_config.json before behavioural submission."
+        )
+    return tokenizer
+
+
+def format_prompt_with_chat_template(raw_problem_text: str, tokenizer) -> str:
+    """Apply the fixed PhysMon chat wrapper to one raw rendered problem.
+
+    Args:
+        raw_problem_text: Raw problem text from the rendered family JSON.
+        tokenizer: Hugging Face tokenizer carrying the model chat template.
+
+    Returns:
+        Formatted chat prompt string with the assistant turn opener included.
+    """
+
+    messages = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": raw_problem_text},
+    ]
+    return tokenizer.apply_chat_template(
+        messages,
+        tokenize=False,
+        add_generation_prompt=True,
+    )
 
 
 def generate_completion(bundle: "LoadedModelBundle", prompt: str, max_new_tokens: int) -> str:
@@ -168,6 +253,7 @@ def make_prompt_record(
     variant_payload: dict[str, Any],
     generated_text: str | None,
     parsed_answer: str | None,
+    parsed_answer_canonical: str | None,
     parse_confidence: float | None,
     parse_confident: bool | None,
     logprob_correct_answer: float | None,
@@ -183,7 +269,8 @@ def make_prompt_record(
         family_payload: Loaded family JSON.
         variant_payload: One rendered variant payload.
         generated_text: Raw generated continuation or `None` in dry-run mode.
-        parsed_answer: Canonical parsed answer, if any.
+        parsed_answer: Human-readable extracted answer, if any.
+        parsed_answer_canonical: Canonical parsed answer used for post-hoc comparison.
         parse_confidence: Parser confidence.
         parse_confident: Whether the parser accepted the answer.
         logprob_correct_answer: `log p_theta(y* | x)` for the family answer.
@@ -215,8 +302,11 @@ def make_prompt_record(
         "correct_answer": family_payload["correct_answer"],
         "generated_text": generated_text,
         "parsed_answer": parsed_answer,
+        "parsed_answer_canonical": parsed_answer_canonical,
         "parse_confidence": parse_confidence,
         "parse_confident": parse_confident,
+        # Correctness is computed post hoc in analyse_stage4.py after canonical normalization.
+        "answer_correct_postanalysis": None,
         "logprob_correct_answer": logprob_correct_answer,
     }
 
@@ -246,12 +336,16 @@ def summarize_family(
         JSON-serializable family summary.
     """
 
-    parsed_answers = [record["parsed_answer"] for record in prompt_records if record["parsed_answer"] is not None]
+    parsed_answers = [
+        record.get("parsed_answer_canonical")
+        for record in prompt_records
+        if record.get("parsed_answer_canonical") is not None
+    ]
     confident_records = [record for record in prompt_records if record["parse_confident"]]
     unique_parsed_answers = sorted(set(parsed_answers))
     answer_flip_rate = None
     if confident_records:
-        parsed_by_variant = [record["parsed_answer"] for record in confident_records]
+        parsed_by_variant = [record["parsed_answer_canonical"] for record in confident_records]
         comparisons = 0
         flips = 0
         for left_index in range(len(parsed_by_variant)):
@@ -295,22 +389,34 @@ def main() -> None:
     )
 
     resolved_model_key, resolved_role = resolve_registry_selection(args.model_role, args.model_key)
-    families = load_rendered_families(args.family_dir)
+    families = load_rendered_families(args.family_dir, args.family_filter)
     bundle: "LoadedModelBundle" | None = None
     model_name = resolved_model_key
     model_role = resolved_role
+    prompt_tokenizer = None
 
+    from physmon.models.loader import resolve_model_spec
+
+    spec = resolve_model_spec(model_key=resolved_model_key)
+    model_name = spec.name
+    model_role = spec.role
+
+    if args.print_first_prompt:
+        prompt_tokenizer = load_chat_tokenizer(spec.path, spec.name)
+        first_variant = families[0]["variants"][0]
+        print(format_prompt_with_chat_template(first_variant["prompt"], prompt_tokenizer))
+        return
     if not args.dry_run:
         from physmon.models.loader import load_model
 
         bundle = load_model(model_key=resolved_model_key, device=args.device)
         model_name = bundle.spec.name
         model_role = bundle.spec.role
+        prompt_tokenizer = bundle.tokenizer
+        if prompt_tokenizer.pad_token is None and prompt_tokenizer.eos_token is not None:
+            prompt_tokenizer.pad_token = prompt_tokenizer.eos_token
     else:
-        from physmon.models.loader import resolve_model_spec
-
-        spec = resolve_model_spec(model_key=resolved_model_key)
-        model_name = spec.name
+        prompt_tokenizer = load_chat_tokenizer(spec.path, spec.name)
 
     logger.model_name = model_name
     logger.model_role = model_role
@@ -339,6 +445,7 @@ def main() -> None:
                     variant_payload=variant_payload,
                     generated_text=None,
                     parsed_answer=None,
+                    parsed_answer_canonical=None,
                     parse_confidence=None,
                     parse_confident=None,
                     logprob_correct_answer=None,
@@ -352,18 +459,25 @@ def main() -> None:
                 from physmon.models.logprob import compute_reference_answer_logprob
 
                 assert bundle is not None
-                generated_text = generate_completion(bundle, variant_payload["prompt"], args.max_new_tokens)
-                parse_result = parse_answer(generated_text)
+                formatted_prompt = format_prompt_with_chat_template(variant_payload["prompt"], prompt_tokenizer)
+                generated_text = generate_completion(bundle, formatted_prompt, args.max_new_tokens)
+                parse_result = parse_answer(
+                    generated_text,
+                    expected_unit=str(family_payload["correct_answer"]).split()[-1]
+                    if " " in str(family_payload["correct_answer"])
+                    else None,
+                )
                 logprob_correct_answer = compute_reference_answer_logprob(
                     bundle,
-                    variant_payload["prompt"],
+                    formatted_prompt,
                     family_payload["correct_answer"],
                 )
                 prompt_record = make_prompt_record(
                     family_payload=family_payload,
                     variant_payload=variant_payload,
                     generated_text=generated_text,
-                    parsed_answer=parse_result.answer,
+                    parsed_answer=parse_result.display_answer,
+                    parsed_answer_canonical=parse_result.answer,
                     parse_confidence=parse_result.confidence,
                     parse_confident=parse_result.is_confident,
                     logprob_correct_answer=logprob_correct_answer,

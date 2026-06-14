@@ -44,6 +44,16 @@ from physmon.benchmark.parser import parse_answer
         ("There are steps here.\n\nmv^2/2r", "mv^2/2r", "symbolic"),
         ("Answer: x = .5", "0.5", "numeric"),
         ("Final answer: 1.23456", "1.235", "numeric"),
+        ("Answer: 11.0 m/s", "11 m/s", "numeric"),
+        ("answer: **11.0 m/s**.", "11 m/s", "numeric"),
+        ("Work...\nAnswer: **1.2e-3 C**", "0.0012 C", "numeric"),
+        ("Answer: 1.2 × 10^-3 C", "0.0012 C", "numeric"),
+        ("Answer: 1.2×10⁻³ C", "0.0012 C", "numeric"),
+        ("Answer: 8.99 × 10^9 N·m²/C²", "8.99e9 N*m^2/C^2", "numeric"),
+        ("Some work\nAnswer: 11.0 m s^-1", "11 ms^-1", "numeric"),
+        ("The final velocity is 11.0 m/s", "11 m/s", "numeric"),
+        ("v_final = 11.0 m/s", "11 m/s", "numeric"),
+        ("Answer: **50 μF**", "50 μF", "numeric"),
     ],
 )
 def test_parse_answer_success_cases(
@@ -100,3 +110,41 @@ def test_low_confidence_final_line_is_rejected() -> None:
     )
     assert result.answer is None
     assert result.is_confident is False
+
+
+def test_bare_numeric_fallback_uses_expected_unit() -> None:
+    """A unique bare number on the final line can inherit units from template metadata."""
+    result = parse_answer("After solving the problem carefully,\nAnswer: 11.0", expected_unit="m/s")
+    assert result.answer == "11 m/s"
+    assert result.is_confident is True
+
+
+def test_bare_numeric_fallback_rejects_multiple_last_line_numbers() -> None:
+    """The expected-unit fallback should refuse ambiguous final lines."""
+    result = parse_answer("Final values: 11.0 and 12.0", expected_unit="m/s")
+    assert result.answer is None
+    assert result.is_confident is False
+
+
+def test_latex_wrapped_numeric_answer_gets_canonicalized() -> None:
+    """LaTeX-wrapped numeric answers should compare canonically with plain-text equivalents."""
+    result = parse_answer("\\(5.0m/s^2\\)")
+    assert result.display_answer == "5.0 m/s^2"
+    assert result.answer == "5 m/s^2"
+    assert result.is_confident is True
+
+
+@pytest.mark.parametrize("raw_output", ["themagnitude", "thevelocity is high"])
+def test_digit_free_garbage_is_rejected(raw_output: str) -> None:
+    """Digit-free garbage spans must not survive the parser fallback path."""
+    result = parse_answer(raw_output)
+    assert result.answer is None
+    assert result.is_confident is False
+
+
+def test_latex_text_and_cdot_display_answer_normalization() -> None:
+    """LaTeX text/unit wrappers should collapse into a readable display answer."""
+    result = parse_answer("the answer is \\[14\\, \\text{kg}\\cdot\\text{m/s}\\]")
+    assert result.display_answer == "14 kg*m/s"
+    assert result.answer == "14 kg*m/s"
+    assert result.is_confident is True

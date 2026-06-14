@@ -1,6 +1,6 @@
 # PhysMon Agent Status Report
-**Date/Time:** 2026-06-14
-**Session summary:** Completed the Stage 5 pilot end to end under the revised `S_lp`-primary framing: extraction, baselines, probing, repair loop, and final gate assessment.
+**Date/Time:** 2026-06-15
+**Session summary:** Completed the Stage 6 mandatory pilot variance-probe re-analysis on Sharanga and updated the evidence trail for what it changes about the Stage 6 plan.
 
 ## Completed This Session
 - [x] Fixed the Stage 4 parser bugs in
@@ -83,24 +83,58 @@
   [results/stage5/probing/](/Users/shubhammishra/Desktop/PhysMons/results/stage5/probing)
 - [x] Recorded the Stage 5 gate result in
   [docs/decisions/decision_log.md](/Users/shubhammishra/Desktop/PhysMons/docs/decisions/decision_log.md)
+- [x] Added the Stage 5.1 CM_B_006 diagnostic script:
+  [scripts/analyse_cm_b006.py](/Users/shubhammishra/Desktop/PhysMons/scripts/analyse_cm_b006.py)
+- [x] Ran the CM_B_006 diagnostic and wrote:
+  - [results/stage5/diagnostic/cm_b006_analysis.json](/Users/shubhammishra/Desktop/PhysMons/results/stage5/diagnostic/cm_b006_analysis.json)
+  - [results/stage5/diagnostic/cm_b006_pca.png](/Users/shubhammishra/Desktop/PhysMons/results/stage5/diagnostic/cm_b006_pca.png)
+- [x] Added the Stage 5.1 comparative summary helper:
+  [scripts/summarize_stage5_followup.py](/Users/shubhammishra/Desktop/PhysMons/scripts/summarize_stage5_followup.py)
+- [x] Completed Stage 5.1 follow-up jobs on Sharanga:
+  - `242584` Qwen Tier 2 extraction → `COMPLETED`
+  - `242585` Qwen contrast probe → `COMPLETED`
+  - `242586` Qwen PCA probe sweep → `COMPLETED`
+  - `242589` Qwen Tier 2 probe → `COMPLETED`
+  - `242590` Llama Tier 2 extraction → `COMPLETED`
+- [x] Validated both Tier 2 manifests on Sharanga:
+  - Qwen Tier 2: `240` files, `120` cue-token tensors, `30` families
+  - Llama Tier 2: `240` files, `30` families
+- [x] Produced the cue-token probing artifacts in
+  [results/stage5/probing_tier2/](/Users/shubhammishra/Desktop/PhysMons/results/stage5/probing_tier2)
+- [x] Produced the comparative Stage 5.1 summary:
+  [results/stage5/followup_comparison.json](/Users/shubhammishra/Desktop/PhysMons/results/stage5/followup_comparison.json)
+- [x] Recorded the Stage 5.1 follow-up gate in
+  [docs/decisions/decision_log.md](/Users/shubhammishra/Desktop/PhysMons/docs/decisions/decision_log.md)
+- [x] Implemented the new `variance` probe mode in
+  [scripts/run_probing.py](/Users/shubhammishra/Desktop/PhysMons/scripts/run_probing.py)
+  and committed it as `dd9d948`
+- [x] Ran the mandatory Stage 6 pilot variance sweeps on existing Qwen activations:
+  - [results/stage5/probing_variance/summary_variance.json](/Users/shubhammishra/Desktop/PhysMons/results/stage5/probing_variance/summary_variance.json)
+  - [results/stage5/probing_variance_tier2/summary_variance.json](/Users/shubhammishra/Desktop/PhysMons/results/stage5/probing_variance_tier2/summary_variance.json)
+- [x] Recorded the Stage 6 mandatory variance-probe outcome in
+  [docs/decisions/decision_log.md](/Users/shubhammishra/Desktop/PhysMons/docs/decisions/decision_log.md)
 
 ## In Progress
-- [ ] Preparing the Stage 5 handoff / interpretation for the PI before any Stage 6 brief.
+- [ ] Preparing the final PI-facing interpretation / next-brief recommendation based on the Stage 5.1 follow-up plus the new variance-probe evidence.
 
 ## Blocked / Flagged
 - BLOCKED: Stage 5 gate is FAIL for H2 support in the pilot.
-- FLAGGED: Best within-model Qwen probe AUROC is `0.5979`, below the pre-registered
-  support threshold of `0.75`.
-- FLAGGED: The probe does beat the best surface baseline by `+0.1058`, but does not
-  beat the p95 random-direction null (`0.6516`).
+- FLAGGED: The best Stage 5.1 cue-token probe improves AUROC to `0.6720`, but still
+  does not meet the original H2 support threshold of `0.75`.
+- FLAGGED: The cue-token probe strongly beats the surface baseline (`0.6720` vs
+  `0.4921`) but still misses the flagship family `CM_B_006`
+  (`prediction = 0.0555`).
+- FLAGGED: The new variance probe improves the last-prompt site to `0.7302`, but
+  does not produce a clean cue-token win; this is a real deviation from the draft
+  Stage 6 framing and should shape the next brief.
 - FLAGGED: Raw-space cross-model transfer is not meaningful without an alignment /
   projection step because Qwen and Llama hidden sizes differ (`3584` vs `4096`).
 
 ## Decisions Required from PI
 - Whether the next brief should focus on:
-  1. Stage 5 follow-up controls / Tier 2 cue-token extraction, or
-  2. Stage 6 benchmark expansion despite the weak pilot H2 result, or
-  3. a methodological redesign before further probing claims.
+  1. Stage 6 benchmark expansion with cue-token extraction as the preferred site, or
+  2. a methodological redesign around contrast / family-level targets before further H2 claims, or
+  3. a larger-sample pilot follow-up focused on unit-matched distractor families.
 
 ## Assumption Checks Completed
 - [A1] Sharanga access: CONFIRMED
@@ -123,10 +157,17 @@
 - [src/physmon/models/hooks.py](/Users/shubhammishra/Desktop/PhysMons/src/physmon/models/hooks.py)
 - [scripts/extract_activations.py](/Users/shubhammishra/Desktop/PhysMons/scripts/extract_activations.py)
 - [scripts/run_probing.py](/Users/shubhammishra/Desktop/PhysMons/scripts/run_probing.py)
+- [scripts/analyse_cm_b006.py](/Users/shubhammishra/Desktop/PhysMons/scripts/analyse_cm_b006.py)
+- [scripts/summarize_stage5_followup.py](/Users/shubhammishra/Desktop/PhysMons/scripts/summarize_stage5_followup.py)
 - [results/stage4_repair/analysis_v2/](/Users/shubhammishra/Desktop/PhysMons/results/stage4_repair/analysis_v2)
 - [results/stage5/baselines_repair_v2/](/Users/shubhammishra/Desktop/PhysMons/results/stage5/baselines_repair_v2)
+- [results/stage5/diagnostic/](/Users/shubhammishra/Desktop/PhysMons/results/stage5/diagnostic)
+- [results/stage5/probing_tier2/](/Users/shubhammishra/Desktop/PhysMons/results/stage5/probing_tier2)
+- [results/stage5/followup_comparison.json](/Users/shubhammishra/Desktop/PhysMons/results/stage5/followup_comparison.json)
+- [results/stage5/probing_variance/](/Users/shubhammishra/Desktop/PhysMons/results/stage5/probing_variance)
+- [results/stage5/probing_variance_tier2/](/Users/shubhammishra/Desktop/PhysMons/results/stage5/probing_variance_tier2)
 
 ## Next Actions (in order)
-1. Review the Stage 5 probing artifacts and false-positive / false-negative pattern.
-2. Decide whether to run Tier 2 cue-token extraction or hold for a new brief.
-3. Do not make stronger H2 claims until the next methodological decision is made.
+1. Review the variance-probe artifacts alongside the Stage 5.1 comparative summary.
+2. Decide whether Stage 6 should treat variance as primary and keep both sites alive rather than locking cue-token as sole primary.
+3. Do not make a clean H2 support claim from the pilot; use the combined evidence to guide the larger Stage 6 expansion.

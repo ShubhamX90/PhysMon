@@ -85,6 +85,23 @@ def test_physics_template_validates_id_domain_and_cue_type() -> None:
         )
 
 
+def test_physics_template_accepts_stage6_unit_matched_ids() -> None:
+    """Stage 6 family IDs such as `CM_B_UM_001` should be accepted."""
+
+    template = PhysicsTemplate(
+        template_id="CM_B_UM_001",
+        domain="mechanics",
+        cue_type="nongoverning_distractor",
+        governing_relation="hooke_law_force",
+        cue_variable="force_on_object_b",
+        auxiliary_assumptions="object B is disconnected from object A",
+        governing_equation="k * x",
+        correct_answer_template="F = k * x",
+        num_variants=4,
+    )
+    assert template.template_id == "CM_B_UM_001"
+
+
 def test_counterfactual_family_warns_when_uncertified() -> None:
     """`CounterfactualFamily` should warn when the solver certificate is absent."""
     template = make_template()
