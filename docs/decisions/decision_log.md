@@ -578,3 +578,90 @@ Gate result: [x] CONDITIONAL PASS (S_lp revised gate)
     `~22.97 MB` estimated storage)
   - Qwen Tier 1 extraction job submitted on A100 as Slurm job `242554`
   - Llama extraction intentionally deferred until Qwen manifest validation completes
+
+## 2026-06-14 — Stage 5 Extraction Progress
+
+- Date: 2026-06-14
+- Decision: Qwen Tier 1 extraction completed successfully and passed manifest
+  validation. Llama Tier 1 extraction was then submitted.
+- Qwen Tier 1 extraction:
+  - Slurm job: `242554`
+  - State: `COMPLETED` (`ExitCode=0:0`, elapsed `00:32:40`)
+  - Manifest validation:
+    - `model_key = qwen_primary`
+    - `model_role = PRIMARY_DENSE`
+    - `120` extracted activation files
+    - `30` unique template families
+    - site set = `['resid_post_last_prompt']`
+- Llama Tier 1 extraction:
+  - Slurm job submitted on A100 as `242558`
+  - Validation pending completion
+
+## 2026-06-14 — Stage 5 Probing Repair Loop
+
+- Date: 2026-06-14
+- Decision: Stage 5 probing moved fully to Sharanga after an accidental local run
+  was stopped. Two cluster probing attempts then exposed late-stage instrumentation
+  bugs, both repaired before resubmission.
+- Probe job history:
+  - `242564` — FAILED (`ExitCode=1:0`, elapsed `00:11:40`)
+    - Cause: random-direction baseline passed unbounded dot-product scores into
+      `compute_auroc`, which enforces probability inputs in `[0, 1]`.
+    - Repair: squash random baseline family scores through a logistic transform
+      before AUROC evaluation.
+  - `242566` — FAILED (`ExitCode=1:0`, elapsed `00:11:22`)
+    - Cause: naive cross-model validation attempted to apply a `3584`-dimensional
+      Qwen probe directly to `4096`-dimensional Llama activations.
+    - Repair: treat raw-space cross-model validation as optional and record a
+      graceful skip when activation dimensions differ.
+- Scientific status:
+  - Both failures were instrumentation issues, not negative scientific findings.
+  - The intended primary Stage 5 result remains the within-model Qwen probing sweep.
+
+## Stage 5 Decision Gate
+
+Gate question: Do prompt-side hidden states predict pre-registered binary
+Qwen `S_lp_theta` labels better than surface baselines?
+
+Evidence:
+- [x] Tier 1 activation extraction completed for both primary models
+  - Qwen job `242554`: `COMPLETED`
+  - Llama job `242558`: `COMPLETED`
+- [x] Surface baseline on binary Qwen `S_lp` labels completed
+  - best baseline: TF-IDF logistic, Qwen AUROC `0.4921`
+- [x] Within-model Qwen probing completed on Sharanga
+  - job `242579`: `COMPLETED`
+  - site: `resid_post_last_prompt`
+  - best layer: `15`
+  - best AUROC: `0.5979`
+  - best AUPRC: `0.4347`
+  - best Brier: `0.2590`
+  - best Pearson r (continuous): `0.1249`
+- [x] Embedding-layer control recorded
+  - layer 0 AUROC: `0.4603`
+  - best-layer minus layer-0 delta: `+0.1376`
+- [x] Random-direction null recorded
+  - mean AUROC: `0.4982`
+  - p95 AUROC: `0.6516`
+- [x] Raw-space cross-model transfer evaluated and skipped with explicit reason
+  - Qwen hidden size `3584` vs Llama hidden size `4096`
+  - no shared projection implemented in Stage 5 pilot
+
+Gate result: [ ] PASS / [x] FAIL
+Reason:
+- The primary H2 gate required AUROC `>= 0.75` and delta over the best surface
+  baseline `>= 0.10`.
+- The probe cleared the surface-baseline delta (`0.5979 - 0.4921 = 0.1058`) but
+  did not meet the AUROC threshold.
+- It also did not exceed the p95 random-direction null (`0.6516`), which weakens
+  any claim that the signal is robustly probe-accessible in the pilot.
+- The probe missed `CM_B_006`, the strongest pre-registered positive family, and
+  produced many false positives in Cue B mechanics/electrostatics families.
+
+Interpretation:
+- Stage 5 provides weak directional evidence that some learned signal may exist at
+  mid layers (best layer `15`, above embedding baseline), but not enough to support
+  H2 under the pre-registered pilot gate.
+- Proceeding to stronger claims would require a redesigned extraction strategy,
+  richer sites (for example cue-token or Tier 2), a larger benchmark, or an
+  explicit projection/alignment plan for cross-model transfer.

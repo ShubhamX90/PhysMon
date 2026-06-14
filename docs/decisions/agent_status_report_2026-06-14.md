@@ -1,6 +1,6 @@
 # PhysMon Agent Status Report
 **Date/Time:** 2026-06-14
-**Session summary:** Completed the Stage 4 v4.1 parser repair, executed the Stage 5 pre-registration transition, and launched the first Qwen activation-extraction job under the revised `S_lp`-primary framing.
+**Session summary:** Completed the Stage 5 pilot end to end under the revised `S_lp`-primary framing: extraction, baselines, probing, repair loop, and final gate assessment.
 
 ## Completed This Session
 - [x] Fixed the Stage 4 parser bugs in
@@ -72,23 +72,35 @@
 - [x] Synced the Stage 5 working tree to Sharanga and submitted the Qwen extraction job:
   - Qwen dry run PASS (`30 families`, `120 files`, `~22.97 MB`)
   - Slurm job id: `242554`
+- [x] Completed Tier 1 activation extraction for both primary models on Sharanga:
+  - Qwen `242554` → `COMPLETED`
+  - Llama `242558` → `COMPLETED`
+- [x] Ran the Stage 5 probing sweep on Sharanga and completed the repair loop:
+  - `242564` failed on random-baseline probability handling
+  - `242566` failed on naive cross-model dimensional mismatch
+  - `242579` completed successfully after both fixes
+- [x] Produced Stage 5 probing artifacts in
+  [results/stage5/probing/](/Users/shubhammishra/Desktop/PhysMons/results/stage5/probing)
+- [x] Recorded the Stage 5 gate result in
+  [docs/decisions/decision_log.md](/Users/shubhammishra/Desktop/PhysMons/docs/decisions/decision_log.md)
 
 ## In Progress
-- [ ] Qwen Tier 1 activation extraction on Sharanga (`242554`) — waiting for
-  manifest completion and file-count verification.
-- [ ] Llama Tier 1 activation extraction — ready to submit once Qwen completes cleanly.
-- [ ] Stage 5 probing execution — scaffold is implemented and locally validated, but
-  awaits extracted activation tensors.
+- [ ] Preparing the Stage 5 handoff / interpretation for the PI before any Stage 6 brief.
 
 ## Blocked / Flagged
-- BLOCKED: Probe training cannot start until the activation manifests are present locally.
-- FLAGGED: Llama extraction is intentionally deferred until Qwen extraction is verified.
-- FLAGGED: The study is now running under the PI-approved `S_lp`-primary framing;
-  clean `hat_S` remains a secondary measure only.
+- BLOCKED: Stage 5 gate is FAIL for H2 support in the pilot.
+- FLAGGED: Best within-model Qwen probe AUROC is `0.5979`, below the pre-registered
+  support threshold of `0.75`.
+- FLAGGED: The probe does beat the best surface baseline by `+0.1058`, but does not
+  beat the p95 random-direction null (`0.6516`).
+- FLAGGED: Raw-space cross-model transfer is not meaningful without an alignment /
+  projection step because Qwen and Llama hidden sizes differ (`3584` vs `4096`).
 
 ## Decisions Required from PI
-- None for the current execution step. The threshold and framing decisions are now
-  resolved and pre-registered.
+- Whether the next brief should focus on:
+  1. Stage 5 follow-up controls / Tier 2 cue-token extraction, or
+  2. Stage 6 benchmark expansion despite the weak pilot H2 result, or
+  3. a methodological redesign before further probing claims.
 
 ## Assumption Checks Completed
 - [A1] Sharanga access: CONFIRMED
@@ -115,6 +127,6 @@
 - [results/stage5/baselines_repair_v2/](/Users/shubhammishra/Desktop/PhysMons/results/stage5/baselines_repair_v2)
 
 ## Next Actions (in order)
-1. Confirm Qwen extraction job `242554` completes with a valid manifest and `120` Tier 1 files.
-2. Submit the Llama Tier 1 extraction job on A100.
-3. Sync activation artifacts down and run the Stage 5 probing pipeline locally.
+1. Review the Stage 5 probing artifacts and false-positive / false-negative pattern.
+2. Decide whether to run Tier 2 cue-token extraction or hold for a new brief.
+3. Do not make stronger H2 claims until the next methodological decision is made.
