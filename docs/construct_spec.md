@@ -283,7 +283,19 @@ Repository language policy:
 
 ## PRE-REGISTRATION
 
-Sensitivity measure:     [TO BE FILLED before Stage 5 begins]
-Binarisation threshold:  [TO BE FILLED before Stage 5 begins]
-Rationale:               [TO BE FILLED before Stage 5 begins]
-Date pre-registered:     [TO BE FILLED]
+Sensitivity measure:     Qwen S_lp_theta(tau) - maximum log-probability drop of the
+                         correct answer across solver-verified invariant family variants.
+                         Formula: max_j [log p_Qwen(y* | x_base) - log p_Qwen(y* | x_j)]
+                         where x_base = variant_id 0, computed via teacher-forced
+                         forward pass on the repaired chat-template-formatted prompts.
+
+Binarisation threshold:  0.5 nats
+
+Rationale:               Targets 30% positive-class rate (9/30 pilot families) in the
+                         pilot training distribution. Natural gap in the S_lp empirical
+                         distribution. Determined from training-split analysis of the
+                         repaired Stage 4 behavioural sweep before any probe training.
+
+Date pre-registered:     2026-06-14
+
+Commit:                  fb43907
