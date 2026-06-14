@@ -1,0 +1,86 @@
+template_id: CM_B_UM_036
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 36
+created_date: '2026-06-15'
+created_by: agent
+governing_law: wave_frequency
+governing_equation_latex: f_A = v_A / \lambda_A
+governing_equation_sympy: v_A / lambda_A
+target_quantity: wave_frequency_A
+target_units: Hz
+parameters:
+  v_A:
+    value: 6.0
+    units: m/s
+    description: wave speed on the string
+  lambda_A:
+    value: 0.3
+    units: m
+    description: wavelength on the string
+correct_answer:
+  value: 20.0
+  units: Hz
+  display: 20.0 Hz
+  sympy_check: abs((v_A / lambda_A) - 20.0) < 0.001
+cue_slot:
+  name: f_B_display
+  description: Frequency of separate oscillator B, unit-matched with the target frequency
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: f_B
+  distractor_units: Hz
+  nongoverning_proof: The governing expression "v_A / lambda_A" has free symbols {v_A,
+    lambda_A}; the distractor symbol f_B is absent from the governing equation.
+  values:
+  - id: 0
+    value: '8.0'
+    display: '8.0'
+  - id: 1
+    value: '15.0'
+    display: '15.0'
+  - id: 2
+    value: '20.0'
+    display: '20.0'
+  - id: 3
+    value: '30.0'
+    display: '30.0'
+  base_variant_id: 0
+prompt_template:
+  context: A wave on string A has speed {v_A} m/s and wavelength {lambda_A} m. In
+    an adjacent part of the lab, oscillator B runs at {f_B_display} Hz, but it never
+    interacts with string A.
+  question: What is the wave frequency on string A?
+  full_template: 'A wave on string A has speed {v_A} m/s and wavelength {lambda_A}
+    m. In an adjacent part of the lab, oscillator B runs at {f_B_display} Hz, but
+    it never interacts with string A.
+
+
+    What is the wave frequency on string A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: In an adjacent part of the lab, oscillator B runs at {f_B_display}
+    Hz, but it never interacts with string A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'v_A = 6.0
+
+    lambda_A = 0.3
+
+    result = v_A / lambda_A
+
+    assert abs(result - 20.0) < 0.001, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- frequency
+- waves
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

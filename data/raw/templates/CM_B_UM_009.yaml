@@ -1,0 +1,94 @@
+template_id: CM_B_UM_009
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 9
+created_date: '2026-06-15'
+created_by: agent
+governing_law: constant_acceleration_velocity
+governing_equation_latex: v_A = u_A + a_A t_A
+governing_equation_sympy: u_A + a_A * t_A
+target_quantity: final_velocity_of_cart_A
+target_units: m/s
+parameters:
+  u_A:
+    value: 3.0
+    units: m/s
+    description: initial speed of cart A
+  a_A:
+    value: 2.0
+    units: m/s^2
+    description: constant acceleration of cart A
+  t_A:
+    value: 4.0
+    units: s
+    description: elapsed time for cart A
+correct_answer:
+  value: 11.0
+  units: m/s
+  display: 11 m/s
+  sympy_check: abs((u_A + a_A * t_A) - 11.0) < 1.1e-05
+cue_slot:
+  name: v_B_display
+  description: Speed of unrelated scooter B, unit-matched with the target velocity
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: v_B
+  distractor_units: m/s
+  nongoverning_proof: The governing expression "u_A + a_A * t_A" has free symbols
+    {u_A, a_A, t_A}; the distractor symbol v_B is absent from the governing equation.
+    The distractor is another speed in m/s, but scooter B moves on a disconnected
+    path and never interacts with cart A.
+  values:
+  - id: 0
+    value: '5.0'
+    display: '5.0'
+  - id: 1
+    value: '8.0'
+    display: '8.0'
+  - id: 2
+    value: '11.0'
+    display: '11.0'
+  - id: 3
+    value: '16.0'
+    display: '16.0'
+  base_variant_id: 0
+prompt_template:
+  context: Cart A starts at {u_A} m/s and accelerates uniformly at {a_A} m/s² for
+    {t_A} s. On a separate path, scooter B moves at {v_B_display} m/s and never interacts
+    with cart A.
+  question: What is the final velocity of cart A?
+  full_template: 'Cart A starts at {u_A} m/s and accelerates uniformly at {a_A} m/s²
+    for {t_A} s. On a separate path, scooter B moves at {v_B_display} m/s and never
+    interacts with cart A.
+
+
+    What is the final velocity of cart A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: On a separate path, scooter B moves at {v_B_display} m/s and never
+    interacts with cart A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'u_A = 3.0
+
+    a_A = 2.0
+
+    t_A = 4.0
+
+    result = u_A + a_A * t_A
+
+    assert abs(result - 11.0) < 1.1e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- velocity
+- kinematics
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

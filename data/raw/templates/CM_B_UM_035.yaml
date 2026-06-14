@@ -1,0 +1,86 @@
+template_id: CM_B_UM_035
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 35
+created_date: '2026-06-15'
+created_by: agent
+governing_law: pendulum_frequency
+governing_equation_latex: f_A = \frac{1}{2\pi}\sqrt{g / L_A}
+governing_equation_sympy: sqrt(g / L_A) / (2 * pi)
+target_quantity: pendulum_frequency_A
+target_units: Hz
+parameters:
+  g:
+    value: 9.8
+    units: m/s^2
+    description: gravitational acceleration
+  L_A:
+    value: 0.25
+    units: m
+    description: pendulum length
+correct_answer:
+  value: 0.996467560784048
+  units: Hz
+  display: 0.997 Hz
+  sympy_check: abs((sqrt(g / L_A) / (2 * pi)) - 0.996467560784048) < 0.001
+cue_slot:
+  name: f_B_display
+  description: Frequency of separate pendulum B, unit-matched with the target frequency
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: f_B
+  distractor_units: Hz
+  nongoverning_proof: The governing expression "sqrt(g / L_A) / (2 * pi)" has free
+    symbols {g, L_A}; the distractor symbol f_B is absent from the governing equation.
+  values:
+  - id: 0
+    value: '0.5'
+    display: '0.5'
+  - id: 1
+    value: '1.0'
+    display: '1.0'
+  - id: 2
+    value: '1.5'
+    display: '1.5'
+  - id: 3
+    value: '2.0'
+    display: '2.0'
+  base_variant_id: 0
+prompt_template:
+  context: Pendulum A has length {L_A} m. Take g = {g} m/s². In an adjacent part of
+    the lab, pendulum B oscillates at {f_B_display} Hz, but pendulum B never interacts
+    with system A.
+  question: What is the oscillation frequency of pendulum A?
+  full_template: 'Pendulum A has length {L_A} m. Take g = {g} m/s². In an adjacent
+    part of the lab, pendulum B oscillates at {f_B_display} Hz, but pendulum B never
+    interacts with system A.
+
+
+    What is the oscillation frequency of pendulum A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: In an adjacent part of the lab, pendulum B oscillates at {f_B_display}
+    Hz, but pendulum B never interacts with system A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'g = 9.8
+
+    L_A = 0.25
+
+    result = sqrt(g / L_A) / (2 * pi)
+
+    assert abs(result - 0.996467560784048) < 0.001, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- frequency
+- pendulum
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

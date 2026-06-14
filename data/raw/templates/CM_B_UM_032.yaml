@@ -1,0 +1,86 @@
+template_id: CM_B_UM_032
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 32
+created_date: '2026-06-15'
+created_by: agent
+governing_law: spring_mass_frequency
+governing_equation_latex: f_A = \frac{1}{2\pi}\sqrt{k_A / m_A}
+governing_equation_sympy: sqrt(k_A / m_A) / (2 * pi)
+target_quantity: spring_mass_frequency_A
+target_units: Hz
+parameters:
+  k_A:
+    value: 100.0
+    units: N/m
+    description: spring constant
+  m_A:
+    value: 1.0
+    units: kg
+    description: mass on spring A
+correct_answer:
+  value: 1.5915494309189535
+  units: Hz
+  display: 1.592 Hz
+  sympy_check: abs((sqrt(k_A / m_A) / (2 * pi)) - 1.5915494309189535) < 0.001
+cue_slot:
+  name: f_B_display
+  description: Frequency of separate oscillator B, unit-matched with the target frequency
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: f_B
+  distractor_units: Hz
+  nongoverning_proof: The governing expression "sqrt(k_A / m_A) / (2 * pi)" has free
+    symbols {k_A, m_A}; the distractor symbol f_B is absent from the governing equation.
+  values:
+  - id: 0
+    value: '0.5'
+    display: '0.5'
+  - id: 1
+    value: '1.0'
+    display: '1.0'
+  - id: 2
+    value: '1.6'
+    display: '1.6'
+  - id: 3
+    value: '2.5'
+    display: '2.5'
+  base_variant_id: 0
+prompt_template:
+  context: Spring-mass system A has spring constant {k_A} N/m and attached mass {m_A}
+    kg. In an adjacent part of the lab, oscillator B runs at {f_B_display} Hz, but
+    oscillator B never interacts with system A.
+  question: What is the oscillation frequency of system A?
+  full_template: 'Spring-mass system A has spring constant {k_A} N/m and attached
+    mass {m_A} kg. In an adjacent part of the lab, oscillator B runs at {f_B_display}
+    Hz, but oscillator B never interacts with system A.
+
+
+    What is the oscillation frequency of system A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: In an adjacent part of the lab, oscillator B runs at {f_B_display}
+    Hz, but oscillator B never interacts with system A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'k_A = 100.0
+
+    m_A = 1.0
+
+    result = sqrt(k_A / m_A) / (2 * pi)
+
+    assert abs(result - 1.5915494309189535) < 0.001, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- frequency
+- oscillation
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

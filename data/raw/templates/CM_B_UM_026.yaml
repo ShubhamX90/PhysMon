@@ -1,0 +1,94 @@
+template_id: CM_B_UM_026
+domain: electrostatics_circuits
+cue_type: nongoverning_distractor
+sequence: 26
+created_date: '2026-06-15'
+created_by: agent
+governing_law: potential_divider
+governing_equation_latex: V_A = V_{in} \frac{R_A}{R_A + R_B}
+governing_equation_sympy: V_in * R_A / (R_A + R_B)
+target_quantity: divider_voltage_across_resistor_A
+target_units: V
+parameters:
+  V_in:
+    value: 20.0
+    units: V
+    description: input voltage
+  R_A:
+    value: 5.0
+    units: Ω
+    description: resistance of resistor A
+  R_B:
+    value: 15.0
+    units: Ω
+    description: resistance of resistor B
+correct_answer:
+  value: 5.0
+  units: V
+  display: 5.0 V
+  sympy_check: abs((V_in * R_A / (R_A + R_B)) - 5.0) < 4.9999999999999996e-06
+cue_slot:
+  name: V_B_display
+  description: Voltage or emf in a separate isolated circuit, unit-matched with the
+    target voltage
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: V_B
+  distractor_units: V
+  nongoverning_proof: The governing expression "V_in * R_A / (R_A + R_B)" has free
+    symbols {V_in, R_A, R_B}; the distractor symbol V_B is absent from the governing
+    equation.
+  values:
+  - id: 0
+    value: '2.0'
+    display: '2.0'
+  - id: 1
+    value: '4.0'
+    display: '4.0'
+  - id: 2
+    value: '5.0'
+    display: '5.0'
+  - id: 3
+    value: '8.0'
+    display: '8.0'
+  base_variant_id: 0
+prompt_template:
+  context: A potential divider has input voltage {V_in} V with resistor A = {R_A}
+    Ω and resistor B = {R_B} Ω. A disconnected battery elsewhere in the diagram has
+    an emf of {V_B_display} V, but it is not connected to the divider.
+  question: What voltage appears across resistor A?
+  full_template: 'A potential divider has input voltage {V_in} V with resistor A =
+    {R_A} Ω and resistor B = {R_B} Ω. A disconnected battery elsewhere in the diagram
+    has an emf of {V_B_display} V, but it is not connected to the divider.
+
+
+    What voltage appears across resistor A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A disconnected battery elsewhere in the diagram has an emf of {V_B_display}
+    V, but it is not connected to the divider.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'V_in = 20.0
+
+    R_A = 5.0
+
+    R_B = 15.0
+
+    result = V_in * R_A / (R_A + R_B)
+
+    assert abs(result - 5.0) < 4.9999999999999996e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- voltage
+- potential_divider
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

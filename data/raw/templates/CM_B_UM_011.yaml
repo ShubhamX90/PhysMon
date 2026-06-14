@@ -1,0 +1,87 @@
+template_id: CM_B_UM_011
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 11
+created_date: '2026-06-15'
+created_by: agent
+governing_law: free_fall_velocity
+governing_equation_latex: v_A = g t_A
+governing_equation_sympy: g * t_A
+target_quantity: downward_velocity_of_ball_A
+target_units: m/s
+parameters:
+  g:
+    value: 9.8
+    units: m/s^2
+    description: gravitational acceleration
+  t_A:
+    value: 1.5
+    units: s
+    description: free-fall time of ball A
+correct_answer:
+  value: 14.7
+  units: m/s
+  display: 14.7 m/s
+  sympy_check: abs((g * t_A) - 14.7) < 1.4699999999999998e-05
+cue_slot:
+  name: v_B_display
+  description: Speed of unrelated drone B, unit-matched with the target velocity
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: v_B
+  distractor_units: m/s
+  nongoverning_proof: The governing expression "g * t_A" has free symbols {g, t_A};
+    the distractor symbol v_B is absent from the governing equation. The distractor
+    is another speed in m/s, but drone B is a separate moving object.
+  values:
+  - id: 0
+    value: '6.0'
+    display: '6.0'
+  - id: 1
+    value: '10.0'
+    display: '10.0'
+  - id: 2
+    value: '14.7'
+    display: '14.7'
+  - id: 3
+    value: '20.0'
+    display: '20.0'
+  base_variant_id: 0
+prompt_template:
+  context: Ball A is dropped from rest and falls freely for {t_A} s. Take g = {g}
+    m/s². At the same moment, drone B moves elsewhere at {v_B_display} m/s and never
+    interacts with ball A.
+  question: What is the downward velocity of ball A after {t_A} s?
+  full_template: 'Ball A is dropped from rest and falls freely for {t_A} s. Take g
+    = {g} m/s². At the same moment, drone B moves elsewhere at {v_B_display} m/s and
+    never interacts with ball A.
+
+
+    What is the downward velocity of ball A after {t_A} s?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: At the same moment, drone B moves elsewhere at {v_B_display} m/s and
+    never interacts with ball A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'g = 9.8
+
+    t_A = 1.5
+
+    result = g * t_A
+
+    assert abs(result - 14.7) < 1.4699999999999998e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- velocity
+- free_fall
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

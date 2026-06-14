@@ -1,0 +1,88 @@
+template_id: CM_B_UM_012
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 12
+created_date: '2026-06-15'
+created_by: agent
+governing_law: wave_speed
+governing_equation_latex: v_A = f_A \lambda_A
+governing_equation_sympy: f_A * lambda_A
+target_quantity: wave_speed_on_string_A
+target_units: m/s
+parameters:
+  f_A:
+    value: 5.0
+    units: Hz
+    description: frequency of the wave on string A
+  lambda_A:
+    value: 2.4
+    units: m
+    description: wavelength on string A
+correct_answer:
+  value: 12.0
+  units: m/s
+  display: 12 m/s
+  sympy_check: abs((f_A * lambda_A) - 12.0) < 1.2e-05
+cue_slot:
+  name: v_B_display
+  description: Speed of unrelated cart B, unit-matched with the target velocity
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: v_B
+  distractor_units: m/s
+  nongoverning_proof: The governing expression "f_A * lambda_A" has free symbols {f_A,
+    lambda_A}; the distractor symbol v_B is absent from the governing equation. The
+    distractor is another speed in m/s, but it belongs to cart B and not to the wave
+    on string A.
+  values:
+  - id: 0
+    value: '3.0'
+    display: '3.0'
+  - id: 1
+    value: '7.5'
+    display: '7.5'
+  - id: 2
+    value: '12.0'
+    display: '12.0'
+  - id: 3
+    value: '18.0'
+    display: '18.0'
+  base_variant_id: 0
+prompt_template:
+  context: A wave on string A has frequency {f_A} Hz and wavelength {lambda_A} m.
+    In another experiment, cart B moves at {v_B_display} m/s and never affects string
+    A.
+  question: What is the speed of the wave on string A?
+  full_template: 'A wave on string A has frequency {f_A} Hz and wavelength {lambda_A}
+    m. In another experiment, cart B moves at {v_B_display} m/s and never affects
+    string A.
+
+
+    What is the speed of the wave on string A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: In another experiment, cart B moves at {v_B_display} m/s and never
+    affects string A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'f_A = 5.0
+
+    lambda_A = 2.4
+
+    result = f_A * lambda_A
+
+    assert abs(result - 12.0) < 1.2e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- velocity
+- waves
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

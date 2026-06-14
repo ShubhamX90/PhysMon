@@ -665,3 +665,147 @@ Interpretation:
 - Proceeding to stronger claims would require a redesigned extraction strategy,
   richer sites (for example cue-token or Tier 2), a larger benchmark, or an
   explicit projection/alignment plan for cross-model transfer.
+
+## Stage 5.1 Follow-Up Gate
+
+Gate question: Does any follow-up variant (cue-token Tier 2, contrast probing,
+or PCA-reduced probing) recover a materially stronger H2 signal than the original
+Tier 1 last-prompt probe, including correct ranking of `CM_B_006`?
+
+Evidence:
+- [x] Qwen Tier 2 extraction completed and validated
+  - job `242584`: `COMPLETED`
+  - manifest: `240` files total, `120` cue-token tensors, `30` families
+- [x] Llama Tier 2 extraction completed and validated
+  - job `242590`: `COMPLETED`
+  - manifest: `240` files total, `30` families
+- [x] Qwen Tier 2 probe completed
+  - job `242589`: `COMPLETED`
+  - best AUROC: `0.6720`
+  - best layer: `26`
+  - best Pearson r: `0.1868`
+  - embedding-layer AUROC: `0.3915`
+- [x] Qwen contrast probe completed
+  - job `242585`: `COMPLETED`
+  - best AUROC: `0.5238`
+  - best layer: `25`
+- [x] Qwen PCA-reduced Tier 1 probe completed
+  - job `242586`: `COMPLETED`
+  - best AUROC (`pca50`): `0.5344`
+- [x] Comparative summary written
+  - `results/stage5/followup_comparison.json`
+  - Tier 1 best AUROC: `0.5979`
+  - Tier 2 best AUROC: `0.6720`
+  - contrast best AUROC: `0.5238`
+  - PCA50 best AUROC: `0.5344`
+  - surface baseline AUROC: `0.4921`
+  - Tier 1 `CM_B_006` prediction: `0.000167`
+  - Tier 2 `CM_B_006` prediction: `0.0555`
+
+Gate result: [ ] PASS / [x] MIXED / [ ] FAIL
+Reason:
+- The cue-token site improves substantially over the original Tier 1 site
+  (`0.6720` vs `0.5979`) and exceeds the surface baseline by `+0.1799`.
+- However, the follow-up does **not** satisfy the strongest positive criterion from
+  the brief because `CM_B_006`, the flagship outlier family, is still ranked as
+  negative (`0.0555`) even at the best Tier 2 layer.
+- Contrast probing and PCA-reduced Tier 1 probing do not outperform the Tier 2
+  cue-token result.
+
+Interpretation:
+- The pilot still does not support a clean H2 claim.
+- But the cue-token result is informative: the sensitivity signal is more accessible
+  at the distractor site than at the final prompt token.
+- The remaining failure on `CM_B_006` suggests the pilot is still constrained by
+  sample size and/or family-level averaging, even after moving to the better site.
+
+## 2026-06-15 — Stage 6 Mandatory Variance Probe (Pilot Re-analysis)
+
+- Date: 2026-06-15
+- Decision: Completed the mandatory variance-probe re-analysis on existing Qwen
+  Tier 1 and Tier 2 activations before beginning any Stage 6 family construction.
+- Code change:
+  - committed `dd9d948` — `[Stage6] Add variance probe mode`
+- Runs:
+  - Tier 1 last-prompt variance probe:
+    - output: `results/stage5/probing_variance/summary_variance.json`
+    - best AUROC: `0.7302`
+    - best layer: `21`
+    - best Pearson r: `0.0455`
+    - random-direction p95: `0.6942`
+    - `CM_B_006` LOO prediction: `0.4946`
+  - Tier 2 cue-token variance probe:
+    - output: `results/stage5/probing_variance_tier2/summary_variance.json`
+    - best AUROC: `0.6720`
+    - best layer: `7`
+    - best Pearson r: `-0.8740`
+    - random-direction p95: `0.6405`
+    - `CM_B_006` LOO prediction: `0.5000`
+
+Interpretation:
+- The variance probe materially improves over the original Tier 1 mean probe
+  (`0.7302` vs `0.5979`) and lands in the brief's "directional evidence" band.
+- However, it does **not** support the expectation that cue-token variance is the
+  primary signal carrier in the pilot. On the existing 30-family dataset, the
+  strongest variance result is the Tier 1 last-prompt site, not Tier 2 cue-token.
+- `CM_B_006` improves from near-zero prediction (`0.000167`) to near-boundary
+  predictions (`0.4946` Tier 1 variance, `0.5000` Tier 2 variance), but is still
+  not cleanly detected as positive under LOO-CV.
+- This supports continuing to Stage 6 benchmark expansion, but with a softer claim:
+  the pilot indicates measurement strengthening works, not that the full Stage 6
+  probe configuration is already locked.
+
+## Stage 6 GO — Variance Probe Results Confirm Expansion
+
+Date: 2026-06-15
+
+Variance probe results on existing 30-family pilot data:
+  - Tier 1 last-prompt variance AUROC:  0.7302 (layer 21)
+    Random direction p95:                0.6942 -> BEATS NULL
+    Bootstrap CI:                        [0.518, 0.925]
+    CM_B_006 prediction:                 0.4946 (vs 0.000167 with mean probe)
+    Probe type: std_dev of 4 variant activations at last-prompt-token site
+
+  - Tier 2 cue-token variance AUROC:    0.6720 (layer 7)
+    All LOO predictions collapsed near 0.5 and the site is not reliable as the
+    primary variance analysis axis on the pilot.
+    Pearson r anomaly:                   -0.8740 at the best layer
+    CM_B_006 prediction:                 0.5000
+
+Decision: STAGE 6 GO
+Evidence: Tier 1 variance probe beats random null, bootstrap CI above chance,
+          and CM_B_006 becomes recoverable at the decision boundary.
+
+Primary probe type for Stage 6: VARIANCE on last-prompt-token, layers 18-23.
+Secondary: mean on cue-token (Tier 2), retaining the strongest Stage 5.1 signal.
+
+## 2026-06-15 — Stage 6 Phase 1 Construction Progress
+
+- Completed unit-matched Cue B mechanics families for:
+  - Force/Force: `CM_B_UM_001`-`CM_B_UM_008`
+  - Velocity/Velocity: `CM_B_UM_009`-`CM_B_UM_014`
+- Verifier status: 14/14 templates passed symbolic verification.
+- Rendering status: 14/14 rendered successfully to `results/stage6/generated_phase1_partial/`.
+- Validation handoff artifacts prepared:
+  - `docs/validation/stage6_phase1_partial_validation_form.md`
+  - `docs/validation/stage6_phase1_partial_validation_form.csv`
+- Remaining to finish Stage 6 Phase 1:
+  - Current/Current (6)
+  - Voltage/Voltage (6)
+  - Torque/Torque (5)
+  - Frequency/Frequency (5)
+  - Charge/Charge (4)
+
+## 2026-06-15 — PI Self-Validation of CM_B_UM_001-014
+
+PI self-validation of `CM_B_UM_001`-`CM_B_UM_014` complete (2026-06-15).
+All 14 families pass Q1/Q2/Q3/Q4.
+
+Design note:
+- 8 of 14 families include one distractor value that numerically equals the correct answer.
+- This is intentional and scientifically desirable because it creates maximum semantic
+  ambiguity while preserving solver-verified invariance.
+- SymPy confirms the governing equation is independent of the distractor symbol in all cases.
+
+Follow-up action:
+- `validation.verifier_certified` set to `true` in all 14 PI-validated YAML files.

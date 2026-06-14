@@ -1,0 +1,87 @@
+template_id: CM_B_UM_018
+domain: electrostatics_circuits
+cue_type: nongoverning_distractor
+sequence: 18
+created_date: '2026-06-15'
+created_by: agent
+governing_law: single_branch_current
+governing_equation_latex: I_A = V / R_A
+governing_equation_sympy: V / R_A
+target_quantity: current_through_branch_A
+target_units: A
+parameters:
+  V:
+    value: 18.0
+    units: V
+    description: supply voltage
+  R_A:
+    value: 6.0
+    units: Ω
+    description: branch-A resistance
+correct_answer:
+  value: 3.0
+  units: A
+  display: 3.0 A
+  sympy_check: abs((V / R_A) - 3.0) < 3e-06
+cue_slot:
+  name: I_B_display
+  description: Current in a separate isolated circuit, unit-matched with the target
+    current
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: I_B
+  distractor_units: A
+  nongoverning_proof: The governing expression "V / R_A" has free symbols {V, R_A};
+    the distractor symbol I_B is absent from the governing equation.
+  values:
+  - id: 0
+    value: '1.0'
+    display: '1.0'
+  - id: 1
+    value: '2.0'
+    display: '2.0'
+  - id: 2
+    value: '3.0'
+    display: '3.0'
+  - id: 3
+    value: '6.0'
+    display: '6.0'
+  base_variant_id: 0
+prompt_template:
+  context: Circuit A places resistor A of {R_A} Ω across a {V} V source. A different
+    circuit in the same lab carries {I_B_display} A in its main branch, but that circuit
+    is electrically isolated from resistor A.
+  question: What current flows through resistor A?
+  full_template: 'Circuit A places resistor A of {R_A} Ω across a {V} V source. A
+    different circuit in the same lab carries {I_B_display} A in its main branch,
+    but that circuit is electrically isolated from resistor A.
+
+
+    What current flows through resistor A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A different circuit in the same lab carries {I_B_display} A in its
+    main branch, but that circuit is electrically isolated from resistor A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'V = 18.0
+
+    R_A = 6.0
+
+    result = V / R_A
+
+    assert abs(result - 3.0) < 3e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- current
+- branch_current
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

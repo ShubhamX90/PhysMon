@@ -1,0 +1,88 @@
+template_id: CM_B_UM_016
+domain: electrostatics_circuits
+cue_type: nongoverning_distractor
+sequence: 16
+created_date: '2026-06-15'
+created_by: agent
+governing_law: power_voltage_current
+governing_equation_latex: I_A = P_A / V_A
+governing_equation_sympy: P_A / V_A
+target_quantity: current_drawn_by_device_A
+target_units: A
+parameters:
+  P_A:
+    value: 20.0
+    units: W
+    description: power of device A
+  V_A:
+    value: 4.0
+    units: V
+    description: voltage across device A
+correct_answer:
+  value: 5.0
+  units: A
+  display: 5.0 A
+  sympy_check: abs((P_A / V_A) - 5.0) < 4.9999999999999996e-06
+cue_slot:
+  name: I_B_display
+  description: Current in a separate isolated circuit, unit-matched with the target
+    current
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: I_B
+  distractor_units: A
+  nongoverning_proof: The governing expression "P_A / V_A" has free symbols {P_A,
+    V_A}; the distractor symbol I_B is absent from the governing equation. The distractor
+    current belongs to an isolated circuit and does not govern device A.
+  values:
+  - id: 0
+    value: '2.0'
+    display: '2.0'
+  - id: 1
+    value: '3.0'
+    display: '3.0'
+  - id: 2
+    value: '5.0'
+    display: '5.0'
+  - id: 3
+    value: '8.0'
+    display: '8.0'
+  base_variant_id: 0
+prompt_template:
+  context: Device A uses {P_A} W when connected across a {V_A} V supply. A different
+    circuit in the same lab carries {I_B_display} A in its main branch, but that circuit
+    is electrically isolated from device A.
+  question: What current does device A draw?
+  full_template: 'Device A uses {P_A} W when connected across a {V_A} V supply. A
+    different circuit in the same lab carries {I_B_display} A in its main branch,
+    but that circuit is electrically isolated from device A.
+
+
+    What current does device A draw?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A different circuit in the same lab carries {I_B_display} A in its
+    main branch, but that circuit is electrically isolated from device A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'P_A = 20.0
+
+    V_A = 4.0
+
+    result = P_A / V_A
+
+    assert abs(result - 5.0) < 4.9999999999999996e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- current
+- power
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

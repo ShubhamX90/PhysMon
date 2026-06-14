@@ -1,0 +1,88 @@
+template_id: CM_B_UM_027
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 27
+created_date: '2026-06-15'
+created_by: agent
+governing_law: torque_from_perpendicular_force
+governing_equation_latex: \tau_A = r_A F_A
+governing_equation_sympy: r_A * F_A
+target_quantity: torque_on_system_A
+target_units: N*m
+parameters:
+  r_A:
+    value: 0.3
+    units: m
+    description: lever arm length for system A
+  F_A:
+    value: 20.0
+    units: N
+    description: perpendicular force on system A
+correct_answer:
+  value: 6.0
+  units: N*m
+  display: 6.0 N*m
+  sympy_check: abs((r_A * F_A) - 6.0) < 6e-06
+cue_slot:
+  name: tau_B_display
+  description: Torque in a separate isolated mechanical system, unit-matched with
+    the target torque
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: tau_B
+  distractor_units: N*m
+  nongoverning_proof: The governing expression "r_A * F_A" has free symbols {r_A,
+    F_A}; the distractor symbol tau_B is absent from the governing equation. The distractor
+    torque belongs to a mechanically separate system B.
+  values:
+  - id: 0
+    value: '2.0'
+    display: '2.0'
+  - id: 1
+    value: '4.0'
+    display: '4.0'
+  - id: 2
+    value: '6.0'
+    display: '6.0'
+  - id: 3
+    value: '10.0'
+    display: '10.0'
+  base_variant_id: 0
+prompt_template:
+  context: System A has a lever arm of {r_A} m and experiences a perpendicular force
+    of {F_A} N. In an adjacent workshop, a separate wrench system B produces a torque
+    of {tau_B_display} N*m, but it is mechanically isolated from system A.
+  question: What torque acts on system A?
+  full_template: 'System A has a lever arm of {r_A} m and experiences a perpendicular
+    force of {F_A} N. In an adjacent workshop, a separate wrench system B produces
+    a torque of {tau_B_display} N*m, but it is mechanically isolated from system A.
+
+
+    What torque acts on system A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: In an adjacent workshop, a separate wrench system B produces a torque
+    of {tau_B_display} N*m, but it is mechanically isolated from system A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'r_A = 0.3
+
+    F_A = 20.0
+
+    result = r_A * F_A
+
+    assert abs(result - 6.0) < 6e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- torque
+- rotational_dynamics
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

@@ -1,0 +1,96 @@
+template_id: CM_B_UM_004
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 4
+created_date: '2026-06-15'
+created_by: agent
+governing_law: kinetic_friction_force
+governing_equation_latex: f_k = \mu_k m_A g
+governing_equation_sympy: mu_k * m_A * g
+target_quantity: kinetic_friction_on_block_A
+target_units: N
+parameters:
+  mu_k:
+    value: 0.3
+    units: dimensionless
+    description: kinetic friction coefficient
+  m_A:
+    value: 5.0
+    units: kg
+    description: mass of block A
+  g:
+    value: 9.8
+    units: m/s^2
+    description: gravitational acceleration
+correct_answer:
+  value: 14.7
+  units: N
+  display: 14.7 N
+  sympy_check: abs((mu_k * m_A * g) - 14.7) < 1.4699999999999998e-05
+cue_slot:
+  name: F_B_display
+  description: Thrust force on unrelated glider B, unit-matched with the target force
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: F_B
+  distractor_units: N
+  nongoverning_proof: The governing expression "mu_k * m_A * g" has free symbols {mu_k,
+    m_A, g}; the distractor symbol F_B is absent from the governing equation. The
+    distractor is another force in Newtons applied to glider B on a separate track,
+    so it cannot affect the friction force on block A.
+  values:
+  - id: 0
+    value: '7.0'
+    display: '7.0'
+  - id: 1
+    value: '14.0'
+    display: '14.0'
+  - id: 2
+    value: '21.0'
+    display: '21.0'
+  - id: 3
+    value: '28.0'
+    display: '28.0'
+  base_variant_id: 0
+prompt_template:
+  context: Block A of mass {m_A} kg slides across a horizontal surface with kinetic
+    friction coefficient {mu_k}. Take g = {g} m/s². On an isolated air track, glider
+    B is pushed by a thrust force of {F_B_display} N and never interacts with block
+    A.
+  question: What is the kinetic friction force acting on block A?
+  full_template: 'Block A of mass {m_A} kg slides across a horizontal surface with
+    kinetic friction coefficient {mu_k}. Take g = {g} m/s². On an isolated air track,
+    glider B is pushed by a thrust force of {F_B_display} N and never interacts with
+    block A.
+
+
+    What is the kinetic friction force acting on block A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: On an isolated air track, glider B is pushed by a thrust force of
+    {F_B_display} N and never interacts with block A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'mu_k = 0.3
+
+    m_A = 5.0
+
+    g = 9.8
+
+    result = mu_k * m_A * g
+
+    assert abs(result - 14.7) < 1.4699999999999998e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- force
+- friction
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

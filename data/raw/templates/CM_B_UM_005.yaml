@@ -1,0 +1,88 @@
+template_id: CM_B_UM_005
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 5
+created_date: '2026-06-15'
+created_by: agent
+governing_law: tension_static_support
+governing_equation_latex: T_A = m_A g
+governing_equation_sympy: m_A * g
+target_quantity: tension_in_rope_A
+target_units: N
+parameters:
+  m_A:
+    value: 3.0
+    units: kg
+    description: mass supported by rope A
+  g:
+    value: 9.8
+    units: m/s^2
+    description: gravitational acceleration
+correct_answer:
+  value: 29.4
+  units: N
+  display: 29.4 N
+  sympy_check: abs((m_A * g) - 29.4) < 2.9399999999999996e-05
+cue_slot:
+  name: F_B_display
+  description: Push force on unrelated crate B, unit-matched with the target tension
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: F_B
+  distractor_units: N
+  nongoverning_proof: The governing expression "m_A * g" has free symbols {m_A, g};
+    the distractor symbol F_B is absent from the governing equation. The distractor
+    is another force in Newtons applied to crate B in a separate experiment, so it
+    does not influence the tension in rope A.
+  values:
+  - id: 0
+    value: '9.8'
+    display: '9.8'
+  - id: 1
+    value: '19.6'
+    display: '19.6'
+  - id: 2
+    value: '29.4'
+    display: '29.4'
+  - id: 3
+    value: '39.2'
+    display: '39.2'
+  base_variant_id: 0
+prompt_template:
+  context: A bucket of mass {m_A} kg hangs motionless from rope A. Take g = {g} m/s².
+    On another bench, crate B is pushed with a horizontal force of {F_B_display} N,
+    and that setup never interacts with rope A or the bucket.
+  question: What is the tension in rope A?
+  full_template: 'A bucket of mass {m_A} kg hangs motionless from rope A. Take g =
+    {g} m/s². On another bench, crate B is pushed with a horizontal force of {F_B_display}
+    N, and that setup never interacts with rope A or the bucket.
+
+
+    What is the tension in rope A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: On another bench, crate B is pushed with a horizontal force of {F_B_display}
+    N, and that setup never interacts with rope A or the bucket.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm_A = 3.0
+
+    g = 9.8
+
+    result = m_A * g
+
+    assert abs(result - 29.4) < 2.9399999999999996e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- force
+- tension
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

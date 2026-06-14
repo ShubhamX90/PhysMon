@@ -1,0 +1,93 @@
+template_id: CM_B_UM_025
+domain: electrostatics_circuits
+cue_type: nongoverning_distractor
+sequence: 25
+created_date: '2026-06-15'
+created_by: agent
+governing_law: terminal_voltage
+governing_equation_latex: V_{terminal} = \mathcal{E} - I r
+governing_equation_sympy: emf - I * r
+target_quantity: terminal_voltage_of_battery_A
+target_units: V
+parameters:
+  emf:
+    value: 9.0
+    units: V
+    description: battery emf
+  I:
+    value: 1.5
+    units: A
+    description: current supplied by the battery
+  r:
+    value: 2.0
+    units: Ω
+    description: internal resistance
+correct_answer:
+  value: 6.0
+  units: V
+  display: 6.0 V
+  sympy_check: abs((emf - I * r) - 6.0) < 6e-06
+cue_slot:
+  name: V_B_display
+  description: Voltage or emf in a separate isolated circuit, unit-matched with the
+    target voltage
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: V_B
+  distractor_units: V
+  nongoverning_proof: The governing expression "emf - I * r" has free symbols {emf,
+    I, r}; the distractor symbol V_B is absent from the governing equation.
+  values:
+  - id: 0
+    value: '3.0'
+    display: '3.0'
+  - id: 1
+    value: '6.0'
+    display: '6.0'
+  - id: 2
+    value: '9.0'
+    display: '9.0'
+  - id: 3
+    value: '12.0'
+    display: '12.0'
+  base_variant_id: 0
+prompt_template:
+  context: Battery A has emf {emf} V, internal resistance {r} Ω, and supplies current
+    {I} A. A disconnected battery elsewhere in the diagram has an emf of {V_B_display}
+    V, but it is not connected to the main circuit.
+  question: What is the terminal voltage of battery A?
+  full_template: 'Battery A has emf {emf} V, internal resistance {r} Ω, and supplies
+    current {I} A. A disconnected battery elsewhere in the diagram has an emf of {V_B_display}
+    V, but it is not connected to the main circuit.
+
+
+    What is the terminal voltage of battery A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A disconnected battery elsewhere in the diagram has an emf of {V_B_display}
+    V, but it is not connected to the main circuit.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'emf = 9.0
+
+    I = 1.5
+
+    r = 2.0
+
+    result = emf - I * r
+
+    assert abs(result - 6.0) < 6e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- voltage
+- battery
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

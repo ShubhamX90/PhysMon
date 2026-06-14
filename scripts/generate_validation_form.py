@@ -27,6 +27,10 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--template-dir", required=True, help="Directory containing YAML templates.")
     parser.add_argument("--generated-dir", required=True, help="Directory containing rendered family JSON.")
+    parser.add_argument(
+        "--template-filter",
+        help="Optional template-id prefix filter (for example `CM_B_UM`).",
+    )
     parser.add_argument("--markdown-output", required=True, help="Markdown form output path.")
     parser.add_argument("--csv-output", required=True, help="CSV scaffold output path.")
     return parser.parse_args()
@@ -40,7 +44,14 @@ def main() -> None:
 
     sections: list[str] = ["# Pilot Validation Form", ""]
     csv_rows: list[dict[str, str]] = []
-    for family_path in sorted(generated_dir.glob("*.json")):
+    family_paths = sorted(generated_dir.glob("*.json"))
+    if args.template_filter:
+        family_paths = [
+            path for path in family_paths
+            if path.stem.startswith(args.template_filter)
+        ]
+
+    for family_path in family_paths:
         family_payload = json.loads(family_path.read_text(encoding="utf-8"))
         template_id = str(family_payload["template_id"])
         template_payload = read_yaml(template_dir / f"{template_id}.yaml")

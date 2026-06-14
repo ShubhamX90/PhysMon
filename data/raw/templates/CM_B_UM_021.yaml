@@ -1,0 +1,87 @@
+template_id: CM_B_UM_021
+domain: electrostatics_circuits
+cue_type: nongoverning_distractor
+sequence: 21
+created_date: '2026-06-15'
+created_by: agent
+governing_law: ohms_law_voltage
+governing_equation_latex: V_A = I_A R_A
+governing_equation_sympy: I_A * R_A
+target_quantity: voltage_across_resistor_A
+target_units: V
+parameters:
+  I_A:
+    value: 2.0
+    units: A
+    description: current through resistor A
+  R_A:
+    value: 6.0
+    units: Ω
+    description: resistance of resistor A
+correct_answer:
+  value: 12.0
+  units: V
+  display: 12.0 V
+  sympy_check: abs((I_A * R_A) - 12.0) < 1.2e-05
+cue_slot:
+  name: V_B_display
+  description: Voltage or emf in a separate isolated circuit, unit-matched with the
+    target voltage
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: V_B
+  distractor_units: V
+  nongoverning_proof: The governing expression "I_A * R_A" has free symbols {I_A,
+    R_A}; the distractor symbol V_B is absent from the governing equation.
+  values:
+  - id: 0
+    value: '4.0'
+    display: '4.0'
+  - id: 1
+    value: '8.0'
+    display: '8.0'
+  - id: 2
+    value: '12.0'
+    display: '12.0'
+  - id: 3
+    value: '18.0'
+    display: '18.0'
+  base_variant_id: 0
+prompt_template:
+  context: Resistor A carries {I_A} A and has resistance {R_A} Ω. A disconnected battery
+    elsewhere in the diagram has an emf of {V_B_display} V, but it is not connected
+    to the main loop.
+  question: What is the voltage across resistor A?
+  full_template: 'Resistor A carries {I_A} A and has resistance {R_A} Ω. A disconnected
+    battery elsewhere in the diagram has an emf of {V_B_display} V, but it is not
+    connected to the main loop.
+
+
+    What is the voltage across resistor A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A disconnected battery elsewhere in the diagram has an emf of {V_B_display}
+    V, but it is not connected to the main loop.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'I_A = 2.0
+
+    R_A = 6.0
+
+    result = I_A * R_A
+
+    assert abs(result - 12.0) < 1.2e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- voltage
+- ohms_law
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

@@ -27,6 +27,10 @@ def parse_args() -> argparse.Namespace:
         "--template",
         help="Optional single Stage 3 YAML template path. Use instead of --template-dir.",
     )
+    parser.add_argument(
+        "--family-filter",
+        help="Optional template-id prefix filter (for example `CM_B_UM`). Applies only with --template-dir.",
+    )
     parser.add_argument("--output-dir", required=True, help="Directory for rendered family JSON.")
     parser.add_argument("--report", required=True, help="Path to the render-summary JSON.")
     parser.add_argument("--verify", action="store_true", help="Run symbolic verification before rendering.")
@@ -47,6 +51,11 @@ def main() -> None:
         if args.template
         else sorted(Path(args.template_dir).glob("*.yaml"))
     )
+    if args.family_filter:
+        template_paths = [
+            path for path in template_paths
+            if path.stem.startswith(args.family_filter)
+        ]
     logger = ExperimentLogger(
         script_name="render_all_templates.py",
         stage=DEFAULT_STAGE,

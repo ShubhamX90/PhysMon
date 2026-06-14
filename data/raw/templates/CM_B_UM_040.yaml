@@ -1,0 +1,89 @@
+template_id: CM_B_UM_040
+domain: electrostatics_circuits
+cue_type: nongoverning_distractor
+sequence: 40
+created_date: '2026-06-15'
+created_by: agent
+governing_law: capacitor_charge
+governing_equation_latex: Q_A = C_A V_A
+governing_equation_sympy: C_A * V_A
+target_quantity: charge_on_capacitor_A
+target_units: C
+parameters:
+  C_A:
+    value: 1.0e-05
+    units: F
+    description: capacitance of capacitor A
+    display: 1.0e-05 F
+  V_A:
+    value: 5.0
+    units: V
+    description: voltage across capacitor A
+correct_answer:
+  value: 5.0e-05
+  units: C
+  display: 5.0e-5 C
+  sympy_check: abs((C_A * V_A) - 5e-05) < 5e-11
+cue_slot:
+  name: Q_B_display
+  description: Charge on separate disconnected capacitor B, unit-matched with the
+    target charge
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: Q_B
+  distractor_units: C
+  nongoverning_proof: The governing expression "C_A * V_A" has free symbols {C_A,
+    V_A}; the distractor symbol Q_B is absent from the governing equation. Capacitor
+    B is fully disconnected from capacitor A and its circuit.
+  values:
+  - id: 0
+    value: 1e-5
+    display: 1e-5
+  - id: 1
+    value: 3e-5
+    display: 3e-5
+  - id: 2
+    value: 5e-5
+    display: 5e-5
+  - id: 3
+    value: 8e-5
+    display: 8e-5
+  base_variant_id: 0
+prompt_template:
+  context: Capacitor A has capacitance {C_A} and is connected across a {V_A} V source.
+    A separate capacitor C2 in an adjacent box holds a charge of {Q_B_display} C,
+    but C2 is fully disconnected from capacitor A and its circuit.
+  question: What charge is stored on capacitor A?
+  full_template: 'Capacitor A has capacitance {C_A} and is connected across a {V_A}
+    V source. A separate capacitor C2 in an adjacent box holds a charge of {Q_B_display}
+    C, but C2 is fully disconnected from capacitor A and its circuit.
+
+
+    What charge is stored on capacitor A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate capacitor C2 in an adjacent box holds a charge of {Q_B_display}
+    C, but C2 is fully disconnected from capacitor A and its circuit.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'C_A = 1e-05
+
+    V_A = 5.0
+
+    result = C_A * V_A
+
+    assert abs(result - 5e-05) < 5e-11, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- charge
+- capacitor
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

@@ -1,0 +1,92 @@
+template_id: CM_B_UM_001
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 1
+created_date: '2026-06-15'
+created_by: agent
+governing_law: hooke_law_force
+governing_equation_latex: F_A = k_A x_A
+governing_equation_sympy: k_A * x_A
+target_quantity: spring_force_on_object_A
+target_units: N
+parameters:
+  k_A:
+    value: 120.0
+    units: N/m
+    description: spring constant of spring A
+  x_A:
+    value: 0.15
+    units: m
+    description: extension of spring A
+correct_answer:
+  value: 18.0
+  units: N
+  display: 18 N
+  sympy_check: abs((k_A * x_A) - 18.0) < 1.8e-05
+cue_slot:
+  name: F_B_display
+  description: Weight force acting on unrelated object B, unit-matched with the target
+    force
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: F_B
+  distractor_units: N
+  nongoverning_proof: The governing expression "k_A * x_A" has free symbols {k_A,
+    x_A}; the distractor symbol F_B is absent from the governing equation. The distractor
+    is expressed in Newtons, matching the target force units, but it acts on a separate
+    hanging object B that never interacts with spring A.
+  values:
+  - id: 0
+    value: '8.0'
+    display: '8.0'
+  - id: 1
+    value: '12.0'
+    display: '12.0'
+  - id: 2
+    value: '18.0'
+    display: '18.0'
+  - id: 3
+    value: '24.0'
+    display: '24.0'
+  base_variant_id: 0
+prompt_template:
+  context: Spring A has spring constant {k_A} N/m and is stretched by {x_A} m from
+    equilibrium. In a separate corner of the lab, object B experiences a downward
+    weight force of {F_B_display} N, but object B never interacts with spring A or
+    the attached object.
+  question: What is the force exerted by spring A?
+  full_template: 'Spring A has spring constant {k_A} N/m and is stretched by {x_A}
+    m from equilibrium. In a separate corner of the lab, object B experiences a downward
+    weight force of {F_B_display} N, but object B never interacts with spring A or
+    the attached object.
+
+
+    What is the force exerted by spring A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: In a separate corner of the lab, object B experiences a downward weight
+    force of {F_B_display} N, but object B never interacts with spring A or the attached
+    object.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'k_A = 120.0
+
+    x_A = 0.15
+
+    result = k_A * x_A
+
+    assert abs(result - 18.0) < 1.8e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- force
+- hooke_law
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

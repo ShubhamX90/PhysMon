@@ -1,0 +1,88 @@
+template_id: CM_B_UM_013
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 13
+created_date: '2026-06-15'
+created_by: agent
+governing_law: circular_speed
+governing_equation_latex: v_A = 2\pi r_A / T_A
+governing_equation_sympy: 2 * pi * r_A / T_A
+target_quantity: speed_of_object_A_in_uniform_circular_motion
+target_units: m/s
+parameters:
+  r_A:
+    value: 1.5
+    units: m
+    description: radius of circular path
+  T_A:
+    value: 3.0
+    units: s
+    description: period of revolution
+correct_answer:
+  value: 3.141592653589793
+  units: m/s
+  display: 3.1416 m/s
+  sympy_check: abs((2 * pi * r_A / T_A) - 3.141592653589793) < 3.141592653589793e-06
+cue_slot:
+  name: v_B_display
+  description: Speed of unrelated skater B, unit-matched with the target velocity
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: v_B
+  distractor_units: m/s
+  nongoverning_proof: The governing expression "2 * pi * r_A / T_A" has free symbols
+    {r_A, T_A}; the distractor symbol v_B is absent from the governing equation. The
+    distractor is another speed in m/s for skater B on a separate track.
+  values:
+  - id: 0
+    value: '1.5'
+    display: '1.5'
+  - id: 1
+    value: '3.1'
+    display: '3.1'
+  - id: 2
+    value: '4.5'
+    display: '4.5'
+  - id: 3
+    value: '6.0'
+    display: '6.0'
+  base_variant_id: 0
+prompt_template:
+  context: Object A moves in a circle of radius {r_A} m and completes one revolution
+    every {T_A} s. On another rink, skater B travels at {v_B_display} m/s and never
+    interacts with object A.
+  question: What is the speed of object A?
+  full_template: 'Object A moves in a circle of radius {r_A} m and completes one revolution
+    every {T_A} s. On another rink, skater B travels at {v_B_display} m/s and never
+    interacts with object A.
+
+
+    What is the speed of object A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: On another rink, skater B travels at {v_B_display} m/s and never interacts
+    with object A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'r_A = 1.5
+
+    T_A = 3.0
+
+    result = 2 * pi * r_A / T_A
+
+    assert abs(result - 3.141592653589793) < 3.141592653589793e-06, f"Answer check
+    failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- velocity
+- circular_motion
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

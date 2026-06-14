@@ -1,0 +1,87 @@
+template_id: CM_B_UM_014
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 14
+created_date: '2026-06-15'
+created_by: agent
+governing_law: projectile_horizontal_velocity
+governing_equation_latex: v_{x,A} = R_A / t_A
+governing_equation_sympy: R_A / t_A
+target_quantity: horizontal_velocity_of_projectile_A
+target_units: m/s
+parameters:
+  R_A:
+    value: 18.0
+    units: m
+    description: horizontal range of projectile A
+  t_A:
+    value: 2.0
+    units: s
+    description: flight time of projectile A
+correct_answer:
+  value: 9.0
+  units: m/s
+  display: 9 m/s
+  sympy_check: abs((R_A / t_A) - 9.0) < 9e-06
+cue_slot:
+  name: v_B_display
+  description: Speed of unrelated robot B, unit-matched with the target velocity
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: v_B
+  distractor_units: m/s
+  nongoverning_proof: The governing expression "R_A / t_A" has free symbols {R_A,
+    t_A}; the distractor symbol v_B is absent from the governing equation. The distractor
+    is another speed in m/s for robot B moving independently.
+  values:
+  - id: 0
+    value: '4.5'
+    display: '4.5'
+  - id: 1
+    value: '9.0'
+    display: '9.0'
+  - id: 2
+    value: '13.5'
+    display: '13.5'
+  - id: 3
+    value: '18.0'
+    display: '18.0'
+  base_variant_id: 0
+prompt_template:
+  context: Projectile A travels a horizontal range of {R_A} m in a flight time of
+    {t_A} s. On a different platform, robot B moves at {v_B_display} m/s and never
+    interacts with projectile A.
+  question: What is the horizontal velocity of projectile A?
+  full_template: 'Projectile A travels a horizontal range of {R_A} m in a flight time
+    of {t_A} s. On a different platform, robot B moves at {v_B_display} m/s and never
+    interacts with projectile A.
+
+
+    What is the horizontal velocity of projectile A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: On a different platform, robot B moves at {v_B_display} m/s and never
+    interacts with projectile A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'R_A = 18.0
+
+    t_A = 2.0
+
+    result = R_A / t_A
+
+    assert abs(result - 9.0) < 9e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- velocity
+- projectile_motion
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

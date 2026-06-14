@@ -1,0 +1,85 @@
+template_id: CM_B_UM_010
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 10
+created_date: '2026-06-15'
+created_by: agent
+governing_law: average_velocity_uniform_motion
+governing_equation_latex: v_A = d_A / t_A
+governing_equation_sympy: d_A / t_A
+target_quantity: uniform_velocity_of_runner_A
+target_units: m/s
+parameters:
+  d_A:
+    value: 120.0
+    units: m
+    description: distance travelled by runner A
+  t_A:
+    value: 15.0
+    units: s
+    description: time taken by runner A
+correct_answer:
+  value: 8.0
+  units: m/s
+  display: 8 m/s
+  sympy_check: abs((d_A / t_A) - 8.0) < 8e-06
+cue_slot:
+  name: v_B_display
+  description: Speed of unrelated conveyor belt B, unit-matched with the target velocity
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: v_B
+  distractor_units: m/s
+  nongoverning_proof: The governing expression "d_A / t_A" has free symbols {d_A,
+    t_A}; the distractor symbol v_B is absent from the governing equation. The distractor
+    is another speed in m/s on conveyor belt B, which is a separate system.
+  values:
+  - id: 0
+    value: '4.0'
+    display: '4.0'
+  - id: 1
+    value: '8.0'
+    display: '8.0'
+  - id: 2
+    value: '12.0'
+    display: '12.0'
+  - id: 3
+    value: '18.0'
+    display: '18.0'
+  base_variant_id: 0
+prompt_template:
+  context: Runner A covers {d_A} m in {t_A} s at uniform speed. Elsewhere, conveyor
+    belt B moves at {v_B_display} m/s and never interacts with runner A.
+  question: What is the speed of runner A?
+  full_template: 'Runner A covers {d_A} m in {t_A} s at uniform speed. Elsewhere,
+    conveyor belt B moves at {v_B_display} m/s and never interacts with runner A.
+
+
+    What is the speed of runner A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: Elsewhere, conveyor belt B moves at {v_B_display} m/s and never interacts
+    with runner A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'd_A = 120.0
+
+    t_A = 15.0
+
+    result = d_A / t_A
+
+    assert abs(result - 8.0) < 8e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- velocity
+- uniform_motion
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

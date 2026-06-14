@@ -1,0 +1,88 @@
+template_id: CM_B_UM_020
+domain: electrostatics_circuits
+cue_type: nongoverning_distractor
+sequence: 20
+created_date: '2026-06-15'
+created_by: agent
+governing_law: kirchhoff_current_split
+governing_equation_latex: I_A = I_{total} - I_{known}
+governing_equation_sympy: I_total - I_known
+target_quantity: unknown_branch_current_A
+target_units: A
+parameters:
+  I_total:
+    value: 10.0
+    units: A
+    description: total current entering the node
+  I_known:
+    value: 4.0
+    units: A
+    description: known current in branch B
+correct_answer:
+  value: 6.0
+  units: A
+  display: 6.0 A
+  sympy_check: abs((I_total - I_known) - 6.0) < 6e-06
+cue_slot:
+  name: I_B_display
+  description: Current in a separate isolated circuit, unit-matched with the target
+    current
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: I_B
+  distractor_units: A
+  nongoverning_proof: The governing expression "I_total - I_known" has free symbols
+    {I_total, I_known}; the distractor symbol I_B is absent from the governing equation.
+  values:
+  - id: 0
+    value: '2.0'
+    display: '2.0'
+  - id: 1
+    value: '4.0'
+    display: '4.0'
+  - id: 2
+    value: '6.0'
+    display: '6.0'
+  - id: 3
+    value: '8.0'
+    display: '8.0'
+  base_variant_id: 0
+prompt_template:
+  context: At a junction in circuit A, a total current of {I_total} A enters and {I_known}
+    A leaves through a known branch. A different circuit in the same lab carries {I_B_display}
+    A in its main branch, but that circuit is electrically isolated from circuit A.
+  question: What current flows in the remaining branch of circuit A?
+  full_template: 'At a junction in circuit A, a total current of {I_total} A enters
+    and {I_known} A leaves through a known branch. A different circuit in the same
+    lab carries {I_B_display} A in its main branch, but that circuit is electrically
+    isolated from circuit A.
+
+
+    What current flows in the remaining branch of circuit A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A different circuit in the same lab carries {I_B_display} A in its
+    main branch, but that circuit is electrically isolated from circuit A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'I_total = 10.0
+
+    I_known = 4.0
+
+    result = I_total - I_known
+
+    assert abs(result - 6.0) < 6e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- current
+- kirchhoff_current
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

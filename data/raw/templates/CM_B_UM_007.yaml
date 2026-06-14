@@ -1,0 +1,95 @@
+template_id: CM_B_UM_007
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 7
+created_date: '2026-06-15'
+created_by: agent
+governing_law: incline_force_component
+governing_equation_latex: F_{\parallel} = m_A g \sin\theta
+governing_equation_sympy: m_A * g * sin(theta)
+target_quantity: downslope_force_on_block_A
+target_units: N
+parameters:
+  m_A:
+    value: 2.0
+    units: kg
+    description: mass of block A
+  g:
+    value: 9.8
+    units: m/s^2
+    description: gravitational acceleration
+  theta:
+    value: 0.5235987755982988
+    units: rad
+    display: '30'
+    description: incline angle
+correct_answer:
+  value: 9.8
+  units: N
+  display: 9.8 N
+  sympy_check: abs((m_A * g * sin(theta)) - 9.8) < 9.800000000000001e-06
+cue_slot:
+  name: F_B_display
+  description: Fan force on unrelated cart B, unit-matched with the target force
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: F_B
+  distractor_units: N
+  nongoverning_proof: The governing expression "m_A * g * sin(theta)" has free symbols
+    {m_A, g, theta}; the distractor symbol F_B is absent from the governing equation.
+    The distractor is another force in Newtons applied to cart B on a separate incline,
+    so it does not affect the downslope component of the weight on block A.
+  values:
+  - id: 0
+    value: '4.9'
+    display: '4.9'
+  - id: 1
+    value: '9.8'
+    display: '9.8'
+  - id: 2
+    value: '14.7'
+    display: '14.7'
+  - id: 3
+    value: '19.6'
+    display: '19.6'
+  base_variant_id: 0
+prompt_template:
+  context: Block A of mass {m_A} kg rests on a frictionless incline at {theta} degrees.
+    Take g = {g} m/s². In a separate setup, a fan exerts a force of {F_B_display}
+    N on cart B, and cart B never interacts with block A.
+  question: What is the component of block A's weight acting down the incline?
+  full_template: 'Block A of mass {m_A} kg rests on a frictionless incline at {theta}
+    degrees. Take g = {g} m/s². In a separate setup, a fan exerts a force of {F_B_display}
+    N on cart B, and cart B never interacts with block A.
+
+
+    What is the component of block A''s weight acting down the incline?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: In a separate setup, a fan exerts a force of {F_B_display} N on cart
+    B, and cart B never interacts with block A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm_A = 2.0
+
+    g = 9.8
+
+    theta = 0.5235987755982988
+
+    result = m_A * g * sin(theta)
+
+    assert abs(result - 9.8) < 9.800000000000001e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- force
+- incline
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

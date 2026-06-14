@@ -1,0 +1,89 @@
+template_id: CM_B_UM_024
+domain: electrostatics_circuits
+cue_type: nongoverning_distractor
+sequence: 24
+created_date: '2026-06-15'
+created_by: agent
+governing_law: capacitor_voltage
+governing_equation_latex: V_A = Q_A / C_A
+governing_equation_sympy: Q_A / C_A
+target_quantity: voltage_across_capacitor_A
+target_units: V
+parameters:
+  Q_A:
+    value: 0.0006
+    units: C
+    description: charge on capacitor A
+    display: 6.0 × 10⁻⁴ C
+  C_A:
+    value: 0.0001
+    units: F
+    description: capacitance of capacitor A
+    display: 100 × 10⁻⁶ F
+correct_answer:
+  value: 6.0
+  units: V
+  display: 6.0 V
+  sympy_check: abs((Q_A / C_A) - 6.0) < 6e-06
+cue_slot:
+  name: V_B_display
+  description: Voltage or emf in a separate isolated circuit, unit-matched with the
+    target voltage
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: V_B
+  distractor_units: V
+  nongoverning_proof: The governing expression "Q_A / C_A" has free symbols {Q_A,
+    C_A}; the distractor symbol V_B is absent from the governing equation.
+  values:
+  - id: 0
+    value: '2.0'
+    display: '2.0'
+  - id: 1
+    value: '4.0'
+    display: '4.0'
+  - id: 2
+    value: '6.0'
+    display: '6.0'
+  - id: 3
+    value: '9.0'
+    display: '9.0'
+  base_variant_id: 0
+prompt_template:
+  context: Capacitor A stores charge {Q_A} and has capacitance {C_A}. A disconnected
+    battery elsewhere in the diagram has an emf of {V_B_display} V, but it is not
+    connected to capacitor A.
+  question: What voltage is across capacitor A?
+  full_template: 'Capacitor A stores charge {Q_A} and has capacitance {C_A}. A disconnected
+    battery elsewhere in the diagram has an emf of {V_B_display} V, but it is not
+    connected to capacitor A.
+
+
+    What voltage is across capacitor A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A disconnected battery elsewhere in the diagram has an emf of {V_B_display}
+    V, but it is not connected to capacitor A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'Q_A = 0.0006
+
+    C_A = 0.0001
+
+    result = Q_A / C_A
+
+    assert abs(result - 6.0) < 6e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- voltage
+- capacitor
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

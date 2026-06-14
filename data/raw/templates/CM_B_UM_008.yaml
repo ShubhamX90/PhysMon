@@ -1,0 +1,97 @@
+template_id: CM_B_UM_008
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 8
+created_date: '2026-06-15'
+created_by: agent
+governing_law: buoyant_force
+governing_equation_latex: F_b = \rho V g
+governing_equation_sympy: rho * V * g
+target_quantity: buoyant_force_on_object_A
+target_units: N
+parameters:
+  rho:
+    value: 1000.0
+    units: kg/m^3
+    description: fluid density
+  V:
+    value: 0.002
+    units: m^3
+    description: displaced volume
+  g:
+    value: 9.8
+    units: m/s^2
+    description: gravitational acceleration
+correct_answer:
+  value: 19.6
+  units: N
+  display: 19.6 N
+  sympy_check: abs((rho * V * g) - 19.6) < 1.9600000000000002e-05
+cue_slot:
+  name: F_B_display
+  description: Normal force on unrelated crate B, unit-matched with the target buoyant
+    force
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: F_B
+  distractor_units: N
+  nongoverning_proof: The governing expression "rho * V * g" has free symbols {rho,
+    V, g}; the distractor symbol F_B is absent from the governing equation. The distractor
+    is a separate contact force in Newtons acting on crate B elsewhere in the lab,
+    so it cannot affect the buoyant force on object A.
+  values:
+  - id: 0
+    value: '9.8'
+    display: '9.8'
+  - id: 1
+    value: '14.7'
+    display: '14.7'
+  - id: 2
+    value: '19.6'
+    display: '19.6'
+  - id: 3
+    value: '29.4'
+    display: '29.4'
+  base_variant_id: 0
+prompt_template:
+  context: Object A is fully submerged in water of density {rho} kg/m³ and displaces
+    {V} m³ of fluid. Take g = {g} m/s². Elsewhere in the lab, crate B experiences
+    a normal force of {F_B_display} N, and crate B never interacts with object A or
+    the fluid.
+  question: What buoyant force acts on object A?
+  full_template: 'Object A is fully submerged in water of density {rho} kg/m³ and
+    displaces {V} m³ of fluid. Take g = {g} m/s². Elsewhere in the lab, crate B experiences
+    a normal force of {F_B_display} N, and crate B never interacts with object A or
+    the fluid.
+
+
+    What buoyant force acts on object A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: Elsewhere in the lab, crate B experiences a normal force of {F_B_display}
+    N, and crate B never interacts with object A or the fluid.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'rho = 1000.0
+
+    V = 0.002
+
+    g = 9.8
+
+    result = rho * V * g
+
+    assert abs(result - 19.6) < 1.9600000000000002e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- force
+- buoyancy
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

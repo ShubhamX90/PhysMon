@@ -1,0 +1,95 @@
+template_id: CM_B_UM_006
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 6
+created_date: '2026-06-15'
+created_by: agent
+governing_law: centripetal_force
+governing_equation_latex: F_c = m v^2 / r
+governing_equation_sympy: m_A * v_A**2 / r_A
+target_quantity: centripetal_force_on_object_A
+target_units: N
+parameters:
+  m_A:
+    value: 1.5
+    units: kg
+    description: mass of object A
+  v_A:
+    value: 6.0
+    units: m/s
+    description: speed of object A
+  r_A:
+    value: 3.0
+    units: m
+    description: circular path radius
+correct_answer:
+  value: 18.0
+  units: N
+  display: 18 N
+  sympy_check: abs((m_A * v_A**2 / r_A) - 18.0) < 1.8e-05
+cue_slot:
+  name: F_B_display
+  description: Magnetic force on unrelated charged bead B, unit-matched with the target
+    force
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: F_B
+  distractor_units: N
+  nongoverning_proof: The governing expression "m_A * v_A**2 / r_A" has free symbols
+    {m_A, v_A, r_A}; the distractor symbol F_B is absent from the governing equation.
+    The distractor is a separate magnetic force in Newtons acting on bead B in another
+    apparatus, so it cannot change the centripetal force required for object A.
+  values:
+  - id: 0
+    value: '5.0'
+    display: '5.0'
+  - id: 1
+    value: '12.0'
+    display: '12.0'
+  - id: 2
+    value: '18.0'
+    display: '18.0'
+  - id: 3
+    value: '26.0'
+    display: '26.0'
+  base_variant_id: 0
+prompt_template:
+  context: Object A of mass {m_A} kg moves in a horizontal circle of radius {r_A}
+    m at speed {v_A} m/s. In a different apparatus, a charged bead B experiences a
+    magnetic force of {F_B_display} N, and bead B never interacts with object A.
+  question: What centripetal force is required to keep object A moving in its circle?
+  full_template: 'Object A of mass {m_A} kg moves in a horizontal circle of radius
+    {r_A} m at speed {v_A} m/s. In a different apparatus, a charged bead B experiences
+    a magnetic force of {F_B_display} N, and bead B never interacts with object A.
+
+
+    What centripetal force is required to keep object A moving in its circle?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: In a different apparatus, a charged bead B experiences a magnetic
+    force of {F_B_display} N, and bead B never interacts with object A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm_A = 1.5
+
+    v_A = 6.0
+
+    r_A = 3.0
+
+    result = m_A * v_A**2 / r_A
+
+    assert abs(result - 18.0) < 1.8e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- force
+- centripetal_force
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

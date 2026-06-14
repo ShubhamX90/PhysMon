@@ -1,0 +1,89 @@
+template_id: CM_B_UM_002
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 2
+created_date: '2026-06-15'
+created_by: agent
+governing_law: newton_second_law_force
+governing_equation_latex: F_A = m_A a_A
+governing_equation_sympy: m_A * a_A
+target_quantity: net_force_on_cart_A
+target_units: N
+parameters:
+  m_A:
+    value: 4.0
+    units: kg
+    description: mass of cart A
+  a_A:
+    value: 3.0
+    units: m/s^2
+    description: measured acceleration of cart A
+correct_answer:
+  value: 12.0
+  units: N
+  display: 12 N
+  sympy_check: abs((m_A * a_A) - 12.0) < 1.2e-05
+cue_slot:
+  name: F_B_display
+  description: Spring force measured on unrelated cart B, unit-matched with the target
+    force
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: F_B
+  distractor_units: N
+  nongoverning_proof: The governing expression "m_A * a_A" has free symbols {m_A,
+    a_A}; the distractor symbol F_B is absent from the governing equation. The distractor
+    is another force in Newtons, but it belongs to an unrelated cart B on a disconnected
+    track and does not contribute to cart A's dynamics.
+  values:
+  - id: 0
+    value: '6.0'
+    display: '6.0'
+  - id: 1
+    value: '10.0'
+    display: '10.0'
+  - id: 2
+    value: '14.0'
+    display: '14.0'
+  - id: 3
+    value: '20.0'
+    display: '20.0'
+  base_variant_id: 0
+prompt_template:
+  context: Cart A has mass {m_A} kg and its measured acceleration is {a_A} m/s² on
+    a frictionless track. On a completely separate track, a spring exerts a force
+    of {F_B_display} N on cart B, and cart B does not interact with cart A.
+  question: What is the net force acting on cart A?
+  full_template: 'Cart A has mass {m_A} kg and its measured acceleration is {a_A}
+    m/s² on a frictionless track. On a completely separate track, a spring exerts
+    a force of {F_B_display} N on cart B, and cart B does not interact with cart A.
+
+
+    What is the net force acting on cart A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: On a completely separate track, a spring exerts a force of {F_B_display}
+    N on cart B, and cart B does not interact with cart A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm_A = 4.0
+
+    a_A = 3.0
+
+    result = m_A * a_A
+
+    assert abs(result - 12.0) < 1.2e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- force
+- newton_second_law
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''

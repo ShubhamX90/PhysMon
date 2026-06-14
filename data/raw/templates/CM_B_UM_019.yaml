@@ -1,0 +1,89 @@
+template_id: CM_B_UM_019
+domain: electrostatics_circuits
+cue_type: nongoverning_distractor
+sequence: 19
+created_date: '2026-06-15'
+created_by: agent
+governing_law: battery_external_current
+governing_equation_latex: I = \mathcal{E} / R_{ext}
+governing_equation_sympy: emf / R_ext
+target_quantity: current_in_simple_battery_circuit
+target_units: A
+parameters:
+  emf:
+    value: 6.0
+    units: V
+    description: battery emf
+  R_ext:
+    value: 3.0
+    units: Ω
+    description: external resistance
+correct_answer:
+  value: 2.0
+  units: A
+  display: 2.0 A
+  sympy_check: abs((emf / R_ext) - 2.0) < 2e-06
+cue_slot:
+  name: I_B_display
+  description: Current in a separate isolated circuit, unit-matched with the target
+    current
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: I_B
+  distractor_units: A
+  nongoverning_proof: The governing expression "emf / R_ext" has free symbols {emf,
+    R_ext}; the distractor symbol I_B is absent from the governing equation.
+  values:
+  - id: 0
+    value: '0.5'
+    display: '0.5'
+  - id: 1
+    value: '1.0'
+    display: '1.0'
+  - id: 2
+    value: '2.0'
+    display: '2.0'
+  - id: 3
+    value: '4.0'
+    display: '4.0'
+  base_variant_id: 0
+prompt_template:
+  context: A simple battery circuit has emf {emf} V, negligible internal resistance,
+    and an external resistance of {R_ext} Ω. A different circuit in the same lab carries
+    {I_B_display} A in its main branch, but that circuit is electrically isolated
+    from this one.
+  question: What current flows in the battery circuit?
+  full_template: 'A simple battery circuit has emf {emf} V, negligible internal resistance,
+    and an external resistance of {R_ext} Ω. A different circuit in the same lab carries
+    {I_B_display} A in its main branch, but that circuit is electrically isolated
+    from this one.
+
+
+    What current flows in the battery circuit?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A different circuit in the same lab carries {I_B_display} A in its
+    main branch, but that circuit is electrically isolated from this one.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'emf = 6.0
+
+    R_ext = 3.0
+
+    result = emf / R_ext
+
+    assert abs(result - 2.0) < 2e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: false
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- current
+- battery_circuit
+- unit_matched_cue_b
+difficulty: introductory
+notes: ''
