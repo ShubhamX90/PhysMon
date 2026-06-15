@@ -1,0 +1,89 @@
+template_id: CM_B_UM_047
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 47
+created_date: '2026-06-15'
+created_by: agent
+governing_law: ramp_energy_speed
+governing_equation_latex: v = \sqrt{2 g h}
+governing_equation_sympy: sqrt(2 * g * h_drop)
+target_quantity: speed_at_bottom_of_ramp
+target_units: m/s
+parameters:
+  g:
+    value: 9.8
+    units: m/s^2
+    description: gravitational acceleration
+  h_drop:
+    value: 5.0
+    units: m
+    description: vertical drop
+correct_answer:
+  value: 9.899494936611665
+  units: m/s
+  display: 9.899 m/s
+  sympy_check: abs((sqrt(2 * g * h_drop)) - 9.899494936611665) < 9.899494936611665e-06
+cue_slot:
+  name: v_B_display
+  description: Speed of a separate cart B, unit-matched with the target speed
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: v_B
+  distractor_units: m/s
+  nongoverning_proof: The governing expression "sqrt(2 * g * h_drop)" has free symbols
+    {g, h_drop}; the distractor symbol v_B is absent from the governing equation.
+    Cart B is on a different ramp.
+  values:
+  - id: 0
+    value: '7.0'
+    display: '7.0'
+  - id: 1
+    value: '9.5'
+    display: '9.5'
+  - id: 2
+    value: '9.9'
+    display: '9.9'
+  - id: 3
+    value: '12.0'
+    display: '12.0'
+  base_variant_id: 0
+prompt_template:
+  context: Cart A starts from rest and descends a frictionless ramp through a vertical
+    drop of {h_drop} m. A different cart B elsewhere in the building is reported moving
+    at {v_B_display} m/s, but it never interacts with cart A.
+  question: What is cart A's speed at the bottom of the ramp?
+  full_template: 'Cart A starts from rest and descends a frictionless ramp through
+    a vertical drop of {h_drop} m. A different cart B elsewhere in the building is
+    reported moving at {v_B_display} m/s, but it never interacts with cart A.
+
+
+    What is cart A''s speed at the bottom of the ramp?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A different cart B elsewhere in the building is reported moving at
+    {v_B_display} m/s, but it never interacts with cart A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'g = 9.8
+
+    h_drop = 5.0
+
+    result = sqrt(2 * g * h_drop)
+
+    assert abs(result - 9.899494936611665) < 9.899494936611665e-06, f"Answer check
+    failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- velocity
+- energy
+- unit_matched_cue_b
+- near_match
+difficulty: introductory
+notes: One distractor rounds the irrational answer 9.899... m/s to 9.9 m/s.

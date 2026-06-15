@@ -1,0 +1,80 @@
+template_id: CM_A_STD_008
+domain: mechanics
+cue_type: irrelevant_variable
+sequence: 8
+created_date: '2026-06-15'
+created_by: agent
+governing_law: work_done
+governing_equation_latex: W = F d
+governing_equation_sympy: F * d
+target_quantity: work_done_on_object_A
+target_units: J
+parameters:
+  F:
+    value: 6.0
+    units: N
+    description: force
+  d:
+    value: 7.0
+    units: m
+    description: displacement
+correct_answer:
+  value: 42.0
+  units: J
+  display: 42.0 J
+  sympy_check: abs((F * d) - 42.0) < 4.2e-05
+cue_slot:
+  name: room_pressure_kpa
+  description: Room air pressure - irrelevant to the idealized work calculation
+  type: numerical
+  irrelevance_proof: The governing expression "F * d" depends only on F and d.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '21'
+    display: '21'
+  - id: 1
+    value: '42'
+    display: '42'
+  - id: 2
+    value: '84'
+    display: '84'
+  - id: 3
+    value: '126'
+    display: '126'
+  base_variant_id: 0
+prompt_template:
+  context: A constant force of {F} N acts over a displacement of {d} m. The room air
+    pressure is {room_pressure_kpa} kPa.
+  question: How much work is done by the force?
+  full_template: 'A constant force of {F} N acts over a displacement of {d} m. The
+    room air pressure is {room_pressure_kpa} kPa.
+
+
+    How much work is done by the force?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The room air pressure is {room_pressure_kpa} kPa.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'F = 6.0
+
+    d = 7.0
+
+    result = F * d
+
+    assert abs(result - 42.0) < 4.2e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- work
+- cue_a_numeric
+difficulty: introductory
+notes: ''

@@ -1,0 +1,87 @@
+template_id: CM_A_STD_016
+domain: electrostatics_circuits
+cue_type: irrelevant_variable
+sequence: 16
+created_date: '2026-06-15'
+created_by: agent
+governing_law: electric_field
+governing_equation_latex: E = k q / r^2
+governing_equation_sympy: k_const * q / r**2
+target_quantity: electric_field_magnitude
+target_units: N/C
+parameters:
+  k_const:
+    value: 8990000000.0
+    units: N*m^2/C^2
+    description: Coulomb constant
+  q:
+    value: 4.0e-06
+    units: C
+    description: charge
+  r:
+    value: 0.5
+    units: m
+    description: distance
+correct_answer:
+  value: 143840.0
+  units: N/C
+  display: 143840 N/C
+  sympy_check: abs((k_const * q / r**2) - 143840.0) < 0.001
+cue_slot:
+  name: aisle_marker
+  description: Aisle marker number in the stockroom - irrelevant to the electric field
+  type: numerical
+  irrelevance_proof: The governing expression "k_const * q / r**2" depends only on
+    k_const, q, and r.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '1'
+    display: '1'
+  - id: 1
+    value: '2'
+    display: '2'
+  - id: 2
+    value: '4'
+    display: '4'
+  - id: 3
+    value: '8'
+    display: '8'
+  base_variant_id: 0
+prompt_template:
+  context: Charge q = {q} C is observed from distance {r} m. Use k = {k_const} N·m²/C².
+    The stockroom aisle marker is {aisle_marker}.
+  question: What is the electric field magnitude at the observation point?
+  full_template: 'Charge q = {q} C is observed from distance {r} m. Use k = {k_const}
+    N·m²/C². The stockroom aisle marker is {aisle_marker}.
+
+
+    What is the electric field magnitude at the observation point?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The stockroom aisle marker is {aisle_marker}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'k_const = 8990000000.0
+
+    q = 4e-06
+
+    r = 0.5
+
+    result = k_const * q / r**2
+
+    assert abs(result - 143840.0) < 0.001, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- electrostatics
+- electric_field
+- cue_a_numeric
+difficulty: introductory
+notes: ''

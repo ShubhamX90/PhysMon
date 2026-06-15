@@ -1575,7 +1575,16 @@ def main() -> None:
     for payload in templates:
         template_path = output_dir / f"{payload['template_id']}.yaml"
         write_template(template_path, payload)
-        verify_template(template_path, verification_dir)
+        verification_payload = verify_template(template_path, verification_dir)
+        stored_payload = yaml.safe_load(template_path.read_text(encoding="utf-8"))
+        stored_payload.setdefault("validation", {})
+        stored_payload["validation"]["verifier_certified"] = bool(
+            verification_payload["all_passed"]
+        )
+        template_path.write_text(
+            yaml.safe_dump(stored_payload, sort_keys=False, allow_unicode=True),
+            encoding="utf-8",
+        )
 
     print(f"Built and verified {len(templates)} Stage 6 templates.")
 

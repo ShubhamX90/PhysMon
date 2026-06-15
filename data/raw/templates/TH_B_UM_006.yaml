@@ -1,0 +1,102 @@
+template_id: TH_B_UM_006
+domain: thermodynamics
+cue_type: nongoverning_distractor
+sequence: 6
+created_date: '2026-06-15'
+created_by: agent
+governing_law: ideal_gas_pressure
+governing_equation_latex: P_A = \frac{n_A R T_A}{V_A}
+governing_equation_sympy: n_A * R_gas * T_A / V_A
+target_quantity: pressure_of_gas_A
+target_units: Pa
+parameters:
+  n_A:
+    value: 1.0
+    units: mol
+    description: amount of gas
+  R_gas:
+    value: 8.314
+    units: J/(mol*K)
+    description: ideal gas constant
+  T_A:
+    value: 300.0
+    units: K
+    description: temperature
+  V_A:
+    value: 0.02494
+    units: m^3
+    description: volume
+correct_answer:
+  value: 100008.01924619084
+  units: Pa
+  display: 100000 Pa
+  sympy_check: abs((n_A * R_gas * T_A / V_A) - 100008.01924619084) < 0.10000801924619084
+cue_slot:
+  name: P_B_display
+  description: Pressure of separate gas container B, unit-matched with the target
+    pressure
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: P_B
+  distractor_units: Pa
+  nongoverning_proof: The governing expression "n_A * R_gas * T_A / V_A" has free
+    symbols {n_A, R_gas, T_A, V_A}; the distractor symbol P_B is absent from the governing
+    equation. Container B is unconnected.
+  values:
+  - id: 0
+    value: '50000'
+    display: '50000'
+  - id: 1
+    value: '98000'
+    display: '98000'
+  - id: 2
+    value: '100000'
+    display: '100000'
+  - id: 3
+    value: '150000'
+    display: '150000'
+  base_variant_id: 0
+prompt_template:
+  context: Gas container A holds {n_A} mol of ideal gas at temperature {T_A} K in
+    volume {V_A} m^3. A separate sealed container B has pressure {P_B_display} Pa,
+    but it is completely unconnected to container A.
+  question: What is the pressure of gas in container A?
+  full_template: 'Gas container A holds {n_A} mol of ideal gas at temperature {T_A}
+    K in volume {V_A} m^3. A separate sealed container B has pressure {P_B_display}
+    Pa, but it is completely unconnected to container A.
+
+
+    What is the pressure of gas in container A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate sealed container B has pressure {P_B_display} Pa, but it
+    is completely unconnected to container A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'n_A = 1.0
+
+    R_gas = 8.314
+
+    T_A = 300.0
+
+    V_A = 0.02494
+
+    result = n_A * R_gas * T_A / V_A
+
+    assert abs(result - 100008.01924619084) < 0.10000801924619084, f"Answer check
+    failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- thermodynamics
+- pressure
+- ideal_gas
+- unit_matched_cue_b
+- near_match
+difficulty: introductory
+notes: ''

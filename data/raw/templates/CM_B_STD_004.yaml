@@ -1,0 +1,93 @@
+template_id: CM_B_STD_004
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 4
+created_date: '2026-06-15'
+created_by: agent
+governing_law: fluid_static_pressure_depth
+governing_equation_latex: P = \rho_A g h_A
+governing_equation_sympy: rho_A * g * h_A
+target_quantity: hydrostatic_pressure_of_column_A
+target_units: Pa
+parameters:
+  rho_A:
+    value: 1000.0
+    units: kg/m^3
+    description: density of fluid A
+  g:
+    value: 9.8
+    units: m/s^2
+    description: gravitational acceleration
+  h_A:
+    value: 2.0
+    units: m
+    description: depth in fluid A
+correct_answer:
+  value: 19600.0
+  units: Pa
+  display: 19600 Pa
+  sympy_check: abs((rho_A * g * h_A) - 19600.0) < 0.001
+cue_slot:
+  name: h_B_display
+  description: Depth of a separate tank B
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: h_B
+  distractor_units: m
+  nongoverning_proof: The governing expression "rho_A * g * h_A" has free symbols
+    {rho_A, g, h_A}; h_B belongs to a different tank and does not affect column A.
+  values:
+  - id: 0
+    value: '1.0'
+    display: '1.0'
+  - id: 1
+    value: '1.9'
+    display: '1.9'
+  - id: 2
+    value: '2.0'
+    display: '2.0'
+  - id: 3
+    value: '3.0'
+    display: '3.0'
+  base_variant_id: 0
+prompt_template:
+  context: Fluid A has density {rho_A} kg/m³ and the point of interest is {h_A} m
+    below its surface. A separate tank B has a depth of {h_B_display} m, but tank
+    B is not connected to fluid A.
+  question: What is the hydrostatic pressure contribution from fluid A at the point
+    of interest?
+  full_template: 'Fluid A has density {rho_A} kg/m³ and the point of interest is {h_A}
+    m below its surface. A separate tank B has a depth of {h_B_display} m, but tank
+    B is not connected to fluid A.
+
+
+    What is the hydrostatic pressure contribution from fluid A at the point of interest?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate tank B has a depth of {h_B_display} m, but tank B is not
+    connected to fluid A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'rho_A = 1000.0
+
+    g = 9.8
+
+    h_A = 2.0
+
+    result = rho_A * g * h_A
+
+    assert abs(result - 19600.0) < 0.001, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- fluids
+- cue_b_standard
+- near_match
+difficulty: introductory
+notes: ''

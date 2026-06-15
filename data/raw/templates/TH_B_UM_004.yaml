@@ -1,0 +1,88 @@
+template_id: TH_B_UM_004
+domain: thermodynamics
+cue_type: nongoverning_distractor
+sequence: 4
+created_date: '2026-06-15'
+created_by: agent
+governing_law: work_force_displacement
+governing_equation_latex: W_A = F_A \Delta x_A
+governing_equation_sympy: F_A * delta_x_A
+target_quantity: work_done_on_system_A
+target_units: J
+parameters:
+  F_A:
+    value: 600.0
+    units: N
+    description: applied force
+  delta_x_A:
+    value: 70.0
+    units: m
+    description: displacement
+correct_answer:
+  value: 42000.0
+  units: J
+  display: 42000 J
+  sympy_check: abs((F_A * delta_x_A) - 42000.0) < 0.041999999999999996
+cue_slot:
+  name: Q_B_display
+  description: Heat absorbed by separate system B, unit-matched with the target work
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: Q_B
+  distractor_units: J
+  nongoverning_proof: The governing expression "F_A * delta_x_A" has free symbols
+    {F_A, delta_x_A}; the distractor symbol Q_B is absent from the governing equation.
+    System B is thermally isolated and not mechanically connected.
+  values:
+  - id: 0
+    value: '20000'
+    display: '20000'
+  - id: 1
+    value: '41000'
+    display: '41000'
+  - id: 2
+    value: '42000'
+    display: '42000'
+  - id: 3
+    value: '65000'
+    display: '65000'
+  base_variant_id: 0
+prompt_template:
+  context: A constant force of {F_A} N pushes system A through a displacement of {delta_x_A}
+    m. Separately, calorimeter B absorbs {Q_B_display} J of heat, but B is thermally
+    isolated and not mechanically connected to system A.
+  question: How much work is done on system A?
+  full_template: 'A constant force of {F_A} N pushes system A through a displacement
+    of {delta_x_A} m. Separately, calorimeter B absorbs {Q_B_display} J of heat, but
+    B is thermally isolated and not mechanically connected to system A.
+
+
+    How much work is done on system A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: Separately, calorimeter B absorbs {Q_B_display} J of heat, but B is
+    thermally isolated and not mechanically connected to system A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'F_A = 600.0
+
+    delta_x_A = 70.0
+
+    result = F_A * delta_x_A
+
+    assert abs(result - 42000.0) < 0.041999999999999996, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- thermodynamics
+- work
+- energy
+- unit_matched_cue_b
+- near_match
+difficulty: introductory
+notes: ''

@@ -1,0 +1,80 @@
+template_id: CM_A_STD_014
+domain: electrostatics_circuits
+cue_type: irrelevant_variable
+sequence: 14
+created_date: '2026-06-15'
+created_by: agent
+governing_law: current_from_voltage_and_resistance
+governing_equation_latex: I = V / R
+governing_equation_sympy: V / R
+target_quantity: current_through_resistor_A
+target_units: A
+parameters:
+  V:
+    value: 12.0
+    units: V
+    description: voltage
+  R:
+    value: 6.0
+    units: ohm
+    description: resistance
+correct_answer:
+  value: 2.0
+  units: A
+  display: 2.0 A
+  sympy_check: abs((V / R) - 2.0) < 2e-06
+cue_slot:
+  name: cabinet_number
+  description: Cabinet number containing spare parts - irrelevant to circuit current
+  type: numerical
+  irrelevance_proof: The governing expression "V / R" depends only on V and R.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '2'
+    display: '2'
+  - id: 1
+    value: '4'
+    display: '4'
+  - id: 2
+    value: '8'
+    display: '8'
+  - id: 3
+    value: '16'
+    display: '16'
+  base_variant_id: 0
+prompt_template:
+  context: A resistor has voltage {V} V across it and resistance {R} ohm. Spare parts
+    are stored in cabinet {cabinet_number}.
+  question: What current flows through the resistor?
+  full_template: 'A resistor has voltage {V} V across it and resistance {R} ohm. Spare
+    parts are stored in cabinet {cabinet_number}.
+
+
+    What current flows through the resistor?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: Spare parts are stored in cabinet {cabinet_number}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'V = 12.0
+
+    R = 6.0
+
+    result = V / R
+
+    assert abs(result - 2.0) < 2e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- current
+- cue_a_numeric
+difficulty: introductory
+notes: ''

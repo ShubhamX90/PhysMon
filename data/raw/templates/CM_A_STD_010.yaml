@@ -1,0 +1,81 @@
+template_id: CM_A_STD_010
+domain: mechanics
+cue_type: irrelevant_variable
+sequence: 10
+created_date: '2026-06-15'
+created_by: agent
+governing_law: wave_speed
+governing_equation_latex: v = f \lambda
+governing_equation_sympy: f * lambda_wave
+target_quantity: wave_speed_on_string_A
+target_units: m/s
+parameters:
+  f:
+    value: 6.0
+    units: Hz
+    description: frequency
+  lambda_wave:
+    value: 3.0
+    units: m
+    description: wavelength
+correct_answer:
+  value: 18.0
+  units: m/s
+  display: 18.0 m/s
+  sympy_check: abs((f * lambda_wave) - 18.0) < 1.8e-05
+cue_slot:
+  name: cable_age_months
+  description: Age of a nearby data cable - irrelevant to the wave speed
+  type: numerical
+  irrelevance_proof: The governing expression "f * lambda_wave" depends only on f
+    and lambda_wave.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '6'
+    display: '6'
+  - id: 1
+    value: '12'
+    display: '12'
+  - id: 2
+    value: '18'
+    display: '18'
+  - id: 3
+    value: '36'
+    display: '36'
+  base_variant_id: 0
+prompt_template:
+  context: Wave A on a string has frequency {f} Hz and wavelength {lambda_wave} m.
+    A nearby data cable has age {cable_age_months} months.
+  question: What is the speed of wave A on the string?
+  full_template: 'Wave A on a string has frequency {f} Hz and wavelength {lambda_wave}
+    m. A nearby data cable has age {cable_age_months} months.
+
+
+    What is the speed of wave A on the string?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: A nearby data cable has age {cable_age_months} months.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'f = 6.0
+
+    lambda_wave = 3.0
+
+    result = f * lambda_wave
+
+    assert abs(result - 18.0) < 1.8e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- waves
+- cue_a_numeric
+difficulty: introductory
+notes: ''

@@ -1,0 +1,99 @@
+template_id: CM_B_STD_013
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 13
+created_date: '2026-06-15'
+created_by: agent
+governing_law: gravitational_force_satellite
+governing_equation_latex: F = G M_A m_A / r_A^2
+governing_equation_sympy: G_const * M_A * m_A / r_A**2
+target_quantity: gravitational_force_on_satellite_A
+target_units: N
+parameters:
+  G_const:
+    value: 6.67e-11
+    units: N*m^2/kg^2
+    description: gravitational constant
+  M_A:
+    value: 6.0e+24
+    units: kg
+    description: planet mass
+  m_A:
+    value: 10.0
+    units: kg
+    description: satellite mass
+  r_A:
+    value: 20000000.0
+    units: m
+    description: orbital radius
+correct_answer:
+  value: 10.005
+  units: N
+  display: 10.005 N
+  sympy_check: abs((G_const * M_A * m_A / r_A**2) - 10.005) < 1.0005e-05
+cue_slot:
+  name: m_B_display
+  description: Mass of a separate moon B
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: m_B
+  distractor_units: kg
+  nongoverning_proof: The governing expression "G_const * M_A * m_A / r_A**2" has
+    free symbols {G_const, M_A, m_A, r_A}; m_B is the mass of a separate moon B in
+    another orbit and never enters satellite A's force law.
+  values:
+  - id: 0
+    value: '4.0'
+    display: '4.0'
+  - id: 1
+    value: '9.8'
+    display: '9.8'
+  - id: 2
+    value: '10.0'
+    display: '10.0'
+  - id: 3
+    value: '15.0'
+    display: '15.0'
+  base_variant_id: 0
+prompt_template:
+  context: Satellite A of mass {m_A} kg orbits a planet of mass {M_A} kg at radius
+    {r_A} m. Use G = {G_const} N·m²/kg². A separate moon B has mass {m_B_display}
+    kg, but moon B never interacts with satellite A.
+  question: What gravitational force magnitude acts on satellite A?
+  full_template: 'Satellite A of mass {m_A} kg orbits a planet of mass {M_A} kg at
+    radius {r_A} m. Use G = {G_const} N·m²/kg². A separate moon B has mass {m_B_display}
+    kg, but moon B never interacts with satellite A.
+
+
+    What gravitational force magnitude acts on satellite A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate moon B has mass {m_B_display} kg, but moon B never interacts
+    with satellite A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'G_const = 6.67e-11
+
+    M_A = 5999999999999999899336704.0
+
+    m_A = 10.0
+
+    r_A = 20000000.0
+
+    result = G_const * M_A * m_A / r_A**2
+
+    assert abs(result - 10.005) < 1.0005e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- gravitation
+- cue_b_standard
+- near_match
+difficulty: introductory
+notes: ''

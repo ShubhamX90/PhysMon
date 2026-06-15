@@ -1,0 +1,80 @@
+template_id: CM_A_STD_009
+domain: mechanics
+cue_type: irrelevant_variable
+sequence: 9
+created_date: '2026-06-15'
+created_by: agent
+governing_law: torque
+governing_equation_latex: \tau = r F
+governing_equation_sympy: r * F
+target_quantity: torque_on_wrench_A
+target_units: N*m
+parameters:
+  r:
+    value: 0.4
+    units: m
+    description: lever arm
+  F:
+    value: 30.0
+    units: N
+    description: force
+correct_answer:
+  value: 12.0
+  units: N*m
+  display: 12.0 N*m
+  sympy_check: abs((r * F) - 12.0) < 1.2e-05
+cue_slot:
+  name: lab_humidity_pct
+  description: Laboratory humidity percentage - irrelevant to the torque calculation
+  type: numerical
+  irrelevance_proof: The governing expression "r * F" depends only on r and F.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '12'
+    display: '12'
+  - id: 1
+    value: '24'
+    display: '24'
+  - id: 2
+    value: '36'
+    display: '36'
+  - id: 3
+    value: '60'
+    display: '60'
+  base_variant_id: 0
+prompt_template:
+  context: A force of {F} N is applied perpendicular to a wrench at lever arm {r}
+    m. The lab humidity is {lab_humidity_pct}%.
+  question: What torque magnitude does the force produce?
+  full_template: 'A force of {F} N is applied perpendicular to a wrench at lever arm
+    {r} m. The lab humidity is {lab_humidity_pct}%.
+
+
+    What torque magnitude does the force produce?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The lab humidity is {lab_humidity_pct}%.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'r = 0.4
+
+    F = 30.0
+
+    result = r * F
+
+    assert abs(result - 12.0) < 1.2e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- torque
+- cue_a_numeric
+difficulty: introductory
+notes: ''

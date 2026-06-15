@@ -1,0 +1,94 @@
+template_id: CM_A_STD_015
+domain: electrostatics_circuits
+cue_type: irrelevant_variable
+sequence: 15
+created_date: '2026-06-15'
+created_by: agent
+governing_law: coulomb_force
+governing_equation_latex: F = k q_1 q_2 / r^2
+governing_equation_sympy: k_const * q_1 * q_2 / r**2
+target_quantity: electrostatic_force
+target_units: N
+parameters:
+  k_const:
+    value: 8990000000.0
+    units: N*m^2/C^2
+    description: Coulomb constant
+  q_1:
+    value: 2.0e-06
+    units: C
+    description: first charge
+  q_2:
+    value: 1.0e-06
+    units: C
+    description: second charge
+  r:
+    value: 0.2
+    units: m
+    description: separation
+correct_answer:
+  value: 0.4494999999999999
+  units: N
+  display: 0.4495 N
+  sympy_check: abs((k_const * q_1 * q_2 / r**2) - 0.4494999999999999) < 4.494999999999999e-07
+cue_slot:
+  name: room_number
+  description: Room number where the apparatus is stored - irrelevant to Coulomb force
+  type: numerical
+  irrelevance_proof: The governing expression "k_const * q_1 * q_2 / r**2" depends
+    only on k_const, q_1, q_2, and r.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '9'
+    display: '9'
+  - id: 1
+    value: '18'
+    display: '18'
+  - id: 2
+    value: '36'
+    display: '36'
+  - id: 3
+    value: '72'
+    display: '72'
+  base_variant_id: 0
+prompt_template:
+  context: Charges q1 = {q_1} C and q2 = {q_2} C are separated by {r} m. Use k = {k_const}
+    N·m²/C². The apparatus is stored in room {room_number}.
+  question: What electrostatic force magnitude acts between the charges?
+  full_template: 'Charges q1 = {q_1} C and q2 = {q_2} C are separated by {r} m. Use
+    k = {k_const} N·m²/C². The apparatus is stored in room {room_number}.
+
+
+    What electrostatic force magnitude acts between the charges?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The apparatus is stored in room {room_number}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'k_const = 8990000000.0
+
+    q_1 = 2e-06
+
+    q_2 = 1e-06
+
+    r = 0.2
+
+    result = k_const * q_1 * q_2 / r**2
+
+    assert abs(result - 0.4494999999999999) < 4.494999999999999e-07, f"Answer check
+    failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- electrostatics
+- coulomb_law
+- cue_a_numeric
+difficulty: introductory
+notes: ''

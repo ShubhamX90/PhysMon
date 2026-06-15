@@ -1,0 +1,89 @@
+template_id: CM_B_UM_044
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 44
+created_date: '2026-06-15'
+created_by: agent
+governing_law: projectile_vertical_component
+governing_equation_latex: v_y = v_0 \sin\theta
+governing_equation_sympy: v_0 * sin(theta_deg * pi / 180)
+target_quantity: initial_vertical_velocity_component
+target_units: m/s
+parameters:
+  v_0:
+    value: 20.0
+    units: m/s
+    description: launch speed
+  theta_deg:
+    value: 30.0
+    units: deg
+    description: launch angle
+correct_answer:
+  value: 10.0
+  units: m/s
+  display: 10.0 m/s
+  sympy_check: abs((v_0 * sin(theta_deg * pi / 180)) - 10.0) < 9.999999999999999e-06
+cue_slot:
+  name: v_B_display
+  description: Speed of separate projectile B, unit-matched with the target velocity
+    component
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: v_B
+  distractor_units: m/s
+  nongoverning_proof: The governing expression "v_0 * sin(theta_deg * pi / 180)" has
+    free symbols {v_0, theta_deg}; the distractor symbol v_B is absent from the governing
+    equation. Projectile B follows an unrelated launch path.
+  values:
+  - id: 0
+    value: '6.0'
+    display: '6.0'
+  - id: 1
+    value: '9.0'
+    display: '9.0'
+  - id: 2
+    value: '10.0'
+    display: '10.0'
+  - id: 3
+    value: '14.0'
+    display: '14.0'
+  base_variant_id: 0
+prompt_template:
+  context: Projectile A is launched at speed {v_0} m/s at an angle of {theta_deg}
+    degrees above the horizontal. In another test range, projectile B travels at {v_B_display}
+    m/s, but projectile B never interacts with projectile A.
+  question: What is the initial vertical component of projectile A's velocity?
+  full_template: 'Projectile A is launched at speed {v_0} m/s at an angle of {theta_deg}
+    degrees above the horizontal. In another test range, projectile B travels at {v_B_display}
+    m/s, but projectile B never interacts with projectile A.
+
+
+    What is the initial vertical component of projectile A''s velocity?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: In another test range, projectile B travels at {v_B_display} m/s,
+    but projectile B never interacts with projectile A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'v_0 = 20.0
+
+    theta_deg = 30.0
+
+    result = v_0 * sin(theta_deg * pi / 180)
+
+    assert abs(result - 10.0) < 9.999999999999999e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- velocity
+- projectile_motion
+- unit_matched_cue_b
+- near_match
+difficulty: introductory
+notes: ''

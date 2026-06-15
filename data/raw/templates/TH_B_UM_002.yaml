@@ -1,0 +1,94 @@
+template_id: TH_B_UM_002
+domain: thermodynamics
+cue_type: nongoverning_distractor
+sequence: 2
+created_date: '2026-06-15'
+created_by: agent
+governing_law: heat_capacity
+governing_equation_latex: Q_A = m_A c_A \Delta T_A
+governing_equation_sympy: m_A * c_A * delta_T_A
+target_quantity: heat_added_to_system_A
+target_units: J
+parameters:
+  m_A:
+    value: 1.0
+    units: kg
+    description: mass of water
+  c_A:
+    value: 4186.0
+    units: J/(kg*K)
+    description: specific heat capacity
+  delta_T_A:
+    value: 10.0
+    units: K
+    description: temperature increase
+correct_answer:
+  value: 41860.0
+  units: J
+  display: 41860 J
+  sympy_check: abs((m_A * c_A * delta_T_A) - 41860.0) < 0.04186
+cue_slot:
+  name: Q_B_display
+  description: Heat absorbed by separate system B, unit-matched with the target heat
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: Q_B
+  distractor_units: J
+  nongoverning_proof: The governing expression "m_A * c_A * delta_T_A" has free symbols
+    {m_A, c_A, delta_T_A}; the distractor symbol Q_B is absent from the governing
+    equation. System B is thermally isolated.
+  values:
+  - id: 0
+    value: '22000'
+    display: '22000'
+  - id: 1
+    value: '41000'
+    display: '41000'
+  - id: 2
+    value: '42000'
+    display: '42000'
+  - id: 3
+    value: '65000'
+    display: '65000'
+  base_variant_id: 0
+prompt_template:
+  context: System A contains {m_A} kg of water with specific heat capacity {c_A} J/(kg·K)
+    and warms by {delta_T_A} K. A different insulated calorimeter B absorbs {Q_B_display}
+    J, but it is thermally isolated from system A.
+  question: How much heat is added to system A?
+  full_template: 'System A contains {m_A} kg of water with specific heat capacity
+    {c_A} J/(kg·K) and warms by {delta_T_A} K. A different insulated calorimeter B
+    absorbs {Q_B_display} J, but it is thermally isolated from system A.
+
+
+    How much heat is added to system A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A different insulated calorimeter B absorbs {Q_B_display} J, but it
+    is thermally isolated from system A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm_A = 1.0
+
+    c_A = 4186.0
+
+    delta_T_A = 10.0
+
+    result = m_A * c_A * delta_T_A
+
+    assert abs(result - 41860.0) < 0.04186, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- thermodynamics
+- heat
+- specific_heat
+- unit_matched_cue_b
+- near_match
+difficulty: introductory
+notes: ''

@@ -1,0 +1,77 @@
+template_id: CM_C_003
+domain: mechanics
+cue_type: frame_rendering
+sequence: 3
+created_date: '2026-06-15'
+created_by: agent
+governing_law: unit_rendering_energy
+governing_equation_latex: E = E_{\mathrm{base}}
+governing_equation_sympy: E_base
+target_quantity: energy_in_joules
+target_units: J
+parameters:
+  E_base:
+    value: 1000.0
+    units: J
+    description: base energy
+correct_answer:
+  value: 1000.0
+  units: J
+  display: 1000 J
+  sympy_check: abs((E_base) - 1000.0) < 0.001
+cue_slot:
+  name: energy_render
+  description: Equivalent unit rendering of the same energy quantity
+  type: rendering
+  irrelevance_proof: Every rendering denotes the same physical energy value; the governing
+    expression remains "E_base".
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: 1000 J
+    display: 1000 J
+    render: 1000 J
+  - id: 1
+    value: 1 kJ
+    display: 1 kJ
+    render: 1 kJ
+  - id: 2
+    value: 1000000 mJ
+    display: 1000000 mJ
+    render: 1000000 mJ
+  - id: 3
+    value: 1000 N*m
+    display: 1000 N*m
+    render: 1000 N*m
+  base_variant_id: 0
+prompt_template:
+  context: The energy change is stated as {energy_render}.
+  question: What is that energy in joules?
+  full_template: 'The energy change is stated as {energy_render}.
+
+
+    What is that energy in joules?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The energy change is stated as {energy_render}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'E_base = 1000.0
+
+    result = E_base
+
+    assert abs(result - 1000.0) < 0.001, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- frame_rendering
+- energy_units
+difficulty: introductory
+notes: ''

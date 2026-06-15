@@ -1,0 +1,93 @@
+template_id: CM_B_STD_009
+domain: thermodynamics
+cue_type: nongoverning_distractor
+sequence: 9
+created_date: '2026-06-15'
+created_by: agent
+governing_law: heat_energy_generic_capacity
+governing_equation_latex: Q = m_A c_A \Delta T_A
+governing_equation_sympy: m_A * c_A * delta_T_A
+target_quantity: heat_added_to_system_A
+target_units: J
+parameters:
+  m_A:
+    value: 4.0
+    units: kg
+    description: mass of system A
+  c_A:
+    value: 1000.0
+    units: J/(kg*K)
+    description: specific heat of system A
+  delta_T_A:
+    value: 15.0
+    units: K
+    description: temperature rise of system A
+correct_answer:
+  value: 60000.0
+  units: J
+  display: 60000 J
+  sympy_check: abs((m_A * c_A * delta_T_A) - 60000.0) < 0.06
+cue_slot:
+  name: c_B_display
+  description: Specific heat capacity of separate material B
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: c_B
+  distractor_units: J/(kg*K)
+  nongoverning_proof: The governing expression "m_A * c_A * delta_T_A" has free symbols
+    {m_A, c_A, delta_T_A}; c_B belongs to a separate material sample B and never enters
+    system A's heat calculation.
+  values:
+  - id: 0
+    value: '500'
+    display: '500'
+  - id: 1
+    value: '900'
+    display: '900'
+  - id: 2
+    value: '1000'
+    display: '1000'
+  - id: 3
+    value: '1500'
+    display: '1500'
+  base_variant_id: 0
+prompt_template:
+  context: System A has mass {m_A} kg, specific heat capacity {c_A} J/(kg·K), and
+    temperature increase {delta_T_A} K. A separate material B has specific heat capacity
+    {c_B_display} J/(kg·K), but it is not part of system A.
+  question: How much heat is added to system A?
+  full_template: 'System A has mass {m_A} kg, specific heat capacity {c_A} J/(kg·K),
+    and temperature increase {delta_T_A} K. A separate material B has specific heat
+    capacity {c_B_display} J/(kg·K), but it is not part of system A.
+
+
+    How much heat is added to system A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate material B has specific heat capacity {c_B_display} J/(kg·K),
+    but it is not part of system A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm_A = 4.0
+
+    c_A = 1000.0
+
+    delta_T_A = 15.0
+
+    result = m_A * c_A * delta_T_A
+
+    assert abs(result - 60000.0) < 0.06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- thermodynamics
+- heat_capacity
+- cue_b_standard
+- near_match
+difficulty: introductory
+notes: ''

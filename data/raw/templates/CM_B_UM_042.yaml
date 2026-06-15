@@ -1,0 +1,89 @@
+template_id: CM_B_UM_042
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 42
+created_date: '2026-06-15'
+created_by: agent
+governing_law: relative_velocity_difference
+governing_equation_latex: v_{rel} = v_A - v_B
+governing_equation_sympy: v_A - v_base
+target_quantity: relative_velocity
+target_units: m/s
+parameters:
+  v_A:
+    value: 25.0
+    units: m/s
+    description: velocity of object A
+  v_base:
+    value: 10.0
+    units: m/s
+    description: velocity of base frame object
+correct_answer:
+  value: 15.0
+  units: m/s
+  display: 15.0 m/s
+  sympy_check: abs((v_A - v_base) - 15.0) < 1.4999999999999999e-05
+cue_slot:
+  name: v_C_display
+  description: Velocity of unrelated object C, unit-matched with the target velocity
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: v_C
+  distractor_units: m/s
+  nongoverning_proof: The governing expression "v_A - v_base" has free symbols {v_A,
+    v_base}; the distractor symbol v_C is absent from the governing equation. Object
+    C moves on a separate track and does not affect the relative velocity in the stated
+    frame.
+  values:
+  - id: 0
+    value: '10.0'
+    display: '10.0'
+  - id: 1
+    value: '13.0'
+    display: '13.0'
+  - id: 2
+    value: '15.0'
+    display: '15.0'
+  - id: 3
+    value: '20.0'
+    display: '20.0'
+  base_variant_id: 0
+prompt_template:
+  context: Object A moves at {v_A} m/s while the reference cart defining the frame
+    moves at {v_base} m/s. On a separate track, object C travels at {v_C_display}
+    m/s, but object C never interacts with the frame-defining cart or object A.
+  question: What is the relative velocity of object A in that frame?
+  full_template: 'Object A moves at {v_A} m/s while the reference cart defining the
+    frame moves at {v_base} m/s. On a separate track, object C travels at {v_C_display}
+    m/s, but object C never interacts with the frame-defining cart or object A.
+
+
+    What is the relative velocity of object A in that frame?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: On a separate track, object C travels at {v_C_display} m/s, but object
+    C never interacts with the frame-defining cart or object A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'v_A = 25.0
+
+    v_base = 10.0
+
+    result = v_A - v_base
+
+    assert abs(result - 15.0) < 1.4999999999999999e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- velocity
+- relative_motion
+- unit_matched_cue_b
+- near_match
+difficulty: introductory
+notes: ''

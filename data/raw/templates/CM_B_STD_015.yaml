@@ -1,0 +1,100 @@
+template_id: CM_B_STD_015
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 15
+created_date: '2026-06-15'
+created_by: agent
+governing_law: gravitational_force_mass_distractor
+governing_equation_latex: F = G M_A m_A / r_A^2
+governing_equation_sympy: G_const * M_A * m_A / r_A**2
+target_quantity: gravitational_force_on_object_A
+target_units: N
+parameters:
+  G_const:
+    value: 6.67e-11
+    units: N*m^2/kg^2
+    description: gravitational constant
+  M_A:
+    value: 8000000000000.0
+    units: kg
+    description: central mass
+  m_A:
+    value: 3.0
+    units: kg
+    description: object A mass
+  r_A:
+    value: 20.0
+    units: m
+    description: distance from central mass
+correct_answer:
+  value: 4.002000000000001
+  units: N
+  display: 4.002 N
+  sympy_check: abs((G_const * M_A * m_A / r_A**2) - 4.002000000000001) < 4.002000000000001e-06
+cue_slot:
+  name: M_B_display
+  description: Mass of a separate source B
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: M_B
+  distractor_units: kg
+  nongoverning_proof: The governing expression "G_const * M_A * m_A / r_A**2" has
+    free symbols {G_const, M_A, m_A, r_A}; M_B belongs to a separate source B and
+    is absent from object A's force law.
+  values:
+  - id: 0
+    value: 2.0e12
+    display: 2.0e12
+  - id: 1
+    value: 7.5e12
+    display: 7.5e12
+  - id: 2
+    value: 8.0e12
+    display: 8.0e12
+  - id: 3
+    value: 1.2e13
+    display: 1.2e13
+  base_variant_id: 0
+prompt_template:
+  context: Object A of mass {m_A} kg is {r_A} m from a source of mass {M_A} kg. Use
+    G = {G_const} N·m²/kg². A separate source B has mass {M_B_display} kg, but it
+    never interacts with object A.
+  question: What gravitational force magnitude acts on object A?
+  full_template: 'Object A of mass {m_A} kg is {r_A} m from a source of mass {M_A}
+    kg. Use G = {G_const} N·m²/kg². A separate source B has mass {M_B_display} kg,
+    but it never interacts with object A.
+
+
+    What gravitational force magnitude acts on object A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate source B has mass {M_B_display} kg, but it never interacts
+    with object A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'G_const = 6.67e-11
+
+    M_A = 8000000000000.0
+
+    m_A = 3.0
+
+    r_A = 20.0
+
+    result = G_const * M_A * m_A / r_A**2
+
+    assert abs(result - 4.002000000000001) < 4.002000000000001e-06, f"Answer check
+    failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- gravitation
+- cue_b_standard
+- near_match
+difficulty: introductory
+notes: ''

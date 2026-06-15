@@ -1,0 +1,59 @@
+{
+  "gate_name": "Stage 6 Benchmark Freeze Gate",
+  "gate_question": "Is the full 140-family Stage 6 benchmark ready to freeze for behavioural evaluation?",
+  "overall": {
+    "total": 140,
+    "verifier": 140,
+    "pi": 140,
+    "generated": 140,
+    "parseable": 140,
+    "issues": 0
+  },
+  "by_phase": {
+    "phase1_um": {
+      "total": 40,
+      "verifier": 40,
+      "pi": 40,
+      "generated": 40,
+      "parseable": 40,
+      "issues": 0
+    },
+    "phase2_ad": {
+      "total": 30,
+      "verifier": 30,
+      "pi": 30,
+      "generated": 30,
+      "parseable": 30,
+      "issues": 0
+    },
+    "phase2_bce": {
+      "total": 40,
+      "verifier": 40,
+      "pi": 40,
+      "generated": 40,
+      "parseable": 40,
+      "issues": 0
+    },
+    "pilot": {
+      "total": 30,
+      "verifier": 30,
+      "pi": 30,
+      "generated": 30,
+      "parseable": 30,
+      "issues": 0
+    }
+  },
+  "gate_result": "PASS",
+  "criteria": {
+    "all_templates_exist_and_load_cleanly": true,
+    "all_templates_verifier_certified": true,
+    "all_templates_rendered": true,
+    "all_templates_validation_complete": true,
+    "all_correct_answers_parseable": true,
+    "no_unresolved_manifest_issues": true
+  },
+  "notes": [
+    "Phase 2 B/C/E completed delegated semantic validation under explicit PI authority recorded in decision_log.md.",
+    "Standard Cue B audit no longer uses answer-distance as a redesign heuristic; that heuristic remains reserved for unit-matched families."
+  ]
+}

@@ -1,0 +1,77 @@
+template_id: CM_C_005
+domain: mechanics
+cue_type: frame_rendering
+sequence: 5
+created_date: '2026-06-15'
+created_by: agent
+governing_law: unit_rendering_frequency
+governing_equation_latex: f = f_{\mathrm{base}}
+governing_equation_sympy: f_base
+target_quantity: frequency_in_hz
+target_units: Hz
+parameters:
+  f_base:
+    value: 50.0
+    units: Hz
+    description: base frequency
+correct_answer:
+  value: 50.0
+  units: Hz
+  display: 50 Hz
+  sympy_check: abs((f_base) - 50.0) < 4.9999999999999996e-05
+cue_slot:
+  name: frequency_render
+  description: Equivalent unit rendering of the same frequency quantity
+  type: rendering
+  irrelevance_proof: Every rendering denotes the same physical frequency value; the
+    governing expression remains "f_base".
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: 50 Hz
+    display: 50 Hz
+    render: 50 Hz
+  - id: 1
+    value: 50 s^-1
+    display: 50 s^-1
+    render: 50 s^-1
+  - id: 2
+    value: 3000 rpm
+    display: 3000 rpm
+    render: 3000 rpm
+  - id: 3
+    value: 0.05 kHz
+    display: 0.05 kHz
+    render: 0.05 kHz
+  base_variant_id: 0
+prompt_template:
+  context: Instrument A reports the oscillation frequency as {frequency_render}.
+  question: What is that frequency in hertz?
+  full_template: 'Instrument A reports the oscillation frequency as {frequency_render}.
+
+
+    What is that frequency in hertz?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: Instrument A reports the oscillation frequency as {frequency_render}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'f_base = 50.0
+
+    result = f_base
+
+    assert abs(result - 50.0) < 4.9999999999999996e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- frame_rendering
+- frequency_units
+difficulty: introductory
+notes: ''

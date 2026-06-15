@@ -1,0 +1,77 @@
+template_id: CM_C_001
+domain: mechanics
+cue_type: frame_rendering
+sequence: 1
+created_date: '2026-06-15'
+created_by: agent
+governing_law: unit_rendering_velocity
+governing_equation_latex: v = v_{\mathrm{base}}
+governing_equation_sympy: v_base
+target_quantity: speed_in_m_per_s
+target_units: m/s
+parameters:
+  v_base:
+    value: 30.0
+    units: m/s
+    description: base speed
+correct_answer:
+  value: 30.0
+  units: m/s
+  display: 30.0 m/s
+  sympy_check: abs((v_base) - 30.0) < 2.9999999999999997e-05
+cue_slot:
+  name: speed_render
+  description: Equivalent unit rendering of the same speed quantity
+  type: rendering
+  irrelevance_proof: Every rendering denotes the same physical speed value; the governing
+    expression remains "v_base".
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: 30 m/s
+    display: 30 m/s
+    render: 30 m/s
+  - id: 1
+    value: 3000 cm/s
+    display: 3000 cm/s
+    render: 3000 cm/s
+  - id: 2
+    value: 108 km/h
+    display: 108 km/h
+    render: 108 km/h
+  - id: 3
+    value: 30000 mm/s
+    display: 30000 mm/s
+    render: 30000 mm/s
+  base_variant_id: 0
+prompt_template:
+  context: A motion sensor reports the cart's speed as {speed_render}.
+  question: What is that speed in m/s?
+  full_template: 'A motion sensor reports the cart''s speed as {speed_render}.
+
+
+    What is that speed in m/s?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: A motion sensor reports the cart's speed as {speed_render}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'v_base = 30.0
+
+    result = v_base
+
+    assert abs(result - 30.0) < 2.9999999999999997e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- frame_rendering
+- velocity_units
+difficulty: introductory
+notes: ''

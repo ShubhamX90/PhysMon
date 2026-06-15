@@ -1,0 +1,93 @@
+template_id: CM_B_STD_002
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 2
+created_date: '2026-06-15'
+created_by: agent
+governing_law: rotational_dynamics_from_force
+governing_equation_latex: \alpha = r_A F_A / I_A
+governing_equation_sympy: (r_A * F_A) / I_A
+target_quantity: angular_acceleration_of_wheel_A
+target_units: rad/s^2
+parameters:
+  r_A:
+    value: 0.5
+    units: m
+    description: radius where force is applied
+  F_A:
+    value: 16.0
+    units: N
+    description: force on wheel A
+  I_A:
+    value: 2.0
+    units: kg*m^2
+    description: moment of inertia of wheel A
+correct_answer:
+  value: 4.0
+  units: rad/s^2
+  display: 4.0 rad/s^2
+  sympy_check: abs(((r_A * F_A) / I_A) - 4.0) < 4e-06
+cue_slot:
+  name: F_B_display
+  description: Tangential force applied to a separate rotor B
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: F_B
+  distractor_units: N
+  nongoverning_proof: The governing expression "(r_A * F_A) / I_A" has free symbols
+    {r_A, F_A, I_A}; the distractor force F_B belongs to a disconnected rotor B and
+    never enters wheel A's torque balance.
+  values:
+  - id: 0
+    value: '6.0'
+    display: '6.0'
+  - id: 1
+    value: '15.0'
+    display: '15.0'
+  - id: 2
+    value: '16.0'
+    display: '16.0'
+  - id: 3
+    value: '24.0'
+    display: '24.0'
+  base_variant_id: 0
+prompt_template:
+  context: A force of {F_A} N is applied tangentially at radius {r_A} m on wheel A,
+    whose moment of inertia is {I_A} kg·m². A separate rotor B feels a tangential
+    force of {F_B_display} N, but rotor B is disconnected from wheel A.
+  question: What is the angular acceleration of wheel A?
+  full_template: 'A force of {F_A} N is applied tangentially at radius {r_A} m on
+    wheel A, whose moment of inertia is {I_A} kg·m². A separate rotor B feels a tangential
+    force of {F_B_display} N, but rotor B is disconnected from wheel A.
+
+
+    What is the angular acceleration of wheel A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate rotor B feels a tangential force of {F_B_display} N, but
+    rotor B is disconnected from wheel A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'r_A = 0.5
+
+    F_A = 16.0
+
+    I_A = 2.0
+
+    result = (r_A * F_A) / I_A
+
+    assert abs(result - 4.0) < 4e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- rotational_dynamics
+- cue_b_standard
+- near_match
+difficulty: introductory
+notes: ''

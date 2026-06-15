@@ -1,0 +1,99 @@
+template_id: CM_B_STD_014
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 14
+created_date: '2026-06-15'
+created_by: agent
+governing_law: gravitational_force_distance_distractor
+governing_equation_latex: F = G M_A m_A / r_A^2
+governing_equation_sympy: G_const * M_A * m_A / r_A**2
+target_quantity: gravitational_force_on_probe_A
+target_units: N
+parameters:
+  G_const:
+    value: 6.67e-11
+    units: N*m^2/kg^2
+    description: gravitational constant
+  M_A:
+    value: 500000000000.0
+    units: kg
+    description: central mass
+  m_A:
+    value: 4.0
+    units: kg
+    description: probe mass
+  r_A:
+    value: 10.0
+    units: m
+    description: distance from central mass
+correct_answer:
+  value: 1.334
+  units: N
+  display: 1.334 N
+  sympy_check: abs((G_const * M_A * m_A / r_A**2) - 1.334) < 1.334e-06
+cue_slot:
+  name: r_B_display
+  description: Distance in a separate gravitational setup B
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: r_B
+  distractor_units: m
+  nongoverning_proof: The governing expression "G_const * M_A * m_A / r_A**2" has
+    free symbols {G_const, M_A, m_A, r_A}; r_B belongs to a different gravitational
+    setup and is absent from probe A's force law.
+  values:
+  - id: 0
+    value: '5.0'
+    display: '5.0'
+  - id: 1
+    value: '9.5'
+    display: '9.5'
+  - id: 2
+    value: '10.0'
+    display: '10.0'
+  - id: 3
+    value: '14.0'
+    display: '14.0'
+  base_variant_id: 0
+prompt_template:
+  context: Probe A of mass {m_A} kg is {r_A} m from a central mass of {M_A} kg. Use
+    G = {G_const} N·m²/kg². In a separate experiment, another probe sits {r_B_display}
+    m from its own source, but that setup is isolated.
+  question: What gravitational force magnitude acts on probe A?
+  full_template: 'Probe A of mass {m_A} kg is {r_A} m from a central mass of {M_A}
+    kg. Use G = {G_const} N·m²/kg². In a separate experiment, another probe sits {r_B_display}
+    m from its own source, but that setup is isolated.
+
+
+    What gravitational force magnitude acts on probe A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: In a separate experiment, another probe sits {r_B_display} m from
+    its own source, but that setup is isolated.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'G_const = 6.67e-11
+
+    M_A = 500000000000.0
+
+    m_A = 4.0
+
+    r_A = 10.0
+
+    result = G_const * M_A * m_A / r_A**2
+
+    assert abs(result - 1.334) < 1.334e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- gravitation
+- cue_b_standard
+- near_match
+difficulty: introductory
+notes: ''

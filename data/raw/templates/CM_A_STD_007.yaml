@@ -1,0 +1,93 @@
+template_id: CM_A_STD_007
+domain: mechanics
+cue_type: irrelevant_variable
+sequence: 7
+created_date: '2026-06-15'
+created_by: agent
+governing_law: gravitational_potential_energy
+governing_equation_latex: U = m g h
+governing_equation_sympy: m * g * h
+target_quantity: gravitational_potential_energy
+target_units: J
+parameters:
+  m:
+    value: 2.0
+    units: kg
+    description: mass
+  g:
+    value: 9.8
+    units: m/s^2
+    description: gravity
+  h:
+    value: 5.0
+    units: m
+    description: height
+correct_answer:
+  value: 98.0
+  units: J
+  display: 98.0 J
+  sympy_check: abs((m * g * h) - 98.0) < 9.8e-05
+cue_slot:
+  name: elapsed_fall_s
+  description: Time a different object took to fall in another trial - irrelevant
+    to current PE
+  type: numerical
+  irrelevance_proof: The governing expression "m * g * h" depends only on m, g, and
+    h.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '1'
+    display: '1'
+  - id: 1
+    value: '2'
+    display: '2'
+  - id: 2
+    value: '5'
+    display: '5'
+  - id: 3
+    value: '10'
+    display: '10'
+  base_variant_id: 0
+prompt_template:
+  context: Object A of mass {m} kg is held at height {h} m in a field with g = {g}
+    m/s². In a separate trial, another object took {elapsed_fall_s} s to fall, but
+    that trial is unrelated.
+  question: What is the gravitational potential energy of object A relative to the
+    reference level?
+  full_template: 'Object A of mass {m} kg is held at height {h} m in a field with
+    g = {g} m/s². In a separate trial, another object took {elapsed_fall_s} s to fall,
+    but that trial is unrelated.
+
+
+    What is the gravitational potential energy of object A relative to the reference
+    level?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: In a separate trial, another object took {elapsed_fall_s} s to fall,
+    but that trial is unrelated.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm = 2.0
+
+    g = 9.8
+
+    h = 5.0
+
+    result = m * g * h
+
+    assert abs(result - 98.0) < 9.8e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- energy
+- cue_a_numeric
+difficulty: introductory
+notes: ''

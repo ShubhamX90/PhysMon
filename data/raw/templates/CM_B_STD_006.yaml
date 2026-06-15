@@ -1,0 +1,94 @@
+template_id: CM_B_STD_006
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 6
+created_date: '2026-06-15'
+created_by: agent
+governing_law: fluid_static_pressure_short_column
+governing_equation_latex: P = \rho_A g h_A
+governing_equation_sympy: rho_A * g * h_A
+target_quantity: hydrostatic_pressure_of_mercury_A
+target_units: Pa
+parameters:
+  rho_A:
+    value: 13600.0
+    units: kg/m^3
+    description: density of mercury
+  g:
+    value: 9.8
+    units: m/s^2
+    description: gravitational acceleration
+  h_A:
+    value: 0.1
+    units: m
+    description: depth in mercury
+correct_answer:
+  value: 13328.0
+  units: Pa
+  display: 13328 Pa
+  sympy_check: abs((rho_A * g * h_A) - 13328.0) < 0.001
+cue_slot:
+  name: h_B_display
+  description: Height of an unrelated fluid column B
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: h_B
+  distractor_units: m
+  nongoverning_proof: The governing expression "rho_A * g * h_A" has free symbols
+    {rho_A, g, h_A}; h_B refers to a different column and is absent from the governing
+    law.
+  values:
+  - id: 0
+    value: '0.05'
+    display: '0.05'
+  - id: 1
+    value: '0.09'
+    display: '0.09'
+  - id: 2
+    value: '0.10'
+    display: '0.10'
+  - id: 3
+    value: '0.15'
+    display: '0.15'
+  base_variant_id: 0
+prompt_template:
+  context: Mercury column A has density {rho_A} kg/m³ and the point of interest is
+    {h_A} m below the surface. A separate column B has height {h_B_display} m, but
+    it is disconnected from column A.
+  question: What is the hydrostatic pressure contribution from mercury column A at
+    that depth?
+  full_template: 'Mercury column A has density {rho_A} kg/m³ and the point of interest
+    is {h_A} m below the surface. A separate column B has height {h_B_display} m,
+    but it is disconnected from column A.
+
+
+    What is the hydrostatic pressure contribution from mercury column A at that depth?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate column B has height {h_B_display} m, but it is disconnected
+    from column A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'rho_A = 13600.0
+
+    g = 9.8
+
+    h_A = 0.1
+
+    result = rho_A * g * h_A
+
+    assert abs(result - 13328.0) < 0.001, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- fluids
+- cue_b_standard
+- near_match
+difficulty: introductory
+notes: ''

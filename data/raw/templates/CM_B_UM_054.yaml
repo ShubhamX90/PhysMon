@@ -1,0 +1,90 @@
+template_id: CM_B_UM_054
+domain: electrostatics_circuits
+cue_type: nongoverning_distractor
+sequence: 54
+created_date: '2026-06-15'
+created_by: agent
+governing_law: lc_resonance_frequency
+governing_equation_latex: f_A = \frac{1}{2\pi\sqrt{L_A C_A}}
+governing_equation_sympy: 1 / (2 * pi * sqrt(L_A * C_A))
+target_quantity: lc_resonance_frequency_A
+target_units: Hz
+parameters:
+  L_A:
+    value: 0.1
+    units: H
+    description: inductance
+  C_A:
+    value: 1.0e-05
+    units: F
+    description: capacitance
+    display: 1.0e-5 F
+correct_answer:
+  value: 159.15494309189532
+  units: Hz
+  display: 159.155 Hz
+  sympy_check: abs((1 / (2 * pi * sqrt(L_A * C_A))) - 159.15494309189532) < 0.00015915494309189532
+cue_slot:
+  name: f_B_display
+  description: Frequency of a separate resonator B, unit-matched with the target frequency
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: f_B
+  distractor_units: Hz
+  nongoverning_proof: The governing expression "1 / (2 * pi * sqrt(L_A * C_A))" has
+    free symbols {L_A, C_A}; the distractor symbol f_B is absent from the governing
+    equation. Resonator B is electrically isolated.
+  values:
+  - id: 0
+    value: '80'
+    display: '80'
+  - id: 1
+    value: '159'
+    display: '159'
+  - id: 2
+    value: '240'
+    display: '240'
+  - id: 3
+    value: '320'
+    display: '320'
+  base_variant_id: 0
+prompt_template:
+  context: LC circuit A has inductance {L_A} H and capacitance {C_A}. A separate resonator
+    B elsewhere in the lab runs at {f_B_display} Hz, but it is electrically isolated
+    from circuit A.
+  question: What is the resonance frequency of LC circuit A?
+  full_template: 'LC circuit A has inductance {L_A} H and capacitance {C_A}. A separate
+    resonator B elsewhere in the lab runs at {f_B_display} Hz, but it is electrically
+    isolated from circuit A.
+
+
+    What is the resonance frequency of LC circuit A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate resonator B elsewhere in the lab runs at {f_B_display}
+    Hz, but it is electrically isolated from circuit A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'L_A = 0.1
+
+    C_A = 1e-05
+
+    result = 1 / (2 * pi * sqrt(L_A * C_A))
+
+    assert abs(result - 159.15494309189532) < 0.00015915494309189532, f"Answer check
+    failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- frequency
+- lc_resonance
+- unit_matched_cue_b
+- near_match
+difficulty: introductory
+notes: Uses a rounded near-match distractor of 159 Hz for the 159.155 Hz resonance.

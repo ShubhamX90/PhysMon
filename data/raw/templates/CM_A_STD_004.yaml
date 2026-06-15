@@ -1,0 +1,80 @@
+template_id: CM_A_STD_004
+domain: mechanics
+cue_type: irrelevant_variable
+sequence: 4
+created_date: '2026-06-15'
+created_by: agent
+governing_law: hooke_law_force
+governing_equation_latex: F = k x
+governing_equation_sympy: k * x
+target_quantity: spring_force
+target_units: N
+parameters:
+  k:
+    value: 70.0
+    units: N/m
+    description: spring constant
+  x:
+    value: 0.2
+    units: m
+    description: extension
+correct_answer:
+  value: 14.0
+  units: N
+  display: 14.0 N
+  sympy_check: abs((k * x) - 14.0) < 1.4e-05
+cue_slot:
+  name: paint_dry_minutes
+  description: Drying time of paint on the spring mount - irrelevant to spring force
+  type: numerical
+  irrelevance_proof: The governing expression "k * x" depends only on k and x.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '2'
+    display: '2'
+  - id: 1
+    value: '7'
+    display: '7'
+  - id: 2
+    value: '14'
+    display: '14'
+  - id: 3
+    value: '28'
+    display: '28'
+  base_variant_id: 0
+prompt_template:
+  context: Spring A has constant {k} N/m and is stretched by {x} m. The paint on the
+    spring mount dried for {paint_dry_minutes} minutes.
+  question: What force does spring A exert?
+  full_template: 'Spring A has constant {k} N/m and is stretched by {x} m. The paint
+    on the spring mount dried for {paint_dry_minutes} minutes.
+
+
+    What force does spring A exert?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The paint on the spring mount dried for {paint_dry_minutes} minutes.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'k = 70.0
+
+    x = 0.2
+
+    result = k * x
+
+    assert abs(result - 14.0) < 1.4e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- hooke_law
+- cue_a_numeric
+difficulty: introductory
+notes: ''

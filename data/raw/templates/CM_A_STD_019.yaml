@@ -1,0 +1,90 @@
+template_id: CM_A_STD_019
+domain: thermodynamics
+cue_type: irrelevant_variable
+sequence: 19
+created_date: '2026-06-15'
+created_by: agent
+governing_law: thermal_expansion
+governing_equation_latex: \Delta L = \alpha L \Delta T
+governing_equation_sympy: alpha * L * delta_T
+target_quantity: thermal_expansion_of_rod_A
+target_units: m
+parameters:
+  alpha:
+    value: 2.0e-05
+    units: 1/K
+    description: expansion coefficient
+  L:
+    value: 5.0
+    units: m
+    description: initial length
+  delta_T:
+    value: 100.0
+    units: K
+    description: temperature increase
+correct_answer:
+  value: 0.01
+  units: m
+  display: 0.01 m
+  sympy_check: abs((alpha * L * delta_T) - 0.01) < 1e-08
+cue_slot:
+  name: supply_voltage_v
+  description: Supply voltage of a separate lamp - irrelevant to the rod expansion
+  type: numerical
+  irrelevance_proof: The governing expression "alpha * L * delta_T" depends only on
+    alpha, L, and delta_T.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '1'
+    display: '1'
+  - id: 1
+    value: '5'
+    display: '5'
+  - id: 2
+    value: '10'
+    display: '10'
+  - id: 3
+    value: '20'
+    display: '20'
+  base_variant_id: 0
+prompt_template:
+  context: Rod A has expansion coefficient {alpha} 1/K, initial length {L} m, and
+    temperature increase {delta_T} K. A separate lamp uses {supply_voltage_v} V, but
+    it does not affect rod A.
+  question: What is the thermal expansion of rod A?
+  full_template: 'Rod A has expansion coefficient {alpha} 1/K, initial length {L}
+    m, and temperature increase {delta_T} K. A separate lamp uses {supply_voltage_v}
+    V, but it does not affect rod A.
+
+
+    What is the thermal expansion of rod A?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: A separate lamp uses {supply_voltage_v} V, but it does not affect
+    rod A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'alpha = 2e-05
+
+    L = 5.0
+
+    delta_T = 100.0
+
+    result = alpha * L * delta_T
+
+    assert abs(result - 0.01) < 1e-08, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- thermodynamics
+- thermal_expansion
+- cue_a_numeric
+difficulty: introductory
+notes: ''

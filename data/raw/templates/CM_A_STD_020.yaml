@@ -1,0 +1,81 @@
+template_id: CM_A_STD_020
+domain: thermodynamics
+cue_type: irrelevant_variable
+sequence: 20
+created_date: '2026-06-15'
+created_by: agent
+governing_law: work_from_pressure_volume_change
+governing_equation_latex: W = P \Delta V
+governing_equation_sympy: P * delta_V
+target_quantity: work_done_by_gas_A
+target_units: J
+parameters:
+  P:
+    value: 200000.0
+    units: Pa
+    description: pressure
+  delta_V:
+    value: 0.01
+    units: m^3
+    description: volume change
+correct_answer:
+  value: 2000.0
+  units: J
+  display: 2000 J
+  sympy_check: abs((P * delta_V) - 2000.0) < 0.002
+cue_slot:
+  name: ambient_light_lux
+  description: Ambient light level - irrelevant to pressure-volume work
+  type: numerical
+  irrelevance_proof: The governing expression "P * delta_V" depends only on P and
+    delta_V.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '500'
+    display: '500'
+  - id: 1
+    value: '1000'
+    display: '1000'
+  - id: 2
+    value: '2000'
+    display: '2000'
+  - id: 3
+    value: '4000'
+    display: '4000'
+  base_variant_id: 0
+prompt_template:
+  context: Gas A expands at pressure {P} Pa through a volume change of {delta_V} m^3.
+    The ambient light level is {ambient_light_lux} lux.
+  question: What work is done by gas A during the expansion?
+  full_template: 'Gas A expands at pressure {P} Pa through a volume change of {delta_V}
+    m^3. The ambient light level is {ambient_light_lux} lux.
+
+
+    What work is done by gas A during the expansion?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The ambient light level is {ambient_light_lux} lux.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'P = 200000.0
+
+    delta_V = 0.01
+
+    result = P * delta_V
+
+    assert abs(result - 2000.0) < 0.002, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- thermodynamics
+- work
+- cue_a_numeric
+difficulty: introductory
+notes: ''

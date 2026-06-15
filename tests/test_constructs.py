@@ -102,6 +102,23 @@ def test_physics_template_accepts_stage6_unit_matched_ids() -> None:
     assert template.template_id == "CM_B_UM_001"
 
 
+def test_physics_template_accepts_stage6_standard_ids() -> None:
+    """Stage 6 standard IDs such as `CM_B_STD_001` should be accepted."""
+
+    template = PhysicsTemplate(
+        template_id="CM_B_STD_001",
+        domain="mechanics",
+        cue_type="nongoverning_distractor",
+        governing_relation="rotational_dynamics_alpha",
+        cue_variable="separate_force_reading",
+        auxiliary_assumptions="distractor system is mechanically isolated",
+        governing_equation="tau_net / I",
+        correct_answer_template="alpha = tau_net / I",
+        num_variants=4,
+    )
+    assert template.template_id == "CM_B_STD_001"
+
+
 def test_counterfactual_family_warns_when_uncertified() -> None:
     """`CounterfactualFamily` should warn when the solver certificate is absent."""
     template = make_template()

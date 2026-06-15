@@ -1,0 +1,100 @@
+template_id: CM_B_UM_048
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 48
+created_date: '2026-06-15'
+created_by: agent
+governing_law: center_of_mass_velocity
+governing_equation_latex: v_{cm} = \frac{m_1 v_1 + m_2 v_2}{m_1 + m_2}
+governing_equation_sympy: (m_1 * v_1 + m_2 * v_2) / (m_1 + m_2)
+target_quantity: center_of_mass_velocity
+target_units: m/s
+parameters:
+  m_1:
+    value: 2.0
+    units: kg
+    description: mass of object 1
+  v_1:
+    value: 8.0
+    units: m/s
+    description: velocity of object 1
+  m_2:
+    value: 3.0
+    units: kg
+    description: mass of object 2
+  v_2:
+    value: 2.0
+    units: m/s
+    description: velocity of object 2
+correct_answer:
+  value: 4.4
+  units: m/s
+  display: 4.4 m/s
+  sympy_check: abs(((m_1 * v_1 + m_2 * v_2) / (m_1 + m_2)) - 4.4) < 4.4e-06
+cue_slot:
+  name: v_B_display
+  description: Speed of a separate lab cart, unit-matched with the target speed
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: v_B
+  distractor_units: m/s
+  nongoverning_proof: The governing expression "(m_1 * v_1 + m_2 * v_2) / (m_1 + m_2)"
+    has free symbols {m_1, v_1, m_2, v_2}; the distractor symbol v_B is absent from
+    the governing equation. The lab cart is disconnected from the center-of-mass system.
+  values:
+  - id: 0
+    value: '2.0'
+    display: '2.0'
+  - id: 1
+    value: '4.0'
+    display: '4.0'
+  - id: 2
+    value: '4.4'
+    display: '4.4'
+  - id: 3
+    value: '6.0'
+    display: '6.0'
+  base_variant_id: 0
+prompt_template:
+  context: Object 1 has mass {m_1} kg and velocity {v_1} m/s, while object 2 has mass
+    {m_2} kg and velocity {v_2} m/s. A separate lab cart is measured at {v_B_display}
+    m/s, but it never interacts with the two-object system.
+  question: What is the velocity of the two-object system's center of mass?
+  full_template: 'Object 1 has mass {m_1} kg and velocity {v_1} m/s, while object
+    2 has mass {m_2} kg and velocity {v_2} m/s. A separate lab cart is measured at
+    {v_B_display} m/s, but it never interacts with the two-object system.
+
+
+    What is the velocity of the two-object system''s center of mass?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate lab cart is measured at {v_B_display} m/s, but it never
+    interacts with the two-object system.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm_1 = 2.0
+
+    v_1 = 8.0
+
+    m_2 = 3.0
+
+    v_2 = 2.0
+
+    result = (m_1 * v_1 + m_2 * v_2) / (m_1 + m_2)
+
+    assert abs(result - 4.4) < 4.4e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- velocity
+- center_of_mass
+- unit_matched_cue_b
+- near_match
+difficulty: introductory
+notes: ''

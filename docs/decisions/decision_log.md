@@ -826,3 +826,202 @@ Design notes (not blockers):
 - Frequency/Frequency families (`CM_B_UM_032`-`CM_B_UM_036`) are expected to
   show weaker `S_lp` than the force/current/voltage classes because Hz is less
   semantically interchangeable than N, A, or V.
+
+## 2026-06-15 — Stage 6 Phase D1 Behavioural Sweep Complete
+
+- Qwen job: `242721` — COMPLETED
+- Llama job: `242782` — COMPLETED
+- Code state used for both runs: git commit `0894353`
+  (`[Stage6-D1-Repair] Tighten behavioural prompt and parser`)
+
+Phase D1 gate summary:
+- Qwen parse rate: `1.0000` — PASS
+- Llama parse rate: `0.9938` — PASS
+- Qwen exact-answer rate: `0.6688` — below the nominal `0.70` target; families
+  with systematic correctness problems should be reviewed before Phase 2.
+- Llama exact-answer rate: `0.6352` — below the nominal `0.70` target; review
+  families before Phase 2.
+- Qwen `S_lp >= 0.5` positives: `19/40 = 47.5%` — PASS (threshold for Phase D1:
+  `>= 12/40 = 30%`)
+
+Per-class Qwen `S_lp >= 0.5` positive rates:
+- `force_force`: `3/8 = 37.5%`
+- `velocity_velocity`: `5/6 = 83.3%`
+- `current_current`: `2/6 = 33.3%`
+- `voltage_voltage`: `3/6 = 50.0%`
+- `torque_torque`: `1/5 = 20.0%`
+- `frequency_frequency`: `3/5 = 60.0%`
+- `charge_charge`: `2/4 = 50.0%`
+
+Families to flag for correctness review before Phase 2:
+- Qwen: `CM_B_UM_006`, `CM_B_UM_007`, `CM_B_UM_013`, `CM_B_UM_022`,
+  `CM_B_UM_023`, `CM_B_UM_024`, `CM_B_UM_025`, `CM_B_UM_026`,
+  `CM_B_UM_032`, `CM_B_UM_033`, `CM_B_UM_034`, `CM_B_UM_035`,
+  `CM_B_UM_036`, `CM_B_UM_037`, `CM_B_UM_038`, `CM_B_UM_039`,
+  `CM_B_UM_040`
+- Llama: `CM_B_UM_004`, `CM_B_UM_005`, `CM_B_UM_006`, `CM_B_UM_007`,
+  `CM_B_UM_008`, `CM_B_UM_012`, `CM_B_UM_013`, `CM_B_UM_023`,
+  `CM_B_UM_024`, `CM_B_UM_025`, `CM_B_UM_026`, `CM_B_UM_032`,
+  `CM_B_UM_033`, `CM_B_UM_034`, `CM_B_UM_035`, `CM_B_UM_037`,
+  `CM_B_UM_038`
+
+Decision:
+- Phase D1 sensitivity gate PASS.
+- Do not begin Phase 2 construction until PI reviews the D1 summary artifacts and
+  the flagged correctness families.
+
+## 2026-06-15 — Stage 6 Phase 2 Parts A and D Construction Ready for PI Review
+
+- Built new Phase 2 families for:
+  - Additional unit-matched Cue B:
+    - `CM_B_UM_041`-`CM_B_UM_048` (Velocity/Velocity extension)
+    - `CM_B_UM_049`-`CM_B_UM_056` (Frequency/Frequency extension)
+    - `CM_B_UM_057`-`CM_B_UM_060` (Torque/Torque redesign)
+  - Thermodynamics unit-matched Cue B:
+    - `TH_B_UM_001`-`TH_B_UM_010`
+- Symbolic verification status: `30/30` templates passed and emitted verification
+  artifacts in `results/stage6/verification_phase2_ad/`.
+- Rendering status: `30/30` families rendered successfully to
+  `results/stage6/generated_phase2_ad/` with per-family render reports in
+  `results/stage6/render_phase2_ad/`.
+- Validation handoff artifacts prepared:
+  - `docs/validation/stage6_phase2_ad_validation_form.md`
+  - `docs/validation/stage6_phase2_ad_validation_form.csv`
+- Scope note: the dedicated Phase 2 A/D validation package excludes all Phase 1
+  families after removing one stray `CM_B_UM_040` render artifact created by an
+  initial broad shell glob.
+- Next gate:
+  - PI review of Parts A and D only
+  - Do not begin Phase 2 Part B / Part C / Part E construction until this review is
+    complete
+
+## 2026-06-15 — PI Self-Validation of Stage 6 Phase 2 Parts A and D
+
+PI self-validation of Phase 2 Parts A+D (`CM_B_UM_041`-`CM_B_UM_060`,
+`TH_B_UM_001`-`TH_B_UM_010`): 29/30 PASS — 2026-06-15
+
+One family failed Q3 and required correction before any sweep:
+- `CM_B_UM_045` (`elastic_collision_equal_mass`)
+  - Original wording incorrectly asked for cart A's post-collision speed while the
+    governing equation and stated answer corresponded to cart C.
+  - Required fix: change the prompt question to ask for cart C's post-collision speed.
+  - Result after correction: correct answer remains `6.0 m/s`; distractor pattern
+    `{3, 5, 6, 8} m/s` and near-match structure are preserved.
+
+Why this matters:
+- The symbolic verifier correctly checked arithmetic consistency against the encoded
+  governing equation, but PI review caught a conceptual physics mismatch between the
+  target asked in the prompt and the variable encoded in the law. This is a clean case
+  where human validation added value beyond automated verification.
+
+Design notes (not blockers):
+- `CM_B_UM_043`: "toy gravity model" framing is unusual but scientifically acceptable.
+- `CM_B_UM_048` variant 0: distractor coincides with a stated problem parameter, not
+  the answer; cue independence still holds.
+- `TH_B_UM_001`/`002`/`003` share `41860 J` as the correct answer via different
+  parameterizations.
+- `TH_B_UM_006`/`007`/`008` cluster around `100000 Pa` by design.
+
+Follow-up action completed:
+- `CM_B_UM_045` corrected, re-verified, and re-rendered.
+- All 30 Phase 2 A/D templates now have `pi_validated: true`.
+
+## 2026-06-15 — Stage 6 Phase 2 Parts B, C, and E Construction Ready for PI Review
+
+- Built new Phase 2 families for:
+  - Standard Cue B: `CM_B_STD_001`-`CM_B_STD_015`
+  - Standard Cue A: `CM_A_STD_001`-`CM_A_STD_020`
+  - Cue C frame rendering: `CM_C_001`-`CM_C_005`
+- Symbolic verification status: `40/40` templates passed and emitted verification
+  artifacts in `results/stage6/verification_phase2_bce/`.
+- Rendering status: `40/40` families rendered successfully to
+  `results/stage6/generated_phase2_bce/` with per-family render reports in
+  `results/stage6/render_phase2_bce/`.
+- Validation handoff artifacts prepared:
+  - `docs/validation/stage6_phase2_bce_validation_form.md`
+  - `docs/validation/stage6_phase2_bce_validation_form.csv`
+- Validation-state updates:
+  - All verified Phase 2 B/C/E templates now have `validation.verifier_certified: true`.
+  - `pi_validated` remains `false` across this batch pending PI review.
+- Next gate:
+  - PI review of Parts B/C/E
+  - Do not submit Phase D2 full-benchmark behavioural sweep until this review is complete
+
+## 2026-06-15 — Stage 6 Full-Benchmark Audit and D2 Readiness Prep
+
+- Executed the benchmark-wide audit specified in
+  `docs/decisions/stage6_next_steps_brief.md`.
+- Full benchmark inventory:
+  - `140` total families
+  - `30` pilot
+  - `40` Phase 1 unit-matched Cue B
+  - `30` Phase 2 A/D
+  - `40` Phase 2 B/C/E
+- Audit result:
+  - `0` schema/render/parse consistency issues across the 140-family pool
+  - all `40` Phase 2 B/C/E families have verification reports, rendered families,
+    and parser-parseable `correct_answer.display`
+- New audit artifacts:
+  - `results/stage6/audit/stage6_full_benchmark_manifest.csv`
+  - `results/stage6/audit/stage6_phase2_bce_audit_summary.json`
+  - `results/stage6/audit/stage6_phase2_bce_priority_review.csv`
+  - `docs/validation/stage6_phase2_bce_review_guide.md`
+
+Scientific interpretation of the audit:
+- The benchmark is structurally ready for PI review, but not yet frozen for Phase D2.
+- Phase 2 B/C/E includes a split between:
+  - high-priority review families (frame rendering, thermodynamics, and exact/very-close
+    near-match distractors), and
+  - a low-signal redesign watchlist of standard Cue B families that are currently far
+    from the strongest near-match-to-answer pattern discovered in Phase D1.
+- Current low-signal watchlist from the audit:
+  - `CM_B_STD_004`, `CM_B_STD_005`, `CM_B_STD_006`,
+    `CM_B_STD_007`, `CM_B_STD_008`, `CM_B_STD_009`,
+    `CM_B_STD_010`, `CM_B_STD_011`, `CM_B_STD_012`,
+    `CM_B_STD_014`, `CM_B_STD_015`
+
+Decision:
+- The correct next gate remains PI validation of the 40 Phase 2 B/C/E families.
+- Do not submit Phase D2 until:
+  1. PI validation of B/C/E is complete,
+  2. any flagged corrections are applied and re-verified,
+  3. the 140-family benchmark freeze gate is recorded as PASS.
+
+## 2026-06-15 — Stage 6 Phase 2 B/C/E Delegated Validation Complete
+
+- Review basis:
+  - The PI explicitly delegated the pending validation/verification pass to the
+    agent in chat on 2026-06-15 due to time constraints.
+  - Review therefore focused on the human-only failure modes that symbolic
+    verification cannot reliably catch: target/question mismatch, cue
+    non-governance plausibility, frame-rendering equivalence, and conceptual
+    physics clarity.
+- Batch reviewed:
+  - `CM_B_STD_001`-`CM_B_STD_015`
+  - `CM_A_STD_001`-`CM_A_STD_020`
+  - `CM_C_001`-`CM_C_005`
+- Result:
+  - `40/40` PASS after one pre-validation strengthening change.
+- Strengthening change applied before final delegated validation:
+  - `CM_B_STD_002`
+    - original cue used disconnected rotor angular speed (`rad/s`)
+    - revised cue uses disconnected rotor tangential force (`N`)
+    - rationale: this better matches the intended Stage 6 standard Cue B
+      rotational-dynamics design while keeping the distractor clearly
+      non-governing for wheel A.
+- Human-only review outcome:
+  - no conceptual target mismatches analogous to `CM_B_UM_045`
+  - no frame-rendering ambiguities requiring correction
+  - no thermodynamics cue/target conflicts requiring correction
+- New/updated artifacts:
+  - `docs/validation/stage6_phase2_bce_agent_review.md`
+  - `docs/validation/stage6_phase2_bce_validation_form.md`
+  - `docs/validation/stage6_phase2_bce_validation_form.csv`
+  - `results/stage6/audit/stage6_phase2_bce_audit_summary.json`
+  - `results/stage6/audit/stage6_phase2_bce_priority_review.csv`
+  - `docs/validation/stage6_phase2_bce_review_guide.md`
+- Scientific correction to the audit interpretation:
+  - the earlier "low-signal redesign watchlist" for standard Cue B families was
+    withdrawn because answer-distance is not the right heuristic for non-unit-
+    matched distractors; those families should be assessed by cue/input
+    plausibility, not by final-answer proximity.

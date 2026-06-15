@@ -71,7 +71,7 @@ verifier:
     assert abs(result - 20.0) < 0.001, f"Answer check failed: {result}"'
   cue_independence_method: sympy_free_symbols
 validation:
-  verifier_certified: false
+  verifier_certified: true
   pi_validated: true
   v2_validated: false
   kappa_contribution: null

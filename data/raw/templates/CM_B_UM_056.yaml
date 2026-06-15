@@ -1,0 +1,88 @@
+template_id: CM_B_UM_056
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 56
+created_date: '2026-06-15'
+created_by: agent
+governing_law: string_fundamental_frequency
+governing_equation_latex: f_A = v_A / (2 L_A)
+governing_equation_sympy: v_A / (2 * L_A)
+target_quantity: string_fundamental_frequency_A
+target_units: Hz
+parameters:
+  v_A:
+    value: 120.0
+    units: m/s
+    description: wave speed on string A
+  L_A:
+    value: 0.75
+    units: m
+    description: string length
+correct_answer:
+  value: 80.0
+  units: Hz
+  display: 80.0 Hz
+  sympy_check: abs((v_A / (2 * L_A)) - 80.0) < 7.999999999999999e-05
+cue_slot:
+  name: f_B_display
+  description: Frequency of separate oscillator B, unit-matched with the target frequency
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: f_B
+  distractor_units: Hz
+  nongoverning_proof: The governing expression "v_A / (2 * L_A)" has free symbols
+    {v_A, L_A}; the distractor symbol f_B is absent from the governing equation. Oscillator
+    B is unrelated to string A.
+  values:
+  - id: 0
+    value: '40'
+    display: '40'
+  - id: 1
+    value: '75'
+    display: '75'
+  - id: 2
+    value: '80'
+    display: '80'
+  - id: 3
+    value: '120'
+    display: '120'
+  base_variant_id: 0
+prompt_template:
+  context: String A supports waves with speed {v_A} m/s and has length {L_A} m. A
+    separate oscillator B in the same lab runs at {f_B_display} Hz, but it never drives
+    string A.
+  question: What is the fundamental frequency of string A?
+  full_template: 'String A supports waves with speed {v_A} m/s and has length {L_A}
+    m. A separate oscillator B in the same lab runs at {f_B_display} Hz, but it never
+    drives string A.
+
+
+    What is the fundamental frequency of string A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate oscillator B in the same lab runs at {f_B_display} Hz,
+    but it never drives string A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'v_A = 120.0
+
+    L_A = 0.75
+
+    result = v_A / (2 * L_A)
+
+    assert abs(result - 80.0) < 7.999999999999999e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- frequency
+- waves
+- unit_matched_cue_b
+- near_match
+difficulty: introductory
+notes: ''

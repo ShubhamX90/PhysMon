@@ -1,0 +1,83 @@
+template_id: CM_A_STD_006
+domain: mechanics
+cue_type: irrelevant_variable
+sequence: 6
+created_date: '2026-06-15'
+created_by: agent
+governing_law: momentum
+governing_equation_latex: p = m v
+governing_equation_sympy: m * v
+target_quantity: momentum_of_object_A
+target_units: kg*m/s
+parameters:
+  m:
+    value: 3.0
+    units: kg
+    description: mass
+  v:
+    value: 4.0
+    units: m/s
+    description: speed
+correct_answer:
+  value: 12.0
+  units: kg*m/s
+  display: 12.0 kg*m/s
+  sympy_check: abs((m * v) - 12.0) < 1.2e-05
+cue_slot:
+  name: distance_since_maintenance_m
+  description: Distance the cart was rolled during maintenance - irrelevant to current
+    momentum
+  type: numerical
+  irrelevance_proof: The governing expression "m * v" depends only on m and v.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '3'
+    display: '3'
+  - id: 1
+    value: '12'
+    display: '12'
+  - id: 2
+    value: '24'
+    display: '24'
+  - id: 3
+    value: '48'
+    display: '48'
+  base_variant_id: 0
+prompt_template:
+  context: Object A has mass {m} kg and moves at {v} m/s. During maintenance earlier,
+    the cart was rolled {distance_since_maintenance_m} m with no measurement taken.
+  question: What is the momentum of object A now?
+  full_template: 'Object A has mass {m} kg and moves at {v} m/s. During maintenance
+    earlier, the cart was rolled {distance_since_maintenance_m} m with no measurement
+    taken.
+
+
+    What is the momentum of object A now?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: During maintenance earlier, the cart was rolled {distance_since_maintenance_m}
+    m with no measurement taken.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm = 3.0
+
+    v = 4.0
+
+    result = m * v
+
+    assert abs(result - 12.0) < 1.2e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- momentum
+- cue_a_numeric
+difficulty: introductory
+notes: ''

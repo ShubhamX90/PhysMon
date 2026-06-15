@@ -20,7 +20,7 @@ import re
 import warnings
 
 
-VALID_DOMAINS = frozenset({"mechanics", "electrostatics_circuits"})
+VALID_DOMAINS = frozenset({"mechanics", "electrostatics_circuits", "thermodynamics"})
 VALID_CUE_TYPES = frozenset(
     {"irrelevant_variable", "nongoverning_distractor", "frame_rendering"}
 )
@@ -36,6 +36,7 @@ TEMPLATE_ID_PATTERN = re.compile(
     r"(^((mechanics|electrostatics_circuits)_"
     r"(irrelevant_variable|nongoverning_distractor|frame_rendering)_\d{4})$)"
     r"|(^((CM|EL|TH)_(A|B|C)_\d{3})$)"
+    r"|(^((CM|EL|TH)_(A|B)_STD_\d{3})$)"
     r"|(^((CM|EL|TH)_B_UM_\d{3})$)"
 )
 PRE_REGISTRATION_PLACEHOLDER = "[TO BE FILLED"

@@ -1,0 +1,86 @@
+template_id: CM_B_STD_003
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 3
+created_date: '2026-06-15'
+created_by: agent
+governing_law: rotational_dynamics_braking
+governing_equation_latex: \alpha = \tau_A / I_A
+governing_equation_sympy: tau_A / I_A
+target_quantity: angular_deceleration_magnitude
+target_units: rad/s^2
+parameters:
+  tau_A:
+    value: 9.0
+    units: N*m
+    description: braking torque magnitude
+  I_A:
+    value: 1.5
+    units: kg*m^2
+    description: moment of inertia of flywheel A
+correct_answer:
+  value: 6.0
+  units: rad/s^2
+  display: 6.0 rad/s^2
+  sympy_check: abs((tau_A / I_A) - 6.0) < 6e-06
+cue_slot:
+  name: F_B_display
+  description: Force in a separate lever rig
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: F_B
+  distractor_units: N
+  nongoverning_proof: The governing expression "tau_A / I_A" has free symbols {tau_A,
+    I_A}; the distractor force F_B acts only in the separate lever rig B.
+  values:
+  - id: 0
+    value: '2.0'
+    display: '2.0'
+  - id: 1
+    value: '5.8'
+    display: '5.8'
+  - id: 2
+    value: '6.0'
+    display: '6.0'
+  - id: 3
+    value: '9.0'
+    display: '9.0'
+  base_variant_id: 0
+prompt_template:
+  context: Flywheel A experiences a braking torque of {tau_A} N·m and has moment of
+    inertia {I_A} kg·m². Elsewhere, a separate lever system B carries a force of {F_B_display}
+    N, but it never couples to flywheel A.
+  question: What is the magnitude of flywheel A's angular deceleration?
+  full_template: 'Flywheel A experiences a braking torque of {tau_A} N·m and has moment
+    of inertia {I_A} kg·m². Elsewhere, a separate lever system B carries a force of
+    {F_B_display} N, but it never couples to flywheel A.
+
+
+    What is the magnitude of flywheel A''s angular deceleration?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: Elsewhere, a separate lever system B carries a force of {F_B_display}
+    N, but it never couples to flywheel A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'tau_A = 9.0
+
+    I_A = 1.5
+
+    result = tau_A / I_A
+
+    assert abs(result - 6.0) < 6e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- rotational_dynamics
+- cue_b_standard
+- near_match
+difficulty: introductory
+notes: ''

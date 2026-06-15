@@ -41,7 +41,12 @@ def parse_args() -> argparse.Namespace:
     """Parse CLI arguments for the validation-field updater."""
 
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--template-filter", required=True, help="Template-id prefix to update.")
+    parser.add_argument("--template-filter", help="Template-id prefix to update.")
+    parser.add_argument(
+        "--template-list",
+        nargs="+",
+        help="Explicit template-id list to update. Use instead of --template-filter.",
+    )
     parser.add_argument(
         "--field",
         required=True,
@@ -60,7 +65,8 @@ def parse_args() -> argparse.Namespace:
 def update_validation_field(
     *,
     template_dir: Path,
-    template_filter: str,
+    template_filter: str | None,
+    template_list: list[str] | None,
     field_name: str,
     field_value: bool,
 ) -> int:
@@ -69,6 +75,7 @@ def update_validation_field(
     Args:
         template_dir: Directory containing template YAML files.
         template_filter: Prefix filter applied to YAML stem names.
+        template_list: Explicit template-id list to update.
         field_name: Validation field to update.
         field_value: Boolean value to assign.
 
@@ -76,10 +83,25 @@ def update_validation_field(
         Number of files updated.
     """
 
-    matching_paths = sorted(path for path in template_dir.glob("*.yaml") if path.stem.startswith(template_filter))
+    if bool(template_filter) == bool(template_list):
+        raise ValueError("Provide exactly one of --template-filter or --template-list.")
+
+    if template_list:
+        matching_paths = [template_dir / f"{template_id}.yaml" for template_id in template_list]
+        missing_paths = [path for path in matching_paths if not path.exists()]
+        if missing_paths:
+            missing_labels = ", ".join(path.stem for path in missing_paths)
+            raise FileNotFoundError(
+                f"Missing template YAML files under {template_dir}: {missing_labels}."
+            )
+    else:
+        assert template_filter is not None
+        matching_paths = sorted(
+            path for path in template_dir.glob("*.yaml") if path.stem.startswith(template_filter)
+        )
     if not matching_paths:
         raise FileNotFoundError(
-            f"No template YAML files under {template_dir} match prefix {template_filter!r}."
+            f"No template YAML files under {template_dir} match the requested selection."
         )
 
     for path in matching_paths:
@@ -97,6 +119,7 @@ def main() -> None:
     updated_count = update_validation_field(
         template_dir=Path(args.template_dir),
         template_filter=args.template_filter,
+        template_list=args.template_list,
         field_name=args.field,
         field_value=args.value,
     )

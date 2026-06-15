@@ -1,0 +1,80 @@
+template_id: CM_A_STD_013
+domain: electrostatics_circuits
+cue_type: irrelevant_variable
+sequence: 13
+created_date: '2026-06-15'
+created_by: agent
+governing_law: capacitor_charge
+governing_equation_latex: Q = C V
+governing_equation_sympy: C * V
+target_quantity: charge_on_capacitor_A
+target_units: C
+parameters:
+  C:
+    value: 5.0e-05
+    units: F
+    description: capacitance
+  V:
+    value: 6.0
+    units: V
+    description: voltage
+correct_answer:
+  value: 0.0003
+  units: C
+  display: 3.0e-4 C
+  sympy_check: abs((C * V) - 0.0003) < 2.9999999999999995e-10
+cue_slot:
+  name: batch_number
+  description: Manufacturing batch number - irrelevant to capacitor charge
+  type: numerical
+  irrelevance_proof: The governing expression "C * V" depends only on C and V.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '3'
+    display: '3'
+  - id: 1
+    value: '6'
+    display: '6'
+  - id: 2
+    value: '9'
+    display: '9'
+  - id: 3
+    value: '12'
+    display: '12'
+  base_variant_id: 0
+prompt_template:
+  context: Capacitor A has capacitance {C} F and voltage {V} V across it. The manufacturing
+    batch number is {batch_number}.
+  question: What charge is stored on capacitor A?
+  full_template: 'Capacitor A has capacitance {C} F and voltage {V} V across it. The
+    manufacturing batch number is {batch_number}.
+
+
+    What charge is stored on capacitor A?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The manufacturing batch number is {batch_number}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'C = 5e-05
+
+    V = 6.0
+
+    result = C * V
+
+    assert abs(result - 0.0003) < 2.9999999999999995e-10, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- capacitor
+- cue_a_numeric
+difficulty: introductory
+notes: ''

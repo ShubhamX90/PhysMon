@@ -1,0 +1,96 @@
+template_id: TH_B_UM_009
+domain: thermodynamics
+cue_type: nongoverning_distractor
+sequence: 9
+created_date: '2026-06-15'
+created_by: agent
+governing_law: thermal_expansion_length_change
+governing_equation_latex: \Delta L_A = \alpha_A L_A \Delta T_A
+governing_equation_sympy: alpha_A * L_A * delta_T_A
+target_quantity: thermal_expansion_of_rod_A
+target_units: m
+parameters:
+  alpha_A:
+    value: 2.0e-05
+    units: 1/K
+    description: expansion coefficient
+  L_A:
+    value: 5.0
+    units: m
+    description: initial rod length
+  delta_T_A:
+    value: 100.0
+    units: K
+    description: temperature increase
+correct_answer:
+  value: 0.01
+  units: m
+  display: 0.010 m
+  sympy_check: abs((alpha_A * L_A * delta_T_A) - 0.01) < 1e-08
+cue_slot:
+  name: delta_L_B_display
+  description: Expansion of separate rod B, unit-matched with the target expansion
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: delta_L_B
+  distractor_units: m
+  nongoverning_proof: The governing expression "alpha_A * L_A * delta_T_A" has free
+    symbols {alpha_A, L_A, delta_T_A}; the distractor symbol delta_L_B is absent from
+    the governing equation. Rod B is separate.
+  values:
+  - id: 0
+    value: '0.004'
+    display: '0.004'
+  - id: 1
+    value: '0.0098'
+    display: '0.0098'
+  - id: 2
+    value: '0.010'
+    display: '0.010'
+  - id: 3
+    value: '0.015'
+    display: '0.015'
+  base_variant_id: 0
+prompt_template:
+  context: Rod A has expansion coefficient {alpha_A}, initial length {L_A} m, and
+    undergoes a temperature increase of {delta_T_A} K. A separate rod B expands by
+    {delta_L_B_display} m, but rod B never interacts thermally or mechanically with
+    rod A.
+  question: What is the length change of rod A?
+  full_template: 'Rod A has expansion coefficient {alpha_A}, initial length {L_A}
+    m, and undergoes a temperature increase of {delta_T_A} K. A separate rod B expands
+    by {delta_L_B_display} m, but rod B never interacts thermally or mechanically
+    with rod A.
+
+
+    What is the length change of rod A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate rod B expands by {delta_L_B_display} m, but rod B never
+    interacts thermally or mechanically with rod A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'alpha_A = 2e-05
+
+    L_A = 5.0
+
+    delta_T_A = 100.0
+
+    result = alpha_A * L_A * delta_T_A
+
+    assert abs(result - 0.01) < 1e-08, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- thermodynamics
+- expansion
+- thermal_expansion
+- unit_matched_cue_b
+- near_match
+difficulty: introductory
+notes: ''

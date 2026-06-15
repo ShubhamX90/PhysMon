@@ -1,0 +1,97 @@
+template_id: CM_B_UM_043
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 43
+created_date: '2026-06-15'
+created_by: agent
+governing_law: escape_speed_simplified
+governing_equation_latex: v = \sqrt{2 G M / r}
+governing_equation_sympy: sqrt(2 * G_planet * M_planet / r_surface)
+target_quantity: escape_speed
+target_units: m/s
+parameters:
+  G_planet:
+    value: 1.0
+    units: N*m^2/kg^2
+    description: toy-model gravitational constant
+  M_planet:
+    value: 8.0
+    units: kg
+    description: toy-model planetary mass
+  r_surface:
+    value: 1.0
+    units: m
+    description: toy-model planetary radius
+correct_answer:
+  value: 4.0
+  units: m/s
+  display: 4.0 m/s
+  sympy_check: abs((sqrt(2 * G_planet * M_planet / r_surface)) - 4.0) < 4e-06
+cue_slot:
+  name: v_B_display
+  description: Velocity of a separate probe, unit-matched with the target velocity
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: v_B
+  distractor_units: m/s
+  nongoverning_proof: The governing expression "sqrt(2 * G_planet * M_planet / r_surface)"
+    has free symbols {G_planet, M_planet, r_surface}; the distractor symbol v_B is
+    absent from the governing equation. The probe B is in a different simulation and
+    never affects the escape-speed calculation.
+  values:
+  - id: 0
+    value: '2.0'
+    display: '2.0'
+  - id: 1
+    value: '3.8'
+    display: '3.8'
+  - id: 2
+    value: '4.0'
+    display: '4.0'
+  - id: 3
+    value: '6.0'
+    display: '6.0'
+  base_variant_id: 0
+prompt_template:
+  context: In a toy gravity model, a planet has gravitational constant {G_planet},
+    mass {M_planet} kg, and surface radius {r_surface} m. In a separate simulation,
+    probe B is reported to move at {v_B_display} m/s, but that probe never interacts
+    with the planet in this problem.
+  question: What is the escape speed from the planet's surface?
+  full_template: 'In a toy gravity model, a planet has gravitational constant {G_planet},
+    mass {M_planet} kg, and surface radius {r_surface} m. In a separate simulation,
+    probe B is reported to move at {v_B_display} m/s, but that probe never interacts
+    with the planet in this problem.
+
+
+    What is the escape speed from the planet''s surface?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: In a separate simulation, probe B is reported to move at {v_B_display}
+    m/s, but that probe never interacts with the planet in this problem.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'G_planet = 1.0
+
+    M_planet = 8.0
+
+    r_surface = 1.0
+
+    result = sqrt(2 * G_planet * M_planet / r_surface)
+
+    assert abs(result - 4.0) < 4e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- velocity
+- escape_speed
+- unit_matched_cue_b
+- near_match
+difficulty: introductory
+notes: ''

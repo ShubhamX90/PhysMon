@@ -1,0 +1,87 @@
+template_id: CM_A_STD_005
+domain: mechanics
+cue_type: irrelevant_variable
+sequence: 5
+created_date: '2026-06-15'
+created_by: agent
+governing_law: centripetal_force
+governing_equation_latex: F_c = m v^2 / r
+governing_equation_sympy: m * v**2 / r
+target_quantity: centripetal_force
+target_units: N
+parameters:
+  m:
+    value: 2.0
+    units: kg
+    description: mass
+  v:
+    value: 3.0
+    units: m/s
+    description: speed
+  r:
+    value: 1.0
+    units: m
+    description: radius
+correct_answer:
+  value: 18.0
+  units: N
+  display: 18.0 N
+  sympy_check: abs((m * v**2 / r) - 18.0) < 1.8e-05
+cue_slot:
+  name: track_temp_c
+  description: Temperature of the outer track wall - irrelevant to centripetal force
+  type: numerical
+  irrelevance_proof: The governing expression "m * v**2 / r" depends only on m, v,
+    and r.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '9'
+    display: '9'
+  - id: 1
+    value: '18'
+    display: '18'
+  - id: 2
+    value: '27'
+    display: '27'
+  - id: 3
+    value: '45'
+    display: '45'
+  base_variant_id: 0
+prompt_template:
+  context: Object A of mass {m} kg travels at {v} m/s around a circle of radius {r}
+    m. The outer track wall temperature is {track_temp_c} °C.
+  question: What centripetal force magnitude is required for object A?
+  full_template: 'Object A of mass {m} kg travels at {v} m/s around a circle of radius
+    {r} m. The outer track wall temperature is {track_temp_c} °C.
+
+
+    What centripetal force magnitude is required for object A?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The outer track wall temperature is {track_temp_c} °C.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm = 2.0
+
+    v = 3.0
+
+    r = 1.0
+
+    result = m * v**2 / r
+
+    assert abs(result - 18.0) < 1.8e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- centripetal_force
+- cue_a_numeric
+difficulty: introductory
+notes: ''

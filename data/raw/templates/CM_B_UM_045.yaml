@@ -1,0 +1,95 @@
+template_id: CM_B_UM_045
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 45
+created_date: '2026-06-15'
+created_by: agent
+governing_law: elastic_collision_equal_mass
+governing_equation_latex: v_f = \frac{2 m_1}{m_1 + m_2} v_i
+governing_equation_sympy: (2 * m_1 / (m_1 + m_2)) * v_i
+target_quantity: post_collision_speed_of_cart_C
+target_units: m/s
+parameters:
+  m_1:
+    value: 1.0
+    units: kg
+    description: incoming mass
+  m_2:
+    value: 1.0
+    units: kg
+    description: target mass
+  v_i:
+    value: 6.0
+    units: m/s
+    description: incoming speed
+correct_answer:
+  value: 6.0
+  units: m/s
+  display: 6.0 m/s
+  sympy_check: abs(((2 * m_1 / (m_1 + m_2)) * v_i) - 6.0) < 6e-06
+cue_slot:
+  name: v_B_display
+  description: Speed of a separate cart B, unit-matched with the target speed
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: v_B
+  distractor_units: m/s
+  nongoverning_proof: The governing expression "(2 * m_1 / (m_1 + m_2)) * v_i" has
+    free symbols {m_1, m_2, v_i}; the distractor symbol v_B is absent from the governing
+    equation. Cart B is in a different collision lane.
+  values:
+  - id: 0
+    value: '3.0'
+    display: '3.0'
+  - id: 1
+    value: '5.0'
+    display: '5.0'
+  - id: 2
+    value: '6.0'
+    display: '6.0'
+  - id: 3
+    value: '8.0'
+    display: '8.0'
+  base_variant_id: 0
+prompt_template:
+  context: In a one-dimensional elastic collision, cart A of mass {m_1} kg strikes
+    cart C of mass {m_2} kg while moving at {v_i} m/s. In a different lane, cart B
+    is measured at {v_B_display} m/s, but cart B never interacts with carts A or C.
+  question: What is cart C's post-collision speed after the collision?
+  full_template: 'In a one-dimensional elastic collision, cart A of mass {m_1} kg
+    strikes cart C of mass {m_2} kg while moving at {v_i} m/s. In a different lane,
+    cart B is measured at {v_B_display} m/s, but cart B never interacts with carts
+    A or C.
+
+
+    What is cart C''s post-collision speed after the collision?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: In a different lane, cart B is measured at {v_B_display} m/s, but
+    cart B never interacts with carts A or C.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm_1 = 1.0
+
+    m_2 = 1.0
+
+    v_i = 6.0
+
+    result = (2 * m_1 / (m_1 + m_2)) * v_i
+
+    assert abs(result - 6.0) < 6e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- velocity
+- collision
+- unit_matched_cue_b
+- near_match
+difficulty: introductory
+notes: ''
