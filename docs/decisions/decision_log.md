@@ -1025,3 +1025,34 @@ Decision:
     withdrawn because answer-distance is not the right heuristic for non-unit-
     matched distractors; those families should be assessed by cue/input
     plausibility, not by final-answer proximity.
+
+## 2026-06-15 — Stage 6 Benchmark Freeze Gate
+
+Gate question: Is the full 140-family Stage 6 benchmark ready to freeze for
+behavioural evaluation?
+
+Evidence:
+- [x] `140/140` templates exist and load cleanly
+- [x] `140/140` templates are verifier-certified
+- [x] `140/140` templates are validated
+- [x] `140/140` rendered-family JSON files exist
+- [x] `140/140` correct answers are parser-parseable
+- [x] benchmark audit manifest generated
+- [x] no unresolved manifest issues remain
+- [x] no unresolved conceptual-physics issues remain after delegated B/C/E review
+
+Artifacts:
+- `results/stage6/audit/stage6_full_benchmark_manifest.csv`
+- `results/stage6/audit/stage6_phase2_bce_audit_summary.json`
+- `results/stage6/audit/stage6_freeze_gate_summary.json`
+
+Gate result: [x] PASS
+
+Follow-up:
+- committed freeze state: `f21172b` (`Stage 6 freeze benchmark and prepare D2 sweep`)
+- synced to Sharanga via `make sync-up`
+- full benchmark re-rendered on Sharanga from committed templates:
+  `140/140` rendered and verifier-certified
+- D2 smoke-check + submission still pending because Codex escalation hit an
+  external usage-limit stop before the final `ssh sharanga` prompt checks and
+  `sbatch` calls could be executed
