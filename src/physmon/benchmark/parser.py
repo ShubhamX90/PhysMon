@@ -59,9 +59,6 @@ PRIMARY_ANSWER_PATTERN = re.compile(
     r"[Aa]nswer\s*:\s*(?P<answer>.+)",
     re.IGNORECASE,
 )
-EQUALS_ANSWER_PATTERN = re.compile(
-    r"=\s*(?P<answer>[^\n]+?)\s*$",
-)
 FLOAT_LIKE_PATTERN = re.compile(
     r"[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?"
 )
@@ -139,9 +136,12 @@ def parse_answer(
     display_answer = _normalize_display_answer(cleaned_candidate, expected_unit=expected_unit)
     cleaned_candidate_starts_numeric = NUMERIC_PATTERN.match(_normalize_scientific_notation(cleaned_candidate)) is not None
     symbolic_candidate = (
-        (method == "equals_line" and not _is_valid_extracted_answer(cleaned_candidate))
-        or _looks_symbolic_math(cleaned_candidate)
-        or (_looks_symbolic_math(candidate_text) and not cleaned_candidate_starts_numeric)
+        expected_unit is None
+        and (
+            (method == "equals_line" and not _is_valid_extracted_answer(cleaned_candidate))
+            or _looks_symbolic_math(cleaned_candidate)
+            or (_looks_symbolic_math(candidate_text) and not cleaned_candidate_starts_numeric)
+        )
     )
     if symbolic_candidate:
         symbolic_answer = _normalize_symbolic_answer(candidate_text)
@@ -179,7 +179,7 @@ def parse_answer(
     if not _is_valid_extracted_answer(cleaned_candidate):
         return _failed_result(cleaned_output, "unknown", f"{method}_invalid")
 
-    symbolic_answer = _normalize_symbolic_answer(candidate_text)
+    symbolic_answer = _normalize_symbolic_answer(candidate_text) if expected_unit is None else None
     if symbolic_answer is not None:
         is_confident = base_confidence >= confidence_threshold
         if not is_confident:
@@ -274,10 +274,10 @@ def _extract_equals_answer(raw_output: str) -> str | None:
     """Extract a trailing `= value unit` fragment from the last matching line."""
     lines = [line.strip() for line in raw_output.splitlines() if line.strip()]
     for line in reversed(lines):
-        match = EQUALS_ANSWER_PATTERN.search(line)
+        match = ASSIGNMENT_PATTERN.match(line)
         if match is None:
             continue
-        return _strip_boundaries(match.group("answer"))
+        return _strip_boundaries(match.group("rhs"))
     return None
 
 
@@ -311,6 +311,8 @@ def _normalize_numeric_answer(
 
     numeric_value = float(match.group("value"))
     unit_text = match.group("unit") or ""
+    if unit_text and not _looks_like_valid_unit_text(unit_text):
+        return None
     if _contains_additional_number(unit_text):
         return _normalize_bare_number_answer(
             normalized_text,
@@ -422,6 +424,8 @@ def _normalize_display_answer(candidate_text: str, expected_unit: str | None = N
 
     value_text = match.group("value")
     unit_text = match.group("unit") or ""
+    if unit_text and not _looks_like_valid_unit_text(unit_text):
+        return None
     canonical_unit = _normalize_unit_string(unit_text)
     if canonical_unit:
         return f"{value_text} {canonical_unit}"
@@ -460,6 +464,7 @@ def _normalize_unit_string(unit_text: str) -> str:
     normalized = normalized.replace("\\/", "/")
     normalized = normalized.replace("^{", "^").replace("}", "")
     normalized = normalized.replace("{", "")
+    normalized = re.sub(r"\^\((-?\d+)\)", r"^\1", normalized)
     normalized = normalized.replace("²", "^2").replace("³", "^3")
     normalized = normalized.replace("−", "-")
     normalized = normalized.translate(SUPERSCRIPT_TRANSLATION)
@@ -472,6 +477,23 @@ def _normalize_unit_string(unit_text: str) -> str:
     normalized = normalized.replace("N*m^2/C^2", "N*m^2/C^2")
     normalized = normalized.strip(BOUNDARY_PUNCTUATION).rstrip(".")
     return normalized
+
+
+def _looks_like_valid_unit_text(unit_text: str) -> bool:
+    """Return whether trailing numeric text resembles a physics unit instead of prose."""
+    normalized = _normalize_common_tokens(unit_text)
+    if not normalized:
+        return False
+    if _contains_sentence_text(normalized):
+        return False
+    if re.search(r"[=\\]", normalized):
+        return False
+    if not re.search(r"[A-Za-zµμΩ]", normalized):
+        return False
+    if re.search(r"[A-Za-z]{4,}", normalized):
+        return False
+    stripped = normalized.replace(" ", "")
+    return re.fullmatch(r"[A-Za-z0-9µμΩ/\*\^\-·().{}]+", stripped) is not None
 
 
 def _format_significant_figures(value: float, significant_figures: int) -> str:

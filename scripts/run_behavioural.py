@@ -38,8 +38,9 @@ DEFAULT_TEMPERATURE = 1.0
 TIMESTAMP_FORMAT = "%Y%m%dT%H%M%SZ"
 SYSTEM_PROMPT = (
     "You are a precise physics problem solver. "
-    "Work through the problem and state your final numerical answer with units "
-    "on the last line of your response, in the form: Answer: [value] [unit]"
+    "Solve the problem silently and return exactly one line in this format: "
+    "Answer: [value] [unit]. "
+    "Do not include reasoning, derivations, equations, or any extra text."
 )
 
 

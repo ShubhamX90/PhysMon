@@ -148,3 +148,21 @@ def test_latex_text_and_cdot_display_answer_normalization() -> None:
     assert result.display_answer == "14 kg*m/s"
     assert result.answer == "14 kg*m/s"
     assert result.is_confident is True
+
+
+@pytest.mark.parametrize(
+    ("raw_output", "expected_unit"),
+    [
+        ("2.0 A (this does not affect the calculation for circuit A)", "A"),
+        ("\\(\\sin(90^\\circ)=1\\).", "N*m"),
+        ("\\frac{1}{2\\pi}", "Hz"),
+        ("v/\\lambda", "Hz"),
+    ],
+)
+def test_expected_unit_rejects_intermediate_math_or_prose(
+    raw_output: str, expected_unit: str
+) -> None:
+    """Template metadata with expected units should not let formula fragments pass as answers."""
+    result = parse_answer(raw_output, expected_unit=expected_unit)
+    assert result.answer is None
+    assert result.is_confident is False
