@@ -299,3 +299,25 @@ Rationale:               Targets 30% positive-class rate (9/30 pilot families) i
 Date pre-registered:     2026-06-14
 
 Commit:                  5a72370
+
+## Stage 6 D2 Scientific Note
+
+Scientific finding (D2 analysis, 2026-06-16):
+
+The near-match distractor principle is confirmed at scale. `S_lp` is highest when
+the distractor value is within roughly 1% of the correct answer:
+
+- `CM_B_UM_059`: `tau_distractor = 6.9 N·m`, `tau_correct = 6.928 N·m` → `S_lp = 10.03`
+- `CM_B_UM_032`: `f_distractor = 1.6 Hz`, `f_correct = 1.592 Hz` → `S_lp = 5.56`
+
+Cue C frame-rendering families show the highest `S_lp` of all (4-14 nats), driven by
+the model being uncertain whether to output the canonical number (for example `50 Hz`)
+or the prompt-displayed number (for example `3000 rpm`). This is a distinct mechanism
+from Cue B distractor-value confusion, but it is still a Level-2 behavioural sensitivity
+effect under the three-level framework in this document.
+
+Cue A numerical-coincidence effect: `CM_A_STD_005` (centripetal force `18 N`,
+temperature cue includes `18°C`) shows `S_lp = 2.30`, suggesting the model responds
+to the number `18` regardless of its physical type. This is evidence of numerical
+pattern matching influencing model uncertainty, not a claim that prompt-condition
+labels alone determine shortcut reliance.

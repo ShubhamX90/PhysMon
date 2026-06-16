@@ -1066,5 +1066,70 @@ Follow-up:
  - Repair applied on 2026-06-16:
    - `scripts/run_behavioural.py::load_rendered_families()` now skips non-family JSON
      payloads unless they expose both `template_id` and `variants`
-   - rerun isolated to `results/stage6/behavioural_full_rerun/` to preserve failed-run
-     evidence without mixing prompt/family summary JSONL files
+ - rerun isolated to `results/stage6/behavioural_full_rerun/` to preserve failed-run
+   evidence without mixing prompt/family summary JSONL files
+
+## Stage 6 D2 Behavioural Sweep — Gate PASS (2026-06-16)
+
+Jobs: 242947 (Qwen), 242948 (Llama). 140 families x 4 variants each.
+
+Top-line:
+  Qwen S_lp mean:          1.4006 nats
+  Qwen S_lp >= 0.5 nats:   70 / 140 = 50.0% — PASS (gate was >= 30%)
+  Qwen parse rate:         0.9696
+  Qwen correctness:        0.6133
+
+  Llama S_lp mean:         0.4721 nats
+  Llama parse rate:        0.9982
+  Llama correctness:       0.4436
+
+Cross-model:
+  Both sensitive:          25
+  Only Qwen:               20
+  Only Llama:              21
+  Neither:                 74
+
+Top 5 Qwen S_lp families:
+  CM_C_005 (frame_rendering): 13.83 nats
+  CM_C_004 (frame_rendering): 13.55 nats [DEGRADED]
+  CM_B_UM_059 (torque/torque, near-match 6.9≈6.928 N·m): 10.03 nats
+  CM_C_002 (frame_rendering): 6.78 nats [DEGRADED]
+  CM_C_003 (frame_rendering): 6.55 nats
+
+Degraded Qwen families (hat_S invalid, S_lp valid):
+  CM_A_002, CM_A_STD_018, CM_A_STD_019, CM_B_003, CM_B_UM_051,
+  CM_B_UM_052, CM_C_002, CM_C_004, TH_B_UM_006, TH_B_UM_009, TH_B_UM_010
+
+Families usable for LOO-CV probe training:
+  135 of 140 (exclude 5 degraded with S_lp < 0.5)
+  70 positive (51.9%), 65 negative
+
+Scientific note — Cue C S_lp:
+  Frame-rendering families (CM_C_001-005) generate very high S_lp (4-14 nats)
+  because the 4 variants present the same physical quantity in different unit
+  systems, causing the model to be uncertain whether to output the canonical-unit
+  number or the prompt-displayed number. This is a distinct phenomenon from Cue B
+  S_lp (distractor-value confusion) and will be analysed separately in the probing
+  study. Both phenomena are genuine hidden-state sensitivity manifestations.
+
+Probe training usable families: 135 (all 70 positive + 65 clean negative).
+Decision: proceed to Stage 6 activation extraction.
+
+Scientific finding (D2 analysis, 2026-06-16):
+
+The near-match distractor principle is confirmed at scale. S_lp is highest when
+the distractor value is within ~1% of the correct answer:
+  CM_B_UM_059: τ_distractor = 6.9 N·m, τ_correct = 6.928 N·m → S_lp = 10.03 nats
+  CM_B_UM_032: f_distractor = 1.6 Hz, f_correct = 1.592 Hz → S_lp = 5.56 nats
+
+Cue C frame-rendering families show the highest S_lp of all (4-14 nats), driven
+by the model being uncertain whether to output the canonical number (50 Hz) or
+the prompt-displayed number (3000 rpm). This is a distinct mechanism from Cue B
+but confirms that prompt-side numerical framing strongly influences the model's
+internal confidence in the canonical answer.
+
+Cue A numerical-coincidence effect: CM_A_STD_005 (centripetal force = 18 N,
+temperature cue includes 18°C) shows S_lp = 2.30 nats, suggesting the model
+responds to numerical values regardless of their physical type — 18°C and 18 N
+both suppress the model's confidence in outputting 18 N as the answer. This is
+evidence of pure numerical pattern matching influencing model uncertainty.

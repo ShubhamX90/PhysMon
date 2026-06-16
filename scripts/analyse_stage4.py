@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ruff: noqa: E402
 """Analyse Stage 4 behavioural outputs and compute pilot sensitivity summaries.
 
 Reference:
@@ -12,14 +13,20 @@ import csv
 from glob import glob
 import json
 from pathlib import Path
+import sys
 from typing import Any
 
 import matplotlib.pyplot as plt
 import numpy as np
 
-from physmon.benchmark.parser import parse_answer
-from physmon.utils.io import ensure_parent_dir, read_yaml, write_json
-from physmon.utils.logging import ExperimentLogger
+REPO_ROOT = Path(__file__).resolve().parents[1]
+SRC_ROOT = REPO_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
+
+from physmon.benchmark.parser import parse_answer  # noqa: E402
+from physmon.utils.io import ensure_parent_dir, read_yaml, write_json  # noqa: E402
+from physmon.utils.logging import ExperimentLogger  # noqa: E402
 
 
 DEFAULT_STAGE = 4
@@ -86,6 +93,14 @@ def parse_args() -> argparse.Namespace:
         type=float,
         default=0.5,
         help="Binary S_lp threshold used for Stage 6 positive-rate checks.",
+    )
+    parser.add_argument(
+        "--plot-only",
+        action="store_true",
+        help=(
+            "Regenerate only the histogram from an existing per-family CSV in the output directory. "
+            "This skips the JSONL analysis computation."
+        ),
     )
     return parser.parse_args()
 
@@ -356,6 +371,8 @@ def stage6_class_name(template_id: str) -> str | None:
 def infer_output_prefix(output_dir: Path, args: argparse.Namespace) -> str:
     """Infer the output filename prefix for the current analysis run."""
 
+    if args.plot_only and args.jsonl_glob and output_dir.name == "analysis_d2":
+        return "stage6_d2"
     return "stage6_d1" if args.jsonl_glob else "stage4"
 
 
@@ -412,6 +429,15 @@ def write_per_family_csv(rows: list[dict[str, Any]], output_path: Path) -> None:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)
+
+
+def load_per_family_csv_rows(output_path: Path) -> list[dict[str, str]]:
+    """Load an existing per-family CSV for plot-only regeneration."""
+
+    if not output_path.exists():
+        raise FileNotFoundError(f"Per-family CSV not found at {output_path}.")
+    with output_path.open("r", encoding="utf-8", newline="") as handle:
+        return list(csv.DictReader(handle))
 
 
 def load_original_per_family_csv(path: Path) -> dict[str, dict[str, str]]:
@@ -492,6 +518,39 @@ def main() -> None:
         llama_path = resolve_single_path(args.llama_output)
     template_dir = Path(args.template_dir)
     output_prefix = infer_output_prefix(output_dir, args)
+
+    if args.plot_only:
+        candidate_inputs = [
+            output_dir / f"{output_prefix}_per_family.csv",
+            output_dir / "stage6_d1_per_family.csv",
+            output_dir / "stage4_per_family.csv",
+        ]
+        per_family_source = next((path for path in candidate_inputs if path.exists()), None)
+        if per_family_source is None:
+            raise FileNotFoundError(
+                "Could not find an existing per-family CSV for plot regeneration in "
+                f"{output_dir}. Looked for {[str(path.name) for path in candidate_inputs]}."
+            )
+
+        rows = load_per_family_csv_rows(per_family_source)
+        qwen_hat_values = [float(row["qwen_hat_S"]) for row in rows if row.get("qwen_hat_S") not in {"", None}]
+        llama_hat_values = [float(row["llama_hat_S"]) for row in rows if row.get("llama_hat_S") not in {"", None}]
+        qwen_slp_values = [float(row["qwen_S_lp"]) for row in rows if row.get("qwen_S_lp") not in {"", None}]
+        llama_slp_values = [float(row["llama_S_lp"]) for row in rows if row.get("llama_S_lp") not in {"", None}]
+        plot_histograms(
+            qwen_hat_values,
+            llama_hat_values,
+            qwen_slp_values,
+            llama_slp_values,
+            output_dir / f"{output_prefix}_sensitivity_hist.png",
+        )
+        logger.log_event(
+            "STAGE4_PLOT_REGENERATED",
+            output_prefix=output_prefix,
+            source_per_family_csv=str(per_family_source.resolve()),
+        )
+        return
+
     original_per_family = load_original_per_family_csv(Path(args.original_per_family)) if args.repair_run else {}
     prior_repair_per_family = (
         load_slp_baseline_csv(Path(args.prior_repair_per_family))

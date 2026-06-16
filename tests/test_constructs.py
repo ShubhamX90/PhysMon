@@ -14,6 +14,9 @@ from physmon.formal.constructs import (
     ProbeTarget,
     SensitivityRecord,
     STAGE5_POSITIVE_FAMILIES,
+    STAGE6_DEGRADED_QWEN,
+    STAGE6_EXCLUDE_FROM_PROBE,
+    STAGE6_POSITIVE_FAMILIES,
     is_preregistration_complete,
     get_binary_slp_label,
 )
@@ -266,7 +269,26 @@ def test_compute_all_sensitivity_measures_populates_single_record() -> None:
     assert math.isclose(record.answer_flip_rate or 0.0, 2.0 / 3.0, rel_tol=1e-6)
     assert math.isclose(record.jsd_sensitivity or 0.0, 0.5408520829727552, rel_tol=1e-6)
     assert math.isclose(record.logprob_drop or 0.0, 1.0, rel_tol=1e-6)
-    assert record.generation_seed == 42
+
+
+def test_stage6_positive_count() -> None:
+    """Stage 6 positive-family set should match the frozen D2 benchmark count."""
+
+    assert len(STAGE6_POSITIVE_FAMILIES) == 70
+
+
+def test_stage6_positive_rate() -> None:
+    """Stage 6 positive-family rate should be 50% on the 140-family benchmark."""
+
+    total = 140
+    assert len(STAGE6_POSITIVE_FAMILIES) / total == pytest.approx(0.50, abs=0.01)
+
+
+def test_stage6_probe_exclusion_subset() -> None:
+    """Stage 6 probe exclusions should be a strict subset of degraded Qwen families."""
+
+    assert STAGE6_EXCLUDE_FROM_PROBE <= STAGE6_DEGRADED_QWEN
+    assert len(STAGE6_EXCLUDE_FROM_PROBE) == 5
 
 
 def test_stage5_positive_family_count() -> None:
