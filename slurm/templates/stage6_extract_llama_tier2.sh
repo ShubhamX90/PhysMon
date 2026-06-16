@@ -11,10 +11,11 @@
 #SBATCH --error=/scratch/pabitra/physmon/slurm_logs/%j_%x.err
 
 set -eo pipefail
-set -u
 
+set +u
 source "$(conda info --base)/etc/profile.d/conda.sh"
 conda activate physmon
+set -u
 
 export SCRATCH=/scratch/pabitra
 export PHYSMON_ROOT="$HOME/PhysMons"
