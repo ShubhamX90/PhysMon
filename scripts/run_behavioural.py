@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 from datetime import datetime, timezone
 import json
+import logging
 from pathlib import Path
 import random
 from typing import TYPE_CHECKING, Any
@@ -153,7 +154,24 @@ def load_rendered_families(
     family_paths = sorted(directory.glob("*.json"))
     if not family_paths:
         raise FileNotFoundError(f"No rendered family JSON files found in {directory}.")
-    payloads = [json.loads(path.read_text(encoding="utf-8")) for path in family_paths]
+    payloads: list[dict[str, Any]] = []
+    skipped_paths: list[str] = []
+    for path in family_paths:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(payload, dict) or "template_id" not in payload or "variants" not in payload:
+            skipped_paths.append(path.name)
+            continue
+        payloads.append(payload)
+    if skipped_paths:
+        logging.getLogger(__name__).warning(
+            "Skipping non-family JSON payloads in %s: %s",
+            directory,
+            ", ".join(skipped_paths),
+        )
+    if not payloads:
+        raise FileNotFoundError(
+            f"No rendered family payloads with 'template_id' and 'variants' were found in {directory}."
+        )
     if family_filter is None:
         return payloads
 

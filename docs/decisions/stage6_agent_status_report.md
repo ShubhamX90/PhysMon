@@ -1,6 +1,6 @@
 # PhysMon Agent Status Report
-**Date/Time:** 2026-06-15 23:45 IST  
-**Session summary:** Froze the full 140-family Stage 6 benchmark, committed and synced the freeze state, and completed remote full-benchmark rendering on Sharanga; D2 job submission is the only remaining blocked step.
+**Date/Time:** 2026-06-16 10:20 IST  
+**Session summary:** Diagnosed the failed first D2 run as a non-family JSON loader bug, repaired the loader, and prepared a clean rerun path that preserves the failed-run evidence.
 
 ## Completed This Session
 - [x] Strengthened `CM_B_STD_002` to use a separate tangential-force distractor instead of disconnected angular speed.
@@ -21,16 +21,22 @@
 - [x] Re-rendered the full 140-family benchmark on Sharanga from committed templates with `140/140` verification pass.
 
 ## In Progress
-- [ ] Stage 6 Phase D2 behavioural sweep submission
+- [ ] Stage 6 Phase D2 behavioural sweep rerun
+  - First submission outcomes:
+    1. Qwen job `242828` failed after benchmark completion
+    2. Llama job `242829` failed after benchmark completion
+  - Root cause:
+    - `assembly_summary.json` in the rendered-family directory was treated as a family payload
+      and raised `KeyError: 'variants'`
   - Remaining steps:
-    1. Sharanga smoke-check of `--print-first-prompt` for Qwen
-    2. Sharanga smoke-check of `--print-first-prompt` for Llama
-    3. materialize `slurm/submitted/` copies from synced D2 templates
-    4. `sbatch` Qwen and Llama D2 jobs
-    5. record job IDs in `docs/decisions/decision_log.md`
+    1. sync repaired loader + rerun templates to Sharanga
+    2. resubmit Qwen and Llama to `results/stage6/behavioural_full_rerun/`
+    3. monitor rerun health and completion
+    4. `make sync-down`
+    5. run Stage 6 D2 analysis
 
 ## Blocked / Flagged
-- BLOCKED: Further escalated `ssh sharanga` actions were stopped by an external Codex usage-limit gate after sync and remote rendering completed. No scientific or code blocker remains in-repo.
+- None scientifically. Infrastructure repair is complete locally and ready for rerun.
 
 ## Decisions Required from PI
 None on benchmark design at this step. Operational resume is needed only after the escalation limit clears.
@@ -65,6 +71,6 @@ None on benchmark design at this step. Operational resume is needed only after t
 - `slurm/templates/stage6_d2_llama.sh`
 
 ## Next Actions (in order)
-1. Resume Sharanga smoke-checks for Qwen and Llama prompt formatting.
-2. Create remote `slurm/submitted/stage6_d2_behavioural_{qwen,llama}.sh` from synced templates and submit both jobs.
-3. Record Slurm job IDs, wait for completion, then `make sync-down`.
+1. Sync repaired loader and rerun templates to Sharanga.
+2. Submit clean D2 rerun jobs with isolated output paths.
+3. After completion, sync results down and run the Stage 6 D2 analysis.

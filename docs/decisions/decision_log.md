@@ -1053,6 +1053,18 @@ Follow-up:
 - synced to Sharanga via `make sync-up`
 - full benchmark re-rendered on Sharanga from committed templates:
   `140/140` rendered and verifier-certified
-- D2 smoke-check + submission still pending because Codex escalation hit an
-  external usage-limit stop before the final `ssh sharanga` prompt checks and
-  `sbatch` calls could be executed
+- D2 smoke-checks completed on Sharanga:
+  - Qwen prompt showed expected `<|im_start|>system ... <|im_start|>assistant` markers
+  - Llama prompt showed expected
+    `<|begin_of_text|><|start_header_id|>system...<|start_header_id|>assistant` markers
+- Stage 6 Phase D2 behavioural sweep submitted from synced templates:
+  - Qwen job ID: `242828`
+  - Llama job ID: `242829`
+ - Both jobs reached the end of benchmark execution but failed after processing the
+   final family because `results/stage6/generated_full_benchmark/assembly_summary.json`
+   was co-located with rendered family payloads and lacked a `variants` field.
+ - Repair applied on 2026-06-16:
+   - `scripts/run_behavioural.py::load_rendered_families()` now skips non-family JSON
+     payloads unless they expose both `template_id` and `variants`
+   - rerun isolated to `results/stage6/behavioural_full_rerun/` to preserve failed-run
+     evidence without mixing prompt/family summary JSONL files
