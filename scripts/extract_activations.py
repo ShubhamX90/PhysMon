@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ruff: noqa: E402
 """Extract pre-registered Stage 5 prompt-side activations from primary models.
 
 Reference:
@@ -10,16 +11,22 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+import sys
 from typing import Any
 
 import torch
 
-from physmon.models.hooks import extract_targeted_activations, find_cue_token_index, set_global_seed
-from physmon.models.loader import load_model, resolve_model_spec
-from physmon.utils.io import ensure_parent_dir, write_json
-from physmon.utils.logging import ExperimentLogger
+REPO_ROOT = Path(__file__).resolve().parents[1]
+SRC_ROOT = REPO_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
 
-from run_behavioural import format_prompt_with_chat_template, load_rendered_families
+from physmon.models.hooks import extract_targeted_activations, find_cue_token_index, set_global_seed  # noqa: E402
+from physmon.models.loader import load_model, resolve_model_spec  # noqa: E402
+from physmon.utils.io import ensure_parent_dir, write_json  # noqa: E402
+from physmon.utils.logging import ExperimentLogger  # noqa: E402
+
+from run_behavioural import format_prompt_with_chat_template, load_rendered_families  # noqa: E402
 
 
 DEFAULT_STAGE = 5
@@ -39,6 +46,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", required=True, help="Scratch activation root directory.")
     parser.add_argument("--tier", type=int, default=DEFAULT_TIER, choices=SUPPORTED_TIERS)
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED)
+    parser.add_argument("--stage", type=int, default=DEFAULT_STAGE, help="Scientific stage number for logging.")
     parser.add_argument("--dry-run", action="store_true")
     return parser.parse_args()
 
@@ -106,7 +114,7 @@ def main() -> None:
     output_root = Path(args.output_dir) / resolved_model_key
     logger = ExperimentLogger(
         script_name="extract_activations.py",
-        stage=DEFAULT_STAGE,
+        stage=args.stage,
         jsonl_path=output_root / DEFAULT_JSONL_NAME,
         repo_root=Path(__file__).resolve().parents[1],
         model_name=model_spec.name,

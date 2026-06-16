@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ruff: noqa: E402
 """Stage 5 probe training and evaluation entry point.
 
 Reference:
@@ -13,6 +14,7 @@ import itertools
 import json
 from pathlib import Path
 import random
+import sys
 from typing import Any
 
 import numpy as np
@@ -21,9 +23,19 @@ from sklearn.linear_model import LogisticRegression, Ridge
 from sklearn.model_selection import GroupKFold
 import torch
 
-from physmon.formal.constructs import STAGE5_POSITIVE_FAMILIES, STAGE5_SLP_THRESHOLD
-from physmon.probing.metrics import compute_auprc, compute_auroc, compute_brier
-from physmon.utils.logging import ExperimentLogger
+REPO_ROOT = Path(__file__).resolve().parents[1]
+SRC_ROOT = REPO_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
+
+from physmon.formal.constructs import (
+    STAGE5_POSITIVE_FAMILIES,
+    STAGE5_SLP_THRESHOLD,
+    STAGE6_POSITIVE_FAMILIES,
+    STAGE6_SLP_THRESHOLD,
+)  # noqa: E402
+from physmon.probing.metrics import compute_auprc, compute_auroc, compute_brier  # noqa: E402
+from physmon.utils.logging import ExperimentLogger  # noqa: E402
 
 
 DEFAULT_STAGE = 5
@@ -37,8 +49,6 @@ DEFAULT_BEHAVIOURAL_DIR = "results/stage4_repair/behavioural"
 DEFAULT_PAIR_THRESHOLD = STAGE5_SLP_THRESHOLD
 AGGREGATE_MEAN = "mean"
 AGGREGATE_MAX = "max"
-
-
 def parse_args() -> argparse.Namespace:
     """Parse CLI arguments for the Stage 5 probing runner."""
 
@@ -83,6 +93,32 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", required=True, help="Directory for Stage 5 probing artifacts.")
     parser.add_argument("--family-csv", default=DEFAULT_FAMILY_CSV, help="Stage 4/5 per-family CSV.")
     parser.add_argument(
+        "--positive-families-file",
+        default=None,
+        help="Optional JSON file with {'threshold': float, 'positive_families': [...]} for binary labels.",
+    )
+    parser.add_argument(
+        "--exclude-ids",
+        nargs="*",
+        default=(),
+        help="Optional template ids to exclude from this probing run.",
+    )
+    parser.add_argument(
+        "--exclude-cue-type",
+        default=None,
+        help="Optional cue_type value to exclude, e.g. frame_rendering.",
+    )
+    parser.add_argument(
+        "--cue-type",
+        default=None,
+        help="Optional cue_type value to keep exclusively, e.g. frame_rendering.",
+    )
+    parser.add_argument(
+        "--pilot-only",
+        action="store_true",
+        help="Allow subset-only analysis runs from filtered family slices without changing labels.",
+    )
+    parser.add_argument(
         "--cross-model-activation-dir",
         default=None,
         help="Optional second activation directory for cross-model validation.",
@@ -92,6 +128,7 @@ def parse_args() -> argparse.Namespace:
         default="llama_primary",
         help="Role label for the optional cross-model activation directory.",
     )
+    parser.add_argument("--stage", type=int, default=DEFAULT_STAGE, help="Scientific stage number for logging.")
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED, help="Deterministic seed.")
     return parser.parse_args()
 
@@ -119,6 +156,25 @@ def load_per_family_rows(path: Path) -> dict[str, dict[str, str]]:
         return {row["template_id"]: row for row in csv.DictReader(handle)}
 
 
+def infer_positive_families(
+    *,
+    family_csv: Path,
+    positive_families_file: Path | None,
+) -> tuple[frozenset[str], float]:
+    """Resolve the binary sensitivity label source for one probing run."""
+
+    if positive_families_file is not None:
+        payload = json.loads(positive_families_file.read_text(encoding="utf-8"))
+        positives = frozenset(str(item) for item in payload["positive_families"])
+        threshold = float(payload.get("threshold", STAGE6_SLP_THRESHOLD))
+        return positives, threshold
+
+    family_csv_text = str(family_csv)
+    if "stage6" in family_csv_text:
+        return STAGE6_POSITIVE_FAMILIES, STAGE6_SLP_THRESHOLD
+    return STAGE5_POSITIVE_FAMILIES, STAGE5_SLP_THRESHOLD
+
+
 def load_site_tensors(
     activation_dir: Path,
     site: str,
@@ -137,6 +193,40 @@ def load_site_tensors(
     ]
     stacked = np.stack(tensors, axis=0)
     return matching, stacked
+
+
+def filter_entries_and_tensors(
+    entries: list[dict[str, Any]],
+    tensors: np.ndarray,
+    *,
+    family_rows: dict[str, dict[str, str]],
+    exclude_ids: set[str],
+    exclude_cue_type: str | None,
+    cue_type: str | None,
+    pilot_only: bool,
+) -> tuple[list[dict[str, Any]], np.ndarray]:
+    """Filter manifest entries and tensors to one requested Stage 6 analysis subset."""
+
+    kept_entries: list[dict[str, Any]] = []
+    kept_indices: list[int] = []
+    for index, entry in enumerate(entries):
+        template_id = str(entry["template_id"])
+        if template_id not in family_rows:
+            continue
+        if template_id in exclude_ids:
+            continue
+        row = family_rows[template_id]
+        row_cue_type = row.get("cue_type", "")
+        if exclude_cue_type and row_cue_type == exclude_cue_type:
+            continue
+        if cue_type and row_cue_type != cue_type:
+            continue
+        kept_entries.append(entry)
+        kept_indices.append(index)
+
+    if not kept_entries:
+        raise ValueError("Filtering removed every activation entry; no probeable families remain.")
+    return kept_entries, tensors[np.asarray(kept_indices, dtype=int)]
 
 
 def resolve_tensor_path(activation_dir: Path, entry: dict[str, Any]) -> Path:
@@ -217,11 +307,14 @@ def extract_template_ids(entries: list[dict[str, Any]]) -> list[str]:
     return [str(entry["template_id"]) for entry in entries]
 
 
-def binary_labels_for_templates(template_ids: list[str]) -> np.ndarray:
+def binary_labels_for_templates(
+    template_ids: list[str],
+    positive_families: frozenset[str],
+) -> np.ndarray:
     """Return pre-registered binary S_lp labels for the requested families."""
 
     return np.asarray(
-        [int(template_id in STAGE5_POSITIVE_FAMILIES) for template_id in template_ids],
+        [int(template_id in positive_families) for template_id in template_ids],
         dtype=int,
     )
 
@@ -234,7 +327,10 @@ def continuous_targets_for_templates(
 ) -> np.ndarray:
     """Return continuous S_lp targets for the requested families."""
 
-    column = "qwen_S_lp_repair" if "qwen" in model_role else "llama_S_lp_repair"
+    preferred_column = "qwen_S_lp" if "qwen" in model_role else "llama_S_lp"
+    fallback_column = "qwen_S_lp_repair" if "qwen" in model_role else "llama_S_lp_repair"
+    sample_row = next(iter(family_rows.values()))
+    column = preferred_column if preferred_column in sample_row else fallback_column
     return np.asarray([float(family_rows[template_id][column]) for template_id in template_ids], dtype=float)
 
 
@@ -357,6 +453,7 @@ def run_layerwise_binary_loo_mean(
     *,
     layer_indices: list[int],
     pca_dims: int | None,
+    positive_families: frozenset[str],
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     """Run layer-wise family-level LOO logistic probing over family means."""
 
@@ -401,7 +498,7 @@ def run_layerwise_binary_loo_mean(
                     "template_id": held_out_family,
                     "layer_index": layer_index,
                     "prediction": float(test_scores.mean()),
-                    "true_label": int(held_out_family in STAGE5_POSITIVE_FAMILIES),
+                    "true_label": int(held_out_family in positive_families),
                     "selected_c": chosen_c,
                 }
             )
@@ -657,6 +754,7 @@ def run_layerwise_binary_loo_contrast(
     *,
     layer_indices: list[int],
     pca_dims: int | None,
+    positive_families: frozenset[str],
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     """Run layer-wise family-level LOO logistic probing over contrast vectors."""
 
@@ -701,7 +799,7 @@ def run_layerwise_binary_loo_contrast(
                     "template_id": held_out_family,
                     "layer_index": layer_index,
                     "prediction": float(test_scores.max()),
-                    "true_label": int(held_out_family in STAGE5_POSITIVE_FAMILIES),
+                    "true_label": int(held_out_family in positive_families),
                     "selected_c": chosen_c,
                 }
             )
@@ -817,6 +915,8 @@ def cross_model_validation(
     best_c: float,
     target_family_rows: dict[str, dict[str, str]],
     target_role: str,
+    positive_families: frozenset[str],
+    positive_threshold: float,
 ) -> dict[str, Any]:
     """Fit on all source activations and evaluate on target-model family labels."""
 
@@ -833,7 +933,7 @@ def cross_model_validation(
             "target_dim": float(target_dim),
         }
 
-    source_labels = binary_labels_for_templates(source_template_ids)
+    source_labels = binary_labels_for_templates(source_template_ids, positive_families)
     model = LogisticRegression(
         C=best_c,
         class_weight="balanced",
@@ -846,14 +946,17 @@ def cross_model_validation(
     _, target_family_scores, _ = aggregate_group_predictions(
         target_template_ids,
         target_variant_scores,
-        binary_labels_for_templates(target_template_ids),
+        binary_labels_for_templates(target_template_ids, positive_families),
         aggregation_mode=AGGREGATE_MEAN,
     )
     target_family_ids = sorted(set(target_template_ids))
-    target_column = "qwen_S_lp_repair" if "qwen" in target_role else "llama_S_lp_repair"
+    sample_row = next(iter(target_family_rows.values()))
+    preferred_column = "qwen_S_lp" if "qwen" in target_role else "llama_S_lp"
+    fallback_column = "qwen_S_lp_repair" if "qwen" in target_role else "llama_S_lp_repair"
+    target_column = preferred_column if preferred_column in sample_row else fallback_column
     target_labels = np.asarray(
         [
-            int(float(target_family_rows[family_id][target_column]) >= STAGE5_SLP_THRESHOLD)
+            int(float(target_family_rows[family_id][target_column]) >= positive_threshold)
             for family_id in target_family_ids
         ],
         dtype=int,
@@ -888,15 +991,30 @@ def main() -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     logger = ExperimentLogger(
         script_name="run_probing.py",
-        stage=DEFAULT_STAGE,
+        stage=args.stage,
         jsonl_path=output_dir / DEFAULT_JSONL_NAME,
         repo_root=Path(__file__).resolve().parents[1],
         model_role=args.model_role,
     )
 
-    entries, tensors = load_site_tensors(Path(args.activation_dir), args.site)
-    layer_indices = parse_layer_filter(args.layer_filter, tensors.shape[1])
     family_rows = load_per_family_rows(Path(args.family_csv))
+    positive_families, positive_threshold = infer_positive_families(
+        family_csv=Path(args.family_csv),
+        positive_families_file=Path(args.positive_families_file)
+        if args.positive_families_file
+        else None,
+    )
+    entries, tensors = load_site_tensors(Path(args.activation_dir), args.site)
+    entries, tensors = filter_entries_and_tensors(
+        entries,
+        tensors,
+        family_rows=family_rows,
+        exclude_ids=set(args.exclude_ids),
+        exclude_cue_type=args.exclude_cue_type,
+        cue_type=args.cue_type,
+        pilot_only=args.pilot_only,
+    )
+    layer_indices = parse_layer_filter(args.layer_filter, tensors.shape[1])
     template_ids = extract_template_ids(entries)
     stem = artifact_stem(args.site, args.probe_type, args.pca_dims)
 
@@ -918,6 +1036,7 @@ def main() -> None:
             contrast_labels,
             layer_indices=layer_indices,
             pca_dims=args.pca_dims,
+            positive_families=positive_families,
         )
         best_binary = max(layer_binary, key=lambda item: item["auroc"])
         plot_layer_curve(layer_binary, output_dir / f"layer_auroc_curve_{stem}.png")
@@ -960,7 +1079,7 @@ def main() -> None:
         save_json(output_dir / f"summary_{stem}.json", summary_payload)
     elif args.probe_type == "variance":
         family_ids, feature_tensors = build_family_feature_tensors(tensors, entries, reducer="variance")
-        binary_labels = binary_labels_for_templates(family_ids)
+        binary_labels = binary_labels_for_templates(family_ids, positive_families)
         continuous_targets = continuous_targets_for_templates(
             family_ids,
             family_rows=family_rows,
@@ -1024,7 +1143,7 @@ def main() -> None:
         save_json(output_dir / f"summary_{stem}.json", summary_payload)
         save_json(output_dir / f"layer_pearson_{stem}.json", layer_continuous)
     else:
-        binary_labels = binary_labels_for_templates(template_ids)
+        binary_labels = binary_labels_for_templates(template_ids, positive_families)
         continuous_targets = continuous_targets_for_templates(
             template_ids,
             family_rows=family_rows,
@@ -1036,6 +1155,7 @@ def main() -> None:
             binary_labels,
             layer_indices=layer_indices,
             pca_dims=args.pca_dims,
+            positive_families=positive_families,
         )
         layer_continuous = run_layerwise_continuous_loo_mean(
             tensors,
@@ -1074,6 +1194,8 @@ def main() -> None:
                 best_c=best_c,
                 target_family_rows=family_rows,
                 target_role=args.cross_model_role,
+                positive_families=positive_families,
+                positive_threshold=positive_threshold,
             )
 
         embedding_layer_auroc = next(

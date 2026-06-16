@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ruff: noqa: E402
 """Run Stage 5 surface-only baseline models over per-family Stage 4 data.
 
 Reference:
@@ -11,6 +12,7 @@ import argparse
 import csv
 from pathlib import Path
 import re
+import sys
 from typing import Any
 
 import numpy as np
@@ -18,9 +20,14 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.linear_model import LogisticRegression, Ridge
 from sklearn.model_selection import KFold, StratifiedKFold
 
-from physmon.probing.metrics import compute_auprc, compute_auroc, compute_brier
-from physmon.utils.io import read_yaml, write_json
-from physmon.utils.logging import ExperimentLogger
+REPO_ROOT = Path(__file__).resolve().parents[1]
+SRC_ROOT = REPO_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
+
+from physmon.probing.metrics import compute_auprc, compute_auroc, compute_brier  # noqa: E402
+from physmon.utils.io import read_yaml, write_json  # noqa: E402
+from physmon.utils.logging import ExperimentLogger  # noqa: E402
 
 
 DEFAULT_STAGE = 5
@@ -35,6 +42,7 @@ DEFAULT_BASELINES = (
     "bag_of_words",
 )
 DEFAULT_CONTINUOUS_TARGET_COLUMNS = ("qwen_S_lp_repair", "llama_S_lp_repair")
+DEFAULT_STAGE6_CONTINUOUS_TARGET_COLUMNS = ("qwen_S_lp", "llama_S_lp")
 
 
 def parse_args() -> argparse.Namespace:
@@ -56,11 +64,18 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED, help="Deterministic CV seed.")
     parser.add_argument(
+        "--exclude-ids",
+        nargs="*",
+        default=(),
+        help="Optional template ids to exclude from baseline fitting.",
+    )
+    parser.add_argument(
         "--target-measure",
         choices=("hat_s_binary", "slp_binary"),
         default="hat_s_binary",
         help="Binary target family used for the surface baseline labels.",
     )
+    parser.add_argument("--stage", type=int, default=DEFAULT_STAGE, help="Scientific stage number for logging.")
     return parser.parse_args()
 
 
@@ -69,6 +84,17 @@ def load_family_rows(path: Path) -> list[dict[str, str]]:
 
     with path.open("r", encoding="utf-8", newline="") as handle:
         return list(csv.DictReader(handle))
+
+
+def filter_family_rows(
+    rows: list[dict[str, str]],
+    exclude_ids: set[str],
+) -> list[dict[str, str]]:
+    """Drop any template ids explicitly excluded from one baseline run."""
+
+    if not exclude_ids:
+        return rows
+    return [row for row in rows if row["template_id"] not in exclude_ids]
 
 
 def load_family_prompts(generated_dir: Path, template_id: str) -> tuple[str, str]:
@@ -85,6 +111,57 @@ def make_binary_labels(scores: np.ndarray, threshold: float | None) -> tuple[np.
     if threshold is None:
         return (scores > 0.0).astype(int), "exploratory_any_flip"
     return (scores >= threshold).astype(int), "pre_registered_threshold"
+
+
+def resolve_binary_target_columns(
+    rows: list[dict[str, str]],
+    target_measure: str,
+) -> tuple[str, ...]:
+    """Resolve the per-model target columns available in the supplied CSV."""
+
+    if not rows:
+        raise ValueError("No per-family rows available for surface baseline analysis.")
+
+    available = set(rows[0].keys())
+    if target_measure == "hat_s_binary":
+        return DEFAULT_TARGET_COLUMNS
+
+    stage6_columns = DEFAULT_STAGE6_CONTINUOUS_TARGET_COLUMNS
+    if all(column in available for column in stage6_columns):
+        return stage6_columns
+
+    stage5_columns = tuple(column.replace("_hat_S", "_S_lp_repair") for column in DEFAULT_TARGET_COLUMNS)
+    if all(column in available for column in stage5_columns):
+        return stage5_columns
+
+    raise KeyError(
+        "Could not resolve S_lp columns in per-family CSV. "
+        f"Available columns: {sorted(available)}"
+    )
+
+
+def resolve_continuous_target_columns(rows: list[dict[str, str]]) -> tuple[str, ...]:
+    """Resolve the continuous S_lp columns available in the supplied CSV."""
+
+    if not rows:
+        return ()
+
+    available = set(rows[0].keys())
+    if all(column in available for column in DEFAULT_STAGE6_CONTINUOUS_TARGET_COLUMNS):
+        return DEFAULT_STAGE6_CONTINUOUS_TARGET_COLUMNS
+    if all(column in available for column in DEFAULT_CONTINUOUS_TARGET_COLUMNS):
+        return DEFAULT_CONTINUOUS_TARGET_COLUMNS
+    return ()
+
+
+def model_key_from_column(column: str) -> str:
+    """Map one target column to the canonical model key used in result payloads."""
+
+    if column.startswith("qwen_"):
+        return "qwen"
+    if column.startswith("llama_"):
+        return "llama"
+    raise ValueError(f"Unsupported target column {column!r}.")
 
 
 def count_equation_like_tokens(text: str) -> int:
@@ -352,12 +429,15 @@ def main() -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
     logger = ExperimentLogger(
         script_name="run_baselines_surface.py",
-        stage=DEFAULT_STAGE,
+        stage=args.stage,
         jsonl_path=output_dir / DEFAULT_JSONL_NAME,
         repo_root=Path(__file__).resolve().parents[1],
     )
 
-    family_rows = load_family_rows(Path(args.family_csv))
+    family_rows = filter_family_rows(
+        load_family_rows(Path(args.family_csv)),
+        set(args.exclude_ids),
+    )
     generated_dir = Path(args.generated_dir)
     prompts: list[str] = []
     cue_sentences: list[str] = []
@@ -370,11 +450,7 @@ def main() -> None:
         cue_sentences.append(cue_sentence)
 
     threshold_mode = "exploratory_any_flip" if args.threshold is None else "pre_registered_threshold"
-    target_columns = (
-        DEFAULT_TARGET_COLUMNS
-        if args.target_measure == "hat_s_binary"
-        else tuple(column.replace("_hat_S", "_S_lp_repair") for column in DEFAULT_TARGET_COLUMNS)
-    )
+    target_columns = resolve_binary_target_columns(family_rows, args.target_measure)
     for target_column in target_columns:
         filtered_scores: list[float] = []
         prompt_indices: list[int] = []
@@ -386,14 +462,12 @@ def main() -> None:
             prompt_indices.append(index)
         scores = np.asarray(filtered_scores, dtype=float)
         labels, _ = make_binary_labels(scores, args.threshold)
-        labels_by_model[
-            target_column.replace("_hat_S", "").replace("_S_lp_repair", "")
-        ] = {
+        labels_by_model[model_key_from_column(target_column)] = {
             "labels": labels,
             "prompt_indices": prompt_indices,
         }
 
-    for target_column in DEFAULT_CONTINUOUS_TARGET_COLUMNS:
+    for target_column in resolve_continuous_target_columns(family_rows):
         filtered_targets: list[float] = []
         prompt_indices: list[int] = []
         for index, row in enumerate(family_rows):
@@ -404,7 +478,7 @@ def main() -> None:
             prompt_indices.append(index)
         if not filtered_targets:
             continue
-        continuous_targets_by_model[target_column.replace("_S_lp_repair", "")] = {
+        continuous_targets_by_model[model_key_from_column(target_column)] = {
             "targets": np.asarray(filtered_targets, dtype=float),
             "prompt_indices": prompt_indices,
         }
