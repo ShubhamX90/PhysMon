@@ -1542,3 +1542,25 @@ Progression of causal evidence:
   Full-residual LP patching:   mean recovery 10.85%
   Single-head H26 knockout:    mean recovery 22.35%
   4-head circuit knockout L16: 17/20 complete suppression, 3/20 at 72-88%
+
+## Stage 9 Parallel GPU Execution Plan — 2026-06-17
+
+Rationale: Proposal audit revealed mandatory causal controls (Section 10.4) and
+mandatory baselines (Table 3) not yet run. These are required before any
+submission to ACL/EMNLP or EACL. Stage 9 probe-ablation jobs are no longer
+running; live queue check immediately before submission showed no active jobs
+for `pabitra` on Sharanga. GPU nodes are available; compute slots are clear.
+
+Planned submissions:
+  stage9_random_direction_control — A100
+  stage9_direction_injection — A100
+  stage9_unrelated_donor — A100
+  stage9_mhk_early_layers_and_damage_control — A100
+  stage9_self_consistency — A100
+  stage9_llm_judge — H100
+  stage9_correctness_probe — compute
+  stage9_cot_text — compute
+  stage9_answer_rationale — compute
+
+Scientific purpose: Establish H4 causal specificity; fill mandatory baseline
+gaps; enable clean paper claims at EACL ARR target venue.

@@ -21,6 +21,9 @@ import numpy as np
 from sklearn.decomposition import PCA
 from sklearn.linear_model import LogisticRegression, Ridge
 from sklearn.model_selection import GroupKFold
+from sklearn.neural_network import MLPClassifier
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
 import torch
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -28,6 +31,7 @@ SRC_ROOT = REPO_ROOT / "src"
 if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
+from physmon.benchmark.parser import parse_answer  # noqa: E402
 from physmon.formal.constructs import (
     STAGE5_POSITIVE_FAMILIES,
     STAGE5_SLP_THRESHOLD,
@@ -49,6 +53,12 @@ DEFAULT_BEHAVIOURAL_DIR = "results/stage4_repair/behavioural"
 DEFAULT_PAIR_THRESHOLD = STAGE5_SLP_THRESHOLD
 AGGREGATE_MEAN = "mean"
 AGGREGATE_MAX = "max"
+DEFAULT_ENSEMBLE_LAYERS = (15, 16, 17, 18, 19, 20)
+DEFAULT_PCA_PER_LAYER = 50
+DEFAULT_MLP_HIDDEN_LAYERS = (128, 32)
+DEFAULT_DOMAIN_GENERALISATION_MODE = "domain_generalisation"
+
+
 def parse_args() -> argparse.Namespace:
     """Parse CLI arguments for the Stage 5 probing runner."""
 
@@ -58,13 +68,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--model-role", required=True, help="Model role label for reporting.")
     parser.add_argument(
         "--target-measure",
-        choices=("slp_binary", "slp_continuous"),
+        choices=("slp_binary", "slp_continuous", "answer_correctness"),
         default="slp_binary",
         help="Primary target measure for summary reporting.",
     )
     parser.add_argument(
         "--probe-type",
-        choices=("mean", "contrast", "variance"),
+        choices=("mean", "contrast", "variance", "variance_ensemble", "variance_mlp"),
         default="mean",
         help="Probe over family means, within-family variance, or pairwise contrasts.",
     )
@@ -82,13 +92,27 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--behavioural-jsonl",
         default=None,
-        help="Optional behavioural JSONL for contrast labels; defaults to the latest matching file.",
+        help=(
+            "Optional behavioural JSONL for contrast labels and variant-selection metadata; "
+            "defaults to the latest matching file."
+        ),
     )
     parser.add_argument(
         "--pair-threshold",
         type=float,
         default=DEFAULT_PAIR_THRESHOLD,
         help="Threshold on absolute pairwise logprob difference for contrast labels.",
+    )
+    parser.add_argument(
+        "--n-variants",
+        type=int,
+        default=4,
+        choices=(2, 3, 4),
+        help=(
+            "Number of variants to use when computing family-level variance features. "
+            "n=2 uses base v0 plus the most-sensitive variant by logprob drop; "
+            "n=3 uses v0,v1,v2; n=4 uses all variants."
+        ),
     )
     parser.add_argument("--output-dir", required=True, help="Directory for Stage 5 probing artifacts.")
     parser.add_argument("--family-csv", default=DEFAULT_FAMILY_CSV, help="Stage 4/5 per-family CSV.")
@@ -114,9 +138,34 @@ def parse_args() -> argparse.Namespace:
         help="Optional cue_type value to keep exclusively, e.g. frame_rendering.",
     )
     parser.add_argument(
+        "--include-cue-type-only",
+        dest="cue_type",
+        default=None,
+        help="Alias for --cue-type to keep one cue_type exclusively.",
+    )
+    parser.add_argument(
         "--pilot-only",
         action="store_true",
         help="Allow subset-only analysis runs from filtered family slices without changing labels.",
+    )
+    parser.add_argument(
+        "--cv-mode",
+        choices=("loo", "domain_generalisation"),
+        default="loo",
+        help="Cross-validation mode: leave-one-family-out or held-out domain folds.",
+    )
+    parser.add_argument(
+        "--ensemble-layers",
+        nargs="+",
+        type=int,
+        default=list(DEFAULT_ENSEMBLE_LAYERS),
+        help="Layer set used by the variance ensemble probe.",
+    )
+    parser.add_argument(
+        "--pca-per-layer",
+        type=int,
+        default=DEFAULT_PCA_PER_LAYER,
+        help="Per-layer PCA width for variance ensemble features.",
     )
     parser.add_argument(
         "--cross-model-activation-dir",
@@ -127,6 +176,17 @@ def parse_args() -> argparse.Namespace:
         "--cross-model-role",
         default="llama_primary",
         help="Role label for the optional cross-model activation directory.",
+    )
+    parser.add_argument(
+        "--correctness-column",
+        default=None,
+        help="Optional per-family correctness-rate column. If absent, derive correctness from behavioural JSONL.",
+    )
+    parser.add_argument(
+        "--correctness-threshold",
+        type=float,
+        default=0.75,
+        help="Family correctness threshold for --target-measure answer_correctness.",
     )
     parser.add_argument("--stage", type=int, default=DEFAULT_STAGE, help="Scientific stage number for logging.")
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED, help="Deterministic seed.")
@@ -277,6 +337,95 @@ def load_logprob_table(path: Path) -> dict[str, dict[int, float]]:
     return table
 
 
+def canonicalize_expected_answer(raw_answer: str) -> str | None:
+    """Canonicalize one template correct-answer string via the shared parser."""
+
+    parsed = parse_answer(str(raw_answer))
+    return parsed.answer if parsed.is_confident else None
+
+
+def load_correctness_rate_table(
+    *,
+    family_rows: dict[str, dict[str, str]],
+    behavioural_jsonl: Path,
+    correctness_column: str | None,
+) -> dict[str, float]:
+    """Resolve per-family correctness rates from the CSV or behavioural JSONL."""
+
+    if correctness_column:
+        available_values = {
+            template_id: row.get(correctness_column, "")
+            for template_id, row in family_rows.items()
+        }
+        populated = {
+            template_id: float(value)
+            for template_id, value in available_values.items()
+            if value not in ("", None)
+        }
+        if populated:
+            return populated
+
+    correct_counts: dict[str, int] = {}
+    total_counts: dict[str, int] = {}
+    expected_cache: dict[str, str | None] = {}
+    with behavioural_jsonl.open("r", encoding="utf-8") as handle:
+        for line in handle:
+            record = json.loads(line)
+            if record.get("record_type") != "variant_record":
+                continue
+            template_id = str(record["template_id"])
+            expected_answer = expected_cache.setdefault(
+                template_id,
+                canonicalize_expected_answer(str(record.get("correct_answer", ""))),
+            )
+            parsed_answer = record.get("parsed_answer_canonical")
+            parse_confident = bool(record.get("parse_confident", False))
+            total_counts[template_id] = total_counts.get(template_id, 0) + 1
+            if parse_confident and expected_answer is not None and parsed_answer == expected_answer:
+                correct_counts[template_id] = correct_counts.get(template_id, 0) + 1
+    return {
+        template_id: correct_counts.get(template_id, 0) / total_counts[template_id]
+        for template_id in total_counts
+        if total_counts[template_id] > 0
+    }
+
+
+def selected_variant_ids_for_n(
+    variant_ids: list[int],
+    variant_logprobs: dict[int, float] | None,
+    *,
+    n_variants: int,
+) -> list[int]:
+    """Choose which variant ids to use for one family-level variance feature."""
+
+    ordered_variant_ids = sorted(variant_ids)
+    if n_variants == 4:
+        return ordered_variant_ids
+    if n_variants == 3:
+        return ordered_variant_ids[:3]
+    if n_variants != 2:
+        raise ValueError(f"Unsupported n_variants={n_variants}.")
+
+    if variant_logprobs is None:
+        raise ValueError(
+            "n_variants=2 requires behavioural logprobs so the most-sensitive variant can be selected."
+        )
+
+    if 0 not in variant_logprobs:
+        raise KeyError("Variant selection expects base variant id 0 in the behavioural logprob table.")
+
+    base_logprob = float(variant_logprobs[0])
+    candidate_ids = [variant_id for variant_id in ordered_variant_ids if variant_id != 0]
+    if not candidate_ids:
+        raise ValueError("n_variants=2 requires at least one non-base variant.")
+
+    most_sensitive_variant_id = max(
+        candidate_ids,
+        key=lambda variant_id: base_logprob - float(variant_logprobs[variant_id]),
+    )
+    return [0, int(most_sensitive_variant_id)]
+
+
 def parse_layer_filter(layer_filter: str | None, n_layers: int) -> list[int]:
     """Resolve the layer subset requested by the operator."""
 
@@ -327,11 +476,43 @@ def continuous_targets_for_templates(
 ) -> np.ndarray:
     """Return continuous S_lp targets for the requested families."""
 
-    preferred_column = "qwen_S_lp" if "qwen" in model_role else "llama_S_lp"
-    fallback_column = "qwen_S_lp_repair" if "qwen" in model_role else "llama_S_lp_repair"
     sample_row = next(iter(family_rows.values()))
+    if "qwen" in model_role:
+        preferred_column = "qwen_S_lp"
+        fallback_column = "qwen_S_lp_repair"
+    elif "llama" in model_role:
+        preferred_column = "llama_S_lp"
+        fallback_column = "llama_S_lp_repair"
+    elif "deepseek" in model_role:
+        preferred_column = "deepseek_S_lp"
+        fallback_column = "deepseek_S_lp_repair"
+    else:
+        raise ValueError(f"Unsupported model_role {model_role!r} for continuous S_lp targets.")
     column = preferred_column if preferred_column in sample_row else fallback_column
     return np.asarray([float(family_rows[template_id][column]) for template_id in template_ids], dtype=float)
+
+
+def correctness_targets_for_templates(
+    template_ids: list[str],
+    *,
+    correctness_rates: dict[str, float],
+    threshold: float,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Return binary correctness labels plus raw correctness rates for one family list."""
+
+    rates = np.asarray([float(correctness_rates[template_id]) for template_id in template_ids], dtype=float)
+    labels = (rates >= threshold).astype(int)
+    return labels, rates
+
+
+def domain_labels_for_templates(
+    template_ids: list[str],
+    *,
+    family_rows: dict[str, dict[str, str]],
+) -> list[str]:
+    """Return domain labels aligned with one family-id list."""
+
+    return [str(family_rows[template_id]["domain"]) for template_id in template_ids]
 
 
 def family_level_indices(template_ids: list[str]) -> tuple[list[str], np.ndarray]:
@@ -392,6 +573,16 @@ def fit_pca_projection(
     return train_projected, eval_projected
 
 
+def ensure_binary_class_support(labels: np.ndarray, *, context: str) -> None:
+    """Require at least two classes before fitting any binary classification probe."""
+
+    unique_labels = np.unique(labels)
+    if unique_labels.size < 2:
+        raise ValueError(
+            f"{context} requires at least two classes, but only found labels={unique_labels.tolist()}."
+        )
+
+
 def choose_logistic_c(
     x_train: np.ndarray,
     y_train: np.ndarray,
@@ -403,6 +594,7 @@ def choose_logistic_c(
 ) -> float:
     """Select the best logistic regularization strength by grouped AUROC."""
 
+    ensure_binary_class_support(y_train, context="Logistic regularization selection")
     unique_groups = sorted(set(group_names))
     n_splits = min(5, len(unique_groups))
     if n_splits < 2:
@@ -446,6 +638,113 @@ def choose_logistic_c(
     return best_c
 
 
+def domain_generalisation_folds(domains: list[str]) -> list[tuple[str, np.ndarray, np.ndarray]]:
+    """Build held-out-domain train/test masks for domain generalisation."""
+
+    unique_domains = sorted(set(domains))
+    if len(unique_domains) < 2:
+        raise ValueError(
+            "Domain generalisation requires at least two domains, "
+            f"but only found {unique_domains}."
+        )
+
+    domain_array = np.asarray(domains)
+    folds: list[tuple[str, np.ndarray, np.ndarray]] = []
+    for held_out_domain in unique_domains:
+        test_mask = domain_array == held_out_domain
+        train_mask = ~test_mask
+        folds.append((held_out_domain, train_mask, test_mask))
+    return folds
+
+
+def fit_layerwise_ensemble_projection(
+    train_tensor: np.ndarray,
+    eval_tensor: np.ndarray,
+    *,
+    layers: list[int],
+    pca_per_layer: int,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Fit one PCA per selected layer and concatenate the projections."""
+
+    projected_train_parts: list[np.ndarray] = []
+    projected_eval_parts: list[np.ndarray] = []
+    for layer_index in layers:
+        layer_train = train_tensor[:, layer_index, :]
+        layer_eval = eval_tensor[:, layer_index, :]
+        max_dims = min(int(pca_per_layer), layer_train.shape[0], layer_train.shape[1])
+        if max_dims < 1:
+            raise ValueError(
+                f"Per-layer PCA dimensionality must remain positive after clipping, got {max_dims}."
+            )
+        projector = PCA(n_components=max_dims, random_state=DEFAULT_SEED)
+        projected_train_parts.append(projector.fit_transform(layer_train))
+        projected_eval_parts.append(projector.transform(layer_eval))
+    return (
+        np.concatenate(projected_train_parts, axis=1),
+        np.concatenate(projected_eval_parts, axis=1),
+    )
+
+
+def choose_mlp_alpha(
+    x_train: np.ndarray,
+    y_train: np.ndarray,
+    group_names: list[str],
+    *,
+    alpha_values: tuple[float, ...] = (1e-4, 1e-3, 1e-2),
+) -> float:
+    """Select an MLP regularisation strength by grouped AUROC."""
+
+    ensure_binary_class_support(y_train, context="MLP alpha selection")
+    unique_groups = sorted(set(group_names))
+    n_splits = min(5, len(unique_groups))
+    if n_splits < 2:
+        return alpha_values[0]
+
+    splitter = GroupKFold(n_splits=n_splits)
+    groups_array = np.asarray(group_names)
+    best_alpha = alpha_values[0]
+    best_score = -np.inf
+    for alpha in alpha_values:
+        fold_scores: list[float] = []
+        for train_indices, val_indices in splitter.split(x_train, y_train, groups=groups_array):
+            pipeline = Pipeline(
+                [
+                    ("scaler", StandardScaler()),
+                    (
+                        "mlp",
+                        MLPClassifier(
+                            hidden_layer_sizes=DEFAULT_MLP_HIDDEN_LAYERS,
+                            activation="relu",
+                            alpha=alpha,
+                            batch_size=min(32, len(train_indices)),
+                            learning_rate_init=1e-3,
+                            max_iter=800,
+                            early_stopping=True,
+                            n_iter_no_change=20,
+                            random_state=DEFAULT_SEED,
+                        ),
+                    ),
+                ]
+            )
+            pipeline.fit(x_train[train_indices], y_train[train_indices])
+            val_scores = pipeline.predict_proba(x_train[val_indices])[:, 1]
+            val_group_names = [group_names[index] for index in val_indices]
+            _, family_scores, family_labels = aggregate_group_predictions(
+                val_group_names,
+                val_scores,
+                y_train[val_indices],
+                aggregation_mode=AGGREGATE_MEAN,
+            )
+            if len(np.unique(family_labels)) < 2:
+                continue
+            fold_scores.append(compute_auroc(family_labels, family_scores))
+        mean_score = float(np.mean(fold_scores)) if fold_scores else -np.inf
+        if mean_score > best_score:
+            best_score = mean_score
+            best_alpha = alpha
+    return best_alpha
+
+
 def run_layerwise_binary_loo_mean(
     tensors: np.ndarray,
     entries: list[dict[str, Any]],
@@ -457,6 +756,7 @@ def run_layerwise_binary_loo_mean(
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     """Run layer-wise family-level LOO logistic probing over family means."""
 
+    ensure_binary_class_support(labels, context="Layer-wise mean probing")
     template_ids = extract_template_ids(entries)
     family_ids, family_groups = family_level_indices(template_ids)
     layer_summaries: list[dict[str, Any]] = []
@@ -610,6 +910,8 @@ def build_family_feature_tensors(
     entries: list[dict[str, Any]],
     *,
     reducer: str,
+    n_variants: int = 4,
+    behavioural_logprobs: dict[str, dict[int, float]] | None = None,
 ) -> tuple[list[str], np.ndarray]:
     """Aggregate 4 variant tensors into one family-level feature tensor per family."""
 
@@ -620,7 +922,16 @@ def build_family_feature_tensors(
         positions = grouped[template_id]
         if len(positions) != 4:
             raise ValueError(f"Expected 4 variants for {template_id}, got {len(positions)}.")
-        variant_tensor = np.stack([tensors[position] for position, _ in positions], axis=0)
+        selected_variant_ids = selected_variant_ids_for_n(
+            [variant_id for _, variant_id in positions],
+            behavioural_logprobs.get(template_id) if behavioural_logprobs is not None else None,
+            n_variants=n_variants,
+        )
+        selected_positions = [
+            position for position, variant_id in positions if variant_id in set(selected_variant_ids)
+        ]
+        selected_positions.sort(key=lambda position: next(variant_id for p, variant_id in positions if p == position))
+        variant_tensor = np.stack([tensors[position] for position in selected_positions], axis=0)
         if reducer == "mean":
             family_tensors.append(variant_tensor.mean(axis=0))
         elif reducer == "variance":
@@ -642,6 +953,7 @@ def run_layerwise_binary_loo_family_features(
     """Run layer-wise family-level LOO logistic probing over one feature tensor per family."""
 
     del probe_type
+    ensure_binary_class_support(labels, context="Layer-wise family-feature probing")
     layer_summaries: list[dict[str, Any]] = []
     best_layer_predictions: list[dict[str, Any]] = []
     best_auroc = -np.inf
@@ -747,6 +1059,299 @@ def run_layerwise_continuous_loo_family_features(
     return layer_summaries
 
 
+def run_domain_generalisation_binary_family_features(
+    feature_tensors: np.ndarray,
+    family_ids: list[str],
+    labels: np.ndarray,
+    *,
+    family_rows: dict[str, dict[str, str]],
+    layer_indices: list[int],
+    pca_dims: int | None,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
+    """Run held-out-domain binary probing over one feature tensor per family."""
+
+    ensure_binary_class_support(labels, context="Domain generalisation family-feature probing")
+    domains = domain_labels_for_templates(family_ids, family_rows=family_rows)
+    folds = domain_generalisation_folds(domains)
+    layer_summaries: list[dict[str, Any]] = []
+    best_predictions: list[dict[str, Any]] = []
+    best_fold_metrics: list[dict[str, Any]] = []
+    best_auroc = -np.inf
+
+    for layer_index in layer_indices:
+        x_layer = feature_tensors[:, layer_index, :]
+        prediction_rows: list[dict[str, Any]] = []
+        fold_metrics: list[dict[str, Any]] = []
+        for held_out_domain, train_mask, test_mask in folds:
+            x_train = x_layer[train_mask]
+            y_train = labels[train_mask]
+            x_test = x_layer[test_mask]
+            y_test = labels[test_mask]
+            test_family_ids = [family_ids[index] for index in np.where(test_mask)[0]]
+            train_groups = [family_ids[index] for index in np.where(train_mask)[0]]
+            chosen_c = choose_logistic_c(
+                x_train,
+                y_train,
+                train_groups,
+                aggregation_mode=AGGREGATE_MEAN,
+                pca_dims=pca_dims,
+            )
+            x_train_projected, x_test_projected = fit_pca_projection(x_train, x_test, pca_dims)
+            model = LogisticRegression(
+                C=chosen_c,
+                class_weight="balanced",
+                max_iter=2000,
+                solver="liblinear",
+                random_state=DEFAULT_SEED,
+            )
+            model.fit(x_train_projected, y_train)
+            test_scores = model.predict_proba(x_test_projected)[:, 1]
+            if len(np.unique(y_test)) >= 2:
+                fold_metrics.append(
+                    {
+                        "held_out_domain": held_out_domain,
+                        "layer_index": layer_index,
+                        "auroc": compute_auroc(y_test, test_scores),
+                        "auprc": compute_auprc(y_test, test_scores),
+                        "positive_rate": float(y_test.mean()),
+                        "selected_c": chosen_c,
+                    }
+                )
+            for family_id, score, true_label in zip(test_family_ids, test_scores, y_test, strict=True):
+                prediction_rows.append(
+                    {
+                        "template_id": family_id,
+                        "layer_index": layer_index,
+                        "prediction": float(score),
+                        "true_label": int(true_label),
+                        "held_out_domain": held_out_domain,
+                        "selected_c": chosen_c,
+                    }
+                )
+
+        ordered_predictions = sorted(prediction_rows, key=lambda item: item["template_id"])
+        y_true = np.asarray([row["true_label"] for row in ordered_predictions], dtype=int)
+        y_score = np.asarray([row["prediction"] for row in ordered_predictions], dtype=float)
+        summary = {
+            "layer_index": layer_index,
+            "auroc": compute_auroc(y_true, y_score),
+            "auprc": compute_auprc(y_true, y_score),
+            "brier": compute_brier(y_true, y_score),
+        }
+        layer_summaries.append(summary)
+        if summary["auroc"] > best_auroc:
+            best_auroc = summary["auroc"]
+            best_predictions = ordered_predictions
+            best_fold_metrics = fold_metrics
+    return layer_summaries, best_predictions, best_fold_metrics
+
+
+def run_variance_ensemble_loo(
+    feature_tensors: np.ndarray,
+    family_ids: list[str],
+    labels: np.ndarray,
+    *,
+    ensemble_layers: list[int],
+    pca_per_layer: int,
+) -> tuple[dict[str, float], list[dict[str, Any]]]:
+    """Run LOO probing on concatenated per-layer variance PCA features."""
+
+    ensure_binary_class_support(labels, context="Variance ensemble LOO probing")
+    prediction_rows: list[dict[str, Any]] = []
+    for held_out_index, held_out_family in enumerate(family_ids):
+        test_mask = np.asarray([index == held_out_index for index in range(len(family_ids))], dtype=bool)
+        train_mask = ~test_mask
+        x_train, x_test = fit_layerwise_ensemble_projection(
+            feature_tensors[train_mask],
+            feature_tensors[test_mask],
+            layers=ensemble_layers,
+            pca_per_layer=pca_per_layer,
+        )
+        y_train = labels[train_mask]
+        train_groups = [family_ids[index] for index in np.where(train_mask)[0]]
+        chosen_c = choose_logistic_c(
+            x_train,
+            y_train,
+            train_groups,
+            aggregation_mode=AGGREGATE_MEAN,
+            pca_dims=None,
+        )
+        model = LogisticRegression(
+            C=chosen_c,
+            class_weight="balanced",
+            max_iter=2000,
+            solver="liblinear",
+            random_state=DEFAULT_SEED,
+        )
+        model.fit(x_train, y_train)
+        score = float(model.predict_proba(x_test)[:, 1][0])
+        prediction_rows.append(
+            {
+                "template_id": held_out_family,
+                "prediction": score,
+                "true_label": int(labels[held_out_index]),
+                "selected_c": chosen_c,
+            }
+        )
+
+    ordered_predictions = sorted(prediction_rows, key=lambda item: item["template_id"])
+    y_true = np.asarray([row["true_label"] for row in ordered_predictions], dtype=int)
+    y_score = np.asarray([row["prediction"] for row in ordered_predictions], dtype=float)
+    summary = {
+        "auroc": compute_auroc(y_true, y_score),
+        "auprc": compute_auprc(y_true, y_score),
+        "brier": compute_brier(y_true, y_score),
+    }
+    return summary, ordered_predictions
+
+
+def run_variance_ensemble_domain_generalisation(
+    feature_tensors: np.ndarray,
+    family_ids: list[str],
+    labels: np.ndarray,
+    *,
+    family_rows: dict[str, dict[str, str]],
+    ensemble_layers: list[int],
+    pca_per_layer: int,
+) -> tuple[dict[str, float], list[dict[str, Any]], list[dict[str, Any]]]:
+    """Run held-out-domain probing on concatenated per-layer variance PCA features."""
+
+    ensure_binary_class_support(labels, context="Variance ensemble domain generalisation")
+    domains = domain_labels_for_templates(family_ids, family_rows=family_rows)
+    folds = domain_generalisation_folds(domains)
+    prediction_rows: list[dict[str, Any]] = []
+    fold_metrics: list[dict[str, Any]] = []
+
+    for held_out_domain, train_mask, test_mask in folds:
+        x_train, x_test = fit_layerwise_ensemble_projection(
+            feature_tensors[train_mask],
+            feature_tensors[test_mask],
+            layers=ensemble_layers,
+            pca_per_layer=pca_per_layer,
+        )
+        y_train = labels[train_mask]
+        y_test = labels[test_mask]
+        test_family_ids = [family_ids[index] for index in np.where(test_mask)[0]]
+        train_groups = [family_ids[index] for index in np.where(train_mask)[0]]
+        chosen_c = choose_logistic_c(
+            x_train,
+            y_train,
+            train_groups,
+            aggregation_mode=AGGREGATE_MEAN,
+            pca_dims=None,
+        )
+        model = LogisticRegression(
+            C=chosen_c,
+            class_weight="balanced",
+            max_iter=2000,
+            solver="liblinear",
+            random_state=DEFAULT_SEED,
+        )
+        model.fit(x_train, y_train)
+        scores = model.predict_proba(x_test)[:, 1]
+        if len(np.unique(y_test)) >= 2:
+            fold_metrics.append(
+                {
+                    "held_out_domain": held_out_domain,
+                    "auroc": compute_auroc(y_test, scores),
+                    "auprc": compute_auprc(y_test, scores),
+                    "positive_rate": float(y_test.mean()),
+                    "selected_c": chosen_c,
+                }
+            )
+        for family_id, score, true_label in zip(test_family_ids, scores, y_test, strict=True):
+            prediction_rows.append(
+                {
+                    "template_id": family_id,
+                    "prediction": float(score),
+                    "true_label": int(true_label),
+                    "held_out_domain": held_out_domain,
+                    "selected_c": chosen_c,
+                }
+            )
+
+    ordered_predictions = sorted(prediction_rows, key=lambda item: item["template_id"])
+    y_true = np.asarray([row["true_label"] for row in ordered_predictions], dtype=int)
+    y_score = np.asarray([row["prediction"] for row in ordered_predictions], dtype=float)
+    summary = {
+        "auroc": compute_auroc(y_true, y_score),
+        "auprc": compute_auprc(y_true, y_score),
+        "brier": compute_brier(y_true, y_score),
+    }
+    return summary, ordered_predictions, fold_metrics
+
+
+def run_variance_mlp_loo(
+    feature_tensors: np.ndarray,
+    family_ids: list[str],
+    labels: np.ndarray,
+    *,
+    layer_indices: list[int],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Run layer-wise LOO probing with a small MLP over variance features."""
+
+    ensure_binary_class_support(labels, context="Variance MLP probing")
+    layer_summaries: list[dict[str, Any]] = []
+    best_layer_predictions: list[dict[str, Any]] = []
+    best_auroc = -np.inf
+
+    for layer_index in layer_indices:
+        x_layer = feature_tensors[:, layer_index, :]
+        prediction_rows: list[dict[str, Any]] = []
+        for held_out_index, held_out_family in enumerate(family_ids):
+            test_mask = np.asarray([index == held_out_index for index in range(len(family_ids))], dtype=bool)
+            train_mask = ~test_mask
+            x_train = x_layer[train_mask]
+            y_train = labels[train_mask]
+            train_groups = [family_ids[index] for index in np.where(train_mask)[0]]
+            chosen_alpha = choose_mlp_alpha(x_train, y_train, train_groups)
+            pipeline = Pipeline(
+                [
+                    ("scaler", StandardScaler()),
+                    (
+                        "mlp",
+                        MLPClassifier(
+                            hidden_layer_sizes=DEFAULT_MLP_HIDDEN_LAYERS,
+                            activation="relu",
+                            alpha=chosen_alpha,
+                            batch_size=min(32, x_train.shape[0]),
+                            learning_rate_init=1e-3,
+                            max_iter=800,
+                            early_stopping=True,
+                            n_iter_no_change=20,
+                            random_state=DEFAULT_SEED,
+                        ),
+                    ),
+                ]
+            )
+            pipeline.fit(x_train, y_train)
+            score = float(pipeline.predict_proba(x_layer[test_mask])[:, 1][0])
+            prediction_rows.append(
+                {
+                    "template_id": held_out_family,
+                    "layer_index": layer_index,
+                    "prediction": score,
+                    "true_label": int(labels[held_out_index]),
+                    "selected_alpha": chosen_alpha,
+                }
+            )
+
+        ordered_predictions = sorted(prediction_rows, key=lambda item: item["template_id"])
+        y_true = np.asarray([row["true_label"] for row in ordered_predictions], dtype=int)
+        y_score = np.asarray([row["prediction"] for row in ordered_predictions], dtype=float)
+        summary = {
+            "layer_index": layer_index,
+            "auroc": compute_auroc(y_true, y_score),
+            "auprc": compute_auprc(y_true, y_score),
+            "brier": compute_brier(y_true, y_score),
+        }
+        layer_summaries.append(summary)
+        if summary["auroc"] > best_auroc:
+            best_auroc = summary["auroc"]
+            best_layer_predictions = ordered_predictions
+    return layer_summaries, best_layer_predictions
+
+
 def run_layerwise_binary_loo_contrast(
     contrast_tensors: np.ndarray,
     contrast_entries: list[dict[str, Any]],
@@ -758,6 +1363,7 @@ def run_layerwise_binary_loo_contrast(
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     """Run layer-wise family-level LOO logistic probing over contrast vectors."""
 
+    ensure_binary_class_support(contrast_labels, context="Layer-wise contrast probing")
     template_ids = [str(entry["template_id"]) for entry in contrast_entries]
     family_ids, _ = family_level_indices(template_ids)
     layer_summaries: list[dict[str, Any]] = []
@@ -951,8 +1557,17 @@ def cross_model_validation(
     )
     target_family_ids = sorted(set(target_template_ids))
     sample_row = next(iter(target_family_rows.values()))
-    preferred_column = "qwen_S_lp" if "qwen" in target_role else "llama_S_lp"
-    fallback_column = "qwen_S_lp_repair" if "qwen" in target_role else "llama_S_lp_repair"
+    if "qwen" in target_role:
+        preferred_column = "qwen_S_lp"
+        fallback_column = "qwen_S_lp_repair"
+    elif "llama" in target_role:
+        preferred_column = "llama_S_lp"
+        fallback_column = "llama_S_lp_repair"
+    elif "deepseek" in target_role:
+        preferred_column = "deepseek_S_lp"
+        fallback_column = "deepseek_S_lp_repair"
+    else:
+        raise ValueError(f"Unsupported target_role {target_role!r} for cross-model validation.")
     target_column = preferred_column if preferred_column in sample_row else fallback_column
     target_labels = np.asarray(
         [
@@ -977,6 +1592,10 @@ def artifact_stem(site: str, probe_type: str, pca_dims: int | None) -> str:
         return "contrast"
     if probe_type == "variance":
         return "variance"
+    if probe_type == "variance_ensemble":
+        return "variance_ensemble"
+    if probe_type == "variance_mlp":
+        return "variance_mlp"
     if pca_dims is not None:
         return f"pca{pca_dims}"
     return site
@@ -1017,8 +1636,154 @@ def main() -> None:
     layer_indices = parse_layer_filter(args.layer_filter, tensors.shape[1])
     template_ids = extract_template_ids(entries)
     stem = artifact_stem(args.site, args.probe_type, args.pca_dims)
+    if args.probe_type == "variance" and args.n_variants != 4:
+        stem = f"{stem}_n{args.n_variants}"
 
-    if args.probe_type == "contrast":
+    behavioural_logprobs = None
+    if args.probe_type == "variance" and args.n_variants != 4:
+        behavioural_path = resolve_behavioural_jsonl(args.behavioural_jsonl, args.model_role)
+        behavioural_logprobs = load_logprob_table(behavioural_path)
+    elif args.target_measure == "answer_correctness":
+        behavioural_path = resolve_behavioural_jsonl(args.behavioural_jsonl, args.model_role)
+    else:
+        behavioural_path = None
+
+    correctness_rates = None
+    if args.target_measure == "answer_correctness":
+        if behavioural_path is None:
+            raise ValueError("answer_correctness target requires a behavioural JSONL.")
+        correctness_rates = load_correctness_rate_table(
+            family_rows=family_rows,
+            behavioural_jsonl=behavioural_path,
+            correctness_column=args.correctness_column,
+        )
+
+    if args.probe_type == "variance_ensemble":
+        family_ids, feature_tensors = build_family_feature_tensors(tensors, entries, reducer="variance")
+        if args.target_measure == "answer_correctness":
+            binary_labels, continuous_targets = correctness_targets_for_templates(
+                family_ids,
+                correctness_rates=correctness_rates,
+                threshold=args.correctness_threshold,
+            )
+        else:
+            binary_labels = binary_labels_for_templates(family_ids, positive_families)
+            continuous_targets = continuous_targets_for_templates(
+                family_ids,
+                family_rows=family_rows,
+                model_role=args.model_role,
+            )
+        ensemble_layers = sorted(set(args.ensemble_layers))
+        for layer_index in ensemble_layers:
+            if layer_index < 0 or layer_index >= feature_tensors.shape[1]:
+                raise ValueError(
+                    f"Ensemble layer index {layer_index} is out of range for {feature_tensors.shape[1]} layers."
+                )
+        if args.cv_mode == DEFAULT_DOMAIN_GENERALISATION_MODE:
+            ensemble_summary, best_predictions, fold_metrics = run_variance_ensemble_domain_generalisation(
+                feature_tensors,
+                family_ids,
+                binary_labels,
+                family_rows=family_rows,
+                ensemble_layers=ensemble_layers,
+                pca_per_layer=args.pca_per_layer,
+            )
+        else:
+            ensemble_summary, best_predictions = run_variance_ensemble_loo(
+                feature_tensors,
+                family_ids,
+                binary_labels,
+                ensemble_layers=ensemble_layers,
+                pca_per_layer=args.pca_per_layer,
+            )
+            fold_metrics = []
+
+        ordered_best_predictions = sorted(best_predictions, key=lambda item: item["template_id"])
+        best_labels = np.asarray([row["true_label"] for row in ordered_best_predictions], dtype=int)
+        best_scores = np.asarray([row["prediction"] for row in ordered_best_predictions], dtype=float)
+        bootstrap_summary = bootstrap_auroc_ci(best_labels, best_scores)
+        best_layer = int(ensemble_layers[len(ensemble_layers) // 2])
+        random_baseline = random_direction_baseline(
+            feature_tensors,
+            family_ids,
+            binary_labels,
+            layer_index=best_layer,
+            aggregation_mode=AGGREGATE_MEAN,
+        )
+        summary_payload = {
+            "model_role": args.model_role,
+            "site": args.site,
+            "probe_type": args.probe_type,
+            "target_measure": args.target_measure,
+            "cv_mode": args.cv_mode,
+            "ensemble_layers": ensemble_layers,
+            "pca_per_layer": args.pca_per_layer,
+            "best_layer": best_layer,
+            "best_auroc": float(ensemble_summary["auroc"]),
+            "best_auprc": float(ensemble_summary["auprc"]),
+            "best_brier": float(ensemble_summary["brier"]),
+            "best_pearson_r": (
+                None
+                if args.target_measure in {"slp_binary", "answer_correctness"}
+                else float(np.corrcoef(continuous_targets, best_scores)[0, 1])
+            ),
+            "bootstrap_auroc": bootstrap_summary,
+            "random_direction_baseline": random_baseline,
+            "embedding_layer_auroc": None,
+            "cross_model_validation": None,
+            "domain_fold_metrics": fold_metrics,
+        }
+        save_json(output_dir / f"loo_predictions_{stem}.json", ordered_best_predictions)
+        save_json(output_dir / f"summary_{stem}.json", summary_payload)
+    elif args.probe_type == "variance_mlp":
+        if args.cv_mode != "loo":
+            raise ValueError("variance_mlp currently supports only --cv-mode loo.")
+        family_ids, feature_tensors = build_family_feature_tensors(tensors, entries, reducer="variance")
+        binary_labels = binary_labels_for_templates(family_ids, positive_families)
+        layer_binary, best_predictions = run_variance_mlp_loo(
+            feature_tensors,
+            family_ids,
+            binary_labels,
+            layer_indices=layer_indices,
+        )
+        best_binary = max(layer_binary, key=lambda item: item["auroc"])
+        plot_layer_curve(layer_binary, output_dir / f"layer_auroc_curve_{stem}.png")
+        ordered_best_predictions = sorted(best_predictions, key=lambda item: item["template_id"])
+        best_labels = np.asarray([row["true_label"] for row in ordered_best_predictions], dtype=int)
+        best_scores = np.asarray([row["prediction"] for row in ordered_best_predictions], dtype=float)
+        bootstrap_summary = bootstrap_auroc_ci(best_labels, best_scores)
+        random_baseline = random_direction_baseline(
+            feature_tensors,
+            family_ids,
+            binary_labels,
+            layer_index=int(best_binary["layer_index"]),
+            aggregation_mode=AGGREGATE_MEAN,
+        )
+        embedding_layer_auroc = next(
+            (float(item["auroc"]) for item in layer_binary if item["layer_index"] == 0),
+            None,
+        )
+        summary_payload = {
+            "model_role": args.model_role,
+            "site": args.site,
+            "probe_type": args.probe_type,
+            "target_measure": args.target_measure,
+            "cv_mode": args.cv_mode,
+            "evaluated_layers": layer_indices,
+            "best_layer": int(best_binary["layer_index"]),
+            "best_auroc": float(best_binary["auroc"]),
+            "best_auprc": float(best_binary["auprc"]),
+            "best_brier": float(best_binary["brier"]),
+            "best_pearson_r": None,
+            "bootstrap_auroc": bootstrap_summary,
+            "random_direction_baseline": random_baseline,
+            "embedding_layer_auroc": embedding_layer_auroc,
+            "cross_model_validation": None,
+        }
+        save_json(output_dir / f"layer_auroc_{stem}.json", layer_binary)
+        save_json(output_dir / f"loo_predictions_{stem}.json", ordered_best_predictions)
+        save_json(output_dir / f"summary_{stem}.json", summary_payload)
+    elif args.probe_type == "contrast":
         if args.target_measure != "slp_binary":
             raise ValueError("Contrast probing currently supports only --target-measure slp_binary.")
         behavioural_path = resolve_behavioural_jsonl(args.behavioural_jsonl, args.model_role)
@@ -1078,30 +1843,60 @@ def main() -> None:
         save_json(output_dir / f"loo_predictions_{stem}.json", ordered_best_predictions)
         save_json(output_dir / f"summary_{stem}.json", summary_payload)
     elif args.probe_type == "variance":
-        family_ids, feature_tensors = build_family_feature_tensors(tensors, entries, reducer="variance")
-        binary_labels = binary_labels_for_templates(family_ids, positive_families)
-        continuous_targets = continuous_targets_for_templates(
-            family_ids,
-            family_rows=family_rows,
-            model_role=args.model_role,
+        family_ids, feature_tensors = build_family_feature_tensors(
+            tensors,
+            entries,
+            reducer="variance",
+            n_variants=args.n_variants,
+            behavioural_logprobs=behavioural_logprobs,
         )
-        layer_binary, best_predictions = run_layerwise_binary_loo_family_features(
-            feature_tensors,
-            family_ids,
-            binary_labels,
-            layer_indices=layer_indices,
-            pca_dims=args.pca_dims,
-            probe_type=args.probe_type,
-        )
-        layer_continuous = run_layerwise_continuous_loo_family_features(
-            feature_tensors,
-            family_ids,
-            continuous_targets,
-            layer_indices=layer_indices,
-            pca_dims=args.pca_dims,
-        )
+        if args.target_measure == "answer_correctness":
+            binary_labels, continuous_targets = correctness_targets_for_templates(
+                family_ids,
+                correctness_rates=correctness_rates,
+                threshold=args.correctness_threshold,
+            )
+        else:
+            binary_labels = binary_labels_for_templates(family_ids, positive_families)
+            continuous_targets = continuous_targets_for_templates(
+                family_ids,
+                family_rows=family_rows,
+                model_role=args.model_role,
+            )
+        if args.cv_mode == DEFAULT_DOMAIN_GENERALISATION_MODE:
+            layer_binary, best_predictions, fold_metrics = run_domain_generalisation_binary_family_features(
+                feature_tensors,
+                family_ids,
+                binary_labels,
+                family_rows=family_rows,
+                layer_indices=layer_indices,
+                pca_dims=args.pca_dims,
+            )
+        else:
+            layer_binary, best_predictions = run_layerwise_binary_loo_family_features(
+                feature_tensors,
+                family_ids,
+                binary_labels,
+                layer_indices=layer_indices,
+                pca_dims=args.pca_dims,
+                probe_type=args.probe_type,
+            )
+            fold_metrics = []
+        layer_continuous: list[dict[str, Any]] = []
+        if args.target_measure != "answer_correctness":
+            layer_continuous = run_layerwise_continuous_loo_family_features(
+                feature_tensors,
+                family_ids,
+                continuous_targets,
+                layer_indices=layer_indices,
+                pca_dims=args.pca_dims,
+            )
         best_binary = max(layer_binary, key=lambda item: item["auroc"])
-        best_continuous = max(layer_continuous, key=lambda item: item["pearson_r"])
+        best_continuous = (
+            max(layer_continuous, key=lambda item: item["pearson_r"])
+            if layer_continuous
+            else None
+        )
         plot_layer_curve(layer_binary, output_dir / f"layer_auroc_curve_{stem}.png")
 
         ordered_best_predictions = sorted(best_predictions, key=lambda item: item["template_id"])
@@ -1126,29 +1921,43 @@ def main() -> None:
             "probe_type": args.probe_type,
             "target_measure": args.target_measure,
             "pca_dims": args.pca_dims,
+            "n_variants": args.n_variants,
             "evaluated_layers": layer_indices,
             "best_layer": int(best_binary["layer_index"]),
             "best_auroc": float(best_binary["auroc"]),
             "best_auprc": float(best_binary["auprc"]),
             "best_brier": float(best_binary["brier"]),
-            "best_pearson_r": float(best_continuous["pearson_r"]),
+            "best_pearson_r": None if best_continuous is None else float(best_continuous["pearson_r"]),
             "bootstrap_auroc": bootstrap_summary,
             "random_direction_baseline": random_baseline,
             "embedding_layer_auroc": embedding_layer_auroc,
             "cross_model_validation": None,
+            "cv_mode": args.cv_mode,
+            "domain_fold_metrics": fold_metrics,
+            "correctness_threshold": args.correctness_threshold if args.target_measure == "answer_correctness" else None,
         }
 
         save_json(output_dir / f"layer_auroc_{stem}.json", layer_binary)
         save_json(output_dir / f"loo_predictions_{stem}.json", ordered_best_predictions)
         save_json(output_dir / f"summary_{stem}.json", summary_payload)
-        save_json(output_dir / f"layer_pearson_{stem}.json", layer_continuous)
+        if layer_continuous:
+            save_json(output_dir / f"layer_pearson_{stem}.json", layer_continuous)
     else:
-        binary_labels = binary_labels_for_templates(template_ids, positive_families)
-        continuous_targets = continuous_targets_for_templates(
-            template_ids,
-            family_rows=family_rows,
-            model_role=args.model_role,
-        )
+        if args.cv_mode != "loo":
+            raise ValueError("Mean probing currently supports only --cv-mode loo.")
+        if args.target_measure == "answer_correctness":
+            binary_labels, continuous_targets = correctness_targets_for_templates(
+                template_ids,
+                correctness_rates=correctness_rates,
+                threshold=args.correctness_threshold,
+            )
+        else:
+            binary_labels = binary_labels_for_templates(template_ids, positive_families)
+            continuous_targets = continuous_targets_for_templates(
+                template_ids,
+                family_rows=family_rows,
+                model_role=args.model_role,
+            )
         layer_binary, best_predictions = run_layerwise_binary_loo_mean(
             tensors,
             entries,
@@ -1157,15 +1966,21 @@ def main() -> None:
             pca_dims=args.pca_dims,
             positive_families=positive_families,
         )
-        layer_continuous = run_layerwise_continuous_loo_mean(
-            tensors,
-            entries,
-            continuous_targets,
-            layer_indices=layer_indices,
-            pca_dims=args.pca_dims,
-        )
+        layer_continuous: list[dict[str, Any]] = []
+        if args.target_measure != "answer_correctness":
+            layer_continuous = run_layerwise_continuous_loo_mean(
+                tensors,
+                entries,
+                continuous_targets,
+                layer_indices=layer_indices,
+                pca_dims=args.pca_dims,
+            )
         best_binary = max(layer_binary, key=lambda item: item["auroc"])
-        best_continuous = max(layer_continuous, key=lambda item: item["pearson_r"])
+        best_continuous = (
+            max(layer_continuous, key=lambda item: item["pearson_r"])
+            if layer_continuous
+            else None
+        )
         plot_layer_curve(layer_binary, output_dir / f"layer_auroc_curve_{stem}.png")
 
         ordered_best_predictions = sorted(best_predictions, key=lambda item: item["template_id"])
@@ -1213,17 +2028,19 @@ def main() -> None:
             "best_auroc": float(best_binary["auroc"]),
             "best_auprc": float(best_binary["auprc"]),
             "best_brier": float(best_binary["brier"]),
-            "best_pearson_r": float(best_continuous["pearson_r"]),
+            "best_pearson_r": None if best_continuous is None else float(best_continuous["pearson_r"]),
             "bootstrap_auroc": bootstrap_summary,
             "random_direction_baseline": random_baseline,
             "embedding_layer_auroc": embedding_layer_auroc,
             "cross_model_validation": cross_model_summary,
+            "correctness_threshold": args.correctness_threshold if args.target_measure == "answer_correctness" else None,
         }
 
         save_json(output_dir / f"layer_auroc_{stem}.json", layer_binary)
         save_json(output_dir / f"loo_predictions_{stem}.json", ordered_best_predictions)
         save_json(output_dir / f"summary_{stem}.json", summary_payload)
-        save_json(output_dir / f"layer_pearson_{stem}.json", layer_continuous)
+        if layer_continuous:
+            save_json(output_dir / f"layer_pearson_{stem}.json", layer_continuous)
 
     logger.log_event(
         "PROBING_COMPLETE",
