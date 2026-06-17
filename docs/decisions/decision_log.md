@@ -1133,3 +1133,256 @@ temperature cue includes 18°C) shows S_lp = 2.30 nats, suggesting the model
 responds to numerical values regardless of their physical type — 18°C and 18 N
 both suppress the model's confidence in outputting 18 N as the answer. This is
 evidence of pure numerical pattern matching influencing model uncertainty.
+
+## Stage 8 Causal Patching — Last-Prompt Site Results (2026-06-17)
+
+Job 243294 completed. Key findings:
+
+Best causal layer: 15. Best mean recovery: 10.85%.
+
+Heterogeneity finding (main result):
+  High S_lp (>4 nats, n=10): mean max recovery = 13.6%
+  Moderate S_lp (2-4 nats, n=10): mean max recovery = 23.2%
+  EL_B_002 (2.82 nats): 96.4% recovery at layer 15 — clean causal localisation
+  CM_B_UM_013 (3.45 nats): 40.7% recovery at layer 18
+  CM_B_UM_059 (10.03 nats): 4.7% max recovery — sensitivity resists patching
+
+Interpretation: single-position last-prompt patching causally mediates moderate
+shortcut sensitivity. Extreme sensitivity appears distributed across multiple
+token positions. Cue-token position patching submitted as follow-up (pending).
+
+Layer profile is structured (not random): monotonic increase from L4 (1.6%)
+to L15 (10.85%), then decline — consistent with mid-network causal window.
+
+## Stage 8 Causal Patching — Cue-Token Site Results (2026-06-17)
+
+Job 243296 completed. Key findings:
+
+Best causal layer: 12. Best mean recovery: 3.19%.
+
+Cue-token patching did **not** rescue the high-S_lp families. Across the same
+top-20 non-Cue-C sensitive families used for the last-prompt experiment, the
+cue-token site was uniformly weaker:
+  - Cue-token best mean recovery: 3.19% (layer 12)
+  - Last-prompt best mean recovery: 10.85% (layer 15)
+  - No families exceeded 50% recovery at the cue-token site
+  - Many flagship families remained below 10% recovery, including CM_B_UM_059,
+    CM_B_UM_032, CM_B_UM_013, and EL_B_002
+
+Interpretation: the "wrong-site" rescue hypothesis is **not** supported by the
+current single-position patching evidence. For the strongest sensitivities, the
+causal mechanism appears more distributed than a single cue-token or last-prompt
+state replacement can capture. Moderate cases remain patchable at the last-prompt
+site (for example EL_B_002), but cue-token patching is not the dominant causal
+handle in this benchmark.
+
+## Stage 8 Cross-Model Transfer — Initial Result (2026-06-17)
+
+Job 243299 completed. PCA + Procrustes alignment improved cross-model geometry
+substantially:
+  - Pre-alignment similarity: 0.7923
+  - Post-alignment similarity: 0.9197
+
+Transfer AUROC:
+  - Qwen -> Llama: 0.6366
+  - Llama -> Qwen: 0.6063
+
+Interpretation: there is a modest shared representational structure for
+sensitivity across architectures, but not yet a strong architecture-invariant
+transfer signal.
+
+## Stage 8 Attention Head Decomposition — Layer 18 (2026-06-17)
+
+Job 243310 completed successfully after the bf16-loading fix. Key findings:
+
+- Head 26 is the dominant shortcut-sensitivity head at layer 18.
+  - Mean contribution: 0.3500
+  - Peak contribution: 0.4890
+  - Top contributor for 6 of the 10 analysed families:
+    CM_B_004, CM_B_STD_006, CM_B_UM_013, CM_B_UM_032, CM_B_UM_059, EL_B_002
+- Secondary heads: 24, 13, 11
+- Head 23 has the largest geometric alignment strength (27.56) but ranks below
+  head 26 in average contribution, suggesting strong probe-direction alignment
+  with more selective family activation.
+
+Interpretation: the layer-18 probe signal is not diffuse across the whole
+attention block. A small set of approximately 4-5 heads accounts for the
+dominant fraction of the sensitivity-related variance, with head 26 emerging as
+the primary circuit candidate for targeted causal intervention.
+
+## Stage 8 Patching Site Comparison (2026-06-17)
+
+Side-by-side comparison of the same top-20 non-Cue-C sensitive families shows:
+
+- Last-prompt patching outperforms cue-token patching for 18/20 families
+- Cue-token patching is better for only 2/20 families, and by small margins
+- No ties
+
+Interpretation: the "wrong site" hypothesis is decisively unsupported. The
+sensitivity signal is more accessible at the final prompt-integration position
+than at the token where the distractor value first appears.
+
+## Stage 8 Head 26 Knockout — Layer 18 Circuit Intervention (2026-06-17)
+
+Job 243312 completed successfully. This experiment zeroed attention head 26 at
+the last-prompt-token position while sweeping the same 12 patch layers and
+top-20 non-Cue-C sensitive families used in the earlier causal patching runs.
+
+Key findings:
+
+- Best causal layer: 20
+- Best mean recovery: 22.35%
+- This exceeds both earlier single-position residual patching averages:
+  - Last-prompt full-residual replacement best mean recovery: 10.85%
+  - Cue-token full-residual replacement best mean recovery: 3.19%
+
+Family-level pattern:
+- Head-26 knockout improves recovery for many families that were only weakly
+  patchable with full residual replacement.
+- Large improvements include:
+  - CM_B_STD_015: 71.4% recovery (vs -7.1% under last-prompt residual patching)
+  - CM_B_STD_014: 44.2% recovery (vs 3.9%)
+  - CM_B_UM_001: 34.2% recovery (vs 3.8%)
+  - CM_B_UM_009: 25.7% recovery (vs 3.6%)
+  - TH_B_UM_008: 25.4% recovery (vs 3.2%)
+- High-S_lp flagship families improve, but remain only partially recoverable:
+  - CM_B_UM_059: 11.2% recovery (vs 4.7%)
+  - CM_B_UM_032: 13.5% recovery (vs 0.6%)
+
+Interpretation:
+Targeted head-level intervention is substantially more effective than replacing
+the entire residual stream at a single position. This strengthens the circuit
+story: a small set of heads, especially head 26, carries a meaningful fraction
+of the shortcut-sensitivity signal. However, the strongest sensitivities remain
+only partially recoverable, consistent with a distributed mechanism beyond any
+single head or single-position intervention.
+
+## Stage 8 DeepSeek-R1 Behavioural Sweep (2026-06-17)
+
+Jobs:
+- 243311: DeepSeek smoke run — PASS
+- 243314: full DeepSeek-R1-Distill-Qwen-32B behavioural sweep — PASS
+
+Computed on the 140-family Stage 6 benchmark:
+
+- Parse success rate: 0.6018
+- Correctness rate among confident parses: 0.8160
+- Mean S_lp: 0.7001 nats
+- S_lp >= 0.5 nats: 38 / 140 = 27.1%
+
+Comparison:
+- Qwen-7B: mean S_lp 1.4006, positives 70 / 140 = 50.0%
+- Llama-8B: mean S_lp 0.4721
+- DeepSeek-R1-32B sits between them on S_lp magnitude and positive rate
+
+Interpretation:
+Reasoning tuning reduces shortcut sensitivity relative to Qwen-7B but does not
+eliminate it. DeepSeek-R1 remains meaningfully sensitive on the same benchmark,
+with 27.1% of families above the 0.5-nat threshold. The low parse rate shows
+that the model still frequently emits verbose reasoning-style text despite the
+strict answer-format instruction, but teacher-forced S_lp remains usable and the
+behavioural run itself completed cleanly.
+
+## Stage 8 Complete Results — 2026-06-17
+
+### A. Variance Probe (Stage 6 / H2 Gate)
+Primary (last-prompt variance, 135 families): AUROC=0.731, Pearson r=0.667,
+  CI=[0.642, 0.809], best layer=18, beats random null p95=0.614
+No-Cue-C (130 families): AUROC=0.715, delta=+0.104 over no-Cue-C TF-IDF=0.6114
+  -> passes delta gate
+Ensemble (6 layers, PCA-50): AUROC=0.748, CI=[0.666, 0.829]
+MLP (layer 18): AUROC=0.742
+Domain generalisation: macro AUROC=0.749
+  - electrostatics/circuits: 0.774
+  - mechanics: 0.720
+  - thermodynamics: 0.755
+H2 gate verdict: CONDITIONAL (delta gate passes no-Cue-C; absolute 0.75 missed
+  narrowly across all probe variants)
+
+### B. Causal Patching — Full Residual, Last-Prompt Site
+Best layer: 15. Best mean recovery: 10.85%.
+Best individual: EL_B_002 at 96.4% (layer 15). Sharp phase transition begins at L12.
+High-S_lp families (>4 nats): mean max recovery 13.6% -> distributed encoding
+Moderate-S_lp (2-4 nats): mean max recovery 23.2% -> more localised encoding
+Layer profile: monotonic increase L4->L15, then decay -> structured, not random
+
+### C. Causal Patching — Full Residual, Cue-Token Site
+Best mean recovery: 3.19% at layer 12.
+Last-prompt better than cue-token: 18/20 families (90%).
+Conclusion: last-prompt is the stronger causal site; sensitivity is more
+accessible at the final prompt integration point than at the source cue token.
+
+### D. Attention Head Decomposition (Layer 18)
+Top sensitivity heads (mean contribution to probe direction):
+  Head 26: 0.350 (primary — dominates for 6/10 analysed families)
+  Head 24: 0.312
+  Head 13: 0.285
+  Head 11: 0.277
+  Head 23: 0.269 (highest alignment strength: 27.56)
+Head 26 leads for:
+  CM_B_004, CM_B_STD_006, CM_B_UM_013, CM_B_UM_032, CM_B_UM_059, EL_B_002
+Interpretation: a small set of 4-5 heads carries the dominant fraction of the
+layer-18 probe signal, with head 26 as the primary circuit candidate.
+
+### E. Head 26 Knockout
+Best layer: 20. Best mean recovery: 22.35%.
+Best-family mean comparison:
+  - Head 26 knockout mean best recovery: 29.6%
+  - Last-prompt full-residual mean best recovery: 18.4%
+Head 26 knockout vs full-residual LP patching: H26 better for 16/20 families.
+Notable wins over full-residual:
+  - CM_B_STD_015: 71.4% (LP was -7.1%)
+  - CM_B_STD_014: 44.2% (LP was 3.9%)
+  - CM_B_UM_001: 34.2% (LP was 3.8%)
+  - CM_B_004: 33.9% (LP was 12.3%)
+  - CM_B_UM_006: 27.9% (LP was 4.0%)
+High-S_lp flagship families remain only partially recoverable:
+  - CM_B_UM_059: 11.2% (vs 4.7% under LP full residual)
+  - CM_B_UM_032: 13.5% (vs 0.6%)
+EL_B_002 remains a special case:
+  - H26 knockout: 36.6%
+  - LP full residual: 96.4%
+Conclusion: head-level intervention is more surgically effective than any
+single-position full residual replacement for most families, but the strongest
+sensitivities still remain distributed beyond a single head.
+
+### F. Cross-Model Transfer
+CKA alignment: pre=0.792 -> post=0.920 (256-dim PCA + Procrustes)
+Qwen->Llama AUROC: 0.637
+Llama->Qwen AUROC: 0.606
+Interpretation: a modest shared representational structure exists across
+architectures, but a substantial fraction of the sensitivity representation
+remains model-specific.
+
+### G. DeepSeek-R1 Cross-Architecture Comparison
+Model: deepseek-ai/DeepSeek-R1-Distill-Qwen-32B (32B, reasoning-trained)
+DeepSeek positive rate (S_lp >= 0.5): 27.1% (38/140) vs Qwen: 50.0% (70/140)
+DeepSeek mean S_lp: 0.700 vs Qwen: 1.401 vs Llama: 0.472
+DeepSeek parse success rate: 0.6018
+DeepSeek correctness among confident parses: 0.8160
+
+Overlap analysis relative to Qwen thresholded positives:
+  - Both sensitive: 28 families
+  - Only Qwen sensitive: 42 families
+  - Only DeepSeek sensitive: 10 families
+  - Neither: 60 families
+
+Critical finding — reasoning training is selectively suppressive, not uniformly suppressive:
+  Suppressed (Qwen+ -> DeepSeek-): 42 families, concentrated in Cue B
+  near-match physics-computation families where chain-of-thought seems to help
+  identify irrelevant distractors.
+
+  Amplified / newly manifest (Qwen- or much lower -> DeepSeek+): includes
+  families such as:
+    - CM_A_STD_008: Qwen=0.078 -> DeepSeek=7.109 (+7.031)
+    - CM_B_STD_001: Qwen=0.000 -> DeepSeek=6.406 (+6.406)
+    - CM_B_STD_003: Qwen=1.156 -> DeepSeek=7.000 (+5.844)
+    - CM_C_003: Qwen=6.547 -> DeepSeek=10.852 (+4.305)
+    - CM_A_STD_005: Qwen=2.297 -> DeepSeek=3.625 (+1.328)
+
+Interpretation:
+Chain-of-thought reasoning appears to reduce sensitivity for many physics
+computation distractors, but can amplify sensitivity for unit-representation
+families (Cue C) and certain novel Cue B/Cue A patterns by explicitly
+enumerating numerical forms, quantities, and computation paths. This is a
+finding about reasoning training itself, not just shortcut detection.
