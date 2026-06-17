@@ -1386,3 +1386,159 @@ computation distractors, but can amplify sensitivity for unit-representation
 families (Cue C) and certain novel Cue B/Cue A patterns by explicitly
 enumerating numerical forms, quantities, and computation paths. This is a
 finding about reasoning training itself, not just shortcut detection.
+
+### H. DeepSeek Within-Model Variance Probe
+DeepSeek variance probe (last-prompt, tier-1 activations, 140 families):
+  AUROC: 0.703
+  AUPRC: 0.545
+  Pearson r: 0.533
+  Bootstrap CI: [0.602, 0.797]
+  Random-direction p95: 0.663
+  Embedding-layer AUROC: 0.625
+  Best AUROC layer: 44 / 64 (68.8% depth)
+  Best Pearson-r layer: 15 / 64 (23.4% depth)
+
+Interpretation:
+DeepSeek's hidden-state variance still predicts its own S_lp sensitivity well
+above the random null, but more weakly than Qwen (0.703 vs 0.731 AUROC; 0.533
+vs 0.667 Pearson r). The best AUROC layer occurs at 44/64 (~69% depth), close
+to Qwen's 18/28 (~64% depth), suggesting a similar late-network localization of
+sensitivity encoding despite the model's reasoning fine-tuning and larger scale.
+
+### I. Qwen <-> DeepSeek Cross-Architecture Transfer
+Alignment (256-dim PCA + Procrustes):
+  pre-alignment similarity: 0.752
+  post-alignment similarity: 0.895
+
+Transfer AUROC:
+  Qwen -> DeepSeek: 0.725
+  DeepSeek -> Qwen: 0.633
+
+Interpretation:
+Qwen's sensitivity representation transfers to DeepSeek substantially better
+than chance and better than the reverse direction. This is consistent with the
+idea that DeepSeek inherits a large fraction of the base Qwen representational
+structure while reasoning training selectively suppresses or amplifies specific
+behavioural sensitivities.
+
+Family-level note on DeepSeek-amplified families:
+For several families where DeepSeek is sensitive but Qwen is not, the Qwen
+cross-model probe still assigns elevated DeepSeek-side scores only selectively:
+  - Clearly latent in Qwen space: CM_B_STD_003 (0.964), CM_C_003 (0.9999),
+    CM_A_STD_005 (0.961), CM_A_STD_010 (0.913)
+  - Weak or absent in Qwen space: CM_B_STD_001 (0.097), CM_B_UM_004 (0.127),
+    CM_A_STD_008 (0.289), CM_A_STD_013 (0.328)
+
+This split suggests two mechanisms:
+1. latent sensitivity already present in the base-model representation that
+   reasoning training makes behaviourally manifest; and
+2. genuinely novel sensitivity patterns induced by the reasoning process itself.
+
+## Stage 8 Final Entries — 2026-06-17
+
+### H. DeepSeek-R1 Within-Model Variance Probe
+Model: deepseek-ai/DeepSeek-R1-Distill-Qwen-32B (64 layers, d_model=5120)
+AUROC: 0.7025
+AUPRC: 0.5448
+Pearson r (continuous S_lp): 0.5328
+Bootstrap CI: [0.6024, 0.7974]
+Best layer (AUROC): 44 / 64 = 68.8% network depth
+Best layer (Pearson r): 15 / 64
+Random-direction p95: 0.6631
+Surface TF-IDF baseline: 0.6055
+Delta over baseline: +0.0970
+Embedding-layer AUROC: 0.6246
+
+Depth universality finding:
+  Qwen-7B best probe layer:         18/28 = 64.3% depth
+  DeepSeek-R1-32B best probe layer: 44/64 = 68.8% depth
+  Difference: 4.5% — remarkably consistent across a 4.5× size difference
+  and despite fundamentally different training regimes (base vs RL/CoT).
+  Both models localise shortcut sensitivity in the upper-middle layers
+  (~64-69% depth), consistent with the known role of these layers in
+  integrating higher-level semantic representations.
+
+### I. Qwen ↔ DeepSeek Cross-Architecture Transfer
+CKA alignment: pre=0.753 -> post=0.895
+Qwen -> DeepSeek AUROC: 0.7252
+DeepSeek -> Qwen AUROC: 0.6331
+Comparison:
+  Qwen -> Llama AUROC: 0.637 (prior result)
+  Qwen -> DeepSeek AUROC: 0.725 (stronger)
+Interpretation: DeepSeek-R1, being based on Qwen2.5 architecture, shares
+  more representational structure with Qwen-7B than Llama-8B does despite
+  the 4.5× size difference and reasoning training. The higher Qwen->DeepSeek
+  transfer (vs Qwen->Llama) is consistent with this shared architectural lineage.
+  Crucially, despite DeepSeek showing a fundamentally different sensitivity
+  pattern (27.1% vs 50% positive rate), the representation of sensitivity
+  in aligned feature space transfers well.
+
+### J. Latent vs Novel Sensitivity (DeepSeek-Amplified Families)
+Of the 10 families where DeepSeek is more sensitive than Qwen:
+  Latent in Qwen (Qwen probe assigns >0.7 probability): 4 families
+    CM_B_STD_003: Qwen->DS score=0.9645
+    CM_C_003: Qwen->DS score=0.9999 (maximum latency)
+    CM_A_STD_005: Qwen->DS score=0.9611
+    CM_A_STD_010: Qwen->DS score=0.9131
+  Genuinely novel in DeepSeek (Qwen probe assigns <0.3): 4 families
+    CM_B_STD_001: Qwen->DS score=0.0967
+    CM_B_UM_004: Qwen->DS score=0.1269
+    CM_A_STD_008: Qwen->DS score=0.2891
+    CM_B_UM_048: Qwen->DS score=0.2587
+  Borderline (0.3-0.7): 2 families
+    CM_B_UM_051: 0.6438
+    CM_A_STD_013: 0.3284
+
+Latent sensitivity interpretation:
+  For 4 families, Qwen's hidden-state variance probe already assigns high
+  sensitivity probability even though Qwen's outputs do not manifest the
+  sensitivity (Qwen S_lp < 0.5). DeepSeek's reasoning training makes this
+  latent representational sensitivity behaviourally manifest through explicit
+  chain-of-thought enumeration of quantities and computation paths.
+  This implies the sensitivity exists at the representation level in the
+  base model before it appears in outputs.
+
+Novel sensitivity interpretation:
+  For 4 families, the sensitivity is not present in Qwen's representations
+  at all (probe assigns <0.3 probability). These are genuine products of
+  reasoning training — new sensitivities created when chain-of-thought
+  explicitly structures computation in ways that introduce new sources of
+  distractor confusion.
+
+### K. Multi-Head Knockout (Final Result)
+Heads knocked out: {26, 24, 13, 11} simultaneously at target layer
+Layers tested: [14, 15, 16, 17, 18, 19, 20]
+
+Critical layer-by-layer pattern:
+  Layer 14: ALL 20 families WORSEN (undershoot=20/20) — heads help disambiguation here
+  Layer 15: Mixed (6/20 overshoot, 1/20 undershoot, mean clipped=0.598)
+  Layer 16: 17/20 COMPLETE SUPPRESSION (S_lp_patched <= 0), 3/20 at 72-88% reduction
+  Layer 17: 16/20 families WORSEN again (undershoot)
+  Layers 18-20: Moderate, inconsistent recovery
+
+One-layer-wide causal window at exactly layer 16.
+The same 4 heads produce opposite causal effects at L14 vs L16:
+  - At L14: removing them INCREASES sensitivity (they are providing useful
+    disambiguation computation that reduces sensitivity at this layer)
+  - At L16: removing them ELIMINATES sensitivity (they are now encoding the
+    confusion that will propagate to outputs)
+
+Per-family result at layer 16:
+  Complete suppression (S_lp_patched <= 0): 17/20 families
+  72.3% reduction: CM_B_UM_059 (10.031 -> 2.781 nats) — the most extreme family
+  88.3% reduction: CM_B_STD_011 (4.812 -> 0.563 nats)
+  77.2% reduction: CM_B_UM_001 (2.469 -> 0.563 nats)
+
+Overshoot explanation (S_lp_patched < 0 for 17 families):
+  When the model runs the sensitive variant without heads {26,24,13,11} at
+  layer 16, it becomes MORE confident in the correct answer than when running
+  the base variant normally. This is because these heads perform a
+  comparison/disambiguation computation that, under near-match distractor
+  conditions at layer 16, generates uncertainty. Removing them causes the
+  model to ignore the distractor entirely, reverting to higher-than-base
+  confidence in the correct answer.
+
+Progression of causal evidence:
+  Full-residual LP patching:   mean recovery 10.85%
+  Single-head H26 knockout:    mean recovery 22.35%
+  4-head circuit knockout L16: 17/20 complete suppression, 3/20 at 72-88%

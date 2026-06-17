@@ -1,0 +1,168 @@
+{
+  "probing": {
+    "primary_variance_auroc": 0.731,
+    "no_cue_c_variance_auroc": 0.715,
+    "ensemble_auroc": 0.748,
+    "mlp_auroc": 0.742,
+    "pearson_r_continuous": 0.667,
+    "domain_gen_macro_auroc": 0.749,
+    "domain_gen_electrostatics": 0.774,
+    "domain_gen_mechanics": 0.72,
+    "domain_gen_thermodynamics": 0.755,
+    "surface_tfidf_baseline_qwen": 0.6514,
+    "surface_tfidf_baseline_qwen_no_cue_c": 0.6114,
+    "h2_verdict": "CONDITIONAL"
+  },
+  "causal_patching": {
+    "lp_full_residual_mean_recovery": 0.10849875857512,
+    "ct_full_residual_mean_recovery": 0.03189273516165554,
+    "h26_knockout_mean_recovery": 0.22348285120237224,
+    "multi_head_best_clipped_mean_recovery": 0.9689005107436434,
+    "best_single_family_lp": {
+      "family": "EL_B_002",
+      "recovery": 0.964
+    },
+    "best_single_family_h26": {
+      "family": "CM_B_STD_015",
+      "recovery": 0.7142857142857143
+    },
+    "h26_beats_lp_fraction": "16/20",
+    "multi_head_beats_h26_fraction": "20/20",
+    "multi_head_beats_lp_fraction": "19/20",
+    "multi_head_overshoot_note": "Bounded clipped summary used because raw recovery frequently exceeds 1.0 under multi-head intervention."
+  },
+  "attention_heads": {
+    "primary_head": 26,
+    "secondary_heads": [
+      24,
+      13,
+      11
+    ],
+    "alignment_outlier_head": 23,
+    "primary_head_mean_contribution": 0.3500494331121445,
+    "primary_head_peak_contribution": 0.4890214800834656
+  },
+  "deepseek_comparison": {
+    "qwen_positive_rate": 0.5,
+    "deepseek_positive_rate": 0.2714285714285714,
+    "qwen_mean_slp": 1.401,
+    "deepseek_mean_slp": 0.7001116071428571,
+    "qwen_only_sensitive": 42,
+    "both_sensitive": 28,
+    "deepseek_only_sensitive": 10,
+    "key_finding": "Reasoning training is selectively suppressive: it reduces many Cue B near-match sensitivities while amplifying Cue C unit-representation sensitivity and some novel Cue A/B patterns."
+  },
+  "deepseek_probe": {
+    "variance_auroc": 0.7025283797729618,
+    "variance_auprc": 0.54481034709833,
+    "pearson_r_continuous": 0.5327535104461929,
+    "bootstrap_ci": [
+      0.602407123004682,
+      0.7974496671552027
+    ],
+    "best_layer": 44,
+    "best_layer_relative_depth": 0.6875,
+    "best_pearson_layer": 15,
+    "embedding_layer_auroc": 0.6246130030959752,
+    "random_direction_p95": 0.6630933952528381,
+    "surface_tfidf_baseline": 0.6055211558307534,
+    "delta_over_baseline": 0.09700722394220836,
+    "surface_tfidf_continuous_r": 0.27996539469362197
+  },
+  "depth_universality": {
+    "qwen_best_layer_fraction": 0.643,
+    "deepseek_best_layer_fraction": 0.688,
+    "difference": 0.045,
+    "interpretation": "Consistent late-middle-layer locus across 7B base and 32B reasoning-trained models"
+  },
+  "cross_model_transfer": {
+    "qwen_to_llama_auroc": 0.6365740740740741,
+    "llama_to_qwen_auroc": 0.606326530612245,
+    "qwen_to_deepseek_auroc": 0.7252321981424149,
+    "deepseek_to_qwen_auroc": 0.633061224489796,
+    "deepseek_alignment_pre": 0.7524971961975098,
+    "deepseek_alignment_post": 0.894791305065155
+  },
+  "novel_sensitivity_split": {
+    "latent_in_qwen": 4,
+    "genuinely_novel_in_deepseek": 4,
+    "borderline": 2,
+    "total_amplified": 10
+  },
+  "novel_sensitivity_families": {
+    "families": [
+      {
+        "deepseek_reasoning_label": 1,
+        "deepseek_reasoning_score_from_qwen_primary_probe": 0.289120735331848,
+        "qwen_primary_label": 0,
+        "qwen_primary_score_from_deepseek_reasoning_probe": 0.5718427401923031,
+        "template_id": "CM_A_STD_008"
+      },
+      {
+        "deepseek_reasoning_label": 1,
+        "deepseek_reasoning_score_from_qwen_primary_probe": 0.09672714734230023,
+        "qwen_primary_label": 0,
+        "qwen_primary_score_from_deepseek_reasoning_probe": 0.5995516597978156,
+        "template_id": "CM_B_STD_001"
+      },
+      {
+        "deepseek_reasoning_label": 1,
+        "deepseek_reasoning_score_from_qwen_primary_probe": 0.9644957836847691,
+        "qwen_primary_label": 1,
+        "qwen_primary_score_from_deepseek_reasoning_probe": 0.5577420126705566,
+        "template_id": "CM_B_STD_003"
+      },
+      {
+        "deepseek_reasoning_label": 1,
+        "deepseek_reasoning_score_from_qwen_primary_probe": 0.9999483947293448,
+        "qwen_primary_label": 1,
+        "qwen_primary_score_from_deepseek_reasoning_probe": 0.9998331010573607,
+        "template_id": "CM_C_003"
+      },
+      {
+        "deepseek_reasoning_label": 1,
+        "deepseek_reasoning_score_from_qwen_primary_probe": 0.12694739780784522,
+        "qwen_primary_label": 0,
+        "qwen_primary_score_from_deepseek_reasoning_probe": 0.5574436654390267,
+        "template_id": "CM_B_UM_004"
+      },
+      {
+        "deepseek_reasoning_label": 1,
+        "deepseek_reasoning_score_from_qwen_primary_probe": 0.6437953559877522,
+        "qwen_primary_label": 0,
+        "qwen_primary_score_from_deepseek_reasoning_probe": 0.5572822835605258,
+        "template_id": "CM_B_UM_051"
+      },
+      {
+        "deepseek_reasoning_label": 1,
+        "deepseek_reasoning_score_from_qwen_primary_probe": 0.25871030490062813,
+        "qwen_primary_label": 0,
+        "qwen_primary_score_from_deepseek_reasoning_probe": 0.629819110403545,
+        "template_id": "CM_B_UM_048"
+      },
+      {
+        "deepseek_reasoning_label": 1,
+        "deepseek_reasoning_score_from_qwen_primary_probe": 0.3283606310652687,
+        "qwen_primary_label": 0,
+        "qwen_primary_score_from_deepseek_reasoning_probe": 0.48878188196519173,
+        "template_id": "CM_A_STD_013"
+      },
+      {
+        "deepseek_reasoning_label": 1,
+        "deepseek_reasoning_score_from_qwen_primary_probe": 0.9610693872744746,
+        "qwen_primary_label": 1,
+        "qwen_primary_score_from_deepseek_reasoning_probe": 0.5700369794836402,
+        "template_id": "CM_A_STD_005"
+      },
+      {
+        "deepseek_reasoning_label": 1,
+        "deepseek_reasoning_score_from_qwen_primary_probe": 0.9130680570101655,
+        "qwen_primary_label": 1,
+        "qwen_primary_score_from_deepseek_reasoning_probe": 0.5622452956659275,
+        "template_id": "CM_A_STD_010"
+      }
+    ],
+    "source_model": "qwen_primary",
+    "target_model": "deepseek_reasoning"
+  }
+}
