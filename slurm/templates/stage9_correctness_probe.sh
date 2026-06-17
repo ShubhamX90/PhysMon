@@ -8,6 +8,7 @@
 
 source ~/.bashrc
 set +u; conda activate physmon; set -u
+export SCRATCH=/scratch/pabitra
 
 python scripts/run_probing.py \
   --activation-dir $SCRATCH/physmon/activations_stage6/qwen_primary/ \

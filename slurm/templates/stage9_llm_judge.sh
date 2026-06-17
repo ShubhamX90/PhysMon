@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=physmon_s9_judge
-#SBATCH --partition=gpu
-#SBATCH --gres=gpu:h100:1
+#SBATCH --partition=gpu_h200_8
+#SBATCH --gres=gpu:nvidia_h200_nvl:1
 #SBATCH --time=10:00:00
 #SBATCH --mem=120G
 #SBATCH --cpus-per-task=8

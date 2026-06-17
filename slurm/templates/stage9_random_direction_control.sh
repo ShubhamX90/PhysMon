@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=physmon_s9_rdc
-#SBATCH --partition=gpu
-#SBATCH --gres=gpu:a100:1
+#SBATCH --partition=gpu_a100_8
+#SBATCH --gres=gpu:nvidia_a100-sxm4-80gb:1
 #SBATCH --time=04:00:00
 #SBATCH --mem=80G
 #SBATCH --cpus-per-task=8

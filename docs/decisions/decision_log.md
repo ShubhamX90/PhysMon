@@ -1564,3 +1564,16 @@ Planned submissions:
 
 Scientific purpose: Establish H4 causal specificity; fill mandatory baseline
 gaps; enable clean paper claims at EACL ARR target venue.
+
+Submitted job IDs:
+  243539 stage9_random_direction_control — A100
+  243540 stage9_direction_injection — A100 [submission canceled before run due missing SCRATCH export]
+  243541 stage9_unrelated_donor — A100
+  243542 stage9_mhk_early_layers_and_damage_control — A100
+  243543 stage9_self_consistency — A100
+  243544 stage9_llm_judge — H200
+  243545 stage9_correctness_probe — compute [failed fast due missing SCRATCH export]
+  243546 stage9_cot_text — compute
+  243547 stage9_answer_rationale — compute
+  243548 stage9_direction_injection — A100 [corrected resubmission]
+  243549 stage9_correctness_probe — compute [corrected resubmission]
