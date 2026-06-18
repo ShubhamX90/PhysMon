@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\caption{Mandatory baseline comparisons for PhysMon sensitivity detection. Fill with finalized Stage 9 values, including self-consistency and residualisation once available.}
+\label{tab:baselines}
+\begin{tabular}{lcccc}
+\toprule
+Baseline / Probe & AUROC & AUPRC & Best Layer & Notes \\
+\midrule
+Variance probe (primary) & 0.731 & 0.744 & 18 & Prompt-side hidden-state variance \\
+Variance probe (ensemble) & 0.748 & [TBD] & 15--20 & Multi-layer PCA ensemble \\
+TF-IDF surface baseline & 0.6514 & [TBD] & -- & Full Stage 6 benchmark \\
+CoT text classifier & 0.5990 & 0.5683 & -- & Qwen labels \\
+Answer+rationale classifier & 0.6464 & 0.6251 & -- & Qwen labels \\
+Correctness probe & 0.7657 & 0.7535 & 24 & Distinct target, not sensitivity \\
+LLM judge (zero-shot mean) & 0.4797 & [TBD] & -- & Mean across 3 settings \\
+Self-consistency baseline & [TBD] & [TBD] & -- & Job 244037 pending \\
+Residualised sensitivity probe & [TBD-RESID] & [TBD-RESID] & 18 & Job 245081 pending \\
+\bottomrule
+\end{tabular}
+\end{table*}

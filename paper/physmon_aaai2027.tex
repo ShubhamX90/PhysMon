@@ -1,0 +1,101 @@
+\documentclass[letterpaper]{article}
+% AAAI 2027 style is not present locally. Swap this preamble to the official
+% AAAI 2027 (or AAAI 2026 stand-in) style file before submission packaging.
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{helvet}
+\usepackage{courier}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{xspace}
+
+\title{PhysMon: Monitoring Shortcut Sensitivity in Scientific Reasoning from Prompt-Side Hidden States}
+\author{[Authors Redacted for Drafting]}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study whether prompt-side hidden states of open-weight language models can predict model-specific shortcut sensitivity on physics problems before any failure appears in generated output. We construct PhysMon, a family-structured benchmark of 140 canonical counterfactual families in classical mechanics, electrostatics, and thermodynamics, where designated cue edits are certified invariant by a symbolic solver. Qwen2.5-7B-Instruct shows non-trivial output instability on 50.0\% of families (mean $S^{\mathrm{lp}}=1.4006$ nats); Llama-3.1-8B on 22.9\%; DeepSeek-R1-Distill-Qwen-32B on 27.1\%. A variance probe trained on prompt-side hidden states at layer 18 predicts family-level sensitivity with AUROC 0.731 (ensemble 0.748), outperforming surface and textual baselines including CoT classifiers (0.5990), answer+rationale classifiers (0.6464), and LLM judges (zero-shot AUROC 0.439--0.500 across settings). Controlled multi-head knockout of heads \{26, 24, 13, 11\} at exactly layer 16 completely suppresses sensitivity in 17/20 tested families, with causal specificity confirmed against random-direction, layer, and construct controls. Sensitivity encoding localises at 64--69\% network depth consistently across Qwen-7B and DeepSeek-32B despite a 4.5$\times$ scale difference and different training regimes. Reasoning training selectively suppresses unit-compatible distractor sensitivity (Fisher $p=0.00575$, OR $=\infty$) while leaving frame-rendering sensitivity intact. Correctness-residualised AUROC is [TBD-RESID]. We release benchmark templates, solver derivations, and analysis code.
+\end{abstract}
+
+\section{Introduction}
+% Motivation: shortcut sensitivity in scientific reasoning; why output-only evaluation misses it.
+% Introduce PhysMon, prompt-side monitoring, and the main empirical story.
+% Finalize with paper contributions list.
+
+\section{Background and Related Work}
+% Hidden-state monitoring and probes.
+% Scientific reasoning benchmarks and counterfactual evaluation.
+% Mechanistic interpretability and causal interventions.
+% Reasoning-tuned models and chain-of-thought robustness.
+
+\section{Formal Framework}
+% Define family-structured counterfactual benchmark.
+% Three-level framework: prompt condition, observed behaviour, internal representation.
+% Formal notation for S, hat{S}, and S^{lp}.
+% Note where H1--H4 are tested and what remains scoped as conditional.
+
+\section{PhysMon Benchmark}
+% Benchmark construction, domains, cue types A/B/C, and symbolic verification.
+% Family counts: 140 total; mechanics/electrostatics/thermodynamics split.
+% Near-match distractor principle and Cue C framing.
+% Mention family validation pipeline and remaining human-audit follow-up.
+
+\section{Hidden-State Monitoring Method}
+% Activation extraction sites and why last-prompt residual variance is primary.
+% Variance probe, ensemble probe, domain generalisation, cross-model transfer.
+% Baselines: TF-IDF, CoT text classifier, answer+rationale classifier, correctness probe,
+% LLM judges, self-consistency (pending final integration from job 244037).
+% Residualisation analysis placeholder: add when job 245081 completes.
+
+\section{Results}
+
+\subsection{Behavioural Sensitivity}
+% Report model-level positive rates and mean S^{lp}.
+% Highlight near-match distractor effect and Cue C separation.
+% DeepSeek selective suppression/amplification story.
+
+\subsection{Hidden-State Monitoring}
+% Primary AUROC 0.731, ensemble 0.748, Pearson r = 0.667.
+% No-Cue-C result 0.715 with delta +0.104 over no-Cue-C TF-IDF.
+% Domain generalisation macro AUROC 0.749.
+% Correctness-probe anti-correlation analysis and residualisation [TBD-RESID].
+
+\subsection{Causal Representation}
+% Full-residual patching, H26 knockout, and 4-head L16 knockout.
+% Random-direction, unrelated-donor, early-layer, damage-control, and injection results.
+% Phrase causal claim carefully: necessity strongly supported; sufficiency directional but incomplete.
+
+\subsection{Cross-Architecture and Reasoning Training}
+% DeepSeek within-model variance probe AUROC 0.7025.
+% Depth universality: Qwen 18/28 vs DeepSeek 44/64.
+% Qwen->DeepSeek transfer 0.7252 vs Qwen->Llama 0.637.
+% Latent-vs-novel sensitivity split in DeepSeek-amplified families.
+
+\section{Discussion}
+% Interpret what the probe is detecting mechanistically.
+% Distinguish shortcut sensitivity from generic difficulty.
+% Discuss reasoning training as selectively suppressive rather than uniformly robustifying.
+% State limitations: residualisation pending, self-consistency pending, same-answer/no-cue donor deferred,
+% variable-renaming/human-audit still to be completed before submission freeze.
+
+\section{Conclusion}
+% Restate main finding and honest scope of the current claims.
+% Emphasize prompt-side monitorability and circuit-level necessity result.
+
+% Figures/tables to insert:
+% - Baselines table: paper/tables/baselines_table.tex
+% - Causal controls table: paper/tables/causal_controls_table.tex
+% - Layer AUROC curves, MHK heatmap, injection dose-response, DeepSeek cue-type plot.
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

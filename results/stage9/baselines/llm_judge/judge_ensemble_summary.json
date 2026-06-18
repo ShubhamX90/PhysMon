@@ -1,0 +1,45 @@
+{
+  "judge_sensitivity_interpretation": "Range across settings = 0.0610, indicating moderate judge-choice sensitivity. No single judge treats sensitivity consistently as a ground truth.",
+  "loo_auroc_by_setting": {
+    "deepseek_setting_a": 0.25054945054945055,
+    "llama_setting_a": 0.5,
+    "llama_setting_b": 1.0
+  },
+  "metrics_by_setting": {
+    "deepseek_setting_a": {
+      "auprc": 0.49538239538239537,
+      "brier": 0.35118518518518527,
+      "loo_probe_auroc": 0.25054945054945055,
+      "n_parsed": 135,
+      "zero_shot_auroc": 0.439010989010989
+    },
+    "llama_setting_a": {
+      "auprc": 0.5185185185185185,
+      "brier": 0.35111111111111115,
+      "loo_probe_auroc": 0.5,
+      "n_parsed": 135,
+      "zero_shot_auroc": 0.5
+    },
+    "llama_setting_b": {
+      "auprc": 0.5185185185185185,
+      "brier": 0.25,
+      "loo_probe_auroc": 1.0,
+      "n_parsed": 135,
+      "zero_shot_auroc": 0.5
+    }
+  },
+  "settings": [
+    "deepseek_setting_a",
+    "llama_setting_a",
+    "llama_setting_b"
+  ],
+  "zero_shot_auroc_by_setting": {
+    "deepseek_setting_a": 0.439010989010989,
+    "llama_setting_a": 0.5,
+    "llama_setting_b": 0.5
+  },
+  "zero_shot_auroc_max": 0.5,
+  "zero_shot_auroc_mean": 0.4796703296703297,
+  "zero_shot_auroc_min": 0.439010989010989,
+  "zero_shot_auroc_range": 0.060989010989010994
+}
