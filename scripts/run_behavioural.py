@@ -37,6 +37,7 @@ DEFAULT_PROMPT_RECORDS_NAME = "prompt_records.jsonl"
 DEFAULT_FAMILY_SUMMARIES_NAME = "family_summaries.jsonl"
 DEFAULT_TEMPERATURE = 1.0
 TIMESTAMP_FORMAT = "%Y%m%dT%H%M%SZ"
+DEEPSEEK_THINK_CLOSE_TAG = "</think>"
 SYSTEM_PROMPT = (
     "You are a precise physics problem solver. "
     "Solve the problem silently and return exactly one line in this format: "
@@ -70,6 +71,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", required=True, help="Directory for behavioural outputs.")
     parser.add_argument("--device", default="cuda", help="Torch device used for model loading.")
     parser.add_argument(
+        "--device-map",
+        default=None,
+        help="Optional Hugging Face device_map (for large multi-GPU models, e.g. auto).",
+    )
+    parser.add_argument(
         "--family-filter",
         nargs="+",
         default=None,
@@ -90,6 +96,12 @@ def parse_args() -> argparse.Namespace:
         "--print-first-prompt",
         action="store_true",
         help="Print the formatted chat-template prompt for the first selected variant, then exit.",
+    )
+    parser.add_argument(
+        "--n-families",
+        type=int,
+        default=None,
+        help="Optional cap on the number of loaded families after filtering.",
     )
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED, help="Deterministic seed.")
     return parser.parse_args()
@@ -151,7 +163,9 @@ def load_rendered_families(
     """
 
     directory = Path(family_dir)
-    family_paths = sorted(directory.glob("*.json"))
+    # Some later-stage benchmark expansions are stored in nested cue/domain
+    # folders; recurse so the same loader works for both flat and grouped trees.
+    family_paths = sorted(directory.rglob("*.json"))
     if not family_paths:
         raise FileNotFoundError(f"No rendered family JSON files found in {directory}.")
     payloads: list[dict[str, Any]] = []
@@ -264,6 +278,25 @@ def generate_completion(bundle: "LoadedModelBundle", prompt: str, max_new_tokens
         )
     continuation_ids = generated_ids[:, prompt_ids.shape[1] :]
     return bundle.tokenizer.decode(continuation_ids[0], skip_special_tokens=True).strip()
+
+
+def postprocess_generated_text(generated_text: str, model_role: str, model_name: str) -> str:
+    """Normalize role-specific generation wrappers before parsing.
+
+    Args:
+        generated_text: Raw decoded continuation from the model.
+        model_role: Resolved model role label.
+        model_name: Canonical model name.
+
+    Returns:
+        Cleaned text used by the parser and logs.
+    """
+
+    lowered_name = model_name.lower()
+    is_deepseek_reasoner = model_role == "REASONING_TUNED" or "deepseek" in lowered_name
+    if is_deepseek_reasoner and DEEPSEEK_THINK_CLOSE_TAG in generated_text:
+        return generated_text.split(DEEPSEEK_THINK_CLOSE_TAG)[-1].strip()
+    return generated_text.strip()
 
 
 def make_prompt_record(
@@ -409,6 +442,10 @@ def main() -> None:
 
     resolved_model_key, resolved_role = resolve_registry_selection(args.model_role, args.model_key)
     families = load_rendered_families(args.family_dir, args.family_filter)
+    if args.n_families is not None:
+        if args.n_families < 1:
+            raise ValueError("--n-families must be positive when provided.")
+        families = families[: args.n_families]
     bundle: "LoadedModelBundle" | None = None
     model_name = resolved_model_key
     model_role = resolved_role
@@ -428,7 +465,11 @@ def main() -> None:
     if not args.dry_run:
         from physmon.models.loader import load_model
 
-        bundle = load_model(model_key=resolved_model_key, device=args.device)
+        bundle = load_model(
+            model_key=resolved_model_key,
+            device=args.device,
+            device_map=args.device_map,
+        )
         model_name = bundle.spec.name
         model_role = bundle.spec.role
         prompt_tokenizer = bundle.tokenizer
@@ -480,6 +521,7 @@ def main() -> None:
                 assert bundle is not None
                 formatted_prompt = format_prompt_with_chat_template(variant_payload["prompt"], prompt_tokenizer)
                 generated_text = generate_completion(bundle, formatted_prompt, args.max_new_tokens)
+                generated_text = postprocess_generated_text(generated_text, model_role, model_name)
                 parse_result = parse_answer(
                     generated_text,
                     expected_unit=str(family_payload["correct_answer"]).split()[-1]

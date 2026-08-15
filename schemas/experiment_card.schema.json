@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PhysMon Stage 13 Experiment Card",
+  "type": "object",
+  "required": [
+    "experiment_id",
+    "scientific_question",
+    "discovery_or_confirmation",
+    "partition",
+    "primary_metric",
+    "stop_rules",
+    "raw_outputs",
+    "negative_result_policy",
+    "paper_eligibility_rule"
+  ],
+  "properties": {
+    "experiment_id": {"type": "string"},
+    "scientific_question": {"type": "string"},
+    "discovery_or_confirmation": {"type": "string"},
+    "partition": {"type": "string"},
+    "primary_metric": {"type": "string"},
+    "secondary_metrics": {"type": "array", "items": {"type": "string"}},
+    "inputs": {"type": "array", "items": {"type": "string"}},
+    "raw_outputs": {"type": "array", "items": {"type": "string"}},
+    "derived_outputs": {"type": "array", "items": {"type": "string"}},
+    "stop_rules": {"type": "string"},
+    "negative_result_policy": {"type": "string"},
+    "paper_eligibility_rule": {"type": "string"},
+    "pi_approval": {"type": "string"},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": true
+}
+

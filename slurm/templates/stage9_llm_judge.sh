@@ -31,7 +31,7 @@ python scripts/run_llm_judge_baseline.py \
   --stage 9 --seed 42
 
 python scripts/run_llm_judge_baseline.py \
-  --judge-model deepseek_r1 \
+  --judge-model deepseek_reasoning \
   --judge-setting A \
   --family-dir results/stage6/generated_full_benchmark/ \
   --slp-csv results/stage6/analysis_d2/stage6_d1_per_family.csv \

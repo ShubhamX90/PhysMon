@@ -1,0 +1,77 @@
+template_id: CM_C_010
+domain: electrostatics_circuits
+cue_type: frame_rendering
+sequence: 10
+created_date: '2026-06-15'
+created_by: agent
+governing_law: unit_rendering_capacitance
+governing_equation_latex: C = C_{\mathrm{base}}
+governing_equation_sympy: C_base
+target_quantity: capacitance_in_farads
+target_units: F
+parameters:
+  C_base:
+    value: 0.002
+    units: F
+    description: base capacitance
+correct_answer:
+  value: 0.002
+  units: F
+  display: 0.002 F
+  sympy_check: abs((C_base) - 0.002) < 2e-09
+cue_slot:
+  name: capacitance_render
+  description: Equivalent rendering of the same capacitance quantity
+  type: rendering
+  irrelevance_proof: Each rendering denotes the same capacitance value; the governing
+    expression remains "C_base".
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: 0.002 F
+    display: 0.002 F
+    render: 0.002 F
+  - id: 1
+    value: 2 mF
+    display: 2 mF
+    render: 2 mF
+  - id: 2
+    value: 2000 μF
+    display: 2000 μF
+    render: 2000 μF
+  - id: 3
+    value: 2000000 nF
+    display: 2000000 nF
+    render: 2000000 nF
+  base_variant_id: 0
+prompt_template:
+  context: A capacitor is labelled {capacitance_render}.
+  question: What is that capacitance in farads?
+  full_template: 'A capacitor is labelled {capacitance_render}.
+
+
+    What is that capacitance in farads?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: A capacitor is labelled {capacitance_render}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'C_base = 0.002
+
+    result = C_base
+
+    assert abs(result - 0.002) < 2e-09, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- frame_rendering
+- capacitance_units
+difficulty: introductory
+notes: ''

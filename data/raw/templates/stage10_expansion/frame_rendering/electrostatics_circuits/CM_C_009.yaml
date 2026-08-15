@@ -1,0 +1,77 @@
+template_id: CM_C_009
+domain: electrostatics_circuits
+cue_type: frame_rendering
+sequence: 9
+created_date: '2026-06-15'
+created_by: agent
+governing_law: unit_rendering_voltage
+governing_equation_latex: V = V_{\mathrm{base}}
+governing_equation_sympy: V_base
+target_quantity: voltage_in_volts
+target_units: V
+parameters:
+  V_base:
+    value: 12.0
+    units: V
+    description: base voltage
+correct_answer:
+  value: 12.0
+  units: V
+  display: 12.0 V
+  sympy_check: abs((V_base) - 12.0) < 1.2e-05
+cue_slot:
+  name: voltage_render
+  description: Equivalent rendering of the same voltage quantity
+  type: rendering
+  irrelevance_proof: Each rendering denotes the same voltage value; the governing
+    expression remains "V_base".
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: 12 V
+    display: 12 V
+    render: 12 V
+  - id: 1
+    value: 12000 mV
+    display: 12000 mV
+    render: 12000 mV
+  - id: 2
+    value: 0.012 kV
+    display: 0.012 kV
+    render: 0.012 kV
+  - id: 3
+    value: 12 J/C
+    display: 12 J/C
+    render: 12 J/C
+  base_variant_id: 0
+prompt_template:
+  context: A source is rated at {voltage_render}.
+  question: What is that voltage in volts?
+  full_template: 'A source is rated at {voltage_render}.
+
+
+    What is that voltage in volts?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: A source is rated at {voltage_render}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'V_base = 12.0
+
+    result = V_base
+
+    assert abs(result - 12.0) < 1.2e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- frame_rendering
+- voltage_units
+difficulty: introductory
+notes: ''

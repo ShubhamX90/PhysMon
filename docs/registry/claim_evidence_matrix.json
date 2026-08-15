@@ -1,0 +1,61 @@
+{
+  "date": "2026-07-03",
+  "policy": "Claims are excluded from paper-eligible evidence until Wave 0 authority and Wave 1A validation gates pass.",
+  "claims": [
+    {
+      "claim_id": "C1_benchmark_inventory",
+      "claim": "PhysMon benchmark inventory and family counts are known.",
+      "current_status": "unresolved_pending_canonical_inventory",
+      "required_evidence": [
+        "results/canonical/model_family_evidence.csv",
+        "docs/registry/artifact_authority_audit.json"
+      ],
+      "paper_eligible": false
+    },
+    {
+      "claim_id": "C2_monitoring_auc",
+      "claim": "Hidden-state monitoring predicts family-level sensitivity.",
+      "current_status": "historical_result_pending_authority_audit",
+      "required_evidence": [
+        "registered raw activation source",
+        "registered probe predictions",
+        "frozen discovery/confirmation split"
+      ],
+      "paper_eligible": false
+    },
+    {
+      "claim_id": "C3_qwen_h11_causal",
+      "claim": "Qwen H11 at L16 is causally important for sensitivity suppression.",
+      "current_status": "historical_result_pending_authority_audit",
+      "required_evidence": [
+        "raw patching outputs",
+        "control outputs",
+        "registered negative and superseded runs"
+      ],
+      "paper_eligible": false
+    },
+    {
+      "claim_id": "C4_cross_model_causality",
+      "claim": "Dominant-head causal localization generalizes across models.",
+      "current_status": "unresolved_pending_llama_valid_panel_and_deepseek_authority",
+      "required_evidence": [
+        "model-valid positive panels",
+        "registered full head sweeps",
+        "negative DeepSeek evidence preserved"
+      ],
+      "paper_eligible": false
+    },
+    {
+      "claim_id": "C5_human_validation",
+      "claim": "Human validation supports benchmark family correctness and cue irrelevance.",
+      "current_status": "not_started_for_stage13",
+      "required_evidence": [
+        "validator packets",
+        "completed human labels",
+        "agreement report"
+      ],
+      "paper_eligible": false
+    }
+  ]
+}
+

@@ -13,6 +13,30 @@ models:
     num_layers: 28
     notes: "PRIMARY_DENSE A [PI CONFIRMED 2026-06-14]. Validated on 2026-06-13 in Stage 2: hook job 242355 and logprob job 242356."
 
+  qwen_3b:
+    name: "Qwen/Qwen2.5-3B-Instruct"
+    path: "/scratch/pabitra/rag-reason/models/Qwen2.5-3B-Instruct"
+    role: "SCALE_FOLLOWUP"
+    family: "qwen"
+    hook_backend: "transformer_lens"
+    hook_validated: false
+    logprob_validated: false
+    hidden_dim: 2048
+    num_layers: 36
+    notes: "Stage 12 scale-followup model. Downloaded to Sharanga on 2026-06-21; behavioural/probing/causal pipeline pending."
+
+  qwen_14b:
+    name: "Qwen/Qwen2.5-14B-Instruct"
+    path: "/scratch/pabitra/rag-reason/models/Qwen2.5-14B-Instruct"
+    role: "SCALE_FOLLOWUP"
+    family: "qwen"
+    hook_backend: "transformer_lens"
+    hook_validated: false
+    logprob_validated: false
+    hidden_dim: 5120
+    num_layers: 48
+    notes: "Stage 12 scale-followup model. Downloaded to Sharanga on 2026-06-21; behavioural/probing/causal pipeline pending."
+
   llama_primary:
     name: "meta-llama/Llama-3.1-8B-Instruct"
     path: "/scratch/pabitra/rag-reason/models/Llama-3.1-8B-Instruct"
@@ -30,12 +54,12 @@ models:
     path: "/scratch/pabitra/rag-reason/models/Mistral-7B-Instruct-v0.3"
     role: "PRIMARY_DENSE"
     family: "mistral"
-    hook_backend: "transformer_lens"
+    hook_backend: "baukit"
     hook_validated: false
     logprob_validated: false
     hidden_dim: null
     num_layers: null
-    notes: "Documented fallback primary-dense candidate."
+    notes: "Documented fallback primary-dense candidate. Stage 12 behavioural pass should use HF/baukit loading first; TransformerLens hook compatibility for v0.3 must be validated separately before probing or causal sweeps."
 
   deepseek_reasoning:
     name: "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"

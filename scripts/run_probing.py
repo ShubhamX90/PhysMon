@@ -866,6 +866,169 @@ def run_layerwise_continuous_loo_mean(
     return layer_summaries
 
 
+def run_layerwise_binary_domain_generalisation_mean(
+    tensors: np.ndarray,
+    entries: list[dict[str, Any]],
+    labels: np.ndarray,
+    *,
+    family_rows: dict[str, dict[str, str]],
+    layer_indices: list[int],
+    pca_dims: int | None,
+    positive_families: frozenset[str],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
+    """Run held-out-domain binary probing over per-variant mean activations."""
+
+    ensure_binary_class_support(labels, context="Domain generalisation mean probing")
+    template_ids = extract_template_ids(entries)
+    family_ids, _ = family_level_indices(template_ids)
+    family_domains = domain_labels_for_templates(family_ids, family_rows=family_rows)
+    family_folds = domain_generalisation_folds(family_domains)
+    layer_summaries: list[dict[str, Any]] = []
+    best_predictions: list[dict[str, Any]] = []
+    best_fold_metrics: list[dict[str, Any]] = []
+    best_auroc = -np.inf
+
+    family_index = {family_id: idx for idx, family_id in enumerate(family_ids)}
+    variant_family_indices = np.asarray([family_index[template_id] for template_id in template_ids], dtype=int)
+
+    for layer_index in layer_indices:
+        x_layer = tensors[:, layer_index, :]
+        prediction_rows: list[dict[str, Any]] = []
+        fold_metrics: list[dict[str, Any]] = []
+        for held_out_domain, family_train_mask, family_test_mask in family_folds:
+            variant_train_mask = family_train_mask[variant_family_indices]
+            variant_test_mask = family_test_mask[variant_family_indices]
+            x_train = x_layer[variant_train_mask]
+            y_train = labels[variant_train_mask]
+            x_test = x_layer[variant_test_mask]
+            y_test = labels[variant_test_mask]
+            test_template_ids = [template_ids[index] for index in np.where(variant_test_mask)[0]]
+            train_groups = [template_ids[index] for index in np.where(variant_train_mask)[0]]
+            chosen_c = choose_logistic_c(
+                x_train,
+                y_train,
+                train_groups,
+                aggregation_mode=AGGREGATE_MEAN,
+                pca_dims=pca_dims,
+            )
+            x_train_projected, x_test_projected = fit_pca_projection(x_train, x_test, pca_dims)
+            model = LogisticRegression(
+                C=chosen_c,
+                class_weight="balanced",
+                max_iter=2000,
+                solver="liblinear",
+                random_state=DEFAULT_SEED,
+            )
+            model.fit(x_train_projected, y_train)
+            test_scores = model.predict_proba(x_test_projected)[:, 1]
+            _, family_scores, family_labels = aggregate_group_predictions(
+                test_template_ids,
+                test_scores,
+                y_test,
+                aggregation_mode=AGGREGATE_MEAN,
+            )
+            held_out_family_ids = sorted(set(test_template_ids))
+            if len(np.unique(family_labels)) >= 2:
+                fold_metrics.append(
+                    {
+                        "held_out_domain": held_out_domain,
+                        "layer_index": layer_index,
+                        "auroc": compute_auroc(family_labels, family_scores),
+                        "auprc": compute_auprc(family_labels, family_scores),
+                        "positive_rate": float(np.mean(family_labels)),
+                        "selected_c": chosen_c,
+                    }
+                )
+            for family_id, score, true_label in zip(held_out_family_ids, family_scores, family_labels, strict=True):
+                prediction_rows.append(
+                    {
+                        "template_id": family_id,
+                        "layer_index": layer_index,
+                        "prediction": float(score),
+                        "true_label": int(true_label),
+                        "held_out_domain": held_out_domain,
+                        "selected_c": chosen_c,
+                    }
+                )
+
+        ordered_predictions = sorted(prediction_rows, key=lambda item: item["template_id"])
+        y_true = np.asarray([row["true_label"] for row in ordered_predictions], dtype=int)
+        y_score = np.asarray([row["prediction"] for row in ordered_predictions], dtype=float)
+        summary = {
+            "layer_index": layer_index,
+            "auroc": compute_auroc(y_true, y_score),
+            "auprc": compute_auprc(y_true, y_score),
+            "brier": compute_brier(y_true, y_score),
+        }
+        layer_summaries.append(summary)
+        if summary["auroc"] > best_auroc:
+            best_auroc = summary["auroc"]
+            best_predictions = ordered_predictions
+            best_fold_metrics = fold_metrics
+
+    return layer_summaries, best_predictions, best_fold_metrics
+
+
+def run_layerwise_continuous_domain_generalisation_mean(
+    tensors: np.ndarray,
+    entries: list[dict[str, Any]],
+    targets: np.ndarray,
+    *,
+    family_rows: dict[str, dict[str, str]],
+    layer_indices: list[int],
+    pca_dims: int | None,
+) -> list[dict[str, Any]]:
+    """Run held-out-domain continuous probing over per-variant mean activations."""
+
+    template_ids = extract_template_ids(entries)
+    family_ids, _ = family_level_indices(template_ids)
+    family_domains = domain_labels_for_templates(family_ids, family_rows=family_rows)
+    family_folds = domain_generalisation_folds(family_domains)
+    family_index = {family_id: idx for idx, family_id in enumerate(family_ids)}
+    variant_family_indices = np.asarray([family_index[template_id] for template_id in template_ids], dtype=int)
+    layer_summaries: list[dict[str, Any]] = []
+
+    for layer_index in layer_indices:
+        x_layer = tensors[:, layer_index, :]
+        family_predictions: list[float] = []
+        family_targets: list[float] = []
+        for _held_out_domain, family_train_mask, family_test_mask in family_folds:
+            variant_train_mask = family_train_mask[variant_family_indices]
+            variant_test_mask = family_test_mask[variant_family_indices]
+            x_train_projected, x_test_projected = fit_pca_projection(
+                x_layer[variant_train_mask],
+                x_layer[variant_test_mask],
+                pca_dims,
+            )
+            model = Ridge(alpha=DEFAULT_RIDGE_ALPHA)
+            model.fit(x_train_projected, targets[variant_train_mask])
+            predicted = model.predict(x_test_projected)
+            test_template_ids = [template_ids[index] for index in np.where(variant_test_mask)[0]]
+            grouped_predictions: dict[str, list[float]] = {}
+            grouped_targets: dict[str, float] = {}
+            for template_id, pred, target in zip(test_template_ids, predicted, targets[variant_test_mask], strict=True):
+                grouped_predictions.setdefault(template_id, []).append(float(pred))
+                grouped_targets[template_id] = float(target)
+            for family_id in sorted(grouped_predictions):
+                family_predictions.append(float(np.mean(grouped_predictions[family_id])))
+                family_targets.append(grouped_targets[family_id])
+
+        if np.std(family_predictions) == 0.0 or np.std(family_targets) == 0.0:
+            pearson_r = 0.0
+        else:
+            pearson_r = float(np.corrcoef(family_targets, family_predictions)[0, 1])
+        layer_summaries.append(
+            {
+                "layer_index": layer_index,
+                "pearson_r": pearson_r,
+                "rmse": float(
+                    np.sqrt(np.mean((np.asarray(family_targets) - np.asarray(family_predictions)) ** 2))
+                ),
+            }
+        )
+    return layer_summaries
+
+
 def build_contrast_dataset(
     tensors: np.ndarray,
     entries: list[dict[str, Any]],
@@ -1943,8 +2106,6 @@ def main() -> None:
         if layer_continuous:
             save_json(output_dir / f"layer_pearson_{stem}.json", layer_continuous)
     else:
-        if args.cv_mode != "loo":
-            raise ValueError("Mean probing currently supports only --cv-mode loo.")
         if args.target_measure == "answer_correctness":
             binary_labels, continuous_targets = correctness_targets_for_templates(
                 template_ids,
@@ -1958,23 +2119,47 @@ def main() -> None:
                 family_rows=family_rows,
                 model_role=args.model_role,
             )
-        layer_binary, best_predictions = run_layerwise_binary_loo_mean(
-            tensors,
-            entries,
-            binary_labels,
-            layer_indices=layer_indices,
-            pca_dims=args.pca_dims,
-            positive_families=positive_families,
-        )
-        layer_continuous: list[dict[str, Any]] = []
-        if args.target_measure != "answer_correctness":
-            layer_continuous = run_layerwise_continuous_loo_mean(
+        if args.cv_mode == "loo":
+            layer_binary, best_predictions = run_layerwise_binary_loo_mean(
                 tensors,
                 entries,
-                continuous_targets,
+                binary_labels,
                 layer_indices=layer_indices,
                 pca_dims=args.pca_dims,
+                positive_families=positive_families,
             )
+            fold_metrics = []
+        elif args.cv_mode == DEFAULT_DOMAIN_GENERALISATION_MODE:
+            layer_binary, best_predictions, fold_metrics = run_layerwise_binary_domain_generalisation_mean(
+                tensors,
+                entries,
+                binary_labels,
+                family_rows=family_rows,
+                layer_indices=layer_indices,
+                pca_dims=args.pca_dims,
+                positive_families=positive_families,
+            )
+        else:
+            raise ValueError(f"Unsupported cv_mode '{args.cv_mode}' for mean probing.")
+        layer_continuous: list[dict[str, Any]] = []
+        if args.target_measure != "answer_correctness":
+            if args.cv_mode == "loo":
+                layer_continuous = run_layerwise_continuous_loo_mean(
+                    tensors,
+                    entries,
+                    continuous_targets,
+                    layer_indices=layer_indices,
+                    pca_dims=args.pca_dims,
+                )
+            else:
+                layer_continuous = run_layerwise_continuous_domain_generalisation_mean(
+                    tensors,
+                    entries,
+                    continuous_targets,
+                    family_rows=family_rows,
+                    layer_indices=layer_indices,
+                    pca_dims=args.pca_dims,
+                )
         best_binary = max(layer_binary, key=lambda item: item["auroc"])
         best_continuous = (
             max(layer_continuous, key=lambda item: item["pearson_r"])
@@ -2033,6 +2218,8 @@ def main() -> None:
             "random_direction_baseline": random_baseline,
             "embedding_layer_auroc": embedding_layer_auroc,
             "cross_model_validation": cross_model_summary,
+            "cv_mode": args.cv_mode,
+            "domain_fold_metrics": fold_metrics,
             "correctness_threshold": args.correctness_threshold if args.target_measure == "answer_correctness" else None,
         }
 

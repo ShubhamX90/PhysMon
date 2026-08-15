@@ -49,3 +49,5 @@ make lint
 ```
 
 The canonical conda environment is `physmon`; see `environment.yml`.
+
+Stage 13 governing-document rule: the complete Part II v1.1 plan in `docs/proposal/PhysMon_Part_II_Next_Phase_Scientific_and_Experimental_Plan.pdf` must be read together with `docs/proposals/PhysMon_Part_II_v1.1_Erratum_2026-07-03.pdf`; the erratum supersedes only renamed donor-control statements.

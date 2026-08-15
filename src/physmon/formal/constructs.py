@@ -156,6 +156,40 @@ STAGE6_EXCLUDE_FROM_PROBE = frozenset(
         "TH_B_UM_010",
     }
 )
+STAGE11_EXPANSION_FAMILIES = frozenset(
+    {
+        "CM_B_UM_061",
+        "CM_B_UM_062",
+        "CM_B_UM_063",
+        "CM_C_006",
+        "CM_C_007",
+        "CM_C_008",
+        "CM_C_009",
+        "CM_C_010",
+        "CM_C_011",
+        "CM_C_012",
+        "CM_C_013",
+        "CM_C_014",
+        "CM_C_015",
+        "TH_B_UM_011",
+        "TH_B_UM_012",
+    }
+)
+STAGE11_POSITIVE_FAMILIES = frozenset(
+    {
+        "CM_B_UM_061",
+        "CM_C_006",
+        "CM_C_007",
+        "CM_C_008",
+        "CM_C_010",
+        "CM_C_011",
+        "CM_C_013",
+        "CM_C_014",
+        "CM_C_015",
+        "TH_B_UM_011",
+    }
+)
+STAGE11_SLP_THRESHOLD = 0.5
 
 
 def is_preregistration_complete(spec_path: Path | None = None) -> bool:

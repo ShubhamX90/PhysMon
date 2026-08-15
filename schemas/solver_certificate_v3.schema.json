@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "certificate_status": {
+      "enum": [
+        "certificate_generation_blocked",
+        "certificate_verification_failed",
+        "dimensional_metadata_only",
+        "frame_equivalence_unverified",
+        "structured_machine_certificate_draft",
+        "structured_machine_certificate_verified"
+      ],
+      "type": "string"
+    },
+    "dimensional_check": {
+      "required": [
+        "status",
+        "limitations"
+      ],
+      "type": "object"
+    },
+    "explicit_symbolic_derivation": {
+      "required": [
+        "governing_equation",
+        "variable_bindings",
+        "numeric_substitution",
+        "intermediate_calculation",
+        "final_answer",
+        "canonical_answer_comparison",
+        "steps"
+      ],
+      "type": "object"
+    },
+    "family_id": {
+      "type": "string"
+    },
+    "frame_unit_equivalence_check": {
+      "type": "object"
+    },
+    "invariance_checks": {
+      "type": "array"
+    },
+    "source_template": {
+      "description": "Repository-relative path only; local absolute path prefixes are not allowed.",
+      "type": "string"
+    },
+    "symbol_table": {
+      "type": "object"
+    },
+    "verification_result": {
+      "required": [
+        "all_passed",
+        "checks"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "family_id",
+    "certificate_status",
+    "symbol_table",
+    "explicit_symbolic_derivation",
+    "dimensional_check",
+    "invariance_checks",
+    "verification_result",
+    "source_template"
+  ],
+  "title": "PhysMon Stage 13 solver certificate v3",
+  "type": "object"
+}

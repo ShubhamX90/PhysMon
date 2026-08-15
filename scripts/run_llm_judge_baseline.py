@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import json
 from pathlib import Path
 import re
 import sys
@@ -26,7 +27,7 @@ from physmon.utils.logging import ExperimentLogger  # noqa: E402
 from physmon.models.loader import load_model, resolve_model_spec  # noqa: E402
 
 from run_behavioural import DEFAULT_MAX_NEW_TOKENS, format_prompt_with_chat_template, load_rendered_families, set_seed  # noqa: E402
-from run_causal_patching import DEFAULT_BEHAVIOURAL_JSONL, DEFAULT_JSONL_NAME, load_variant_logprob_table, locate_sensitive_variant  # noqa: E402
+from run_causal_patching import DEFAULT_BEHAVIOURAL_JSONL, DEFAULT_JSONL_NAME, locate_sensitive_variant  # noqa: E402
 from run_probing import infer_positive_families  # noqa: E402
 
 
@@ -51,6 +52,21 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--stage", type=int, default=DEFAULT_STAGE)
     parser.add_argument("--seed", type=int, default=DEFAULT_SEED)
     return parser.parse_args()
+
+
+def load_variant_logprobs_unfiltered(path: Path) -> dict[str, dict[int, float]]:
+    """Load per-family per-variant logprobs from a single-model behavioural JSONL."""
+
+    table: dict[str, dict[int, float]] = {}
+    with path.open("r", encoding="utf-8") as handle:
+        for line in handle:
+            record = json.loads(line)
+            if record.get("record_type") != "variant_record":
+                continue
+            table.setdefault(str(record["template_id"]), {})[int(record["variant_id"])] = float(
+                record["logprob_correct_answer"]
+            )
+    return table
 
 
 def strip_thinking(text: str) -> str:
@@ -129,7 +145,10 @@ def main() -> None:
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    resolved_spec = resolve_model_spec(model_key=args.judge_model) if args.judge_model else resolve_model_spec(role=args.judge_model)
+    try:
+        resolved_spec = resolve_model_spec(model_key=args.judge_model)
+    except Exception:
+        resolved_spec = resolve_model_spec(role=args.judge_model)
     logger = ExperimentLogger(
         script_name="run_llm_judge_baseline.py",
         stage=args.stage,
@@ -147,7 +166,7 @@ def main() -> None:
         for payload in load_rendered_families(args.family_dir)
         if payload["template_id"] not in set(args.exclude_ids)
     ]
-    behavioural_table = load_variant_logprob_table(Path(args.behavioural_jsonl), model_role="qwen_primary")
+    behavioural_table = load_variant_logprobs_unfiltered(Path(args.behavioural_jsonl))
     bundle = load_model(model_key=resolved_spec.key, device="cuda", device_map="auto" if "deepseek" in resolved_spec.key else None)
 
     rows: list[dict[str, Any]] = []

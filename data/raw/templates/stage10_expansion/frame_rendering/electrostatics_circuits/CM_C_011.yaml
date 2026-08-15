@@ -1,0 +1,77 @@
+template_id: CM_C_011
+domain: electrostatics_circuits
+cue_type: frame_rendering
+sequence: 11
+created_date: '2026-06-15'
+created_by: agent
+governing_law: unit_rendering_resistance
+governing_equation_latex: R = R_{\mathrm{base}}
+governing_equation_sympy: R_base
+target_quantity: resistance_in_ohms
+target_units: ohm
+parameters:
+  R_base:
+    value: 500.0
+    units: ohm
+    description: base resistance
+correct_answer:
+  value: 500.0
+  units: ohm
+  display: 500 ohm
+  sympy_check: abs((R_base) - 500.0) < 0.0005
+cue_slot:
+  name: resistance_render
+  description: Equivalent rendering of the same resistance quantity
+  type: rendering
+  irrelevance_proof: Each rendering denotes the same resistance value; the governing
+    expression remains "R_base".
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: 500 ohm
+    display: 500 ohm
+    render: 500 ohm
+  - id: 1
+    value: 0.5 kohm
+    display: 0.5 kohm
+    render: 0.5 kohm
+  - id: 2
+    value: 500000 mohm
+    display: 500000 mohm
+    render: 500000 mohm
+  - id: 3
+    value: 0.0005 Mohm
+    display: 0.0005 Mohm
+    render: 0.0005 Mohm
+  base_variant_id: 0
+prompt_template:
+  context: The resistor body is marked as {resistance_render}.
+  question: What is that resistance in ohms?
+  full_template: 'The resistor body is marked as {resistance_render}.
+
+
+    What is that resistance in ohms?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The resistor body is marked as {resistance_render}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'R_base = 500.0
+
+    result = R_base
+
+    assert abs(result - 500.0) < 0.0005, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- frame_rendering
+- resistance_units
+difficulty: introductory
+notes: ''

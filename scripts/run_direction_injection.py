@@ -251,8 +251,8 @@ def main() -> None:
         )
 
     monotonic = all(
-        later["low_family_mean_slp"] >= earlier["low_family_mean_slp"] - 1e-6
-        for earlier, later in zip(summary_rows, summary_rows[1:], strict=True)
+        summary_rows[idx + 1]["low_family_mean_slp"] >= summary_rows[idx]["low_family_mean_slp"] - 1e-6
+        for idx in range(len(summary_rows) - 1)
     )
     summary = {
         "inject_layer": int(args.inject_layer),

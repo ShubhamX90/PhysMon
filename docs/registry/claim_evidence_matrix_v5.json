@@ -1,0 +1,745 @@
+{
+  "claims": [
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C01",
+      "claim_level": "benchmark",
+      "claim_text": "Solver-certified family invariance.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage6_original_140_generation",
+        "stage10_15_family_expansion"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "Solver-certified families exist, but independent Stage 13 human validation is pending.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C02",
+      "claim_level": "behavioural",
+      "claim_text": "Qwen behavioural sensitivity exists.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage6_qwen_behavioural_full_rerun"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "Historical behavioural result exists but provenance/human validation remains partial.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C03",
+      "claim_level": "monitoring",
+      "claim_text": "Hidden states predict sensitivity above surface text.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": "mean_probe_l18_score_available_per_family",
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage6_qwen_variance_probe",
+        "stage9_blackbox_counterfactual"
+      ],
+      "family_count": 135,
+      "human_validation_dependency": true,
+      "missing_evidence": "Use cautious diagnostic wording until confirmation split exists.",
+      "model_count": 1,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C04",
+      "claim_level": "monitoring",
+      "claim_text": "Hidden states add information beyond entropy/output evidence.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": "entropy and mean-probe source-linked where available",
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage9_embedding_entropy_baselines"
+      ],
+      "family_count": 135,
+      "human_validation_dependency": true,
+      "missing_evidence": "May remain partial; output baselines are not decisive.",
+      "model_count": 1,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C05",
+      "claim_level": "monitoring",
+      "claim_text": "Hidden states add information beyond generic correctness activations.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage9_correctness_probe",
+        "stage9_correctness_residualisation"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "Residualization is partial deconfounding only.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C06",
+      "claim_level": "monitoring",
+      "claim_text": "Residualized sensitivity signal remains.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage9_correctness_residualisation"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "Single-direction concept erasure only.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C07",
+      "claim_level": "causal",
+      "claim_text": "Qwen H11 has a localized sufficiency effect.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage10_qwen_full_l16_single_head_sweep",
+        "stage11_qwen_h11_layer_sweep"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "Discovery-exposed panel; prospective confirmation needed.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C08",
+      "claim_level": "causal",
+      "claim_text": "Qwen H11 partial necessity.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage11_qwen_h11_layer_sweep"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "May remain missing/partial pending stricter necessity framing.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C09",
+      "claim_level": "causal_control",
+      "claim_text": "Qwen causal effect exceeds random and unrelated controls.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage9_random_direction_control",
+        "stage9_unrelated_family_donor"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "Controls exist but authority audit/human validation pending.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "The renamed donor-control jobs produced zero evaluable target-donor rows. Their original summaries defaulted to zero recovery, but this is not a measured scientific null. These controls remain incomplete and are excluded from specificity claims until a valid rerun is performed.",
+      "authoritative_artifacts": [],
+      "claim_id": "C10",
+      "claim_level": "causal_control",
+      "claim_text": "Donor specificity.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage10_same_answer_donor",
+        "stage10_stable_donor",
+        "stage12_donor_renamed_same_answer",
+        "stage12_donor_renamed_stable"
+      ],
+      "family_count": 20,
+      "human_validation_dependency": true,
+      "missing_evidence": "Valid renamed donor-control rerun and human validation.",
+      "model_count": 1,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not claim completed renamed donor controls, measured 0.0 effect, 100% specificity, or pooled specificity using empty-panel runs.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C11",
+      "claim_level": "robustness",
+      "claim_text": "Variable-renaming behavioural robustness.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage11_variable_renaming_derived_set"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "Derived set is not canonical.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C12",
+      "claim_level": "robustness",
+      "claim_text": "Variable-renaming monitor transfer.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage11_variable_renaming_probe_corrected"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "Corrected run supersedes original.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C13",
+      "claim_level": "robustness",
+      "claim_text": "Variable-renaming causal robustness.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage11_variable_renaming_h11"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "Discovery-derived panel.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C14",
+      "claim_level": "cross_model",
+      "claim_text": "Llama H2 replication.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage12_llama_full_32head_sweep",
+        "stage12_llama_panel_eligibility"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "Llama-valid panel test remains mandatory.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C15",
+      "claim_level": "cross_model",
+      "claim_text": "DeepSeek monitoring transfer.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage8_qwen_to_deepseek_transfer",
+        "stage8_deepseek_to_qwen_transfer"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "Monitoring transfer only, not causal replication.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C16",
+      "claim_level": "cross_model",
+      "claim_text": "DeepSeek causal boundary.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage10_deepseek_top4_mhk_qwen_panel",
+        "stage11_deepseek_valid_panel_rescore"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "Panel-mismatch caution required.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C17",
+      "claim_level": "representation",
+      "claim_text": "Cue A/B partial transfer.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage12_cross_cue_layer_sweep"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "Cue-specific representations; no universal direction.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C18",
+      "claim_level": "representation",
+      "claim_text": "Cue C distinct/boundary behavior.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage11_cue_c_probe_sweep",
+        "stage11_cue_c_h11_h13_intervention"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "Cue C circuit remains boundary finding.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C19",
+      "claim_level": "monitoring",
+      "claim_text": "Expansion-family monitor generalization.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage12_expansion_probe_inference"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "Held-out expansion is small and unconfirmed.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C20",
+      "claim_level": "mechanism",
+      "claim_text": "H15 gating null.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage12_h15_gating_test"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "Null mechanism result; preserve as boundary.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C21",
+      "claim_level": "representation",
+      "claim_text": "No universal shared shortcut direction.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage12_cross_cue_layer_sweep"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "Allowed wording: cue-specific directions dominate.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C22",
+      "claim_level": "external_validity",
+      "claim_text": "External natural-family transfer.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "No authoritative external natural-family transfer evidence registered.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "missing"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C23",
+      "claim_level": "mechanism",
+      "claim_text": "Diagnostic versus causal subspace relationship.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage12_h15_gating_test",
+        "stage10_direct_logit_attribution"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "Mechanistic relation unresolved.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C24",
+      "claim_level": "mechanism",
+      "claim_text": "Upstream partial pathway.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage11_precursor_characterisation"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "Requires confirmation.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    },
+    {
+      "allowed_wording": "Report as exploratory/diagnostic unless prospective confirmation and human validation close.",
+      "authoritative_artifacts": [],
+      "claim_id": "C25",
+      "claim_level": "reasoning_training",
+      "claim_text": "Selective correction.",
+      "confidence_interval": null,
+      "consequence_if_null": "Claim must be weakened or removed.",
+      "current_estimate": null,
+      "discovery_or_confirmation": "discovery_or_partial",
+      "experiment_ids": [
+        "stage8_deepseek_within_model_monitoring"
+      ],
+      "family_count": 155,
+      "human_validation_dependency": true,
+      "missing_evidence": "DeepSeek selective suppression requires careful noncausal wording.",
+      "model_count": null,
+      "next_required_experiment": "Prospective confirmation and/or human validation depending on claim.",
+      "panel_caveats": "Discovery-exposed benchmark; human validation and prospective confirmation pending.",
+      "paper_section": "TBD",
+      "prohibited_wording": "Do not call confirmed, universal, or paper-eligible while gates fail.",
+      "required_evidence": [
+        "registered experiments",
+        "raw artifacts",
+        "human validation where construct-validity dependent"
+      ],
+      "source_panel_count_rule": "family_count reflects source panel when known; not automatically 155",
+      "status": "partial"
+    }
+  ],
+  "donor_specificity_correction": "The renamed donor-control jobs produced zero evaluable target-donor rows. Their original summaries defaulted to zero recovery, but this is not a measured scientific null. These controls remain incomplete and are excluded from specificity claims until a valid rerun is performed.",
+  "status_counts": {
+    "missing": 1,
+    "partial": 24
+  }
+}

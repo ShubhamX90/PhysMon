@@ -1,0 +1,239 @@
+{
+  "n_artifacts_scanned": 1764,
+  "n_critical_unresolved": 4,
+  "n_experiments_partially_resolved": 1,
+  "n_experiments_resolved": 6,
+  "n_noncritical_unresolved": 0,
+  "resolution_records": [
+    {
+      "artifact_paths": [
+        "results/stage12/llama_full_head_sweep/head_sweep_summary.partial.json",
+        "results/stage12/llama_full_head_sweep/head_sweep_summary.json"
+      ],
+      "authoritative_paths": [
+        "results/stage12/llama_full_head_sweep/head_sweep_summary.json"
+      ],
+      "authority_decision": "full_summary_authoritative_for_exploratory_use",
+      "criticality": "noncritical",
+      "experiment_id": "stage12_llama_full_32head_sweep",
+      "issue_type": "partial_vs_full_summary",
+      "manual_review_required": false,
+      "panel_identity": "unresolved_or_documented_in_registry",
+      "raw_record_count": 2,
+      "reason": "Full 32-head summary supersedes partial summary; still discovery/panel-mismatch caveats.",
+      "regenerated_statistics": {},
+      "reported_statistics": {},
+      "stated_record_count": null,
+      "status": "resolved",
+      "superseded_paths": [
+        "results/stage12/llama_full_head_sweep/head_sweep_summary.partial.json"
+      ]
+    },
+    {
+      "artifact_paths": [
+        "results/stage11/variable_renaming/probe_inference/summary.json",
+        "results/stage11/science/variable_renaming/probe_inference/summary.json"
+      ],
+      "authoritative_paths": [
+        "results/stage11/science/variable_renaming/probe_inference/summary.json"
+      ],
+      "authority_decision": "corrected_summary_supersedes_original_if_both_present",
+      "criticality": "critical",
+      "experiment_id": "stage11_variable_renaming_probe_corrected",
+      "issue_type": "corrected_labels",
+      "manual_review_required": true,
+      "panel_identity": "unresolved_or_documented_in_registry",
+      "raw_record_count": 1,
+      "reason": "Original all-positive/wrong-label result is superseded by corrected probe inference.",
+      "regenerated_statistics": {},
+      "reported_statistics": {},
+      "stated_record_count": null,
+      "status": "partially_resolved",
+      "superseded_paths": [
+        "results/stage11/variable_renaming/probe_inference/summary.json"
+      ]
+    },
+    {
+      "artifact_paths": [
+        "results/stage10/deepseek_mhk/patching_summary.json",
+        "results/stage11/science/deepseek_single_heads/deepseek_valid_subset_summary.json"
+      ],
+      "authoritative_paths": [
+        "results/stage10/deepseek_mhk/patching_summary.json",
+        "results/stage11/science/deepseek_single_heads/deepseek_valid_subset_summary.json"
+      ],
+      "authority_decision": "not_authoritative_for_clean_deepseek_causal_claim",
+      "criticality": "critical",
+      "experiment_id": "stage10_deepseek_top4_mhk_qwen_panel",
+      "issue_type": "panel_mismatch",
+      "manual_review_required": true,
+      "panel_identity": "unresolved_or_documented_in_registry",
+      "raw_record_count": 21,
+      "reason": "Qwen-selected panel and DeepSeek-valid panel must remain distinguished.",
+      "regenerated_statistics": {},
+      "reported_statistics": {},
+      "stated_record_count": null,
+      "status": "resolved_for_boundary_claim",
+      "superseded_paths": []
+    },
+    {
+      "artifact_paths": [
+        "results/stage12/qwen_3b/behavioural/qwen_3b_20260621T093919Z.jsonl",
+        "results/stage12/qwen_3b/behavioural/qwen_3b_20260621T125247Z.jsonl"
+      ],
+      "authoritative_paths": [
+        "results/stage12/qwen_3b/behavioural/qwen_3b_20260621T093919Z.jsonl",
+        "results/stage12/qwen_3b/behavioural/qwen_3b_20260621T125247Z.jsonl"
+      ],
+      "authority_decision": "partial_not_reportable",
+      "criticality": "critical",
+      "experiment_id": "stage12_qwen3b_incomplete_behavioural",
+      "issue_type": "incomplete_run",
+      "manual_review_required": true,
+      "panel_identity": "unresolved_or_documented_in_registry",
+      "raw_record_count": 368,
+      "reason": "No complete per-family summary found locally; raw partial files preserved.",
+      "regenerated_statistics": {},
+      "reported_statistics": {},
+      "stated_record_count": null,
+      "status": "unresolved",
+      "superseded_paths": []
+    },
+    {
+      "artifact_paths": [
+        "results/stage12/science/donor_renamed/same_answer/same_answer_donor_results.csv",
+        "results/stage12/science/donor_renamed/same_answer/same_answer_donor_summary.json"
+      ],
+      "authoritative_paths": [
+        "results/stage12/science/donor_renamed/same_answer/same_answer_donor_results.csv",
+        "results/stage12/science/donor_renamed/same_answer/same_answer_donor_summary.json"
+      ],
+      "authority_decision": "complete_exploratory_if_rows_present",
+      "criticality": "noncritical",
+      "experiment_id": "stage12_donor_renamed_same_answer",
+      "issue_type": "control_completion_check",
+      "manual_review_required": false,
+      "panel_identity": "unresolved_or_documented_in_registry",
+      "raw_record_count": 1,
+      "reason": "Raw rows and summary present locally; provenance still partial.",
+      "regenerated_statistics": {},
+      "reported_statistics": {},
+      "stated_record_count": null,
+      "status": "resolved",
+      "superseded_paths": []
+    },
+    {
+      "artifact_paths": [
+        "results/stage12/science/donor_renamed/stable/stable_donor_results.csv",
+        "results/stage12/science/donor_renamed/stable/stable_donor_summary.json"
+      ],
+      "authoritative_paths": [
+        "results/stage12/science/donor_renamed/stable/stable_donor_results.csv",
+        "results/stage12/science/donor_renamed/stable/stable_donor_summary.json"
+      ],
+      "authority_decision": "complete_exploratory_if_rows_present",
+      "criticality": "noncritical",
+      "experiment_id": "stage12_donor_renamed_stable",
+      "issue_type": "control_completion_check",
+      "manual_review_required": false,
+      "panel_identity": "unresolved_or_documented_in_registry",
+      "raw_record_count": 1,
+      "reason": "Raw rows and summary present locally; provenance still partial.",
+      "regenerated_statistics": {},
+      "reported_statistics": {},
+      "stated_record_count": null,
+      "status": "resolved",
+      "superseded_paths": []
+    },
+    {
+      "artifact_paths": [
+        "results/stage6/generated_phase2_ad.zip",
+        "results/stage6/generated_phase2_bce.zip",
+        "results/stage6/render_phase2_bce.zip"
+      ],
+      "authoritative_paths": [
+        "results/stage6/generated_phase2_ad.zip",
+        "results/stage6/generated_phase2_bce.zip",
+        "results/stage6/render_phase2_bce.zip"
+      ],
+      "authority_decision": "critical_unresolved",
+      "criticality": "critical",
+      "experiment_id": "stage13_nested_stage6_archive_audit",
+      "issue_type": "nested_archive_difference_unknown",
+      "manual_review_required": true,
+      "panel_identity": "unresolved_or_documented_in_registry",
+      "raw_record_count": 0,
+      "reason": "Archive-vs-extracted byte-level comparison not completed in this remediation pass.",
+      "regenerated_statistics": {},
+      "reported_statistics": {},
+      "stated_record_count": null,
+      "status": "unresolved",
+      "superseded_paths": []
+    },
+    {
+      "artifact_paths": [
+        "results/stage13/wave0/canonical_evidence_verification.json",
+        "results/stage13/wave0/canonical_evidence_verification_v2.json"
+      ],
+      "authoritative_paths": [
+        "results/stage13/wave0/canonical_evidence_verification_v2.json"
+      ],
+      "authority_decision": "v2_verification_authoritative_for_current_remediation",
+      "criticality": "noncritical",
+      "experiment_id": "stage13_stale_canonical_verification",
+      "issue_type": "stale_verification",
+      "manual_review_required": false,
+      "panel_identity": "unresolved_or_documented_in_registry",
+      "raw_record_count": 2,
+      "reason": "Previous verification used old table shape; v2 binds current hashes.",
+      "regenerated_statistics": {},
+      "reported_statistics": {},
+      "stated_record_count": null,
+      "status": "resolved",
+      "superseded_paths": [
+        "results/stage13/wave0/canonical_evidence_verification.json"
+      ]
+    },
+    {
+      "artifact_paths": [
+        "results/appendix/formula_leakage/analysis/summary.json",
+        "results/appendix/formula_leakage/analysis/per_family_summary.csv"
+      ],
+      "authoritative_paths": [
+        "results/appendix/formula_leakage/analysis/summary.json",
+        "results/appendix/formula_leakage/analysis/per_family_summary.csv"
+      ],
+      "authority_decision": "complete_exploratory_not_pending",
+      "criticality": "noncritical",
+      "experiment_id": "appendix_formula_leakage",
+      "issue_type": "diagnostic_status",
+      "manual_review_required": false,
+      "panel_identity": "unresolved_or_documented_in_registry",
+      "raw_record_count": 6,
+      "reason": "Formula leakage analysis exists and should not be described as pending.",
+      "regenerated_statistics": {},
+      "reported_statistics": {},
+      "stated_record_count": null,
+      "status": "resolved",
+      "superseded_paths": []
+    },
+    {
+      "artifact_paths": [],
+      "authoritative_paths": [],
+      "authority_decision": "placeholders_not_scientific_nulls",
+      "criticality": "noncritical",
+      "experiment_id": "stage13_empty_placeholder_audit",
+      "issue_type": "empty_placeholder_outputs",
+      "manual_review_required": false,
+      "panel_identity": "unresolved_or_documented_in_registry",
+      "raw_record_count": 0,
+      "reason": "Found 0 empty files; these must not be interpreted as null scientific results.",
+      "regenerated_statistics": {},
+      "reported_statistics": {},
+      "stated_record_count": null,
+      "status": "resolved",
+      "superseded_paths": []
+    }
+  ],
+  "status": "FAIL"
+}

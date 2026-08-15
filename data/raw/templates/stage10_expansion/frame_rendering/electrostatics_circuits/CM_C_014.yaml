@@ -1,0 +1,77 @@
+template_id: CM_C_014
+domain: electrostatics_circuits
+cue_type: frame_rendering
+sequence: 14
+created_date: '2026-06-15'
+created_by: agent
+governing_law: unit_rendering_electric_field
+governing_equation_latex: E = E_{\mathrm{base}}
+governing_equation_sympy: E_base
+target_quantity: electric_field_in_n_per_c
+target_units: N/C
+parameters:
+  E_base:
+    value: 250.0
+    units: N/C
+    description: base electric field
+correct_answer:
+  value: 250.0
+  units: N/C
+  display: 250 N/C
+  sympy_check: abs((E_base) - 250.0) < 0.00025
+cue_slot:
+  name: efield_render
+  description: Equivalent rendering of the same electric-field quantity
+  type: rendering
+  irrelevance_proof: Each rendering denotes the same electric-field value; the governing
+    expression remains "E_base".
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: 250 N/C
+    display: 250 N/C
+    render: 250 N/C
+  - id: 1
+    value: 250 V/m
+    display: 250 V/m
+    render: 250 V/m
+  - id: 2
+    value: 0.25 kV/m
+    display: 0.25 kV/m
+    render: 0.25 kV/m
+  - id: 3
+    value: 250000 mV/m
+    display: 250000 mV/m
+    render: 250000 mV/m
+  base_variant_id: 0
+prompt_template:
+  context: The field meter reports the electric field as {efield_render}.
+  question: What is that electric field in N/C?
+  full_template: 'The field meter reports the electric field as {efield_render}.
+
+
+    What is that electric field in N/C?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The field meter reports the electric field as {efield_render}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'E_base = 250.0
+
+    result = E_base
+
+    assert abs(result - 250.0) < 0.00025, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- frame_rendering
+- electric_field_units
+difficulty: introductory
+notes: ''

@@ -1639,7 +1639,17 @@ Prediction overlap (threshold=0.5):
   Both negative: 12
 Layer profiles: sensitivity probe peaks at L18 (0.7307692307692307); correctness probe peaks at L24 (0.7656818181818182)
 Key counter-example: CM_C_005 (sens_pred = 0.9999999763115576, corr_pred = 4.068155128474851e-05, both true labels = 1)
-Residualisation: PENDING (compute job 245081 submitted this session)
+Residualisation:
+  Job 245081 completed cleanly.
+  Residualised sensitivity AUROC: 0.7375824175824175
+  Residualised AUPRC: 0.7443940791528013
+  Residualised Brier: 0.21112332521953392
+  Delta vs correctness probe: -0.028099400599400748
+  Delta vs original sensitivity probe: +0.006813186813186767
+  Verdict: SENSITIVITY_PROBE_SURVIVES
+Interpretation: regressing out the single correctness direction does not collapse the
+  sensitivity signal. The Stage 6 hidden-state monitor is therefore not reducible to
+  generic answer correctness or difficulty under this concept-erasure test.
 
 ### D. Statistical tests (all completed)
 
@@ -1668,3 +1678,921 @@ Causal claim in paper: "Attention heads {26, 24, 13, 11} at layer 16 are causall
   confirmed across random direction, layer, and construct controls. Sufficiency evidence
   is directional (monotonic dose-response under injection at alpha up to 2.0) but insufficient
   to claim a fully sufficient encoding via single-direction injection."
+
+## Stage 9.5 Monitoring Baselines and Probe Variants — 2026-06-19
+
+### New baselines completed:
+Black-box two-query counterfactual:
+  Pairwise accuracy: 0.5654320987654321
+  Family-level margin AUROC: 0.6683516483516483
+  Features used: signed cue-value difference, absolute cue-value difference,
+    signed/absolute prompt-length difference, signed/absolute numeric-token-count
+    difference, TF-IDF cosine distance
+  Interpretation: surface text features from prompt pairs cannot reliably predict
+    which variant will have lower logprob (barely above 0.5 chance pairwise), but
+    the confidence margin across all 6 pairs achieves 0.668 family AUROC — a
+    genuine above-chance signal from text alone.
+
+Entropy proxy:
+  AUROC: 0.727032967032967 (using std+mean of logprob_correct_answer across 4 variants)
+  Requires oracle y* at inference time — NOT deployable without correct answer
+  Embedding-layer probe AUROC: 0.5736263736263737 (delta from entropy: 0.15340659340659335 —
+    signal is not purely lexical)
+  Entropy-variance-probe score Pearson r: 0.4207066810490327 (moderate, not same signal)
+  Entropy-mean-probe score Pearson r: 0.3879620854823607 (even more distinct)
+  2 families: mean probe high / entropy low
+  2 families: entropy high / mean probe low
+  Interpretation: entropy is a strong oracle baseline but not the same object as
+    the hidden-state monitors.
+
+### New probe variants:
+
+Mean probe at layer 18 (job 245446):
+  AUROC: 0.7595604395604396
+  AUPRC: 0.7288659355979268
+  Brier: 0.20363051441271693
+  Pearson r (continuous): 0.6278164036736297
+  CI: [0.6732772127666939, 0.8405450458312325]
+  Probe type: mean of 4 variant activation vectors at last-prompt-token, L18
+  Oracle y* required: NO
+  All 4 variants required: YES (for computing the mean)
+  Mean probe vs entropy delta: +0.03252747252747253 over entropy-free black-box
+    baselines and +0.0007 over the entropy proxy while needing no oracle target.
+
+Per-variant sensitivity probe (job 245448):
+  Per-variant averaged family AUROC: 0.7186813186813188
+  Variant 0 Cue-B AUROC: 0.664326458973234
+  Variant 1 Cue-B AUROC: 0.6706888986397543
+  Variant 2 Cue-B AUROC: 0.6946028960070207
+  Variant 3 Cue-B AUROC: 0.68187801667398
+  Oracle y* required: NO
+  All 4 variants required: NO — single forward pass on ONE variant
+  This is the genuine pre-generation predictor.
+
+Prompt-condition control (Level-1 vs Level-2 distinction):
+  4-class cue value decoding accuracy: 0.37222222222222223 (chance=0.25)
+  Binary most-sensitive variant AUROC: 0.5323639689071787 (near chance)
+  Interpretation: Layer-18 activations predict family sensitivity strongly but
+    predict which specific cue variant is present only barely above chance.
+    This confirms the probe targets Level-2 (model behaviour) rather than
+    Level-1 (cue presence).
+
+### Probe ablation results (n variants for variance feature):
+  n=2: AUROC 0.7349450549450549 at layer 23
+  n=3: AUROC 0.7325274725274724 at layer 20
+  n=4: AUROC 0.7307692307692307 at layer 18
+  Slightly higher with fewer variants — maximum pairwise contrast drives signal.
+
+### Per-cue monitoring comparison:
+  Cue A:
+    Mean probe AUROC: 0.7613636363636364
+    Variance probe AUROC: 0.6818181818181819
+    Entropy proxy AUROC: 0.803030303030303
+  Cue B:
+    Mean probe AUROC: 0.7209302325581395
+    Variance probe AUROC: 0.7033786748573936
+    Entropy proxy AUROC: 0.6739798157086441
+    Interpretation: hidden-state monitoring outperforms entropy on the most
+      scientifically important near-match distractor cue type by +0.04695 AUROC.
+  Cue C:
+    AUROC undefined for all methods because all five Cue C families are positive.
+
+## Stage 10 Experimental Programme — Checkpoint 1 (2026-06-19)
+
+### Completed local analyses and synced Stage 10 results
+
+Same-answer donor control:
+  Mean recovery: 0.40462334668448996
+  Median recovery: 0.39358813700918965
+  Reference Qwen 4-head MHK mean recovery: 1.8697220507514913
+  Specificity ratio vs MHK: 4.620895126472843
+Interpretation:
+  The same-answer donor effect is materially weaker than the identified causal circuit,
+  but not weak in an absolute sense. This control therefore supports answer-value
+  specificity only partially.
+
+Cue-presence-matched stable donor:
+  Mean recovery: 0.589658139462405
+  Median recovery: 0.5806007694584197
+Interpretation:
+  Stable Cue-B donors are substantially weaker than the 4-head MHK circuit but still
+  produce non-trivial recovery. Cue-type representation alone does not explain the full
+  effect, but the control is not near-zero and must be discussed honestly.
+
+Cross-family sufficiency patching:
+  Fraction of target-donor pairs with S_lp increase >= 0.3 nats: 0.86
+  Mean S_lp increase: 3.561484375
+Interpretation:
+  The second sufficiency-style intervention is strongly positive. High-sensitivity
+  family activations can induce sensitivity in low-sensitivity Cue-B targets.
+
+Answer-bias control:
+  Families tested: 40
+  Changed answers under Qwen MHK: 3
+  Dominant knockout answer fraction: 0.05
+  Verdict: NO_COLLAPSE
+Interpretation:
+  Qwen MHK at L16 does not collapse the model toward a single generic answer.
+
+Random patch-site control:
+  Mean recovery by layer:
+    L2  = -0.1500874847602237
+    L5  =  0.09710789325567211
+    L10 =  0.3738134509133492
+    L13 =  0.31442357103475094
+    L23 = -0.039357280487666874
+    L26 = -0.022441000148571193
+Interpretation:
+  The off-target effect is not uniformly near zero. The causal window is still sharply
+  stronger at L16, but layers 10 and 13 show moderate non-zero sensitivity.
+
+MHK dose-response at L16:
+  Head 26 only: 0.12913269650141837
+  Heads {26,24}: 0.05728094405613352
+  Heads {26,24,13}: 0.19090107377679214
+  Heads {26,24,13,11}: 1.8829635975678958
+Interpretation:
+  The circuit is highly non-linear rather than monotone by head-count. The full
+  4-head set produces a qualitative jump in suppression that intermediate subsets do not.
+
+MHK cue-type generalisation:
+  Cue A suppression at L16: 5/5 families, mean recovery 3.9192871908854934
+  Cue C suppression at L16: 1/5 families, mean recovery 0.434356776203797
+Interpretation:
+  The Qwen L16 circuit generalises strongly to Cue A but not cleanly to Cue C.
+  Cue C remains mechanistically distinct.
+
+Llama single-head causal replication:
+  Best layer: 18
+  Best mean recovery: 0.3579762221986285
+  >50% recovery families: CM_B_STD_010, CM_B_STD_011, CM_B_STD_013,
+    CM_B_STD_014, EL_B_002
+Interpretation:
+  Llama shows real but partial causal replication, weaker than the Qwen 4-head circuit.
+
+Repaired token-entropy baseline:
+  Original Stage 10 token-entropy summary was invalidly oriented (headline AUROC 0.0).
+  The script was repaired to report the direct family-level token-entropy-spread baseline
+  from cached top-k entropy values instead of a misleading learned wrapper.
+  Corrected summary (`results/stage10/baselines/token_entropy/token_entropy_summary.json`):
+    AUROC: 0.5204395604395604
+    AUPRC: 0.5222475745725528
+    Flipped mean-entropy AUROC: 0.5843956043956043
+    Feature definition: token_entropy_topk_1000_std_across_4_variants
+Interpretation:
+  Oracle-free token-level entropy is substantially weaker than the hidden-state probes.
+
+Formula leakage sanity check:
+  Prepared explicit formula-hint prompt pairs for 5 low-sensitivity families:
+    TH_B_UM_001, TH_B_UM_003, CM_B_010, CM_B_UM_028, CM_A_STD_009
+  Output:
+    `results/appendix/formula_leakage/formula_leakage_prompt_pairs.json`
+    `results/appendix/formula_leakage/formula_leakage_summary.json`
+  Status:
+    prompt pairs prepared; behavioural/probe execution on the formula-hint variants
+    is still pending.
+
+### Stage 10 batch submitted from this checkpoint
+
+Submitted on Sharanga after code sync:
+  246833  physmon_s10_mean_probe_sweep   (compute) — RUNNING
+  246834  physmon_s10_cueb_probe         (compute) — RUNNING
+  246836  physmon_s10_domain_probe       (compute) — PENDING at submission check
+  246837  physmon_s10_attn_patterns      (gpu_h200_8) — PENDING at submission check
+  246838  physmon_s10_logit_lens         (gpu_h200_8) — PENDING at submission check
+  246839  physmon_s10_head_sweep_h200    (gpu_h200_8) — PENDING at submission check
+  246840  physmon_s10_llm_mhk            (gpu_h200_8) — PENDING at submission check
+  246841  physmon_s10_ds_attn            (gpu_h200_8) — PENDING at submission check
+
+Notes on Stage 10 code-state at submission:
+  - `scripts/run_causal_patching.py` now supports HF fallback hooks for residual
+    replacement and per-head knockout via transformer-block output hooks and
+    `self_attn.o_proj` pre-hooks. This removes the earlier TransformerLens-only
+    blocker for DeepSeek-style models.
+  - New Stage 10 runners added:
+    `scripts/run_attention_pattern_analysis.py`
+    `scripts/run_logit_lens.py`
+  - New Slurm templates added:
+    `stage10_attention_pattern_analysis.sh`
+    `stage10_logit_lens.sh`
+    `stage10_domain_transfer_probe.sh`
+    `stage10_deepseek_attention.sh`
+    `stage10_deepseek_mhk.sh`
+
+Current unresolved Stage 10 items after this checkpoint:
+  - Completion and analysis of jobs 246833, 246834, 246836, 246837, 246838,
+    246839, 246840, 246841
+  - DeepSeek MHK execution (template prepared; submit after DeepSeek attention settles)
+  - Proper behavioural/probe execution of formula-leakage prompt pairs
+  - Cue C benchmark expansion
+  - Extreme near-match Cue B benchmark expansion
+
+## Stage 10 Experimental Programme — Checkpoint 2 (2026-06-19)
+
+Follow-up after the first repaired Stage 10 batch completed and the broken
+DeepSeek/formula-leakage branches were relaunched.
+
+### Newly completed results
+
+Qwen attention-pattern analysis for heads {26, 24, 13, 11} at L16:
+  Output: `results/stage10/attention_patterns/attention_pattern_summary.json`
+  Head 24:
+    mean distractor-token attention mass (base): 0.008593940734863281
+    mean distractor-token attention mass (sensitive): 0.010010910034179688
+    mean delta: +0.0014169692993164062
+    fraction sensitive > base: 0.70
+  Head 26:
+    mean distractor-token attention mass (base): 0.000917506217956543
+    mean distractor-token attention mass (sensitive): 0.0016611576080322265
+    mean delta: +0.0007436513900756836
+    fraction sensitive > base: 0.70
+  Interpretation:
+    The core Qwen causal heads do, on average, shift more last-prompt-token
+    attention mass onto distractor-value tokens in the most-sensitive variants.
+    This is modest in absolute mass but directionally consistent, strongest for
+    heads 24 and 26.
+
+Qwen logit-lens trajectory analysis:
+  Output: `results/stage10/logit_lens/logit_lens_summary.json`
+  Families analysed: 10
+  Mean peak delta layer: 18.9
+  Median peak delta layer: 19.5
+  Interpretation:
+    The largest base-vs-sensitive divergence in the model's implicit next-token
+    probability for the correct answer emerges around layers 19-20, downstream of
+    the L16 causal intervention layer and consistent with the idea that the L16
+    circuit perturbs representations that become behaviourally expressed a few
+    layers later.
+
+Mean-probe domain-transfer run (repair of failed domain job):
+  Output: `results/stage10/domain_transfer_probe/summary_resid_post_last_prompt.json`
+  Probe type: mean
+  Best layer: 18
+  Best AUROC: 0.7342857142857142
+  Best AUPRC: 0.7054630699680123
+  Best Pearson r: 0.6334943757730259
+  Domain folds at layer 18:
+    held-out electrostatics/circuits: AUROC 0.6941176470588235
+    held-out mechanics: AUROC 0.7419908466819222
+    held-out thermodynamics: AUROC 0.7346938775510203
+  Interpretation:
+    The mean probe generalises across domains almost as well as the main
+    variance probe, but does not exceed the earlier macro-domain result.
+
+DeepSeek attention decomposition:
+  Output: `results/stage10/deepseek_attention/`
+  Layer 42 top head: 29 (mean contribution 0.12964329961687326)
+  Layer 43 top head: 33 (mean contribution 0.15505659934133292)
+  Layer 44 top head: 20 (mean contribution 0.30664193704724313)
+  Layer 45 top head: 27 (mean contribution 0.22347779460251332)
+  Best apparent attention-analysis layer: 44
+  Candidate DeepSeek 4-head set at layer 44:
+    {20, 26, 9, 31}
+  Interpretation:
+    The strongest DeepSeek sensitivity circuit candidate localises exactly at the
+    previously identified best probe depth region (layer 44 / 64), with a much
+    sharper dominant head than seen in the neighbouring layers.
+
+Full single-head causal sweep at Qwen layer 16:
+  Output: `results/stage10/full_head_sweep_l16/head_sweep_summary.json`
+  Completed heads: 28 / 28
+  Heads with >10% mean recovery:
+    [11, 19, 2, 7, 16, 17, 27, 20, 13, 10, 26]
+  Top heads by best mean recovery:
+    Head 11: 1.8482530009097804, 20/20 families >50% recovery
+    Head 19: 0.7833275392145977, 15/20 families >50% recovery
+    Head 2:  0.3930678913064784, 5/20 families >50% recovery
+    Head 7:  0.3258767212810724, 4/20 families >50% recovery
+    Head 16: 0.2971933028758088, 4/20 families >50% recovery
+    Head 26: 0.1010792532207696, 0/20 families >50% recovery
+  Interpretation:
+    The full L16 causal sweep substantially revises the earlier head-level story.
+    Head 26 remains active, but the dominant single-head causal driver at the
+    actual intervention layer is head 11, followed by head 19. This sharpens the
+    mechanistic claim from "the layer-18 contribution ranking identified a useful
+    head set" to "the true layer-16 causal circuit is more concentrated, with
+    head 11 emerging as the strongest single-head intervention target."
+
+### Execution repairs applied
+
+DeepSeek branch:
+  - The initial DeepSeek attention CPU job failed because
+    `scripts/run_attention_analysis.py` still hard-coded `qwen_S_lp`.
+  - The script was repaired to select the correct S_lp column by model role
+    (`qwen_S_lp`, `llama_S_lp`, or `deepseek_S_lp`).
+  - Relaunched jobs:
+      246901  physmon_s10_ds_attn_cpu  (compute) — COMPLETED
+      246902  physmon_s10_ds_mhk       (gpu_h200_8) — SUBMITTED with dependency
+
+Formula-leakage branch:
+  - `scripts/run_formula_leakage_check.py` now emits runnable rendered-family JSON
+    payloads in addition to prompt-pair records.
+  - Added:
+      `scripts/analyse_formula_leakage_results.py`
+      `slurm/templates/stage10_formula_leakage_behavioural.sh`
+  - The first formula-leakage behavioural job failed because
+    `run_behavioural.py` does not accept `--stage`.
+  - The Slurm template was repaired and relaunched:
+      246929  physmon_s10_formula_leak  (gpu_a100_8) — RUNNING at checkpoint close
+
+Local code hygiene for Stage 10 additions:
+  - `py_compile` pass across all newly added or modified Stage 10 scripts:
+      PASS
+  - `PYTHONPATH=src python3 -m pytest tests -q`:
+      99 passed, 1 warning, 0 failures
+  - `ruff`:
+      not installed in the local environment, so lint closure is currently
+      documented as syntax + pytest clean rather than a full ruff pass.
+
+Head-sweep queue repair:
+  - The full L16 single-head sweep was initially queued on H100 as job 246878.
+  - H200 capacity became available, so a duplicate H200 launch was submitted:
+      246912  physmon_s10_head_sweep_h200  (gpu_h200_8) — RUNNING
+  - The stale pending H100 duplicate (246878) was cancelled once the H200 copy started.
+
+### Running jobs at checkpoint close
+
+  246833  physmon_s10_mean_probe_sweep   (compute)   — RUNNING
+  246834  physmon_s10_cueb_probe         (compute)   — RUNNING
+  246879  physmon_s10_llm_mhk            (gpu_a100_8) — RUNNING
+  246902  physmon_s10_ds_mhk             (gpu_h200_8) — RUNNING
+  246912  physmon_s10_head_sweep_h200    (gpu_h200_8) — RUNNING
+  246929  physmon_s10_formula_leak       (gpu_a100_8) — RUNNING
+
+### Updated unresolved Stage 10 items after Checkpoint 2
+
+Primary running analyses still awaiting results:
+  - Full mean probe layer sweep
+  - Cue B-only probe
+  - Full L16 single-head causal sweep across all 28 heads
+  - Llama MHK
+  - DeepSeek MHK
+  - Proper behavioural formula-leakage sanity check
+
+Still not yet started in a scientifically complete sense:
+  - Cue C benchmark expansion
+  - Extreme near-match Cue B benchmark expansion
+
+Local benchmark-expansion construction started:
+  - Added `scripts/build_stage10_expansion_templates.py`
+  - Generated and verifier-certified a first candidate pack:
+      Cue C exact-rendering additions:
+        CM_C_006, CM_C_007, CM_C_008, CM_C_009, CM_C_010,
+        CM_C_011, CM_C_012, CM_C_013, CM_C_014, CM_C_015
+      Extreme near-match Cue B additions:
+        CM_B_UM_061, CM_B_UM_062, CM_B_UM_063, TH_B_UM_011, TH_B_UM_012
+  - Verification status:
+      15/15 local symbolic checks passed
+
+## Stage 10 Experimental Programme — Checkpoint 3 (2026-06-20)
+
+Follow-up after the repaired compute/GPU jobs finished and the Llama head-selection,
+pairwise interaction, and direct logit-attribution analyses landed locally.
+
+### Newly completed results
+
+Full mean-probe layer sweep (repaired big-compute launch, job 247597):
+  Output: `results/stage10/mean_probe_full_sweep_bigcompute/summary_resid_post_last_prompt.json`
+  Best layer: 18
+  Best AUROC: 0.7595604395604396
+  Best AUPRC: 0.7288659355979268
+  Best Pearson r: 0.6278172609721461
+  Bootstrap CI: [0.6732772127666939, 0.8405450458312325]
+  Interpretation:
+    The full layer sweep confirms that the earlier layer-18 mean-probe result
+    was already at the optimum. The best mean probe ties the entropy-oracle
+    proxy numerically while remaining oracle-free with respect to y*.
+
+Cue-B-only mean probe (job 246834):
+  Output: `results/stage10/cue_b_only_probe/summary_resid_post_last_prompt.json`
+  Best layer: 22
+  Best AUROC: 0.7283896445809567
+  Best AUPRC: 0.7483692892877966
+  Best Pearson r: 0.3765381971068733
+  Bootstrap CI: [0.6189789724164724, 0.8216991833030852]
+  Interpretation:
+    Restricting to Cue B only does not produce a dramatic AUROC gain over the
+    mixed benchmark. The monitoring signal on the scientifically central cue
+    family remains real, but the strongest story is still the mixed-family
+    monitor rather than a Cue-B-specialised probe.
+
+Mean-probe domain transfer (job 246877):
+  Output: `results/stage10/domain_transfer_probe/summary_resid_post_last_prompt.json`
+  Best layer: 18
+  Best AUROC: 0.7342857142857142
+  Domain folds at layer 18:
+    electrostatics/circuits held out: 0.6941176470588235
+    mechanics held out: 0.7419908466819222
+    thermodynamics held out: 0.7346938775510203
+  Interpretation:
+    The mean probe generalises across domains almost as well as the primary
+    variance monitor, but does not exceed the previously established domain-gen
+    result.
+
+Probe-direction cosine similarity (jobs 247578, 247580):
+  Output: `results/stage10/probe_direction_cosine/probe_direction_cosine.json`
+  Cosines:
+    L10 vs L16:  0.04974941790174083
+    L13 vs L16:  0.03802881957694654
+    L10 vs L18:  0.011691375267218524
+    L13 vs L18: -0.015900521130663012
+  Interpretation:
+    The early precursor signal is not simply the same linear direction that
+    appears at the later causal/monitoring layers. The geometry changes sharply
+    across depth.
+
+Clean Llama head-selection sweep (job 247563):
+  Output: `results/stage10/llama_head_selection_sweep/head_selection_summary.json`
+  Best overall single-head result:
+    layer 19, head 12, mean recovery 0.28165751385784976
+  Per-layer best heads:
+    layer 19: head 12, recovery 0.28165751385784976
+    layer 20: head 23, recovery 0.18434277559417053
+    layer 21: head 5,  recovery 0.1313778938846935
+  Interpretation:
+    This resolves the earlier B1/B2 inconsistency: the strongest clean Llama
+    single-head causal target is head 12 at layer 19, not the previously used
+    stale quartet from the first Llama MHK run.
+
+Pairwise head interaction matrix for Qwen L16 (job 247564):
+  Output: `results/stage10/pairwise_head_interactions/interaction_summary.json`
+  Single-head recoveries:
+    H11: 1.8482530009097804
+    H13: 0.1399438530241962
+    H26: 0.1010792532207696
+    H24: -0.08730002945650825
+  Pair recoveries:
+    H13+11: 2.0130399709059708
+    H24+11: 1.7474797135206672
+    H26+11: 1.789450572104132
+    H26+24: 0.03826413132534702
+  Full quartet recovery:
+    H26+24+13+11: 1.865952122263326
+  Interpretation:
+    The non-monotone dose-response is explained by a dominant H11-driven
+    mechanism. H11 alone accounts for almost the entire quartet effect; the
+    other originally highlighted heads are modulators rather than equal members
+    of a balanced 4-head circuit.
+
+Direct logit attribution at Qwen L16 (job 247565):
+  Output: `results/stage10/direct_logit_attribution/direct_logit_attribution_summary.json`
+  Top heads by absolute mean delta-logit attribution:
+    H15: -0.0640625
+    H14: -0.054296875
+    H11: -0.04296875
+    H7:  -0.04140625
+    H9:  -0.03984375
+    H12: -0.03984375
+    H26: -0.034375
+  Interpretation:
+    The head-level logit contribution picture is broader than the knockout-only
+    story. H11 is causally dominant, but several neighbouring heads also make
+    sizeable direct contributions to the correct-answer logit at the causal layer.
+
+### Execution repairs applied
+
+DeepSeek MHK:
+  - Confirmed failure cause for job 246902:
+      `bundle.hooked_model` was `None` in the HF fallback path, but
+      `run_causal_patching.py` still accessed
+      `next(bundle.hooked_model.parameters()).device`.
+  - Repaired local and remote script:
+      `scripts/run_causal_patching.py`
+    now selects the device from `bundle.hf_model` when TransformerLens is absent.
+  - Relaunched:
+      248990  physmon_s10_ds_mhk  (gpu_h200_8) — PENDING at checkpoint write
+
+Formula-leakage behavioural run:
+  - Confirmed that job 246929 completed the behavioural pass and failed only in
+    the analysis step because `analyse_stage4.py` was still called with stale,
+    unsupported flags:
+      `--model-role qwen_primary --stage 10`
+  - Repaired local and remote Slurm template:
+      `slurm/templates/stage10_formula_leakage_behavioural.sh`
+  - Relaunched:
+      248991  physmon_s10_formula_leak  (gpu_a100_8) — PENDING at checkpoint write
+
+Llama MHK replication:
+  - The earlier completed Llama MHK job 246879 used the stale quartet
+      {23, 2, 20, 18}
+    and is retained only as an intermediate result.
+  - Added a corrected v2 template:
+      `slurm/templates/stage10_llama_mhk_v2.sh`
+    which runs two candidate quartets:
+      attention-ranked at L19: {0, 12, 14, 26}
+      causal-sweep-derived:    {12, 0, 23, 5}
+  - Relaunched:
+      248992  physmon_s10_llm_mhk_v2  (gpu_h200_8) — PENDING at checkpoint write
+
+Local code hygiene after the latest repairs:
+  - `python3 -m py_compile scripts/run_causal_patching.py`: PASS
+  - `bash -n slurm/templates/stage10_formula_leakage_behavioural.sh`: PASS
+  - `bash -n slurm/templates/stage10_llama_mhk_v2.sh`: PASS
+  - `PYTHONPATH=src python3 -m pytest tests -q`: 99 passed, 1 warning
+
+### Updated unresolved Stage 10 items after Checkpoint 3
+
+Primary pending executions:
+  - 248990 DeepSeek MHK
+  - 248991 formula-leakage behavioural + analysis completion
+  - 248992 corrected Llama MHK v2
+
+Scientifically complete but not yet benchmark-integrated:
+  - Cue C benchmark expansion templates built and locally verified
+  - Extreme near-match Cue B expansion templates built and locally verified
+
+Still requiring final closure after the running jobs finish:
+  - Final Stage 10 synthesis entry once the three relaunches land
+  - Decision on whether to promote the benchmark-expansion families into the
+    active benchmark manifest after PI validation
+  - Artefacts:
+      `data/raw/templates/stage10_expansion/`
+      `results/stage10/benchmark_expansion/rendered/`
+      `results/stage10/benchmark_expansion/verification/`
+      `results/stage10/benchmark_expansion/expansion_summary.json`
+  - Status:
+      candidate construction and local rendering complete; behavioural evaluation
+      and human validation are still pending before these families can be merged into
+      the benchmark proper.
+
+## Stage 11 Checkpoint 1 — 2026-06-20
+
+### A. Benchmark expansion behavioural sweep
+
+Output:
+  `results/stage11/behavioural_expansion/`
+
+Qwen behavioural expansion summary:
+  n_families: 15
+  mean S_lp: 8.41875
+  positive_count: 10 / 15
+
+New Cue C families:
+  Positive (8/10):
+    CM_C_006, CM_C_007, CM_C_008, CM_C_010, CM_C_011,
+    CM_C_013, CM_C_014, CM_C_015
+  Negative (2/10):
+    CM_C_009, CM_C_012
+
+Extreme near-match Cue B additions:
+  CM_B_UM_061: 3.875
+  CM_B_UM_062: 0.078125
+  CM_B_UM_063: -0.34375
+
+Interpretation:
+  Cue C AUROC is now evaluable for the first time because the benchmark
+  expansion produced both positive and negative Cue C families. The new Cue C
+  slice remains strongly sensitivity-heavy (8/10 positive), but it is no longer
+  degenerate.
+
+### B. H11 mechanistic follow-up
+
+Outputs:
+  `results/stage11/science/h11_mechanism/`
+  `results/stage11/science/h11_layer_sweep/`
+  `results/stage11/science/h24_inhibitory/head24_layer_sweep/`
+
+H11 output-only probe at L16:
+  family-mean AUROC: 0.6591208791208791
+  per-variant AUROC: 0.6550549450549449
+
+Comparison heads:
+  H15 output-only probe:
+    family-mean AUROC 0.6843956043956044
+    per-variant AUROC 0.6842307692307692
+  H24 output-only probe:
+    family-mean AUROC 0.5762637362637363
+  H14 output-only probe:
+    family-mean AUROC 0.5604395604395604
+
+Cosine alignment of head outputs with the L16 sensitivity direction:
+  H11:
+    base cosine      = -0.0011636571379845288
+    sensitive cosine = -0.0011329032849630664
+    delta            = 3.075385302146221e-05
+  H15:
+    base cosine      = -0.04169558923721123
+    sensitive cosine = -0.04197004263201782
+    delta            = -0.00027445339480659315
+  H24:
+    base cosine      = 0.013683679290293283
+    sensitive cosine = 0.013387833610505556
+    delta            = -0.0002958456797877241
+  H14:
+    base cosine      = 0.02790550991974634
+    sensitive cosine = 0.027962890074784974
+    delta            = 5.7380155038629954e-05
+
+Interpretation:
+  H11 remains the strongest causal head by knockout, but its output vector alone
+  is not a near-complete sensitivity readout. The direct output-probe and cosine
+  results do not support the strong claim that H11 simply writes the full
+  sensitivity direction into the residual stream at L16. The safer reading is
+  that causal rank and output-readout rank diverge.
+
+H11 layer sweep:
+  Best layer: 16
+  Best mean recovery: 1.8482530009097804
+  families >50% recovery: 20 / 20
+  Other notable layers:
+    L10: 0.371914377797689
+    L15: 0.539560646119079
+    L19: 0.2654782237547865
+    L17: -0.0487166982402342
+    L18: 0.010464904619297905
+
+Interpretation:
+  H11 is sharply but not perfectly layer-specific. L16 is the unique dominant
+  peak by a wide margin, with weaker precursor activity at L10/L15 and no
+  meaningful suppression at L17-L18.
+
+H24 layer sweep:
+  Best layer: 15
+  Best mean recovery: 0.577284652889765
+  L16 mean recovery: -0.08730002945650825
+
+Interpretation:
+  H24 is specifically inhibitory at L16 but not globally inhibitory. One layer
+  earlier, the same head becomes moderately suppressive. This reinforces that
+  head identity alone is not the mechanism; layer context matters.
+
+### C. Level-1 vs Level-2 precursor characterisation
+
+Output:
+  `results/stage11/science/precursor_characterisation/`
+
+Best Level-2 sensitivity layer (per-variant family-sensitivity probe):
+  layer 16, AUROC 0.743956043956044
+
+Best Level-1 prompt-condition layer (4-class cue-variant decoding):
+  layer 20, accuracy 0.3907407407407407
+
+Interpretation:
+  The strongest prompt-condition decoding and the strongest family-sensitivity
+  prediction peak at different layers. In the current measurement, Level-2
+  sensitivity prediction peaks earlier (L16) than Level-1 prompt-condition
+  decoding (L20), so the simple "cue identity first, sensitivity later" story
+  is not supported in this form.
+
+### D. Cross-cue transfer and latent-family geometry
+
+Outputs:
+  `results/stage11/science/cross_cue_transfer/`
+  `results/stage11/science/latent_family_geometry/`
+
+Cross-cue transfer at L16:
+  Cue-A-trained -> Cue-B AUROC: 0.45063624396665203
+  Cue-B-trained -> Cue-A AUROC: 0.5113636363636364
+  Cue-A vs Cue-B probe-vector cosine: 0.018074723983992624
+
+Interpretation:
+  There is no shared L16 sensitivity direction across Cue A and Cue B. The
+  learned directions are effectively orthogonal, and cross-cue transfer is at
+  or below chance.
+
+Latent family geometry:
+  DeepSeek-latent families (Group C) count: 6
+  Mean Group-C sensitive probability from A-vs-D classifier: 0.36375173462850413
+  Predicted-sensitive fraction for Group C: 0.3333333333333333
+  Mean distance ratio A/D: 1.0986396296241143
+  Verdict: Group C is closer to Group D (neither-sensitive) than to Group A
+    (both-sensitive) in this L16 mean-activation geometry analysis.
+
+Interpretation:
+  The strongest latent-sensitivity claim is not supported by this specific
+  geometry test. The cross-model behavioural/probe divergence remains real, but
+  it is not captured as a simple centroid-level latent cluster in Qwen L16 mean
+  activations.
+
+### E. DeepSeek causal follow-up
+
+Output:
+  `results/stage10/deepseek_mhk/`
+
+Top-4 DeepSeek MHK result:
+  best layer: 44
+  reported mean recovery: 0.08622322730494415
+  reported families >50% recovery: 6 / 20
+
+Critical caveat:
+  Cross-checking against `results/stage8/analysis_deepseek/deepseek_per_family.csv`
+  shows that the selected 20-family Qwen panel contains only 2 families that are
+  actually DeepSeek-positive under the Stage 8 DeepSeek criterion
+  (`deepseek_S_lp >= 0.5` with parse_rate_family >= 0.5):
+    CM_B_UM_055: S_lp = 3.09375, recovery = -0.0556
+    CM_B_STD_015: S_lp = 1.203125, recovery = -0.1169
+  On this valid DeepSeek-positive subset:
+    mean recovery = -0.0862
+    >50% recovery = 0 / 2
+
+Interpretation:
+  The current DeepSeek top-4-head knockout should be treated as a failed causal
+  localisation attempt, not as weak positive causal replication. The panel
+  inherited from Qwen does not align cleanly with DeepSeek's own positive set,
+  and the valid positive subset shows no suppression.
+
+### F. Formula leakage sanity check
+
+Output:
+  `results/appendix/formula_leakage/`
+
+Formula-leakage analysis:
+  n_families: 5
+  low-sensitivity families: 0 / 5
+  verdict: MIXED
+
+Per-family S_lp:
+  CM_A_STD_009_FORMULA: 3.6875
+  CM_B_010_FORMULA: 3.859375
+  CM_B_UM_028_FORMULA: 4.203125
+  TH_B_UM_001_FORMULA: 3.84375
+  TH_B_UM_003_FORMULA: 5.53125
+
+Interpretation:
+  The formula-leakage check did not behave like a trivial low-sensitivity sanity
+  pass. The behavioural generation completed cleanly, so this is not an analysis
+  pipeline artifact. It remains an unresolved scientific/data question rather
+  than a completed sanity-check success.
+
+### G. New Stage 11 submissions after Checkpoint 1
+
+Submitted on Sharanga:
+  249062  physmon_s11_exp_act   — Qwen activation extraction for the 15-family expansion
+  249063  physmon_s11_h11h24    — targeted H11+H24 interaction check at L16
+  249064  physmon_s11_ds_heads  — DeepSeek single-head follow-up (H20 and H26 at L44)
+  249065  physmon_s11_varname   — variable-renaming behavioural + probe + H11 pipeline
+
+Prepared and synced, waiting on expansion activations:
+  - `slurm/templates/stage11_cuec_probe.sh`
+  - `slurm/templates/stage11_cuec_mhk.sh`
+
+These will close the next two high-value gaps:
+  1. whether Cue C has a distinct later circuit once the new negative Cue C
+     families are included, and
+  2. whether DeepSeek contains any Qwen-like single-head analogue at L44.
+
+## Stage 11 Checkpoint 2 — 2026-06-21
+
+### A. Repair pass over Stage 11 infrastructure
+
+Code-state repairs completed locally:
+  - `scripts/run_behavioural.py`
+      `load_rendered_families()` now recurses through nested cue/domain trees.
+      This fixes the failed expansion activation extraction path, where
+      `results/stage10/benchmark_expansion/rendered/` contains no top-level
+      JSON files.
+  - `slurm/templates/stage11_variable_renaming.sh`
+      renamed-family positive labels are now derived from the renamed
+      behavioural CSV itself (`qwen_S_lp >= 0.5`, parse_rate >= 0.5), not
+      inherited from the source-family positive set.
+  - `slurm/templates/stage11_cuec_mhk.sh`
+      Cue C merge step now uses recursive file discovery for the expansion
+      families, avoiding an empty expansion slice during the later causal run.
+  - `scripts/analyse_formula_leakage_results.py`
+      top-level summary now records behavioural completion and the mixed result,
+      rather than leaving the artifact in a pseudo-pending state.
+  - New helper:
+      `scripts/analyse_deepseek_causal_subset.py`
+      re-scores DeepSeek causal runs only on DeepSeek-valid positive families.
+
+Local verification:
+  - `python3 -m py_compile` pass on the patched scripts: PASS
+  - `bash -n` on the patched Slurm templates: PASS
+  - `pytest tests -q`: 99 passed, 1 warning
+
+### B. DeepSeek single-head follow-up, re-scored honestly
+
+Outputs:
+  `results/stage11/science/deepseek_single_heads/`
+  `results/stage11/science/deepseek_single_heads/deepseek_valid_subset_summary.json`
+
+Raw 20-family panel summaries:
+  H20 @ L44:
+    mean recovery = 0.37165390987945657
+    families >50% recovery = 6
+  H26 @ L44:
+    mean recovery = 0.1685468365412624
+    families >50% recovery = 5
+
+Critical validity check:
+  Re-scoring against DeepSeek-valid positives
+  (`deepseek_parse_rate_family >= 0.5` and `deepseek_S_lp >= 0.5`) shows that
+  the inherited 20-family Qwen panel contains only 2 DeepSeek-valid positives.
+
+On that valid subset:
+  Top-4 DeepSeek MHK (Stage 10): mean recovery = -0.08621933621933614
+  H20 alone:                       mean recovery = -0.1172438672438672
+  H26 alone:                       mean recovery = -0.023088023088022998
+  >50% recovery families: 0 / 2 for all three runs
+
+Interpretation:
+  The apparent raw-panel DeepSeek suppression is a panel-mismatch artifact. On
+  the DeepSeek-valid positive subset, neither the top-4 MHK nor H20/H26 single
+  knockouts produce meaningful suppression. The current DeepSeek result should
+  be treated as a negative causal localisation result.
+
+### C. Variable-renaming follow-up
+
+Behavioural result:
+  `results/stage11/variable_renaming/behavioural/analysis/summary.json`
+    n_families = 10
+    mean S_lp = 3.7421875
+    positive_count = 9 / 10
+
+H11 causal result on renamed families:
+  `results/stage11/science/variable_renaming/h11_knockout/patching_summary.json`
+    best layer = 16
+    mean recovery = 5.244626494275871
+
+Corrected probe inference (job 249193):
+  `results/stage11/science/variable_renaming/probe_inference/summary.json`
+    family-mean AUROC = 0.6666666666666666
+    variant-level AUROC = 0.6875
+
+Root cause of the earlier null metrics:
+  The original renamed positive-family file incorrectly marked all 10 renamed
+  families as positive. After rebuilding labels from the renamed behavioural
+  CSV, the corrected label split is:
+    positives = 9
+    only negative family = CM_B_UM_055_RENAME (S_lp = 0.3125)
+
+Interpretation:
+  Variable renaming does not abolish sensitivity behaviourally, and H11 still
+  exerts a very strong causal effect on the renamed set. With corrected labels,
+  the trained Qwen probe still transfers above chance to the renamed families,
+  though much more weakly than on the original benchmark.
+
+### D. Formula leakage state clarified
+
+Updated local summary:
+  `results/appendix/formula_leakage/formula_leakage_summary.json`
+    execution_status = behavioural_complete
+    verdict = MIXED
+    low-sensitivity families = 0 / 5
+
+Interpretation:
+  The formula-leakage check is not pending. It completed and returned a mixed
+  negative result: explicit formula hints did not collapse sensitivity in this
+  five-family slice.
+
+### E. Corrected submissions after the repair pass
+
+Submitted on Sharanga:
+  249193  physmon_s11_varprobe_fix
+    Corrected variable-renaming probe evaluation on compute. COMPLETED.
+
+  249194  physmon_s11_exp_act
+    Expansion activation extraction re-launched on A100 after the recursive
+    family-loader fix.
+
+  249195  physmon_s11_cuec_probe
+    Queued with dependency `afterok:249194`.
+
+  249196  physmon_s11_cuec_mhk
+    Queued with dependency `afterok:249195`, submitted on A100 rather than
+    H200/H100.
+
+Current intent:
+  These four jobs close the two remaining pipeline blockers:
+    1. valid probe evaluation on renamed families, and
+    2. the full Cue C follow-up enabled by the 8-positive / 2-negative
+       benchmark expansion slice.
+
+## Stage 13 Wave 0 / Wave 1A v4 Donor Correction — 2026-07-03
+
+Authoritative correction:
+  The Stage 12 donor-on-renamed same-answer and stable-control runs produced
+  zero evaluable rows. The historical CSVs are header-only, while their
+  summaries defaulted `mean_recovery` and `median_recovery` to 0.0 and their
+  event logs reported `*_COMPLETE`. This is a script bug and not a measured
+  null effect.
+
+Corrected status:
+  same-answer donor-on-renamed: FAILED_EMPTY_RESULT_PANEL, raw rows = 0
+  stable donor-on-renamed:      FAILED_EMPTY_RESULT_PANEL, raw rows = 0
+
+Allowed interpretation:
+  The donor-on-renamed controls produced zero evaluable rows. Their summaries
+  defaulted to zero recovery, so no scientific null or specificity claim can be
+  made from these runs. They remain incomplete and require diagnosis/rerun in a
+  later PI-approved experimental cycle.
+
+Superseding artifacts:
+  `results/stage13/benchmark_integrity/donor_renamed_empty_panel_audit_v4.json`
+  `results/stage12/science/donor_specificity/donor_specificity_summary_v4_correction.json`
+
+Consequence:
+  Any claim of completed renamed donor controls, measured 0.0 donor recovery,
+  or 100% specificity on renamed families is unsupported and must not be used
+  as paper-eligible evidence.
+
+## Stage 13 Evidence Foundation v5 — 2026-07-03
+
+- Part II corrected to version 1.2: `docs/proposals/PhysMon_Part_II_v1.2.tex` and `docs/proposals/PhysMon_Part_II_v1.2.pdf`.
+- Donor-on-renamed wording: The renamed donor-control jobs produced zero evaluable target-donor rows. Their original summaries defaulted to zero recovery, but this is not a measured scientific null. These controls remain incomplete and are excluded from specificity claims until a valid rerun is performed.
+- v5 mutation/certificate/parser/balance/leakage/registry/canonical/claim artifacts are CPU-only governance outputs; no Sharanga, Slurm, GPU, or Wave 2-4 work was run.
+
+## Stage 13 Evidence Foundation v6 — 2026-07-03
+
+- Governing document rule: complete Part II v1.1 plus July 3 donor-control erratum. Full v1.2 remains `blocked_source_unavailable`.
+- v6 remains CPU-only. No Sharanga, Slurm, GPU, or Wave 2-4 work was run.

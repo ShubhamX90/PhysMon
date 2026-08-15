@@ -15,6 +15,7 @@ import sys
 from typing import Any
 
 import torch
+from transformers import AutoConfig
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SRC_ROOT = REPO_ROOT / "src"
@@ -83,6 +84,27 @@ def bytes_to_megabytes(value: int) -> float:
     return value / (1024 ** 2)
 
 
+def infer_model_dims_from_config(model_path: str) -> tuple[list[int], int]:
+    """Infer layer count and hidden size from a local model config."""
+
+    config = AutoConfig.from_pretrained(
+        model_path,
+        local_files_only=True,
+        trust_remote_code=True,
+    )
+    num_layers = int(
+        getattr(config, "num_hidden_layers", None)
+        or getattr(config, "n_layer", None)
+    )
+    hidden_size = int(
+        getattr(config, "hidden_size", None)
+        or getattr(config, "d_model", None)
+    )
+    if num_layers <= 0 or hidden_size <= 0:
+        raise ValueError(f"Could not infer num_layers/hidden_size from config at {model_path}.")
+    return list(range(num_layers)), hidden_size
+
+
 def build_site_tensor(
     extracted: dict[str, torch.Tensor],
     *,
@@ -100,6 +122,48 @@ def save_activation_tensor(path: Path, tensor: torch.Tensor) -> str:
     output_path = ensure_parent_dir(path)
     torch.save(tensor.cpu(), output_path)
     return str(output_path.resolve())
+
+
+def extract_hidden_states_fallback(
+    *,
+    hf_model: Any,
+    tokenizer: Any,
+    formatted_prompt: str,
+    cue_token_index: int,
+) -> tuple[torch.Tensor, torch.Tensor]:
+    """Fallback extraction for models loaded without TransformerLens support.
+
+    Returns:
+        Tuple of `(last_prompt_tensor, cue_tensor)` each shaped `(n_layers, d_model)`.
+    """
+
+    first_parameter = next(hf_model.parameters())
+    encoded = tokenizer(
+        formatted_prompt,
+        return_tensors="pt",
+        add_special_tokens=False,
+    )
+    encoded = {key: value.to(first_parameter.device) for key, value in encoded.items()}
+    with torch.no_grad():
+        outputs = hf_model(
+            **encoded,
+            output_hidden_states=True,
+            use_cache=False,
+        )
+    hidden_states = outputs.hidden_states
+    if hidden_states is None:
+        raise RuntimeError("HF fallback extraction expected output_hidden_states=True to return hidden states.")
+    layer_states = hidden_states[1:]
+    last_prompt_index = int(encoded["input_ids"].shape[1] - 1)
+    last_prompt_tensor = torch.stack(
+        [state[0, last_prompt_index, :].detach().cpu().to(dtype=torch.float16) for state in layer_states],
+        dim=0,
+    )
+    cue_tensor = torch.stack(
+        [state[0, cue_token_index, :].detach().cpu().to(dtype=torch.float16) for state in layer_states],
+        dim=0,
+    )
+    return last_prompt_tensor, cue_tensor
 
 
 def main() -> None:
@@ -124,17 +188,18 @@ def main() -> None:
     bundle = None
     if args.dry_run:
         if model_spec.num_layers is None or model_spec.hidden_dim is None:
-            raise ValueError(
-                f"Dry-run requires num_layers and hidden_dim in the registry for {resolved_model_key}."
-            )
-        layer_indices = list(range(model_spec.num_layers))
-        d_model = int(model_spec.hidden_dim)
+            layer_indices, d_model = infer_model_dims_from_config(model_spec.path)
+        else:
+            layer_indices = list(range(model_spec.num_layers))
+            d_model = int(model_spec.hidden_dim)
     else:
-        bundle = load_model(model_key=resolved_model_key, device="cuda")
-        if bundle.hooked_model is None:
-            raise NotImplementedError("Stage 5 extraction currently requires TransformerLens support.")
-        layer_indices = list(range(bundle.hooked_model.cfg.n_layers))
-        d_model = int(bundle.hooked_model.cfg.d_model)
+        device_map = "auto" if model_spec.hook_backend != "transformer_lens" else None
+        bundle = load_model(model_key=resolved_model_key, device="cuda", device_map=device_map)
+        if bundle.hooked_model is not None:
+            layer_indices = list(range(bundle.hooked_model.cfg.n_layers))
+            d_model = int(bundle.hooked_model.cfg.d_model)
+        else:
+            layer_indices, d_model = infer_model_dims_from_config(model_spec.path)
     variants_per_family = max(len(payload["variants"]) for payload in family_payloads)
     estimate_mb = bytes_to_megabytes(
         estimated_storage_bytes(
@@ -197,20 +262,35 @@ def main() -> None:
                 bundle.tokenizer,
             )
 
-            extracted = extract_targeted_activations(
-                model=bundle.hooked_model,
-                prompt=formatted_prompt,
-                prompt_token_ids=prompt_token_ids,
-                cue_span_token_ids=[cue_token_index],
-                layers=layer_indices,
-                sites=[RESID_SITE],
-                dtype="float16",
-            )
-            last_prompt_tensor = build_site_tensor(
-                extracted,
-                prefix="resid_post_last_prompt",
-                layer_indices=layer_indices,
-            )
+            if bundle.hooked_model is not None:
+                extracted = extract_targeted_activations(
+                    model=bundle.hooked_model,
+                    prompt=formatted_prompt,
+                    prompt_token_ids=prompt_token_ids,
+                    cue_span_token_ids=[cue_token_index],
+                    layers=layer_indices,
+                    sites=[RESID_SITE],
+                    dtype="float16",
+                )
+                last_prompt_tensor = build_site_tensor(
+                    extracted,
+                    prefix="resid_post_last_prompt",
+                    layer_indices=layer_indices,
+                )
+                cue_tensor = None
+                if args.tier == 2:
+                    cue_tensor = build_site_tensor(
+                        extracted,
+                        prefix="resid_post_cue_token0",
+                        layer_indices=layer_indices,
+                    )
+            else:
+                last_prompt_tensor, cue_tensor = extract_hidden_states_fallback(
+                    hf_model=bundle.hf_model,
+                    tokenizer=bundle.tokenizer,
+                    formatted_prompt=formatted_prompt,
+                    cue_token_index=cue_token_index,
+                )
             saved_last_prompt = save_activation_tensor(
                 file_plan["resid_post_last_prompt"],
                 last_prompt_tensor,
@@ -230,11 +310,7 @@ def main() -> None:
             )
 
             if args.tier == 2:
-                cue_tensor = build_site_tensor(
-                    extracted,
-                    prefix="resid_post_cue_token0",
-                    layer_indices=layer_indices,
-                )
+                assert cue_tensor is not None
                 saved_cue = save_activation_tensor(
                     file_plan["resid_post_cue_token"],
                     cue_tensor,

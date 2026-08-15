@@ -1,0 +1,52 @@
+stage: 13
+date_created: "2026-07-03"
+governance_mode: controlled_first_cycle
+confirmatory_gpu_jobs_allowed_without_pi_approval: false
+paper_eligible_evidence_allowed_before_wave0_wave1a_pass: false
+discovery_confirmation_policy:
+  discovery_partitions: ["historical_stage6_to_stage12", "stage13_wave1_software"]
+  confirmation_partitions: []
+  note: "Confirmation partitions must be frozen in docs/registry/partition_freeze.json before use."
+canonical_paths:
+  experiment_registry_jsonl: docs/registry/experiment_registry.jsonl
+  experiment_registry_csv: docs/registry/experiment_registry.csv
+  model_family_evidence_csv: results/canonical/model_family_evidence.csv
+  model_variant_evidence_csv: results/canonical/model_variant_evidence.csv
+  artifact_authority_audit_json: docs/registry/artifact_authority_audit.json
+  partition_freeze_json: docs/registry/partition_freeze.json
+allowed_experiment_statuses:
+  - planned
+  - queued
+  - running
+  - complete
+  - partial
+  - failed
+  - superseded
+  - unresolved
+allowed_experiment_classes:
+  - diagnostic
+  - exploratory
+  - internal_confirmation
+  - external_confirmation
+  - governance
+  - human_validation
+family_unit_policy:
+  primary_unit: family
+  variant_rows_are_nested_observations: true
+  grouped_cross_validation_required: true
+negative_result_policy:
+  preserve_raw_outputs: true
+  preserve_failed_outputs: true
+  supersede_without_deleting: true
+human_validation_policy:
+  human_judgments_may_not_be_inferred: true
+  agreement_required_before_paper_eligibility: true
+statistics_policy:
+  bootstrap_seed: 42
+  bootstrap_repetitions: 10000
+  multiple_testing_correction: benjamini_hochberg
+  alpha: 0.05
+model_policy:
+  h200_partition_disabled_for_now: true
+  gpu_jobs_require_pi_approval: true
+
