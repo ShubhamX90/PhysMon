@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "confidence": {
+      "maximum": 5,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "family_id": {
+      "type": "string"
+    },
+    "overall_verdict": {
+      "enum": [
+        "valid",
+        "invalid",
+        "repair_required",
+        "uncertain"
+      ],
+      "type": "string"
+    },
+    "pass_number": {
+      "enum": [
+        1,
+        2
+      ],
+      "type": "integer"
+    },
+    "validator_id": {
+      "pattern": "^VAL-[0-9]{3}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "validator_id",
+    "family_id",
+    "packet_version",
+    "pass_number",
+    "overall_verdict",
+    "confidence"
+  ],
+  "type": "object"
+}

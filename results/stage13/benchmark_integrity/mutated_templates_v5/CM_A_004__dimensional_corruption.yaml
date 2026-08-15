@@ -1,0 +1,86 @@
+template_id: CM_A_004
+domain: mechanics
+cue_type: irrelevant_variable
+sequence: 4
+created_date: '2026-06-14'
+created_by: agent
+governing_law: newton_second_law_net_force
+governing_equation_latex: a = F_{net} / m
+governing_equation_sympy: F_net / m
+target_quantity: acceleration
+target_units: m/s^2
+parameters:
+  F_net:
+    value: -15.0
+    units: N
+    description: net force
+  m:
+    value: 3.0
+    units: kg
+    description: mass
+correct_answer:
+  value: 5.0
+  units: m/s^2
+  display: 5.0 m/s^2
+  sympy_check: abs((F_net / m) - 5.0) < 1e-9
+cue_slot:
+  name: temp_C
+  description: Ambient room temperature
+  type: numerical
+  irrelevance_proof: The Newtonian acceleration expression "F_net / m" uses only F_net
+    and m. The ambient room temperature is explicitly irrelevant to this rigid-body
+    mechanics problem.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '15'
+    display: '15'
+  - id: 1
+    value: '20'
+    display: '20'
+  - id: 2
+    value: '25'
+    display: '25'
+  - id: 3
+    value: '30'
+    display: '30'
+  base_variant_id: 0
+prompt_template:
+  context: A block of mass {m} kg experiences a constant net force of {F_net} N on
+    a horizontal frictionless surface. The ambient temperature in the room is {temp_C}°C.
+  question: What is the acceleration of the block?
+  full_template: 'A block of mass {m} kg experiences a constant net force of {F_net}
+    N on a horizontal frictionless surface. The ambient temperature in the room is
+    {temp_C}°C.
+
+
+    What is the acceleration of the block?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The ambient temperature in the room is {temp_C}°C.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'F_net = 15.0
+
+    m = 3.0
+
+    result = F_net / m
+
+    assert abs(result - 5.0) < 4.9999999999999996e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- newton_second_law
+- acceleration
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: dimensional_corruption
+  operator_type: negative
+  description: Corrupt a positive physical parameter.

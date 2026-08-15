@@ -1,0 +1,204 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "The kinetic-energy expression \"0.5 * m * v**2\" has free symbols {m, v}. Ball color is a visual descriptor and does not affect the energy under the stated conditions.",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "24.0 J",
+    "sympy_check": "abs((0.5 * m * v**2) - 24.0) < 1e-9",
+    "units": "J",
+    "value": 24.0
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "certificate_generated",
+  "certificate_version": "stage13_v5_solver_certificate_v2",
+  "computed_canonical_answer": {
+    "units": "J",
+    "value": 24.0
+  },
+  "designated_cue": {
+    "distractor_symbol": null,
+    "name": "color",
+    "type": "categorical",
+    "units": null,
+    "values": [
+      {
+        "display": "red",
+        "id": 0,
+        "value": "red"
+      },
+      {
+        "display": "orange",
+        "id": 1,
+        "value": "orange"
+      },
+      {
+        "display": "white",
+        "id": 2,
+        "value": "white"
+      },
+      {
+        "display": "black",
+        "id": 3,
+        "value": "black"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit algebra is recorded from template metadata; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "m": "kg",
+      "v": "m/s"
+    },
+    "status": "checked_from_template_units",
+    "target_units": "J"
+  },
+  "domain": "mechanics",
+  "explicit_symbolic_derivation": {
+    "computed_value": 24.0,
+    "expression": "0.5*m*v**2",
+    "steps": [
+      "m = 3.0 kg",
+      "v = 4.0 m/s",
+      "0.5 * m * v**2 = 24 J"
+    ]
+  },
+  "family_id": "CM_A_003",
+  "governing_equations": {
+    "latex": "KE = \\frac{1}{2} m v^2",
+    "sympy": "0.5 * m * v**2"
+  },
+  "governing_law": "kinetic_energy",
+  "governing_law_id": "kinetic_energy",
+  "invariance_checks": [
+    {
+      "computed_answer": 24.0,
+      "cue_value": "red",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 24.0,
+      "cue_value": "orange",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    },
+    {
+      "computed_answer": 24.0,
+      "cue_value": "white",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 2
+    },
+    {
+      "computed_answer": 24.0,
+      "cue_value": "black",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The governing expression free symbols exclude the designated cue symbol; answer is recomputed for each cue variant.",
+  "limitations": [
+    "Generated only from structured YAML template fields.",
+    "Dimensional check is metadata-backed, not a full symbolic unit algebra proof."
+  ],
+  "numeric_spot_checks": [
+    {
+      "computed_answer": 24.0,
+      "cue_value": "red",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 24.0,
+      "cue_value": "orange",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "m",
+    "v"
+  ],
+  "source_template": "/Users/shubhammishra/Desktop/PhysMons/data/raw/templates/CM_A_003.yaml",
+  "substituted_values": {
+    "m": {
+      "units": "kg",
+      "value": 3.0
+    },
+    "v": {
+      "units": "m/s",
+      "value": 4.0
+    }
+  },
+  "symbol_table": {
+    "m": {
+      "description": "mass",
+      "role": "relevant",
+      "units": "kg",
+      "value": 3.0
+    },
+    "v": {
+      "description": "speed",
+      "role": "relevant",
+      "units": "m/s",
+      "value": 4.0
+    }
+  },
+  "symbolic_answer": "0.5 * m * v**2",
+  "target_quantity": "kinetic_energy",
+  "template_id": "CM_A_003",
+  "units": "J",
+  "variant_bindings": [
+    {
+      "cue_display": "red",
+      "cue_value": "red",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "orange",
+      "cue_value": "orange",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "white",
+      "cue_value": "white",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "black",
+      "cue_value": "black",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=24.0, expected=24.0, tolerance=2.4e-05",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue_slot.name absent from governing-equation free symbols ['m', 'v']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '24 J'.",
+        "passed": true
+      }
+    ]
+  }
+}

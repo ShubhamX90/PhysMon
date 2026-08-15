@@ -1,0 +1,97 @@
+template_id: CM_B_STD_008
+domain: thermodynamics
+cue_type: nongoverning_distractor
+sequence: 8
+created_date: '2026-06-15'
+created_by: agent
+governing_law: heat_energy_aluminum_block
+governing_equation_latex: Q = m_A c_A \Delta T_A
+governing_equation_sympy: m_A * c_A * delta_T_A
+target_quantity: heat_added_to_block_A
+target_units: J
+parameters:
+  m_A:
+    value: -1.5
+    units: kg
+    description: mass of block A
+  c_A:
+    value: 900.0
+    units: J/(kg*K)
+    description: specific heat of block A
+  delta_T_A:
+    value: 20.0
+    units: K
+    description: temperature rise of block A
+correct_answer:
+  value: 27000.0
+  units: J
+  display: 27000 J
+  sympy_check: abs((m_A * c_A * delta_T_A) - 27000.0) < 0.027
+cue_slot:
+  name: m_B_display
+  description: Mass of an isolated block B
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: m_B
+  distractor_units: kg
+  nongoverning_proof: The governing expression "m_A * c_A * delta_T_A" has free symbols
+    {m_A, c_A, delta_T_A}; m_B belongs to a separate block B and is absent from the
+    heat law for block A.
+  values:
+  - id: 0
+    value: '0.5'
+    display: '0.5'
+  - id: 1
+    value: '1.4'
+    display: '1.4'
+  - id: 2
+    value: '1.5'
+    display: '1.5'
+  - id: 3
+    value: '2.5'
+    display: '2.5'
+  base_variant_id: 0
+prompt_template:
+  context: Block A has mass {m_A} kg, specific heat capacity {c_A} J/(kg·K), and temperature
+    increase {delta_T_A} K. A separate block B has mass {m_B_display} kg, but block
+    B never exchanges heat with block A.
+  question: How much heat is added to block A?
+  full_template: 'Block A has mass {m_A} kg, specific heat capacity {c_A} J/(kg·K),
+    and temperature increase {delta_T_A} K. A separate block B has mass {m_B_display}
+    kg, but block B never exchanges heat with block A.
+
+
+    How much heat is added to block A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate block B has mass {m_B_display} kg, but block B never exchanges
+    heat with block A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm_A = 1.5
+
+    c_A = 900.0
+
+    delta_T_A = 20.0
+
+    result = m_A * c_A * delta_T_A
+
+    assert abs(result - 27000.0) < 0.027, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- thermodynamics
+- heat_capacity
+- cue_b_standard
+- near_match
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: dimensional_corruption
+  operator_type: negative
+  description: Corrupt a positive physical parameter.

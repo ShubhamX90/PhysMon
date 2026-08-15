@@ -1,0 +1,195 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "Each rendering denotes the same acceleration value; the governing expression remains \"a_base\".",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "9.8 m/s^2",
+    "sympy_check": "abs((a_base) - 9.8) < 9.800000000000001e-06",
+    "units": "m/s^2",
+    "value": 9.8
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "certificate_generated",
+  "certificate_version": "stage13_v5_solver_certificate_v2",
+  "computed_canonical_answer": {
+    "units": "m/s^2",
+    "value": 9.8
+  },
+  "designated_cue": {
+    "distractor_symbol": null,
+    "name": "acceleration_render",
+    "type": "rendering",
+    "units": null,
+    "values": [
+      {
+        "display": "9.8 m/s^2",
+        "id": 0,
+        "render": "9.8 m/s^2",
+        "value": "9.8 m/s^2"
+      },
+      {
+        "display": "980 cm/s^2",
+        "id": 1,
+        "render": "980 cm/s^2",
+        "value": "980 cm/s^2"
+      },
+      {
+        "display": "0.0098 km/s^2",
+        "id": 2,
+        "render": "0.0098 km/s^2",
+        "value": "0.0098 km/s^2"
+      },
+      {
+        "display": "9.8 N/kg",
+        "id": 3,
+        "render": "9.8 N/kg",
+        "value": "9.8 N/kg"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit algebra is recorded from template metadata; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "a_base": "m/s^2"
+    },
+    "status": "checked_from_template_units",
+    "target_units": "m/s^2"
+  },
+  "domain": "mechanics",
+  "explicit_symbolic_derivation": {
+    "computed_value": 9.8,
+    "expression": "a_base",
+    "steps": [
+      "a_base = 9.8 m/s^2",
+      "a_base = 9.8 m/s^2"
+    ]
+  },
+  "family_id": "CM_C_013",
+  "governing_equations": {
+    "latex": "a = a_{\\mathrm{base}}",
+    "sympy": "a_base"
+  },
+  "governing_law": "unit_rendering_acceleration",
+  "governing_law_id": "unit_rendering_acceleration",
+  "invariance_checks": [
+    {
+      "computed_answer": 9.8,
+      "cue_value": "9.8 m/s^2",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 9.8,
+      "cue_value": "980 cm/s^2",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    },
+    {
+      "computed_answer": 9.8,
+      "cue_value": "0.0098 km/s^2",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 2
+    },
+    {
+      "computed_answer": 9.8,
+      "cue_value": "9.8 N/kg",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The governing expression free symbols exclude the designated cue symbol; answer is recomputed for each cue variant.",
+  "limitations": [
+    "Generated only from structured YAML template fields.",
+    "Dimensional check is metadata-backed, not a full symbolic unit algebra proof."
+  ],
+  "numeric_spot_checks": [
+    {
+      "computed_answer": 9.8,
+      "cue_value": "9.8 m/s^2",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 9.8,
+      "cue_value": "980 cm/s^2",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "a_base"
+  ],
+  "source_template": "/Users/shubhammishra/Desktop/PhysMons/data/raw/templates/stage10_expansion/frame_rendering/mechanics/CM_C_013.yaml",
+  "substituted_values": {
+    "a_base": {
+      "units": "m/s^2",
+      "value": 9.8
+    }
+  },
+  "symbol_table": {
+    "a_base": {
+      "description": "base acceleration",
+      "role": "relevant",
+      "units": "m/s^2",
+      "value": 9.8
+    }
+  },
+  "symbolic_answer": "a_base",
+  "target_quantity": "acceleration_in_m_per_s2",
+  "template_id": "CM_C_013",
+  "units": "m/s^2",
+  "variant_bindings": [
+    {
+      "cue_display": "9.8 m/s^2",
+      "cue_value": "9.8 m/s^2",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "980 cm/s^2",
+      "cue_value": "980 cm/s^2",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "0.0098 km/s^2",
+      "cue_value": "0.0098 km/s^2",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "9.8 N/kg",
+      "cue_value": "9.8 N/kg",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=9.8, expected=9.8, tolerance=9.800000000000001e-06",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue symbol absent from governing-equation free symbols ['a_base']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '9.8 m/s^2'.",
+        "passed": true
+      }
+    ]
+  }
+}

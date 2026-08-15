@@ -1,0 +1,90 @@
+template_id: CM_A_STD_011
+domain: electrostatics_circuits
+cue_type: irrelevant_variable
+sequence: 11
+created_date: '2026-06-15'
+created_by: agent
+governing_law: ohms_law_voltage
+governing_equation_latex: V = I R
+governing_equation_sympy: (I * R) + elapsed_switch_s
+target_quantity: voltage_across_resistor_A
+target_units: V
+parameters:
+  I:
+    value: 2.0
+    units: A
+    description: current
+  R:
+    value: 6.0
+    units: ohm
+    description: resistance
+  elapsed_switch_s:
+    value: '1.0'
+    units: null
+    description: introduced cue after assumption removal
+correct_answer:
+  value: 12.0
+  units: V
+  display: 12.0 V
+  sympy_check: abs((I * R) - 12.0) < 1.2e-05
+cue_slot:
+  name: elapsed_switch_s
+  description: Time since the room switch was toggled - irrelevant to ideal Ohm's
+    law here
+  type: numerical
+  irrelevance_proof: ''
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '3'
+    display: '3'
+  - id: 1
+    value: '6'
+    display: '6'
+  - id: 2
+    value: '12'
+    display: '12'
+  - id: 3
+    value: '24'
+    display: '24'
+  base_variant_id: 0
+prompt_template:
+  context: A resistor carries current {I} A and has resistance {R} ohm. The room light
+    switch was toggled {elapsed_switch_s} s ago.
+  question: What voltage is across the resistor?
+  full_template: 'A resistor carries current {I} A and has resistance {R} ohm. The
+    room light switch was toggled {elapsed_switch_s} s ago.
+
+
+    What voltage is across the resistor?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The room light switch was toggled {elapsed_switch_s} s ago.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'I = 2.0
+
+    R = 6.0
+
+    result = I * R
+
+    assert abs(result - 12.0) < 1.2e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- ohms_law
+- cue_a_numeric
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: cue_leakage_after_assumption_text_removal
+  operator_type: negative
+  description: Remove cue proof text and leak cue into the expression; this tests
+    cue leakage, not assumption sufficiency.

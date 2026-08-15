@@ -1,0 +1,94 @@
+template_id: TH_B_UM_011
+domain: thermodynamics
+cue_type: nongoverning_distractor
+sequence: 64
+created_date: '2026-06-15'
+created_by: agent
+governing_law: heat_transfer_extreme_nearmatch
+governing_equation_latex: Q = mc\Delta T
+governing_equation_sympy: m * c * delta_T
+target_quantity: heat_in_joules_changed
+target_units: J
+parameters:
+  m:
+    value: 0.2
+    units: kg
+    description: mass
+  c:
+    value: 4186.0
+    units: J/(kg*K)
+    description: specific heat
+  delta_T:
+    value: 2.0
+    units: K
+    description: temperature rise
+correct_answer:
+  value: 1675.4
+  units: J
+  display: 1675.4 J
+  sympy_check: abs((m * c * delta_T) - 1674.4) < 0.001
+cue_slot:
+  name: heater_B
+  description: Heat readout from a separate insulated vessel
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: heater_B
+  distractor_units: J
+  nongoverning_proof: The separate vessel heat readout does not affect Q = mcΔT for
+    system A.
+  values:
+  - id: 0
+    value: '1670'
+    display: '1670'
+  - id: 1
+    value: '1672'
+    display: '1672'
+  - id: 2
+    value: '1676'
+    display: '1676'
+  - id: 3
+    value: '1680'
+    display: '1680'
+  base_variant_id: 0
+prompt_template:
+  context: Water sample A has mass {m} kg, specific heat {c} J/(kg*K), and temperature
+    rise {delta_T} K. A separate insulated vessel B records {heater_B} J.
+  question: How much heat is added to sample A?
+  full_template: 'Water sample A has mass {m} kg, specific heat {c} J/(kg*K), and
+    temperature rise {delta_T} K. A separate insulated vessel B records {heater_B}
+    J.
+
+
+    How much heat is added to sample A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate insulated vessel B records {heater_B} J.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm = 0.2
+
+    c = 4186.0
+
+    delta_T = 2.0
+
+    result = m * c * delta_T
+
+    assert abs(result - 1674.4) < 0.001, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- thermodynamics
+- nongoverning_distractor
+- heat_transfer
+- extreme_nearmatch
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: target_quantity_change
+  operator_type: negative
+  description: Change the target/correct answer.

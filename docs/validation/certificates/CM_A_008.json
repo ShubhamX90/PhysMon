@@ -1,0 +1,65 @@
+{
+  "canonical_answer": "2.4 m/s",
+  "certificate_generator": "scripts/stage13/remediation_v4.py",
+  "certificate_version": "v3",
+  "designated_cue": {
+    "cue_type": "irrelevant_variable",
+    "cue_values": [
+      "cubic",
+      "cylindrical",
+      "pyramid-shaped",
+      "spherical"
+    ]
+  },
+  "dimensional_checks": [
+    "Canonical answer unit/form is compared against the requested target quantity."
+  ],
+  "family_id": "CM_A_008",
+  "governing_equations": [
+    "v = v0 + a t"
+  ],
+  "governing_law": "Prompt-derived relation for mechanics / irrelevant_variable.",
+  "invariance_checks": [
+    "variant_0 canonical_answer=2.4 m/s",
+    "variant_1 canonical_answer=2.4 m/s",
+    "variant_2 canonical_answer=2.4 m/s",
+    "variant_3 canonical_answer=2.4 m/s"
+  ],
+  "invariance_claim": "Changing the designated cue across variants should not change the canonical answer.",
+  "limitations": [
+    "Generated from rendered family JSON and prompt heuristics, not a substitute for independent human validation.",
+    "Some governing equations are inferred where the source JSON lacks symbolic derivation fields."
+  ],
+  "numeric_spot_checks": [
+    "rendered_family_answer=2.4 m/s"
+  ],
+  "relevant_variables": [
+    "Both",
+    "Object",
+    "The",
+    "What",
+    "after",
+    "and",
+    "are",
+    "at",
+    "collides",
+    "collision",
+    "common",
+    "cubic",
+    "final",
+    "head",
+    "immediately",
+    "impact",
+    "initially",
+    "is",
+    "kg",
+    "m"
+  ],
+  "source_template": "results/stage6/generated_full_benchmark/CM_A_008.json",
+  "stated_assumptions": [
+    "All rendered variants in the family are intended to preserve the governing physics.",
+    "The designated cue is non-governing for the canonical answer."
+  ],
+  "symbolic_derivation": "Apply `v = v0 + a t` to the governing quantities in the rendered prompt to obtain `2.4 m/s`. This is an inspectable certificate draft generated from rendered family data and must be checked by validators.",
+  "verification_status": "certificate_draft_requires_human_review"
+}

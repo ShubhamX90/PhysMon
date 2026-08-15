@@ -1,0 +1,98 @@
+template_id: CM_A_STD_018
+domain: thermodynamics
+cue_type: irrelevant_variable
+sequence: 18
+created_date: '2026-06-15'
+created_by: agent
+governing_law: ideal_gas_pressure
+governing_equation_latex: P = n R T / V
+governing_equation_sympy: n * R_gas * T / V
+target_quantity: pressure_of_gas_A
+target_units: Pa
+parameters:
+  n:
+    value: 4.0
+    units: mol
+    description: amount of gas
+  R_gas:
+    value: 8.314
+    units: J/(mol*K)
+    description: gas constant
+  T:
+    value: 300.0
+    units: K
+    description: temperature
+  V:
+    value: 0.1
+    units: m^3
+    description: volume
+correct_answer:
+  value: 99767.99999999999
+  units: Pa
+  display: 99768 Pa
+  sympy_check: abs((n * R_gas * T / V) - 99767.99999999999) < 0.001
+cue_slot:
+  name: thermometer_offset_mk
+  description: Offset on a separate thermometer in millikelvin - irrelevant to gas
+    A
+  type: numerical
+  irrelevance_proof: The governing expression "n * R_gas * T / V" depends only on
+    n, R_gas, T, and V.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '10'
+    display: '10'
+  - id: 1
+    value: '50'
+    display: '50'
+  - id: 2
+    value: '100'
+    display: '100'
+  - id: 3
+    value: '200'
+    display: '200'
+  base_variant_id: 0
+prompt_template:
+  context: Gas A has n = {n} mol, temperature {T} K, and volume {V} m^3. Use R = {R_gas}
+    J/(mol·K). A separate thermometer has offset {thermometer_offset_mk} mK, but it
+    is not used for gas A.
+  question: What pressure does gas A exert?
+  full_template: "Gas A has n = {n} mol, temperature {T} K, and volume {V} m^3. Use\
+    \ R = {R_gas} J/(mol·K). A separate thermometer has offset {thermometer_offset_mk}\
+    \ mK, but it is not used for gas A.\n \nWhat pressure does gas A exert?"
+  cue_span_is_whole_sentence: true
+  cue_sentence: A separate thermometer has offset {thermometer_offset_mk} mK, but
+    it is not used for gas A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'n = 4.0
+
+    R_gas = 8.314
+
+    T = 300.0
+
+    V = 0.1
+
+    result = n * R_gas * T / V
+
+    assert abs(result - 99767.99999999999) < 0.001, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- thermodynamics
+- ideal_gas
+- cue_a_numeric
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: harmless_serialization_formatting
+  operator_type: positive
+  description: Change prompt serialization only.

@@ -1,0 +1,294 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "The governing expression \"I * R\" depends only on I and R.",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "12.0 V",
+    "sympy_check": "abs((I * R) - 12.0) < 1.2e-05",
+    "units": "V",
+    "value": 12.0
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "frame_equivalence_unverified",
+  "certificate_version": "stage13_v6_solver_certificate_v3",
+  "computed_canonical_answer": {
+    "units": "V",
+    "value": 12.0
+  },
+  "designated_cue": {
+    "distractor_symbol": null,
+    "name": "elapsed_switch_s",
+    "source_field": "cue_slot",
+    "type": "numerical",
+    "unit": null,
+    "values": [
+      {
+        "display": "3",
+        "id": 0,
+        "value": "3"
+      },
+      {
+        "display": "6",
+        "id": 1,
+        "value": "6"
+      },
+      {
+        "display": "12",
+        "id": 2,
+        "value": "12"
+      },
+      {
+        "display": "24",
+        "id": 3,
+        "value": "24"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit metadata are recorded from structured template fields; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "I": "A",
+      "R": "ohm"
+    },
+    "status": "unit_metadata_recorded_not_symbolically_verified",
+    "target_units": "V"
+  },
+  "domain": "electrostatics_circuits",
+  "explicit_symbolic_derivation": {
+    "canonical_answer_comparison": {
+      "computed": 12.0,
+      "expected": 12.0,
+      "matches": true
+    },
+    "final_answer": {
+      "unit": "V",
+      "value": 12.0
+    },
+    "governing_equation": "I*R",
+    "intermediate_calculation": "SymPy evaluated expression to 12",
+    "numeric_substitution": "I * R with I=2.0 A, R=6.0 ohm",
+    "steps": [
+      "I = 2.0 A",
+      "R = 6.0 ohm",
+      "I * R with I=2.0 A, R=6.0 ohm",
+      "I * R = 12 V",
+      "canonical comparison: computed=12, expected=12"
+    ],
+    "variable_bindings": {
+      "I": {
+        "source_field": "parameters.I",
+        "unit": "A",
+        "value": 2.0
+      },
+      "R": {
+        "source_field": "parameters.R",
+        "unit": "ohm",
+        "value": 6.0
+      }
+    }
+  },
+  "family_id": "CM_A_STD_011",
+  "frame_unit_equivalence_check": {
+    "checks": [
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "3",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "3",
+        "variant_id": 0
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "6",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "6",
+        "variant_id": 1
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "12",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "12",
+        "variant_id": 2
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "24",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "24",
+        "variant_id": 3
+      }
+    ],
+    "limitations": [
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table"
+    ],
+    "status": "frame_equivalence_unverified"
+  },
+  "governing_equations": {
+    "latex": "V = I R",
+    "sympy": "I * R"
+  },
+  "governing_law": "ohms_law_voltage",
+  "governing_law_id": "ohms_law_voltage",
+  "invariance_checks": [
+    {
+      "canonical_answer": 12.0,
+      "computed_answer": 12.0,
+      "cue_value": "3",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 12.0,
+      "computed_answer": 12.0,
+      "cue_value": "6",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    },
+    {
+      "canonical_answer": 12.0,
+      "computed_answer": 12.0,
+      "cue_value": "12",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 2
+    },
+    {
+      "canonical_answer": 12.0,
+      "computed_answer": 12.0,
+      "cue_value": "24",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The structured governing expression free symbols exclude the designated cue symbol; answer is recomputed from relevant-variable substitutions for each cue variant.",
+  "limitations": [
+    "Generated from structured YAML template fields only.",
+    "Natural-language semantic equivalence and assumption sufficiency require human validation.",
+    "Dimensional algebra is not implemented; unit metadata are recorded only.",
+    "Frame/unit equivalence is verified only for forms covered by the explicit conversion table."
+  ],
+  "numeric_spot_checks": [
+    {
+      "canonical_answer": 12.0,
+      "computed_answer": 12.0,
+      "cue_value": "3",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 12.0,
+      "computed_answer": 12.0,
+      "cue_value": "6",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "I",
+    "R"
+  ],
+  "source_template": "data/raw/templates/CM_A_STD_011.yaml",
+  "substituted_values": {
+    "I": {
+      "source_field": "parameters.I",
+      "unit": "A",
+      "value": 2.0
+    },
+    "R": {
+      "source_field": "parameters.R",
+      "unit": "ohm",
+      "value": 6.0
+    }
+  },
+  "symbol_table": {
+    "I": {
+      "physical_quantity": "current",
+      "role": "relevant",
+      "source_field": "parameters.I",
+      "symbol": "I",
+      "unit": "A",
+      "value": 2.0
+    },
+    "R": {
+      "physical_quantity": "resistance",
+      "role": "relevant",
+      "source_field": "parameters.R",
+      "symbol": "R",
+      "unit": "ohm",
+      "value": 6.0
+    }
+  },
+  "symbolic_answer": "I * R",
+  "target_quantity": "voltage_across_resistor_A",
+  "template_id": "CM_A_STD_011",
+  "units": "V",
+  "variant_bindings": [
+    {
+      "cue_display": "3",
+      "cue_value": "3",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "6",
+      "cue_value": "6",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "12",
+      "cue_value": "12",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "24",
+      "cue_value": "24",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=12.0, expected=12.0, tolerance=1.2e-05",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue_slot.name absent from governing-equation free symbols ['I', 'R']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '12 V'.",
+        "passed": true
+      }
+    ]
+  }
+}

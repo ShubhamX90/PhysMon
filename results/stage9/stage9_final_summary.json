@@ -1,0 +1,58 @@
+{
+  "baselines": {
+    "answer_rationale_auroc_qwen": 0.6463736263736263,
+    "blackbox_counterfactual_family_margin_auroc": 0.6683516483516483,
+    "cot_text_auroc_qwen": 0.5990109890109889,
+    "correctness_probe_auroc": 0.7656818181818182,
+    "correctness_probe_layer": 24,
+    "entropy_proxy_auroc": 0.727032967032967,
+    "judge_zero_shot_auroc_mean": 0.4796703296703297,
+    "judge_zero_shot_auroc_range": 0.060989010989010994,
+    "mean_probe_auroc": 0.7595604395604396,
+    "mean_probe_best_layer": 18,
+    "per_variant_probe_auroc": 0.7186813186813188,
+    "per_variant_probe_layer": 18,
+    "probe_ablation_n2_auroc": 0.7349450549450549,
+    "probe_ablation_n3_auroc": 0.7325274725274724,
+    "probe_ablation_n4_auroc": 0.7307692307692307,
+    "self_consistency_auroc": 0.5369230769230768
+  },
+  "causal_controls": {
+    "damage_control_accuracy_delta": 0.012500000000000067,
+    "direction_injection_verdict": "NO_SUFFICIENCY",
+    "early_layer_mhk_best_mean": 0.0973696247424541,
+    "random_direction_actual_vs_random": [
+      1.8697220507514913,
+      0.021302193951949086
+    ],
+    "random_direction_verdict": "CONFIRMED",
+    "unrelated_donor_mean_recovery": -0.036932803453803544
+  },
+  "correctness_probe_concern": {
+    "label_pearson": -0.34641737110744764,
+    "layer_difference": "sensitivity_L18_vs_correctness_L24",
+    "resolution": "SENSITIVITY_PROBE_SURVIVES",
+    "residualised_auroc": 0.7375824175824175,
+    "score_pearson": -0.3322919782499855
+  },
+  "monitoring_extensions": {
+    "entropy_mean_probe_score_pearson": 0.3879620854823607,
+    "entropy_variance_probe_score_pearson": 0.4207066810490327,
+    "prompt_condition_4class_accuracy": 0.37222222222222223,
+    "prompt_condition_binary_auroc": 0.5323639689071787
+  },
+  "stage9_gate": "PASS",
+  "statistical_tests": {
+    "fisher_cue_type_p": 0.00574712643678161,
+    "mcnemar_qwen_vs_deepseek_p": 3.820342059747449e-06,
+    "permutation_domain_gen_p": 0.368,
+    "wilcoxon_continuous_slp_p": 4.024161245027394e-08
+  },
+  "threshold_sensitivity": {
+    "range": [
+      0.7224471434997751,
+      0.7816316560820713
+    ],
+    "verdict": "STABLE"
+  }
+}

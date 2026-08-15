@@ -1,0 +1,315 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "The reference column belongs to system B and does not affect rho g h for fluid A.",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "1176 Pa",
+    "sympy_check": "abs((rho * g * h) - 1176.0) < 0.001",
+    "units": "Pa",
+    "value": 1176.0
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "frame_equivalence_unverified",
+  "certificate_version": "stage13_v6_solver_certificate_v3",
+  "computed_canonical_answer": {
+    "units": "Pa",
+    "value": 1176.0
+  },
+  "designated_cue": {
+    "distractor_symbol": "pressure_probe_B",
+    "name": "pressure_probe_B",
+    "source_field": "cue_slot",
+    "type": "numerical",
+    "unit": "Pa",
+    "values": [
+      {
+        "display": "1170",
+        "id": 0,
+        "value": "1170"
+      },
+      {
+        "display": "1174",
+        "id": 1,
+        "value": "1174"
+      },
+      {
+        "display": "1178",
+        "id": 2,
+        "value": "1178"
+      },
+      {
+        "display": "1180",
+        "id": 3,
+        "value": "1180"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit metadata are recorded from structured template fields; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "g": "m/s^2",
+      "h": "m",
+      "rho": "kg/m^3"
+    },
+    "status": "unit_metadata_recorded_not_symbolically_verified",
+    "target_units": "Pa"
+  },
+  "domain": "thermodynamics",
+  "explicit_symbolic_derivation": {
+    "canonical_answer_comparison": {
+      "computed": 1176.0,
+      "expected": 1176.0,
+      "matches": true
+    },
+    "final_answer": {
+      "unit": "Pa",
+      "value": 1176.0
+    },
+    "governing_equation": "g*h*rho",
+    "intermediate_calculation": "SymPy evaluated expression to 1176",
+    "numeric_substitution": "rho * g * h with g=9.8 m/s^2, h=0.12 m, rho=1000.0 kg/m^3",
+    "steps": [
+      "g = 9.8 m/s^2",
+      "h = 0.12 m",
+      "rho = 1000.0 kg/m^3",
+      "rho * g * h with g=9.8 m/s^2, h=0.12 m, rho=1000.0 kg/m^3",
+      "rho * g * h = 1176 Pa",
+      "canonical comparison: computed=1176, expected=1176"
+    ],
+    "variable_bindings": {
+      "g": {
+        "source_field": "parameters.g",
+        "unit": "m/s^2",
+        "value": 9.8
+      },
+      "h": {
+        "source_field": "parameters.h",
+        "unit": "m",
+        "value": 0.12
+      },
+      "rho": {
+        "source_field": "parameters.rho",
+        "unit": "kg/m^3",
+        "value": 1000.0
+      }
+    }
+  },
+  "family_id": "TH_B_UM_012",
+  "frame_unit_equivalence_check": {
+    "checks": [
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "1170",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "1170",
+        "variant_id": 0
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "1174",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "1174",
+        "variant_id": 1
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "1178",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "1178",
+        "variant_id": 2
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "1180",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "1180",
+        "variant_id": 3
+      }
+    ],
+    "limitations": [
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table"
+    ],
+    "status": "frame_equivalence_unverified"
+  },
+  "governing_equations": {
+    "latex": "P = \\rho g h",
+    "sympy": "rho * g * h"
+  },
+  "governing_law": "hydrostatic_pressure_extreme_nearmatch",
+  "governing_law_id": "hydrostatic_pressure_extreme_nearmatch",
+  "invariance_checks": [
+    {
+      "canonical_answer": 1176.0,
+      "computed_answer": 1176.0,
+      "cue_value": "1170",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 1176.0,
+      "computed_answer": 1176.0,
+      "cue_value": "1174",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    },
+    {
+      "canonical_answer": 1176.0,
+      "computed_answer": 1176.0,
+      "cue_value": "1178",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 2
+    },
+    {
+      "canonical_answer": 1176.0,
+      "computed_answer": 1176.0,
+      "cue_value": "1180",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The structured governing expression free symbols exclude the designated cue symbol; answer is recomputed from relevant-variable substitutions for each cue variant.",
+  "limitations": [
+    "Generated from structured YAML template fields only.",
+    "Natural-language semantic equivalence and assumption sufficiency require human validation.",
+    "Dimensional algebra is not implemented; unit metadata are recorded only.",
+    "Frame/unit equivalence is verified only for forms covered by the explicit conversion table."
+  ],
+  "numeric_spot_checks": [
+    {
+      "canonical_answer": 1176.0,
+      "computed_answer": 1176.0,
+      "cue_value": "1170",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 1176.0,
+      "computed_answer": 1176.0,
+      "cue_value": "1174",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "g",
+    "h",
+    "rho"
+  ],
+  "source_template": "data/raw/templates/stage10_expansion/nongoverning_distractor/thermodynamics/TH_B_UM_012.yaml",
+  "substituted_values": {
+    "g": {
+      "source_field": "parameters.g",
+      "unit": "m/s^2",
+      "value": 9.8
+    },
+    "h": {
+      "source_field": "parameters.h",
+      "unit": "m",
+      "value": 0.12
+    },
+    "rho": {
+      "source_field": "parameters.rho",
+      "unit": "kg/m^3",
+      "value": 1000.0
+    }
+  },
+  "symbol_table": {
+    "g": {
+      "physical_quantity": "gravitational acceleration",
+      "role": "relevant",
+      "source_field": "parameters.g",
+      "symbol": "g",
+      "unit": "m/s^2",
+      "value": 9.8
+    },
+    "h": {
+      "physical_quantity": "depth",
+      "role": "relevant",
+      "source_field": "parameters.h",
+      "symbol": "h",
+      "unit": "m",
+      "value": 0.12
+    },
+    "rho": {
+      "physical_quantity": "fluid density",
+      "role": "relevant",
+      "source_field": "parameters.rho",
+      "symbol": "rho",
+      "unit": "kg/m^3",
+      "value": 1000.0
+    }
+  },
+  "symbolic_answer": "rho * g * h",
+  "target_quantity": "pressure_in_pascals",
+  "template_id": "TH_B_UM_012",
+  "units": "Pa",
+  "variant_bindings": [
+    {
+      "cue_display": "1170",
+      "cue_value": "1170",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "1174",
+      "cue_value": "1174",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "1178",
+      "cue_value": "1178",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "1180",
+      "cue_value": "1180",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=1176.0, expected=1176.0, tolerance=0.001176",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue_slot.distractor_symbol absent from governing-equation free symbols ['g', 'h', 'rho']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '1176 Pa'.",
+        "passed": true
+      }
+    ]
+  }
+}

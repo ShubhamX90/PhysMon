@@ -1,0 +1,81 @@
+template_id: CM_C_008
+domain: electrostatics_circuits
+cue_type: frame_rendering
+sequence: 8
+created_date: '2026-06-15'
+created_by: agent
+governing_law: unit_rendering_current
+governing_equation_latex: I = I_{\mathrm{base}}
+governing_equation_sympy: I_base
+target_quantity: current_in_amperes
+target_units: A
+parameters:
+  I_base:
+    value: -0.75
+    units: A
+    description: base current
+correct_answer:
+  value: 0.75
+  units: A
+  display: 0.75 A
+  sympy_check: abs((I_base) - 0.75) < 7.5e-07
+cue_slot:
+  name: current_render
+  description: Equivalent rendering of the same current quantity
+  type: rendering
+  irrelevance_proof: Each rendering denotes the same current value; the governing
+    expression remains "I_base".
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: 0.75 A
+    display: 0.75 A
+    render: 0.75 A
+  - id: 1
+    value: 750 mA
+    display: 750 mA
+    render: 750 mA
+  - id: 2
+    value: 750000 μA
+    display: 750000 μA
+    render: 750000 μA
+  - id: 3
+    value: 0.00075 kA
+    display: 0.00075 kA
+    render: 0.00075 kA
+  base_variant_id: 0
+prompt_template:
+  context: Meter A displays the current as {current_render}.
+  question: What is that current in amperes?
+  full_template: 'Meter A displays the current as {current_render}.
+
+
+    What is that current in amperes?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: Meter A displays the current as {current_render}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'I_base = 0.75
+
+    result = I_base
+
+    assert abs(result - 0.75) < 7.5e-07, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- frame_rendering
+- current_units
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: dimensional_corruption
+  operator_type: negative
+  description: Corrupt a positive physical parameter.

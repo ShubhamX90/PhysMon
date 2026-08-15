@@ -1,0 +1,93 @@
+template_id: TH_B_UM_012
+domain: thermodynamics
+cue_type: nongoverning_distractor
+sequence: 65
+created_date: '2026-06-15'
+created_by: agent
+governing_law: hydrostatic_pressure_extreme_nearmatch
+governing_equation_latex: P = \rho g h
+governing_equation_sympy: rho * g * h
+target_quantity: pressure_in_pascals
+target_units: Pa
+parameters:
+  rho:
+    value: -1000.0
+    units: kg/m^3
+    description: fluid density
+  g:
+    value: 9.8
+    units: m/s^2
+    description: gravitational acceleration
+  h:
+    value: 0.12
+    units: m
+    description: depth
+correct_answer:
+  value: 1176.0
+  units: Pa
+  display: 1176 Pa
+  sympy_check: abs((rho * g * h) - 1176.0) < 0.001
+cue_slot:
+  name: pressure_probe_B
+  description: Pressure from a separate reference column
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: pressure_probe_B
+  distractor_units: Pa
+  nongoverning_proof: The reference column belongs to system B and does not affect
+    rho g h for fluid A.
+  values:
+  - id: 0
+    value: '1170'
+    display: '1170'
+  - id: 1
+    value: '1174'
+    display: '1174'
+  - id: 2
+    value: '1178'
+    display: '1178'
+  - id: 3
+    value: '1180'
+    display: '1180'
+  base_variant_id: 0
+prompt_template:
+  context: Fluid A has density {rho} kg/m^3 and depth {h} m. A separate reference
+    column B reports {pressure_probe_B} Pa.
+  question: What is the hydrostatic pressure of fluid A due to this depth?
+  full_template: 'Fluid A has density {rho} kg/m^3 and depth {h} m. A separate reference
+    column B reports {pressure_probe_B} Pa.
+
+
+    What is the hydrostatic pressure of fluid A due to this depth?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate reference column B reports {pressure_probe_B} Pa.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'rho = 1000.0
+
+    g = 9.8
+
+    h = 0.12
+
+    result = rho * g * h
+
+    assert abs(result - 1176.0) < 0.001, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- thermodynamics
+- nongoverning_distractor
+- pressure
+- extreme_nearmatch
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: negative_parameter_value
+  operator_type: negative
+  description: Negate one structured parameter value.

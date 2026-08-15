@@ -1,0 +1,217 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "The separate vessel heat readout does not affect Q = mc\u0394T for system A.",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "1674.4 J",
+    "sympy_check": "abs((m * c * delta_T) - 1674.4) < 0.001",
+    "units": "J",
+    "value": 1674.4
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "certificate_generated",
+  "certificate_version": "stage13_v5_solver_certificate_v2",
+  "computed_canonical_answer": {
+    "units": "J",
+    "value": 1674.4
+  },
+  "designated_cue": {
+    "distractor_symbol": "heater_B",
+    "name": "heater_B",
+    "type": "numerical",
+    "units": "J",
+    "values": [
+      {
+        "display": "1670",
+        "id": 0,
+        "value": "1670"
+      },
+      {
+        "display": "1672",
+        "id": 1,
+        "value": "1672"
+      },
+      {
+        "display": "1676",
+        "id": 2,
+        "value": "1676"
+      },
+      {
+        "display": "1680",
+        "id": 3,
+        "value": "1680"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit algebra is recorded from template metadata; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "c": "J/(kg*K)",
+      "delta_T": "K",
+      "m": "kg"
+    },
+    "status": "checked_from_template_units",
+    "target_units": "J"
+  },
+  "domain": "thermodynamics",
+  "explicit_symbolic_derivation": {
+    "computed_value": 1674.4,
+    "expression": "c*delta_T*m",
+    "steps": [
+      "m = 0.2 kg",
+      "c = 4186.0 J/(kg*K)",
+      "delta_T = 2.0 K",
+      "m * c * delta_T = 1674.4 J"
+    ]
+  },
+  "family_id": "TH_B_UM_011",
+  "governing_equations": {
+    "latex": "Q = mc\\Delta T",
+    "sympy": "m * c * delta_T"
+  },
+  "governing_law": "heat_transfer_extreme_nearmatch",
+  "governing_law_id": "heat_transfer_extreme_nearmatch",
+  "invariance_checks": [
+    {
+      "computed_answer": 1674.4,
+      "cue_value": "1670",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 1674.4,
+      "cue_value": "1672",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    },
+    {
+      "computed_answer": 1674.4,
+      "cue_value": "1676",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 2
+    },
+    {
+      "computed_answer": 1674.4,
+      "cue_value": "1680",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The governing expression free symbols exclude the designated cue symbol; answer is recomputed for each cue variant.",
+  "limitations": [
+    "Generated only from structured YAML template fields.",
+    "Dimensional check is metadata-backed, not a full symbolic unit algebra proof."
+  ],
+  "numeric_spot_checks": [
+    {
+      "computed_answer": 1674.4,
+      "cue_value": "1670",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 1674.4,
+      "cue_value": "1672",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "c",
+    "delta_T",
+    "m"
+  ],
+  "source_template": "/Users/shubhammishra/Desktop/PhysMons/data/raw/templates/stage10_expansion/nongoverning_distractor/thermodynamics/TH_B_UM_011.yaml",
+  "substituted_values": {
+    "c": {
+      "units": "J/(kg*K)",
+      "value": 4186.0
+    },
+    "delta_T": {
+      "units": "K",
+      "value": 2.0
+    },
+    "m": {
+      "units": "kg",
+      "value": 0.2
+    }
+  },
+  "symbol_table": {
+    "c": {
+      "description": "specific heat",
+      "role": "relevant",
+      "units": "J/(kg*K)",
+      "value": 4186.0
+    },
+    "delta_T": {
+      "description": "temperature rise",
+      "role": "relevant",
+      "units": "K",
+      "value": 2.0
+    },
+    "m": {
+      "description": "mass",
+      "role": "relevant",
+      "units": "kg",
+      "value": 0.2
+    }
+  },
+  "symbolic_answer": "m * c * delta_T",
+  "target_quantity": "heat_in_joules",
+  "template_id": "TH_B_UM_011",
+  "units": "J",
+  "variant_bindings": [
+    {
+      "cue_display": "1670",
+      "cue_value": "1670",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "1672",
+      "cue_value": "1672",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "1676",
+      "cue_value": "1676",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "1680",
+      "cue_value": "1680",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=1674.4, expected=1674.4, tolerance=0.0016744",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue_slot.distractor_symbol absent from governing-equation free symbols ['c', 'delta_T', 'm']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '1674 J'.",
+        "passed": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "The governing expression \"I * R\" depends only on I and R.",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "12.0 V",
+    "sympy_check": "abs((I * R) - 12.0) < 1.2e-05",
+    "units": "V",
+    "value": 12.0
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "certificate_generated",
+  "certificate_version": "stage13_v5_solver_certificate_v2",
+  "computed_canonical_answer": {
+    "units": "V",
+    "value": 12.0
+  },
+  "designated_cue": {
+    "distractor_symbol": null,
+    "name": "elapsed_switch_s",
+    "type": "numerical",
+    "units": null,
+    "values": [
+      {
+        "display": "3",
+        "id": 0,
+        "value": "3"
+      },
+      {
+        "display": "6",
+        "id": 1,
+        "value": "6"
+      },
+      {
+        "display": "12",
+        "id": 2,
+        "value": "12"
+      },
+      {
+        "display": "24",
+        "id": 3,
+        "value": "24"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit algebra is recorded from template metadata; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "I": "A",
+      "R": "ohm"
+    },
+    "status": "checked_from_template_units",
+    "target_units": "V"
+  },
+  "domain": "electrostatics_circuits",
+  "explicit_symbolic_derivation": {
+    "computed_value": 12.0,
+    "expression": "I*R",
+    "steps": [
+      "I = 2.0 A",
+      "R = 6.0 ohm",
+      "I * R = 12 V"
+    ]
+  },
+  "family_id": "CM_A_STD_011",
+  "governing_equations": {
+    "latex": "V = I R",
+    "sympy": "I * R"
+  },
+  "governing_law": "ohms_law_voltage",
+  "governing_law_id": "ohms_law_voltage",
+  "invariance_checks": [
+    {
+      "computed_answer": 12.0,
+      "cue_value": "3",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 12.0,
+      "cue_value": "6",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    },
+    {
+      "computed_answer": 12.0,
+      "cue_value": "12",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 2
+    },
+    {
+      "computed_answer": 12.0,
+      "cue_value": "24",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The governing expression free symbols exclude the designated cue symbol; answer is recomputed for each cue variant.",
+  "limitations": [
+    "Generated only from structured YAML template fields.",
+    "Dimensional check is metadata-backed, not a full symbolic unit algebra proof."
+  ],
+  "numeric_spot_checks": [
+    {
+      "computed_answer": 12.0,
+      "cue_value": "3",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 12.0,
+      "cue_value": "6",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "I",
+    "R"
+  ],
+  "source_template": "/Users/shubhammishra/Desktop/PhysMons/data/raw/templates/CM_A_STD_011.yaml",
+  "substituted_values": {
+    "I": {
+      "units": "A",
+      "value": 2.0
+    },
+    "R": {
+      "units": "ohm",
+      "value": 6.0
+    }
+  },
+  "symbol_table": {
+    "I": {
+      "description": "current",
+      "role": "relevant",
+      "units": "A",
+      "value": 2.0
+    },
+    "R": {
+      "description": "resistance",
+      "role": "relevant",
+      "units": "ohm",
+      "value": 6.0
+    }
+  },
+  "symbolic_answer": "I * R",
+  "target_quantity": "voltage_across_resistor_A",
+  "template_id": "CM_A_STD_011",
+  "units": "V",
+  "variant_bindings": [
+    {
+      "cue_display": "3",
+      "cue_value": "3",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "6",
+      "cue_value": "6",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "12",
+      "cue_value": "12",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "24",
+      "cue_value": "24",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=12.0, expected=12.0, tolerance=1.2e-05",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue_slot.name absent from governing-equation free symbols ['I', 'R']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '12 V'.",
+        "passed": true
+      }
+    ]
+  }
+}

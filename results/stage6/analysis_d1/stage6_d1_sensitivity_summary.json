@@ -1,0 +1,189 @@
+{
+  "cross_model": {
+    "families_both_sensitive": 5,
+    "families_neither_sensitive": 22,
+    "families_only_llama_sensitive": 5,
+    "families_only_qwen_sensitive": 8,
+    "families_with_any_primary_flip": 18
+  },
+  "gate_4_evidence": "18 of 40 pilot families showed at least one answer flip on at least one PRIMARY_DENSE model (threshold for PASS: >= 6).",
+  "gate_4_pass": true,
+  "llama_primary": {
+    "S_lp_theta_mean": 0.4314453125,
+    "answer_correct_rate": 0.6352201257861635,
+    "families_artifact_flagged": [],
+    "families_degraded": [
+      "CM_B_UM_013"
+    ],
+    "families_with_any_flip": 10,
+    "hat_S_theta_max": 0.8333333333333334,
+    "hat_S_theta_mean": 0.14166666666666666,
+    "hat_S_theta_median": 0.0,
+    "hat_S_theta_p25": 0.0,
+    "hat_S_theta_p75": 0.125,
+    "parse_success_rate": 0.99375,
+    "pct_families_with_any_flip": 0.25
+  },
+  "qwen_primary": {
+    "S_lp_theta_mean": 1.0947265625,
+    "answer_correct_rate": 0.66875,
+    "families_artifact_flagged": [],
+    "families_degraded": [],
+    "families_with_any_flip": 13,
+    "hat_S_theta_max": 1.0,
+    "hat_S_theta_mean": 0.20416666666666666,
+    "hat_S_theta_median": 0.0,
+    "hat_S_theta_p25": 0.0,
+    "hat_S_theta_p75": 0.5,
+    "parse_success_rate": 1.0,
+    "pct_families_with_any_flip": 0.325
+  },
+  "repair_run": false,
+  "slp_stability_check": {
+    "matches_prior_repair": true,
+    "mismatches": []
+  },
+  "slp_threshold_candidates": {
+    "llama_primary": {},
+    "qwen_primary": {}
+  },
+  "stage6_d1": {
+    "gate_evidence": "19 of 40 Stage 6 Phase D1 families reached Qwen S_lp >= 0.5 nats (threshold for PASS: >= 12).",
+    "gate_pass": true,
+    "per_class_llama": {
+      "charge_charge": {
+        "family_count": 4,
+        "mean_S_lp": 0.29296875,
+        "median_S_lp": 0.0625,
+        "positive_count": 1,
+        "positive_rate": 0.25
+      },
+      "current_current": {
+        "family_count": 6,
+        "mean_S_lp": 0.24479166666666666,
+        "median_S_lp": 0.171875,
+        "positive_count": 1,
+        "positive_rate": 0.16666666666666666
+      },
+      "force_force": {
+        "family_count": 8,
+        "mean_S_lp": 0.591796875,
+        "median_S_lp": 0.2265625,
+        "positive_count": 3,
+        "positive_rate": 0.375
+      },
+      "frequency_frequency": {
+        "family_count": 5,
+        "mean_S_lp": 0.728125,
+        "median_S_lp": 0.078125,
+        "positive_count": 2,
+        "positive_rate": 0.4
+      },
+      "torque_torque": {
+        "family_count": 5,
+        "mean_S_lp": 0.103125,
+        "median_S_lp": 0.0,
+        "positive_count": 0,
+        "positive_rate": 0.0
+      },
+      "velocity_velocity": {
+        "family_count": 6,
+        "mean_S_lp": 0.921875,
+        "median_S_lp": 0.3359375,
+        "positive_count": 3,
+        "positive_rate": 0.5
+      },
+      "voltage_voltage": {
+        "family_count": 6,
+        "mean_S_lp": 0.032552083333333336,
+        "median_S_lp": 0.0,
+        "positive_count": 0,
+        "positive_rate": 0.0
+      }
+    },
+    "per_class_qwen": {
+      "charge_charge": {
+        "family_count": 4,
+        "mean_S_lp": 0.734375,
+        "median_S_lp": 0.5625,
+        "positive_count": 2,
+        "positive_rate": 0.5
+      },
+      "current_current": {
+        "family_count": 6,
+        "mean_S_lp": 0.34765625,
+        "median_S_lp": 0.171875,
+        "positive_count": 2,
+        "positive_rate": 0.3333333333333333
+      },
+      "force_force": {
+        "family_count": 8,
+        "mean_S_lp": 0.943359375,
+        "median_S_lp": 0.109375,
+        "positive_count": 3,
+        "positive_rate": 0.375
+      },
+      "frequency_frequency": {
+        "family_count": 5,
+        "mean_S_lp": 2.45,
+        "median_S_lp": 2.15625,
+        "positive_count": 3,
+        "positive_rate": 0.6
+      },
+      "torque_torque": {
+        "family_count": 5,
+        "mean_S_lp": 0.20625,
+        "median_S_lp": 0.0,
+        "positive_count": 1,
+        "positive_rate": 0.2
+      },
+      "velocity_velocity": {
+        "family_count": 6,
+        "mean_S_lp": 2.2786458333333335,
+        "median_S_lp": 2.296875,
+        "positive_count": 5,
+        "positive_rate": 0.8333333333333334
+      },
+      "voltage_voltage": {
+        "family_count": 6,
+        "mean_S_lp": 0.7109375,
+        "median_S_lp": 0.265625,
+        "positive_count": 3,
+        "positive_rate": 0.5
+      }
+    },
+    "qwen_slp_positive_count": 19,
+    "qwen_slp_positive_rate": 0.475,
+    "threshold": 0.5
+  },
+  "threshold_candidates": {
+    "llama_primary": {
+      "target_20pct": {
+        "observed_positive_rate": 0.32142857142857145,
+        "threshold": 0.5
+      },
+      "target_30pct": {
+        "observed_positive_rate": 0.32142857142857145,
+        "threshold": 0.5
+      },
+      "target_40pct": {
+        "observed_positive_rate": 0.32142857142857145,
+        "threshold": 0.5
+      }
+    },
+    "qwen_primary": {
+      "target_20pct": {
+        "observed_positive_rate": 0.14285714285714285,
+        "threshold": 0.6666666666666666
+      },
+      "target_30pct": {
+        "observed_positive_rate": 0.32142857142857145,
+        "threshold": 0.5
+      },
+      "target_40pct": {
+        "observed_positive_rate": 0.32142857142857145,
+        "threshold": 0.5
+      }
+    }
+  }
+}

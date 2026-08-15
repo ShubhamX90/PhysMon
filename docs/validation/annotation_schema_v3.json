@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "pass_number": {
+            "const": 1
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "independent_solution",
+          "governing_law",
+          "relevant_variables"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "pass_number": {
+            "const": 2
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "solver_derivation_correct",
+          "certificate_valid",
+          "canonical_answer_correct"
+        ]
+      }
+    }
+  ],
+  "properties": {
+    "answer_invariant": {
+      "enum": [
+        "yes",
+        "no",
+        "uncertain",
+        "not_assessed"
+      ]
+    },
+    "assumptions_sufficient": {
+      "enum": [
+        "yes",
+        "no",
+        "uncertain",
+        "not_assessed"
+      ]
+    },
+    "certificate_valid": {
+      "enum": [
+        "yes",
+        "no",
+        "uncertain",
+        "not_assessed"
+      ]
+    },
+    "completed_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "confidence": {
+      "maximum": 5,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "family_id": {
+      "type": "string"
+    },
+    "overall_verdict": {
+      "enum": [
+        "valid",
+        "invalid",
+        "repair_needed",
+        "uncertain"
+      ]
+    },
+    "packet_version": {
+      "enum": [
+        "v3"
+      ]
+    },
+    "pass_number": {
+      "enum": [
+        1,
+        2
+      ]
+    },
+    "semantic_equivalence": {
+      "enum": [
+        "yes",
+        "no",
+        "uncertain",
+        "not_assessed"
+      ]
+    },
+    "started_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "validator_id": {
+      "pattern": "^[A-Za-z0-9_.-]{2,64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "validator_id",
+    "family_id",
+    "packet_version",
+    "pass_number",
+    "overall_verdict",
+    "confidence"
+  ],
+  "type": "object"
+}

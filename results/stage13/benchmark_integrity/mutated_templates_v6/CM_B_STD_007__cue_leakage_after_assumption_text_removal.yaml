@@ -1,0 +1,100 @@
+template_id: CM_B_STD_007
+domain: thermodynamics
+cue_type: nongoverning_distractor
+sequence: 7
+created_date: '2026-06-15'
+created_by: agent
+governing_law: heat_energy_capacity
+governing_equation_latex: Q = m_A c_A \Delta T_A
+governing_equation_sympy: (m_A * c_A * delta_T_A) + delta_T_B
+target_quantity: heat_added_to_water_A
+target_units: J
+parameters:
+  m_A:
+    value: 2.0
+    units: kg
+    description: mass of water A
+  c_A:
+    value: 4200.0
+    units: J/(kg*K)
+    description: specific heat of water
+  delta_T_A:
+    value: 5.0
+    units: K
+    description: temperature rise of water A
+  delta_T_B:
+    value: '1.0'
+    units: K
+    description: introduced cue after assumption removal
+correct_answer:
+  value: 42000.0
+  units: J
+  display: 42000 J
+  sympy_check: abs((m_A * c_A * delta_T_A) - 42000.0) < 0.041999999999999996
+cue_slot:
+  name: delta_T_B_display
+  description: Temperature rise of a separate sample B
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: delta_T_B
+  distractor_units: K
+  nongoverning_proof: ''
+  values:
+  - id: 0
+    value: '2.0'
+    display: '2.0'
+  - id: 1
+    value: '4.8'
+    display: '4.8'
+  - id: 2
+    value: '5.0'
+    display: '5.0'
+  - id: 3
+    value: '8.0'
+    display: '8.0'
+  base_variant_id: 0
+prompt_template:
+  context: Water sample A has mass {m_A} kg, specific heat capacity {c_A} J/(kg·K),
+    and temperature increase {delta_T_A} K. A separate sample B warms by {delta_T_B_display}
+    K, but sample B never exchanges heat with sample A.
+  question: How much heat is added to sample A?
+  full_template: 'Water sample A has mass {m_A} kg, specific heat capacity {c_A} J/(kg·K),
+    and temperature increase {delta_T_A} K. A separate sample B warms by {delta_T_B_display}
+    K, but sample B never exchanges heat with sample A.
+
+
+    How much heat is added to sample A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate sample B warms by {delta_T_B_display} K, but sample B never
+    exchanges heat with sample A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm_A = 2.0
+
+    c_A = 4200.0
+
+    delta_T_A = 5.0
+
+    result = m_A * c_A * delta_T_A
+
+    assert abs(result - 42000.0) < 0.041999999999999996, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- thermodynamics
+- heat_capacity
+- cue_b_standard
+- near_match
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: cue_leakage_after_assumption_text_removal
+  operator_type: negative
+  description: Remove cue proof text and leak cue into the expression; this tests
+    cue leakage, not assumption sufficiency.

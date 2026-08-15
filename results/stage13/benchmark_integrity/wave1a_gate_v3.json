@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "check_id": "false_pass_replaced",
+      "detail": "Earlier Wave 1A PASS is superseded because it checked file existence rather than scientific content.",
+      "passed": true
+    },
+    {
+      "check_id": "content_based_checks_required",
+      "detail": "Version 4 remediation performs the substantive content checks.",
+      "passed": false
+    },
+    {
+      "check_id": "human_pilot_ready",
+      "detail": "Human labels and adjudication are absent.",
+      "passed": false
+    }
+  ],
+  "critical_failures": [
+    "scientific_content_incomplete",
+    "human_pilot_not_ready"
+  ],
+  "failure_reason": "SCIENTIFIC_CONTENT_INCOMPLETE",
+  "gate_name": "stage13_wave1a_scientific_content_gate",
+  "gate_version": "3.0",
+  "git_commit": "ea914541f883f29308858346f51ec77ce73fdfb4",
+  "git_dirty": true,
+  "human_pilot_status": "NOT_READY",
+  "input_hashes": {
+    "authority_v4": "f4128a4c5f2a10f93c968608a19c0cfe44a389e17ec1a83a2578e9a83b4534d1",
+    "balance_v3": "117215712712e745fd6e6c61d0a9d36a5a6db8c792c246787844ddecec6661c0",
+    "canonical_v4": "64c1f32c2c1ff4fa7c7a0b8a5745d42df96fdf51e607e6ea99aa878c687b04a2",
+    "claim_matrix_v4": "8f108dbf56f92de14a6ac498ba9dc60f44f6c1c3989bb2e5a56b6d0ba448027e",
+    "coverage_v4": "968d34fad2d000840290487691f55b35031dab88615f82aeee4fcee1310438ca",
+    "leakage_v3": "3495c94dda1ec359607c34f4ad35fb687aec93003829416d1bb550deac336bbb",
+    "mutation_v3": "43715537061272201e5fccfb3840fee2361b8d6fd22364f0410b120f61558af0",
+    "parser_v3": "0454a02075f8d5153b8935cbe8a0d0f93c62fa1f1492b0d418ca84cac67a31ab",
+    "partition_v4": "b8babcf4802184c7218818e2cd460e3e96fc3edb1d4c0c726f41f99c9ac44b4f",
+    "registry": "cbea66ef402422f86c64df06e82d963442bf9076debf8d889327dec6a81182bb"
+  },
+  "paper_eligibility": false,
+  "permission_for_wave2": false,
+  "status": "FAIL",
+  "superseded_by": "results/stage13/benchmark_integrity/wave1a_gate_v4.json"
+}

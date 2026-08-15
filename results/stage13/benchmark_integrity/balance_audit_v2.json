@@ -1,0 +1,112 @@
+{
+  "feature_audits": {
+    "equation_count": {
+      "negative_mean": 1.12,
+      "pearson_with_label": -0.08338184756113627,
+      "positive_mean": 0.75,
+      "single_feature_auc": 0.8118333333333333,
+      "spearman_with_label": -0.08500993648037088,
+      "standardized_effect": -0.1668505286064812
+    },
+    "number_count": {
+      "negative_mean": 14.24,
+      "pearson_with_label": 0.03928991865139343,
+      "positive_mean": 14.7875,
+      "single_feature_auc": 0.6478333333333334,
+      "spearman_with_label": 0.02553788407165377,
+      "standardized_effect": 0.0786207536488565
+    },
+    "prompt_length": {
+      "negative_mean": 866.8133333333334,
+      "pearson_with_label": -0.08594872318300666,
+      "positive_mean": 824.725,
+      "single_feature_auc": 0.4728333333333333,
+      "spearman_with_label": -0.048185476402848995,
+      "standardized_effect": -0.1719869529830475
+    },
+    "token_count": {
+      "negative_mean": 163.41333333333333,
+      "pearson_with_label": -0.09904004671952939,
+      "positive_mean": 154.1125,
+      "single_feature_auc": 0.4785,
+      "spearman_with_label": -0.06498262207309236,
+      "standardized_effect": -0.19818323330204263
+    },
+    "unit_token_count": {
+      "negative_mean": 12.306666666666667,
+      "pearson_with_label": 0.00639889356598415,
+      "positive_mean": 12.3875,
+      "single_feature_auc": 0.5908333333333333,
+      "spearman_with_label": 0.005898014103405835,
+      "standardized_effect": 0.012804450911191331
+    },
+    "variable_count": {
+      "negative_mean": 31.133333333333333,
+      "pearson_with_label": -0.10213776044615132,
+      "positive_mean": 28.5625,
+      "single_feature_auc": 0.4846666666666667,
+      "spearman_with_label": -0.09379118671778051,
+      "standardized_effect": -0.2043818867005477
+    }
+  },
+  "feature_statistics": {
+    "equation_count": {
+      "negative_mean": 1.12,
+      "pearson_with_label": -0.08338184756113627,
+      "positive_mean": 0.75,
+      "single_feature_auc": 0.8118333333333333,
+      "spearman_with_label": -0.08500993648037088,
+      "standardized_effect": -0.1668505286064812
+    },
+    "number_count": {
+      "negative_mean": 14.24,
+      "pearson_with_label": 0.03928991865139343,
+      "positive_mean": 14.7875,
+      "single_feature_auc": 0.6478333333333334,
+      "spearman_with_label": 0.02553788407165377,
+      "standardized_effect": 0.0786207536488565
+    },
+    "prompt_length": {
+      "negative_mean": 866.8133333333334,
+      "pearson_with_label": -0.08594872318300666,
+      "positive_mean": 824.725,
+      "single_feature_auc": 0.4728333333333333,
+      "spearman_with_label": -0.048185476402848995,
+      "standardized_effect": -0.1719869529830475
+    },
+    "token_count": {
+      "negative_mean": 163.41333333333333,
+      "pearson_with_label": -0.09904004671952939,
+      "positive_mean": 154.1125,
+      "single_feature_auc": 0.4785,
+      "spearman_with_label": -0.06498262207309236,
+      "standardized_effect": -0.19818323330204263
+    },
+    "unit_token_count": {
+      "negative_mean": 12.306666666666667,
+      "pearson_with_label": 0.00639889356598415,
+      "positive_mean": 12.3875,
+      "single_feature_auc": 0.5908333333333333,
+      "spearman_with_label": 0.005898014103405835,
+      "standardized_effect": 0.012804450911191331
+    },
+    "variable_count": {
+      "negative_mean": 31.133333333333333,
+      "pearson_with_label": -0.10213776044615132,
+      "positive_mean": 28.5625,
+      "single_feature_auc": 0.4846666666666667,
+      "spearman_with_label": -0.09379118671778051,
+      "standardized_effect": -0.2043818867005477
+    }
+  },
+  "grouped_cv_combined_surface_feature_auroc": 0.8118333333333333,
+  "grouped_cv_policy": "family-level only; sibling leakage prohibited",
+  "multiple_testing_correction": "benjamini_hochberg_required_before_claim_use",
+  "n_families": 155,
+  "required_mitigation": "Review strongest surface confounds and decide whether matched-control reporting is needed.",
+  "status": "INCOMPLETE_SUBSTANTIVE_AUDIT_READY",
+  "strongest_confound": {
+    "feature": "variable_count",
+    "standardized_effect": -0.2043818867005477
+  }
+}

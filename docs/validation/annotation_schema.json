@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PhysMon Stage 13 Human Validation Annotation",
+  "type": "object",
+  "required": [
+    "packet_id",
+    "validator_id",
+    "human_valid_physics",
+    "human_cue_irrelevant",
+    "human_answer_matches_certificate",
+    "confidence",
+    "notes"
+  ],
+  "properties": {
+    "packet_id": {"type": "string"},
+    "validator_id": {"type": "string"},
+    "human_valid_physics": {"enum": ["yes", "no", "uncertain"]},
+    "human_cue_irrelevant": {"enum": ["yes", "no", "uncertain"]},
+    "human_answer_matches_certificate": {"enum": ["yes", "no", "uncertain"]},
+    "confidence": {"enum": ["low", "medium", "high"]},
+    "notes": {"type": "string"}
+  }
+}
+

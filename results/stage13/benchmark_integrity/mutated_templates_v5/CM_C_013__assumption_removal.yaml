@@ -1,0 +1,84 @@
+template_id: CM_C_013
+domain: mechanics
+cue_type: frame_rendering
+sequence: 13
+created_date: '2026-06-15'
+created_by: agent
+governing_law: unit_rendering_acceleration
+governing_equation_latex: a = a_{\mathrm{base}}
+governing_equation_sympy: (a_base) + acceleration_render
+target_quantity: acceleration_in_m_per_s2
+target_units: m/s^2
+parameters:
+  a_base:
+    value: 9.8
+    units: m/s^2
+    description: base acceleration
+  acceleration_render:
+    value: '1.0'
+    units: null
+    description: introduced cue after assumption removal
+correct_answer:
+  value: 9.8
+  units: m/s^2
+  display: 9.8 m/s^2
+  sympy_check: abs((a_base) - 9.8) < 9.800000000000001e-06
+cue_slot:
+  name: acceleration_render
+  description: Equivalent rendering of the same acceleration quantity
+  type: rendering
+  irrelevance_proof: ''
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: 9.8 m/s^2
+    display: 9.8 m/s^2
+    render: 9.8 m/s^2
+  - id: 1
+    value: 980 cm/s^2
+    display: 980 cm/s^2
+    render: 980 cm/s^2
+  - id: 2
+    value: 0.0098 km/s^2
+    display: 0.0098 km/s^2
+    render: 0.0098 km/s^2
+  - id: 3
+    value: 9.8 N/kg
+    display: 9.8 N/kg
+    render: 9.8 N/kg
+  base_variant_id: 0
+prompt_template:
+  context: An inertial sensor reports the acceleration as {acceleration_render}.
+  question: What is that acceleration in m/s^2?
+  full_template: 'An inertial sensor reports the acceleration as {acceleration_render}.
+
+
+    What is that acceleration in m/s^2?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: An inertial sensor reports the acceleration as {acceleration_render}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'a_base = 9.8
+
+    result = a_base
+
+    assert abs(result - 9.8) < 9.800000000000001e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- frame_rendering
+- acceleration_units
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: assumption_removal
+  operator_type: negative
+  description: Remove cue irrelevance proof and leak cue into equation.

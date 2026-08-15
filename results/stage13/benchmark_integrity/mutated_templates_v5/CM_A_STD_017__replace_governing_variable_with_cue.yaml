@@ -1,0 +1,96 @@
+template_id: CM_A_STD_017
+domain: thermodynamics
+cue_type: irrelevant_variable
+sequence: 17
+created_date: '2026-06-15'
+created_by: agent
+governing_law: heat_energy
+governing_equation_latex: Q = m c \Delta T
+governing_equation_sympy: m * test_duration_s * delta_T
+target_quantity: heat_added_to_water_A
+target_units: J
+parameters:
+  m:
+    value: 2.0
+    units: kg
+    description: mass
+  c:
+    value: 4186.0
+    units: J/(kg*K)
+    description: specific heat
+  delta_T:
+    value: 5.0
+    units: K
+    description: temperature change
+  test_duration_s:
+    value: '1.0'
+    units: null
+    description: introduced cue parameter
+correct_answer:
+  value: 41860.0
+  units: J
+  display: 41860 J
+  sympy_check: abs((m * c * delta_T) - 41860.0) < 0.04186
+cue_slot:
+  name: test_duration_s
+  description: Duration of a later observation period - irrelevant to the heat transfer
+    amount
+  type: numerical
+  irrelevance_proof: The governing expression "m * c * delta_T" depends only on m,
+    c, and delta_T.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '10'
+    display: '10'
+  - id: 1
+    value: '20'
+    display: '20'
+  - id: 2
+    value: '40'
+    display: '40'
+  - id: 3
+    value: '80'
+    display: '80'
+  base_variant_id: 0
+prompt_template:
+  context: Water sample A has mass {m} kg, specific heat {c} J/(kg·K), and temperature
+    rise {delta_T} K. A later observation lasted {test_duration_s} s.
+  question: How much heat is added to water sample A?
+  full_template: 'Water sample A has mass {m} kg, specific heat {c} J/(kg·K), and
+    temperature rise {delta_T} K. A later observation lasted {test_duration_s} s.
+
+
+    How much heat is added to water sample A?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: A later observation lasted {test_duration_s} s.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm = 2.0
+
+    c = 4186.0
+
+    delta_T = 5.0
+
+    result = m * c * delta_T
+
+    assert abs(result - 41860.0) < 0.04186, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- thermodynamics
+- heat_capacity
+- cue_a_numeric
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: replace_governing_variable_with_cue
+  operator_type: negative
+  description: Replace one governing variable with the cue symbol.

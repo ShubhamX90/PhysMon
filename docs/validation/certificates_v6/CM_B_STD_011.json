@@ -1,0 +1,315 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "The governing expression \"k_const * q_A / r_A**2\" has free symbols {k_const, q_A, r_A}; r_B belongs to a separate setup and is absent from charge A's field law.",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "449500 N/C",
+    "sympy_check": "abs((k_const * q_A / r_A**2) - 449499.9999999999) < 0.001",
+    "units": "N/C",
+    "value": 449499.9999999999
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "frame_equivalence_unverified",
+  "certificate_version": "stage13_v6_solver_certificate_v3",
+  "computed_canonical_answer": {
+    "units": "N/C",
+    "value": 449499.99999999994
+  },
+  "designated_cue": {
+    "distractor_symbol": "r_B",
+    "name": "r_B_display",
+    "source_field": "cue_slot",
+    "type": "numerical",
+    "unit": "m",
+    "values": [
+      {
+        "display": "0.10",
+        "id": 0,
+        "value": "0.10"
+      },
+      {
+        "display": "0.19",
+        "id": 1,
+        "value": "0.19"
+      },
+      {
+        "display": "0.20",
+        "id": 2,
+        "value": "0.20"
+      },
+      {
+        "display": "0.30",
+        "id": 3,
+        "value": "0.30"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit metadata are recorded from structured template fields; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "k_const": "N*m^2/C^2",
+      "q_A": "C",
+      "r_A": "m"
+    },
+    "status": "unit_metadata_recorded_not_symbolically_verified",
+    "target_units": "N/C"
+  },
+  "domain": "electrostatics_circuits",
+  "explicit_symbolic_derivation": {
+    "canonical_answer_comparison": {
+      "computed": 449499.99999999994,
+      "expected": 449499.9999999999,
+      "matches": true
+    },
+    "final_answer": {
+      "unit": "N/C",
+      "value": 449499.99999999994
+    },
+    "governing_equation": "k_const*q_A/r_A**2",
+    "intermediate_calculation": "SymPy evaluated expression to 449500",
+    "numeric_substitution": "k_const * q_A / r_A**2 with k_const=8990000000.0 N*m^2/C^2, q_A=2e-06 C, r_A=0.2 m",
+    "steps": [
+      "k_const = 8990000000.0 N*m^2/C^2",
+      "q_A = 2e-06 C",
+      "r_A = 0.2 m",
+      "k_const * q_A / r_A**2 with k_const=8990000000.0 N*m^2/C^2, q_A=2e-06 C, r_A=0.2 m",
+      "k_const * q_A / r_A**2 = 449500 N/C",
+      "canonical comparison: computed=449500, expected=449500"
+    ],
+    "variable_bindings": {
+      "k_const": {
+        "source_field": "parameters.k_const",
+        "unit": "N*m^2/C^2",
+        "value": 8990000000.0
+      },
+      "q_A": {
+        "source_field": "parameters.q_A",
+        "unit": "C",
+        "value": 2e-06
+      },
+      "r_A": {
+        "source_field": "parameters.r_A",
+        "unit": "m",
+        "value": 0.2
+      }
+    }
+  },
+  "family_id": "CM_B_STD_011",
+  "frame_unit_equivalence_check": {
+    "checks": [
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "0.10",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "0.10",
+        "variant_id": 0
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "0.19",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "0.19",
+        "variant_id": 1
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "0.20",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "0.20",
+        "variant_id": 2
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "0.30",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "0.30",
+        "variant_id": 3
+      }
+    ],
+    "limitations": [
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table"
+    ],
+    "status": "frame_equivalence_unverified"
+  },
+  "governing_equations": {
+    "latex": "E = k q_A / r_A^2",
+    "sympy": "k_const * q_A / r_A**2"
+  },
+  "governing_law": "electric_field_distance_distractor",
+  "governing_law_id": "electric_field_distance_distractor",
+  "invariance_checks": [
+    {
+      "canonical_answer": 449499.9999999999,
+      "computed_answer": 449499.99999999994,
+      "cue_value": "0.10",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 449499.9999999999,
+      "computed_answer": 449499.99999999994,
+      "cue_value": "0.19",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    },
+    {
+      "canonical_answer": 449499.9999999999,
+      "computed_answer": 449499.99999999994,
+      "cue_value": "0.20",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 2
+    },
+    {
+      "canonical_answer": 449499.9999999999,
+      "computed_answer": 449499.99999999994,
+      "cue_value": "0.30",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The structured governing expression free symbols exclude the designated cue symbol; answer is recomputed from relevant-variable substitutions for each cue variant.",
+  "limitations": [
+    "Generated from structured YAML template fields only.",
+    "Natural-language semantic equivalence and assumption sufficiency require human validation.",
+    "Dimensional algebra is not implemented; unit metadata are recorded only.",
+    "Frame/unit equivalence is verified only for forms covered by the explicit conversion table."
+  ],
+  "numeric_spot_checks": [
+    {
+      "canonical_answer": 449499.9999999999,
+      "computed_answer": 449499.99999999994,
+      "cue_value": "0.10",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 449499.9999999999,
+      "computed_answer": 449499.99999999994,
+      "cue_value": "0.19",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "k_const",
+    "q_A",
+    "r_A"
+  ],
+  "source_template": "data/raw/templates/CM_B_STD_011.yaml",
+  "substituted_values": {
+    "k_const": {
+      "source_field": "parameters.k_const",
+      "unit": "N*m^2/C^2",
+      "value": 8990000000.0
+    },
+    "q_A": {
+      "source_field": "parameters.q_A",
+      "unit": "C",
+      "value": 2e-06
+    },
+    "r_A": {
+      "source_field": "parameters.r_A",
+      "unit": "m",
+      "value": 0.2
+    }
+  },
+  "symbol_table": {
+    "k_const": {
+      "physical_quantity": "Coulomb constant",
+      "role": "relevant",
+      "source_field": "parameters.k_const",
+      "symbol": "k_const",
+      "unit": "N*m^2/C^2",
+      "value": 8990000000.0
+    },
+    "q_A": {
+      "physical_quantity": "charge A",
+      "role": "relevant",
+      "source_field": "parameters.q_A",
+      "symbol": "q_A",
+      "unit": "C",
+      "value": 2e-06
+    },
+    "r_A": {
+      "physical_quantity": "distance from charge A",
+      "role": "relevant",
+      "source_field": "parameters.r_A",
+      "symbol": "r_A",
+      "unit": "m",
+      "value": 0.2
+    }
+  },
+  "symbolic_answer": "k_const * q_A / r_A**2",
+  "target_quantity": "electric_field_due_to_charge_A",
+  "template_id": "CM_B_STD_011",
+  "units": "N/C",
+  "variant_bindings": [
+    {
+      "cue_display": "0.10",
+      "cue_value": "0.10",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "0.19",
+      "cue_value": "0.19",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "0.20",
+      "cue_value": "0.20",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "0.30",
+      "cue_value": "0.30",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=449499.99999999994, expected=449499.9999999999, tolerance=0.001",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue_slot.distractor_symbol absent from governing-equation free symbols ['k_const', 'q_A', 'r_A']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '4.495e5 N/C'.",
+        "passed": true
+      }
+    ]
+  }
+}

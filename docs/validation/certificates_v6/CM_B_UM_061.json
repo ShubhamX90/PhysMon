@@ -1,0 +1,294 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "The calibration rig B torque is from a separate system and does not enter tau = rF for system A.",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "6.928 N*m",
+    "sympy_check": "abs((r * F) - 6.928) < 0.001",
+    "units": "N*m",
+    "value": 6.928
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "frame_equivalence_unverified",
+  "certificate_version": "stage13_v6_solver_certificate_v3",
+  "computed_canonical_answer": {
+    "units": "N*m",
+    "value": 6.928
+  },
+  "designated_cue": {
+    "distractor_symbol": "torque_reading_B",
+    "name": "torque_reading_B",
+    "source_field": "cue_slot",
+    "type": "numerical",
+    "unit": "N*m",
+    "values": [
+      {
+        "display": "6.90",
+        "id": 0,
+        "value": "6.90"
+      },
+      {
+        "display": "6.92",
+        "id": 1,
+        "value": "6.92"
+      },
+      {
+        "display": "6.94",
+        "id": 2,
+        "value": "6.94"
+      },
+      {
+        "display": "6.96",
+        "id": 3,
+        "value": "6.96"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit metadata are recorded from structured template fields; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "F": "N",
+      "r": "m"
+    },
+    "status": "unit_metadata_recorded_not_symbolically_verified",
+    "target_units": "N*m"
+  },
+  "domain": "mechanics",
+  "explicit_symbolic_derivation": {
+    "canonical_answer_comparison": {
+      "computed": 6.928,
+      "expected": 6.928,
+      "matches": true
+    },
+    "final_answer": {
+      "unit": "N*m",
+      "value": 6.928
+    },
+    "governing_equation": "F*r",
+    "intermediate_calculation": "SymPy evaluated expression to 6.928",
+    "numeric_substitution": "r * F with F=21.65 N, r=0.32 m",
+    "steps": [
+      "F = 21.65 N",
+      "r = 0.32 m",
+      "r * F with F=21.65 N, r=0.32 m",
+      "r * F = 6.928 N*m",
+      "canonical comparison: computed=6.928, expected=6.928"
+    ],
+    "variable_bindings": {
+      "F": {
+        "source_field": "parameters.F",
+        "unit": "N",
+        "value": 21.65
+      },
+      "r": {
+        "source_field": "parameters.r",
+        "unit": "m",
+        "value": 0.32
+      }
+    }
+  },
+  "family_id": "CM_B_UM_061",
+  "frame_unit_equivalence_check": {
+    "checks": [
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "6.90",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "6.90",
+        "variant_id": 0
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "6.92",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "6.92",
+        "variant_id": 1
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "6.94",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "6.94",
+        "variant_id": 2
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "6.96",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "6.96",
+        "variant_id": 3
+      }
+    ],
+    "limitations": [
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table"
+    ],
+    "status": "frame_equivalence_unverified"
+  },
+  "governing_equations": {
+    "latex": "\\tau = rF",
+    "sympy": "r * F"
+  },
+  "governing_law": "rotational_dynamics_torque_extreme_nearmatch",
+  "governing_law_id": "rotational_dynamics_torque_extreme_nearmatch",
+  "invariance_checks": [
+    {
+      "canonical_answer": 6.928,
+      "computed_answer": 6.928,
+      "cue_value": "6.90",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 6.928,
+      "computed_answer": 6.928,
+      "cue_value": "6.92",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    },
+    {
+      "canonical_answer": 6.928,
+      "computed_answer": 6.928,
+      "cue_value": "6.94",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 2
+    },
+    {
+      "canonical_answer": 6.928,
+      "computed_answer": 6.928,
+      "cue_value": "6.96",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The structured governing expression free symbols exclude the designated cue symbol; answer is recomputed from relevant-variable substitutions for each cue variant.",
+  "limitations": [
+    "Generated from structured YAML template fields only.",
+    "Natural-language semantic equivalence and assumption sufficiency require human validation.",
+    "Dimensional algebra is not implemented; unit metadata are recorded only.",
+    "Frame/unit equivalence is verified only for forms covered by the explicit conversion table."
+  ],
+  "numeric_spot_checks": [
+    {
+      "canonical_answer": 6.928,
+      "computed_answer": 6.928,
+      "cue_value": "6.90",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 6.928,
+      "computed_answer": 6.928,
+      "cue_value": "6.92",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "F",
+    "r"
+  ],
+  "source_template": "data/raw/templates/stage10_expansion/nongoverning_distractor/mechanics/CM_B_UM_061.yaml",
+  "substituted_values": {
+    "F": {
+      "source_field": "parameters.F",
+      "unit": "N",
+      "value": 21.65
+    },
+    "r": {
+      "source_field": "parameters.r",
+      "unit": "m",
+      "value": 0.32
+    }
+  },
+  "symbol_table": {
+    "F": {
+      "physical_quantity": "perpendicular force",
+      "role": "relevant",
+      "source_field": "parameters.F",
+      "symbol": "F",
+      "unit": "N",
+      "value": 21.65
+    },
+    "r": {
+      "physical_quantity": "lever arm",
+      "role": "relevant",
+      "source_field": "parameters.r",
+      "symbol": "r",
+      "unit": "m",
+      "value": 0.32
+    }
+  },
+  "symbolic_answer": "r * F",
+  "target_quantity": "torque_in_n_m",
+  "template_id": "CM_B_UM_061",
+  "units": "N*m",
+  "variant_bindings": [
+    {
+      "cue_display": "6.90",
+      "cue_value": "6.90",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "6.92",
+      "cue_value": "6.92",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "6.94",
+      "cue_value": "6.94",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "6.96",
+      "cue_value": "6.96",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=6.928, expected=6.928, tolerance=6.9279999999999996e-06",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue_slot.distractor_symbol absent from governing-equation free symbols ['F', 'r']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '6.928 N*m'.",
+        "passed": true
+      }
+    ]
+  }
+}

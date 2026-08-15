@@ -1,0 +1,294 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "The Newtonian acceleration expression \"F_net / m\" uses only F_net and m. The ambient room temperature is explicitly irrelevant to this rigid-body mechanics problem.",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "5.0 m/s^2",
+    "sympy_check": "abs((F_net / m) - 5.0) < 1e-9",
+    "units": "m/s^2",
+    "value": 5.0
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "frame_equivalence_unverified",
+  "certificate_version": "stage13_v6_solver_certificate_v3",
+  "computed_canonical_answer": {
+    "units": "m/s^2",
+    "value": 5.0
+  },
+  "designated_cue": {
+    "distractor_symbol": null,
+    "name": "temp_C",
+    "source_field": "cue_slot",
+    "type": "numerical",
+    "unit": null,
+    "values": [
+      {
+        "display": "15",
+        "id": 0,
+        "value": "15"
+      },
+      {
+        "display": "20",
+        "id": 1,
+        "value": "20"
+      },
+      {
+        "display": "25",
+        "id": 2,
+        "value": "25"
+      },
+      {
+        "display": "30",
+        "id": 3,
+        "value": "30"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit metadata are recorded from structured template fields; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "F_net": "N",
+      "m": "kg"
+    },
+    "status": "unit_metadata_recorded_not_symbolically_verified",
+    "target_units": "m/s^2"
+  },
+  "domain": "mechanics",
+  "explicit_symbolic_derivation": {
+    "canonical_answer_comparison": {
+      "computed": 5.0,
+      "expected": 5.0,
+      "matches": true
+    },
+    "final_answer": {
+      "unit": "m/s^2",
+      "value": 5.0
+    },
+    "governing_equation": "F_net/m",
+    "intermediate_calculation": "SymPy evaluated expression to 5",
+    "numeric_substitution": "F_net / m with F_net=15.0 N, m=3.0 kg",
+    "steps": [
+      "F_net = 15.0 N",
+      "m = 3.0 kg",
+      "F_net / m with F_net=15.0 N, m=3.0 kg",
+      "F_net / m = 5 m/s^2",
+      "canonical comparison: computed=5, expected=5"
+    ],
+    "variable_bindings": {
+      "F_net": {
+        "source_field": "parameters.F_net",
+        "unit": "N",
+        "value": 15.0
+      },
+      "m": {
+        "source_field": "parameters.m",
+        "unit": "kg",
+        "value": 3.0
+      }
+    }
+  },
+  "family_id": "CM_A_004",
+  "frame_unit_equivalence_check": {
+    "checks": [
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "15",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "15",
+        "variant_id": 0
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "20",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "20",
+        "variant_id": 1
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "25",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "25",
+        "variant_id": 2
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "30",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "30",
+        "variant_id": 3
+      }
+    ],
+    "limitations": [
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table"
+    ],
+    "status": "frame_equivalence_unverified"
+  },
+  "governing_equations": {
+    "latex": "a = F_{net} / m",
+    "sympy": "F_net / m"
+  },
+  "governing_law": "newton_second_law_net_force",
+  "governing_law_id": "newton_second_law_net_force",
+  "invariance_checks": [
+    {
+      "canonical_answer": 5.0,
+      "computed_answer": 5.0,
+      "cue_value": "15",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 5.0,
+      "computed_answer": 5.0,
+      "cue_value": "20",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    },
+    {
+      "canonical_answer": 5.0,
+      "computed_answer": 5.0,
+      "cue_value": "25",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 2
+    },
+    {
+      "canonical_answer": 5.0,
+      "computed_answer": 5.0,
+      "cue_value": "30",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The structured governing expression free symbols exclude the designated cue symbol; answer is recomputed from relevant-variable substitutions for each cue variant.",
+  "limitations": [
+    "Generated from structured YAML template fields only.",
+    "Natural-language semantic equivalence and assumption sufficiency require human validation.",
+    "Dimensional algebra is not implemented; unit metadata are recorded only.",
+    "Frame/unit equivalence is verified only for forms covered by the explicit conversion table."
+  ],
+  "numeric_spot_checks": [
+    {
+      "canonical_answer": 5.0,
+      "computed_answer": 5.0,
+      "cue_value": "15",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 5.0,
+      "computed_answer": 5.0,
+      "cue_value": "20",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "F_net",
+    "m"
+  ],
+  "source_template": "data/raw/templates/CM_A_004.yaml",
+  "substituted_values": {
+    "F_net": {
+      "source_field": "parameters.F_net",
+      "unit": "N",
+      "value": 15.0
+    },
+    "m": {
+      "source_field": "parameters.m",
+      "unit": "kg",
+      "value": 3.0
+    }
+  },
+  "symbol_table": {
+    "F_net": {
+      "physical_quantity": "net force",
+      "role": "relevant",
+      "source_field": "parameters.F_net",
+      "symbol": "F_net",
+      "unit": "N",
+      "value": 15.0
+    },
+    "m": {
+      "physical_quantity": "mass",
+      "role": "relevant",
+      "source_field": "parameters.m",
+      "symbol": "m",
+      "unit": "kg",
+      "value": 3.0
+    }
+  },
+  "symbolic_answer": "F_net / m",
+  "target_quantity": "acceleration",
+  "template_id": "CM_A_004",
+  "units": "m/s^2",
+  "variant_bindings": [
+    {
+      "cue_display": "15",
+      "cue_value": "15",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "20",
+      "cue_value": "20",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "25",
+      "cue_value": "25",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "30",
+      "cue_value": "30",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=5.0, expected=5.0, tolerance=4.9999999999999996e-06",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue_slot.name absent from governing-equation free symbols ['F_net', 'm']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '5 m/s^2'.",
+        "passed": true
+      }
+    ]
+  }
+}

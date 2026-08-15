@@ -1,0 +1,122 @@
+{
+  "categorical_tests": [
+    {
+      "cramers_v": 0.09224422781445524,
+      "feature": "domain",
+      "levels": 3,
+      "p_value": 0.5512152848372949
+    },
+    {
+      "cramers_v": 0.2509573506330004,
+      "feature": "cue_type",
+      "levels": 3,
+      "p_value": 0.012172555279537861
+    },
+    {
+      "cramers_v": 0.3817254061682111,
+      "feature": "template_cluster",
+      "levels": 9,
+      "p_value": 0.008924147472234613
+    },
+    {
+      "cramers_v": 0.7904618472594291,
+      "feature": "template_group",
+      "levels": 72,
+      "p_value": 0.089609568622944
+    },
+    {
+      "cramers_v": null,
+      "feature": "original_or_expansion",
+      "levels": 1,
+      "p_value": null
+    }
+  ],
+  "family_row_stratified_cv": {
+    "auroc": 0.6120408163265305,
+    "n_permutations_refit_requested": 200,
+    "n_rows": 140,
+    "permutation_p_refit": 0.014925373134328358,
+    "regime": "family_row_stratified"
+  },
+  "missing_label_policy": "families without authoritative S_lp are excluded, not labeled negative",
+  "n_labeled_families": 140,
+  "n_manifest_families": 155,
+  "n_unlabeled_families": 15,
+  "permutation_note": "1000 permutations requested by brief; 200 refitted permutations used here to keep the local CPU remediation bounded.",
+  "prior_v5_status": "superseded_missing_labels_coerced_negative",
+  "single_feature_aurocs": [
+    {
+      "feature": "prompt_length",
+      "n_available": 140,
+      "orientation_independent_auc": 0.5026530612244898
+    },
+    {
+      "feature": "token_count",
+      "n_available": 140,
+      "orientation_independent_auc": 0.5092857142857142
+    },
+    {
+      "feature": "number_count",
+      "n_available": 140,
+      "orientation_independent_auc": 0.5571428571428572
+    },
+    {
+      "feature": "variable_count",
+      "n_available": 140,
+      "orientation_independent_auc": 0.5483673469387755
+    },
+    {
+      "feature": "equation_count",
+      "n_available": 140,
+      "orientation_independent_auc": 0.5
+    },
+    {
+      "feature": "answer_magnitude",
+      "n_available": 140,
+      "orientation_independent_auc": 0.503061224489796
+    }
+  ],
+  "status": "VALID_LABEL_MISSINGNESS_TEMPLATE_AWARE_AUDIT",
+  "strongest_categorical_confound": {
+    "cramers_v": 0.7904618472594291,
+    "feature": "template_group",
+    "levels": 72,
+    "p_value": 0.089609568622944
+  },
+  "strongest_numeric_confound": {
+    "feature": "number_count",
+    "n_available": 140,
+    "orientation_independent_auc": 0.5571428571428572
+  },
+  "strongest_template_confound": {
+    "cramers_v": 0.7904618472594291,
+    "feature": "template_group",
+    "levels": 72,
+    "p_value": 0.089609568622944
+  },
+  "supersedes": "results/stage13/benchmark_integrity/balance_audit_v5.json",
+  "template_held_out_cv": {
+    "auroc": 0.606734693877551,
+    "n_permutations_refit_requested": 200,
+    "n_rows": 140,
+    "permutation_p_refit": 0.04975124378109453,
+    "regime": "template_held_out"
+  },
+  "unlabeled_family_ids": [
+    "CM_B_UM_061",
+    "CM_B_UM_062",
+    "CM_B_UM_063",
+    "CM_C_006",
+    "CM_C_007",
+    "CM_C_008",
+    "CM_C_009",
+    "CM_C_010",
+    "CM_C_011",
+    "CM_C_012",
+    "CM_C_013",
+    "CM_C_014",
+    "CM_C_015",
+    "TH_B_UM_011",
+    "TH_B_UM_012"
+  ]
+}

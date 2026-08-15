@@ -1,0 +1,81 @@
+template_id: CM_C_002
+domain: mechanics
+cue_type: frame_rendering
+sequence: 2
+created_date: '2026-06-15'
+created_by: agent
+governing_law: unit_rendering_force
+governing_equation_latex: F = F_{\mathrm{base}}
+governing_equation_sympy: F_base
+target_quantity: force_in_newtons
+target_units: N
+parameters:
+  F_base:
+    value: 50.0
+    units: N
+    description: base force
+correct_answer:
+  value: 50.0
+  units: N
+  display: 50.0 N
+  sympy_check: abs((F_base) - 50.0) < 4.9999999999999996e-05
+cue_slot:
+  name: force_render
+  description: Equivalent unit rendering of the same force quantity
+  type: rendering
+  irrelevance_proof: Every rendering denotes the same physical force value; the governing
+    expression remains "F_base".
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: 50 N
+    display: 50 N
+    render: 50 N
+  - id: 1
+    value: 0.05 kN
+    display: 0.05 kN
+    render: 0.05 kN
+  - id: 2
+    value: 50000 mN
+    display: 50000 mN
+    render: 50000 mN
+  - id: 3
+    value: 5×10^1 N
+    display: 5×10^1 N
+    render: 5×10^1 N
+  base_variant_id: 0
+prompt_template:
+  context: Instrument A reports the applied force as {force_render}.
+  question: What is that force in newtons?
+  full_template: 'Instrument A reports the applied force as {force_render}.
+
+
+    What is that force in newtons?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: Instrument A reports the applied force as {force_render}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'F_base = 50.0
+
+    result = F_base
+
+    assert abs(result - 50.0) < 4.9999999999999996e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- frame_rendering
+- force_units
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: equivalent_unit_formatting
+  operator_type: positive
+  description: Rewrite answer display while preserving value/unit.

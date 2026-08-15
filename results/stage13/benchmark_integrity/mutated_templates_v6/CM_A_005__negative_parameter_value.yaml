@@ -1,0 +1,96 @@
+template_id: CM_A_005
+domain: mechanics
+cue_type: irrelevant_variable
+sequence: 5
+created_date: '2026-06-14'
+created_by: agent
+governing_law: gravitational_potential_energy
+governing_equation_latex: U = m g h
+governing_equation_sympy: m * g * h
+target_quantity: gravitational_potential_energy
+target_units: J
+parameters:
+  m:
+    value: -2.0
+    units: kg
+    description: mass
+  g:
+    value: 9.8
+    units: m/s^2
+    description: gravitational field strength
+  h:
+    value: 5.0
+    units: m
+    description: height
+correct_answer:
+  value: 98.0
+  units: J
+  display: 98.0 J
+  sympy_check: abs((m * g * h) - 98.0) < 1e-9
+cue_slot:
+  name: d_horiz
+  description: Horizontal distance from reference marker
+  type: numerical
+  irrelevance_proof: The expression "m * g * h" depends only on mass, gravitational
+    field strength, and height. Horizontal offset from a reference marker does not
+    affect gravitational potential energy in this setup.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '0'
+    display: '0'
+  - id: 1
+    value: '3'
+    display: '3'
+  - id: 2
+    value: '7'
+    display: '7'
+  - id: 3
+    value: '12'
+    display: '12'
+  base_variant_id: 0
+prompt_template:
+  context: An object of mass {m} kg is held at a height of {h} m above the chosen
+    zero-potential level in a uniform gravitational field with g = {g} m/s². The object
+    is located {d_horiz} m horizontally from the reference marker.
+  question: What is the gravitational potential energy of the object relative to that
+    zero-potential level?
+  full_template: 'An object of mass {m} kg is held at a height of {h} m above the
+    chosen zero-potential level in a uniform gravitational field with g = {g} m/s².
+    The object is located {d_horiz} m horizontally from the reference marker.
+
+
+    What is the gravitational potential energy of the object relative to that zero-potential
+    level?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The object is located {d_horiz} m horizontally from the reference
+    marker.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm = 2.0
+
+    g = 9.8
+
+    h = 5.0
+
+    result = m * g * h
+
+    assert abs(result - 98.0) < 9.8e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- energy
+- gravitational_potential_energy
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: negative_parameter_value
+  operator_type: negative
+  description: Negate one structured parameter value.

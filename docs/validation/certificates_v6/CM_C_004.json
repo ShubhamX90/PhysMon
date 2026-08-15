@@ -1,0 +1,281 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "Every rendering denotes the same physical power value; the governing expression remains \"P_base\".",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "200 W",
+    "sympy_check": "abs((P_base) - 200.0) < 0.00019999999999999998",
+    "units": "W",
+    "value": 200.0
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "frame_equivalence_unverified",
+  "certificate_version": "stage13_v6_solver_certificate_v3",
+  "computed_canonical_answer": {
+    "units": "W",
+    "value": 200.0
+  },
+  "designated_cue": {
+    "distractor_symbol": null,
+    "name": "power_render",
+    "source_field": "cue_slot",
+    "type": "rendering",
+    "unit": null,
+    "values": [
+      {
+        "display": "200 W",
+        "id": 0,
+        "render": "200 W",
+        "value": "200 W"
+      },
+      {
+        "display": "0.2 kW",
+        "id": 1,
+        "render": "0.2 kW",
+        "value": "0.2 kW"
+      },
+      {
+        "display": "200 J/s",
+        "id": 2,
+        "render": "200 J/s",
+        "value": "200 J/s"
+      },
+      {
+        "display": "200000 mW",
+        "id": 3,
+        "render": "200000 mW",
+        "value": "200000 mW"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit metadata are recorded from structured template fields; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "P_base": "W"
+    },
+    "status": "unit_metadata_recorded_not_symbolically_verified",
+    "target_units": "W"
+  },
+  "domain": "electrostatics_circuits",
+  "explicit_symbolic_derivation": {
+    "canonical_answer_comparison": {
+      "computed": 200.0,
+      "expected": 200.0,
+      "matches": true
+    },
+    "final_answer": {
+      "unit": "W",
+      "value": 200.0
+    },
+    "governing_equation": "P_base",
+    "intermediate_calculation": "SymPy evaluated expression to 200",
+    "numeric_substitution": "P_base with P_base=200.0 W",
+    "steps": [
+      "P_base = 200.0 W",
+      "P_base with P_base=200.0 W",
+      "P_base = 200 W",
+      "canonical comparison: computed=200, expected=200"
+    ],
+    "variable_bindings": {
+      "P_base": {
+        "source_field": "parameters.P_base",
+        "unit": "W",
+        "value": 200.0
+      }
+    }
+  },
+  "family_id": "CM_C_004",
+  "frame_unit_equivalence_check": {
+    "checks": [
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "200 W",
+          "reason": "unit not in explicit conversion table",
+          "unit": "W"
+        },
+        "rendered": "200 W",
+        "variant_id": 0
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "0.2 kW",
+          "reason": "unit not in explicit conversion table",
+          "unit": "kW"
+        },
+        "rendered": "0.2 kW",
+        "variant_id": 1
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "200 J/s",
+          "reason": "unit not in explicit conversion table",
+          "unit": "J/s"
+        },
+        "rendered": "200 J/s",
+        "variant_id": 2
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "200000 mW",
+          "reason": "unit not in explicit conversion table",
+          "unit": "mW"
+        },
+        "rendered": "200000 mW",
+        "variant_id": 3
+      }
+    ],
+    "limitations": [
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table"
+    ],
+    "status": "frame_equivalence_unverified"
+  },
+  "governing_equations": {
+    "latex": "P = P_{\\mathrm{base}}",
+    "sympy": "P_base"
+  },
+  "governing_law": "unit_rendering_power",
+  "governing_law_id": "unit_rendering_power",
+  "invariance_checks": [
+    {
+      "canonical_answer": 200.0,
+      "computed_answer": 200.0,
+      "cue_value": "200 W",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 200.0,
+      "computed_answer": 200.0,
+      "cue_value": "0.2 kW",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    },
+    {
+      "canonical_answer": 200.0,
+      "computed_answer": 200.0,
+      "cue_value": "200 J/s",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 2
+    },
+    {
+      "canonical_answer": 200.0,
+      "computed_answer": 200.0,
+      "cue_value": "200000 mW",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The structured governing expression free symbols exclude the designated cue symbol; answer is recomputed from relevant-variable substitutions for each cue variant.",
+  "limitations": [
+    "Generated from structured YAML template fields only.",
+    "Natural-language semantic equivalence and assumption sufficiency require human validation.",
+    "Dimensional algebra is not implemented; unit metadata are recorded only.",
+    "Frame/unit equivalence is verified only for forms covered by the explicit conversion table."
+  ],
+  "numeric_spot_checks": [
+    {
+      "canonical_answer": 200.0,
+      "computed_answer": 200.0,
+      "cue_value": "200 W",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 200.0,
+      "computed_answer": 200.0,
+      "cue_value": "0.2 kW",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "P_base"
+  ],
+  "source_template": "data/raw/templates/CM_C_004.yaml",
+  "substituted_values": {
+    "P_base": {
+      "source_field": "parameters.P_base",
+      "unit": "W",
+      "value": 200.0
+    }
+  },
+  "symbol_table": {
+    "P_base": {
+      "physical_quantity": "base power",
+      "role": "relevant",
+      "source_field": "parameters.P_base",
+      "symbol": "P_base",
+      "unit": "W",
+      "value": 200.0
+    }
+  },
+  "symbolic_answer": "P_base",
+  "target_quantity": "power_in_watts",
+  "template_id": "CM_C_004",
+  "units": "W",
+  "variant_bindings": [
+    {
+      "cue_display": "200 W",
+      "cue_value": "200 W",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "0.2 kW",
+      "cue_value": "0.2 kW",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "200 J/s",
+      "cue_value": "200 J/s",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "200000 mW",
+      "cue_value": "200000 mW",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=200.0, expected=200.0, tolerance=0.00019999999999999998",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue symbol absent from governing-equation free symbols ['P_base']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '200 W'.",
+        "passed": true
+      }
+    ]
+  }
+}

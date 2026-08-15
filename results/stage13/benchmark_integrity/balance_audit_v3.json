@@ -1,0 +1,156 @@
+{
+  "combined_surface_model": {
+    "combined_grouped_cv_auroc": 0.6765,
+    "combined_grouped_cv_ci95": [
+      0.5839118243515313,
+      0.7547418105121959
+    ],
+    "n_folds": 5,
+    "n_oof_predictions": 155,
+    "permutation_test_p": 0.004975124378109453
+  },
+  "correction_method": "Benjamini-Hochberg over univariate Mann-Whitney tests; sklearn tie-aware AUROC.",
+  "descriptive_by_label": {
+    "0": 75,
+    "1": 80
+  },
+  "features": {
+    "categorical": [
+      "domain",
+      "cue_type",
+      "answer_sign",
+      "answer_format",
+      "template_cluster"
+    ],
+    "numeric": [
+      "answer_magnitude",
+      "prompt_length",
+      "token_count",
+      "number_count",
+      "variable_count",
+      "equation_count",
+      "unit_token_count",
+      "base_correctness",
+      "entropy"
+    ]
+  },
+  "fold_assignments": "results/stage13/benchmark_integrity/balance_audit_v3_folds.csv",
+  "n_families": 155,
+  "prediction_output": "results/stage13/benchmark_integrity/balance_audit_v3_predictions.csv",
+  "single_feature_audits": {
+    "answer_magnitude": {
+      "benjamini_hochberg_q": 0.8550393231419372,
+      "mann_whitney_p": 0.8550393231419372,
+      "n": 155,
+      "negative_mean": 23788.44615866667,
+      "orientation_independent_auroc": 0.5085833333333334,
+      "pearson": -0.009296344536328528,
+      "positive_mean": 21813.635326249998,
+      "single_feature_auroc": 0.4914166666666666,
+      "spearman": -0.014866110062341594,
+      "standardized_effect": -0.018602370244400177
+    },
+    "base_correctness": {
+      "benjamini_hochberg_q": null,
+      "mann_whitney_p": null,
+      "n": 155,
+      "negative_mean": 0.0,
+      "orientation_independent_auroc": null,
+      "pearson": null,
+      "positive_mean": 0.0,
+      "single_feature_auroc": null,
+      "spearman": null,
+      "standardized_effect": null
+    },
+    "entropy": {
+      "benjamini_hochberg_q": null,
+      "mann_whitney_p": null,
+      "n": 0,
+      "negative_mean": null,
+      "orientation_independent_auroc": null,
+      "pearson": null,
+      "positive_mean": null,
+      "single_feature_auroc": null,
+      "spearman": null,
+      "standardized_effect": null
+    },
+    "equation_count": {
+      "benjamini_hochberg_q": 0.8536973890062926,
+      "mann_whitney_p": 0.29267658980157807,
+      "n": 155,
+      "negative_mean": 1.12,
+      "orientation_independent_auroc": 0.5328333333333335,
+      "pearson": -0.08338184756113626,
+      "positive_mean": 0.75,
+      "single_feature_auroc": 0.46716666666666656,
+      "spearman": -0.08500993648037088,
+      "standardized_effect": -0.1668505286064812
+    },
+    "number_count": {
+      "benjamini_hochberg_q": 0.8536973890062926,
+      "mann_whitney_p": 0.7317406191482508,
+      "n": 155,
+      "negative_mean": 13.6,
+      "orientation_independent_auroc": 0.515,
+      "pearson": 0.027824860722607474,
+      "positive_mean": 13.9375,
+      "single_feature_auroc": 0.515,
+      "spearman": 0.02777882774446348,
+      "standardized_effect": 0.055678698131086495
+    },
+    "prompt_length": {
+      "benjamini_hochberg_q": 0.8536973890062926,
+      "mann_whitney_p": 0.5510578445132749,
+      "n": 155,
+      "negative_mean": 215.95333333333335,
+      "orientation_independent_auroc": 0.5278333333333334,
+      "pearson": -0.0859487231830065,
+      "positive_mean": 205.43125,
+      "single_feature_auroc": 0.4721666666666667,
+      "spearman": -0.04818547640284901,
+      "standardized_effect": -0.1719869529830475
+    },
+    "token_count": {
+      "benjamini_hochberg_q": 0.8536973890062926,
+      "mann_whitney_p": 0.421038360332171,
+      "n": 155,
+      "negative_mean": 40.85333333333333,
+      "orientation_independent_auroc": 0.5375000000000001,
+      "pearson": -0.09904004671952926,
+      "positive_mean": 38.528125,
+      "single_feature_auroc": 0.46249999999999997,
+      "spearman": -0.06498262207309234,
+      "standardized_effect": -0.19818323330204266
+    },
+    "unit_token_count": {
+      "benjamini_hochberg_q": 0.8536973890062926,
+      "mann_whitney_p": 0.7189888642165876,
+      "n": 155,
+      "negative_mean": 8.973333333333333,
+      "orientation_independent_auroc": 0.5163333333333333,
+      "pearson": -0.018299762671208163,
+      "positive_mean": 8.7625,
+      "single_feature_auroc": 0.4836666666666667,
+      "spearman": -0.0291430438829828,
+      "standardized_effect": -0.03661858263365428
+    },
+    "variable_count": {
+      "benjamini_hochberg_q": 0.8536973890062926,
+      "mann_whitney_p": 0.14436217989143288,
+      "n": 155,
+      "negative_mean": 4.36,
+      "orientation_independent_auroc": 0.5658333333333334,
+      "pearson": -0.12535896581316255,
+      "positive_mean": 4.0375,
+      "single_feature_auroc": 0.43416666666666665,
+      "spearman": -0.11777810120755507,
+      "standardized_effect": -0.25084847989428494
+    }
+  },
+  "status": "VALID_GROUPED_CV_AUDIT",
+  "strongest_confound": {
+    "feature": "variable_count",
+    "orientation_independent_auroc": 0.5658333333333334
+  },
+  "supersedes": "results/stage13/benchmark_integrity/balance_audit_v2.json"
+}

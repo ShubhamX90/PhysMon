@@ -1,0 +1,315 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "The expression \"m * v**2 / r\" depends only on mass, speed, and radius. The string color is purely descriptive and does not alter the centripetal-force requirement.",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "3.0 N",
+    "sympy_check": "abs((m * v**2 / r) - 3.0) < 1e-9",
+    "units": "N",
+    "value": 3.0
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "frame_equivalence_unverified",
+  "certificate_version": "stage13_v6_solver_certificate_v3",
+  "computed_canonical_answer": {
+    "units": "N",
+    "value": 3.0
+  },
+  "designated_cue": {
+    "distractor_symbol": null,
+    "name": "color",
+    "source_field": "cue_slot",
+    "type": "categorical",
+    "unit": null,
+    "values": [
+      {
+        "display": "red",
+        "id": 0,
+        "value": "red"
+      },
+      {
+        "display": "blue",
+        "id": 1,
+        "value": "blue"
+      },
+      {
+        "display": "white",
+        "id": 2,
+        "value": "white"
+      },
+      {
+        "display": "black",
+        "id": 3,
+        "value": "black"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit metadata are recorded from structured template fields; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "m": "kg",
+      "r": "m",
+      "v": "m/s"
+    },
+    "status": "unit_metadata_recorded_not_symbolically_verified",
+    "target_units": "N"
+  },
+  "domain": "mechanics",
+  "explicit_symbolic_derivation": {
+    "canonical_answer_comparison": {
+      "computed": 3.0,
+      "expected": 3.0,
+      "matches": true
+    },
+    "final_answer": {
+      "unit": "N",
+      "value": 3.0
+    },
+    "governing_equation": "m*v**2/r",
+    "intermediate_calculation": "SymPy evaluated expression to 3",
+    "numeric_substitution": "m * v**2 / r with m=0.5 kg, r=1.5 m, v=3.0 m/s",
+    "steps": [
+      "m = 0.5 kg",
+      "r = 1.5 m",
+      "v = 3.0 m/s",
+      "m * v**2 / r with m=0.5 kg, r=1.5 m, v=3.0 m/s",
+      "m * v**2 / r = 3 N",
+      "canonical comparison: computed=3, expected=3"
+    ],
+    "variable_bindings": {
+      "m": {
+        "source_field": "parameters.m",
+        "unit": "kg",
+        "value": 0.5
+      },
+      "r": {
+        "source_field": "parameters.r",
+        "unit": "m",
+        "value": 1.5
+      },
+      "v": {
+        "source_field": "parameters.v",
+        "unit": "m/s",
+        "value": 3.0
+      }
+    }
+  },
+  "family_id": "CM_A_007",
+  "frame_unit_equivalence_check": {
+    "checks": [
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "red",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "red",
+        "variant_id": 0
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "blue",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "blue",
+        "variant_id": 1
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "white",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "white",
+        "variant_id": 2
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "black",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "black",
+        "variant_id": 3
+      }
+    ],
+    "limitations": [
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table"
+    ],
+    "status": "frame_equivalence_unverified"
+  },
+  "governing_equations": {
+    "latex": "F_c = m v^2 / r",
+    "sympy": "m * v**2 / r"
+  },
+  "governing_law": "centripetal_force",
+  "governing_law_id": "centripetal_force",
+  "invariance_checks": [
+    {
+      "canonical_answer": 3.0,
+      "computed_answer": 3.0,
+      "cue_value": "red",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 3.0,
+      "computed_answer": 3.0,
+      "cue_value": "blue",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    },
+    {
+      "canonical_answer": 3.0,
+      "computed_answer": 3.0,
+      "cue_value": "white",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 2
+    },
+    {
+      "canonical_answer": 3.0,
+      "computed_answer": 3.0,
+      "cue_value": "black",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The structured governing expression free symbols exclude the designated cue symbol; answer is recomputed from relevant-variable substitutions for each cue variant.",
+  "limitations": [
+    "Generated from structured YAML template fields only.",
+    "Natural-language semantic equivalence and assumption sufficiency require human validation.",
+    "Dimensional algebra is not implemented; unit metadata are recorded only.",
+    "Frame/unit equivalence is verified only for forms covered by the explicit conversion table."
+  ],
+  "numeric_spot_checks": [
+    {
+      "canonical_answer": 3.0,
+      "computed_answer": 3.0,
+      "cue_value": "red",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 3.0,
+      "computed_answer": 3.0,
+      "cue_value": "blue",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "m",
+    "r",
+    "v"
+  ],
+  "source_template": "data/raw/templates/CM_A_007.yaml",
+  "substituted_values": {
+    "m": {
+      "source_field": "parameters.m",
+      "unit": "kg",
+      "value": 0.5
+    },
+    "r": {
+      "source_field": "parameters.r",
+      "unit": "m",
+      "value": 1.5
+    },
+    "v": {
+      "source_field": "parameters.v",
+      "unit": "m/s",
+      "value": 3.0
+    }
+  },
+  "symbol_table": {
+    "m": {
+      "physical_quantity": "mass",
+      "role": "relevant",
+      "source_field": "parameters.m",
+      "symbol": "m",
+      "unit": "kg",
+      "value": 0.5
+    },
+    "r": {
+      "physical_quantity": "radius",
+      "role": "relevant",
+      "source_field": "parameters.r",
+      "symbol": "r",
+      "unit": "m",
+      "value": 1.5
+    },
+    "v": {
+      "physical_quantity": "speed",
+      "role": "relevant",
+      "source_field": "parameters.v",
+      "symbol": "v",
+      "unit": "m/s",
+      "value": 3.0
+    }
+  },
+  "symbolic_answer": "m * v**2 / r",
+  "target_quantity": "centripetal_force",
+  "template_id": "CM_A_007",
+  "units": "N",
+  "variant_bindings": [
+    {
+      "cue_display": "red",
+      "cue_value": "red",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "blue",
+      "cue_value": "blue",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "white",
+      "cue_value": "white",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "black",
+      "cue_value": "black",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=3.0, expected=3.0, tolerance=3e-06",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue_slot.name absent from governing-equation free symbols ['m', 'r', 'v']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '3 N'.",
+        "passed": true
+      }
+    ]
+  }
+}

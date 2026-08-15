@@ -1,0 +1,81 @@
+template_id: CM_C_012
+domain: mechanics
+cue_type: frame_rendering
+sequence: 12
+created_date: '2026-06-15'
+created_by: agent
+governing_law: unit_rendering_momentum
+governing_equation_latex: p = p_{\mathrm{base}}
+governing_equation_sympy: (p_base) + 0
+target_quantity: momentum_in_kg_m_per_s
+target_units: kg*m/s
+parameters:
+  p_base:
+    value: 12.0
+    units: kg*m/s
+    description: base momentum
+correct_answer:
+  value: 12.0
+  units: kg*m/s
+  display: 12.0 kg*m/s
+  sympy_check: abs((p_base) - 12.0) < 1.2e-05
+cue_slot:
+  name: momentum_render
+  description: Equivalent rendering of the same momentum quantity
+  type: rendering
+  irrelevance_proof: Each rendering denotes the same momentum value; the governing
+    expression remains "p_base".
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: 12 kg*m/s
+    display: 12 kg*m/s
+    render: 12 kg*m/s
+  - id: 1
+    value: 12 N*s
+    display: 12 N*s
+    render: 12 N*s
+  - id: 2
+    value: 12000 g*m/s
+    display: 12000 g*m/s
+    render: 12000 g*m/s
+  - id: 3
+    value: 0.012 kN*s
+    display: 0.012 kN*s
+    render: 0.012 kN*s
+  base_variant_id: 0
+prompt_template:
+  context: The trolley momentum is recorded as {momentum_render}.
+  question: What is that momentum in kg*m/s?
+  full_template: 'The trolley momentum is recorded as {momentum_render}.
+
+
+    What is that momentum in kg*m/s?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The trolley momentum is recorded as {momentum_render}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'p_base = 12.0
+
+    result = p_base
+
+    assert abs(result - 12.0) < 1.2e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- frame_rendering
+- momentum_units
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: algebraically_equivalent_expression
+  operator_type: positive
+  description: Add a neutral algebraic zero.

@@ -1,0 +1,89 @@
+template_id: CM_A_010
+domain: mechanics
+cue_type: irrelevant_variable
+sequence: 10
+created_date: '2026-06-14'
+created_by: agent
+governing_law: work_constant_force
+governing_equation_latex: W = F d
+governing_equation_sympy: F * d
+target_quantity: work_done
+target_units: J
+parameters:
+  F:
+    value: 12.0
+    units: N
+    description: force
+  d:
+    value: 5.0
+    units: m
+    description: displacement
+correct_answer:
+  value: 60.0
+  units: J
+  display: 60.0 J
+  sympy_check: abs((F * d) - 60.0) < 1e-9
+cue_slot:
+  name: paint
+  description: Paint of the frictionless surface
+  type: categorical
+  irrelevance_proof: The work expression "F * d" depends only on force and displacement.
+    The paint on the frictionless surface is descriptive and does not affect the work
+    done by the force.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: red
+    display: red
+    render: painted red
+  - id: 1
+    value: green
+    display: green
+    render: painted green
+  - id: 2
+    value: blue
+    display: blue
+    render: painted blue
+  - id: 3
+    value: unpainted
+    display: unpainted
+    render: left unpainted
+  base_variant_id: 0
+prompt_template:
+  context: A box is pushed along a frictionless surface by a constant horizontal force
+    of {F} N through a displacement of {d} m. The frictionless surface is {paint}.
+  question: How much work is done by the applied force?
+  full_template: 'A box is pushed along a frictionless surface by a constant horizontal
+    force of {F} N through a displacement of {d} m. The frictionless surface is {paint}.
+
+
+    How much work is done by the applied force?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The frictionless surface is {paint}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'F = 12.0
+
+    d = 5.0
+
+    result = F * d
+
+    assert abs(result - 60.0) < 5.9999999999999995e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- work
+- constant_force
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: equivalent_unit_formatting
+  operator_type: positive
+  description: Rewrite answer display while preserving value/unit.

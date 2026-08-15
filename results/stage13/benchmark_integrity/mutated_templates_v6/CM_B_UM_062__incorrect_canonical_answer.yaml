@@ -1,0 +1,87 @@
+template_id: CM_B_UM_062
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 62
+created_date: '2026-06-15'
+created_by: agent
+governing_law: hooke_force_extreme_nearmatch
+governing_equation_latex: F = kx
+governing_equation_sympy: k * x
+target_quantity: spring_force_in_n_changed
+target_units: N
+parameters:
+  k:
+    value: 204.0
+    units: N/m
+    description: spring constant
+  x:
+    value: 0.12
+    units: m
+    description: extension
+correct_answer:
+  value: 25.48
+  units: N
+  display: 25.48 N
+  sympy_check: abs((k * x) - 24.48) < 0.001
+cue_slot:
+  name: force_probe_B
+  description: Force reading from a separate load cell
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: force_probe_B
+  distractor_units: N
+  nongoverning_proof: The load-cell reading belongs to setup B and does not affect
+    Hooke's law for spring A.
+  values:
+  - id: 0
+    value: '24.42'
+    display: '24.42'
+  - id: 1
+    value: '24.45'
+    display: '24.45'
+  - id: 2
+    value: '24.50'
+    display: '24.50'
+  - id: 3
+    value: '24.54'
+    display: '24.54'
+  base_variant_id: 0
+prompt_template:
+  context: Spring A has spring constant {k} N/m and is stretched by {x} m. A separate
+    load cell B reports {force_probe_B} N in an unrelated setup.
+  question: What is the restoring force magnitude for spring A?
+  full_template: 'Spring A has spring constant {k} N/m and is stretched by {x} m.
+    A separate load cell B reports {force_probe_B} N in an unrelated setup.
+
+
+    What is the restoring force magnitude for spring A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate load cell B reports {force_probe_B} N in an unrelated setup.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'k = 204.0
+
+    x = 0.12
+
+    result = k * x
+
+    assert abs(result - 24.48) < 0.001, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- nongoverning_distractor
+- hookes_law
+- extreme_nearmatch
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: incorrect_canonical_answer
+  operator_type: negative
+  description: Corrupt the stored canonical answer without changing prompt semantics.

@@ -1,0 +1,76 @@
+{
+  "checks": [
+    {
+      "check_id": "registry_v2_verification",
+      "detail": "PASS",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "check_id": "historical_coverage",
+      "detail": "registry rows=67",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "check_id": "authority_no_critical_unresolved",
+      "detail": "critical_unresolved=4",
+      "passed": false,
+      "severity": "critical"
+    },
+    {
+      "check_id": "canonical_155_manifest",
+      "detail": "155",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "check_id": "canonical_tables_verify",
+      "detail": "PASS",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "check_id": "partition_exact_or_none_available",
+      "detail": "none_available",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "check_id": "claim_links",
+      "detail": "claim links checked",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "check_id": "paper_eligible_none",
+      "detail": "No registry record is paper eligible in this remediation cycle.",
+      "passed": true,
+      "severity": "warning"
+    }
+  ],
+  "critical_failures": [
+    "authority_no_critical_unresolved"
+  ],
+  "gate_name": "stage13_wave0_scientific_gate",
+  "gate_version": "3.0",
+  "git_commit": "ea914541f883f29308858346f51ec77ce73fdfb4",
+  "git_dirty": true,
+  "input_hashes": {
+    "authority_audit": "f4826656e569f18d93521e3e9689affc7ea9964e7790776c5caca448d5049f40",
+    "canonical_manifest": "3f89c93941f5a47d6c013a1e1e020ea082127f6df858e58034b9f54a9ca95bb2",
+    "claim_matrix": "304ad41f123e6c7a213a6676599a2685e4b4c2d1b33062dcc35c11e3d53f61ef",
+    "family_table": "4fccca4ccd29292af496296550628c8ad58a482a6a2c3587dd18898a3e002073",
+    "family_table_hash": "4fccca4ccd29292af496296550628c8ad58a482a6a2c3587dd18898a3e002073",
+    "manifest_hash": "3f89c93941f5a47d6c013a1e1e020ea082127f6df858e58034b9f54a9ca95bb2",
+    "partition_freeze": "986ab5ff028e69d668b2b543235cc1c9fedf1eafdaf61244f9695de3d45f8032",
+    "registry": "e53b3c894137fbea3f8edb72044d9eaebe22ec93a8196b919e5e10bab47db561",
+    "variant_table": "7158e2b2d8868d8fde71c8282e93a7607f0541d4e384b2b8a8d458efe8a7e588",
+    "variant_table_hash": "7158e2b2d8868d8fde71c8282e93a7607f0541d4e384b2b8a8d458efe8a7e588"
+  },
+  "paper_eligibility": false,
+  "permission_for_wave2": false,
+  "status": "FAIL",
+  "timestamp": "2026-07-03",
+  "warnings": []
+}

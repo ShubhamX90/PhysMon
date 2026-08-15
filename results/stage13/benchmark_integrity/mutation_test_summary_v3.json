@@ -1,0 +1,24 @@
+{
+  "applicable_count": 225,
+  "executed_count": 225,
+  "failures_by_operator": {},
+  "limitation": "Certificate-level mutation checks are executed; this is not a GPU experiment or a new causal/probe selection.",
+  "negative_operators_executed": [
+    "change_target_quantity",
+    "dimensional_corruption",
+    "remove_required_assumption",
+    "replace_governing_variable_with_cue",
+    "sign_inversion_governing_expression"
+  ],
+  "negative_rejection_rate": 1.0,
+  "positive_acceptance_rate": 1.0,
+  "positive_operators_executed": [
+    "algebraically_equivalent_expression",
+    "unit_formatting_normalization",
+    "variable_renaming_preserves_mapping",
+    "whitespace_formatting_change"
+  ],
+  "status": "MUTATION_CERTIFICATE_CHECKS_EXECUTED_LIMITED_SCOPE",
+  "supersedes": "results/stage13/benchmark_integrity/mutation_test_summary_v2.json",
+  "unsupported_count": 0
+}

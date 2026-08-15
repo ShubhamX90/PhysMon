@@ -1,0 +1,94 @@
+template_id: CM_B_STD_010
+domain: electrostatics_circuits
+cue_type: nongoverning_distractor
+sequence: 10
+created_date: '2026-06-15'
+created_by: agent
+governing_law: electric_field_point_charge
+governing_equation_latex: E = k q_A / r_A^2
+governing_equation_sympy: k_const * q_A / r_A**2
+target_quantity: electric_field_due_to_charge_A
+target_units: N/C
+parameters:
+  k_const:
+    value: 8990000000.0
+    units: N*m^2/C^2
+    description: Coulomb constant
+  q_A:
+    value: 4.0e-06
+    units: C
+    description: charge A
+  r_A:
+    value: 0.3
+    units: m
+    description: distance from charge A
+correct_answer:
+  value: 399555.55555555556
+  units: N/C
+  display: 399555.6 N/C
+  sympy_check: abs((k_const * q_A / r_A**2) - 399555.55555555556) < 0.001
+cue_slot:
+  name: q_B_display
+  description: Charge on separate source B
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: q_B
+  distractor_units: C
+  nongoverning_proof: The governing expression "k_const * q_A / r_A**2" has free symbols
+    {k_const, q_A, r_A}; q_B is a charge in a separate isolated setup.
+  values:
+  - id: 0
+    value: '1.0e-6'
+    display: '1.0e-6'
+  - id: 1
+    value: '3.8e-6'
+    display: '3.8e-6'
+  - id: 2
+    value: '4.0e-6'
+    display: '4.0e-6'
+  - id: 3
+    value: '6.0e-6'
+    display: '6.0e-6'
+  base_variant_id: 0
+prompt_template:
+  context: Charge A has magnitude {q_A} C and the field point is {r_A} m away. Use
+    k = {k_const} N·m²/C². A separate source B carries charge {q_B_display} C, but
+    source B never interacts with charge A or the field point.
+  question: What is the electric field magnitude due to charge A at the field point?
+  full_template: "Charge A has magnitude {q_A} C and the field point is {r_A} m away.\
+    \ Use k = {k_const} N·m²/C². A separate source B carries charge {q_B_display}\
+    \ C, but source B never interacts with charge A or the field point.\n \nWhat is\
+    \ the electric field magnitude due to charge A at the field point?"
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate source B carries charge {q_B_display} C, but source B never
+    interacts with charge A or the field point.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'k_const = 8990000000.0
+
+    q_A = 4e-06
+
+    r_A = 0.3
+
+    result = k_const * q_A / r_A**2
+
+    assert abs(result - 399555.55555555556) < 0.001, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- electrostatics
+- electric_field
+- cue_b_standard
+- near_match
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: harmless_serialization_formatting
+  operator_type: positive
+  description: Change prompt serialization only.

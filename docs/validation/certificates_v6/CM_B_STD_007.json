@@ -1,0 +1,315 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "The governing expression \"m_A * c_A * delta_T_A\" has free symbols {m_A, c_A, delta_T_A}; delta_T_B describes a separate sample B and is absent from the governing law.",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "42000 J",
+    "sympy_check": "abs((m_A * c_A * delta_T_A) - 42000.0) < 0.041999999999999996",
+    "units": "J",
+    "value": 42000.0
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "frame_equivalence_unverified",
+  "certificate_version": "stage13_v6_solver_certificate_v3",
+  "computed_canonical_answer": {
+    "units": "J",
+    "value": 42000.0
+  },
+  "designated_cue": {
+    "distractor_symbol": "delta_T_B",
+    "name": "delta_T_B_display",
+    "source_field": "cue_slot",
+    "type": "numerical",
+    "unit": "K",
+    "values": [
+      {
+        "display": "2.0",
+        "id": 0,
+        "value": "2.0"
+      },
+      {
+        "display": "4.8",
+        "id": 1,
+        "value": "4.8"
+      },
+      {
+        "display": "5.0",
+        "id": 2,
+        "value": "5.0"
+      },
+      {
+        "display": "8.0",
+        "id": 3,
+        "value": "8.0"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit metadata are recorded from structured template fields; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "c_A": "J/(kg*K)",
+      "delta_T_A": "K",
+      "m_A": "kg"
+    },
+    "status": "unit_metadata_recorded_not_symbolically_verified",
+    "target_units": "J"
+  },
+  "domain": "thermodynamics",
+  "explicit_symbolic_derivation": {
+    "canonical_answer_comparison": {
+      "computed": 42000.0,
+      "expected": 42000.0,
+      "matches": true
+    },
+    "final_answer": {
+      "unit": "J",
+      "value": 42000.0
+    },
+    "governing_equation": "c_A*delta_T_A*m_A",
+    "intermediate_calculation": "SymPy evaluated expression to 42000",
+    "numeric_substitution": "m_A * c_A * delta_T_A with c_A=4200.0 J/(kg*K), delta_T_A=5.0 K, m_A=2.0 kg",
+    "steps": [
+      "c_A = 4200.0 J/(kg*K)",
+      "delta_T_A = 5.0 K",
+      "m_A = 2.0 kg",
+      "m_A * c_A * delta_T_A with c_A=4200.0 J/(kg*K), delta_T_A=5.0 K, m_A=2.0 kg",
+      "m_A * c_A * delta_T_A = 42000 J",
+      "canonical comparison: computed=42000, expected=42000"
+    ],
+    "variable_bindings": {
+      "c_A": {
+        "source_field": "parameters.c_A",
+        "unit": "J/(kg*K)",
+        "value": 4200.0
+      },
+      "delta_T_A": {
+        "source_field": "parameters.delta_T_A",
+        "unit": "K",
+        "value": 5.0
+      },
+      "m_A": {
+        "source_field": "parameters.m_A",
+        "unit": "kg",
+        "value": 2.0
+      }
+    }
+  },
+  "family_id": "CM_B_STD_007",
+  "frame_unit_equivalence_check": {
+    "checks": [
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "2.0",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "2.0",
+        "variant_id": 0
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "4.8",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "4.8",
+        "variant_id": 1
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "5.0",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "5.0",
+        "variant_id": 2
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "8.0",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "8.0",
+        "variant_id": 3
+      }
+    ],
+    "limitations": [
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table"
+    ],
+    "status": "frame_equivalence_unverified"
+  },
+  "governing_equations": {
+    "latex": "Q = m_A c_A \\Delta T_A",
+    "sympy": "m_A * c_A * delta_T_A"
+  },
+  "governing_law": "heat_energy_capacity",
+  "governing_law_id": "heat_energy_capacity",
+  "invariance_checks": [
+    {
+      "canonical_answer": 42000.0,
+      "computed_answer": 42000.0,
+      "cue_value": "2.0",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 42000.0,
+      "computed_answer": 42000.0,
+      "cue_value": "4.8",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    },
+    {
+      "canonical_answer": 42000.0,
+      "computed_answer": 42000.0,
+      "cue_value": "5.0",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 2
+    },
+    {
+      "canonical_answer": 42000.0,
+      "computed_answer": 42000.0,
+      "cue_value": "8.0",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The structured governing expression free symbols exclude the designated cue symbol; answer is recomputed from relevant-variable substitutions for each cue variant.",
+  "limitations": [
+    "Generated from structured YAML template fields only.",
+    "Natural-language semantic equivalence and assumption sufficiency require human validation.",
+    "Dimensional algebra is not implemented; unit metadata are recorded only.",
+    "Frame/unit equivalence is verified only for forms covered by the explicit conversion table."
+  ],
+  "numeric_spot_checks": [
+    {
+      "canonical_answer": 42000.0,
+      "computed_answer": 42000.0,
+      "cue_value": "2.0",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 42000.0,
+      "computed_answer": 42000.0,
+      "cue_value": "4.8",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "c_A",
+    "delta_T_A",
+    "m_A"
+  ],
+  "source_template": "data/raw/templates/CM_B_STD_007.yaml",
+  "substituted_values": {
+    "c_A": {
+      "source_field": "parameters.c_A",
+      "unit": "J/(kg*K)",
+      "value": 4200.0
+    },
+    "delta_T_A": {
+      "source_field": "parameters.delta_T_A",
+      "unit": "K",
+      "value": 5.0
+    },
+    "m_A": {
+      "source_field": "parameters.m_A",
+      "unit": "kg",
+      "value": 2.0
+    }
+  },
+  "symbol_table": {
+    "c_A": {
+      "physical_quantity": "specific heat of water",
+      "role": "relevant",
+      "source_field": "parameters.c_A",
+      "symbol": "c_A",
+      "unit": "J/(kg*K)",
+      "value": 4200.0
+    },
+    "delta_T_A": {
+      "physical_quantity": "temperature rise of water A",
+      "role": "relevant",
+      "source_field": "parameters.delta_T_A",
+      "symbol": "delta_T_A",
+      "unit": "K",
+      "value": 5.0
+    },
+    "m_A": {
+      "physical_quantity": "mass of water A",
+      "role": "relevant",
+      "source_field": "parameters.m_A",
+      "symbol": "m_A",
+      "unit": "kg",
+      "value": 2.0
+    }
+  },
+  "symbolic_answer": "m_A * c_A * delta_T_A",
+  "target_quantity": "heat_added_to_water_A",
+  "template_id": "CM_B_STD_007",
+  "units": "J",
+  "variant_bindings": [
+    {
+      "cue_display": "2.0",
+      "cue_value": "2.0",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "4.8",
+      "cue_value": "4.8",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "5.0",
+      "cue_value": "5.0",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "8.0",
+      "cue_value": "8.0",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=42000.0, expected=42000.0, tolerance=0.041999999999999996",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue_slot.distractor_symbol absent from governing-equation free symbols ['c_A', 'delta_T_A', 'm_A']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '4.2e4 J'.",
+        "passed": true
+      }
+    ]
+  }
+}

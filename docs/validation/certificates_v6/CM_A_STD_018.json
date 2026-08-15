@@ -1,0 +1,336 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "The governing expression \"n * R_gas * T / V\" depends only on n, R_gas, T, and V.",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "99768 Pa",
+    "sympy_check": "abs((n * R_gas * T / V) - 99767.99999999999) < 0.001",
+    "units": "Pa",
+    "value": 99767.99999999999
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "frame_equivalence_unverified",
+  "certificate_version": "stage13_v6_solver_certificate_v3",
+  "computed_canonical_answer": {
+    "units": "Pa",
+    "value": 99768.0
+  },
+  "designated_cue": {
+    "distractor_symbol": null,
+    "name": "thermometer_offset_mk",
+    "source_field": "cue_slot",
+    "type": "numerical",
+    "unit": null,
+    "values": [
+      {
+        "display": "10",
+        "id": 0,
+        "value": "10"
+      },
+      {
+        "display": "50",
+        "id": 1,
+        "value": "50"
+      },
+      {
+        "display": "100",
+        "id": 2,
+        "value": "100"
+      },
+      {
+        "display": "200",
+        "id": 3,
+        "value": "200"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit metadata are recorded from structured template fields; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "R_gas": "J/(mol*K)",
+      "T": "K",
+      "V": "m^3",
+      "n": "mol"
+    },
+    "status": "unit_metadata_recorded_not_symbolically_verified",
+    "target_units": "Pa"
+  },
+  "domain": "thermodynamics",
+  "explicit_symbolic_derivation": {
+    "canonical_answer_comparison": {
+      "computed": 99768.0,
+      "expected": 99767.99999999999,
+      "matches": true
+    },
+    "final_answer": {
+      "unit": "Pa",
+      "value": 99768.0
+    },
+    "governing_equation": "R_gas*T*n/V",
+    "intermediate_calculation": "SymPy evaluated expression to 99768",
+    "numeric_substitution": "n * R_gas * T / V with R_gas=8.314 J/(mol*K), T=300.0 K, V=0.1 m^3, n=4.0 mol",
+    "steps": [
+      "R_gas = 8.314 J/(mol*K)",
+      "T = 300.0 K",
+      "V = 0.1 m^3",
+      "n = 4.0 mol",
+      "n * R_gas * T / V with R_gas=8.314 J/(mol*K), T=300.0 K, V=0.1 m^3, n=4.0 mol",
+      "n * R_gas * T / V = 99768 Pa",
+      "canonical comparison: computed=99768, expected=99768"
+    ],
+    "variable_bindings": {
+      "R_gas": {
+        "source_field": "parameters.R_gas",
+        "unit": "J/(mol*K)",
+        "value": 8.314
+      },
+      "T": {
+        "source_field": "parameters.T",
+        "unit": "K",
+        "value": 300.0
+      },
+      "V": {
+        "source_field": "parameters.V",
+        "unit": "m^3",
+        "value": 0.1
+      },
+      "n": {
+        "source_field": "parameters.n",
+        "unit": "mol",
+        "value": 4.0
+      }
+    }
+  },
+  "family_id": "CM_A_STD_018",
+  "frame_unit_equivalence_check": {
+    "checks": [
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "10",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "10",
+        "variant_id": 0
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "50",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "50",
+        "variant_id": 1
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "100",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "100",
+        "variant_id": 2
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "200",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "200",
+        "variant_id": 3
+      }
+    ],
+    "limitations": [
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table"
+    ],
+    "status": "frame_equivalence_unverified"
+  },
+  "governing_equations": {
+    "latex": "P = n R T / V",
+    "sympy": "n * R_gas * T / V"
+  },
+  "governing_law": "ideal_gas_pressure",
+  "governing_law_id": "ideal_gas_pressure",
+  "invariance_checks": [
+    {
+      "canonical_answer": 99767.99999999999,
+      "computed_answer": 99768.0,
+      "cue_value": "10",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 99767.99999999999,
+      "computed_answer": 99768.0,
+      "cue_value": "50",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    },
+    {
+      "canonical_answer": 99767.99999999999,
+      "computed_answer": 99768.0,
+      "cue_value": "100",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 2
+    },
+    {
+      "canonical_answer": 99767.99999999999,
+      "computed_answer": 99768.0,
+      "cue_value": "200",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The structured governing expression free symbols exclude the designated cue symbol; answer is recomputed from relevant-variable substitutions for each cue variant.",
+  "limitations": [
+    "Generated from structured YAML template fields only.",
+    "Natural-language semantic equivalence and assumption sufficiency require human validation.",
+    "Dimensional algebra is not implemented; unit metadata are recorded only.",
+    "Frame/unit equivalence is verified only for forms covered by the explicit conversion table."
+  ],
+  "numeric_spot_checks": [
+    {
+      "canonical_answer": 99767.99999999999,
+      "computed_answer": 99768.0,
+      "cue_value": "10",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 99767.99999999999,
+      "computed_answer": 99768.0,
+      "cue_value": "50",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "R_gas",
+    "T",
+    "V",
+    "n"
+  ],
+  "source_template": "data/raw/templates/CM_A_STD_018.yaml",
+  "substituted_values": {
+    "R_gas": {
+      "source_field": "parameters.R_gas",
+      "unit": "J/(mol*K)",
+      "value": 8.314
+    },
+    "T": {
+      "source_field": "parameters.T",
+      "unit": "K",
+      "value": 300.0
+    },
+    "V": {
+      "source_field": "parameters.V",
+      "unit": "m^3",
+      "value": 0.1
+    },
+    "n": {
+      "source_field": "parameters.n",
+      "unit": "mol",
+      "value": 4.0
+    }
+  },
+  "symbol_table": {
+    "R_gas": {
+      "physical_quantity": "gas constant",
+      "role": "relevant",
+      "source_field": "parameters.R_gas",
+      "symbol": "R_gas",
+      "unit": "J/(mol*K)",
+      "value": 8.314
+    },
+    "T": {
+      "physical_quantity": "temperature",
+      "role": "relevant",
+      "source_field": "parameters.T",
+      "symbol": "T",
+      "unit": "K",
+      "value": 300.0
+    },
+    "V": {
+      "physical_quantity": "volume",
+      "role": "relevant",
+      "source_field": "parameters.V",
+      "symbol": "V",
+      "unit": "m^3",
+      "value": 0.1
+    },
+    "n": {
+      "physical_quantity": "amount of gas",
+      "role": "relevant",
+      "source_field": "parameters.n",
+      "symbol": "n",
+      "unit": "mol",
+      "value": 4.0
+    }
+  },
+  "symbolic_answer": "n * R_gas * T / V",
+  "target_quantity": "pressure_of_gas_A",
+  "template_id": "CM_A_STD_018",
+  "units": "Pa",
+  "variant_bindings": [
+    {
+      "cue_display": "10",
+      "cue_value": "10",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "50",
+      "cue_value": "50",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "100",
+      "cue_value": "100",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "200",
+      "cue_value": "200",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=99768.0, expected=99767.99999999999, tolerance=0.09976799999999998",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue_slot.name absent from governing-equation free symbols ['R_gas', 'T', 'V', 'n']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '9.977e4 Pa'.",
+        "passed": true
+      }
+    ]
+  }
+}

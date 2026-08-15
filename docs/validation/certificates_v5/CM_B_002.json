@@ -1,0 +1,217 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "The governing expression \"v_0 + a * t\" has free symbols {v_0, a, t}. Object B is explicitly on a different track and does not interact with object A, so v_B is absent from the governing relation.",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "10.0 m/s",
+    "sympy_check": "abs((v_0 + a * t) - 10.0) < 1e-9",
+    "units": "m/s",
+    "value": 10.0
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "certificate_generated",
+  "certificate_version": "stage13_v5_solver_certificate_v2",
+  "computed_canonical_answer": {
+    "units": "m/s",
+    "value": 10.0
+  },
+  "designated_cue": {
+    "distractor_symbol": "v_B",
+    "name": "v_B",
+    "type": "numerical",
+    "units": "m/s",
+    "values": [
+      {
+        "display": "1.0",
+        "id": 0,
+        "value": "1.0"
+      },
+      {
+        "display": "2.5",
+        "id": 1,
+        "value": "2.5"
+      },
+      {
+        "display": "5.0",
+        "id": 2,
+        "value": "5.0"
+      },
+      {
+        "display": "8.0",
+        "id": 3,
+        "value": "8.0"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit algebra is recorded from template metadata; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "a": "m/s^2",
+      "t": "s",
+      "v_0": "m/s"
+    },
+    "status": "checked_from_template_units",
+    "target_units": "m/s"
+  },
+  "domain": "mechanics",
+  "explicit_symbolic_derivation": {
+    "computed_value": 10.0,
+    "expression": "a*t + v_0",
+    "steps": [
+      "v_0 = 4.0 m/s",
+      "a = 3.0 m/s^2",
+      "t = 2.0 s",
+      "v_0 + a * t = 10 m/s"
+    ]
+  },
+  "family_id": "CM_B_002",
+  "governing_equations": {
+    "latex": "v = v_0 + a t",
+    "sympy": "v_0 + a * t"
+  },
+  "governing_law": "kinematics_constant_acceleration_final_velocity",
+  "governing_law_id": "kinematics_constant_acceleration_final_velocity",
+  "invariance_checks": [
+    {
+      "computed_answer": 10.0,
+      "cue_value": "1.0",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 10.0,
+      "cue_value": "2.5",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    },
+    {
+      "computed_answer": 10.0,
+      "cue_value": "5.0",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 2
+    },
+    {
+      "computed_answer": 10.0,
+      "cue_value": "8.0",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The governing expression free symbols exclude the designated cue symbol; answer is recomputed for each cue variant.",
+  "limitations": [
+    "Generated only from structured YAML template fields.",
+    "Dimensional check is metadata-backed, not a full symbolic unit algebra proof."
+  ],
+  "numeric_spot_checks": [
+    {
+      "computed_answer": 10.0,
+      "cue_value": "1.0",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 10.0,
+      "cue_value": "2.5",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "a",
+    "t",
+    "v_0"
+  ],
+  "source_template": "/Users/shubhammishra/Desktop/PhysMons/data/raw/templates/CM_B_002.yaml",
+  "substituted_values": {
+    "a": {
+      "units": "m/s^2",
+      "value": 3.0
+    },
+    "t": {
+      "units": "s",
+      "value": 2.0
+    },
+    "v_0": {
+      "units": "m/s",
+      "value": 4.0
+    }
+  },
+  "symbol_table": {
+    "a": {
+      "description": "acceleration",
+      "role": "relevant",
+      "units": "m/s^2",
+      "value": 3.0
+    },
+    "t": {
+      "description": "time",
+      "role": "relevant",
+      "units": "s",
+      "value": 2.0
+    },
+    "v_0": {
+      "description": "initial speed",
+      "role": "relevant",
+      "units": "m/s",
+      "value": 4.0
+    }
+  },
+  "symbolic_answer": "v_0 + a * t",
+  "target_quantity": "final_velocity",
+  "template_id": "CM_B_002",
+  "units": "m/s",
+  "variant_bindings": [
+    {
+      "cue_display": "1.0",
+      "cue_value": "1.0",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "2.5",
+      "cue_value": "2.5",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "5.0",
+      "cue_value": "5.0",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "8.0",
+      "cue_value": "8.0",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=10.0, expected=10.0, tolerance=9.999999999999999e-06",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue_slot.distractor_symbol absent from governing-equation free symbols ['a', 't', 'v_0']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '10 m/s'.",
+        "passed": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "checks": [
+    {
+      "check_id": "actual_mutation_verification",
+      "detail": 360,
+      "passed": true
+    },
+    {
+      "check_id": "actual_certificates",
+      "detail": {
+        "certificate_generated": 30
+      },
+      "passed": true
+    },
+    {
+      "check_id": "stratified_pilot",
+      "detail": {
+        "calibration_examples": 15,
+        "cue_types": {
+          "frame_rendering": 9,
+          "irrelevant_variable": 11,
+          "nongoverning_distractor": 10
+        },
+        "domains": {
+          "electrostatics_circuits": 7,
+          "mechanics": 15,
+          "thermodynamics": 8
+        },
+        "pass1_count": 30,
+        "pass2_count": 30,
+        "pilot_count": 30,
+        "pilot_readiness": "MATERIALS_READY_HUMAN_LABELS_PENDING",
+        "qualification_cases": 12,
+        "template_clusters": 7
+      },
+      "passed": true
+    },
+    {
+      "check_id": "parser_quotas",
+      "detail": {
+        "ambiguous_final_answer": 17,
+        "decimals": 107,
+        "equivalent_units": 200,
+        "fractions": 16,
+        "integers_decimals": 221,
+        "latex": 20,
+        "long_prose": 30,
+        "model_specific_quirks": 115,
+        "multiple_numbers": 148,
+        "refusals_hedges": 10,
+        "rounding_boundaries": 10,
+        "scientific_notation": 10,
+        "wrong_units": 10
+      },
+      "passed": true
+    },
+    {
+      "check_id": "balance_template_cv",
+      "detail": {
+        "auroc": 0.6173109243697479,
+        "n_folds": 5,
+        "permutation_p_refit": 0.0196078431372549
+      },
+      "passed": true
+    },
+    {
+      "check_id": "leakage_expected_relations_removed",
+      "detail": {
+        "connected_review_clusters": 8,
+        "cross_family_candidate_pairs": 456,
+        "cross_split_candidate_pairs": 0,
+        "detectors_used": [
+          "exact_prompt_hash",
+          "number_masked_hash",
+          "lexical_similarity",
+          "derived_parent_relation"
+        ],
+        "expected_derived_parent_pairs": 220,
+        "expected_within_family_pairs": 930,
+        "n_prompts": 660,
+        "semantic_template_similarity": "not_available_no_local_embedding_method",
+        "status": "INCOMPLETE_PENDING_CROSS_FAMILY_REVIEW"
+      },
+      "passed": true
+    }
+  ],
+  "critical_failures": [],
+  "gate_name": "stage13_wave1a_software_materials_gate",
+  "gate_version": "5.0",
+  "git_commit": "ea914541f883f29308858346f51ec77ce73fdfb4",
+  "git_dirty": true,
+  "human_pilot": "PENDING",
+  "input_hashes": {
+    "authority_v5": "c06c9424c6bbce34787b63c66a6bc8d0face2cbce4b64be21f2c1631a7ecd9d4",
+    "balance_v5": "b1dd268d6e2abdfe7ec98d635fd058c0413f87f2f6c1888a5f3a05c465b94204",
+    "canonical_v5": "c8d839f0299b49522e62b008477b265faf9189408426337ef2a7ad0160755d3b",
+    "certificates_v5": "6d9953931ec59b27e08cf160317ecee0007e2268f60e21a349abdd4d0c29f5ff",
+    "claims_v5": "76fef4b73b6a7478002f96dffd998bf623de45f07b53fee20c66d4f4c3e536a7",
+    "coverage_v5": "881dc35a66754f83bfa372ddc74d8e0a5b22a2158f6ff54266036ee68af5d475",
+    "leakage_v5": "5fcdf4a964a04dfe67eac0d78c89b40f8b5d500e8df81ab5de305f3d29aaf369",
+    "mutation_v5": "68174ff79d6a3219b8ebfa5a2d75addeddddd9a835199428b6b2735f1d12493d",
+    "parser_v5": "6801b38333f4e9c96fd98240f954b84226b2df99d58c8d26f502524904bc5702",
+    "part2_pdf": "99633d010327dd4cec0ec9a82afc69d06653aaa6d8542f2ade99775fe6729e3b"
+  },
+  "paper_eligibility": false,
+  "permission_for_wave2": false,
+  "status": "PASS"
+}

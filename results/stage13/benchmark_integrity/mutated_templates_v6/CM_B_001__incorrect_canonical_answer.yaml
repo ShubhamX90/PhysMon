@@ -1,0 +1,97 @@
+template_id: CM_B_001
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 1
+created_date: '2026-06-14'
+created_by: agent
+governing_law: newton_second_law_net_force
+governing_equation_latex: a = F_{net} / m_A
+governing_equation_sympy: F_net / m_A
+target_quantity: acceleration_of_block_A_changed
+target_units: m/s^2
+parameters:
+  F_net:
+    value: 10.0
+    units: N
+    description: net horizontal force on block A
+  m_A:
+    value: 2.0
+    units: kg
+    description: mass of block A
+correct_answer:
+  value: 6.0
+  units: m/s^2
+  display: 6.0 m/s^2
+  sympy_check: abs((F_net / m_A) - 5.0) < 1e-9
+cue_slot:
+  name: m_B_display
+  description: Mass of block B - same unit (kg) as m_A but block B is disconnected
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: m_B
+  distractor_units: kg
+  nongoverning_proof: The governing expression "F_net / m_A" has free symbols {F_net,
+    m_A}. Block B is stated to be on a separate, unconnected surface and exerts no
+    force on block A. m_B does not appear in the governing expression.
+  values:
+  - id: 0
+    value: '0.5'
+    display: '0.5'
+  - id: 1
+    value: '1.0'
+    display: '1.0'
+  - id: 2
+    value: '2.0'
+    display: '2.0'
+  - id: 3
+    value: '3.0'
+    display: '3.0'
+  base_variant_id: 0
+prompt_template:
+  context: 'Block A, with mass {m_A} kg, rests on a frictionless horizontal surface.
+
+    A constant net horizontal force of {F_net} N is applied to block A.
+
+    In the same room, block B (mass {m_B_display} kg) sits on a separate, unconnected
+    surface and does not interact with block A in any way.'
+  question: What is the acceleration of block A?
+  full_template: 'Block A, with mass {m_A} kg, rests on a frictionless horizontal
+    surface.
+
+    A constant net horizontal force of {F_net} N is applied to block A.
+
+    In the same room, block B (mass {m_B_display} kg) sits on a separate, unconnected
+    surface and does not interact with block A in any way.
+
+
+    What is the acceleration of block A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: In the same room, block B (mass {m_B_display} kg) sits on a separate,
+    unconnected surface and does not interact with block A in any way.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'F_net = 10.0
+
+    m_A = 2.0
+
+    result = F_net / m_A
+
+    assert abs(result - 5.0) < 4.9999999999999996e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- newton_second_law
+- net_force
+- acceleration
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: incorrect_canonical_answer
+  operator_type: negative
+  description: Corrupt the stored canonical answer without changing prompt semantics.

@@ -1,0 +1,114 @@
+{
+  "cross_model": {
+    "families_both_sensitive": 0,
+    "families_neither_sensitive": 29,
+    "families_only_llama_sensitive": 1,
+    "families_only_qwen_sensitive": 0,
+    "families_with_any_primary_flip": 1
+  },
+  "gate_4_evidence": "1 of 30 pilot families showed at least one answer flip on at least one PRIMARY_DENSE model (threshold for PASS: >= 6).",
+  "gate_4_pass": false,
+  "llama_primary": {
+    "S_lp_theta_mean": 0.15833333333333333,
+    "answer_correct_rate": 0.8319327731092437,
+    "families_artifact_flagged": [
+      "EL_A_004:degraded_calculation_error",
+      "EL_A_005:suspect_single_variant_anomaly"
+    ],
+    "families_degraded": [
+      "EL_B_003"
+    ],
+    "families_with_any_flip": 1,
+    "hat_S_theta_max": 0.5,
+    "hat_S_theta_mean": 0.016666666666666666,
+    "hat_S_theta_median": 0.0,
+    "hat_S_theta_p25": 0.0,
+    "hat_S_theta_p75": 0.0,
+    "parse_success_rate": 0.9916666666666667,
+    "pct_families_with_any_flip": 0.03333333333333333
+  },
+  "qwen_primary": {
+    "S_lp_theta_mean": 0.5010416666666667,
+    "answer_correct_rate": 0.8440366972477065,
+    "families_artifact_flagged": [],
+    "families_degraded": [
+      "CM_A_008",
+      "CM_B_009",
+      "EL_B_004",
+      "EL_B_005"
+    ],
+    "families_with_any_flip": 0,
+    "hat_S_theta_max": 0.0,
+    "hat_S_theta_mean": 0.0,
+    "hat_S_theta_median": 0.0,
+    "hat_S_theta_p25": 0.0,
+    "hat_S_theta_p75": 0.0,
+    "parse_success_rate": 0.9083333333333333,
+    "pct_families_with_any_flip": 0.0
+  },
+  "repair_run": true,
+  "slp_stability_check": {
+    "matches_prior_repair": true,
+    "mismatches": []
+  },
+  "slp_threshold_candidates": {
+    "llama_primary": {
+      "target_20pct": {
+        "observed_positive_rate": 0.19047619047619047,
+        "threshold": 0.34375
+      },
+      "target_30pct": {
+        "observed_positive_rate": 0.2857142857142857,
+        "threshold": 0.28125
+      },
+      "target_40pct": {
+        "observed_positive_rate": 0.38095238095238093,
+        "threshold": 0.1875
+      }
+    },
+    "qwen_primary": {
+      "target_20pct": {
+        "observed_positive_rate": 0.19047619047619047,
+        "threshold": 0.78125
+      },
+      "target_30pct": {
+        "observed_positive_rate": 0.2857142857142857,
+        "threshold": 0.5
+      },
+      "target_40pct": {
+        "observed_positive_rate": 0.38095238095238093,
+        "threshold": 0.4375
+      }
+    }
+  },
+  "threshold_candidates": {
+    "llama_primary": {
+      "target_20pct": {
+        "observed_positive_rate": 0.047619047619047616,
+        "threshold": 0.5
+      },
+      "target_30pct": {
+        "observed_positive_rate": 0.047619047619047616,
+        "threshold": 0.5
+      },
+      "target_40pct": {
+        "observed_positive_rate": 0.047619047619047616,
+        "threshold": 0.5
+      }
+    },
+    "qwen_primary": {
+      "target_20pct": {
+        "observed_positive_rate": 1.0,
+        "threshold": 0.0
+      },
+      "target_30pct": {
+        "observed_positive_rate": 1.0,
+        "threshold": 0.0
+      },
+      "target_40pct": {
+        "observed_positive_rate": 1.0,
+        "threshold": 0.0
+      }
+    }
+  }
+}

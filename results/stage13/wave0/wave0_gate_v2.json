@@ -1,0 +1,53 @@
+{
+  "gate_name": "stage13_wave0_scientific_gate",
+  "gate_version": "2.0",
+  "timestamp": "2026-07-03",
+  "git_commit": "ea914541f883f29308858346f51ec77ce73fdfb4",
+  "git_dirty": true,
+  "input_hashes": {
+    "previous_gate": "results/stage13/wave0/wave0_gate.json",
+    "registry": "docs/registry/experiment_registry.jsonl",
+    "canonical_family_table": "results/canonical/model_family_evidence.csv",
+    "artifact_audit": "docs/registry/artifact_authority_audit.json"
+  },
+  "checks": [
+    {
+      "check_id": "historical_registry_coverage",
+      "passed": false,
+      "severity": "critical",
+      "detail": "Historical Stage 6-12 experiments are not yet fully registered with v3 provenance schema."
+    },
+    {
+      "check_id": "artifact_authority_resolution",
+      "passed": false,
+      "severity": "critical",
+      "detail": "Previous authority audit was inventory-only and left critical artifacts unresolved."
+    },
+    {
+      "check_id": "canonical_155_manifest",
+      "passed": false,
+      "severity": "critical",
+      "detail": "Canonical 155-family manifest has not yet been built or verified."
+    },
+    {
+      "check_id": "claim_matrix_links",
+      "passed": false,
+      "severity": "critical",
+      "detail": "Claim matrix lacks complete links to experiment IDs and authoritative artifacts."
+    }
+  ],
+  "critical_failures": [
+    "HISTORICAL_AUTHORITY_UNRESOLVED",
+    "REGISTRY_SCHEMA_INCOMPLETE",
+    "CANONICAL_MANIFEST_MISSING",
+    "CLAIM_EVIDENCE_LINKS_INCOMPLETE"
+  ],
+  "warnings": [
+    "This v2 gate intentionally supersedes the earlier file-existence-based Wave 0 PASS."
+  ],
+  "status": "FAIL",
+  "paper_eligibility": false,
+  "permission_for_wave2": false,
+  "supersedes": "results/stage13/wave0/wave0_gate.json"
+}
+

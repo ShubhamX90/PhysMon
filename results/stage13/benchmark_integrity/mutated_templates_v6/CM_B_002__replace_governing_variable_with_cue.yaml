@@ -1,0 +1,99 @@
+template_id: CM_B_002
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 2
+created_date: '2026-06-14'
+created_by: agent
+governing_law: kinematics_constant_acceleration_final_velocity
+governing_equation_latex: v = v_0 + a t
+governing_equation_sympy: v_0 + v_B * t
+target_quantity: final_velocity
+target_units: m/s
+parameters:
+  v_0:
+    value: 4.0
+    units: m/s
+    description: initial speed
+  a:
+    value: 3.0
+    units: m/s^2
+    description: acceleration
+  t:
+    value: 2.0
+    units: s
+    description: time
+  v_B:
+    value: '1.0'
+    units: m/s
+    description: introduced cue parameter
+correct_answer:
+  value: 10.0
+  units: m/s
+  display: 10.0 m/s
+  sympy_check: abs((v_0 + a * t) - 10.0) < 1e-9
+cue_slot:
+  name: v_B
+  description: Velocity of unrelated object B
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: v_B
+  distractor_units: m/s
+  nongoverning_proof: The governing expression "v_0 + a * t" has free symbols {v_0,
+    a, t}. Object B is explicitly on a different track and does not interact with
+    object A, so v_B is absent from the governing relation.
+  values:
+  - id: 0
+    value: '1.0'
+    display: '1.0'
+  - id: 1
+    value: '2.5'
+    display: '2.5'
+  - id: 2
+    value: '5.0'
+    display: '5.0'
+  - id: 3
+    value: '8.0'
+    display: '8.0'
+  base_variant_id: 0
+prompt_template:
+  context: Object A starts at speed {v_0} m/s and then accelerates at {a} m/s² for
+    {t} s on a straight frictionless track. A different object B moves at constant
+    speed {v_B} m/s on a separate track and never interacts with object A.
+  question: What is the final speed of object A after the {t} s interval?
+  full_template: 'Object A starts at speed {v_0} m/s and then accelerates at {a} m/s²
+    for {t} s on a straight frictionless track. A different object B moves at constant
+    speed {v_B} m/s on a separate track and never interacts with object A.
+
+
+    What is the final speed of object A after the {t} s interval?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A different object B moves at constant speed {v_B} m/s on a separate
+    track and never interacts with object A.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'v_0 = 4.0
+
+    a = 3.0
+
+    t = 2.0
+
+    result = v_0 + a * t
+
+    assert abs(result - 10.0) < 9.999999999999999e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- kinematics
+- final_velocity
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: replace_governing_variable_with_cue
+  operator_type: negative
+  description: Replace one governing variable with the cue symbol.

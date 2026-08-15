@@ -1,0 +1,195 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "Each rendering denotes the same pressure value; the governing expression remains \"P_base\".",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "101325 Pa",
+    "sympy_check": "abs((P_base) - 101325.0) < 0.101325",
+    "units": "Pa",
+    "value": 101325.0
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "certificate_generated",
+  "certificate_version": "stage13_v5_solver_certificate_v2",
+  "computed_canonical_answer": {
+    "units": "Pa",
+    "value": 101325.0
+  },
+  "designated_cue": {
+    "distractor_symbol": null,
+    "name": "pressure_render",
+    "type": "rendering",
+    "units": null,
+    "values": [
+      {
+        "display": "101325 Pa",
+        "id": 0,
+        "render": "101325 Pa",
+        "value": "101325 Pa"
+      },
+      {
+        "display": "101.325 kPa",
+        "id": 1,
+        "render": "101.325 kPa",
+        "value": "101.325 kPa"
+      },
+      {
+        "display": "1.01325 bar",
+        "id": 2,
+        "render": "1.01325 bar",
+        "value": "1.01325 bar"
+      },
+      {
+        "display": "101325 N/m^2",
+        "id": 3,
+        "render": "101325 N/m^2",
+        "value": "101325 N/m^2"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit algebra is recorded from template metadata; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "P_base": "Pa"
+    },
+    "status": "checked_from_template_units",
+    "target_units": "Pa"
+  },
+  "domain": "thermodynamics",
+  "explicit_symbolic_derivation": {
+    "computed_value": 101325.0,
+    "expression": "P_base",
+    "steps": [
+      "P_base = 101325.0 Pa",
+      "P_base = 101325 Pa"
+    ]
+  },
+  "family_id": "CM_C_007",
+  "governing_equations": {
+    "latex": "P = P_{\\mathrm{base}}",
+    "sympy": "P_base"
+  },
+  "governing_law": "unit_rendering_pressure",
+  "governing_law_id": "unit_rendering_pressure",
+  "invariance_checks": [
+    {
+      "computed_answer": 101325.0,
+      "cue_value": "101325 Pa",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 101325.0,
+      "cue_value": "101.325 kPa",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    },
+    {
+      "computed_answer": 101325.0,
+      "cue_value": "1.01325 bar",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 2
+    },
+    {
+      "computed_answer": 101325.0,
+      "cue_value": "101325 N/m^2",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The governing expression free symbols exclude the designated cue symbol; answer is recomputed for each cue variant.",
+  "limitations": [
+    "Generated only from structured YAML template fields.",
+    "Dimensional check is metadata-backed, not a full symbolic unit algebra proof."
+  ],
+  "numeric_spot_checks": [
+    {
+      "computed_answer": 101325.0,
+      "cue_value": "101325 Pa",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 101325.0,
+      "cue_value": "101.325 kPa",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "P_base"
+  ],
+  "source_template": "/Users/shubhammishra/Desktop/PhysMons/data/raw/templates/stage10_expansion/frame_rendering/thermodynamics/CM_C_007.yaml",
+  "substituted_values": {
+    "P_base": {
+      "units": "Pa",
+      "value": 101325.0
+    }
+  },
+  "symbol_table": {
+    "P_base": {
+      "description": "base pressure",
+      "role": "relevant",
+      "units": "Pa",
+      "value": 101325.0
+    }
+  },
+  "symbolic_answer": "P_base",
+  "target_quantity": "pressure_in_pascals",
+  "template_id": "CM_C_007",
+  "units": "Pa",
+  "variant_bindings": [
+    {
+      "cue_display": "101325 Pa",
+      "cue_value": "101325 Pa",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "101.325 kPa",
+      "cue_value": "101.325 kPa",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "1.01325 bar",
+      "cue_value": "1.01325 bar",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "101325 N/m^2",
+      "cue_value": "101325 N/m^2",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=101325.0, expected=101325.0, tolerance=0.101325",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue symbol absent from governing-equation free symbols ['P_base']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '1.013e5 Pa'.",
+        "passed": true
+      }
+    ]
+  }
+}

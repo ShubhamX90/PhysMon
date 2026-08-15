@@ -1,0 +1,316 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "Every rendering denotes the same physical speed value; the governing expression remains \"v_base\".",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "30.0 m/s",
+    "sympy_check": "abs((v_base) - 30.0) < 2.9999999999999997e-05",
+    "units": "m/s",
+    "value": 30.0
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "structured_machine_certificate_verified",
+  "certificate_version": "stage13_v6_solver_certificate_v3",
+  "computed_canonical_answer": {
+    "units": "m/s",
+    "value": 30.0
+  },
+  "designated_cue": {
+    "distractor_symbol": null,
+    "name": "speed_render",
+    "source_field": "cue_slot",
+    "type": "rendering",
+    "unit": null,
+    "values": [
+      {
+        "display": "30 m/s",
+        "id": 0,
+        "render": "30 m/s",
+        "value": "30 m/s"
+      },
+      {
+        "display": "3000 cm/s",
+        "id": 1,
+        "render": "3000 cm/s",
+        "value": "3000 cm/s"
+      },
+      {
+        "display": "108 km/h",
+        "id": 2,
+        "render": "108 km/h",
+        "value": "108 km/h"
+      },
+      {
+        "display": "30000 mm/s",
+        "id": 3,
+        "render": "30000 mm/s",
+        "value": "30000 mm/s"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit metadata are recorded from structured template fields; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "v_base": "m/s"
+    },
+    "status": "unit_metadata_recorded_not_symbolically_verified",
+    "target_units": "m/s"
+  },
+  "domain": "mechanics",
+  "explicit_symbolic_derivation": {
+    "canonical_answer_comparison": {
+      "computed": 30.0,
+      "expected": 30.0,
+      "matches": true
+    },
+    "final_answer": {
+      "unit": "m/s",
+      "value": 30.0
+    },
+    "governing_equation": "v_base",
+    "intermediate_calculation": "SymPy evaluated expression to 30",
+    "numeric_substitution": "v_base with v_base=30.0 m/s",
+    "steps": [
+      "v_base = 30.0 m/s",
+      "v_base with v_base=30.0 m/s",
+      "v_base = 30 m/s",
+      "canonical comparison: computed=30, expected=30"
+    ],
+    "variable_bindings": {
+      "v_base": {
+        "source_field": "parameters.v_base",
+        "unit": "m/s",
+        "value": 30.0
+      }
+    }
+  },
+  "family_id": "CM_C_001",
+  "frame_unit_equivalence_check": {
+    "checks": [
+      {
+        "canonical_parsed": {
+          "base_unit": "m/s",
+          "base_value": 30.0,
+          "parseable": true,
+          "raw": "30.0 m/s",
+          "unit": "m/s",
+          "value": 30.0
+        },
+        "equivalent": true,
+        "parsed": {
+          "base_unit": "m/s",
+          "base_value": 30.0,
+          "parseable": true,
+          "raw": "30 m/s",
+          "unit": "m/s",
+          "value": 30.0
+        },
+        "rendered": "30 m/s",
+        "variant_id": 0
+      },
+      {
+        "canonical_parsed": {
+          "base_unit": "m/s",
+          "base_value": 30.0,
+          "parseable": true,
+          "raw": "30.0 m/s",
+          "unit": "m/s",
+          "value": 30.0
+        },
+        "equivalent": true,
+        "parsed": {
+          "base_unit": "m/s",
+          "base_value": 30.0,
+          "parseable": true,
+          "raw": "3000 cm/s",
+          "unit": "cm/s",
+          "value": 3000.0
+        },
+        "rendered": "3000 cm/s",
+        "variant_id": 1
+      },
+      {
+        "canonical_parsed": {
+          "base_unit": "m/s",
+          "base_value": 30.0,
+          "parseable": true,
+          "raw": "30.0 m/s",
+          "unit": "m/s",
+          "value": 30.0
+        },
+        "equivalent": true,
+        "parsed": {
+          "base_unit": "m/s",
+          "base_value": 30.0,
+          "parseable": true,
+          "raw": "108 km/h",
+          "unit": "km/h",
+          "value": 108.0
+        },
+        "rendered": "108 km/h",
+        "variant_id": 2
+      },
+      {
+        "canonical_parsed": {
+          "base_unit": "m/s",
+          "base_value": 30.0,
+          "parseable": true,
+          "raw": "30.0 m/s",
+          "unit": "m/s",
+          "value": 30.0
+        },
+        "equivalent": true,
+        "parsed": {
+          "base_unit": "m/s",
+          "base_value": 30.0,
+          "parseable": true,
+          "raw": "30000 mm/s",
+          "unit": "mm/s",
+          "value": 30000.0
+        },
+        "rendered": "30000 mm/s",
+        "variant_id": 3
+      }
+    ],
+    "limitations": [],
+    "status": "verified_explicit_conversion_table"
+  },
+  "governing_equations": {
+    "latex": "v = v_{\\mathrm{base}}",
+    "sympy": "v_base"
+  },
+  "governing_law": "unit_rendering_velocity",
+  "governing_law_id": "unit_rendering_velocity",
+  "invariance_checks": [
+    {
+      "canonical_answer": 30.0,
+      "computed_answer": 30.0,
+      "cue_value": "30 m/s",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 30.0,
+      "computed_answer": 30.0,
+      "cue_value": "3000 cm/s",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    },
+    {
+      "canonical_answer": 30.0,
+      "computed_answer": 30.0,
+      "cue_value": "108 km/h",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 2
+    },
+    {
+      "canonical_answer": 30.0,
+      "computed_answer": 30.0,
+      "cue_value": "30000 mm/s",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The structured governing expression free symbols exclude the designated cue symbol; answer is recomputed from relevant-variable substitutions for each cue variant.",
+  "limitations": [
+    "Generated from structured YAML template fields only.",
+    "Natural-language semantic equivalence and assumption sufficiency require human validation.",
+    "Dimensional algebra is not implemented; unit metadata are recorded only.",
+    "Frame/unit equivalence is verified only for forms covered by the explicit conversion table."
+  ],
+  "numeric_spot_checks": [
+    {
+      "canonical_answer": 30.0,
+      "computed_answer": 30.0,
+      "cue_value": "30 m/s",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 30.0,
+      "computed_answer": 30.0,
+      "cue_value": "3000 cm/s",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "v_base"
+  ],
+  "source_template": "data/raw/templates/CM_C_001.yaml",
+  "substituted_values": {
+    "v_base": {
+      "source_field": "parameters.v_base",
+      "unit": "m/s",
+      "value": 30.0
+    }
+  },
+  "symbol_table": {
+    "v_base": {
+      "physical_quantity": "base speed",
+      "role": "relevant",
+      "source_field": "parameters.v_base",
+      "symbol": "v_base",
+      "unit": "m/s",
+      "value": 30.0
+    }
+  },
+  "symbolic_answer": "v_base",
+  "target_quantity": "speed_in_m_per_s",
+  "template_id": "CM_C_001",
+  "units": "m/s",
+  "variant_bindings": [
+    {
+      "cue_display": "30 m/s",
+      "cue_value": "30 m/s",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "3000 cm/s",
+      "cue_value": "3000 cm/s",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "108 km/h",
+      "cue_value": "108 km/h",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "30000 mm/s",
+      "cue_value": "30000 mm/s",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=30.0, expected=30.0, tolerance=2.9999999999999997e-05",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue symbol absent from governing-equation free symbols ['v_base']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '30 m/s'.",
+        "passed": true
+      }
+    ]
+  }
+}

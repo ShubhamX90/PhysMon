@@ -1,0 +1,81 @@
+template_id: CM_C_004
+domain: electrostatics_circuits
+cue_type: frame_rendering
+sequence: 4
+created_date: '2026-06-15'
+created_by: agent
+governing_law: unit_rendering_power
+governing_equation_latex: P = P_{\mathrm{base}}
+governing_equation_sympy: P_base
+target_quantity: power_in_watts_changed
+target_units: W
+parameters:
+  P_base:
+    value: 200.0
+    units: W
+    description: base power
+correct_answer:
+  value: 201.0
+  units: W
+  display: 201.0 W
+  sympy_check: abs((P_base) - 200.0) < 0.00019999999999999998
+cue_slot:
+  name: power_render
+  description: Equivalent unit rendering of the same power quantity
+  type: rendering
+  irrelevance_proof: Every rendering denotes the same physical power value; the governing
+    expression remains "P_base".
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: 200 W
+    display: 200 W
+    render: 200 W
+  - id: 1
+    value: 0.2 kW
+    display: 0.2 kW
+    render: 0.2 kW
+  - id: 2
+    value: 200 J/s
+    display: 200 J/s
+    render: 200 J/s
+  - id: 3
+    value: 200000 mW
+    display: 200000 mW
+    render: 200000 mW
+  base_variant_id: 0
+prompt_template:
+  context: Meter A reports the power as {power_render}.
+  question: What is that power in watts?
+  full_template: 'Meter A reports the power as {power_render}.
+
+
+    What is that power in watts?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: Meter A reports the power as {power_render}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'P_base = 200.0
+
+    result = P_base
+
+    assert abs(result - 200.0) < 0.00019999999999999998, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- frame_rendering
+- power_units
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: target_quantity_change
+  operator_type: negative
+  description: Change the target/correct answer.

@@ -1,0 +1,204 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "The calibration rig B torque is from a separate system and does not enter tau = rF for system A.",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "6.928 N*m",
+    "sympy_check": "abs((r * F) - 6.928) < 0.001",
+    "units": "N*m",
+    "value": 6.928
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "certificate_generated",
+  "certificate_version": "stage13_v5_solver_certificate_v2",
+  "computed_canonical_answer": {
+    "units": "N*m",
+    "value": 6.928
+  },
+  "designated_cue": {
+    "distractor_symbol": "torque_reading_B",
+    "name": "torque_reading_B",
+    "type": "numerical",
+    "units": "N*m",
+    "values": [
+      {
+        "display": "6.90",
+        "id": 0,
+        "value": "6.90"
+      },
+      {
+        "display": "6.92",
+        "id": 1,
+        "value": "6.92"
+      },
+      {
+        "display": "6.94",
+        "id": 2,
+        "value": "6.94"
+      },
+      {
+        "display": "6.96",
+        "id": 3,
+        "value": "6.96"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit algebra is recorded from template metadata; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "F": "N",
+      "r": "m"
+    },
+    "status": "checked_from_template_units",
+    "target_units": "N*m"
+  },
+  "domain": "mechanics",
+  "explicit_symbolic_derivation": {
+    "computed_value": 6.928,
+    "expression": "F*r",
+    "steps": [
+      "r = 0.32 m",
+      "F = 21.65 N",
+      "r * F = 6.928 N*m"
+    ]
+  },
+  "family_id": "CM_B_UM_061",
+  "governing_equations": {
+    "latex": "\\tau = rF",
+    "sympy": "r * F"
+  },
+  "governing_law": "rotational_dynamics_torque_extreme_nearmatch",
+  "governing_law_id": "rotational_dynamics_torque_extreme_nearmatch",
+  "invariance_checks": [
+    {
+      "computed_answer": 6.928,
+      "cue_value": "6.90",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 6.928,
+      "cue_value": "6.92",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    },
+    {
+      "computed_answer": 6.928,
+      "cue_value": "6.94",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 2
+    },
+    {
+      "computed_answer": 6.928,
+      "cue_value": "6.96",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The governing expression free symbols exclude the designated cue symbol; answer is recomputed for each cue variant.",
+  "limitations": [
+    "Generated only from structured YAML template fields.",
+    "Dimensional check is metadata-backed, not a full symbolic unit algebra proof."
+  ],
+  "numeric_spot_checks": [
+    {
+      "computed_answer": 6.928,
+      "cue_value": "6.90",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 6.928,
+      "cue_value": "6.92",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "F",
+    "r"
+  ],
+  "source_template": "/Users/shubhammishra/Desktop/PhysMons/data/raw/templates/stage10_expansion/nongoverning_distractor/mechanics/CM_B_UM_061.yaml",
+  "substituted_values": {
+    "F": {
+      "units": "N",
+      "value": 21.65
+    },
+    "r": {
+      "units": "m",
+      "value": 0.32
+    }
+  },
+  "symbol_table": {
+    "F": {
+      "description": "perpendicular force",
+      "role": "relevant",
+      "units": "N",
+      "value": 21.65
+    },
+    "r": {
+      "description": "lever arm",
+      "role": "relevant",
+      "units": "m",
+      "value": 0.32
+    }
+  },
+  "symbolic_answer": "r * F",
+  "target_quantity": "torque_in_n_m",
+  "template_id": "CM_B_UM_061",
+  "units": "N*m",
+  "variant_bindings": [
+    {
+      "cue_display": "6.90",
+      "cue_value": "6.90",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "6.92",
+      "cue_value": "6.92",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "6.94",
+      "cue_value": "6.94",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "6.96",
+      "cue_value": "6.96",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=6.928, expected=6.928, tolerance=6.9279999999999996e-06",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue_slot.distractor_symbol absent from governing-equation free symbols ['F', 'r']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '6.928 N*m'.",
+        "passed": true
+      }
+    ]
+  }
+}

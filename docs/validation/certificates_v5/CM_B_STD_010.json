@@ -1,0 +1,217 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "The governing expression \"k_const * q_A / r_A**2\" has free symbols {k_const, q_A, r_A}; q_B is a charge in a separate isolated setup.",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "399555.6 N/C",
+    "sympy_check": "abs((k_const * q_A / r_A**2) - 399555.55555555556) < 0.001",
+    "units": "N/C",
+    "value": 399555.55555555556
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "certificate_generated",
+  "certificate_version": "stage13_v5_solver_certificate_v2",
+  "computed_canonical_answer": {
+    "units": "N/C",
+    "value": 399555.55555555556
+  },
+  "designated_cue": {
+    "distractor_symbol": "q_B",
+    "name": "q_B_display",
+    "type": "numerical",
+    "units": "C",
+    "values": [
+      {
+        "display": "1.0e-6",
+        "id": 0,
+        "value": "1.0e-6"
+      },
+      {
+        "display": "3.8e-6",
+        "id": 1,
+        "value": "3.8e-6"
+      },
+      {
+        "display": "4.0e-6",
+        "id": 2,
+        "value": "4.0e-6"
+      },
+      {
+        "display": "6.0e-6",
+        "id": 3,
+        "value": "6.0e-6"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit algebra is recorded from template metadata; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "k_const": "N*m^2/C^2",
+      "q_A": "C",
+      "r_A": "m"
+    },
+    "status": "checked_from_template_units",
+    "target_units": "N/C"
+  },
+  "domain": "electrostatics_circuits",
+  "explicit_symbolic_derivation": {
+    "computed_value": 399555.55555555556,
+    "expression": "k_const*q_A/r_A**2",
+    "steps": [
+      "k_const = 8990000000.0 N*m^2/C^2",
+      "q_A = 4e-06 C",
+      "r_A = 0.3 m",
+      "k_const * q_A / r_A**2 = 399555.555556 N/C"
+    ]
+  },
+  "family_id": "CM_B_STD_010",
+  "governing_equations": {
+    "latex": "E = k q_A / r_A^2",
+    "sympy": "k_const * q_A / r_A**2"
+  },
+  "governing_law": "electric_field_point_charge",
+  "governing_law_id": "electric_field_point_charge",
+  "invariance_checks": [
+    {
+      "computed_answer": 399555.55555555556,
+      "cue_value": "1.0e-6",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 399555.55555555556,
+      "cue_value": "3.8e-6",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    },
+    {
+      "computed_answer": 399555.55555555556,
+      "cue_value": "4.0e-6",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 2
+    },
+    {
+      "computed_answer": 399555.55555555556,
+      "cue_value": "6.0e-6",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The governing expression free symbols exclude the designated cue symbol; answer is recomputed for each cue variant.",
+  "limitations": [
+    "Generated only from structured YAML template fields.",
+    "Dimensional check is metadata-backed, not a full symbolic unit algebra proof."
+  ],
+  "numeric_spot_checks": [
+    {
+      "computed_answer": 399555.55555555556,
+      "cue_value": "1.0e-6",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 399555.55555555556,
+      "cue_value": "3.8e-6",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "k_const",
+    "q_A",
+    "r_A"
+  ],
+  "source_template": "/Users/shubhammishra/Desktop/PhysMons/data/raw/templates/CM_B_STD_010.yaml",
+  "substituted_values": {
+    "k_const": {
+      "units": "N*m^2/C^2",
+      "value": 8990000000.0
+    },
+    "q_A": {
+      "units": "C",
+      "value": 4e-06
+    },
+    "r_A": {
+      "units": "m",
+      "value": 0.3
+    }
+  },
+  "symbol_table": {
+    "k_const": {
+      "description": "Coulomb constant",
+      "role": "relevant",
+      "units": "N*m^2/C^2",
+      "value": 8990000000.0
+    },
+    "q_A": {
+      "description": "charge A",
+      "role": "relevant",
+      "units": "C",
+      "value": 4e-06
+    },
+    "r_A": {
+      "description": "distance from charge A",
+      "role": "relevant",
+      "units": "m",
+      "value": 0.3
+    }
+  },
+  "symbolic_answer": "k_const * q_A / r_A**2",
+  "target_quantity": "electric_field_due_to_charge_A",
+  "template_id": "CM_B_STD_010",
+  "units": "N/C",
+  "variant_bindings": [
+    {
+      "cue_display": "1.0e-6",
+      "cue_value": "1.0e-6",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "3.8e-6",
+      "cue_value": "3.8e-6",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "4.0e-6",
+      "cue_value": "4.0e-6",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "6.0e-6",
+      "cue_value": "6.0e-6",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=399555.55555555556, expected=399555.55555555556, tolerance=0.001",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue_slot.distractor_symbol absent from governing-equation free symbols ['k_const', 'q_A', 'r_A']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '3.996e5 N/C'.",
+        "passed": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "canonical_answer": "12.0 N*m",
+  "certificate_generator": "scripts/stage13/remediation_v4.py",
+  "certificate_version": "v3",
+  "designated_cue": {
+    "cue_type": "irrelevant_variable",
+    "cue_values": [
+      "12",
+      "24",
+      "36",
+      "60"
+    ]
+  },
+  "dimensional_checks": [
+    "Canonical answer unit/form is compared against the requested target quantity."
+  ],
+  "family_id": "CM_A_STD_009",
+  "governing_equations": [
+    "governing relation inferred from rendered template; requires validator review"
+  ],
+  "governing_law": "Prompt-derived relation for mechanics / irrelevant_variable.",
+  "invariance_checks": [
+    "variant_0 canonical_answer=12.0 N*m",
+    "variant_1 canonical_answer=12.0 N*m",
+    "variant_2 canonical_answer=12.0 N*m",
+    "variant_3 canonical_answer=12.0 N*m"
+  ],
+  "invariance_claim": "Changing the designated cue across variants should not change the canonical answer.",
+  "limitations": [
+    "Generated from rendered family JSON and prompt heuristics, not a substitute for independent human validation.",
+    "Some governing equations are inferred where the source JSON lacks symbolic derivation fields."
+  ],
+  "numeric_spot_checks": [
+    "rendered_family_answer=12.0 N*m"
+  ],
+  "relevant_variables": [
+    "A",
+    "N",
+    "The",
+    "What",
+    "a",
+    "applied",
+    "arm",
+    "at",
+    "does",
+    "force",
+    "humidity",
+    "is",
+    "lab",
+    "lever",
+    "m",
+    "magnitude",
+    "of",
+    "perpendicular",
+    "produce",
+    "the"
+  ],
+  "source_template": "results/stage6/generated_full_benchmark/CM_A_STD_009.json",
+  "stated_assumptions": [
+    "All rendered variants in the family are intended to preserve the governing physics.",
+    "The designated cue is non-governing for the canonical answer."
+  ],
+  "symbolic_derivation": "Apply `governing relation inferred from rendered template; requires validator review` to the governing quantities in the rendered prompt to obtain `12.0 N*m`. This is an inspectable certificate draft generated from rendered family data and must be checked by validators.",
+  "verification_status": "certificate_draft_requires_human_review"
+}

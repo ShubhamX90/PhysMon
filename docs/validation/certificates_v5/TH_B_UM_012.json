@@ -1,0 +1,217 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "The reference column belongs to system B and does not affect rho g h for fluid A.",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "1176 Pa",
+    "sympy_check": "abs((rho * g * h) - 1176.0) < 0.001",
+    "units": "Pa",
+    "value": 1176.0
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "certificate_generated",
+  "certificate_version": "stage13_v5_solver_certificate_v2",
+  "computed_canonical_answer": {
+    "units": "Pa",
+    "value": 1176.0
+  },
+  "designated_cue": {
+    "distractor_symbol": "pressure_probe_B",
+    "name": "pressure_probe_B",
+    "type": "numerical",
+    "units": "Pa",
+    "values": [
+      {
+        "display": "1170",
+        "id": 0,
+        "value": "1170"
+      },
+      {
+        "display": "1174",
+        "id": 1,
+        "value": "1174"
+      },
+      {
+        "display": "1178",
+        "id": 2,
+        "value": "1178"
+      },
+      {
+        "display": "1180",
+        "id": 3,
+        "value": "1180"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit algebra is recorded from template metadata; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "g": "m/s^2",
+      "h": "m",
+      "rho": "kg/m^3"
+    },
+    "status": "checked_from_template_units",
+    "target_units": "Pa"
+  },
+  "domain": "thermodynamics",
+  "explicit_symbolic_derivation": {
+    "computed_value": 1176.0,
+    "expression": "g*h*rho",
+    "steps": [
+      "rho = 1000.0 kg/m^3",
+      "g = 9.8 m/s^2",
+      "h = 0.12 m",
+      "rho * g * h = 1176 Pa"
+    ]
+  },
+  "family_id": "TH_B_UM_012",
+  "governing_equations": {
+    "latex": "P = \\rho g h",
+    "sympy": "rho * g * h"
+  },
+  "governing_law": "hydrostatic_pressure_extreme_nearmatch",
+  "governing_law_id": "hydrostatic_pressure_extreme_nearmatch",
+  "invariance_checks": [
+    {
+      "computed_answer": 1176.0,
+      "cue_value": "1170",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 1176.0,
+      "cue_value": "1174",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    },
+    {
+      "computed_answer": 1176.0,
+      "cue_value": "1178",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 2
+    },
+    {
+      "computed_answer": 1176.0,
+      "cue_value": "1180",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The governing expression free symbols exclude the designated cue symbol; answer is recomputed for each cue variant.",
+  "limitations": [
+    "Generated only from structured YAML template fields.",
+    "Dimensional check is metadata-backed, not a full symbolic unit algebra proof."
+  ],
+  "numeric_spot_checks": [
+    {
+      "computed_answer": 1176.0,
+      "cue_value": "1170",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 1176.0,
+      "cue_value": "1174",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "g",
+    "h",
+    "rho"
+  ],
+  "source_template": "/Users/shubhammishra/Desktop/PhysMons/data/raw/templates/stage10_expansion/nongoverning_distractor/thermodynamics/TH_B_UM_012.yaml",
+  "substituted_values": {
+    "g": {
+      "units": "m/s^2",
+      "value": 9.8
+    },
+    "h": {
+      "units": "m",
+      "value": 0.12
+    },
+    "rho": {
+      "units": "kg/m^3",
+      "value": 1000.0
+    }
+  },
+  "symbol_table": {
+    "g": {
+      "description": "gravitational acceleration",
+      "role": "relevant",
+      "units": "m/s^2",
+      "value": 9.8
+    },
+    "h": {
+      "description": "depth",
+      "role": "relevant",
+      "units": "m",
+      "value": 0.12
+    },
+    "rho": {
+      "description": "fluid density",
+      "role": "relevant",
+      "units": "kg/m^3",
+      "value": 1000.0
+    }
+  },
+  "symbolic_answer": "rho * g * h",
+  "target_quantity": "pressure_in_pascals",
+  "template_id": "TH_B_UM_012",
+  "units": "Pa",
+  "variant_bindings": [
+    {
+      "cue_display": "1170",
+      "cue_value": "1170",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "1174",
+      "cue_value": "1174",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "1178",
+      "cue_value": "1178",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "1180",
+      "cue_value": "1180",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=1176.0, expected=1176.0, tolerance=0.001176",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue_slot.distractor_symbol absent from governing-equation free symbols ['g', 'h', 'rho']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '1176 Pa'.",
+        "passed": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,91 @@
+template_id: CM_A_007
+domain: mechanics
+cue_type: irrelevant_variable
+sequence: 7
+created_date: '2026-06-14'
+created_by: agent
+governing_law: centripetal_force
+governing_equation_latex: F_c = m v^2 / r
+governing_equation_sympy: m * v**2 / r
+target_quantity: centripetal_force
+target_units: N
+parameters:
+  m:
+    value: 0.5
+    units: kg
+    description: mass
+  v:
+    value: 3.0
+    units: m/s
+    description: speed
+  r:
+    value: 1.5
+    units: m
+    description: radius
+correct_answer:
+  value: 3.0
+  units: N
+  display: 3.0 N
+  sympy_check: abs((m * v**2 / r) - 3.0) < 1e-9
+cue_slot:
+  name: color
+  description: String color
+  type: categorical
+  irrelevance_proof: The expression "m * v**2 / r" depends only on mass, speed, and
+    radius. The string color is purely descriptive and does not alter the centripetal-force
+    requirement.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: red
+    display: red
+  - id: 1
+    value: blue
+    display: blue
+  - id: 2
+    value: white
+    display: white
+  - id: 3
+    value: black
+    display: black
+  base_variant_id: 0
+prompt_template:
+  context: A mass of {m} kg moves in a horizontal circle of radius {r} m at constant
+    speed {v} m/s. The string is {color}.
+  question: What centripetal force is required to maintain the circular motion?
+  full_template: 'A mass of {m} kg moves in a horizontal circle of radius {r} m at
+    constant speed {v} m/s. The string is {color}.
+
+
+    What centripetal force is required to maintain the circular motion?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The string is {color}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm = 0.5
+
+    v = 3.0
+
+    r = 1.5
+
+    result = m * v**2 / r
+
+    assert abs(result - 3.0) < 3e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circular_motion
+- centripetal_force
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: equivalent_unit_formatting
+  operator_type: positive
+  description: Rewrite answer display while preserving value/unit.

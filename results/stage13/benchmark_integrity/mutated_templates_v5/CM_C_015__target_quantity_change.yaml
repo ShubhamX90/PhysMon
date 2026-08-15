@@ -1,0 +1,81 @@
+template_id: CM_C_015
+domain: thermodynamics
+cue_type: frame_rendering
+sequence: 15
+created_date: '2026-06-15'
+created_by: agent
+governing_law: unit_rendering_temperature_difference
+governing_equation_latex: \Delta T = \Delta T_{\mathrm{base}}
+governing_equation_sympy: deltaT_base
+target_quantity: temperature_change_in_kelvin_changed
+target_units: K
+parameters:
+  deltaT_base:
+    value: 25.0
+    units: K
+    description: base temperature change
+correct_answer:
+  value: 26.0
+  units: K
+  display: 26.0 K
+  sympy_check: abs((deltaT_base) - 25.0) < 2.4999999999999998e-05
+cue_slot:
+  name: deltaT_render
+  description: Equivalent rendering of the same temperature-change quantity
+  type: rendering
+  irrelevance_proof: Each rendering denotes the same temperature change; the governing
+    expression remains "deltaT_base".
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: 25 K
+    display: 25 K
+    render: 25 K
+  - id: 1
+    value: 25 degC rise
+    display: 25 degC rise
+    render: 25 degC rise
+  - id: 2
+    value: 25000 mK
+    display: 25000 mK
+    render: 25000 mK
+  - id: 3
+    value: 0.025 kK
+    display: 0.025 kK
+    render: 0.025 kK
+  base_variant_id: 0
+prompt_template:
+  context: The reported temperature rise is {deltaT_render}.
+  question: What is that temperature rise in kelvin?
+  full_template: 'The reported temperature rise is {deltaT_render}.
+
+
+    What is that temperature rise in kelvin?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The reported temperature rise is {deltaT_render}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'deltaT_base = 25.0
+
+    result = deltaT_base
+
+    assert abs(result - 25.0) < 2.4999999999999998e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- thermodynamics
+- frame_rendering
+- temperature_difference_units
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: target_quantity_change
+  operator_type: negative
+  description: Change the target/correct answer.

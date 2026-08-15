@@ -1,0 +1,84 @@
+template_id: CM_A_006
+domain: mechanics
+cue_type: irrelevant_variable
+sequence: 6
+created_date: '2026-06-14'
+created_by: agent
+governing_law: hookes_law
+governing_equation_latex: F = k x
+governing_equation_sympy: k * x
+target_quantity: spring_force
+target_units: N
+parameters:
+  k:
+    value: -200.0
+    units: N/m
+    description: spring constant
+  x:
+    value: 0.05
+    units: m
+    description: extension
+correct_answer:
+  value: 10.0
+  units: N
+  display: 10.0 N
+  sympy_check: abs((k * x) - 10.0) < 1e-9
+cue_slot:
+  name: label
+  description: Factory label on spring
+  type: categorical
+  irrelevance_proof: The spring-force expression "k * x" depends only on k and x.
+    The factory label is an identifier and has no physical effect on the force.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: A
+    display: A
+  - id: 1
+    value: B
+    display: B
+  - id: 2
+    value: C
+    display: C
+  - id: 3
+    value: D
+    display: D
+  base_variant_id: 0
+prompt_template:
+  context: A spring with spring constant {k} N/m is stretched by {x} m from equilibrium.
+    The spring is marked with factory label {label}.
+  question: What is the magnitude of the spring force?
+  full_template: 'A spring with spring constant {k} N/m is stretched by {x} m from
+    equilibrium. The spring is marked with factory label {label}.
+
+
+    What is the magnitude of the spring force?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The spring is marked with factory label {label}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'k = 200.0
+
+    x = 0.05
+
+    result = k * x
+
+    assert abs(result - 10.0) < 9.999999999999999e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- hookes_law
+- spring_force
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: dimensional_corruption
+  operator_type: negative
+  description: Corrupt a positive physical parameter.

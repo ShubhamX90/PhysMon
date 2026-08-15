@@ -1,0 +1,81 @@
+{
+  "best_auprc": 0.7054630699680123,
+  "best_auroc": 0.7342857142857142,
+  "best_brier": 0.253483159385775,
+  "best_layer": 18,
+  "best_pearson_r": 0.6334943757730259,
+  "bootstrap_auroc": {
+    "ci_lower": 0.6453202899620933,
+    "ci_upper": 0.8151165129556432,
+    "mean": 0.7354568770902101
+  },
+  "correctness_threshold": null,
+  "cross_model_validation": null,
+  "cv_mode": "domain_generalisation",
+  "domain_fold_metrics": [
+    {
+      "auprc": 0.7517726064784889,
+      "auroc": 0.6941176470588235,
+      "held_out_domain": "electrostatics_circuits",
+      "layer_index": 18,
+      "positive_rate": 0.4594594594594595,
+      "selected_c": 1.0
+    },
+    {
+      "auprc": 0.7045712108238584,
+      "auroc": 0.7419908466819222,
+      "held_out_domain": "mechanics",
+      "layer_index": 18,
+      "positive_rate": 0.5476190476190477,
+      "selected_c": 1.0
+    },
+    {
+      "auprc": 0.8198412698412698,
+      "auroc": 0.7346938775510203,
+      "held_out_domain": "thermodynamics",
+      "layer_index": 18,
+      "positive_rate": 0.5,
+      "selected_c": 0.01
+    }
+  ],
+  "embedding_layer_auroc": 0.5257142857142857,
+  "evaluated_layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+  ],
+  "model_role": "qwen_primary",
+  "pca_dims": null,
+  "probe_type": "mean",
+  "random_direction_baseline": {
+    "mean_auroc": 0.4987582417582417,
+    "p95_auroc": 0.6246483516483516
+  },
+  "site": "resid_post_last_prompt",
+  "target_measure": "slp_binary"
+}

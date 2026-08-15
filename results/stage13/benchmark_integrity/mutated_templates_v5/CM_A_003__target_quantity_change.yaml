@@ -1,0 +1,83 @@
+template_id: CM_A_003
+domain: mechanics
+cue_type: irrelevant_variable
+sequence: 3
+created_date: '2026-06-14'
+created_by: agent
+governing_law: kinetic_energy
+governing_equation_latex: KE = \frac{1}{2} m v^2
+governing_equation_sympy: 0.5 * m * v**2
+target_quantity: kinetic_energy_changed
+target_units: J
+parameters:
+  m:
+    value: 3.0
+    units: kg
+    description: mass
+  v:
+    value: 4.0
+    units: m/s
+    description: speed
+correct_answer:
+  value: 25.0
+  units: J
+  display: 25.0 J
+  sympy_check: abs((0.5 * m * v**2) - 24.0) < 1e-9
+cue_slot:
+  name: color
+  description: Ball color
+  type: categorical
+  irrelevance_proof: The kinetic-energy expression "0.5 * m * v**2" has free symbols
+    {m, v}. Ball color is a visual descriptor and does not affect the energy under
+    the stated conditions.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: red
+    display: red
+  - id: 1
+    value: orange
+    display: orange
+  - id: 2
+    value: white
+    display: white
+  - id: 3
+    value: black
+    display: black
+  base_variant_id: 0
+prompt_template:
+  context: A ball of mass {m} kg moves at speed {v} m/s. The ball is {color}.
+  question: What is the kinetic energy of the ball?
+  full_template: 'A ball of mass {m} kg moves at speed {v} m/s. The ball is {color}.
+
+
+    What is the kinetic energy of the ball?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The ball is {color}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'm = 3.0
+
+    v = 4.0
+
+    result = 0.5 * m * v**2
+
+    assert abs(result - 24.0) < 2.4e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- energy
+- kinetic_energy
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: target_quantity_change
+  operator_type: negative
+  description: Change the target/correct answer.

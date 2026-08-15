@@ -1,0 +1,70 @@
+{
+  "checks": [
+    {
+      "check_id": "part2_corrected",
+      "detail": {
+        "notes_path": "docs/proposals/PhysMon_Part_II_v1.2_revision_notes.md",
+        "pdf_path": "docs/proposals/PhysMon_Part_II_v1.2.pdf",
+        "source_path": "docs/proposals/PhysMon_Part_II_v1.2.tex",
+        "version": "1.2"
+      },
+      "passed": true
+    },
+    {
+      "check_id": "expected_run_inventory_normalized",
+      "detail": 143,
+      "passed": true
+    },
+    {
+      "check_id": "substantive_registry_coverage",
+      "detail": 0.0,
+      "passed": false
+    },
+    {
+      "check_id": "critical_authority_zero",
+      "detail": 1334,
+      "passed": false
+    },
+    {
+      "check_id": "canonical_source_links",
+      "detail": {
+        "S_lp": 140,
+        "entropy_score": 135,
+        "monitor_layer": 135,
+        "primary_monitor_score": 135
+      },
+      "passed": true
+    },
+    {
+      "check_id": "claim_matrix_populated",
+      "detail": {
+        "missing": 1,
+        "partial": 24
+      },
+      "passed": true
+    }
+  ],
+  "critical_failures": [
+    "substantive_registry_coverage",
+    "critical_authority_zero"
+  ],
+  "gate_name": "stage13_wave0_evidence_foundation_gate",
+  "gate_version": "5.0",
+  "git_commit": "ea914541f883f29308858346f51ec77ce73fdfb4",
+  "git_dirty": true,
+  "input_hashes": {
+    "authority_v5": "c06c9424c6bbce34787b63c66a6bc8d0face2cbce4b64be21f2c1631a7ecd9d4",
+    "balance_v5": "b1dd268d6e2abdfe7ec98d635fd058c0413f87f2f6c1888a5f3a05c465b94204",
+    "canonical_v5": "c8d839f0299b49522e62b008477b265faf9189408426337ef2a7ad0160755d3b",
+    "certificates_v5": "6d9953931ec59b27e08cf160317ecee0007e2268f60e21a349abdd4d0c29f5ff",
+    "claims_v5": "76fef4b73b6a7478002f96dffd998bf623de45f07b53fee20c66d4f4c3e536a7",
+    "coverage_v5": "881dc35a66754f83bfa372ddc74d8e0a5b22a2158f6ff54266036ee68af5d475",
+    "leakage_v5": "5fcdf4a964a04dfe67eac0d78c89b40f8b5d500e8df81ab5de305f3d29aaf369",
+    "mutation_v5": "68174ff79d6a3219b8ebfa5a2d75addeddddd9a835199428b6b2735f1d12493d",
+    "parser_v5": "6801b38333f4e9c96fd98240f954b84226b2df99d58c8d26f502524904bc5702",
+    "part2_pdf": "99633d010327dd4cec0ec9a82afc69d06653aaa6d8542f2ade99775fe6729e3b"
+  },
+  "paper_eligibility": false,
+  "permission_for_wave2": false,
+  "status": "FAIL"
+}

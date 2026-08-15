@@ -1,0 +1,90 @@
+template_id: CM_B_UM_061
+domain: mechanics
+cue_type: nongoverning_distractor
+sequence: 61
+created_date: '2026-06-15'
+created_by: agent
+governing_law: rotational_dynamics_torque_extreme_nearmatch
+governing_equation_latex: \tau = rF
+governing_equation_sympy: r * F
+target_quantity: torque_in_n_m_changed
+target_units: N*m
+parameters:
+  r:
+    value: 0.32
+    units: m
+    description: lever arm
+  F:
+    value: 21.65
+    units: N
+    description: perpendicular force
+correct_answer:
+  value: 7.928
+  units: N*m
+  display: 7.928 N*m
+  sympy_check: abs((r * F) - 6.928) < 0.001
+cue_slot:
+  name: torque_reading_B
+  description: Torque reading from an unrelated calibration rig
+  type: numerical
+  irrelevance_proof: null
+  distractor_symbol: torque_reading_B
+  distractor_units: N*m
+  nongoverning_proof: The calibration rig B torque is from a separate system and does
+    not enter tau = rF for system A.
+  values:
+  - id: 0
+    value: '6.90'
+    display: '6.90'
+  - id: 1
+    value: '6.92'
+    display: '6.92'
+  - id: 2
+    value: '6.94'
+    display: '6.94'
+  - id: 3
+    value: '6.96'
+    display: '6.96'
+  base_variant_id: 0
+prompt_template:
+  context: A wrench applies a perpendicular force of {F} N at a lever arm of {r} m.
+    A separate calibration rig B lists an unrelated torque reading of {torque_reading_B}
+    N*m.
+  question: What torque does the wrench exert on system A?
+  full_template: 'A wrench applies a perpendicular force of {F} N at a lever arm of
+    {r} m. A separate calibration rig B lists an unrelated torque reading of {torque_reading_B}
+    N*m.
+
+
+    What torque does the wrench exert on system A?'
+  cue_span_is_whole_sentence: false
+  cue_sentence: A separate calibration rig B lists an unrelated torque reading of
+    {torque_reading_B} N*m.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'r = 0.32
+
+    F = 21.65
+
+    result = r * F
+
+    assert abs(result - 6.928) < 0.001, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- nongoverning_distractor
+- torque
+- extreme_nearmatch
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: incorrect_canonical_answer
+  operator_type: negative
+  description: Corrupt the stored canonical answer without changing prompt semantics.

@@ -1,0 +1,85 @@
+template_id: CM_A_STD_012
+domain: electrostatics_circuits
+cue_type: irrelevant_variable
+sequence: 12
+created_date: '2026-06-15'
+created_by: agent
+governing_law: power_from_voltage_and_resistance
+governing_equation_latex: P = V^2 / R
+governing_equation_sympy: -(V**2 / R)
+target_quantity: power_dissipation
+target_units: W
+parameters:
+  V:
+    value: 12.0
+    units: V
+    description: voltage
+  R:
+    value: 8.0
+    units: ohm
+    description: resistance
+correct_answer:
+  value: 18.0
+  units: W
+  display: 18.0 W
+  sympy_check: abs((V**2 / R) - 18.0) < 1.8e-05
+cue_slot:
+  name: ambient_pressure_kpa
+  description: Ambient pressure around the bench - irrelevant to the ideal circuit
+    calculation
+  type: numerical
+  irrelevance_proof: The governing expression "V**2 / R" depends only on V and R.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '18'
+    display: '18'
+  - id: 1
+    value: '36'
+    display: '36'
+  - id: 2
+    value: '72'
+    display: '72'
+  - id: 3
+    value: '144'
+    display: '144'
+  base_variant_id: 0
+prompt_template:
+  context: A resistor has voltage {V} V across it and resistance {R} ohm. The ambient
+    pressure near the bench is {ambient_pressure_kpa} kPa.
+  question: What power does the resistor dissipate?
+  full_template: 'A resistor has voltage {V} V across it and resistance {R} ohm. The
+    ambient pressure near the bench is {ambient_pressure_kpa} kPa.
+
+
+    What power does the resistor dissipate?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The ambient pressure near the bench is {ambient_pressure_kpa} kPa.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'V = 12.0
+
+    R = 8.0
+
+    result = V**2 / R
+
+    assert abs(result - 18.0) < 1.8e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- power
+- cue_a_numeric
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: sign_inversion_governing_expression
+  operator_type: negative
+  description: Invert the governing expression sign.

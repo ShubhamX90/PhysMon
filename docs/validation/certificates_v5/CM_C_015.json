@@ -1,0 +1,195 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "Each rendering denotes the same temperature change; the governing expression remains \"deltaT_base\".",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "25 K",
+    "sympy_check": "abs((deltaT_base) - 25.0) < 2.4999999999999998e-05",
+    "units": "K",
+    "value": 25.0
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "certificate_generated",
+  "certificate_version": "stage13_v5_solver_certificate_v2",
+  "computed_canonical_answer": {
+    "units": "K",
+    "value": 25.0
+  },
+  "designated_cue": {
+    "distractor_symbol": null,
+    "name": "deltaT_render",
+    "type": "rendering",
+    "units": null,
+    "values": [
+      {
+        "display": "25 K",
+        "id": 0,
+        "render": "25 K",
+        "value": "25 K"
+      },
+      {
+        "display": "25 degC rise",
+        "id": 1,
+        "render": "25 degC rise",
+        "value": "25 degC rise"
+      },
+      {
+        "display": "25000 mK",
+        "id": 2,
+        "render": "25000 mK",
+        "value": "25000 mK"
+      },
+      {
+        "display": "0.025 kK",
+        "id": 3,
+        "render": "0.025 kK",
+        "value": "0.025 kK"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit algebra is recorded from template metadata; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "deltaT_base": "K"
+    },
+    "status": "checked_from_template_units",
+    "target_units": "K"
+  },
+  "domain": "thermodynamics",
+  "explicit_symbolic_derivation": {
+    "computed_value": 25.0,
+    "expression": "deltaT_base",
+    "steps": [
+      "deltaT_base = 25.0 K",
+      "deltaT_base = 25 K"
+    ]
+  },
+  "family_id": "CM_C_015",
+  "governing_equations": {
+    "latex": "\\Delta T = \\Delta T_{\\mathrm{base}}",
+    "sympy": "deltaT_base"
+  },
+  "governing_law": "unit_rendering_temperature_difference",
+  "governing_law_id": "unit_rendering_temperature_difference",
+  "invariance_checks": [
+    {
+      "computed_answer": 25.0,
+      "cue_value": "25 K",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 25.0,
+      "cue_value": "25 degC rise",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    },
+    {
+      "computed_answer": 25.0,
+      "cue_value": "25000 mK",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 2
+    },
+    {
+      "computed_answer": 25.0,
+      "cue_value": "0.025 kK",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The governing expression free symbols exclude the designated cue symbol; answer is recomputed for each cue variant.",
+  "limitations": [
+    "Generated only from structured YAML template fields.",
+    "Dimensional check is metadata-backed, not a full symbolic unit algebra proof."
+  ],
+  "numeric_spot_checks": [
+    {
+      "computed_answer": 25.0,
+      "cue_value": "25 K",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 25.0,
+      "cue_value": "25 degC rise",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "deltaT_base"
+  ],
+  "source_template": "/Users/shubhammishra/Desktop/PhysMons/data/raw/templates/stage10_expansion/frame_rendering/thermodynamics/CM_C_015.yaml",
+  "substituted_values": {
+    "deltaT_base": {
+      "units": "K",
+      "value": 25.0
+    }
+  },
+  "symbol_table": {
+    "deltaT_base": {
+      "description": "base temperature change",
+      "role": "relevant",
+      "units": "K",
+      "value": 25.0
+    }
+  },
+  "symbolic_answer": "deltaT_base",
+  "target_quantity": "temperature_change_in_kelvin",
+  "template_id": "CM_C_015",
+  "units": "K",
+  "variant_bindings": [
+    {
+      "cue_display": "25 K",
+      "cue_value": "25 K",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "25 degC rise",
+      "cue_value": "25 degC rise",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "25000 mK",
+      "cue_value": "25000 mK",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "0.025 kK",
+      "cue_value": "0.025 kK",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=25.0, expected=25.0, tolerance=2.4999999999999998e-05",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue symbol absent from governing-equation free symbols ['deltaT_base']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '25 K'.",
+        "passed": true
+      }
+    ]
+  }
+}

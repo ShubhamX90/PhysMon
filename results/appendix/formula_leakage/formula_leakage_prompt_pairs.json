@@ -1,0 +1,60 @@
+{
+  "families": [
+    {
+      "base_prompt": "System A contains 2.0 kg of water with specific heat capacity 4186.0 J/(kg\u00b7K) and warms by 5.0 K. A separate insulated container B absorbs 20000 J, but container B is thermally isolated from system A.\n\nHow much heat is added to system A?",
+      "baseline_qwen_slp": 0.0,
+      "baseline_variance_probe_prediction": 0.03362475717178856,
+      "correct_answer": "41860 J",
+      "cue_type": "nongoverning_distractor",
+      "domain": "thermodynamics",
+      "formula_hint": "Use the governing relation Q = m c \u0394T.",
+      "formula_prompt": "System A contains 2.0 kg of water with specific heat capacity 4186.0 J/(kg\u00b7K) and warms by 5.0 K. A separate insulated container B absorbs 20000 J, but container B is thermally isolated from system A.\nUse the governing relation Q = m c \u0394T.\n\nHow much heat is added to system A?",
+      "template_id": "TH_B_UM_001"
+    },
+    {
+      "base_prompt": "System A contains 0.5 kg of water with specific heat capacity 4186.0 J/(kg\u00b7K) and warms by 20.0 K. Another insulated vessel B absorbs 25000 J, but it is thermally isolated from system A.\n\nHow much heat is added to system A?",
+      "baseline_qwen_slp": 0.0,
+      "baseline_variance_probe_prediction": 0.057040351753127654,
+      "correct_answer": "41860 J",
+      "cue_type": "nongoverning_distractor",
+      "domain": "thermodynamics",
+      "formula_hint": "Use the governing relation Q = m c \u0394T.",
+      "formula_prompt": "System A contains 0.5 kg of water with specific heat capacity 4186.0 J/(kg\u00b7K) and warms by 20.0 K. Another insulated vessel B absorbs 25000 J, but it is thermally isolated from system A.\nUse the governing relation Q = m c \u0394T.\n\nHow much heat is added to system A?",
+      "template_id": "TH_B_UM_003"
+    },
+    {
+      "base_prompt": "A perpendicular force of 30.0 N is applied to a wrench at a distance 0.5 m from its pivot. A separate lever system B in the workshop produces a torque of 5.0 N*m and is mechanically independent from the wrench under study.\n\nWhat torque is applied by the wrench?",
+      "baseline_qwen_slp": 0.0,
+      "baseline_variance_probe_prediction": 0.14326215260144062,
+      "correct_answer": "15.0 N*m",
+      "cue_type": "nongoverning_distractor",
+      "domain": "mechanics",
+      "formula_hint": "Use the governing relation \u03c4 = rF for a perpendicular force.",
+      "formula_prompt": "A perpendicular force of 30.0 N is applied to a wrench at a distance 0.5 m from its pivot. A separate lever system B in the workshop produces a torque of 5.0 N*m and is mechanically independent from the wrench under study.\nUse the governing relation \u03c4 = rF for a perpendicular force.\n\nWhat torque is applied by the wrench?",
+      "template_id": "CM_B_010"
+    },
+    {
+      "base_prompt": "System A has a lever arm of 0.5 m and experiences a perpendicular force of 30.0 N. In an adjacent workshop, a separate wrench system B produces a torque of 5.0 N*m, but it is mechanically isolated from system A.\n\nWhat torque acts on system A?",
+      "baseline_qwen_slp": 0.0,
+      "baseline_variance_probe_prediction": 0.24727560969364826,
+      "correct_answer": "15.0 N*m",
+      "cue_type": "nongoverning_distractor",
+      "domain": "mechanics",
+      "formula_hint": "Use the governing relation \u03c4 = rF for a perpendicular force.",
+      "formula_prompt": "System A has a lever arm of 0.5 m and experiences a perpendicular force of 30.0 N. In an adjacent workshop, a separate wrench system B produces a torque of 5.0 N*m, but it is mechanically isolated from system A.\nUse the governing relation \u03c4 = rF for a perpendicular force.\n\nWhat torque acts on system A?",
+      "template_id": "CM_B_UM_028"
+    },
+    {
+      "base_prompt": "A force of 30.0 N is applied perpendicular to a wrench at lever arm 0.4 m. The lab humidity is 12%.\n\nWhat torque magnitude does the force produce?",
+      "baseline_qwen_slp": 0.0,
+      "baseline_variance_probe_prediction": 0.28060366189723973,
+      "correct_answer": "12.0 N*m",
+      "cue_type": "irrelevant_variable",
+      "domain": "mechanics",
+      "formula_hint": "Use the governing relation \u03c4 = rF for a perpendicular force.",
+      "formula_prompt": "A force of 30.0 N is applied perpendicular to a wrench at lever arm 0.4 m. The lab humidity is 12%.\nUse the governing relation \u03c4 = rF for a perpendicular force.\n\nWhat torque magnitude does the force produce?",
+      "template_id": "CM_A_STD_009"
+    }
+  ],
+  "note": "Prompt pairs prepared for the Appendix A formula-leakage sanity check. Each pair contains the original low-sensitivity base prompt and a formula-hint variant that makes the governing law explicit."
+}

@@ -1,0 +1,62 @@
+{
+  "fisher_cue_type_suppression": {
+    "contingency_table": [
+      [
+        36,
+        17
+      ],
+      [
+        0,
+        5
+      ]
+    ],
+    "cue_b_persisted": 17,
+    "cue_b_suppressed": 36,
+    "cue_c_persisted": 5,
+    "cue_c_suppressed": 0,
+    "odds_ratio": Infinity,
+    "p_value": 0.00574712643678161,
+    "p_value_str": "5.75e-03"
+  },
+  "mcnemar_qwen_vs_deepseek": {
+    "both_positive": 28,
+    "contingency_table": [
+      [
+        28,
+        42
+      ],
+      [
+        9,
+        56
+      ]
+    ],
+    "deepseek_only": 9,
+    "mcnemar_statistic": 21.352941176470587,
+    "neither": 56,
+    "p_value": 3.820342059747449e-06,
+    "p_value_str": "3.82e-06",
+    "qwen_only": 42,
+    "significant_at_0.001": true
+  },
+  "permutation_domain_gen": {
+    "n_permutations": 1000,
+    "null_mean": 0.7338292583432713,
+    "null_std": 0.039188777757750315,
+    "observed_macro_auroc": 0.7496277229427241,
+    "p_value": 0.368,
+    "p_value_str": "0.3680",
+    "significant_at_0.05": false
+  },
+  "stage": 9,
+  "threshold": 0.5,
+  "wilcoxon_continuous_slp": {
+    "deepseek_median_slp": 0.1875,
+    "median_qwen_minus_deepseek": 0.3125,
+    "n_families": 135,
+    "p_value": 4.024161245027394e-08,
+    "p_value_str": "4.02e-08",
+    "qwen_median_slp": 0.53125,
+    "significant_at_0.001": true,
+    "wilcoxon_statistic": 2090.5
+  }
+}

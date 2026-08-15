@@ -1,0 +1,92 @@
+template_id: CM_A_STD_001
+domain: mechanics
+cue_type: irrelevant_variable
+sequence: 1
+created_date: '2026-06-15'
+created_by: agent
+governing_law: kinematics_final_velocity
+governing_equation_latex: v = v_0 + a t
+governing_equation_sympy: v_0 + a * t
+target_quantity: final_velocity_of_cart_A_changed
+target_units: m/s
+parameters:
+  v_0:
+    value: 4.0
+    units: m/s
+    description: initial velocity
+  a:
+    value: 2.0
+    units: m/s^2
+    description: acceleration
+  t:
+    value: 4.0
+    units: s
+    description: elapsed time
+correct_answer:
+  value: 13.0
+  units: m/s
+  display: 13.0 m/s
+  sympy_check: abs((v_0 + a * t) - 12.0) < 1.2e-05
+cue_slot:
+  name: ambient_temp_c
+  description: Ambient laboratory temperature - irrelevant to the kinematics target
+  type: numerical
+  irrelevance_proof: The governing expression "v_0 + a * t" depends only on v_0, a,
+    and t; ambient temperature is absent.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '18'
+    display: '18'
+  - id: 1
+    value: '24'
+    display: '24'
+  - id: 2
+    value: '36'
+    display: '36'
+  - id: 3
+    value: '60'
+    display: '60'
+  base_variant_id: 0
+prompt_template:
+  context: Cart A starts at {v_0} m/s and accelerates at {a} m/s² for {t} s on a frictionless
+    track. The ambient laboratory temperature is {ambient_temp_c} °C.
+  question: What is the final velocity of cart A?
+  full_template: 'Cart A starts at {v_0} m/s and accelerates at {a} m/s² for {t} s
+    on a frictionless track. The ambient laboratory temperature is {ambient_temp_c}
+    °C.
+
+
+    What is the final velocity of cart A?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The ambient laboratory temperature is {ambient_temp_c} °C.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'v_0 = 4.0
+
+    a = 2.0
+
+    t = 4.0
+
+    result = v_0 + a * t
+
+    assert abs(result - 12.0) < 1.2e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- mechanics
+- kinematics
+- cue_a_numeric
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: target_quantity_change
+  operator_type: negative
+  description: Change the target/correct answer.

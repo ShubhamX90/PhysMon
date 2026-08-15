@@ -1,0 +1,183 @@
+{
+  "categorical_tests": [
+    {
+      "chi_square_p": 0.24626697464865696,
+      "class": "categorical",
+      "cramers_v": 0.13446856299941065,
+      "feature": "domain"
+    },
+    {
+      "chi_square_p": 0.15594322109537495,
+      "class": "categorical",
+      "cramers_v": 0.15484699233893615,
+      "feature": "cue_type"
+    },
+    {
+      "chi_square_p": 0.000614322141086553,
+      "class": "categorical",
+      "cramers_v": 0.2751195672985188,
+      "feature": "original_or_expansion"
+    },
+    {
+      "chi_square_p": 0.026943064865473418,
+      "class": "categorical",
+      "cramers_v": 0.3342793698073986,
+      "feature": "template_cluster"
+    }
+  ],
+  "family_row_stratified_cv": {
+    "auroc": 0.6715966386554623,
+    "n_folds": 5,
+    "permutation_p_refit": 0.0196078431372549
+  },
+  "feature_missingness": {
+    "answer_magnitude": {
+      "included_in_model": true,
+      "missing_reason": "partially_available",
+      "n_available": 155,
+      "n_missing": 0
+    },
+    "base_correctness": {
+      "included_in_model": false,
+      "missing_reason": "source_unavailable",
+      "n_available": 0,
+      "n_missing": 155
+    },
+    "cue_type": {
+      "included_in_model": true,
+      "missing_reason": "partially_available",
+      "n_available": 155,
+      "n_missing": 0
+    },
+    "domain": {
+      "included_in_model": true,
+      "missing_reason": "partially_available",
+      "n_available": 155,
+      "n_missing": 0
+    },
+    "entropy": {
+      "included_in_model": false,
+      "missing_reason": "source_unavailable",
+      "n_available": 0,
+      "n_missing": 155
+    },
+    "equation_count": {
+      "included_in_model": true,
+      "missing_reason": "partially_available",
+      "n_available": 155,
+      "n_missing": 0
+    },
+    "number_count": {
+      "included_in_model": true,
+      "missing_reason": "partially_available",
+      "n_available": 155,
+      "n_missing": 0
+    },
+    "original_or_expansion": {
+      "included_in_model": true,
+      "missing_reason": "partially_available",
+      "n_available": 155,
+      "n_missing": 0
+    },
+    "prompt_length": {
+      "included_in_model": true,
+      "missing_reason": "partially_available",
+      "n_available": 155,
+      "n_missing": 0
+    },
+    "template_cluster": {
+      "included_in_model": true,
+      "missing_reason": "partially_available",
+      "n_available": 155,
+      "n_missing": 0
+    },
+    "token_count": {
+      "included_in_model": true,
+      "missing_reason": "partially_available",
+      "n_available": 155,
+      "n_missing": 0
+    },
+    "unit_token_count": {
+      "included_in_model": true,
+      "missing_reason": "partially_available",
+      "n_available": 155,
+      "n_missing": 0
+    },
+    "variable_count": {
+      "included_in_model": true,
+      "missing_reason": "partially_available",
+      "n_available": 155,
+      "n_missing": 0
+    }
+  },
+  "n_families": 155,
+  "status": "VALID_MISSINGNESS_AND_TEMPLATE_CV_AUDIT",
+  "strongest_categorical_confound": {
+    "chi_square_p": 0.026943064865473418,
+    "class": "categorical",
+    "cramers_v": 0.3342793698073986,
+    "feature": "template_cluster"
+  },
+  "strongest_numeric_confound": {
+    "auroc": 0.6049579831932772,
+    "class": "numeric",
+    "feature": "number_count",
+    "orientation_independent_auroc": 0.6049579831932772
+  },
+  "strongest_template_confound": {
+    "chi_square_p": 0.026943064865473418,
+    "class": "categorical",
+    "cramers_v": 0.3342793698073986,
+    "feature": "template_cluster"
+  },
+  "supersedes": "results/stage13/benchmark_integrity/balance_audit_v3.json",
+  "template_held_out_cv": {
+    "auroc": 0.6173109243697479,
+    "n_folds": 5,
+    "permutation_p_refit": 0.0196078431372549
+  },
+  "univariate_numeric": [
+    {
+      "auroc": 0.5752941176470588,
+      "class": "numeric",
+      "feature": "prompt_length",
+      "orientation_independent_auroc": 0.5752941176470588
+    },
+    {
+      "auroc": 0.5671428571428572,
+      "class": "numeric",
+      "feature": "token_count",
+      "orientation_independent_auroc": 0.5671428571428572
+    },
+    {
+      "auroc": 0.6049579831932772,
+      "class": "numeric",
+      "feature": "number_count",
+      "orientation_independent_auroc": 0.6049579831932772
+    },
+    {
+      "auroc": 0.5068067226890757,
+      "class": "numeric",
+      "feature": "variable_count",
+      "orientation_independent_auroc": 0.5068067226890757
+    },
+    {
+      "auroc": 0.4904201680672269,
+      "class": "numeric",
+      "feature": "equation_count",
+      "orientation_independent_auroc": 0.5095798319327731
+    },
+    {
+      "auroc": 0.5236974789915966,
+      "class": "numeric",
+      "feature": "unit_token_count",
+      "orientation_independent_auroc": 0.5236974789915966
+    },
+    {
+      "auroc": 0.4859663865546219,
+      "class": "numeric",
+      "feature": "answer_magnitude",
+      "orientation_independent_auroc": 0.5140336134453781
+    }
+  ]
+}

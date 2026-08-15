@@ -1,0 +1,91 @@
+template_id: CM_A_001
+domain: mechanics
+cue_type: irrelevant_variable
+sequence: 1
+created_date: '2026-06-14'
+created_by: agent
+governing_law: kinematics_constant_acceleration_final_velocity
+governing_equation_latex: v = v_0 + a t
+governing_equation_sympy: v_0 + a * t
+target_quantity: final_velocity
+target_units: m/s
+parameters:
+  v_0:
+    value: 5.0
+    units: m/s
+    description: initial velocity
+  a:
+    value: 2.0
+    units: m/s^2
+    description: constant acceleration
+  t:
+    value: 3.0
+    units: s
+    description: elapsed time
+correct_answer:
+  value: 11.0
+  units: m/s
+  display: 11.0 m/s
+  sympy_check: abs((v_0 + a * t) - 11.0) < 1e-9
+cue_slot:
+  name: paint_color
+  description: Paint color of the particle - irrelevant to kinematics
+  type: categorical
+  irrelevance_proof: The governing expression "v_0 + a * t" has free symbols {v_0,
+    a, t}. No color-related symbol appears. Paint color has no physical effect on
+    kinematic quantities under the stated problem conditions.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: red
+    display: red
+  - id: 1
+    value: blue
+    display: blue
+  - id: 2
+    value: green
+    display: green
+  - id: 3
+    value: yellow
+    display: yellow
+  base_variant_id: 0
+prompt_template:
+  context: 'A particle initially moving at {v_0} m/s undergoes constant acceleration
+
+    of {a} m/s² for a duration of {t} s. The particle is painted {paint_color}.'
+  question: What is the velocity of the particle at the end of this interval?
+  full_template: "A particle initially moving at {v_0} m/s undergoes constant acceleration\n\
+    of {a} m/s² for a duration of {t} s. The particle is painted {paint_color}.\n\
+    \ \nWhat is the velocity of the particle at the end of this interval?"
+  cue_span_is_whole_sentence: true
+  cue_sentence: The particle is painted {paint_color}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'v_0 = 5.0
+
+    a = 2.0
+
+    t = 3.0
+
+    result = v_0 + a * t
+
+    assert abs(result - 11.0) < 1.1e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- kinematics
+- constant_acceleration
+- final_velocity
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: harmless_serialization_formatting
+  operator_type: positive
+  description: Change prompt serialization only.

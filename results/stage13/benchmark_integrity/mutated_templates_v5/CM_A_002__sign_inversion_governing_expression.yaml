@@ -1,0 +1,95 @@
+template_id: CM_A_002
+domain: mechanics
+cue_type: irrelevant_variable
+sequence: 2
+created_date: '2026-06-14'
+created_by: agent
+governing_law: kinematics_constant_acceleration_displacement
+governing_equation_latex: x = v_0 t + \frac{1}{2} a t^2
+governing_equation_sympy: -(v_0 * t + 0.5 * a * t**2)
+target_quantity: displacement
+target_units: m
+parameters:
+  v_0:
+    value: 3.0
+    units: m/s
+    description: initial speed
+  a:
+    value: 4.0
+    units: m/s^2
+    description: acceleration
+  t:
+    value: 2.0
+    units: s
+    description: elapsed time
+correct_answer:
+  value: 14.0
+  units: m
+  display: 14.0 m
+  sympy_check: abs((v_0 * t + 0.5 * a * t**2) - 14.0) < 1e-9
+cue_slot:
+  name: texture
+  description: Surface texture descriptor
+  type: categorical
+  irrelevance_proof: The governing expression "v_0 * t + 0.5 * a * t**2" depends only
+    on v_0, a, and t. The texture descriptor is explicitly stated to be on a frictionless
+    surface and does not enter the kinematic relation.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: smooth
+    display: smooth
+  - id: 1
+    value: rough
+    display: rough
+  - id: 2
+    value: polished
+    display: polished
+  - id: 3
+    value: matte
+    display: matte
+  base_variant_id: 0
+prompt_template:
+  context: An object starts with speed {v_0} m/s and moves in a straight line with
+    constant acceleration {a} m/s² for {t} s. The surface has a {texture} finish and
+    is frictionless throughout the motion.
+  question: How far does the object travel during this interval?
+  full_template: 'An object starts with speed {v_0} m/s and moves in a straight line
+    with constant acceleration {a} m/s² for {t} s. The surface has a {texture} finish
+    and is frictionless throughout the motion.
+
+
+    How far does the object travel during this interval?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The surface has a {texture} finish and is frictionless throughout
+    the motion.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'v_0 = 3.0
+
+    a = 4.0
+
+    t = 2.0
+
+    result = v_0 * t + 0.5 * a * t**2
+
+    assert abs(result - 14.0) < 1.4e-05, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- kinematics
+- displacement
+- constant_acceleration
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: sign_inversion_governing_expression
+  operator_type: negative
+  description: Invert the governing expression sign.

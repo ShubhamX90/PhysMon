@@ -1,0 +1,294 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "The governing expression \"F_net / m_A\" has free symbols {F_net, m_A}. Block B is stated to be on a separate, unconnected surface and exerts no force on block A. m_B does not appear in the governing expression.",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "5.0 m/s^2",
+    "sympy_check": "abs((F_net / m_A) - 5.0) < 1e-9",
+    "units": "m/s^2",
+    "value": 5.0
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "frame_equivalence_unverified",
+  "certificate_version": "stage13_v6_solver_certificate_v3",
+  "computed_canonical_answer": {
+    "units": "m/s^2",
+    "value": 5.0
+  },
+  "designated_cue": {
+    "distractor_symbol": "m_B",
+    "name": "m_B_display",
+    "source_field": "cue_slot",
+    "type": "numerical",
+    "unit": "kg",
+    "values": [
+      {
+        "display": "0.5",
+        "id": 0,
+        "value": "0.5"
+      },
+      {
+        "display": "1.0",
+        "id": 1,
+        "value": "1.0"
+      },
+      {
+        "display": "2.0",
+        "id": 2,
+        "value": "2.0"
+      },
+      {
+        "display": "3.0",
+        "id": 3,
+        "value": "3.0"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit metadata are recorded from structured template fields; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "F_net": "N",
+      "m_A": "kg"
+    },
+    "status": "unit_metadata_recorded_not_symbolically_verified",
+    "target_units": "m/s^2"
+  },
+  "domain": "mechanics",
+  "explicit_symbolic_derivation": {
+    "canonical_answer_comparison": {
+      "computed": 5.0,
+      "expected": 5.0,
+      "matches": true
+    },
+    "final_answer": {
+      "unit": "m/s^2",
+      "value": 5.0
+    },
+    "governing_equation": "F_net/m_A",
+    "intermediate_calculation": "SymPy evaluated expression to 5",
+    "numeric_substitution": "F_net / m_A with F_net=10.0 N, m_A=2.0 kg",
+    "steps": [
+      "F_net = 10.0 N",
+      "m_A = 2.0 kg",
+      "F_net / m_A with F_net=10.0 N, m_A=2.0 kg",
+      "F_net / m_A = 5 m/s^2",
+      "canonical comparison: computed=5, expected=5"
+    ],
+    "variable_bindings": {
+      "F_net": {
+        "source_field": "parameters.F_net",
+        "unit": "N",
+        "value": 10.0
+      },
+      "m_A": {
+        "source_field": "parameters.m_A",
+        "unit": "kg",
+        "value": 2.0
+      }
+    }
+  },
+  "family_id": "CM_B_001",
+  "frame_unit_equivalence_check": {
+    "checks": [
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "0.5",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "0.5",
+        "variant_id": 0
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "1.0",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "1.0",
+        "variant_id": 1
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "2.0",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "2.0",
+        "variant_id": 2
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "3.0",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "3.0",
+        "variant_id": 3
+      }
+    ],
+    "limitations": [
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table"
+    ],
+    "status": "frame_equivalence_unverified"
+  },
+  "governing_equations": {
+    "latex": "a = F_{net} / m_A",
+    "sympy": "F_net / m_A"
+  },
+  "governing_law": "newton_second_law_net_force",
+  "governing_law_id": "newton_second_law_net_force",
+  "invariance_checks": [
+    {
+      "canonical_answer": 5.0,
+      "computed_answer": 5.0,
+      "cue_value": "0.5",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 5.0,
+      "computed_answer": 5.0,
+      "cue_value": "1.0",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    },
+    {
+      "canonical_answer": 5.0,
+      "computed_answer": 5.0,
+      "cue_value": "2.0",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 2
+    },
+    {
+      "canonical_answer": 5.0,
+      "computed_answer": 5.0,
+      "cue_value": "3.0",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The structured governing expression free symbols exclude the designated cue symbol; answer is recomputed from relevant-variable substitutions for each cue variant.",
+  "limitations": [
+    "Generated from structured YAML template fields only.",
+    "Natural-language semantic equivalence and assumption sufficiency require human validation.",
+    "Dimensional algebra is not implemented; unit metadata are recorded only.",
+    "Frame/unit equivalence is verified only for forms covered by the explicit conversion table."
+  ],
+  "numeric_spot_checks": [
+    {
+      "canonical_answer": 5.0,
+      "computed_answer": 5.0,
+      "cue_value": "0.5",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 5.0,
+      "computed_answer": 5.0,
+      "cue_value": "1.0",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "F_net",
+    "m_A"
+  ],
+  "source_template": "data/raw/templates/CM_B_001.yaml",
+  "substituted_values": {
+    "F_net": {
+      "source_field": "parameters.F_net",
+      "unit": "N",
+      "value": 10.0
+    },
+    "m_A": {
+      "source_field": "parameters.m_A",
+      "unit": "kg",
+      "value": 2.0
+    }
+  },
+  "symbol_table": {
+    "F_net": {
+      "physical_quantity": "net horizontal force on block A",
+      "role": "relevant",
+      "source_field": "parameters.F_net",
+      "symbol": "F_net",
+      "unit": "N",
+      "value": 10.0
+    },
+    "m_A": {
+      "physical_quantity": "mass of block A",
+      "role": "relevant",
+      "source_field": "parameters.m_A",
+      "symbol": "m_A",
+      "unit": "kg",
+      "value": 2.0
+    }
+  },
+  "symbolic_answer": "F_net / m_A",
+  "target_quantity": "acceleration_of_block_A",
+  "template_id": "CM_B_001",
+  "units": "m/s^2",
+  "variant_bindings": [
+    {
+      "cue_display": "0.5",
+      "cue_value": "0.5",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "1.0",
+      "cue_value": "1.0",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "2.0",
+      "cue_value": "2.0",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "3.0",
+      "cue_value": "3.0",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=5.0, expected=5.0, tolerance=4.9999999999999996e-06",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue_slot.distractor_symbol absent from governing-equation free symbols ['F_net', 'm_A']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '5 m/s^2'.",
+        "passed": true
+      }
+    ]
+  }
+}

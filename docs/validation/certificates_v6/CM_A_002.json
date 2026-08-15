@@ -1,0 +1,315 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "The governing expression \"v_0 * t + 0.5 * a * t**2\" depends only on v_0, a, and t. The texture descriptor is explicitly stated to be on a frictionless surface and does not enter the kinematic relation.",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "14.0 m",
+    "sympy_check": "abs((v_0 * t + 0.5 * a * t**2) - 14.0) < 1e-9",
+    "units": "m",
+    "value": 14.0
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "frame_equivalence_unverified",
+  "certificate_version": "stage13_v6_solver_certificate_v3",
+  "computed_canonical_answer": {
+    "units": "m",
+    "value": 14.0
+  },
+  "designated_cue": {
+    "distractor_symbol": null,
+    "name": "texture",
+    "source_field": "cue_slot",
+    "type": "categorical",
+    "unit": null,
+    "values": [
+      {
+        "display": "smooth",
+        "id": 0,
+        "value": "smooth"
+      },
+      {
+        "display": "rough",
+        "id": 1,
+        "value": "rough"
+      },
+      {
+        "display": "polished",
+        "id": 2,
+        "value": "polished"
+      },
+      {
+        "display": "matte",
+        "id": 3,
+        "value": "matte"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit metadata are recorded from structured template fields; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "a": "m/s^2",
+      "t": "s",
+      "v_0": "m/s"
+    },
+    "status": "unit_metadata_recorded_not_symbolically_verified",
+    "target_units": "m"
+  },
+  "domain": "mechanics",
+  "explicit_symbolic_derivation": {
+    "canonical_answer_comparison": {
+      "computed": 14.0,
+      "expected": 14.0,
+      "matches": true
+    },
+    "final_answer": {
+      "unit": "m",
+      "value": 14.0
+    },
+    "governing_equation": "0.5*a*t**2 + t*v_0",
+    "intermediate_calculation": "SymPy evaluated expression to 14",
+    "numeric_substitution": "v_0 * t + 0.5 * a * t**2 with a=4.0 m/s^2, t=2.0 s, v_0=3.0 m/s",
+    "steps": [
+      "a = 4.0 m/s^2",
+      "t = 2.0 s",
+      "v_0 = 3.0 m/s",
+      "v_0 * t + 0.5 * a * t**2 with a=4.0 m/s^2, t=2.0 s, v_0=3.0 m/s",
+      "v_0 * t + 0.5 * a * t**2 = 14 m",
+      "canonical comparison: computed=14, expected=14"
+    ],
+    "variable_bindings": {
+      "a": {
+        "source_field": "parameters.a",
+        "unit": "m/s^2",
+        "value": 4.0
+      },
+      "t": {
+        "source_field": "parameters.t",
+        "unit": "s",
+        "value": 2.0
+      },
+      "v_0": {
+        "source_field": "parameters.v_0",
+        "unit": "m/s",
+        "value": 3.0
+      }
+    }
+  },
+  "family_id": "CM_A_002",
+  "frame_unit_equivalence_check": {
+    "checks": [
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "smooth",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "smooth",
+        "variant_id": 0
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "rough",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "rough",
+        "variant_id": 1
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "polished",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "polished",
+        "variant_id": 2
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "matte",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "matte",
+        "variant_id": 3
+      }
+    ],
+    "limitations": [
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table"
+    ],
+    "status": "frame_equivalence_unverified"
+  },
+  "governing_equations": {
+    "latex": "x = v_0 t + \\frac{1}{2} a t^2",
+    "sympy": "v_0 * t + 0.5 * a * t**2"
+  },
+  "governing_law": "kinematics_constant_acceleration_displacement",
+  "governing_law_id": "kinematics_constant_acceleration_displacement",
+  "invariance_checks": [
+    {
+      "canonical_answer": 14.0,
+      "computed_answer": 14.0,
+      "cue_value": "smooth",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 14.0,
+      "computed_answer": 14.0,
+      "cue_value": "rough",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    },
+    {
+      "canonical_answer": 14.0,
+      "computed_answer": 14.0,
+      "cue_value": "polished",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 2
+    },
+    {
+      "canonical_answer": 14.0,
+      "computed_answer": 14.0,
+      "cue_value": "matte",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The structured governing expression free symbols exclude the designated cue symbol; answer is recomputed from relevant-variable substitutions for each cue variant.",
+  "limitations": [
+    "Generated from structured YAML template fields only.",
+    "Natural-language semantic equivalence and assumption sufficiency require human validation.",
+    "Dimensional algebra is not implemented; unit metadata are recorded only.",
+    "Frame/unit equivalence is verified only for forms covered by the explicit conversion table."
+  ],
+  "numeric_spot_checks": [
+    {
+      "canonical_answer": 14.0,
+      "computed_answer": 14.0,
+      "cue_value": "smooth",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 14.0,
+      "computed_answer": 14.0,
+      "cue_value": "rough",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "a",
+    "t",
+    "v_0"
+  ],
+  "source_template": "data/raw/templates/CM_A_002.yaml",
+  "substituted_values": {
+    "a": {
+      "source_field": "parameters.a",
+      "unit": "m/s^2",
+      "value": 4.0
+    },
+    "t": {
+      "source_field": "parameters.t",
+      "unit": "s",
+      "value": 2.0
+    },
+    "v_0": {
+      "source_field": "parameters.v_0",
+      "unit": "m/s",
+      "value": 3.0
+    }
+  },
+  "symbol_table": {
+    "a": {
+      "physical_quantity": "acceleration",
+      "role": "relevant",
+      "source_field": "parameters.a",
+      "symbol": "a",
+      "unit": "m/s^2",
+      "value": 4.0
+    },
+    "t": {
+      "physical_quantity": "elapsed time",
+      "role": "relevant",
+      "source_field": "parameters.t",
+      "symbol": "t",
+      "unit": "s",
+      "value": 2.0
+    },
+    "v_0": {
+      "physical_quantity": "initial speed",
+      "role": "relevant",
+      "source_field": "parameters.v_0",
+      "symbol": "v_0",
+      "unit": "m/s",
+      "value": 3.0
+    }
+  },
+  "symbolic_answer": "v_0 * t + 0.5 * a * t**2",
+  "target_quantity": "displacement",
+  "template_id": "CM_A_002",
+  "units": "m",
+  "variant_bindings": [
+    {
+      "cue_display": "smooth",
+      "cue_value": "smooth",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "rough",
+      "cue_value": "rough",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "polished",
+      "cue_value": "polished",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "matte",
+      "cue_value": "matte",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=14.0, expected=14.0, tolerance=1.4e-05",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue_slot.name absent from governing-equation free symbols ['a', 't', 'v_0']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '14 m'.",
+        "passed": true
+      }
+    ]
+  }
+}

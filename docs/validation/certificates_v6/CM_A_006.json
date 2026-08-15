@@ -1,0 +1,294 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "The spring-force expression \"k * x\" depends only on k and x. The factory label is an identifier and has no physical effect on the force.",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "10.0 N",
+    "sympy_check": "abs((k * x) - 10.0) < 1e-9",
+    "units": "N",
+    "value": 10.0
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "frame_equivalence_unverified",
+  "certificate_version": "stage13_v6_solver_certificate_v3",
+  "computed_canonical_answer": {
+    "units": "N",
+    "value": 10.0
+  },
+  "designated_cue": {
+    "distractor_symbol": null,
+    "name": "label",
+    "source_field": "cue_slot",
+    "type": "categorical",
+    "unit": null,
+    "values": [
+      {
+        "display": "A",
+        "id": 0,
+        "value": "A"
+      },
+      {
+        "display": "B",
+        "id": 1,
+        "value": "B"
+      },
+      {
+        "display": "C",
+        "id": 2,
+        "value": "C"
+      },
+      {
+        "display": "D",
+        "id": 3,
+        "value": "D"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit metadata are recorded from structured template fields; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "k": "N/m",
+      "x": "m"
+    },
+    "status": "unit_metadata_recorded_not_symbolically_verified",
+    "target_units": "N"
+  },
+  "domain": "mechanics",
+  "explicit_symbolic_derivation": {
+    "canonical_answer_comparison": {
+      "computed": 10.0,
+      "expected": 10.0,
+      "matches": true
+    },
+    "final_answer": {
+      "unit": "N",
+      "value": 10.0
+    },
+    "governing_equation": "k*x",
+    "intermediate_calculation": "SymPy evaluated expression to 10",
+    "numeric_substitution": "k * x with k=200.0 N/m, x=0.05 m",
+    "steps": [
+      "k = 200.0 N/m",
+      "x = 0.05 m",
+      "k * x with k=200.0 N/m, x=0.05 m",
+      "k * x = 10 N",
+      "canonical comparison: computed=10, expected=10"
+    ],
+    "variable_bindings": {
+      "k": {
+        "source_field": "parameters.k",
+        "unit": "N/m",
+        "value": 200.0
+      },
+      "x": {
+        "source_field": "parameters.x",
+        "unit": "m",
+        "value": 0.05
+      }
+    }
+  },
+  "family_id": "CM_A_006",
+  "frame_unit_equivalence_check": {
+    "checks": [
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "A",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "A",
+        "variant_id": 0
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "B",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "B",
+        "variant_id": 1
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "C",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "C",
+        "variant_id": 2
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "D",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "D",
+        "variant_id": 3
+      }
+    ],
+    "limitations": [
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table"
+    ],
+    "status": "frame_equivalence_unverified"
+  },
+  "governing_equations": {
+    "latex": "F = k x",
+    "sympy": "k * x"
+  },
+  "governing_law": "hookes_law",
+  "governing_law_id": "hookes_law",
+  "invariance_checks": [
+    {
+      "canonical_answer": 10.0,
+      "computed_answer": 10.0,
+      "cue_value": "A",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 10.0,
+      "computed_answer": 10.0,
+      "cue_value": "B",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    },
+    {
+      "canonical_answer": 10.0,
+      "computed_answer": 10.0,
+      "cue_value": "C",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 2
+    },
+    {
+      "canonical_answer": 10.0,
+      "computed_answer": 10.0,
+      "cue_value": "D",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The structured governing expression free symbols exclude the designated cue symbol; answer is recomputed from relevant-variable substitutions for each cue variant.",
+  "limitations": [
+    "Generated from structured YAML template fields only.",
+    "Natural-language semantic equivalence and assumption sufficiency require human validation.",
+    "Dimensional algebra is not implemented; unit metadata are recorded only.",
+    "Frame/unit equivalence is verified only for forms covered by the explicit conversion table."
+  ],
+  "numeric_spot_checks": [
+    {
+      "canonical_answer": 10.0,
+      "computed_answer": 10.0,
+      "cue_value": "A",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 10.0,
+      "computed_answer": 10.0,
+      "cue_value": "B",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "k",
+    "x"
+  ],
+  "source_template": "data/raw/templates/CM_A_006.yaml",
+  "substituted_values": {
+    "k": {
+      "source_field": "parameters.k",
+      "unit": "N/m",
+      "value": 200.0
+    },
+    "x": {
+      "source_field": "parameters.x",
+      "unit": "m",
+      "value": 0.05
+    }
+  },
+  "symbol_table": {
+    "k": {
+      "physical_quantity": "spring constant",
+      "role": "relevant",
+      "source_field": "parameters.k",
+      "symbol": "k",
+      "unit": "N/m",
+      "value": 200.0
+    },
+    "x": {
+      "physical_quantity": "extension",
+      "role": "relevant",
+      "source_field": "parameters.x",
+      "symbol": "x",
+      "unit": "m",
+      "value": 0.05
+    }
+  },
+  "symbolic_answer": "k * x",
+  "target_quantity": "spring_force",
+  "template_id": "CM_A_006",
+  "units": "N",
+  "variant_bindings": [
+    {
+      "cue_display": "A",
+      "cue_value": "A",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "B",
+      "cue_value": "B",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "C",
+      "cue_value": "C",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "D",
+      "cue_value": "D",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=10.0, expected=10.0, tolerance=9.999999999999999e-06",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue_slot.name absent from governing-equation free symbols ['k', 'x']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '10 N'.",
+        "passed": true
+      }
+    ]
+  }
+}

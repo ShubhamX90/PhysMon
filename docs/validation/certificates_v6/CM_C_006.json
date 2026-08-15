@@ -1,0 +1,289 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "Each rendering denotes the same charge value; the governing expression remains \"q_base\".",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "2.0 C",
+    "sympy_check": "abs((q_base) - 2.0) < 2e-06",
+    "units": "C",
+    "value": 2.0
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "frame_equivalence_unverified",
+  "certificate_version": "stage13_v6_solver_certificate_v3",
+  "computed_canonical_answer": {
+    "units": "C",
+    "value": 2.0
+  },
+  "designated_cue": {
+    "distractor_symbol": null,
+    "name": "charge_render",
+    "source_field": "cue_slot",
+    "type": "rendering",
+    "unit": null,
+    "values": [
+      {
+        "display": "2 C",
+        "id": 0,
+        "render": "2 C",
+        "value": "2 C"
+      },
+      {
+        "display": "2000 mC",
+        "id": 1,
+        "render": "2000 mC",
+        "value": "2000 mC"
+      },
+      {
+        "display": "2000000 \u03bcC",
+        "id": 2,
+        "render": "2000000 \u03bcC",
+        "value": "2000000 \u03bcC"
+      },
+      {
+        "display": "2 A*s",
+        "id": 3,
+        "render": "2 A*s",
+        "value": "2 A*s"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit metadata are recorded from structured template fields; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "q_base": "C"
+    },
+    "status": "unit_metadata_recorded_not_symbolically_verified",
+    "target_units": "C"
+  },
+  "domain": "electrostatics_circuits",
+  "explicit_symbolic_derivation": {
+    "canonical_answer_comparison": {
+      "computed": 2.0,
+      "expected": 2.0,
+      "matches": true
+    },
+    "final_answer": {
+      "unit": "C",
+      "value": 2.0
+    },
+    "governing_equation": "q_base",
+    "intermediate_calculation": "SymPy evaluated expression to 2",
+    "numeric_substitution": "q_base with q_base=2.0 C",
+    "steps": [
+      "q_base = 2.0 C",
+      "q_base with q_base=2.0 C",
+      "q_base = 2 C",
+      "canonical comparison: computed=2, expected=2"
+    ],
+    "variable_bindings": {
+      "q_base": {
+        "source_field": "parameters.q_base",
+        "unit": "C",
+        "value": 2.0
+      }
+    }
+  },
+  "family_id": "CM_C_006",
+  "frame_unit_equivalence_check": {
+    "checks": [
+      {
+        "canonical_parsed": {
+          "base_unit": "C",
+          "base_value": 2.0,
+          "parseable": true,
+          "raw": "2.0 C",
+          "unit": "C",
+          "value": 2.0
+        },
+        "equivalent": true,
+        "parsed": {
+          "base_unit": "C",
+          "base_value": 2.0,
+          "parseable": true,
+          "raw": "2 C",
+          "unit": "C",
+          "value": 2.0
+        },
+        "rendered": "2 C",
+        "variant_id": 0
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "2000 mC",
+          "reason": "unit not in explicit conversion table",
+          "unit": "mC"
+        },
+        "rendered": "2000 mC",
+        "variant_id": 1
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "2000000 \u03bcC",
+          "reason": "no numeric unit expression found"
+        },
+        "rendered": "2000000 \u03bcC",
+        "variant_id": 2
+      },
+      {
+        "equivalent": false,
+        "parsed": {
+          "parseable": false,
+          "raw": "2 A*s",
+          "reason": "unit not in explicit conversion table",
+          "unit": "A*s"
+        },
+        "rendered": "2 A*s",
+        "variant_id": 3
+      }
+    ],
+    "limitations": [
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table",
+      "at least one variant or canonical answer was not parseable by the explicit conversion table"
+    ],
+    "status": "frame_equivalence_unverified"
+  },
+  "governing_equations": {
+    "latex": "q = q_{\\mathrm{base}}",
+    "sympy": "q_base"
+  },
+  "governing_law": "unit_rendering_charge",
+  "governing_law_id": "unit_rendering_charge",
+  "invariance_checks": [
+    {
+      "canonical_answer": 2.0,
+      "computed_answer": 2.0,
+      "cue_value": "2 C",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 2.0,
+      "computed_answer": 2.0,
+      "cue_value": "2000 mC",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    },
+    {
+      "canonical_answer": 2.0,
+      "computed_answer": 2.0,
+      "cue_value": "2000000 \u03bcC",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 2
+    },
+    {
+      "canonical_answer": 2.0,
+      "computed_answer": 2.0,
+      "cue_value": "2 A*s",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The structured governing expression free symbols exclude the designated cue symbol; answer is recomputed from relevant-variable substitutions for each cue variant.",
+  "limitations": [
+    "Generated from structured YAML template fields only.",
+    "Natural-language semantic equivalence and assumption sufficiency require human validation.",
+    "Dimensional algebra is not implemented; unit metadata are recorded only.",
+    "Frame/unit equivalence is verified only for forms covered by the explicit conversion table."
+  ],
+  "numeric_spot_checks": [
+    {
+      "canonical_answer": 2.0,
+      "computed_answer": 2.0,
+      "cue_value": "2 C",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 2.0,
+      "computed_answer": 2.0,
+      "cue_value": "2000 mC",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "q_base"
+  ],
+  "source_template": "data/raw/templates/stage10_expansion/frame_rendering/electrostatics_circuits/CM_C_006.yaml",
+  "substituted_values": {
+    "q_base": {
+      "source_field": "parameters.q_base",
+      "unit": "C",
+      "value": 2.0
+    }
+  },
+  "symbol_table": {
+    "q_base": {
+      "physical_quantity": "base charge",
+      "role": "relevant",
+      "source_field": "parameters.q_base",
+      "symbol": "q_base",
+      "unit": "C",
+      "value": 2.0
+    }
+  },
+  "symbolic_answer": "q_base",
+  "target_quantity": "charge_in_coulombs",
+  "template_id": "CM_C_006",
+  "units": "C",
+  "variant_bindings": [
+    {
+      "cue_display": "2 C",
+      "cue_value": "2 C",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "2000 mC",
+      "cue_value": "2000 mC",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "2000000 \u03bcC",
+      "cue_value": "2000000 \u03bcC",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "2 A*s",
+      "cue_value": "2 A*s",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=2.0, expected=2.0, tolerance=2e-06",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue symbol absent from governing-equation free symbols ['q_base']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '2 C'.",
+        "passed": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "check_id": "valid_balance_audit",
+      "detail": 0.6765,
+      "passed": true
+    },
+    {
+      "check_id": "real_mutation_execution",
+      "detail": "MUTATION_CERTIFICATE_CHECKS_EXECUTED_LIMITED_SCOPE",
+      "passed": true
+    },
+    {
+      "check_id": "balanced_parser_set",
+      "detail": {
+        "deepseek_r1_distill_qwen_32b": 30,
+        "designed_edge_case": 36,
+        "llama3p1_8b_instruct": 30,
+        "qwen2p5_7b_instruct": 30
+      },
+      "passed": true
+    },
+    {
+      "check_id": "real_pass2_certificates",
+      "detail": 25,
+      "passed": true
+    },
+    {
+      "check_id": "handbook_qualification_schema",
+      "detail": {
+        "handbook_calibration_examples": 18,
+        "pass1_count": 25,
+        "pass2_count": 25,
+        "pilot_readiness": "MATERIALS_DRAFT_READY_PI_REVIEW_REQUIRED",
+        "qualification_cases": 12,
+        "real_certificate_count": 25,
+        "schema_status": "typed_with_enums"
+      },
+      "passed": true
+    },
+    {
+      "check_id": "leakage_honest_scope",
+      "detail": "INCOMPLETE_PENDING_NEAR_DUPLICATE_REVIEW",
+      "passed": true
+    }
+  ],
+  "critical_failures": [
+    "human_pilot_not_ready"
+  ],
+  "failure_reason": "HUMAN_PILOT_NOT_READY",
+  "gate_name": "stage13_wave1a_scientific_content_gate",
+  "gate_version": "4.0",
+  "git_commit": "ea914541f883f29308858346f51ec77ce73fdfb4",
+  "git_dirty": true,
+  "human_pilot_status": "NOT_READY",
+  "input_hashes": {
+    "authority_v4": "f4128a4c5f2a10f93c968608a19c0cfe44a389e17ec1a83a2578e9a83b4534d1",
+    "balance_v3": "117215712712e745fd6e6c61d0a9d36a5a6db8c792c246787844ddecec6661c0",
+    "canonical_v4": "64c1f32c2c1ff4fa7c7a0b8a5745d42df96fdf51e607e6ea99aa878c687b04a2",
+    "claim_matrix_v4": "8f108dbf56f92de14a6ac498ba9dc60f44f6c1c3989bb2e5a56b6d0ba448027e",
+    "coverage_v4": "968d34fad2d000840290487691f55b35031dab88615f82aeee4fcee1310438ca",
+    "leakage_v3": "3495c94dda1ec359607c34f4ad35fb687aec93003829416d1bb550deac336bbb",
+    "mutation_v3": "43715537061272201e5fccfb3840fee2361b8d6fd22364f0410b120f61558af0",
+    "parser_v3": "0454a02075f8d5153b8935cbe8a0d0f93c62fa1f1492b0d418ca84cac67a31ab",
+    "partition_v4": "b8babcf4802184c7218818e2cd460e3e96fc3edb1d4c0c726f41f99c9ac44b4f",
+    "registry": "cbea66ef402422f86c64df06e82d963442bf9076debf8d889327dec6a81182bb"
+  },
+  "paper_eligibility": false,
+  "permission_for_wave2": false,
+  "status": "FAIL"
+}

@@ -1,0 +1,81 @@
+template_id: CM_C_006
+domain: electrostatics_circuits
+cue_type: frame_rendering
+sequence: 6
+created_date: '2026-06-15'
+created_by: agent
+governing_law: unit_rendering_charge
+governing_equation_latex: q = q_{\mathrm{base}}
+governing_equation_sympy: q_base
+target_quantity: charge_in_coulombs_changed
+target_units: C
+parameters:
+  q_base:
+    value: 2.0
+    units: C
+    description: base charge
+correct_answer:
+  value: 3.0
+  units: C
+  display: 3.0 C
+  sympy_check: abs((q_base) - 2.0) < 2e-06
+cue_slot:
+  name: charge_render
+  description: Equivalent rendering of the same charge quantity
+  type: rendering
+  irrelevance_proof: Each rendering denotes the same charge value; the governing expression
+    remains "q_base".
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: 2 C
+    display: 2 C
+    render: 2 C
+  - id: 1
+    value: 2000 mC
+    display: 2000 mC
+    render: 2000 mC
+  - id: 2
+    value: 2000000 μC
+    display: 2000000 μC
+    render: 2000000 μC
+  - id: 3
+    value: 2 A*s
+    display: 2 A*s
+    render: 2 A*s
+  base_variant_id: 0
+prompt_template:
+  context: A charge standard is labelled as {charge_render}.
+  question: What is that charge in coulombs?
+  full_template: 'A charge standard is labelled as {charge_render}.
+
+
+    What is that charge in coulombs?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: A charge standard is labelled as {charge_render}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'q_base = 2.0
+
+    result = q_base
+
+    assert abs(result - 2.0) < 2e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- circuits
+- frame_rendering
+- charge_units
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: target_quantity_change
+  operator_type: negative
+  description: Change the target/correct answer.

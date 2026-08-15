@@ -1,0 +1,79 @@
+template_id: CM_C_007
+domain: thermodynamics
+cue_type: frame_rendering
+sequence: 7
+created_date: '2026-06-15'
+created_by: agent
+governing_law: unit_rendering_pressure
+governing_equation_latex: P = P_{\mathrm{base}}
+governing_equation_sympy: P_base
+target_quantity: pressure_in_pascals
+target_units: Pa
+parameters:
+  P_base:
+    value: 101325.0
+    units: Pa
+    description: base pressure
+correct_answer:
+  value: 101325.0
+  units: Pa
+  display: 101325 Pa
+  sympy_check: abs((P_base) - 101325.0) < 0.101325
+cue_slot:
+  name: pressure_render
+  description: Equivalent rendering of the same pressure quantity
+  type: rendering
+  irrelevance_proof: Each rendering denotes the same pressure value; the governing
+    expression remains "P_base".
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: 101325 Pa
+    display: 101325 Pa
+    render: 101325 Pa
+  - id: 1
+    value: 101.325 kPa
+    display: 101.325 kPa
+    render: 101.325 kPa
+  - id: 2
+    value: 1.01325 bar
+    display: 1.01325 bar
+    render: 1.01325 bar
+  - id: 3
+    value: 101325 N/m^2
+    display: 101325 N/m^2
+    render: 101325 N/m^2
+  base_variant_id: 0
+prompt_template:
+  context: A sealed vessel gauge reports the pressure as {pressure_render}.
+  question: What is that pressure in pascals?
+  full_template: "A sealed vessel gauge reports the pressure as {pressure_render}.\n\
+    \ \nWhat is that pressure in pascals?"
+  cue_span_is_whole_sentence: true
+  cue_sentence: A sealed vessel gauge reports the pressure as {pressure_render}.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'P_base = 101325.0
+
+    result = P_base
+
+    assert abs(result - 101325.0) < 0.101325, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: false
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- thermodynamics
+- frame_rendering
+- pressure_units
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: harmless_serialization_formatting
+  operator_type: positive
+  description: Change prompt serialization only.

@@ -1,0 +1,316 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "Every rendering denotes the same physical force value; the governing expression remains \"F_base\".",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "50.0 N",
+    "sympy_check": "abs((F_base) - 50.0) < 4.9999999999999996e-05",
+    "units": "N",
+    "value": 50.0
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "structured_machine_certificate_verified",
+  "certificate_version": "stage13_v6_solver_certificate_v3",
+  "computed_canonical_answer": {
+    "units": "N",
+    "value": 50.0
+  },
+  "designated_cue": {
+    "distractor_symbol": null,
+    "name": "force_render",
+    "source_field": "cue_slot",
+    "type": "rendering",
+    "unit": null,
+    "values": [
+      {
+        "display": "50 N",
+        "id": 0,
+        "render": "50 N",
+        "value": "50 N"
+      },
+      {
+        "display": "0.05 kN",
+        "id": 1,
+        "render": "0.05 kN",
+        "value": "0.05 kN"
+      },
+      {
+        "display": "50000 mN",
+        "id": 2,
+        "render": "50000 mN",
+        "value": "50000 mN"
+      },
+      {
+        "display": "5\u00d710^1 N",
+        "id": 3,
+        "render": "5\u00d710^1 N",
+        "value": "5\u00d710^1 N"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit metadata are recorded from structured template fields; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "F_base": "N"
+    },
+    "status": "unit_metadata_recorded_not_symbolically_verified",
+    "target_units": "N"
+  },
+  "domain": "mechanics",
+  "explicit_symbolic_derivation": {
+    "canonical_answer_comparison": {
+      "computed": 50.0,
+      "expected": 50.0,
+      "matches": true
+    },
+    "final_answer": {
+      "unit": "N",
+      "value": 50.0
+    },
+    "governing_equation": "F_base",
+    "intermediate_calculation": "SymPy evaluated expression to 50",
+    "numeric_substitution": "F_base with F_base=50.0 N",
+    "steps": [
+      "F_base = 50.0 N",
+      "F_base with F_base=50.0 N",
+      "F_base = 50 N",
+      "canonical comparison: computed=50, expected=50"
+    ],
+    "variable_bindings": {
+      "F_base": {
+        "source_field": "parameters.F_base",
+        "unit": "N",
+        "value": 50.0
+      }
+    }
+  },
+  "family_id": "CM_C_002",
+  "frame_unit_equivalence_check": {
+    "checks": [
+      {
+        "canonical_parsed": {
+          "base_unit": "N",
+          "base_value": 50.0,
+          "parseable": true,
+          "raw": "50.0 N",
+          "unit": "N",
+          "value": 50.0
+        },
+        "equivalent": true,
+        "parsed": {
+          "base_unit": "N",
+          "base_value": 50.0,
+          "parseable": true,
+          "raw": "50 N",
+          "unit": "N",
+          "value": 50.0
+        },
+        "rendered": "50 N",
+        "variant_id": 0
+      },
+      {
+        "canonical_parsed": {
+          "base_unit": "N",
+          "base_value": 50.0,
+          "parseable": true,
+          "raw": "50.0 N",
+          "unit": "N",
+          "value": 50.0
+        },
+        "equivalent": true,
+        "parsed": {
+          "base_unit": "N",
+          "base_value": 50.0,
+          "parseable": true,
+          "raw": "0.05 kN",
+          "unit": "kN",
+          "value": 0.05
+        },
+        "rendered": "0.05 kN",
+        "variant_id": 1
+      },
+      {
+        "canonical_parsed": {
+          "base_unit": "N",
+          "base_value": 50.0,
+          "parseable": true,
+          "raw": "50.0 N",
+          "unit": "N",
+          "value": 50.0
+        },
+        "equivalent": true,
+        "parsed": {
+          "base_unit": "N",
+          "base_value": 50.0,
+          "parseable": true,
+          "raw": "50000 mN",
+          "unit": "mN",
+          "value": 50000.0
+        },
+        "rendered": "50000 mN",
+        "variant_id": 2
+      },
+      {
+        "canonical_parsed": {
+          "base_unit": "N",
+          "base_value": 50.0,
+          "parseable": true,
+          "raw": "50.0 N",
+          "unit": "N",
+          "value": 50.0
+        },
+        "equivalent": true,
+        "parsed": {
+          "base_unit": "N",
+          "base_value": 50.0,
+          "parseable": true,
+          "raw": "5\u00d710^1 N",
+          "unit": "N",
+          "value": 50.0
+        },
+        "rendered": "5\u00d710^1 N",
+        "variant_id": 3
+      }
+    ],
+    "limitations": [],
+    "status": "verified_explicit_conversion_table"
+  },
+  "governing_equations": {
+    "latex": "F = F_{\\mathrm{base}}",
+    "sympy": "F_base"
+  },
+  "governing_law": "unit_rendering_force",
+  "governing_law_id": "unit_rendering_force",
+  "invariance_checks": [
+    {
+      "canonical_answer": 50.0,
+      "computed_answer": 50.0,
+      "cue_value": "50 N",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 50.0,
+      "computed_answer": 50.0,
+      "cue_value": "0.05 kN",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    },
+    {
+      "canonical_answer": 50.0,
+      "computed_answer": 50.0,
+      "cue_value": "50000 mN",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 2
+    },
+    {
+      "canonical_answer": 50.0,
+      "computed_answer": 50.0,
+      "cue_value": "5\u00d710^1 N",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The structured governing expression free symbols exclude the designated cue symbol; answer is recomputed from relevant-variable substitutions for each cue variant.",
+  "limitations": [
+    "Generated from structured YAML template fields only.",
+    "Natural-language semantic equivalence and assumption sufficiency require human validation.",
+    "Dimensional algebra is not implemented; unit metadata are recorded only.",
+    "Frame/unit equivalence is verified only for forms covered by the explicit conversion table."
+  ],
+  "numeric_spot_checks": [
+    {
+      "canonical_answer": 50.0,
+      "computed_answer": 50.0,
+      "cue_value": "50 N",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 0
+    },
+    {
+      "canonical_answer": 50.0,
+      "computed_answer": 50.0,
+      "cue_value": "0.05 kN",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions_after_confirming_cue_symbol_absent",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "F_base"
+  ],
+  "source_template": "data/raw/templates/CM_C_002.yaml",
+  "substituted_values": {
+    "F_base": {
+      "source_field": "parameters.F_base",
+      "unit": "N",
+      "value": 50.0
+    }
+  },
+  "symbol_table": {
+    "F_base": {
+      "physical_quantity": "base force",
+      "role": "relevant",
+      "source_field": "parameters.F_base",
+      "symbol": "F_base",
+      "unit": "N",
+      "value": 50.0
+    }
+  },
+  "symbolic_answer": "F_base",
+  "target_quantity": "force_in_newtons",
+  "template_id": "CM_C_002",
+  "units": "N",
+  "variant_bindings": [
+    {
+      "cue_display": "50 N",
+      "cue_value": "50 N",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "0.05 kN",
+      "cue_value": "0.05 kN",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "50000 mN",
+      "cue_value": "50000 mN",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "5\u00d710^1 N",
+      "cue_value": "5\u00d710^1 N",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=50.0, expected=50.0, tolerance=4.9999999999999996e-05",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue symbol absent from governing-equation free symbols ['F_base']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '50 N'.",
+        "passed": true
+      }
+    ]
+  }
+}

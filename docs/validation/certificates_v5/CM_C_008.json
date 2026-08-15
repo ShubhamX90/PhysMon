@@ -1,0 +1,195 @@
+{
+  "assumptions": {
+    "cue_irrelevance": "Each rendering denotes the same current value; the governing expression remains \"I_base\".",
+    "validation_notes": ""
+  },
+  "canonical_answer": {
+    "display": "0.75 A",
+    "sympy_check": "abs((I_base) - 0.75) < 7.5e-07",
+    "units": "A",
+    "value": 0.75
+  },
+  "certificate_generator": "physmon.validation.certificate_generator.generate_certificate",
+  "certificate_status": "certificate_generated",
+  "certificate_version": "stage13_v5_solver_certificate_v2",
+  "computed_canonical_answer": {
+    "units": "A",
+    "value": 0.75
+  },
+  "designated_cue": {
+    "distractor_symbol": null,
+    "name": "current_render",
+    "type": "rendering",
+    "units": null,
+    "values": [
+      {
+        "display": "0.75 A",
+        "id": 0,
+        "render": "0.75 A",
+        "value": "0.75 A"
+      },
+      {
+        "display": "750 mA",
+        "id": 1,
+        "render": "750 mA",
+        "value": "750 mA"
+      },
+      {
+        "display": "750000 \u03bcA",
+        "id": 2,
+        "render": "750000 \u03bcA",
+        "value": "750000 \u03bcA"
+      },
+      {
+        "display": "0.00075 kA",
+        "id": 3,
+        "render": "0.00075 kA",
+        "value": "0.00075 kA"
+      }
+    ]
+  },
+  "dimensional_check": {
+    "limitations": "Unit algebra is recorded from template metadata; full dimensional algebra is not implemented.",
+    "parameter_units": {
+      "I_base": "A"
+    },
+    "status": "checked_from_template_units",
+    "target_units": "A"
+  },
+  "domain": "electrostatics_circuits",
+  "explicit_symbolic_derivation": {
+    "computed_value": 0.75,
+    "expression": "I_base",
+    "steps": [
+      "I_base = 0.75 A",
+      "I_base = 0.75 A"
+    ]
+  },
+  "family_id": "CM_C_008",
+  "governing_equations": {
+    "latex": "I = I_{\\mathrm{base}}",
+    "sympy": "I_base"
+  },
+  "governing_law": "unit_rendering_current",
+  "governing_law_id": "unit_rendering_current",
+  "invariance_checks": [
+    {
+      "computed_answer": 0.75,
+      "cue_value": "0.75 A",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 0.75,
+      "cue_value": "750 mA",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    },
+    {
+      "computed_answer": 0.75,
+      "cue_value": "750000 \u03bcA",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 2
+    },
+    {
+      "computed_answer": 0.75,
+      "cue_value": "0.00075 kA",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 3
+    }
+  ],
+  "invariance_proof": "The governing expression free symbols exclude the designated cue symbol; answer is recomputed for each cue variant.",
+  "limitations": [
+    "Generated only from structured YAML template fields.",
+    "Dimensional check is metadata-backed, not a full symbolic unit algebra proof."
+  ],
+  "numeric_spot_checks": [
+    {
+      "computed_answer": 0.75,
+      "cue_value": "0.75 A",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 0
+    },
+    {
+      "computed_answer": 0.75,
+      "cue_value": "750 mA",
+      "matches_canonical": true,
+      "method": "recomputed_sympy_expression_with_same_relevant_substitutions",
+      "variant_id": 1
+    }
+  ],
+  "relevant_variables": [
+    "I_base"
+  ],
+  "source_template": "/Users/shubhammishra/Desktop/PhysMons/data/raw/templates/stage10_expansion/frame_rendering/electrostatics_circuits/CM_C_008.yaml",
+  "substituted_values": {
+    "I_base": {
+      "units": "A",
+      "value": 0.75
+    }
+  },
+  "symbol_table": {
+    "I_base": {
+      "description": "base current",
+      "role": "relevant",
+      "units": "A",
+      "value": 0.75
+    }
+  },
+  "symbolic_answer": "I_base",
+  "target_quantity": "current_in_amperes",
+  "template_id": "CM_C_008",
+  "units": "A",
+  "variant_bindings": [
+    {
+      "cue_display": "0.75 A",
+      "cue_value": "0.75 A",
+      "variant_id": 0
+    },
+    {
+      "cue_display": "750 mA",
+      "cue_value": "750 mA",
+      "variant_id": 1
+    },
+    {
+      "cue_display": "750000 \u03bcA",
+      "cue_value": "750000 \u03bcA",
+      "variant_id": 2
+    },
+    {
+      "cue_display": "0.00075 kA",
+      "cue_value": "0.00075 kA",
+      "variant_id": 3
+    }
+  ],
+  "verification_result": {
+    "all_passed": true,
+    "checks": [
+      {
+        "check_name": "answer_correctness",
+        "detail": "evaluated=0.75, expected=0.75, tolerance=7.5e-07",
+        "passed": true
+      },
+      {
+        "check_name": "cue_independence",
+        "detail": "cue symbol absent from governing-equation free symbols ['I_base']",
+        "passed": true
+      },
+      {
+        "check_name": "physical_plausibility",
+        "detail": "all parameter values are finite and plausible",
+        "passed": true
+      },
+      {
+        "check_name": "correct_answer_parseable",
+        "detail": "Parsed canonical answer as '0.75 A'.",
+        "passed": true
+      }
+    ]
+  }
+}

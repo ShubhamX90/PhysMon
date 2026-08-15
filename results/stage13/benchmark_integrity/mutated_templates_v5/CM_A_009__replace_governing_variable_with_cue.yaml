@@ -1,0 +1,89 @@
+template_id: CM_A_009
+domain: mechanics
+cue_type: irrelevant_variable
+sequence: 9
+created_date: '2026-06-14'
+created_by: agent
+governing_law: torque_perpendicular_force
+governing_equation_latex: \tau = r F
+governing_equation_sympy: r * humidity_pct
+target_quantity: torque
+target_units: N*m
+parameters:
+  r:
+    value: 0.4
+    units: m
+    description: lever arm
+  F:
+    value: 25.0
+    units: N
+    description: perpendicular force
+  humidity_pct:
+    value: '1.0'
+    units: null
+    description: introduced cue parameter
+correct_answer:
+  value: 10.0
+  units: N*m
+  display: 10.0 N*m
+  sympy_check: abs((r * F) - 10.0) < 1e-9
+cue_slot:
+  name: humidity_pct
+  description: Ambient relative humidity
+  type: numerical
+  irrelevance_proof: The torque expression "r * F" depends only on lever arm and perpendicular
+    force. Ambient humidity does not enter the rigid-body torque calculation in this
+    problem.
+  distractor_symbol: null
+  distractor_units: null
+  values:
+  - id: 0
+    value: '30'
+    display: '30'
+  - id: 1
+    value: '50'
+    display: '50'
+  - id: 2
+    value: '70'
+    display: '70'
+  - id: 3
+    value: '90'
+    display: '90'
+  base_variant_id: 0
+prompt_template:
+  context: A wrench applies a perpendicular force of {F} N at a distance {r} m from
+    the pivot. The ambient relative humidity is {humidity_pct}%.
+  question: What torque is applied about the pivot?
+  full_template: 'A wrench applies a perpendicular force of {F} N at a distance {r}
+    m from the pivot. The ambient relative humidity is {humidity_pct}%.
+
+
+    What torque is applied about the pivot?'
+  cue_span_is_whole_sentence: true
+  cue_sentence: The ambient relative humidity is {humidity_pct}%.
+verifier:
+  method: sympy_numeric
+  sympy_check_code: 'r = 0.4
+
+    F = 25.0
+
+    result = r * F
+
+    assert abs(result - 10.0) < 9.999999999999999e-06, f"Answer check failed: {result}"'
+  cue_independence_method: sympy_free_symbols
+validation:
+  verifier_certified: true
+  pi_validated: true
+  v2_validated: false
+  kappa_contribution: null
+  exclusion_flags: []
+  notes: ''
+topic_tags:
+- torque
+- rotation
+difficulty: introductory
+notes: ''
+stage13_mutation:
+  operator_id: replace_governing_variable_with_cue
+  operator_type: negative
+  description: Replace one governing variable with the cue symbol.
