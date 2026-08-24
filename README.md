@@ -28,17 +28,26 @@ reported before hidden-state claims are interpreted (§6.2 and §9).
 
 ## Sync Invariant
 
-The local Mac repository and `~/PhysMons/` on Sharanga must be synchronized before job
-submission and after job completion:
+The local repository and `~/PhysMons/` on Sharanga must be deployed from a reviewed,
+committed source snapshot before job submission. Always inspect the direction-specific
+dry-run first:
 
 ```bash
+make remote-preflight
+make sync-plan-up
 make sync-up
+python scripts/ops/remote_preflight.py --strict --expect-aligned
+
+make sync-plan-down
 make sync-down
-make sync-check
 ```
 
-Large model weights, activation tensors, generated data, and Slurm working files are
-excluded from normal syncs.
+`sync-up` and `sync-down` are non-destructive by default. `sync-check` remains a
+backward-compatible alias for `sync-plan-up`; `sync-plan-prune` is inspection only and
+never deletes. Large model weights, activation tensors, generated data, Slurm working
+files, and remote deployment-lease state are excluded from normal syncs. See
+[`skills/physmon-sharanga/SKILL.md`](skills/physmon-sharanga/SKILL.md) for the shared
+Sharanga and Slurm workflow.
 
 ## Development
 
