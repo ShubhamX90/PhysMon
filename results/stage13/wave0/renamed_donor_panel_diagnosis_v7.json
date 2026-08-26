@@ -1,0 +1,181 @@
+{
+  "allowed_wording": "The donor-on-renamed controls produced zero evaluable rows. No scientific null or specificity claim can be made from those runs.",
+  "consequence_for_rerun": "Executing these controls with current code would be a NEW experiment, not a reproduction of job 249460, and must be registered as such. The same_answer target-lookup defect must be fixed before it can run at all.",
+  "current_code_reproduces_zero_rows": false,
+  "diagnosis_target": "results/stage12/science/donor_renamed/{same_answer,stable}",
+  "findings": [
+    "same_answer: with the archived template configuration the current select_donors raises KeyError for every renamed target, because it resolves the target answer from the donor payload mapping. The current code cannot execute this configuration at all, so it cannot be the mechanism that produced a clean zero-row completion.",
+    "stable: the donor pool yields eligible donors under the production gate chain, so select_donors returns a non-empty donor list and the row loop would emit rows. The current code therefore does not explain the observed zero-row stable-donor output either.",
+    "run_same_answer_donor.py and run_stable_donor.py do not exist at commit ea91454 in this repository's history; both were introduced wholesale in the repository publication commit. The exact code that produced the zero-row artifacts is therefore not recoverable here."
+  ],
+  "historical_logged_git_commit": "ea91454",
+  "n_donor_csv_rows": 140,
+  "n_donor_payloads_available": 140,
+  "n_patch_families": 10,
+  "n_target_payloads_available": 10,
+  "patch_families": [
+    "CM_B_UM_059_RENAME",
+    "CM_B_UM_032_RENAME",
+    "CM_B_STD_006_RENAME",
+    "CM_B_UM_055_RENAME",
+    "CM_B_STD_013_RENAME",
+    "CM_B_UM_052_RENAME",
+    "CM_B_STD_010_RENAME",
+    "CM_B_STD_011_RENAME",
+    "CM_B_UM_033_RENAME",
+    "CM_B_UM_009_RENAME"
+  ],
+  "provenance_gap": "The zero-row donor-on-renamed artifacts cannot be explained by any code present in this repository. They remain unmeasured, not null.",
+  "same_answer_path": {
+    "outcomes": {
+      "target_absent_from_donor_payload_mapping": 10
+    },
+    "per_target": {
+      "CM_B_STD_006_RENAME": {
+        "missing_key": "CM_B_STD_006_RENAME",
+        "note": "select_donors resolves the target answer from family_payloads, which the job template supplied as the donor pool.",
+        "outcome": "raises_KeyError"
+      },
+      "CM_B_STD_010_RENAME": {
+        "missing_key": "CM_B_STD_010_RENAME",
+        "note": "select_donors resolves the target answer from family_payloads, which the job template supplied as the donor pool.",
+        "outcome": "raises_KeyError"
+      },
+      "CM_B_STD_011_RENAME": {
+        "missing_key": "CM_B_STD_011_RENAME",
+        "note": "select_donors resolves the target answer from family_payloads, which the job template supplied as the donor pool.",
+        "outcome": "raises_KeyError"
+      },
+      "CM_B_STD_013_RENAME": {
+        "missing_key": "CM_B_STD_013_RENAME",
+        "note": "select_donors resolves the target answer from family_payloads, which the job template supplied as the donor pool.",
+        "outcome": "raises_KeyError"
+      },
+      "CM_B_UM_009_RENAME": {
+        "missing_key": "CM_B_UM_009_RENAME",
+        "note": "select_donors resolves the target answer from family_payloads, which the job template supplied as the donor pool.",
+        "outcome": "raises_KeyError"
+      },
+      "CM_B_UM_032_RENAME": {
+        "missing_key": "CM_B_UM_032_RENAME",
+        "note": "select_donors resolves the target answer from family_payloads, which the job template supplied as the donor pool.",
+        "outcome": "raises_KeyError"
+      },
+      "CM_B_UM_033_RENAME": {
+        "missing_key": "CM_B_UM_033_RENAME",
+        "note": "select_donors resolves the target answer from family_payloads, which the job template supplied as the donor pool.",
+        "outcome": "raises_KeyError"
+      },
+      "CM_B_UM_052_RENAME": {
+        "missing_key": "CM_B_UM_052_RENAME",
+        "note": "select_donors resolves the target answer from family_payloads, which the job template supplied as the donor pool.",
+        "outcome": "raises_KeyError"
+      },
+      "CM_B_UM_055_RENAME": {
+        "missing_key": "CM_B_UM_055_RENAME",
+        "note": "select_donors resolves the target answer from family_payloads, which the job template supplied as the donor pool.",
+        "outcome": "raises_KeyError"
+      },
+      "CM_B_UM_059_RENAME": {
+        "missing_key": "CM_B_UM_059_RENAME",
+        "note": "select_donors resolves the target answer from family_payloads, which the job template supplied as the donor pool.",
+        "outcome": "raises_KeyError"
+      }
+    }
+  },
+  "source_job_id": "249460",
+  "source_job_name": "physmon_s12_donren_a1",
+  "source_job_slurm_state": "COMPLETED",
+  "stable_path": {
+    "donor_pool_gate_attribution": {
+      "cue_type_not_nongoverning_distractor": 40,
+      "eligible": 38,
+      "parse_gate": 6,
+      "sensitivity_gate_slp_ge_0.3": 56
+    },
+    "n_eligible_donors_in_pool": 38,
+    "n_targets_with_zero_donors": 0,
+    "per_target": {
+      "CM_B_STD_006_RENAME": {
+        "donors": [
+          "CM_B_002",
+          "CM_B_007",
+          "CM_B_008"
+        ],
+        "n_donors": 3
+      },
+      "CM_B_STD_010_RENAME": {
+        "donors": [
+          "CM_B_002",
+          "CM_B_007",
+          "CM_B_008"
+        ],
+        "n_donors": 3
+      },
+      "CM_B_STD_011_RENAME": {
+        "donors": [
+          "CM_B_002",
+          "CM_B_007",
+          "CM_B_008"
+        ],
+        "n_donors": 3
+      },
+      "CM_B_STD_013_RENAME": {
+        "donors": [
+          "CM_B_002",
+          "CM_B_007",
+          "CM_B_008"
+        ],
+        "n_donors": 3
+      },
+      "CM_B_UM_009_RENAME": {
+        "donors": [
+          "CM_B_002",
+          "CM_B_007",
+          "CM_B_008"
+        ],
+        "n_donors": 3
+      },
+      "CM_B_UM_032_RENAME": {
+        "donors": [
+          "CM_B_002",
+          "CM_B_007",
+          "CM_B_008"
+        ],
+        "n_donors": 3
+      },
+      "CM_B_UM_033_RENAME": {
+        "donors": [
+          "CM_B_002",
+          "CM_B_007",
+          "CM_B_008"
+        ],
+        "n_donors": 3
+      },
+      "CM_B_UM_052_RENAME": {
+        "donors": [
+          "CM_B_002",
+          "CM_B_007",
+          "CM_B_008"
+        ],
+        "n_donors": 3
+      },
+      "CM_B_UM_055_RENAME": {
+        "donors": [
+          "CM_B_002",
+          "CM_B_007",
+          "CM_B_008"
+        ],
+        "n_donors": 3
+      },
+      "CM_B_UM_059_RENAME": {
+        "donors": [
+          "CM_B_002",
+          "CM_B_007",
+          "CM_B_008"
+        ],
+        "n_donors": 3
+      }
+    }
+  }
+}
