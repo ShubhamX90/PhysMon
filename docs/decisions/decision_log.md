@@ -2596,3 +2596,110 @@ Consequence:
 
 - Governing document rule: complete Part II v1.1 plus July 3 donor-control erratum. Full v1.2 remains `blocked_source_unavailable`.
 - v6 remains CPU-only. No Sharanga, Slurm, GPU, or Wave 2-4 work was run.
+
+## Stage 13 Evidence Foundation v7 — 2026-08-27
+
+Scope: Wave 0 / Wave 1A blocker closure plus a real run inventory. GPU work was
+authorized for this cycle as `exploratory_unfrozen` only; no GPU job was
+submitted. Sharanga was used read-only plus one CPU diagnosis run.
+
+### Run inventory (new evidence source)
+
+`scripts/ops/collect_sharanga_run_inventory.py` collects the Sharanga Slurm log
+root joined to `sacct`. Prior cycles never read it.
+
+  205 jobs, all IDs resolved, all present in accounting, 0 parse failures
+  135 COMPLETED, 47 FAILED, 14 CANCELLED, 8 TIMEOUT, 1 OUT_OF_MEMORY
+  70 jobs produced empty stdout
+
+Honest negative: only 1 of 205 logs carries the standard template header, so
+per-run script/args provenance must come from `slurm/submitted/` and this log,
+not from log headers.
+
+### Donor-on-renamed zero-row controls — diagnosis
+
+Located as job 249460 (`physmon_s12_donren_a1`, gpu_a100_8, COMPLETED), which
+logged `rows: 0` with `n_target_families: 10`. The target panel was NOT empty,
+refuting the prior empty-intersection hypothesis.
+
+Running the production predicates against the archived configuration:
+
+  same_answer  10/10 targets raise KeyError; select_donors resolves the TARGET
+               answer from the DONOR payload mapping, and renamed targets exist
+               only in the target directory. The current code cannot execute
+               this configuration at all.
+  stable       38 eligible donors in the pool; 0 of 10 targets have an empty
+               donor list, so current code would emit rows rather than none.
+
+`current_code_reproduces_zero_rows = False`. Neither script exists at commit
+`ea91454`, which the production log records, because this repository's history
+is a publication snapshot. The code that produced the artifacts is not
+recoverable here.
+
+Consequence: the zero-row artifacts remain unmeasured, not null, and cannot be
+diagnosed from the repository as published. Executing these controls now would
+be a NEW registered experiment, not a reproduction of job 249460. The
+same_answer target-lookup defect blocks execution until fixed.
+
+### Corrections to v6 method defects
+
+  leakage    v6's 25,360 unresolved pairs were a detector artifact: any
+             cross-family pair with lexical ratio > 0.92 was flagged, and the
+             shared prompt scaffold makes that near-universal. v6 also truncated
+             its population inconsistently (first 900 for pairing, first 300 for
+             the expected-pair count). v7 blocks on five structural signatures
+             over the full 620 prompts and demotes lexical similarity to a
+             tie-breaker. Result: 2,352 unresolved variant pairs = 147 family
+             pairs in 34 clusters. Status stays
+             INCOMPLETE_PENDING_CROSS_FAMILY_REVIEW.
+
+  authority  v6 assigned `critical` with the hard-coded test
+             `"donor_renamed" in relp and rows == 0`, so no other artifact could
+             ever be critical. v7 classifies by evidence over 2,531 artifacts and
+             validates resolution records against the registry.
+             critical_unresolved: 2 -> 0, where resolved means documented
+             failure, never measured null.
+
+  crosswalk  v6 slugified `results/**` filenames into 621 pseudo-runs (forbidden
+             by Task V6.40) and reported 4.5% coverage. v7 uses the 205 real
+             jobs: 23 infrastructure, 182 science runs, matched 82 / partial 46 /
+             unmatched 54, coverage 0.703 (strict 0.451), panel identity resolved
+             for 128.
+
+Self-correction recorded: the first v7 crosswalk reported 86.8% coverage because
+token overlap on a model name alone scored 0.5 and counted as a match, mapping
+stage-4 jobs to stage-6 experiments. Stage agreement and experiment-kind
+agreement are now required. Coverage fell to 70.3%, which is the correct
+direction. Separately, the first v7 leakage run reported 400 cross-family exact
+duplicates; that was a bug in the audit script, which substituted only `{cue}`
+and left parameter placeholders unrendered. Rendering now delegates to
+`physmon.benchmark.generator._render_variants`.
+
+### Gate state
+
+Wave 0 v7: FAIL
+  PASS governing_document_rule_correct
+  PASS run_crosswalk_real_denominator
+  PASS critical_authority_zero
+  FAIL canonical_evidence_substantive   (v6 populates only S_lp; 185/465 null)
+  FAIL claim_matrix_substantive         (0/10 v6 claims cite an artifact)
+
+Wave 1A v7: FAIL
+  FAIL leakage_review_resolved          (147 family pairs in 34 clusters)
+  PASS leakage_population_untruncated
+  seven checks carried forward from v6, each labelled as carried forward
+
+The two v6 red checks are closed on substance. Two checks that v6 passed on form
+now fail against their stricter criterion; the v6 pass is not inherited. Net gate
+status is unchanged at FAIL, which is the intended and correct outcome.
+
+human_pilot: PENDING. paper_eligibility: false. permission_for_wave2: false.
+
+### Outstanding
+
+  - canonical evidence v7 rebuild (beyond S_lp, source-linked)
+  - claim-evidence matrix v7 rebuild (real estimates, intervals, cited artifacts)
+  - adjudication of the 147 leakage family pairs
+  - human-validation package to READY_FOR_PI_REVIEW
+  - Wave 2 combined non-activation baseline and incremental-information harness
+  - fix `run_same_answer_donor.select_donors` target lookup before any rerun
