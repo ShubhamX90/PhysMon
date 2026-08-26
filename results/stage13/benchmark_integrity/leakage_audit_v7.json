@@ -1,0 +1,36 @@
+{
+  "cross_split_exact_duplicates": 0,
+  "detectors": {
+    "cue_template_hash": "active",
+    "exact_prompt_hash": "active",
+    "lexical_similarity": "used_as_tiebreaker_not_trigger",
+    "normalized_symbolic_equation_hash": "active",
+    "number_masked_prompt_hash": "active",
+    "numeric_instantiation_sibling_detection": "active",
+    "semantic_template_similarity": "not_available_no_local_embedding_method",
+    "variable_renaming_invariant_structure_hash": "active"
+  },
+  "expected_relation_pairs": 930,
+  "interpretation": "Unresolved pairs are genuine cross-family structural matches requiring adjudication. Resolved pairs each carry the differing governing equation and canonical answer that resolved them.",
+  "method": "structure_first_blocking_v7",
+  "n_candidate_pairs_after_blocking": 24354,
+  "n_families": 155,
+  "n_families_in_unresolved_review": 110,
+  "n_prompt_records": 620,
+  "population_truncated": false,
+  "relation_counts": {
+    "cross_family_numeric_sibling": 400,
+    "cross_family_structural_candidate": 1952,
+    "cross_family_template_scaffold_resolved": 21072,
+    "within_same_family_expected": 930
+  },
+  "resolutions_csv": "results/stage13/benchmark_integrity/leakage_resolutions_v7.csv",
+  "resolved_scaffold_pairs": 21072,
+  "review_csv": "results/stage13/benchmark_integrity/leakage_review_v7.csv",
+  "status": "INCOMPLETE_PENDING_CROSS_FAMILY_REVIEW",
+  "supersedes": "results/stage13/benchmark_integrity/leakage_audit_v6.json",
+  "supersession_reason": "v6 classified any cross-family pair with lexical ratio > 0.92 as a leakage candidate, which the shared prompt scaffold makes near-universal, and it truncated its prompt population inconsistently (first 900 for pairs, first 300 for the expected-pair count).",
+  "unresolved_cross_family_review": 2352,
+  "unresolved_family_clusters": 34,
+  "unresolved_family_pairs": 147
+}
