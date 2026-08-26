@@ -1,0 +1,24 @@
+{
+  "coverage_fraction": 0.7033,
+  "denominator_source": "sharanga_slurm_logs_joined_to_sacct",
+  "irrecoverable": 0,
+  "matched": 82,
+  "n_expected_science_runs": 182,
+  "n_infrastructure_jobs": 23,
+  "n_jobs_in_inventory": 205,
+  "n_registry_entries": 67,
+  "note": "Coverage is reported against jobs with real Slurm identities. Infrastructure jobs are counted separately rather than dropped from the denominator. Unmatched jobs are reported as unmatched, never inferred.",
+  "panel_identity_resolved": 128,
+  "partial": 46,
+  "strict_coverage_fraction": 0.4505,
+  "supersedes": "results/stage13/wave0/registry_coverage_v6.json",
+  "supersession_reason": "v6 derived 621 expected runs by slugifying results/** filenames, which Task V6.40 forbids; no v6 expected run was evidence that a job executed.",
+  "terminal_states": {
+    "CANCELLED by 1248300607": 6,
+    "COMPLETED": 124,
+    "FAILED": 44,
+    "OUT_OF_MEMORY": 1,
+    "TIMEOUT": 7
+  },
+  "unmatched": 54
+}
