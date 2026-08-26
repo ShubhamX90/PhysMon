@@ -1,0 +1,79 @@
+{
+  "checks": [
+    {
+      "check_id": "leakage_review_resolved",
+      "computed_from": "results/stage13/benchmark_integrity/leakage_audit_v7.json",
+      "criterion": "Leakage cannot pass while unresolved cross-family candidates remain.",
+      "detail": "status=INCOMPLETE_PENDING_CROSS_FAMILY_REVIEW; 2352 unresolved variant pairs = 147 family pairs in 34 clusters",
+      "passed": false
+    },
+    {
+      "check_id": "leakage_population_untruncated",
+      "computed_from": "results/stage13/benchmark_integrity/leakage_audit_v7.json",
+      "criterion": "The audit must cover the whole prompt population with no truncation.",
+      "detail": "620 prompts over 155 families",
+      "passed": true
+    },
+    {
+      "check_id": "mutation_semantics_accurate",
+      "computed_from": "results/stage13/benchmark_integrity/wave1a_gate_v6.json",
+      "criterion": "Carried forward; not re-derived in v7.",
+      "detail": "carried forward unchanged from v6",
+      "passed": true
+    },
+    {
+      "check_id": "real_verifier_backed_operators",
+      "computed_from": "results/stage13/benchmark_integrity/wave1a_gate_v6.json",
+      "criterion": "Carried forward; not re-derived in v7.",
+      "detail": "carried forward unchanged from v6",
+      "passed": true
+    },
+    {
+      "check_id": "certificate_status_honest",
+      "computed_from": "results/stage13/benchmark_integrity/wave1a_gate_v6.json",
+      "criterion": "Carried forward; not re-derived in v7.",
+      "detail": "carried forward unchanged from v6",
+      "passed": true
+    },
+    {
+      "check_id": "pilot_stratified",
+      "computed_from": "results/stage13/benchmark_integrity/wave1a_gate_v6.json",
+      "criterion": "Carried forward; not re-derived in v7.",
+      "detail": "carried forward unchanged from v6",
+      "passed": true
+    },
+    {
+      "check_id": "parser_unique_balanced",
+      "computed_from": "results/stage13/benchmark_integrity/wave1a_gate_v6.json",
+      "criterion": "Carried forward; not re-derived in v7.",
+      "detail": "carried forward unchanged from v6",
+      "passed": true
+    },
+    {
+      "check_id": "balance_excludes_unlabeled",
+      "computed_from": "results/stage13/benchmark_integrity/wave1a_gate_v6.json",
+      "criterion": "Carried forward; not re-derived in v7.",
+      "detail": "carried forward unchanged from v6",
+      "passed": true
+    },
+    {
+      "check_id": "portable_paths",
+      "computed_from": "results/stage13/benchmark_integrity/wave1a_gate_v6.json",
+      "criterion": "Carried forward; not re-derived in v7.",
+      "detail": "carried forward unchanged from v6",
+      "passed": true
+    }
+  ],
+  "critical_failures": [
+    "leakage_review_resolved"
+  ],
+  "gate_name": "stage13_wave1a_software_materials_gate",
+  "gate_policy": "Checks that passed on form in v6 are re-evaluated against their stricter criterion. Where a v7 artifact does not exist, the check fails rather than inheriting the v6 pass.",
+  "gate_version": "7.0",
+  "git_commit": "024c55e86a2ab1d62984207dad8b548ce9082a5a",
+  "git_dirty": true,
+  "human_pilot": "PENDING",
+  "paper_eligibility": false,
+  "permission_for_wave2": false,
+  "status": "FAIL"
+}

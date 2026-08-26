@@ -1,0 +1,52 @@
+{
+  "checks": [
+    {
+      "check_id": "governing_document_rule_correct",
+      "computed_from": "docs/proposals/PhysMon_Part_II_governing_document_rule.md",
+      "criterion": "Rule must name the complete Part II v1.1 read together with the erratum.",
+      "detail": "rule names complete v1.1 plus the erratum",
+      "passed": true
+    },
+    {
+      "check_id": "run_crosswalk_real_denominator",
+      "computed_from": "results/stage13/wave0/registry_coverage_v7.json",
+      "criterion": "Denominator must be jobs with real Slurm identities, not globbed filenames.",
+      "detail": "182 science runs from real Slurm IDs; coverage 0.7033 (strict 0.4505)",
+      "passed": true
+    },
+    {
+      "check_id": "critical_authority_zero",
+      "computed_from": "docs/registry/artifact_authority_audit_v7.json",
+      "criterion": "Every critical artifact must carry a validated resolution record.",
+      "detail": "2 critical, 0 unresolved, 0 records rejected",
+      "passed": true
+    },
+    {
+      "check_id": "canonical_evidence_substantive",
+      "computed_from": "results/stage13/wave0/canonical_evidence_verification_v6.json",
+      "criterion": "Canonical evidence must span more than S_lp with source-linked values. The v6 pass is not inherited.",
+      "detail": "no v7 rebuild; v6 populates only ['S_lp'] across 465 rows with 185 nulls",
+      "passed": false
+    },
+    {
+      "check_id": "claim_matrix_substantive",
+      "computed_from": "docs/registry/claim_evidence_matrix_v6.json",
+      "criterion": "Every claim needs a real estimate, interval, and cited authoritative artifacts. The v6 pass is not inherited.",
+      "detail": "no v7 rebuild; 0/10 v6 claims cite an artifact",
+      "passed": false
+    }
+  ],
+  "critical_failures": [
+    "canonical_evidence_substantive",
+    "claim_matrix_substantive"
+  ],
+  "gate_name": "stage13_wave0_gate",
+  "gate_policy": "Checks that passed on form in v6 are re-evaluated against their stricter criterion. Where a v7 artifact does not exist, the check fails rather than inheriting the v6 pass.",
+  "gate_version": "7.0",
+  "git_commit": "024c55e86a2ab1d62984207dad8b548ce9082a5a",
+  "git_dirty": true,
+  "human_pilot": "PENDING",
+  "paper_eligibility": false,
+  "permission_for_wave2": false,
+  "status": "FAIL"
+}
