@@ -1,0 +1,410 @@
+{
+  "claims": [
+    {
+      "allowed_wording": "The model is counterfactually sensitive on a measured fraction of families.",
+      "authoritative_artifacts": [
+        "results/stage6/analysis_d2/stage6_d1_per_family.csv"
+      ],
+      "claim_id": "C01",
+      "claim_text": "Behavioural counterfactual sensitivity exists on solver-certified families",
+      "confidence_interval": [
+        0.4213,
+        0.5857
+      ],
+      "current_estimate": 0.5,
+      "discovery_or_confirmation": "discovery",
+      "evidence_detail": {
+        "artifact": "results/stage6/analysis_d2/stage6_d1_per_family.csv",
+        "ci95": [
+          0.4213,
+          0.5857
+        ],
+        "estimate": 0.5,
+        "family_count": 140,
+        "n_above_threshold": 70,
+        "resampling_unit": "canonical_family",
+        "status": "estimated",
+        "threshold": 0.5
+      },
+      "experiment_ids": [],
+      "family_count": 140,
+      "human_validation_dependency": "pending",
+      "interval_spans_zero": false,
+      "missing_evidence": "Independent human validation of family invariance is not complete.",
+      "model_count": 1,
+      "next_required_experiment": "Wave 1 dual human validation of all confirmatory families.",
+      "panel_caveats": "Qwen sweep over the original benchmark panel; expansion families are summarised separately.",
+      "prohibited_wording": "Do not describe this as shortcut reliance; it is Level-2 behaviour only.",
+      "status": "estimated_discovery"
+    },
+    {
+      "allowed_wording": "Prompt-side hidden states carry information about later sensitivity.",
+      "authoritative_artifacts": [
+        "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json"
+      ],
+      "claim_id": "C02",
+      "claim_text": "Prompt-side hidden states predict later counterfactual sensitivity",
+      "confidence_interval": [
+        0.6752,
+        0.8384
+      ],
+      "current_estimate": 0.7596,
+      "discovery_or_confirmation": "discovery",
+      "evidence_detail": {
+        "artifact": "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+        "bootstrap_resamples": 10000,
+        "ci95": [
+          0.6752,
+          0.8384
+        ],
+        "estimate": 0.7596,
+        "family_count": 135,
+        "n_negative": 65,
+        "n_positive": 70,
+        "resampling_unit": "canonical_family",
+        "status": "estimated"
+      },
+      "experiment_ids": [],
+      "family_count": 135,
+      "human_validation_dependency": "pending",
+      "interval_spans_zero": false,
+      "missing_evidence": "Held-out external families and a combined non-activation baseline are not yet evaluated.",
+      "model_count": 1,
+      "next_required_experiment": "Wave 2 combined non-activation baseline and incremental-information comparison.",
+      "panel_caveats": "Family-held-out LOO panel from the mean-state probe sweep.",
+      "prohibited_wording": "Do not claim superiority over all baselines from this number alone.",
+      "status": "estimated_discovery"
+    },
+    {
+      "allowed_wording": "The signal does not collapse to generic correctness variation.",
+      "authoritative_artifacts": [
+        "results/stage9/correctness_residualisation/loo_predictions.json"
+      ],
+      "claim_id": "C03",
+      "claim_text": "The monitor signal survives correctness residualisation",
+      "confidence_interval": [
+        0.6504,
+        0.8185
+      ],
+      "current_estimate": 0.7376,
+      "discovery_or_confirmation": "discovery",
+      "evidence_detail": {
+        "artifact": "results/stage9/correctness_residualisation/loo_predictions.json",
+        "bootstrap_resamples": 10000,
+        "ci95": [
+          0.6504,
+          0.8185
+        ],
+        "estimate": 0.7376,
+        "family_count": 135,
+        "n_negative": 65,
+        "n_positive": 70,
+        "resampling_unit": "canonical_family",
+        "status": "estimated"
+      },
+      "experiment_ids": [],
+      "family_count": 135,
+      "human_validation_dependency": "pending",
+      "interval_spans_zero": false,
+      "missing_evidence": "Entropy and confidence are not jointly residualised.",
+      "model_count": 1,
+      "next_required_experiment": "Wave 2 deconfounding against a combined correctness-plus-entropy model.",
+      "panel_caveats": "Same LOO panel as the primary monitor, after residualisation.",
+      "prohibited_wording": "Do not claim independence from correctness; shared variance remains.",
+      "status": "estimated_discovery"
+    },
+    {
+      "allowed_wording": "Correctness prediction is a strong non-activation comparator.",
+      "authoritative_artifacts": [
+        "results/stage9/baselines/correctness_probe/loo_predictions_variance.json"
+      ],
+      "claim_id": "C04",
+      "claim_text": "A generic correctness probe is a strong comparator",
+      "confidence_interval": [
+        0.6744,
+        0.8485
+      ],
+      "current_estimate": 0.7657,
+      "discovery_or_confirmation": "discovery",
+      "evidence_detail": {
+        "artifact": "results/stage9/baselines/correctness_probe/loo_predictions_variance.json",
+        "bootstrap_resamples": 10000,
+        "ci95": [
+          0.6744,
+          0.8485
+        ],
+        "estimate": 0.7657,
+        "family_count": 135,
+        "n_negative": 55,
+        "n_positive": 80,
+        "resampling_unit": "canonical_family",
+        "status": "estimated"
+      },
+      "experiment_ids": [],
+      "family_count": 135,
+      "human_validation_dependency": "pending",
+      "interval_spans_zero": false,
+      "missing_evidence": "No paired family-bootstrap difference against the monitor is computed here.",
+      "model_count": 1,
+      "next_required_experiment": "Wave 2 paired comparison with family-bootstrap intervals on the difference.",
+      "panel_caveats": "Same LOO panel as the primary monitor.",
+      "prohibited_wording": "Do not present this as the monitor's ceiling without a paired test.",
+      "status": "estimated_discovery"
+    },
+    {
+      "allowed_wording": "Uncertainty-related signal predicts sensitivity.",
+      "authoritative_artifacts": [
+        "results/stage9/baselines/entropy/entropy_per_family_scores.json"
+      ],
+      "claim_id": "C05",
+      "claim_text": "An entropy proxy is a strong non-activation comparator",
+      "confidence_interval": [
+        0.6385,
+        0.8104
+      ],
+      "current_estimate": 0.727,
+      "discovery_or_confirmation": "discovery",
+      "evidence_detail": {
+        "artifact": "results/stage9/baselines/entropy/entropy_per_family_scores.json",
+        "bootstrap_resamples": 10000,
+        "ci95": [
+          0.6385,
+          0.8104
+        ],
+        "estimate": 0.727,
+        "family_count": 135,
+        "n_negative": 65,
+        "n_positive": 70,
+        "resampling_unit": "canonical_family",
+        "status": "estimated"
+      },
+      "experiment_ids": [],
+      "family_count": 135,
+      "human_validation_dependency": "pending",
+      "interval_spans_zero": false,
+      "missing_evidence": "No combined non-activation model exists yet.",
+      "model_count": 1,
+      "next_required_experiment": "Wave 2 combined non-activation baseline.",
+      "panel_caveats": "Same LOO panel as the primary monitor.",
+      "prohibited_wording": "Do not treat the monitor's margin over entropy as established.",
+      "status": "estimated_discovery"
+    },
+    {
+      "allowed_wording": "A practical black-box comparator carries signal.",
+      "authoritative_artifacts": [
+        "results/stage9/baselines/blackbox_counterfactual/family_scores.json"
+      ],
+      "claim_id": "C06",
+      "claim_text": "A black-box two-query check predicts sensitivity",
+      "confidence_interval": [
+        0.5744,
+        0.7567
+      ],
+      "current_estimate": 0.6684,
+      "discovery_or_confirmation": "discovery",
+      "evidence_detail": {
+        "artifact": "results/stage9/baselines/blackbox_counterfactual/family_scores.json",
+        "bootstrap_resamples": 10000,
+        "ci95": [
+          0.5744,
+          0.7567
+        ],
+        "estimate": 0.6684,
+        "family_count": 135,
+        "n_negative": 65,
+        "n_positive": 70,
+        "resampling_unit": "canonical_family",
+        "status": "estimated"
+      },
+      "experiment_ids": [],
+      "family_count": 135,
+      "human_validation_dependency": "pending",
+      "interval_spans_zero": false,
+      "missing_evidence": "Cost and calibration comparisons are not reported.",
+      "model_count": 1,
+      "next_required_experiment": "Wave 2 risk-coverage and calibration comparison.",
+      "panel_caveats": "Directional black-box score on the monitoring panel.",
+      "prohibited_wording": "Do not describe this as equivalent to activation access.",
+      "status": "estimated_discovery"
+    },
+    {
+      "allowed_wording": "A within-model monitor is trainable on a reasoning-distilled model.",
+      "authoritative_artifacts": [
+        "results/stage8/probing_deepseek/loo_predictions_variance.json"
+      ],
+      "claim_id": "C07",
+      "claim_text": "The monitoring signal replicates within a second model family",
+      "confidence_interval": [
+        0.6014,
+        0.7974
+      ],
+      "current_estimate": 0.7025,
+      "discovery_or_confirmation": "discovery",
+      "evidence_detail": {
+        "artifact": "results/stage8/probing_deepseek/loo_predictions_variance.json",
+        "bootstrap_resamples": 10000,
+        "ci95": [
+          0.6014,
+          0.7974
+        ],
+        "estimate": 0.7025,
+        "family_count": 140,
+        "n_negative": 102,
+        "n_positive": 38,
+        "resampling_unit": "canonical_family",
+        "status": "estimated"
+      },
+      "experiment_ids": [],
+      "family_count": 140,
+      "human_validation_dependency": "pending",
+      "interval_spans_zero": false,
+      "missing_evidence": "Cross-model transfer and causal replication remain incomplete.",
+      "model_count": 1,
+      "next_required_experiment": "Wave 3 model-specific causal panels.",
+      "panel_caveats": "DeepSeek variance-probe LOO panel.",
+      "prohibited_wording": "Do not claim cross-model transfer from this within-model number.",
+      "status": "estimated_discovery"
+    },
+    {
+      "allowed_wording": "The component contributes causally to sensitivity under intervention.",
+      "authoritative_artifacts": [
+        "results/stage8/multi_head_knockout/patching_results.csv"
+      ],
+      "claim_id": "C08",
+      "claim_text": "Localized components causally modulate sensitivity in Qwen",
+      "confidence_interval": [
+        1.5603,
+        2.1975
+      ],
+      "current_estimate": 1.8697,
+      "discovery_or_confirmation": "discovery",
+      "evidence_detail": {
+        "artifact": "results/stage8/multi_head_knockout/patching_results.csv",
+        "ci95": [
+          1.5603,
+          2.1975
+        ],
+        "estimate": 1.8697,
+        "family_count": 20,
+        "median": 1.8405,
+        "metric": "normalized_recovery_fraction",
+        "per_layer_mean_recovery": {
+          "14": -0.9825,
+          "15": 0.676,
+          "16": 1.8697,
+          "17": -0.064,
+          "18": 0.0276,
+          "19": 0.2616,
+          "20": 0.0642
+        },
+        "resampling_unit": "canonical_family",
+        "site_layer": "16",
+        "status": "estimated"
+      },
+      "experiment_ids": [],
+      "family_count": 20,
+      "human_validation_dependency": "pending",
+      "interval_spans_zero": false,
+      "missing_evidence": "Necessity, dose-response and damage controls are not complete on a frozen panel.",
+      "model_count": 1,
+      "next_required_experiment": "Wave 3 necessity and sufficiency with controlled damage checks.",
+      "panel_caveats": "Qwen multi-head knockout panel; family-mean recovery across tested layers.",
+      "prohibited_wording": "Do not claim necessity, nor a complete circuit, from this panel.",
+      "status": "estimated_discovery"
+    },
+    {
+      "allowed_wording": "A second architecture shows a localized causal contribution.",
+      "authoritative_artifacts": [
+        "results/stage10/llama_mhk/patching_results.csv"
+      ],
+      "claim_id": "C09",
+      "claim_text": "Localized components causally modulate sensitivity in Llama",
+      "confidence_interval": [
+        -3.4601,
+        6.6532
+      ],
+      "current_estimate": 1.7481,
+      "discovery_or_confirmation": "discovery",
+      "evidence_detail": {
+        "artifact": "results/stage10/llama_mhk/patching_results.csv",
+        "ci95": [
+          -3.4601,
+          6.6532
+        ],
+        "estimate": 1.7481,
+        "family_count": 20,
+        "median": 1.6178,
+        "metric": "normalized_recovery_fraction",
+        "per_layer_mean_recovery": {
+          "17": -0.0914,
+          "18": 0.9555,
+          "19": 0.7744,
+          "20": 0.237,
+          "21": 1.7481,
+          "22": 0.0834,
+          "23": -0.022
+        },
+        "resampling_unit": "canonical_family",
+        "site_layer": "21",
+        "status": "estimated"
+      },
+      "experiment_ids": [],
+      "family_count": 20,
+      "human_validation_dependency": "pending",
+      "interval_spans_zero": true,
+      "missing_evidence": "Cross-model mechanism comparison is not complete.",
+      "model_count": 1,
+      "next_required_experiment": "Wave 3 cross-model causal comparison with small-denominator exclusion.",
+      "panel_caveats": "Llama multi-head knockout panel at layer 21. The family-bootstrap interval spans zero, so the point estimate is not a demonstrated effect: normalized recovery divides by a near-zero original S_lp on some families and is heavy-tailed on a 20-family panel.",
+      "prohibited_wording": "Do not claim a shared mechanism across architectures.",
+      "status": "estimated_not_distinguishable_from_zero"
+    },
+    {
+      "allowed_wording": "The donor-on-renamed controls produced zero evaluable rows. No scientific null or specificity claim can be made from those runs.",
+      "authoritative_artifacts": [
+        "results/stage13/benchmark_integrity/donor_renamed_empty_panel_audit_v4.json",
+        "results/stage13/wave0/renamed_donor_panel_diagnosis_v7.json"
+      ],
+      "claim_id": "C10",
+      "claim_text": "Donor-on-renamed controls establish specificity against variable-name transfer",
+      "confidence_interval": "unavailable",
+      "current_estimate": "unsupported",
+      "discovery_or_confirmation": "discovery",
+      "evidence_detail": {
+        "note": "Zero evaluable rows are not a measured zero effect.",
+        "source_job_id": "249460",
+        "status": "zero_evaluable_rows"
+      },
+      "experiment_ids": [
+        "stage12_donor_renamed_same_answer",
+        "stage12_donor_renamed_stable"
+      ],
+      "family_count": 0,
+      "human_validation_dependency": "pending",
+      "missing_evidence": "No measured donor-on-renamed effect exists.",
+      "model_count": 0,
+      "next_required_experiment": "Fix run_same_answer_donor.select_donors target lookup, then run both controls as NEW registered experiments.",
+      "panel_caveats": "Both controls produced zero evaluable rows; the panel was never measured.",
+      "prohibited_wording": "Do not claim 100% specificity, 0.0 mean recovery, or completed renamed donor controls.",
+      "status": "downgraded_unsupported"
+    }
+  ],
+  "n_claims": 10,
+  "n_claims_estimated": 8,
+  "n_claims_with_artifacts": 10,
+  "note": "All estimates are discovery-tier. None is confirmatory: the monitor, threshold and causal sites were selected on these same panels.",
+  "paper_eligibility": false,
+  "statistics": {
+    "bootstrap_repetitions": 10000,
+    "bootstrap_seed": 42,
+    "interval": "percentile_95",
+    "resampling_unit": "canonical_family"
+  },
+  "status_counts": {
+    "downgraded_unsupported": 1,
+    "estimated_discovery": 8,
+    "estimated_not_distinguishable_from_zero": 1
+  },
+  "supersedes": "docs/registry/claim_evidence_matrix_v6.json",
+  "supersession_reason": "Every v6 claim had an empty authoritative_artifacts list and the placeholder estimate 'see linked artifacts'; C01 defaulted family_count to 155."
+}

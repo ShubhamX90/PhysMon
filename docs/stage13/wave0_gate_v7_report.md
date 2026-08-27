@@ -1,12 +1,12 @@
 # Stage 13 Wave 0 Gate v7
 
-Status: `FAIL`
+Status: `PASS`
 
 - Gate version: 7.0
 - Human pilot: `PENDING`
 - Paper eligibility: `False`
 - Permission for Wave 2: `False`
-- Source commit: `024c55e86a2ab1d62984207dad8b548ce9082a5a`
+- Source commit: `0516a4725578dbf196de47d1a2e1e90a9e6748fc`
 
 ## Checks
 
@@ -28,17 +28,17 @@ Status: `FAIL`
 - Computed from: `docs/registry/artifact_authority_audit_v7.json`
 - Criterion: Every critical artifact must carry a validated resolution record.
 
-### FAIL `canonical_evidence_substantive`
+### PASS `canonical_evidence_substantive`
 
-- Detail: no v7 rebuild; v6 populates only ['S_lp'] across 465 rows with 185 nulls
-- Computed from: `results/stage13/wave0/canonical_evidence_verification_v6.json`
-- Criterion: Canonical evidence must span more than S_lp with source-linked values. The v6 pass is not inherited.
+- Detail: 12 populated field types
+- Computed from: `results/stage13/wave0/canonical_evidence_verification_v7.json`
+- Criterion: Canonical evidence must span more than S_lp with source-linked values.
 
-### FAIL `claim_matrix_substantive`
+### PASS `claim_matrix_substantive`
 
-- Detail: no v7 rebuild; 0/10 v6 claims cite an artifact
-- Computed from: `docs/registry/claim_evidence_matrix_v6.json`
-- Criterion: Every claim needs a real estimate, interval, and cited authoritative artifacts. The v6 pass is not inherited.
+- Detail: 10/10 claims cite an authoritative artifact
+- Computed from: `docs/registry/claim_evidence_matrix_v7.json`
+- Criterion: Every claim needs a real estimate, interval, and cited authoritative artifacts.
 
 ## Gate policy
 

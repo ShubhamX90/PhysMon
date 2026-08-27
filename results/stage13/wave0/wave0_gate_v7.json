@@ -23,30 +23,27 @@
     },
     {
       "check_id": "canonical_evidence_substantive",
-      "computed_from": "results/stage13/wave0/canonical_evidence_verification_v6.json",
-      "criterion": "Canonical evidence must span more than S_lp with source-linked values. The v6 pass is not inherited.",
-      "detail": "no v7 rebuild; v6 populates only ['S_lp'] across 465 rows with 185 nulls",
-      "passed": false
+      "computed_from": "results/stage13/wave0/canonical_evidence_verification_v7.json",
+      "criterion": "Canonical evidence must span more than S_lp with source-linked values.",
+      "detail": "12 populated field types",
+      "passed": true
     },
     {
       "check_id": "claim_matrix_substantive",
-      "computed_from": "docs/registry/claim_evidence_matrix_v6.json",
-      "criterion": "Every claim needs a real estimate, interval, and cited authoritative artifacts. The v6 pass is not inherited.",
-      "detail": "no v7 rebuild; 0/10 v6 claims cite an artifact",
-      "passed": false
+      "computed_from": "docs/registry/claim_evidence_matrix_v7.json",
+      "criterion": "Every claim needs a real estimate, interval, and cited authoritative artifacts.",
+      "detail": "10/10 claims cite an authoritative artifact",
+      "passed": true
     }
   ],
-  "critical_failures": [
-    "canonical_evidence_substantive",
-    "claim_matrix_substantive"
-  ],
+  "critical_failures": [],
   "gate_name": "stage13_wave0_gate",
   "gate_policy": "Checks that passed on form in v6 are re-evaluated against their stricter criterion. Where a v7 artifact does not exist, the check fails rather than inheriting the v6 pass.",
   "gate_version": "7.0",
-  "git_commit": "024c55e86a2ab1d62984207dad8b548ce9082a5a",
+  "git_commit": "0516a4725578dbf196de47d1a2e1e90a9e6748fc",
   "git_dirty": true,
   "human_pilot": "PENDING",
   "paper_eligibility": false,
   "permission_for_wave2": false,
-  "status": "FAIL"
+  "status": "PASS"
 }

@@ -1,0 +1,299 @@
+{
+  "canonical_families": 155,
+  "empty_sources": [],
+  "interpretation": "Every populated value cites the artifact it came from. Registry experiment ids are resolved by exact path match, then directory match, and are otherwise reported as registry_experiment_unresolved rather than invented.",
+  "missing_sources": [],
+  "model_family_rows": 465,
+  "models": [
+    "qwen_primary",
+    "llama_primary",
+    "deepseek_reasoning"
+  ],
+  "n_populated_field_types": 12,
+  "null_reason_counts": {
+    "S_lp:not_measured": 30,
+    "answer_rationale_baseline:not_applicable": 465,
+    "blackbox_score:not_applicable": 310,
+    "blackbox_score:not_measured": 20,
+    "correct_rate:not_applicable": 155,
+    "correct_rate:not_measured": 155,
+    "correctness_probe_score:not_applicable": 310,
+    "correctness_probe_score:not_measured": 20,
+    "cot_text_baseline:not_applicable": 465,
+    "entropy_score:not_applicable": 310,
+    "entropy_score:not_measured": 20,
+    "hat_S:not_measured": 79,
+    "intervention_recovery:not_measured": 405,
+    "monitor_layer:not_applicable": 155,
+    "monitor_layer:not_measured": 35,
+    "monitor_score:not_applicable": 155,
+    "monitor_score:not_measured": 20,
+    "parse_ok:not_applicable": 155,
+    "parse_ok:not_measured": 30,
+    "parse_rate:not_applicable": 155,
+    "parse_rate:not_measured": 155,
+    "residualised_monitor_score:not_applicable": 310,
+    "residualised_monitor_score:not_measured": 20
+  },
+  "populated_fields": {
+    "S_lp": 435,
+    "blackbox_score": 135,
+    "correct_rate": 155,
+    "correctness_probe_score": 135,
+    "entropy_score": 135,
+    "hat_S": 386,
+    "intervention_recovery": 60,
+    "monitor_layer": 275,
+    "monitor_score": 290,
+    "parse_ok": 280,
+    "parse_rate": 155,
+    "residualised_monitor_score": 135
+  },
+  "rows_by_model": {
+    "deepseek_reasoning": 155,
+    "llama_primary": 155,
+    "qwen_primary": 155
+  },
+  "source_linked_values": 1764,
+  "source_report": [
+    {
+      "artifact": "results/stage6/analysis_d2/stage6_d1_per_family.csv",
+      "experiment_ids": "stage6_llama_behavioural_full_rerun,stage6_qwen_behavioural_full_rerun",
+      "families_populated": 140,
+      "field": "S_lp",
+      "loaded_keys": 140,
+      "model": "qwen_primary",
+      "registry_resolution": "exact_path_match"
+    },
+    {
+      "artifact": "results/stage6/analysis_d2/stage6_d1_per_family.csv",
+      "experiment_ids": "stage6_llama_behavioural_full_rerun,stage6_qwen_behavioural_full_rerun",
+      "families_populated": 139,
+      "field": "hat_S",
+      "loaded_keys": 139,
+      "model": "qwen_primary",
+      "registry_resolution": "exact_path_match"
+    },
+    {
+      "artifact": "results/stage6/analysis_d2/stage6_d1_per_family.csv",
+      "experiment_ids": "stage6_llama_behavioural_full_rerun,stage6_qwen_behavioural_full_rerun",
+      "families_populated": 140,
+      "field": "parse_ok",
+      "loaded_keys": 140,
+      "model": "qwen_primary",
+      "registry_resolution": "exact_path_match"
+    },
+    {
+      "artifact": "results/stage11/behavioural_expansion/per_family_summary.csv",
+      "experiment_ids": "stage11_expansion_behavioural_qwen",
+      "families_populated": 15,
+      "field": "S_lp",
+      "loaded_keys": 15,
+      "model": "qwen_primary",
+      "registry_resolution": "exact_path_match"
+    },
+    {
+      "artifact": "results/stage11/behavioural_expansion/per_family_summary.csv",
+      "experiment_ids": "stage11_expansion_behavioural_qwen",
+      "families_populated": 15,
+      "field": "hat_S",
+      "loaded_keys": 15,
+      "model": "qwen_primary",
+      "registry_resolution": "exact_path_match"
+    },
+    {
+      "artifact": "results/stage11/behavioural_expansion/per_family_summary.csv",
+      "experiment_ids": "stage11_expansion_behavioural_qwen",
+      "families_populated": 15,
+      "field": "parse_rate",
+      "loaded_keys": 15,
+      "model": "qwen_primary",
+      "registry_resolution": "exact_path_match"
+    },
+    {
+      "artifact": "results/stage11/behavioural_expansion/per_family_summary.csv",
+      "experiment_ids": "stage11_expansion_behavioural_qwen",
+      "families_populated": 15,
+      "field": "correct_rate",
+      "loaded_keys": 15,
+      "model": "qwen_primary",
+      "registry_resolution": "exact_path_match"
+    },
+    {
+      "artifact": "results/stage6/analysis_d2/stage6_d1_per_family.csv",
+      "experiment_ids": "stage6_llama_behavioural_full_rerun,stage6_qwen_behavioural_full_rerun",
+      "families_populated": 140,
+      "field": "S_lp",
+      "loaded_keys": 140,
+      "model": "llama_primary",
+      "registry_resolution": "exact_path_match"
+    },
+    {
+      "artifact": "results/stage6/analysis_d2/stage6_d1_per_family.csv",
+      "experiment_ids": "stage6_llama_behavioural_full_rerun,stage6_qwen_behavioural_full_rerun",
+      "families_populated": 140,
+      "field": "hat_S",
+      "loaded_keys": 140,
+      "model": "llama_primary",
+      "registry_resolution": "exact_path_match"
+    },
+    {
+      "artifact": "results/stage6/analysis_d2/stage6_d1_per_family.csv",
+      "experiment_ids": "stage6_llama_behavioural_full_rerun,stage6_qwen_behavioural_full_rerun",
+      "families_populated": 140,
+      "field": "parse_ok",
+      "loaded_keys": 140,
+      "model": "llama_primary",
+      "registry_resolution": "exact_path_match"
+    },
+    {
+      "artifact": "results/stage8/analysis_deepseek/deepseek_per_family.csv",
+      "experiment_ids": "",
+      "families_populated": 140,
+      "field": "S_lp",
+      "loaded_keys": 140,
+      "model": "deepseek_reasoning",
+      "registry_resolution": "registry_experiment_unresolved"
+    },
+    {
+      "artifact": "results/stage8/analysis_deepseek/deepseek_per_family.csv",
+      "experiment_ids": "",
+      "families_populated": 92,
+      "field": "hat_S",
+      "loaded_keys": 92,
+      "model": "deepseek_reasoning",
+      "registry_resolution": "registry_experiment_unresolved"
+    },
+    {
+      "artifact": "results/stage8/analysis_deepseek/deepseek_per_family.csv",
+      "experiment_ids": "",
+      "families_populated": 140,
+      "field": "parse_rate",
+      "loaded_keys": 140,
+      "model": "deepseek_reasoning",
+      "registry_resolution": "registry_experiment_unresolved"
+    },
+    {
+      "artifact": "results/stage8/analysis_deepseek/deepseek_per_family.csv",
+      "experiment_ids": "",
+      "families_populated": 140,
+      "field": "correct_rate",
+      "loaded_keys": 140,
+      "model": "deepseek_reasoning",
+      "registry_resolution": "registry_experiment_unresolved"
+    },
+    {
+      "artifact": "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+      "experiment_ids": "stage10_qwen_mean_probe_full_sweep",
+      "families_populated": 135,
+      "field": "monitor_score",
+      "loaded_keys": 135,
+      "model": "qwen_primary",
+      "registry_resolution": "directory_match"
+    },
+    {
+      "artifact": "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+      "experiment_ids": "stage10_qwen_mean_probe_full_sweep",
+      "families_populated": 135,
+      "field": "monitor_layer",
+      "loaded_keys": 135,
+      "model": "qwen_primary",
+      "registry_resolution": "directory_match"
+    },
+    {
+      "artifact": "results/stage12/expansion_probe_inference/family_mean_predictions.json",
+      "experiment_ids": "stage12_expansion_probe_inference",
+      "families_populated": 15,
+      "field": "monitor_score",
+      "loaded_keys": 15,
+      "model": "qwen_primary",
+      "registry_resolution": "directory_match"
+    },
+    {
+      "artifact": "results/stage8/probing_deepseek/loo_predictions_variance.json",
+      "experiment_ids": "",
+      "families_populated": 140,
+      "field": "monitor_score",
+      "loaded_keys": 140,
+      "model": "deepseek_reasoning",
+      "registry_resolution": "registry_experiment_unresolved"
+    },
+    {
+      "artifact": "results/stage8/probing_deepseek/loo_predictions_variance.json",
+      "experiment_ids": "",
+      "families_populated": 140,
+      "field": "monitor_layer",
+      "loaded_keys": 140,
+      "model": "deepseek_reasoning",
+      "registry_resolution": "registry_experiment_unresolved"
+    },
+    {
+      "artifact": "results/stage9/baselines/entropy/entropy_per_family_scores.json",
+      "experiment_ids": "stage9_embedding_entropy_baselines",
+      "families_populated": 135,
+      "field": "entropy_score",
+      "loaded_keys": 135,
+      "model": "qwen_primary",
+      "registry_resolution": "exact_path_match"
+    },
+    {
+      "artifact": "results/stage9/baselines/blackbox_counterfactual/family_scores.json",
+      "experiment_ids": "stage9_blackbox_counterfactual",
+      "families_populated": 135,
+      "field": "blackbox_score",
+      "loaded_keys": 135,
+      "model": "qwen_primary",
+      "registry_resolution": "directory_match"
+    },
+    {
+      "artifact": "results/stage9/baselines/correctness_probe/loo_predictions_variance.json",
+      "experiment_ids": "stage9_correctness_probe",
+      "families_populated": 135,
+      "field": "correctness_probe_score",
+      "loaded_keys": 135,
+      "model": "qwen_primary",
+      "registry_resolution": "exact_path_match"
+    },
+    {
+      "artifact": "results/stage9/correctness_residualisation/loo_predictions.json",
+      "experiment_ids": "stage9_correctness_residualisation",
+      "families_populated": 135,
+      "field": "residualised_monitor_score",
+      "loaded_keys": 135,
+      "model": "qwen_primary",
+      "registry_resolution": "exact_path_match"
+    },
+    {
+      "artifact": "results/stage8/multi_head_knockout/patching_results.csv",
+      "experiment_ids": "",
+      "families_populated": 20,
+      "field": "intervention_recovery",
+      "loaded_keys": 20,
+      "model": "qwen_primary",
+      "registry_resolution": "registry_experiment_unresolved"
+    },
+    {
+      "artifact": "results/stage10/llama_mhk/patching_results.csv",
+      "experiment_ids": "stage10_llama_old_mhk",
+      "families_populated": 20,
+      "field": "intervention_recovery",
+      "loaded_keys": 20,
+      "model": "llama_primary",
+      "registry_resolution": "exact_path_match"
+    },
+    {
+      "artifact": "results/stage10/deepseek_mhk/patching_results.csv",
+      "experiment_ids": "stage10_deepseek_top4_mhk_qwen_panel",
+      "families_populated": 20,
+      "field": "intervention_recovery",
+      "loaded_keys": 20,
+      "model": "deepseek_reasoning",
+      "registry_resolution": "exact_path_match"
+    }
+  ],
+  "status": "PASS",
+  "supersedes": "results/stage13/wave0/canonical_evidence_verification_v6.json",
+  "supersession_reason": "v6 populated only S_lp across 465 rows and used generic null reasons; it passed the multimodel check on shape rather than content.",
+  "table": "results/canonical/model_family_evidence_v7.csv",
+  "total_populated_values": 2576
+}
