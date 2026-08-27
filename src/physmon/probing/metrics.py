@@ -134,3 +134,86 @@ def _validate_binary_inputs(
     if np.any(scores < 0.0) or np.any(scores > 1.0):
         raise ValueError("y_score must contain probabilities in [0, 1].")
     return labels, scores
+
+
+DEFAULT_BOOTSTRAP_SEED = 42
+DEFAULT_BOOTSTRAP_REPS = 10000
+
+
+def paired_bootstrap_difference(
+    y_true: np.ndarray,
+    y_score_a: np.ndarray,
+    y_score_b: np.ndarray,
+    metric: str = "auroc",
+    n_resamples: int = DEFAULT_BOOTSTRAP_REPS,
+    seed: int = DEFAULT_BOOTSTRAP_SEED,
+) -> dict[str, float | int]:
+    """Paired bootstrap interval for `metric(a) - metric(b)`.
+
+    Both models are scored on the *same* resampled units on every iteration, so
+    the interval reflects the difference between them rather than the sum of two
+    independent sampling errors. Comparing two separately-bootstrapped intervals
+    is a different and much weaker test.
+
+    The resampling unit is whatever row granularity the caller passes; PhysMon
+    passes one row per canonical family, because variants are nested
+    observations rather than independent units.
+
+    Args:
+        y_true: Binary labels of shape `(n_units,)`.
+        y_score_a: Scores from model A.
+        y_score_b: Scores from model B.
+        metric: One of `"auroc"`, `"auprc"`, `"brier"`.
+        n_resamples: Bootstrap iterations.
+        seed: Deterministic seed.
+
+    Returns:
+        Mapping with the observed difference, the 95% percentile interval, the
+        proportion of resamples favouring A, and the number of usable resamples.
+
+    Reference:
+        `PhysMon Part II` §8.4 and §21.2.
+    """
+
+    metrics = {"auroc": compute_auroc, "auprc": compute_auprc, "brier": compute_brier}
+    if metric not in metrics:
+        raise ValueError(f"metric must be one of {sorted(metrics)}, got {metric!r}.")
+    compute = metrics[metric]
+
+    labels, scores_a = _validate_binary_inputs(y_true, y_score_a)
+    _, scores_b = _validate_binary_inputs(y_true, y_score_b)
+    if len(scores_a) != len(scores_b):
+        raise ValueError("Paired comparison requires equal-length score arrays.")
+
+    observed = compute(labels, scores_a) - compute(labels, scores_b)
+
+    rng = np.random.default_rng(seed)
+    n_units = len(labels)
+    differences: list[float] = []
+    for _ in range(n_resamples):
+        index = rng.integers(0, n_units, n_units)
+        resampled_labels = labels[index]
+        # A resample containing one class cannot support a ranking metric.
+        if metric in {"auroc", "auprc"} and len(np.unique(resampled_labels)) < 2:
+            continue
+        differences.append(
+            compute(resampled_labels, scores_a[index]) - compute(resampled_labels, scores_b[index])
+        )
+
+    if not differences:
+        return {
+            "observed_difference": float(observed),
+            "ci95_low": float("nan"),
+            "ci95_high": float("nan"),
+            "proportion_favouring_a": float("nan"),
+            "n_usable_resamples": 0,
+        }
+
+    array = np.asarray(differences, dtype=float)
+    return {
+        "observed_difference": float(observed),
+        "ci95_low": float(np.percentile(array, 2.5)),
+        "ci95_high": float(np.percentile(array, 97.5)),
+        "proportion_favouring_a": float((array > 0).mean()),
+        "n_usable_resamples": int(array.size),
+    }

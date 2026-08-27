@@ -1,0 +1,385 @@
+{
+  "analysis": "incremental_information_of_hidden_states",
+  "bootstrap": {
+    "paired": true,
+    "resamples": 10000,
+    "seed": 42
+  },
+  "combination_cv": {
+    "inner_folds": 4,
+    "outer_folds": 5,
+    "scheme": "nested_stratified_family_level",
+    "selected_C_per_outer_fold": [
+      0.01,
+      0.01,
+      0.01,
+      0.01,
+      0.01
+    ]
+  },
+  "experiment_class": "exploratory_unfrozen",
+  "model_metrics": {
+    "combined_non_activation": {
+      "auprc": 0.6986,
+      "auroc": 0.7048,
+      "brier": 0.2288,
+      "ece": 0.1063,
+      "fnr_at_fpr_0.10": 0.8571,
+      "fnr_at_fpr_0.20": 0.4429
+    },
+    "combined_plus_hidden_state": {
+      "auprc": 0.7552,
+      "auroc": 0.7719,
+      "brier": 0.2244,
+      "ece": 0.1713,
+      "fnr_at_fpr_0.10": 0.7143,
+      "fnr_at_fpr_0.20": 0.4143
+    },
+    "entropy_fitted_baseline": {
+      "auprc": 0.7551,
+      "auroc": 0.727,
+      "brier": 0.214,
+      "ece": 0.0907,
+      "fnr_at_fpr_0.10": 0.6429,
+      "fnr_at_fpr_0.20": 0.4143
+    },
+    "hidden_state_monitor": {
+      "auprc": 0.7289,
+      "auroc": 0.7596,
+      "brier": 0.2036,
+      "ece": 0.1041,
+      "fnr_at_fpr_0.10": 0.7143,
+      "fnr_at_fpr_0.20": 0.4
+    }
+  },
+  "n_families": 135,
+  "n_negative": 65,
+  "n_positive": 70,
+  "note": "Discovery-tier. The monitor layer, threshold and panel were selected on these same families in earlier stages; this is not a confirmatory result.",
+  "paired_differences": {
+    "both_minus_combined": {
+      "auprc": {
+        "ci95_high": 0.1283,
+        "ci95_low": -0.0071,
+        "excludes_zero": false,
+        "n_usable_resamples": 10000,
+        "observed_difference": 0.0566,
+        "proportion_favouring_a": 0.9589
+      },
+      "auroc": {
+        "ci95_high": 0.1374,
+        "ci95_low": -0.0007,
+        "excludes_zero": false,
+        "n_usable_resamples": 10000,
+        "observed_difference": 0.067,
+        "proportion_favouring_a": 0.9735
+      },
+      "brier": {
+        "ci95_high": 0.0163,
+        "ci95_low": -0.0266,
+        "excludes_zero": false,
+        "n_usable_resamples": 10000,
+        "observed_difference": -0.0044,
+        "proportion_favouring_a": 0.3498
+      }
+    },
+    "both_minus_monitor": {
+      "auprc": {
+        "ci95_high": 0.1117,
+        "ci95_low": -0.0711,
+        "excludes_zero": false,
+        "n_usable_resamples": 10000,
+        "observed_difference": 0.0264,
+        "proportion_favouring_a": 0.684
+      },
+      "auroc": {
+        "ci95_high": 0.0604,
+        "ci95_low": -0.0365,
+        "excludes_zero": false,
+        "n_usable_resamples": 10000,
+        "observed_difference": 0.0123,
+        "proportion_favouring_a": 0.6894
+      },
+      "brier": {
+        "ci95_high": 0.0523,
+        "ci95_low": -0.0118,
+        "excludes_zero": false,
+        "n_usable_resamples": 10000,
+        "observed_difference": 0.0208,
+        "proportion_favouring_a": 0.8933
+      }
+    },
+    "monitor_minus_combined": {
+      "auprc": {
+        "ci95_high": 0.1618,
+        "ci95_low": -0.0937,
+        "excludes_zero": false,
+        "n_usable_resamples": 10000,
+        "observed_difference": 0.0302,
+        "proportion_favouring_a": 0.7012
+      },
+      "auroc": {
+        "ci95_high": 0.1605,
+        "ci95_low": -0.047,
+        "excludes_zero": false,
+        "n_usable_resamples": 10000,
+        "observed_difference": 0.0547,
+        "proportion_favouring_a": 0.8512
+      },
+      "brier": {
+        "ci95_high": 0.0159,
+        "ci95_low": -0.0671,
+        "excludes_zero": false,
+        "n_usable_resamples": 10000,
+        "observed_difference": -0.0252,
+        "proportion_favouring_a": 0.1218
+      }
+    },
+    "monitor_minus_entropy": {
+      "auprc": {
+        "ci95_high": 0.102,
+        "ci95_low": -0.1403,
+        "excludes_zero": false,
+        "n_usable_resamples": 10000,
+        "observed_difference": -0.0262,
+        "proportion_favouring_a": 0.3886
+      },
+      "auroc": {
+        "ci95_high": 0.1414,
+        "ci95_low": -0.0736,
+        "excludes_zero": false,
+        "n_usable_resamples": 10000,
+        "observed_difference": 0.0325,
+        "proportion_favouring_a": 0.7226
+      },
+      "brier": {
+        "ci95_high": 0.0333,
+        "ci95_low": -0.0538,
+        "excludes_zero": false,
+        "n_usable_resamples": 10000,
+        "observed_difference": -0.0104,
+        "proportion_favouring_a": 0.317
+      }
+    }
+  },
+  "paper_eligibility": false,
+  "reference": "PhysMon Part II 8.4",
+  "resampling_unit": "canonical_family",
+  "risk_coverage": {
+    "combined_non_activation": [
+      {
+        "coverage": 0.096,
+        "error_rate": 0.3077,
+        "n": 13
+      },
+      {
+        "coverage": 0.2,
+        "error_rate": 0.3333,
+        "n": 27
+      },
+      {
+        "coverage": 0.296,
+        "error_rate": 0.25,
+        "n": 40
+      },
+      {
+        "coverage": 0.4,
+        "error_rate": 0.2593,
+        "n": 54
+      },
+      {
+        "coverage": 0.496,
+        "error_rate": 0.2687,
+        "n": 67
+      },
+      {
+        "coverage": 0.6,
+        "error_rate": 0.2593,
+        "n": 81
+      },
+      {
+        "coverage": 0.696,
+        "error_rate": 0.2872,
+        "n": 94
+      },
+      {
+        "coverage": 0.8,
+        "error_rate": 0.2963,
+        "n": 108
+      },
+      {
+        "coverage": 0.896,
+        "error_rate": 0.314,
+        "n": 121
+      },
+      {
+        "coverage": 1.0,
+        "error_rate": 0.3333,
+        "n": 135
+      }
+    ],
+    "combined_plus_hidden_state": [
+      {
+        "coverage": 0.096,
+        "error_rate": 0.3077,
+        "n": 13
+      },
+      {
+        "coverage": 0.2,
+        "error_rate": 0.1852,
+        "n": 27
+      },
+      {
+        "coverage": 0.296,
+        "error_rate": 0.2,
+        "n": 40
+      },
+      {
+        "coverage": 0.4,
+        "error_rate": 0.1852,
+        "n": 54
+      },
+      {
+        "coverage": 0.496,
+        "error_rate": 0.209,
+        "n": 67
+      },
+      {
+        "coverage": 0.6,
+        "error_rate": 0.2099,
+        "n": 81
+      },
+      {
+        "coverage": 0.696,
+        "error_rate": 0.2128,
+        "n": 94
+      },
+      {
+        "coverage": 0.8,
+        "error_rate": 0.2407,
+        "n": 108
+      },
+      {
+        "coverage": 0.896,
+        "error_rate": 0.2727,
+        "n": 121
+      },
+      {
+        "coverage": 1.0,
+        "error_rate": 0.2815,
+        "n": 135
+      }
+    ],
+    "entropy_fitted_baseline": [
+      {
+        "coverage": 0.096,
+        "error_rate": 0.0769,
+        "n": 13
+      },
+      {
+        "coverage": 0.2,
+        "error_rate": 0.2963,
+        "n": 27
+      },
+      {
+        "coverage": 0.296,
+        "error_rate": 0.25,
+        "n": 40
+      },
+      {
+        "coverage": 0.4,
+        "error_rate": 0.2407,
+        "n": 54
+      },
+      {
+        "coverage": 0.496,
+        "error_rate": 0.2388,
+        "n": 67
+      },
+      {
+        "coverage": 0.6,
+        "error_rate": 0.2716,
+        "n": 81
+      },
+      {
+        "coverage": 0.696,
+        "error_rate": 0.266,
+        "n": 94
+      },
+      {
+        "coverage": 0.8,
+        "error_rate": 0.2963,
+        "n": 108
+      },
+      {
+        "coverage": 0.896,
+        "error_rate": 0.314,
+        "n": 121
+      },
+      {
+        "coverage": 1.0,
+        "error_rate": 0.3259,
+        "n": 135
+      }
+    ],
+    "hidden_state_monitor": [
+      {
+        "coverage": 0.096,
+        "error_rate": 0.0769,
+        "n": 13
+      },
+      {
+        "coverage": 0.2,
+        "error_rate": 0.1111,
+        "n": 27
+      },
+      {
+        "coverage": 0.296,
+        "error_rate": 0.175,
+        "n": 40
+      },
+      {
+        "coverage": 0.4,
+        "error_rate": 0.2037,
+        "n": 54
+      },
+      {
+        "coverage": 0.496,
+        "error_rate": 0.209,
+        "n": 67
+      },
+      {
+        "coverage": 0.6,
+        "error_rate": 0.2346,
+        "n": 81
+      },
+      {
+        "coverage": 0.696,
+        "error_rate": 0.234,
+        "n": 94
+      },
+      {
+        "coverage": 0.8,
+        "error_rate": 0.25,
+        "n": 108
+      },
+      {
+        "coverage": 0.896,
+        "error_rate": 0.2893,
+        "n": 121
+      },
+      {
+        "coverage": 1.0,
+        "error_rate": 0.3185,
+        "n": 135
+      }
+    ]
+  },
+  "status": "complete_exploratory",
+  "strongest_non_activation_comparator": {
+    "auroc": 0.727,
+    "name": "entropy_fitted_baseline",
+    "note": "The published fitted entropy baseline outscores the combined raw non-activation model on this panel, so the combined model is not the strongest available non-activation comparator. A stronger baseline would narrow the monitor's margin further, not widen it."
+  },
+  "verdict": "The paired interval includes zero. Hidden states are NOT demonstrated to add information beyond the combined non-activation baseline on this panel. Part II \u00a722.3 directs reframing the monitor as a compact internal proxy rather than a superior detector if this holds."
+}

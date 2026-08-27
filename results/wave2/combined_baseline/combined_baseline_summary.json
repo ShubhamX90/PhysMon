@@ -1,0 +1,48 @@
+{
+  "cv": {
+    "inner_folds": 4,
+    "outer_folds": 5,
+    "resampling_unit": "canonical_family",
+    "scheme": "nested_stratified_family_level",
+    "seed": 42,
+    "selected_C_per_outer_fold": [
+      0.01,
+      0.01,
+      100.0,
+      10.0,
+      0.01
+    ]
+  },
+  "excluded_activation_derived": {
+    "results/stage9/baselines/correctness_probe/loo_predictions_variance.json": "carries layer_index: a probe over hidden states, not a non-activation feature"
+  },
+  "experiment_class": "exploratory_unfrozen",
+  "feature_names": [
+    "entropy_proxy",
+    "mean_logprob_correct",
+    "answer_log10_magnitude",
+    "equation_chars",
+    "equation_symbols",
+    "n_parameters",
+    "prompt_chars",
+    "prompt_numbers",
+    "prompt_words"
+  ],
+  "includes_fitted_baseline_outputs": false,
+  "leakage_warning": "none: all features are raw measurements refit inside the CV",
+  "metrics": {
+    "auprc": 0.6986,
+    "auroc": 0.7048,
+    "brier": 0.2288,
+    "ece": 0.1063
+  },
+  "model": "combined_non_activation_baseline",
+  "n_families": 135,
+  "n_features": 9,
+  "n_negative": 65,
+  "n_positive": 70,
+  "note": "Discovery-tier. The monitor, threshold and panel were selected on these same families in earlier stages, so this is not confirmatory evidence.",
+  "paper_eligibility": false,
+  "reference": "PhysMon Part II 8.3.4 and 8.2",
+  "status": "complete_exploratory"
+}
