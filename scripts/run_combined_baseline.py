@@ -88,13 +88,33 @@ def load_labels() -> dict[str, int]:
     return {str(r["template_id"]): int(r["true_label"]) for r in load_json(LABEL_SOURCE)}
 
 
+_TEMPLATE_INDEX: dict[str, Path] | None = None
+
+
+def template_index() -> dict[str, Path]:
+    """Index every template YAML once, by template id.
+
+    Walking the template tree per family costs one directory traversal per call.
+    That is invisible on a local disk and painfully slow on the cluster's
+    networked filesystem, where the first version of this script spent minutes
+    before emitting anything.
+    """
+
+    global _TEMPLATE_INDEX
+    if _TEMPLATE_INDEX is None:
+        _TEMPLATE_INDEX = {
+            path.stem: path for path in (REPO_ROOT / "data/raw/templates").rglob("*.yaml")
+        }
+    return _TEMPLATE_INDEX
+
+
 def prompt_statistics(template_id: str) -> dict[str, float]:
     """Surface features computed from the family's own template."""
 
-    matches = sorted((REPO_ROOT / "data/raw/templates").rglob(f"{template_id}.yaml"))
-    if not matches:
+    match = template_index().get(template_id)
+    if match is None:
         return {}
-    payload = yaml.safe_load(matches[0].read_text(encoding="utf-8"))
+    payload = yaml.safe_load(match.read_text(encoding="utf-8"))
     template = (payload.get("prompt_template") or {}).get("full_template") or ""
     equation = str(payload.get("governing_equation_sympy") or "")
     answer = (payload.get("correct_answer") or {}).get("value")

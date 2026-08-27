@@ -24,7 +24,11 @@ echo "=== PhysMon Wave 2 incremental information ==="
 echo "Job ID:    ${SLURM_JOB_ID:-unknown}"
 echo "Node:      $(hostname)"
 echo "Commit:    $(git rev-parse HEAD)"
-echo "Dirty:     $(if [ -n "$(git status --porcelain)" ]; then echo yes; else echo no; fi)"
+# Report tracked-file dirtiness separately: `git status --porcelain` counts the
+# expected untracked `activations` directory and would always say "yes",
+# making the provenance field useless.
+echo "Tracked dirty: $(if git diff --quiet HEAD; then echo no; else echo yes; fi)"
+echo "Untracked:     $(git ls-files --others --exclude-standard | tr '\n' ' ')"
 echo "Class:     exploratory_unfrozen (NOT confirmatory)"
 echo "=============================================="
 
