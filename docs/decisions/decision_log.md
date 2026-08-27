@@ -2703,3 +2703,69 @@ human_pilot: PENDING. paper_eligibility: false. permission_for_wave2: false.
   - human-validation package to READY_FOR_PI_REVIEW
   - Wave 2 combined non-activation baseline and incremental-information harness
   - fix `run_same_answer_donor.select_donors` target lookup before any rerun
+
+## Wave 2 — Incremental information of hidden states — 2026-08-27
+
+Authorization: GPU work approved for this cycle as `exploratory_unfrozen` only.
+This analysis needs no GPU; it reuses per-family artifacts already on disk and
+was run on the `compute` partition, the smallest defensible allocation.
+
+Slurm job 332409, node14, COMPLETED, exit 0:0, elapsed 00:07:33, commit 6a3e5a0.
+Expected 135 families, observed 135. Cluster outputs byte-identical to local.
+
+### Result (135-family monitoring panel, 70 positive / 65 negative)
+
+Nested family-level CV; paired family bootstrap, seed 42, 10,000 resamples.
+
+  combined non-activation      AUROC 0.7048  Brier 0.2288  ECE 0.1063
+  entropy fitted baseline      AUROC 0.7270
+  hidden-state monitor         AUROC 0.7596  Brier 0.2036  ECE 0.1041
+  combined + hidden state      AUROC 0.7719  Brier 0.2244  ECE 0.1713
+
+  monitor - combined   dAUROC +0.0547  CI [-0.0470, +0.1605]  includes zero
+  both    - combined   dAUROC +0.0670  CI [-0.0007, +0.1374]  includes zero
+  both    - monitor    dAUROC +0.0123  CI [-0.0365, +0.0604]  includes zero
+  monitor - entropy    dAUROC +0.0325  CI [-0.0736, +0.1414]  includes zero
+
+### Interpretation
+
+Every paired interval includes zero. On this panel hidden states are NOT
+demonstrated to add information beyond non-activation evidence. Part II 22.3
+states the Wave 2 gate condition directly: if hidden states do not provide
+meaningful held-out information beyond the strongest non-activation
+combination, the monitor should be reframed as a compact internal proxy rather
+than a superior detector.
+
+The finding is conservative in the monitor's favour. The published fitted
+entropy baseline (0.727) already outscores the combined raw non-activation model
+(0.705), so a stronger non-activation comparator would narrow the monitor's
+margin further rather than widen it.
+
+This does not retire the monitor. It bounds what the current panel can support:
+135 families with 70 positives gives limited power, which is itself the Part II
+21.5 power-planning point. A larger panel, or external families, could resolve a
+0.05 AUROC difference that this one cannot.
+
+### Method decisions that determine whether the comparison means anything
+
+  - The Stage 9 "correctness probe" is a linear probe over hidden states (its
+    artifact carries layer_index). Including it in a "non-activation" baseline
+    would put activation-derived information into the comparator that
+    activations are being tested against. Excluded.
+  - The entropy and black-box artifacts publish FITTED LogisticRegression
+    outputs trained on these same 135 labels. Stacking them as features and
+    re-evaluating under a fresh k-fold split leaks labels across folds. The
+    first run did this and reported AUROC 0.9301, above every individual
+    baseline. Refitting from raw measurements gives 0.7048. The leaky variant is
+    retained behind an explicit flag that stamps a leakage warning into its
+    summary.
+  - Differences use a paired bootstrap: both models are scored on the same
+    resampled families each iteration. Comparing two independently bootstrapped
+    intervals is a weaker and different test.
+
+### Status
+
+Both runs registered `complete_exploratory` / `exploratory_unfrozen`,
+`paper_eligibility: false`. The monitor layer, threshold and panel were selected
+on these same families in earlier stages, so this is discovery-tier and cannot
+be cited as confirmatory. Wave 2 permission remains false pending Wave 1A.
