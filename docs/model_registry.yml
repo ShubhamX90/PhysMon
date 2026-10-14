@@ -89,7 +89,7 @@ models:
     notes: "LARGE_JUDGE pilot model [PI CONFIRMED 2026-06-14]. Single-GPU behavioural/judge role only."
 
   large_judge_full_reserve:
-    name: "Qwen/Qwen3.5-397B-A17B-NVFP4"
+    name: "nvidia/Qwen3.5-397B-A17B-NVFP4"
     path: "${PHYSMON_MODEL_ROOT}/Qwen3.5-397B-A17B-NVFP4"
     role: "LARGE_JUDGE"
     family: "qwen"
@@ -98,4 +98,4 @@ models:
     logprob_validated: false
     hidden_dim: null
     num_layers: null
-    notes: "LARGE_JUDGE reserve for full-study Stage 7+ [PI CONFIRMED 2026-06-14]. Requires dedicated multi-H200 brief."
+    notes: "LARGE_JUDGE reserve for full-study Stage 7+ [PI CONFIRMED 2026-06-14]. Requires dedicated multi-H200 brief. 2026-10-14: the June entry named Qwen/Qwen3.5-397B-A17B-NVFP4, which is not a Hugging Face repository; the repo is now nvidia/Qwen3.5-397B-A17B-NVFP4 (NVIDIA's NVFP4 quantization of Qwen3.5-397B-A17B). It cannot be proven to be the same checkpoint as the original local copy. Never used in any recorded result."
