@@ -299,8 +299,8 @@ def main() -> None:
     (output_dir / "combined_baseline_predictions.json").write_text(
         json.dumps(
             [
-                {"template_id": f, "prediction": float(p), "true_label": int(l)}
-                for f, p, l in zip(families, predictions, labels)
+                {"template_id": f, "prediction": float(p), "true_label": int(lab)}
+                for f, p, lab in zip(families, predictions, labels)
             ],
             indent=2,
         )

@@ -244,7 +244,7 @@ def main() -> None:
     print(f"stable donor pool gates: {stable_result['donor_pool_gate_attribution']}")
     print(f"stable eligible donors in pool: {stable_result['n_eligible_donors_in_pool']}")
     print(f"stable targets with zero donors: {stable_result['n_targets_with_zero_donors']} / {len(patch_families)}")
-    print(f"current_code_reproduces_zero_rows=False")
+    print("current_code_reproduces_zero_rows=False")
     print(f"wrote {output}")
 
 

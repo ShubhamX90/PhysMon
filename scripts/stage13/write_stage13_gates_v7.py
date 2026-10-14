@@ -27,7 +27,7 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from governance_utils import REPO_ROOT, git_info, sha256_file, write_json  # noqa: E402
+from governance_utils import REPO_ROOT, git_info, write_json  # noqa: E402
 
 
 def load(path: str) -> dict[str, Any] | None:

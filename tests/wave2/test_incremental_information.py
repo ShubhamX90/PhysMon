@@ -16,7 +16,7 @@ import numpy as np
 import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-import sys
+import sys  # noqa: E402
 
 sys.path.insert(0, str(REPO_ROOT / "src"))
 

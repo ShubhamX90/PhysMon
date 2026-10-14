@@ -18,7 +18,6 @@ from typing import Any
 import numpy as np
 from sklearn.decomposition import PCA
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import roc_auc_score
 from sklearn.preprocessing import StandardScaler
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -26,9 +25,9 @@ SRC_ROOT = REPO_ROOT / "src"
 if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
-from physmon.formal.constructs import STAGE6_EXCLUDE_FROM_PROBE
-from physmon.utils.io import write_json
-from run_probing import build_family_feature_tensors, filter_entries_and_tensors, load_per_family_rows, load_site_tensors
+from physmon.formal.constructs import STAGE6_EXCLUDE_FROM_PROBE  # noqa: E402
+from physmon.utils.io import write_json  # noqa: E402
+from run_probing import build_family_feature_tensors, filter_entries_and_tensors, load_per_family_rows, load_site_tensors  # noqa: E402
 
 
 DEFAULT_ACTIVATION_DIR = Path("/scratch/pabitra/physmon/activations_stage6/qwen_primary/")

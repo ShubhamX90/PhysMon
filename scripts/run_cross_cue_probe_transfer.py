@@ -24,9 +24,9 @@ SRC_ROOT = REPO_ROOT / "src"
 if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
-from physmon.formal.constructs import STAGE6_EXCLUDE_FROM_PROBE
-from physmon.utils.io import write_json
-from run_probing import (
+from physmon.formal.constructs import STAGE6_EXCLUDE_FROM_PROBE  # noqa: E402
+from physmon.utils.io import write_json  # noqa: E402
+from run_probing import (  # noqa: E402
     build_family_feature_tensors,
     choose_logistic_c,
     filter_entries_and_tensors,

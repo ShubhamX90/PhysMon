@@ -160,7 +160,9 @@ def main() -> None:
                 add_special_tokens=True,
             ).input_ids.to(model_device)
             last_pos = int(prompt_ids.shape[1] - 1)
-            cache_names = lambda name: name.endswith(".hook_resid_post")
+            def cache_names(name):
+                return name.endswith(".hook_resid_post")
+
             _, cache = bundle.hooked_model.run_with_cache(prompt_ids, names_filter=cache_names)
             probs = []
             for layer_index in range(bundle.hooked_model.cfg.n_layers):

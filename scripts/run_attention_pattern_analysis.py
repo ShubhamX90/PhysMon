@@ -11,13 +11,11 @@ the distractor tokens under sensitivity-inducing cue settings.
 from __future__ import annotations
 
 import argparse
-import csv
 from pathlib import Path
 import sys
 from typing import Any
 
 import numpy as np
-import torch
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SRC_ROOT = REPO_ROOT / "src"

@@ -25,7 +25,7 @@ SCRIPTS_ROOT = REPO_ROOT / "scripts"
 if str(SCRIPTS_ROOT) not in sys.path:
     sys.path.insert(0, str(SCRIPTS_ROOT))
 
-from build_stage6_phase2_bce_templates import (  # type: ignore
+from build_stage6_phase2_bce_templates import (  # type: ignore  # noqa: E402
     cue_b_slot,
     cue_c_slot,
     build_template,
