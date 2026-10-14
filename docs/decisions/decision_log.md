@@ -2802,3 +2802,42 @@ Caveats:
 - Both downloads were unauthenticated (public repositories).
 - Qwen2.5-3B/14B and Mistral-7B (partial or empty in Stage 12) are not restored.
 - Status: infrastructure change only; no scientific result was produced or changed.
+
+### Addendum (2026-10-14, later): all registry models restored
+
+Llama-3.1-8B-Instruct and every remaining registry model were downloaded with
+`scripts/download_model.py` (code commits `25d7bc8`, `9183009`, `2d9fd03`; environment
+`physmon` with `transformers 5.11.0`, `huggingface-hub 1.18.0`). Every file in every
+repository was hash-verified against Hugging Face and each config and chat template was
+loaded with the installed `transformers`. Manifests: `docs/model_manifests/<key>.json`.
+Total on disk: 449 GB under `/scratch/pabitra/models`.
+
+| Registry key | Repo | Revision | Job | Auth |
+|---|---|---|---|---|
+| `llama_primary` | `meta-llama/Llama-3.1-8B-Instruct` | `0e9e39f249a16976918f6564b8830bc894c89659` | `395322` | user's own HF token (gated) |
+| `qwen_3b` | `Qwen/Qwen2.5-3B-Instruct` | `aa8e72537993ba99e69dfaafa59ed015b17504d1` | `395331` | none |
+| `qwen_14b` | `Qwen/Qwen2.5-14B-Instruct` | `cf98f3b3bbb457ad9e2bb7baf9a0125b6b88caa8` | `395332` | none |
+| `large_judge_pilot` | `Qwen/Qwen2.5-32B-Instruct` | `5ede1c97bbab6ce5cda5812749b4c0bdf79b18dd` | `395333` | none |
+| `mistral_alt` | `mistralai/Mistral-7B-Instruct-v0.3` | `c170c708c41dac9275d15a8fff4eca08d52bab71` | `395334` (failed, see below), `395490` | user's own HF token (gated) |
+| `large_judge_full_reserve` | `nvidia/Qwen3.5-397B-A17B-NVFP4` | `12b28061efd8145b11226e4fab2528ee4f39ef09` | `395344` | none |
+
+Findings and corrections:
+- **Registry identity correction.** The June entry for `large_judge_full_reserve` named
+  `Qwen/Qwen3.5-397B-A17B-NVFP4`, which is not a Hugging Face repository. The registry now
+  points at NVIDIA's NVFP4 quantization. It cannot be proven to be the checkpoint that was
+  on the old store (the old directory measured 211G, the NVIDIA repo is 234 GiB), and no
+  recorded result used this model.
+- **Mistral first attempt failed verification (exit 3).** The file listing reported
+  `tokenizer.model` as 130 bytes with no LFS metadata, while the file served is 587,404
+  bytes. The verifier now checks such files against the resolve endpoint's own size and
+  SHA-256 instead of skipping the check; the retry (`395490`) verified 15/15 files. The
+  manifest marks that file with the reason.
+- The 397B manifest records no layer or hidden size because its config nests them under
+  `text_config`; the script now reads them there for future downloads (60 layers, hidden
+  4096 per the repository's config).
+- Revisions are the Hugging Face `main` at download time, as for the core models above.
+- Registry `hidden_dim` and `num_layers` remain null for several models; the manifests hold
+  the values read from the verified configs.
+- Status: infrastructure change only; no scientific result was produced or changed. The
+  model store is complete for every registry entry. Activations, checkpoints, and Slurm
+  logs from earlier runs remain lost and must be regenerated.
