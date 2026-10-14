@@ -79,7 +79,7 @@ git switch -c claude/<short-task>      # new branch from the current commit
 # ... edit, test ...
 git add <specific-paths>
 git commit -m "<what and why>"
-git push -u origin claude/<short-task> # only with permission
+git push -u origin claude/<short-task> # standing authorization applies
 ```
 
 Switching branches in the shared worktree changes the files every running job and every other session sees. Check `squeue` and `git status` first, and prefer not to switch branches while jobs that read the tree are pending or running. If you need a second branch checked out at the same time, use `git worktree add` into a separate directory instead.
@@ -100,7 +100,7 @@ Then decide whether it is an independent commit, a reviewed merge, or a conflict
 - Stage explicit paths. `git add -A` and `git commit -a` can sweep in another session's files in a shared tree.
 - Check `git diff --cached --stat` before committing.
 - `core.hooksPath` is `.githooks`, so every commit runs `make lint` (ruff plus the forbidden-phrase check). The Makefile resolves `ruff`, `pytest`, and `python3` from `./.venv`, then the `physmon` conda env (`PHYSMON_ENV`, default `~/.conda/envs/physmon`), then PATH, so no activation is needed. A hook failure is a real finding or a broken environment: fix it. Do not use `--no-verify`.
-- Commit and push are external state changes; do them only when the current task authorizes them. Because no mirror exists, ask the user at natural checkpoints (end of a working change, before a long job) whether to push, so work is backed up on GitHub.
+- Commit and push are external state changes. The user granted a standing authorization on 2026-10-14 (recorded in `AGENTS.md` and `SKILL.md`): commit and push your own bounded changes to `origin/main` or a `claude/<task>` branch without asking each time, within the conditions listed in `SKILL.md` ("Edit, Commit, and Push"). It excludes force-push, history rewrites, deleting remote branches, merging others' branches, Slurm actions, and deleting or moving scratch or result data. Because no mirror exists, push at natural checkpoints (end of a working change, before a long job) so work is backed up on GitHub.
 - Never commit model weights, activation tensors, caches, or scratch checkpoints. Check `git status` for large untracked paths before staging.
 - The untracked `activations` path observed at the repo root is a known pre-existing condition. Do not delete, stage, or `git clean` it.
 
@@ -124,7 +124,7 @@ Submitting does not freeze the tree. See "Editing While Jobs Are Live" in `SKILL
 2. Check observed family/variant rows against the declared panel.
 3. Preserve all output, including failures and partial outputs.
 4. Make a short collection manifest (see below) and commit only compact, durable result artifacts plus their provenance.
-5. Push with permission so the results are visible on GitHub.
+5. Push (standing authorization) so the results are visible on GitHub.
 
 ## Collision rules
 
@@ -142,7 +142,7 @@ Submitting does not freeze the tree. See "Editing While Jobs Are Live" in `SKILL
 | tracked modification you did not make | another session, hotfix, or accidental edit | stop; inspect `git diff` read-only; ask the owner or user |
 | untracked code/template/result file you did not create | possible active work or unrecorded provenance | stop; identify the owner and preserve it |
 | tracked modification you made | normal in-progress work | commit with explicit paths, or report it in the handoff |
-| `HEAD` ahead of upstream | local commits not on GitHub | report; push with permission |
+| `HEAD` ahead of upstream | local commits not on GitHub | report; push under the standing authorization if they are yours |
 | `HEAD` behind upstream | newer work exists on GitHub | read it; fast-forward only when safe and no live job is affected |
 | `HEAD` and upstream diverged | concurrent history | stop; do not rebase or force; surface both sides |
 | HEAD at job-submission time differs from SHA in the job's recorded provenance | tree changed after submission | mark provenance unresolved; do not retrofit metadata |

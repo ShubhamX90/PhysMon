@@ -59,7 +59,7 @@ git switch -c claude/<short-task>   # or continue a branch you have read
 git add <intended-files>
 git diff --cached --stat
 git commit -m "<bounded change>"
-git push -u origin claude/<short-task>   # with permission
+git push -u origin claude/<short-task>   # standing authorization applies
 git rev-parse HEAD
 ```
 
@@ -111,7 +111,7 @@ defaulted mean, wrong panel, or unknown source SHA makes the scientific result
 partial, failed, or provenance-unresolved.
 
 Results are already in place. Commit compact durable outputs and their metadata
-(push with permission). Leave model weights, activation arrays, caches, and
+(push under the standing authorization). Leave model weights, activation arrays, caches, and
 bulky checkpoints in scratch unless a deliberate data-publication plan says
 otherwise.
 
@@ -177,7 +177,7 @@ Open issue, safe next action, and required approval:
 - **Edited a file a job reads:** note the time and files; mark the affected job's
   provenance unresolved if it started after the edit; do not restore with
   `git checkout --` without checking what else changed.
-- **Unpushed work at risk:** commit to a branch and, with permission, push; a
+- **Unpushed work at risk:** commit to a branch and push (standing authorization); a
   cluster-only commit has no other copy.
 - **Job ended non-zero:** preserve logs and output. Create a new attempt only
   after diagnosis and authorization.

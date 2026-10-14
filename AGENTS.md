@@ -50,8 +50,16 @@ current scientific brief or user request prohibits it.
 2. Use a focused branch/commit for a bounded change; keep unrelated files
    untouched; stage explicit paths.
 3. Run proportional tests and report their result honestly.
-4. Do not make a commit, push, or Slurm submission unless the current task
-   explicitly authorizes that external state change.
+4. Standing authorization (granted explicitly by the user, 2026-10-14): an agent
+   may commit and push its own bounded changes to `origin/main` or a
+   `claude/<task>` branch without asking each time, provided that it stages
+   explicit paths, lint and proportionate tests pass (the pre-commit hook runs
+   `make lint`), no one else's uncommitted work is swept in, no pending or
+   running job reads the files it touches, and the push is a plain
+   fast-forward. Never force-push, rewrite shared history, or delete remote
+   branches. This does not cover Slurm submission, hold, release, or cancel,
+   or deleting or moving scratch or result data; those still need explicit
+   authorization in the current task. Report every push in the handoff.
 5. Do not edit files that a pending or running job reads.
 
 ## Project conventions
