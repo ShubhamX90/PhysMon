@@ -1,8 +1,8 @@
 # PhysMon Agent Instructions
 
 These instructions apply to every coding agent working anywhere in this
-repository. Read this file before editing, running commands, synchronizing, or
-using a remote system.
+repository. Read this file before editing, running commands, committing, or
+using the cluster.
 
 ## Core scientific rules
 
@@ -16,36 +16,43 @@ using a remote system.
 4. Do not revert, delete, or overwrite another contributor's work. Treat a
    dirty worktree or unexplained artifact as an ownership question.
 
+## Working model
+
+Work normally happens directly on Sharanga (Claude Code via Remote SSH) in
+`~/PhysMons`. GitHub is the shared record for viewing and review. There is no
+maintained laptop mirror and no sync step; do not use the `make sync-*` targets
+or `scripts/ops/` lease helpers unless the user explicitly asks.
+
 ## Required Sharanga routing
 
-Before **any** task involving Sharanga, SSH, Slurm, GPU/CPU allocation, scratch
-storage, models, checkpoints, activations, rsync, Git handoff, remote results,
-or the shared `pabitra` account, read and follow:
+Before **any** task involving Sharanga, Slurm, GPU/CPU allocation, scratch
+storage, models, checkpoints, activations, Git commits/pushes, job results, or
+the shared `pabitra` account, read and follow:
 
 ```text
 skills/physmon-sharanga/SKILL.md
 ```
 
-Then read the referenced material needed for the action:
+Then read the referenced material needed for the action (paths relative to that
+skill directory):
 
-- `references/git-and-sync.md` for local/GitHub/Sharanga coordination;
+- `references/git-and-sync.md` for Git, branches, and shared-worktree safety;
 - `references/sharanga-environment.md` before choosing environment or resources;
 - `references/slurm-operations.md` before any scheduler action;
-- `references/operational-playbook.md` for team handoff, deployment lease, and
-  result provenance.
+- `references/operational-playbook.md` for shift start, provenance, and handoff.
 
-The skill's live-preflight and non-destructive synchronization protocol is
-mandatory. Do not access Sharanga or submit a job when the current scientific
-brief or user request prohibits it.
+The skill's live-preflight protocol is mandatory. Do not submit a job when the
+current scientific brief or user request prohibits it.
 
 ## Normal engineering workflow
 
 1. Inspect branch, commit, and worktree status first.
-2. Use a focused branch/commit for a bounded change; keep unrelated local files
-   untouched.
+2. Use a focused branch/commit for a bounded change; keep unrelated files
+   untouched; stage explicit paths.
 3. Run proportional tests and report their result honestly.
-4. Do not make a commit, push, remote synchronization, or Slurm submission
-   unless the current task explicitly authorizes that external state change.
+4. Do not make a commit, push, or Slurm submission unless the current task
+   explicitly authorizes that external state change.
+5. Do not edit files that a pending or running job reads.
 
 ## Project conventions
 

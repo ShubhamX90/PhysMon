@@ -1,109 +1,83 @@
 # PhysMon Shared Operations Playbook
 
 This is the end-to-end protocol for a person or coding agent taking a PhysMon
-shift. It applies to the shared `pabitra` Sharanga account and avoids treating
-the remote clone as a second collaborative editing surface.
+shift when Claude Code runs directly on Sharanga (Remote SSH) in `~/PhysMons`
+under the shared `pabitra` account. The worktree is the single working copy:
+there is no workstation mirror, no sync step, and no deployment lease.
 
 ## Roles and authority
 
 | System | What belongs there | What must not be inferred |
 |---|---|---|
-| Local clone | edits, tests, review, Git commits | that it is current without fetching its upstream |
-| GitHub upstream | shared versioned history | that large scratch artifacts exist or are valid |
-| `~/PhysMons` | deployed source snapshot for a job | that its uncommitted files are disposable |
+| `~/PhysMons` | edits, tests, commits, job submission | that uncommitted files are yours or disposable; that a pending job is insulated from edits |
+| GitHub `origin` | shared, reviewable history | that unpushed work exists there, or that scratch artifacts exist or are valid |
 | `/scratch/pabitra/physmon` | job logs, models, activations, checkpoints | that contents are Git-tracked or safe to overwrite |
 | Slurm accounting/logs | runtime allocation and terminal state | that a `COMPLETED` job produced valid science |
 
-One shift owns one bounded task. The shift may prepare code, deploy it, submit
-an approved job, harvest it, and write a handoff. It must not silently take
-over another shift's in-progress job, remote edits, result tree, or lease.
+One shift owns one bounded task. A shift may prepare code, commit it, submit an
+approved job, harvest it, and write a handoff. It must not silently take over
+another shift's in-progress job, uncommitted edits, branch, or result tree.
+Nothing locks the tree, so ownership is established by reading Git, the queue,
+and the previous handoff.
 
 ## Shift start: read-only reality check
 
-Run this before editing, syncing, or scheduling:
+Run this before editing or scheduling:
 
 ```bash
+hostname; pwd
 git status --short
 git fetch origin
 git branch --show-current
 git rev-parse HEAD
 git rev-parse --abbrev-ref --symbolic-full-name @{upstream}
 git rev-list --left-right --count HEAD...@{upstream}
-make remote-preflight
+squeue -o "%i|%u|%T|%P|%j|%M|%l|%R"
+df -h /scratch/pabitra
 ```
 
 Read the result as follows:
 
-- local dirty files are an ownership question, not debris to remove;
-- `ahead` or `behind` relative to the configured upstream must be resolved
-  before a shared handoff;
-- remote status must contain no unexplained changes; `?? activations` is a
-  historically observed exception and still must not be removed;
-- an empty personal queue does not prove the shared account is idle: inspect
-  the whole current queue and consult the prior handoff if one exists.
+- dirty files you did not create are an ownership question, not debris;
+- `ahead` means unpushed commits that exist nowhere else; `behind` or diverged
+  must be understood before integrating, never forced;
+- `?? activations` is a historically observed untracked path; do not remove it;
+- an empty personal queue does not prove the shared account is idle: look at the
+  whole current queue and consult the prior handoff if one exists.
 
-Before altering a result root, search it and its job logs. A retry always gets
-a new attempt directory. Historical, partial, corrected, and failed records
-are evidence and remain preserved.
+Before altering a result root, search it and its job logs. A retry always gets a
+new attempt directory. Historical, partial, corrected, and failed records are
+evidence and remain preserved.
 
-## Coordinated deployment protocol
+## Working in the shared tree
 
-The remote deployment lease serializes deployment, not scientific ownership.
-It is stored remotely under `.physmon_ops/`, which sync excludes. Never break
-an existing lease yourself: inspect it, contact its recorded owner, and obtain
-an explicit handoff before any recovery action.
-
-### 1. Prepare an immutable source snapshot locally
+### 1. Make an attributable change
 
 ```bash
-git status --short
+git switch -c claude/<short-task>   # or continue a branch you have read
+# edit, then test: make test / make lint / a targeted test
 git add <intended-files>
+git diff --cached --stat
 git commit -m "<bounded change>"
-git push
+git push -u origin claude/<short-task>   # with permission
 git rev-parse HEAD
 ```
 
-Use a named branch or reviewed merge according to team policy. Do not deploy
-uncommitted scientific code. If a task genuinely needs an uncommitted
-prototype, it is exploratory and its provenance record must say so.
+Use a named branch and a reviewed merge according to team policy. Do not submit
+uncommitted scientific code unless the run is declared exploratory and its
+provenance record says so and keeps `git diff`.
 
-### 2. Acquire and inspect the remote lease
+### 2. Know what a job reads
 
-Use the committed helper only after the same commit is deployed or execute the
-already-present helper on Sharanga. Capture the returned token in the handoff
-record; it is required for release.
+Jobs execute out of the live worktree. Before changing files, identify what
+pending or running jobs import or read: `src/`, the template under
+`slurm/templates/`, panels or manifests under `data/`, and `configs/`. Do not
+modify those while the job is pending or running. If development must continue
+meanwhile, work in a separate `git worktree` directory or run the job from a
+frozen checkout (see `SKILL.md`, "Editing While Jobs Are Live"). Do not switch
+branches in `~/PhysMons` while such jobs exist.
 
-```bash
-ssh sharanga 'cd ~/PhysMons && scripts/ops/physmon_remote_lease.sh inspect'
-ssh sharanga 'cd ~/PhysMons && scripts/ops/physmon_remote_lease.sh acquire \
-  --task "short-task-name" --commit "FULL_LOCAL_SHA"'
-```
-
-If the helper has not reached the remote repository yet, do not work around it
-by creating a competing lock manually. Coordinate the first deployment with
-the person who owns the remote tree.
-
-### 3. Plan, deploy, then verify
-
-```bash
-make remote-preflight
-make sync-plan-up
-make sync-up
-python scripts/ops/remote_preflight.py --strict --expect-aligned
-```
-
-`sync-plan-up` is local-to-remote. `sync-plan-down` is remote-to-local. Both
-are dry runs. `sync-up` and `sync-down` preserve remote/local-only files by
-default; `sync-plan-prune` merely displays the effect of a dangerous
-local-to-remote delete and must never be used as an execution shortcut.
-
-After the strict check, record all of: local SHA, remote `HEAD`, and remote
-`.physmon_ops/deployment_commit`. They must identify the same deployed source. Release
-the deployment lease only after source deployment and any approved submission
-are recorded. Do not deploy a new source snapshot while an existing job may
-still read source files from the shared worktree.
-
-### 4. Submit an approved job with durable provenance
+### 3. Submit an approved job with durable provenance
 
 Create a task-specific template or an immutable copy of the template in the
 repository. It must declare the partition, GRES, CPU/memory/walltime,
@@ -112,25 +86,23 @@ Use unique `--job-name`, `%j`-keyed log filenames, and an output directory
 containing an attempt identifier.
 
 ```bash
-ssh sharanga 'cd ~/PhysMons && sbatch --parsable slurm/templates/<template>.sh'
+cd ~/PhysMons && sbatch --parsable slurm/templates/<template>.sh
 ```
 
-`--parsable` returns a job ID suitable for a manifest. Record the exact
-template path, deployed SHA, job ID, model role/path resolution, input panel
-hash, expected rows, and intended output/log paths before monitoring it.
+`--parsable` returns a job ID suitable for a manifest. Record the exact template
+path, source SHA, clean/dirty state, job ID, model role/path resolution, input
+panel hash, expected rows, and intended output/log paths before monitoring it.
 
 Do not use a Slurm dependency as scientific approval. `afterok` only says a
 previous batch step exited zero; a human or explicitly approved data gate must
 inspect its raw output before follow-up science runs.
 
-### 5. Monitor, harvest, and release
-
-For a submitted job, use the live and terminal-accounting views:
+### 4. Monitor and harvest
 
 ```bash
-ssh sharanga 'squeue -j JOB_ID -o "%i|%u|%T|%P|%j|%M|%l|%R"'
-ssh sharanga 'scontrol show job JOB_ID'
-ssh sharanga 'sacct -X -j JOB_ID -o JobIDRaw,JobName,Partition,State,Elapsed,AllocTRES,ExitCode,MaxRSS'
+squeue -j JOB_ID -o "%i|%u|%T|%P|%j|%M|%l|%R"
+scontrol show job JOB_ID
+sacct -X -j JOB_ID -o JobIDRaw,JobName,Partition,State,Elapsed,AllocTRES,ExitCode,MaxRSS
 ```
 
 Inspect stdout, stderr, raw records, expected panel rows, and summary values.
@@ -138,17 +110,10 @@ Inspect stdout, stderr, raw records, expected panel rows, and summary values.
 defaulted mean, wrong panel, or unknown source SHA makes the scientific result
 partial, failed, or provenance-unresolved.
 
-When source and job handoff are complete:
-
-```bash
-ssh sharanga 'cd ~/PhysMons && scripts/ops/physmon_remote_lease.sh release --token "LEASE_TOKEN"'
-make sync-plan-down
-make sync-down
-```
-
-Collect compact durable outputs and their metadata only. Leave model weights,
-activation arrays, caches, and bulky checkpoints in scratch unless a deliberate
-data-publication plan says otherwise.
+Results are already in place. Commit compact durable outputs and their metadata
+(push with permission). Leave model weights, activation arrays, caches, and
+bulky checkpoints in scratch unless a deliberate data-publication plan says
+otherwise.
 
 ## Scheduling choices
 
@@ -188,34 +153,35 @@ An attempt ID should not be `latest`. It should encode a stable run identity,
 such as a date plus short commit or explicitly assigned run ID. A corrected run
 links to the prior attempt through metadata; it never overwrites it.
 
-Never put portable code paths in job artifacts as `/Users/...`. Local code uses
-repository-relative paths. Job scripts derive runtime roots from `HOME`,
-`SCRATCH`, `PHYSMON_ROOT`, and the model registry.
+Never put machine-specific paths such as `/Users/...` in job artifacts or
+portable code. Code uses repository-relative paths. Job scripts derive runtime
+roots from `HOME`, `SCRATCH`, `PHYSMON_ROOT`, and the model registry.
 
 ## Required end-of-shift handoff
 
 ```text
 Task and scientific authorization:
-Local branch / commit / upstream relation:
-Remote commit / marker / worktree status:
-Deployment lease status and owner/token handoff:
-Sync plan and actual direction:
+Branch / HEAD commit / pushed to origin (yes/no):
+Uncommitted or untracked files left in ~/PhysMons and who owns them:
 Job IDs, states, and Slurm exit codes:
 Template, command, model role, input panel, expected/observed rows:
 Result, raw-output, stdout, stderr, checkpoint, and scratch paths:
 Evidence classification: authoritative / exploratory / partial / failed / superseded:
+Files pending or running jobs depend on (do not edit):
 Open issue, safe next action, and required approval:
 ```
 
 ## Recovery rules
 
-- **Remote dirty worktree:** stop. Inspect paths and obtain owner intent.
-- **Lease held:** stop. Do not `rm` the lock or `git clean` the remote tree.
-- **Network transfer interrupted:** rerun the dry plan; rsync can resume file
-  transfer but it is not a substitute for post-sync commit verification.
+- **Unknown dirty worktree:** stop. Inspect paths read-only and obtain owner intent.
+- **Edited a file a job reads:** note the time and files; mark the affected job's
+  provenance unresolved if it started after the edit; do not restore with
+  `git checkout --` without checking what else changed.
+- **Unpushed work at risk:** commit to a branch and, with permission, push; a
+  cluster-only commit has no other copy.
 - **Job ended non-zero:** preserve logs and output. Create a new attempt only
   after diagnosis and authorization.
 - **Job completed with zero raw rows:** classify as failure/partial, not a null
   result. Capture target/donor or panel eligibility diagnostics.
-- **Remote/local divergence:** resolve via Git and review, never with an rsync
-  overwrite or force reset.
+- **Branch divergence:** resolve via Git and review, never with a force push or
+  hard reset.

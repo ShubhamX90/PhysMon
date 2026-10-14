@@ -1,9 +1,11 @@
 # Slurm Operations for PhysMon
 
-Use this reference only when the current task explicitly authorizes remote job
-execution. A scientific brief can prohibit jobs even if the account has idle
-GPU capacity. Never submit, alter, hold, release, or cancel a job merely to
-make the queue look tidy.
+Use this reference only when the current task explicitly authorizes job
+execution. Commands are written for a session running on Sharanga itself (Claude
+Code via Remote SSH); run them directly. If you ever work from a machine that is
+not Sharanga, prefix each with `ssh sharanga '...'`. A scientific brief can
+prohibit jobs even if the account has idle GPU capacity. Never submit, alter,
+hold, release, or cancel a job merely to make the queue look tidy.
 
 ## Inspection ladder
 
@@ -11,22 +13,22 @@ Use the narrowest read-only command that answers the question.
 
 ```bash
 # Cluster and capacity
-ssh sharanga 'sinfo -h -o "%P|%a|%l|%D|%G"'
-ssh sharanga 'sinfo -N -h -o "%N|%P|%T|%c|%m|%G"'
-ssh sharanga 'scontrol show partition gpu_a100_8'
-ssh sharanga 'scontrol show partition gpu_h100_4'
-ssh sharanga 'scontrol show partition gpu_h200_8'
+sinfo -h -o "%P|%a|%l|%D|%G"
+sinfo -N -h -o "%N|%P|%T|%c|%m|%G"
+scontrol show partition gpu_a100_8
+scontrol show partition gpu_h100_4
+scontrol show partition gpu_h200_8
 
 # Shared-account policy and current queue
-ssh sharanga 'sacctmgr -n -P show assoc user=pabitra format=User,Account,Partition,QOS,MaxJobs,MaxSubmit,MaxTRESPerJob'
-ssh sharanga 'sacctmgr -n -P show qos format=Name,MaxWall,MaxTRESPerUser,MaxTRESPerJob,MaxJobsPU,MaxSubmitPU,MaxTRESPU,GrpTRES'
-ssh sharanga 'sshare -u pabitra -l'
-ssh sharanga 'squeue -u pabitra -o "%i|%u|%T|%P|%j|%M|%l|%D|%R"'
+sacctmgr -n -P show assoc user=pabitra format=User,Account,Partition,QOS,MaxJobs,MaxSubmit,MaxTRESPerJob
+sacctmgr -n -P show qos format=Name,MaxWall,MaxTRESPerUser,MaxTRESPerJob,MaxJobsPU,MaxSubmitPU,MaxTRESPU,GrpTRES
+sshare -u pabitra -l
+squeue -u pabitra -o "%i|%u|%T|%P|%j|%M|%l|%D|%R"
 
 # A selected job
-ssh sharanga 'scontrol show job JOB_ID'
-ssh sharanga 'squeue -j JOB_ID -o "%i|%u|%T|%P|%j|%M|%l|%R"'
-ssh sharanga 'sacct -X -j JOB_ID -o JobIDRaw,JobName,Partition,State,Elapsed,Start,End,AllocTRES,ExitCode,MaxRSS'
+scontrol show job JOB_ID
+squeue -j JOB_ID -o "%i|%u|%T|%P|%j|%M|%l|%R"
+sacct -X -j JOB_ID -o JobIDRaw,JobName,Partition,State,Elapsed,Start,End,AllocTRES,ExitCode,MaxRSS
 ```
 
 For a pending job, `%R` and `scontrol show job` are the source of truth. Common
@@ -108,7 +110,7 @@ export TRANSFORMERS_CACHE="$SCRATCH/physmon/hf_cache"
 cd "$PHYSMON_ROOT"
 
 git rev-parse HEAD
-cat .physmon_ops/deployment_commit
+git status --short
 hostname
 nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv,noheader || true
 python --version
@@ -122,10 +124,10 @@ restart.
 
 ## Submission, capture, and dependencies
 
-After the Git/deployment preflight and explicit scientific authorization:
+After the Git preflight (clean or explicitly labeled tree, known HEAD SHA) and explicit scientific authorization:
 
 ```bash
-ssh sharanga 'cd ~/PhysMons && sbatch --parsable slurm/templates/<template>.sh'
+cd ~/PhysMons && sbatch --parsable slurm/templates/<template>.sh
 ```
 
 Capture the returned job ID before doing anything else. Create a run manifest
@@ -137,8 +139,9 @@ session, but it consumes scheduler resources and must use explicit partition,
 time, CPU, memory, and GRES. It is not a way to bypass batch provenance.
 
 ```bash
-# Only with explicit approval for an interactive diagnostic.
-ssh sharanga 'srun --partition=compute --cpus-per-task=4 --mem=16G --time=00:30:00 --pty bash -l'
+# Only with explicit approval for an interactive diagnostic. `--pty` needs a
+# real terminal; from an agent shell prefer a short batch job or `srun ... <cmd>`.
+srun --partition=compute --cpus-per-task=4 --mem=16G --time=00:30:00 --pty bash -l
 ```
 
 Use `--dependency=afterok:JOB_ID` only for mechanically dependent work whose
@@ -150,18 +153,18 @@ experiment. `afterok` verifies exit status, not artifact integrity.
 
 ```bash
 # Queue state and pending cause
-ssh sharanga 'squeue -j JOB_ID -o "%i|%T|%P|%j|%M|%l|%R"'
-ssh sharanga 'scontrol show job JOB_ID'
+squeue -j JOB_ID -o "%i|%T|%P|%j|%M|%l|%R"
+scontrol show job JOB_ID
 
 # For running jobs where enabled
-ssh sharanga 'sstat -j JOB_ID.batch --format=JobID,AveCPU,AveRSS,MaxRSS'
+sstat -j JOB_ID.batch --format=JobID,AveCPU,AveRSS,MaxRSS
 
 # Read logs without mutating them
-ssh sharanga 'tail -n 160 /scratch/pabitra/physmon/slurm_logs/JOBID_NAME.out'
-ssh sharanga 'tail -n 160 /scratch/pabitra/physmon/slurm_logs/JOBID_NAME.err'
+tail -n 160 /scratch/pabitra/physmon/slurm_logs/JOBID_NAME.out
+tail -n 160 /scratch/pabitra/physmon/slurm_logs/JOBID_NAME.err
 
 # Terminal accounting
-ssh sharanga 'sacct -X -j JOB_ID -o JobIDRaw,JobName,Partition,State,Elapsed,Start,End,AllocTRES,ExitCode,MaxRSS'
+sacct -X -j JOB_ID -o JobIDRaw,JobName,Partition,State,Elapsed,Start,End,AllocTRES,ExitCode,MaxRSS
 ```
 
 Interpret terminal states carefully:
@@ -188,7 +191,7 @@ success nor a measured zero. Its status is failed, partial, or unresolved.
 | CUDA OOM | stderr, batch size, `sacct MaxRSS`, GPU memory logs | record failure, then obtain approval for any changed allocation/config |
 | output path absent | stdout/stderr, parent path, script `cd`, permissions | preserve failed attempt and correct path handling |
 | panel unexpectedly empty | panel manifest, eligibility filters, parser diagnostics | report empty panel; never emit a zero effect |
-| wrong remote source | remote SHA/deployment marker and job stdout | mark provenance unresolved; do not retrofit metadata |
+| source differs from what the job should have run | job stdout SHA/`git status` versus current `git log`; files edited after submission | mark provenance unresolved; do not retrofit metadata |
 
 ## Holds, cancellation, and ownership
 
@@ -197,9 +200,12 @@ them only for a verified job owned by the current task and only when the action
 is authorized. Confirm the job identity immediately before mutation:
 
 ```bash
-ssh sharanga 'squeue -j JOB_ID -o "%i|%u|%j|%T|%P"'
-ssh sharanga 'scancel JOB_ID'
+squeue -j JOB_ID -o "%i|%u|%j|%T|%P"
+scancel JOB_ID
 ```
+
+Editing the worktree while a job is pending or running can change what it
+executes; see "Editing While Jobs Are Live" in `SKILL.md`.
 
 Never cancel by job-name glob and never touch a colleague's job. Record why a
 job was held, released, or cancelled in the handoff.

@@ -1,84 +1,89 @@
 ---
 name: physmon-sharanga
-description: Coordinate safe PhysMon work across a developer workstation, GitHub, and the shared Sharanga HPC environment. Use whenever a PhysMon task mentions Sharanga, Slurm, GPU or CPU jobs, scratch storage, model caches, remote results, syncing, rsync, Git handoff, the shared pabitra account, or a teammate/agent shift. Enforces a read-first preflight, provenance-aware job lifecycle, and safe local-to-remote synchronization.
+description: Coordinate safe PhysMon work when the repository is edited and run directly on the Sharanga HPC server (Claude Code via Remote SSH), with GitHub as the shared record. Use whenever a PhysMon task mentions Sharanga, Slurm, GPU or CPU jobs, scratch storage, model caches, job results, Git commits/pushes, the shared pabitra account, or a teammate/agent shift. Enforces a read-first preflight, provenance-aware job lifecycle, and safe in-place editing of a worktree that running jobs read.
 ---
 
 # PhysMon on Sharanga
 
-Use this skill to keep the versioned repository, shared remote worktree, and non-versioned scratch data coherent. Treat the repository and cluster as a scientific workflow: every run must be attributable to a commit, an immutable input panel, a command or template, and durable outputs.
+Use this skill to keep the versioned repository, the live Sharanga worktree, and non-versioned scratch data coherent. Treat the repository and cluster as a scientific workflow: every run must be attributable to a commit, an immutable input panel, a command or template, and durable outputs.
 
-Read [Git and Sync Coordination](references/git-and-sync.md) for every task that can modify code, results, or the remote worktree. Read [Sharanga Environment Snapshot](references/sharanga-environment.md) before selecting resources or a runtime environment. Read [Slurm Operations](references/slurm-operations.md) before any job action.
+## Working Model
 
-## Operating Model
-
-Keep three distinct authorities separate:
+The normal setup is **Claude Code connected to Sharanga over Remote SSH**. The session's working directory is `~/PhysMons` on the cluster, and shell commands run on Sharanga directly. There is no workstation mirror to synchronize. Do not wrap commands in `ssh sharanga '...'` when the session is already remote; confirm with `hostname` and `pwd` first.
 
 | Location | Purpose | Authority |
 |---|---|---|
-| Personal workstation clone | Code editing, tests, review, commits | A developer's working copy only |
-| `origin` on GitHub | Shared versioned source of truth | Git history and reviewed branch state |
-| `~/PhysMons` on Sharanga | Operational snapshot used by jobs | Must match the intended Git commit before submission |
-| `/scratch/pabitra/physmon` | Models, activations, logs, checkpoints, large intermediates | Non-Git runtime data; never assume it can be reconstructed locally |
+| `~/PhysMons` on Sharanga | The working repository: editing, testing, committing, and job submission | The live worktree. Its uncommitted state is real work and may be read by queued or running jobs |
+| `origin` on GitHub | Shared record for viewing, review, and handoff | Git history and branch state. Anything not pushed exists only on the cluster |
+| `/scratch/pabitra/physmon` | Models, activations, logs, checkpoints, large intermediates | Non-Git runtime data; never assume it can be reconstructed |
+| Any laptop clone | Optional, read-only convenience | Never authoritative. Do not push from it or sync files to or from it unless the user asks |
 
-Do not treat the shared Sharanga worktree as a collaborative editor. Edit locally, test locally, commit and push the intended change, then synchronize an audited snapshot to Sharanga. Do not use a remote result as paper evidence until its raw output, job log, source commit, panel, and summary are traceable.
+The retired mirror-and-rsync workflow (`make sync-up`, `sync-down`, `sync-plan-*`, the `.physmon_ops` deployment marker and lease) is **not part of normal operation**. The Makefile targets and `scripts/ops/` helpers may still exist in the repository; do not use them unless the user explicitly asks to sync with a workstation copy. A commit that has not been pushed is not backed up anywhere else, so push deliberately (with authorization) at meaningful checkpoints.
+
+The `pabitra` account is shared. Several people or agents can operate in the same worktree, so a dirty tree, an unfamiliar branch, or an unexplained file is an ownership question, not debris.
+
+Read [Git and Remote Workflow](references/git-and-sync.md) for every task that can modify code, results, or Git state. Read [Sharanga Environment Snapshot](references/sharanga-environment.md) before selecting resources or a runtime environment. Read [Slurm Operations](references/slurm-operations.md) before any job action. Read [Operational Playbook](references/operational-playbook.md) for shift start, job provenance, and handoff.
 
 ## First Five Minutes
 
-1. Read the current project's scientific-governance instructions. They can forbid remote access, jobs, or follow-up experiments even when this skill normally supports them.
-2. Identify the local repository root with `git rev-parse --show-toplevel`; inspect branch, commit, and dirty files. Do not mix unrelated local changes into a job snapshot.
-3. Fetch `origin` and compare the intended branch with its configured upstream. Resolve divergence before a handoff or submission.
-4. Inspect Sharanga read-only: remote repository commit/status, `squeue -u pabitra`, `sinfo`, and free scratch space. Re-query live Slurm state; the dated snapshot is not a scheduler contract.
-5. Before deployment, require a clean local worktree, an up-to-date upstream branch, and a remote worktree with no unexplained changes. After deployment, require the local and remote source commits plus the remote `.physmon_ops/deployment_commit` marker to match before submission.
+1. Read the project's scientific-governance instructions (`README.md`, the applicable brief, decision log). They can forbid jobs, follow-up experiments, or paper claims even when this skill normally supports them.
+2. Confirm where you are: `hostname`, `pwd`, `git rev-parse --show-toplevel`. Inspect branch, HEAD commit, and `git status --short`. Do not touch dirty files you did not create.
+3. `git fetch origin` and compare the branch with its upstream. Resolve divergence by reading it, never by reset or force.
+4. Inspect the cluster read-only: `squeue` (whole queue, not just your jobs), `sinfo`, `df -h /scratch/pabitra`, and the previous handoff if one exists. Live Slurm output outranks the dated snapshot.
+5. Check whether any queued or running job reads files in the worktree (see "Editing While Jobs Are Live" below) before changing source, templates, panels, or configs.
 
-Never bypass a project-level prohibition on `ssh`, Slurm, GPU, or remote synchronization. A live-cluster action requires explicit authorization in the current task.
+A live-cluster action (submitting, holding, or cancelling a job; deleting or moving scratch data) needs explicit authorization in the current task. Read-only inspection does not.
 
-## Edit, Handoff, and Sync Workflow
+## Edit, Commit, and Push
 
-### Local development and GitHub
+1. Work on an attributable branch for any bounded change (for example `claude/<short-task>`); keep `main` as integration history. Continue an existing branch only after reading its history and handoff.
+2. Make a focused change and run proportionate tests (`make test`, `make lint`, or the specific test file). Report results honestly.
+3. Stage only the files belonging to the change (`git add <paths>`), never `git add -A` in a shared tree. Commit with a message that states what and why.
+4. `git push` only with permission for the current task. GitHub is where teammates and the user read the code, so unpushed work is invisible to them.
+5. Never use `git reset --hard`, `git checkout -- <path>`, `git clean`, `git stash drop`, a force push, or a blind `git pull --rebase` to resolve a shared worktree. Preserve facts first (`git status`, `git log`, `git diff`), then decide.
 
-1. Start from an up-to-date local branch. Use a short-lived branch for a bounded change when the team's branch policy calls for one.
-2. Make a focused change, run proportionate tests, and commit only the files belonging to the change.
-3. Push the commit to `origin` before preparing a remote job. Record the commit SHA, task purpose, expected output root, model, panel, and resource request in the handoff surface already used by the project.
-4. Before another teammate or agent begins, state whether the remote snapshot must be refreshed and whether active jobs depend on its current files.
+## Editing While Jobs Are Live
 
-### Local-to-Sharanga deployment
+Because jobs run from `~/PhysMons`, editing the worktree can change what a pending job executes. A job queued earlier reads whatever is on disk when it starts, and a running Python job may import modules lazily.
 
-The repository Makefile's `sync-up` is deliberately non-destructive: it does not pass `--delete`. It can still overwrite a remote versioned file, so treat it as a controlled deployment rather than a merge. Therefore:
+- Before editing a file, check `squeue` and the submitted templates for jobs that could read it (`src/`, `slurm/templates/`, panels or manifests under `data/`, `configs/`).
+- While a job is **pending or running**, do not modify source it imports, the panel or manifest it reads, or its template. Work on a branch for unrelated files, or wait.
+- For a serious run, submit from a **clean, committed, pushed** state, record the full SHA, and keep the tree unchanged for those files until the job reaches a terminal state. If concurrent development must continue, run the job from a frozen checkout:
 
-1. Acquire the optional shared deployment lease once the helper is present remotely. It prevents two shifts from synchronizing at the same time; it does not replace Git review or Slurm checks.
-2. Run `make remote-preflight` and `make sync-plan-up`. Inspect every proposed transfer.
-3. Stop if the plan includes scientific outputs, uncommitted remote edits, another shift's files, or anything not explained by the current task.
-4. Only after the plan is clean and reviewed, run `make sync-up` from the intended local commit.
-5. Run `python scripts/ops/remote_preflight.py --strict --expect-aligned` and verify `git rev-parse HEAD`, clean status, and `.physmon_ops/deployment_commit` agree with the planned source revision before submitting.
+  ```bash
+  git worktree add /scratch/pabitra/physmon/snapshots/<attempt-id> <full-sha>
+  ```
 
-Never use `git reset --hard`, `git checkout --`, `git clean`, or a force push to reconcile a shared environment. Do not run `make sync-up` while another person's job might be reading paths it will change.
-
-### Result collection
-
-1. Wait for a terminal Slurm state and inspect both stdout and stderr plus the produced raw records.
-2. Verify expected row/family counts and output completeness before declaring the run complete. An empty file or defaulted aggregate is not a measured null result.
-3. Run `make sync-plan-down`, then `make sync-down` only when the local tree can receive the results without overwriting work.
-4. Commit small durable results, manifests, provenance, and documentation locally. Keep activations, model weights, caches, and bulky intermediates on scratch.
-5. Hand off the exact job ID, exit state, source commit, output paths, raw-row count, and any failure or caveat.
+  Templates currently set `PHYSMON_ROOT="$HOME/PhysMons"`; verify or parameterize that before relying on a snapshot, and record the snapshot path in the manifest.
+- An exploratory run from uncommitted code is allowed only if its provenance record says so (and includes `git diff` saved beside the outputs).
 
 ## Job Lifecycle
 
-Use existing templates in `slurm/templates/` as the starting point. Do not invent a partition, account, QoS, resource type, model path, or scratch root. The standard template establishes the `physmon` conda environment, `PYTHONPATH`, `PHYSMON_ROOT`, `HF_HOME`, and `TRANSFORMERS_CACHE`. Read [Operational Playbook](references/operational-playbook.md) for resource-selection rules, the lease protocol, and exact job lifecycle checkpoints.
+Use existing templates in `slurm/templates/` as the starting point. Do not invent a partition, account, QoS, resource type, model path, or scratch root. The standard template establishes the `physmon` conda environment, `PYTHONPATH`, `PHYSMON_ROOT`, `HF_HOME`, and `TRANSFORMERS_CACHE`.
 
-1. Choose a resource from the live partition/QoS information and the model registry. Request the smallest defensible allocation and walltime.
-2. Make output and error logs unique under the approved scratch log root. Do not share an output filename between jobs.
-3. Submit only after source/sync preflight passes. Capture the job ID immediately.
+1. Choose a resource from live partition/QoS information and the model registry. Request the smallest defensible allocation and walltime.
+2. Make output and error logs unique under the approved scratch log root. Never share an output filename between jobs.
+3. Submit only from a clean, committed state (or with the exploratory caveat recorded). Capture the job ID immediately (`sbatch --parsable`).
 4. Monitor with `squeue`, diagnose with `scontrol show job` and the log files, and query terminal accounting with `sacct`.
-5. Cancel only a job that belongs to the current task and whose ID has been verified. Preserve failed output and record the reason.
+5. Cancel only a job that belongs to the current task and whose ID you verified immediately before. Preserve failed output and record the reason.
 
 For command syntax, request patterns, quotas, and triage, read [Slurm Operations](references/slurm-operations.md).
+
+## Result Collection
+
+Results are produced in place; there is nothing to download.
+
+1. Wait for a terminal Slurm state and inspect stdout, stderr, and the raw records.
+2. Verify expected versus observed row/family counts before declaring a run complete. An empty file or defaulted aggregate is not a measured null result.
+3. Commit small durable artifacts (manifests, compact CSV/JSON summaries, provenance, docs) and push with permission. Keep activations, model weights, caches, and bulky intermediates on scratch and reference them from a manifest.
+4. Hand off the exact job ID, exit state, source commit, output paths, raw-row count, and any failure or caveat.
 
 ## Scratch and Model Rules
 
 Use repository-relative paths in code and derive runtime roots from environment variables in job scripts. Scratch paths belong in templates or configuration, not in portable source code. Keep the following separate:
 
-- `~/PhysMons`: the operational repository copy.
-- `/scratch/pabitra/physmon/activations*`: large model-derived artifacts; do not sync or delete casually.
+- `~/PhysMons`: the working repository.
+- `/scratch/pabitra/physmon/activations*`: large model-derived artifacts; do not delete or move casually.
 - `/scratch/pabitra/physmon/slurm_logs`: stdout/stderr provenance.
 - `/scratch/pabitra/physmon/hf_cache` and the `models` symlink: shared model/cache storage; do not purge or redownload without coordination.
 - `/scratch/pabitra/physmon/checkpoints`: run state; never overwrite another task's checkpoint.
@@ -87,26 +92,27 @@ Read [Sharanga Environment Snapshot](references/sharanga-environment.md) for the
 
 ## Multi-Agent and Team Safety
 
-- Assume shifts are serialized only after checking Git and Slurm; never infer that because a queue is empty no one is preparing a run.
+- Shifts are not serialized by any lock now. Check Git and the whole Slurm queue; never infer that an empty queue means nobody is preparing a run.
 - Use a task-specific result directory and job name. Do not reuse generic `latest`, `output`, or another task's checkpoint directory.
-- Do not change a submitted script in place after submission. Preserve the exact rendered script or commit that a job used.
+- Do not change a submitted script in place after submission. Preserve the exact script and the commit the job used.
 - Do not promote partial, corrected, panel-mismatched, or zero-row outputs to completed evidence. Register correction and supersession relationships explicitly.
-- When a result is not safely synchronizable, create a compact manifest pointing to the remote raw data, not a copied or invented summary.
+- When raw data is too large to commit, commit a compact manifest pointing to the scratch location, not a copied or invented summary.
+- If the user's Remote SSH session ends, uncommitted edits remain in the worktree. State what is uncommitted at the end of every shift.
 
 ## Required Handoff Record
 
 At the end of a shift involving Sharanga, report:
 
 ```text
-Local branch and commit:
-Remote branch and commit:
-Sync direction and outcome:
+Branch and HEAD commit (and whether pushed to origin):
+Uncommitted or untracked files left in the worktree, and why:
 Job IDs and terminal/pending states:
 Template/script and exact command:
 Model registry key and scratch inputs:
 Family panel/manifest and expected versus observed rows:
 Output, stdout, and stderr paths:
 What is authoritative, partial, failed, or pending:
+Files that pending/running jobs depend on (do not edit):
 Next safe action and any required approval:
 ```
 

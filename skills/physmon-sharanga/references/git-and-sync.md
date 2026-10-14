@@ -1,60 +1,53 @@
-# Git and Sync Coordination
+# Git and Remote Workflow
 
 ## Purpose
 
-Use this reference whenever a PhysMon task changes versioned code, transfers files between a workstation and Sharanga, collects results, or hands work to another person or agent.
+Use this reference whenever a PhysMon task changes versioned code, commits or pushes, collects results, or hands work to another person or agent. The filename is historical; there is no longer a workstation-to-cluster sync step.
 
 ## Current project contract
 
-- Local clones are developer workspaces.
-- GitHub `origin` is the shared source-of-truth for versioned files.
-- Sharanga runs from `~/PhysMons` under the shared `pabitra` account.
-- The repository Makefile provides `make sync-up`, `make sync-check`, and `make sync-down`.
-- Large files are intentionally excluded from ordinary sync: activations, virtual environments, Python caches, model/checkpoint formats, `data/generated`, `slurm/submitted`, and `.git`.
+- Claude Code runs on Sharanga via Remote SSH. The working repository is `~/PhysMons` under the shared `pabitra` account.
+- GitHub `origin` is where the user and teammates read the code and review work. It is the shared record, but it only contains what has been pushed.
+- There is no maintained mirror on a laptop. The old `make sync-up`, `sync-down`, `sync-plan-*`, `sync-check`, the `.physmon_ops/deployment_commit` marker, `scripts/ops/physmon_remote_lease.sh`, and `scripts/ops/remote_preflight.py --expect-aligned` belonged to that workflow. They may remain in the repository; do not run them unless the user explicitly asks to sync a workstation copy.
+- Large files stay out of Git: activations, virtual environments, Python caches, model/checkpoint formats, `data/generated`, `slurm/submitted`. Keep them on scratch and reference them from manifests.
 
-`sync-up` writes the deployed full SHA to remote-only `.physmon_ops/deployment_commit` after rsync completes. That directory is excluded from ordinary sync and avoids dirtying the tracked source tree. The legacy tracked `.physmon_git_commit` may remain in historical clones; it is informational only and must not be treated as the deployment marker.
+Because the worktree is both the editing surface and the thing jobs run from, the two main hazards are (1) another person's or agent's uncommitted work in the same tree, and (2) editing files that a pending or running job will read. Everything below addresses those.
 
-## Why `sync-up` needs a guardrail
-
-Current `make sync-up` is non-destructive: it no longer passes `--delete`. The earlier implementation did. Treat synchronization as deployment, not as a Git merge, because an rsync transfer can still overwrite a remote file and `sync-down` can still overwrite a local file.
-
-Before it runs, verify:
+## Shift-start inspection
 
 ```bash
+hostname; pwd
 git status --short
 git fetch origin
+git branch --show-current
+git rev-parse HEAD
 git rev-parse --abbrev-ref --symbolic-full-name @{upstream}
 git rev-list --left-right --count HEAD...@{upstream}
-make remote-preflight
-make sync-plan-up
+git log --oneline --decorate -12
 ```
 
-Review the dry-run output. Stop for any unexplained overwrite, a dirty remote worktree, remote-only results that are not backed up, or an active job that may read changing paths. A local/remote commit disagreement is expected before deployment and forbidden before submission.
+Interpret:
 
-## Recommended handoff sequence
+- Dirty or untracked files you did not create belong to someone else until proven otherwise. Leave them untouched and tell the user.
+- `behind` means upstream has commits you lack; read them (`git log HEAD..@{upstream}`) before integrating. `ahead` means unpushed local commits that exist nowhere else.
+- No upstream configured: ask which branch to track before pushing.
 
-### Before a code-changing shift
+## Branch and ownership rules
+
+`main` is integration history, not a scratchpad for simultaneous agents. For a bounded task, create an attributable branch such as `claude/<short-task>` (or the project's chosen equivalent), commit there, and hand off the branch name with its full SHA. Merge to `main` only through the team's chosen review route (GitHub pull request or an explicit user instruction). Continue an existing branch only after fetching, identifying its owner, and reading the handoff.
 
 ```bash
 git fetch origin
-git switch YOUR_BRANCH
-git pull --ff-only
-git status --short
+git switch -c claude/<short-task>      # new branch from the current commit
+# ... edit, test ...
+git add <specific-paths>
+git commit -m "<what and why>"
+git push -u origin claude/<short-task> # only with permission
 ```
 
-Use a feature branch when the team expects review or multiple independent changes. Do not create a second change atop unknown remote state.
+Switching branches in the shared worktree changes the files every running job and every other session sees. Check `squeue` and `git status` first, and prefer not to switch branches while jobs that read the tree are pending or running. If you need a second branch checked out at the same time, use `git worktree add` into a separate directory instead.
 
-### Branch and ownership rules
-
-`main` is integration history, not a scratchpad for simultaneous agents. For a
-bounded implementation task, create an attributable branch such as
-`codex/<short-task>` or the project's chosen equivalent, push it, and hand off
-the branch name with its full commit SHA. Merge to `main` only through the
-team's chosen review/approval route. A shift may continue an existing branch
-only after it has fetched, identified the branch owner, and read the handoff.
-
-Do not solve concurrent work with `git pull --rebase`, `git reset --hard`,
-force push, or a blind merge. First preserve the facts:
+Do not resolve concurrent work with `git pull --rebase`, `git reset --hard`, a force push, or a blind merge. Preserve the facts first:
 
 ```bash
 git fetch origin
@@ -63,87 +56,69 @@ git log --oneline --decorate -12
 git diff --name-status @{upstream}...HEAD
 ```
 
-Then decide whether the work is an independent commit, a reviewed merge, or a
-conflict that needs the originating teammate. Uncommitted changes in another
-person's local clone are not a synchronization target.
+Then decide whether it is an independent commit, a reviewed merge, or a conflict that needs the originating author. Use `git pull --ff-only` for the simple fast-forward case.
 
-### Before a job submission
+## Commit and push discipline
+
+- Stage explicit paths. `git add -A` and `git commit -a` can sweep in another session's files in a shared tree.
+- Check `git diff --cached --stat` before committing.
+- Commit and push are external state changes; do them only when the current task authorizes them. Because no mirror exists, ask the user at natural checkpoints (end of a working change, before a long job) whether to push, so work is backed up on GitHub.
+- Never commit model weights, activation tensors, caches, or scratch checkpoints. Check `git status` for large untracked paths before staging.
+- The untracked `activations` path observed at the repo root is a known pre-existing condition. Do not delete, stage, or `git clean` it.
+
+## Before a job submission
 
 ```bash
-git status --short
-git rev-parse HEAD
-git push
-make remote-preflight
-make sync-plan-up
-make sync-up
-python scripts/ops/remote_preflight.py --strict --expect-aligned
+git status --short                 # tree state; know what is uncommitted
+git rev-parse HEAD                 # the SHA the job will record
+git log -1 --oneline
+git rev-list --left-right --count HEAD...@{upstream}   # is the SHA on GitHub?
+squeue                             # what else is queued or running
 ```
 
-The `push` and `sync-up` steps are external state changes. Run them only with permission for the current task. The remote `activations` directory is presently untracked; do not use a broad clean/reset command there. Use `make sync-plan-prune` only to inspect a possible prune; there is intentionally no automatic destructive-prune target.
+Preferred: the tree is clean, HEAD is pushed, and the job's template and inputs are committed. The job's stdout must print the SHA and `git status --short` so provenance survives. If the tree is dirty for a reason relevant to the job, either commit it first or label the run exploratory and save `git diff` beside its outputs. Dirty files unrelated to the job (someone else's notes, scratch edits) must be named in the record, not committed.
 
-### What each sync command actually does
+Submitting does not freeze the tree. See "Editing While Jobs Are Live" in `SKILL.md` before touching files a queued or running job uses.
 
-| Command | Direction | Mutation | Required review |
-|---|---|---|---|
-| `make remote-preflight` | local + read-only remote | none | local/remote status, queue, scratch |
-| `make sync-plan-up` | local to remote | none | every proposed upload/overwrite |
-| `make sync-up` | local to remote | overwrites matching remote versioned paths; no deletion | plan, lease, remote status |
-| `make sync-plan-down` | remote to local | none | every proposed download/overwrite |
-| `make sync-down` | remote to local | overwrites matching local paths; no deletion | plan and local ownership |
-| `make sync-plan-prune` | local to remote | none; shows `--delete` effect | only to understand stale files; never execute a manual equivalent casually |
-
-Neither direction is a Git merge. A file that has independently changed on both
-sides is a stop condition, even if rsync would choose one side silently. Use
-Git to resolve versioned source and a task-specific manifest to resolve
-scratch/result artifacts.
-
-### After a job
+## After a job
 
 1. Inspect the job's Slurm state, stdout, stderr, raw output, and summary.
-2. Check the observed family/variant rows against the declared panel.
+2. Check observed family/variant rows against the declared panel.
 3. Preserve all output, including failures and partial outputs.
-4. Run `make sync-plan-down`. Ensure the local tree can accept results before `sync-down`.
-5. Commit only compact, durable result artifacts plus their provenance. Do not add model weights, activation tensors, caches, or scratch checkpoints to Git.
+4. Make a short collection manifest (see below) and commit only compact, durable result artifacts plus their provenance.
+5. Push with permission so the results are visible on GitHub.
 
 ## Collision rules
 
-- Never edit code directly in `~/PhysMons` while another team member may synchronize or submit from it.
-- Never run `make sync-up` merely because commits match: a remote result directory may still differ.
+- Never revert or overwrite another contributor's uncommitted change. Surface the exact files and ask.
+- Never edit a template, panel, or source file that a pending or running job reads.
 - Never re-use a result directory for a rerun. Use a new attempt path and record supersession.
 - Never erase someone else's job logs or scratch tree to reclaim space without explicit owner approval.
-- Never resolve a Git conflict by discarding unreviewed work. Surface the exact files and use the originating author's intent where possible.
+- Never resolve a Git conflict by discarding unreviewed work.
 
-## Remote-dirty-state decision table
+## Dirty-state decision table
 
-| Remote observation | Safe interpretation | Action |
+| Observation | Safe interpretation | Action |
 |---|---|---|
-| clean Git status plus known `?? activations` | expected historical exception | proceed only after all other preflight checks pass |
-| tracked modification | another deployment, hotfix, or accidental edit | stop; inspect diff read-only and obtain owner decision |
-| untracked code/template/result file | possible active work or unsynced provenance | stop; identify owner and preserve it |
-| remote `HEAD` differs before upload | normal deployment gap or unknown remote change | compare commits; do not submit yet |
-| remote `HEAD` differs after upload | failed/incomplete deployment | do not submit; rerun plan and resolve |
-| remote marker differs after upload | deployment marker write failed or wrong source | do not submit; inspect the exact command and lease |
+| clean status plus known untracked `activations` | expected historical exception | proceed after other checks |
+| tracked modification you did not make | another session, hotfix, or accidental edit | stop; inspect `git diff` read-only; ask the owner or user |
+| untracked code/template/result file you did not create | possible active work or unrecorded provenance | stop; identify the owner and preserve it |
+| tracked modification you made | normal in-progress work | commit with explicit paths, or report it in the handoff |
+| `HEAD` ahead of upstream | local commits not on GitHub | report; push with permission |
+| `HEAD` behind upstream | newer work exists on GitHub | read it; fast-forward only when safe and no live job is affected |
+| `HEAD` and upstream diverged | concurrent history | stop; do not rebase or force; surface both sides |
+| HEAD at job-submission time differs from SHA in the job's recorded provenance | tree changed after submission | mark provenance unresolved; do not retrofit metadata |
 
-## Results are not source sync
+## Results are not source
 
-Keep three sets separate when harvesting:
+Keep three sets separate when finishing a run:
 
-1. **Versioned durable artifacts:** small manifests, compact CSV/JSON summaries,
-   scripts, tests, and documentation. These can be planned, synchronized, and
-   committed after review.
-2. **Remote-only raw artifacts:** activations, checkpoints, model caches, and
-   large arrays. Leave in scratch, then commit a manifest containing their
-   repository-relative or remote operational reference and cryptographic hash
-   where available.
-3. **Evidence status:** an output's state (`complete`, `partial`, `failed`,
-   `superseded`, `unresolved`) is determined by raw rows, provenance, and
-   validation, never by its ability to copy via rsync.
+1. **Versioned durable artifacts:** small manifests, compact CSV/JSON summaries, scripts, tests, documentation. Commit after review.
+2. **Scratch-only raw artifacts:** activations, checkpoints, model caches, large arrays. Leave in scratch and commit a manifest containing their path under `/scratch/pabitra/physmon` and a cryptographic hash where feasible.
+3. **Evidence status:** `complete`, `partial`, `failed`, `superseded`, or `unresolved`, determined by raw rows, provenance, and validation, never by whether a file exists or was committed.
 
-Before sync-down, make a short collection manifest with job ID, source SHA,
-remote output/log paths, observed versus expected rows, artifact hashes when
-feasible, and any correction link. This prevents a later shift from treating a
-remote directory name as a result.
+A collection manifest records job ID, source SHA (plus dirty/exploratory flag), output/log paths, observed versus expected rows, artifact hashes when feasible, and any correction link. This prevents a later shift from treating a directory name as a result.
 
 ## Team handoff minimum
 
-Publish a short handoff in the project's agreed tracking surface. Include source commit, remote commit, sync status, job IDs, output roots, result status, and the next decision. Make uncertainty visible: `pending`, `partial_not_reportable`, `failed`, and `superseded` are useful states.
+Publish a short handoff in the project's agreed tracking surface (and say it in the final message of the session). Include branch, HEAD SHA, whether it is pushed, uncommitted files, job IDs, output roots, result status, files that live jobs depend on, and the next decision. Make uncertainty visible: `pending`, `partial_not_reportable`, `failed`, and `superseded` are useful states.

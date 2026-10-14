@@ -9,17 +9,17 @@ account data as shown below.
 
 | Item | Observed / configured value | Operational rule |
 |---|---|---|
-| SSH alias | `sharanga` | Use the local alias, not a hard-coded host name. |
+| SSH alias | `sharanga` | Use the alias, not a hard-coded host name. Claude Code normally runs on this host via Remote SSH. |
 | Observed login host | `hpc01.sharanga.local` | Informational only; it can change. |
 | Shared Unix account | `pabitra` | Treat it as a shared operational identity. |
 | Slurm account | `bits` | Let existing templates/configuration select it; re-check association. |
-| Remote checkout | `~/PhysMons` | Deployed source snapshot, not a shared editor. |
+| Repository checkout | `~/PhysMons` | The working repository: edit, commit, and submit from here. Jobs read it live. |
 | Scratch home | `/scratch/pabitra` | Large non-Git data. |
 | PhysMon scratch root | `/scratch/pabitra/physmon` | Logs, caches, activations, checkpoints. |
 | Model-store link | `/scratch/pabitra/physmon/models` | Symlink observed to `/scratch/pabitra/rag-reason/models`. |
 | Conda environment | `physmon` | Activated by templates after conda shell setup. |
 
-Current remote `origin` was the PhysMon GitHub repository. The remote clone had
+`origin` is the PhysMon GitHub repository. The checkout had
 an untracked `activations` path at audit time. This does not authorize cleanup:
 read it as a pre-existing operational condition until its owner and target are
 known.
@@ -42,9 +42,9 @@ The audit saw roughly 279 TB total `/scratch`, 119 TB used, and 161 TB free.
 This is a point-in-time observation. Check both capacity and the target tree:
 
 ```bash
-ssh sharanga 'df -h /scratch/pabitra'
-ssh sharanga 'du -sh /scratch/pabitra/physmon/* 2>/dev/null | sort -h'
-ssh sharanga 'find /scratch/pabitra/physmon/checkpoints -maxdepth 2 -type d -print | sort'
+df -h /scratch/pabitra
+du -sh /scratch/pabitra/physmon/* 2>/dev/null | sort -h
+find /scratch/pabitra/physmon/checkpoints -maxdepth 2 -type d -print | sort
 ```
 
 Do not store a new artifact under an ambiguous existing directory. Create an
@@ -60,13 +60,13 @@ why queue time must be diagnosed from Slurm's live reason rather than guessed
 from hardware names or QoS labels.
 
 ```bash
-ssh sharanga 'scontrol --version; scontrol show config | egrep "ClusterName|SchedulerType|PriorityType|PreemptType|MaxArraySize"'
-ssh sharanga 'sinfo -h -o "%P|%a|%l|%D|%G"'
-ssh sharanga 'sinfo -N -h -o "%N|%P|%T|%c|%m|%G"'
-ssh sharanga 'squeue -u pabitra -o "%i|%T|%P|%j|%M|%l|%R"'
-ssh sharanga 'sacctmgr -n -P show assoc user=pabitra format=User,Account,Partition,QOS,MaxJobs,MaxSubmit,MaxTRESPerJob'
-ssh sharanga 'sacctmgr -n -P show qos format=Name,MaxWall,MaxTRESPerUser,MaxTRESPerJob,MaxJobsPU,MaxSubmitPU,MaxTRESPU,GrpTRES'
-ssh sharanga 'sshare -u pabitra -l'
+scontrol --version; scontrol show config | egrep "ClusterName|SchedulerType|PriorityType|PreemptType|MaxArraySize"
+sinfo -h -o "%P|%a|%l|%D|%G"
+sinfo -N -h -o "%N|%P|%T|%c|%m|%G"
+squeue -u pabitra -o "%i|%T|%P|%j|%M|%l|%R"
+sacctmgr -n -P show assoc user=pabitra format=User,Account,Partition,QOS,MaxJobs,MaxSubmit,MaxTRESPerJob
+sacctmgr -n -P show qos format=Name,MaxWall,MaxTRESPerUser,MaxTRESPerJob,MaxJobsPU,MaxSubmitPU,MaxTRESPU,GrpTRES
+sshare -u pabitra -l
 ```
 
 `sinfo` reports partition capacity. `sacctmgr show assoc` reports what the
@@ -174,7 +174,7 @@ hook validation status in a run manifest.
 Confirm the following in the job's own stdout or metadata:
 
 ```text
-deployed Git SHA and .physmon_ops/deployment_commit
+Git SHA (`git rev-parse HEAD`) and `git status --short` at job start
 Slurm job ID, node, partition, GRES, CPU, memory, walltime
 hostname and GPU driver/runtime snapshot
 conda environment and key package versions
