@@ -1,0 +1,83 @@
+{
+  "checks": [
+    {
+      "name": "model_dir_exists",
+      "ok": true,
+      "severity": "hard",
+      "detail": "/scratch/pabitra/models/DeepSeek-R1-Distill-Qwen-32B"
+    },
+    {
+      "name": "manifest_present",
+      "ok": true,
+      "severity": "hard",
+      "detail": "deepseek_reasoning.json"
+    },
+    {
+      "name": "files_match_manifest",
+      "ok": true,
+      "severity": "hard",
+      "detail": "17 manifest files, missing=[]"
+    },
+    {
+      "name": "safetensors_consistent",
+      "ok": true,
+      "severity": "hard",
+      "detail": "8 files, 771 tensors, dtypes={'BF16': 771}"
+    },
+    {
+      "name": "config_loads",
+      "ok": true,
+      "severity": "hard",
+      "detail": "qwen2, layers=64, hidden=5120"
+    },
+    {
+      "name": "chat_tokenizer_loads",
+      "ok": true,
+      "severity": "hard",
+      "detail": "vocab=151665 pad='<\uff5cend\u2581of\u2581sentence\uff5c>'"
+    },
+    {
+      "name": "chat_template_markers",
+      "ok": true,
+      "severity": "hard",
+      "detail": "family=deepseek marker=None prefix='<\uff5cbegin\u2581of\u2581sentence\uff5c>You are a precise physics problem solve'"
+    },
+    {
+      "name": "cue_token_lookup",
+      "ok": true,
+      "severity": "hard",
+      "detail": "index=83 of 128, token='In'"
+    },
+    {
+      "name": "architecture_instantiates_on_meta",
+      "ok": true,
+      "severity": "hard",
+      "detail": "Qwen2ForCausalLM, 32.76B params, stored elements 32.76B"
+    }
+  ],
+  "facts": {
+    "repo_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+    "path": "/scratch/pabitra/models/DeepSeek-R1-Distill-Qwen-32B",
+    "backend": "baukit",
+    "revision": "711ad2ea6aa40cfca18895e8aca02ab92df1a746",
+    "safetensors": {
+      "files": 8,
+      "tensors": 771,
+      "total_elements": 32763876352,
+      "dtype_counts": {
+        "BF16": 771
+      },
+      "index_entries_without_tensor": [],
+      "index_missing_count": 0
+    },
+    "num_layers": 64,
+    "hidden_size": 5120,
+    "model_type": "qwen2",
+    "prompt_tokens": 128,
+    "meta_model": {
+      "class": "Qwen2ForCausalLM",
+      "parameters": 32763876352
+    }
+  },
+  "passed": true
+}

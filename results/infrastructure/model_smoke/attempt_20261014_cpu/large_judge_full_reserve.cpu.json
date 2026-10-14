@@ -1,0 +1,86 @@
+{
+  "checks": [
+    {
+      "name": "model_dir_exists",
+      "ok": true,
+      "severity": "hard",
+      "detail": "/scratch/pabitra/models/Qwen3.5-397B-A17B-NVFP4"
+    },
+    {
+      "name": "manifest_present",
+      "ok": true,
+      "severity": "hard",
+      "detail": "large_judge_full_reserve.json"
+    },
+    {
+      "name": "files_match_manifest",
+      "ok": true,
+      "severity": "hard",
+      "detail": "24 manifest files, missing=[]"
+    },
+    {
+      "name": "safetensors_consistent",
+      "ok": true,
+      "severity": "hard",
+      "detail": "11 files, 371474 tensors, dtypes={'F32': 184350, 'BF16': 2804, 'F8_E4M3': 92160, 'U8': 92160}"
+    },
+    {
+      "name": "config_loads",
+      "ok": true,
+      "severity": "hard",
+      "detail": "qwen3_5_moe, layers=60, hidden=4096"
+    },
+    {
+      "name": "chat_tokenizer_loads",
+      "ok": true,
+      "severity": "hard",
+      "detail": "vocab=248077 pad='<|endoftext|>'"
+    },
+    {
+      "name": "chat_template_markers",
+      "ok": true,
+      "severity": "hard",
+      "detail": "family=qwen marker='<|im_start|>' prefix='<|im_start|>system\\nYou are a precise physics problem solver.'"
+    },
+    {
+      "name": "cue_token_lookup",
+      "ok": true,
+      "severity": "hard",
+      "detail": "index=91 of 141, token='In'"
+    },
+    {
+      "name": "architecture_instantiates_on_meta",
+      "ok": true,
+      "severity": "hard",
+      "detail": "Qwen3_5MoeForCausalLM, 396.35B params, stored elements 234.28B"
+    }
+  ],
+  "facts": {
+    "repo_id": "nvidia/Qwen3.5-397B-A17B-NVFP4",
+    "path": "/scratch/pabitra/models/Qwen3.5-397B-A17B-NVFP4",
+    "backend": "baukit",
+    "revision": "12b28061efd8145b11226e4fab2528ee4f39ef09",
+    "safetensors": {
+      "files": 11,
+      "tensors": 371474,
+      "total_elements": 234283776014,
+      "dtype_counts": {
+        "F32": 184350,
+        "BF16": 2804,
+        "F8_E4M3": 92160,
+        "U8": 92160
+      },
+      "index_entries_without_tensor": [],
+      "index_missing_count": 0
+    },
+    "num_layers": 60,
+    "hidden_size": 4096,
+    "model_type": "qwen3_5_moe",
+    "prompt_tokens": 141,
+    "meta_model": {
+      "class": "Qwen3_5MoeForCausalLM",
+      "parameters": 396346350336
+    }
+  },
+  "passed": true
+}

@@ -1,0 +1,112 @@
+{
+  "checks": [
+    {
+      "name": "model_dir_exists",
+      "ok": true,
+      "severity": "hard",
+      "detail": "/scratch/pabitra/models/Qwen2.5-3B-Instruct"
+    },
+    {
+      "name": "manifest_present",
+      "ok": true,
+      "severity": "hard",
+      "detail": "qwen_3b.json"
+    },
+    {
+      "name": "files_match_manifest",
+      "ok": true,
+      "severity": "hard",
+      "detail": "12 manifest files, missing=[]"
+    },
+    {
+      "name": "safetensors_consistent",
+      "ok": true,
+      "severity": "hard",
+      "detail": "2 files, 434 tensors, dtypes={'BF16': 434}"
+    },
+    {
+      "name": "config_loads",
+      "ok": true,
+      "severity": "hard",
+      "detail": "qwen2, layers=36, hidden=2048"
+    },
+    {
+      "name": "registry_num_layers_matches_config",
+      "ok": true,
+      "severity": "hard",
+      "detail": "registry=36 config=36"
+    },
+    {
+      "name": "registry_hidden_dim_matches_config",
+      "ok": true,
+      "severity": "hard",
+      "detail": "registry=2048 config=2048"
+    },
+    {
+      "name": "chat_tokenizer_loads",
+      "ok": true,
+      "severity": "hard",
+      "detail": "vocab=151665 pad='<|endoftext|>'"
+    },
+    {
+      "name": "chat_template_markers",
+      "ok": true,
+      "severity": "hard",
+      "detail": "family=qwen marker='<|im_start|>' prefix='<|im_start|>system\\nYou are a precise physics problem solver.'"
+    },
+    {
+      "name": "cue_token_lookup",
+      "ok": true,
+      "severity": "hard",
+      "detail": "index=89 of 136, token='In'"
+    },
+    {
+      "name": "architecture_instantiates_on_meta",
+      "ok": true,
+      "severity": "hard",
+      "detail": "Qwen2ForCausalLM, 3.09B params, stored elements 3.09B"
+    },
+    {
+      "name": "transformer_lens_supports_model",
+      "ok": true,
+      "severity": "hard",
+      "detail": {
+        "official": "Qwen/Qwen2.5-3B-Instruct",
+        "n_layers": 36,
+        "d_model": 2048,
+        "n_heads": 16
+      }
+    }
+  ],
+  "facts": {
+    "repo_id": "Qwen/Qwen2.5-3B-Instruct",
+    "path": "/scratch/pabitra/models/Qwen2.5-3B-Instruct",
+    "backend": "transformer_lens",
+    "revision": "aa8e72537993ba99e69dfaafa59ed015b17504d1",
+    "safetensors": {
+      "files": 2,
+      "tensors": 434,
+      "total_elements": 3085938688,
+      "dtype_counts": {
+        "BF16": 434
+      },
+      "index_entries_without_tensor": [],
+      "index_missing_count": 0
+    },
+    "num_layers": 36,
+    "hidden_size": 2048,
+    "model_type": "qwen2",
+    "prompt_tokens": 136,
+    "meta_model": {
+      "class": "Qwen2ForCausalLM",
+      "parameters": 3085938688
+    },
+    "transformer_lens": {
+      "official": "Qwen/Qwen2.5-3B-Instruct",
+      "n_layers": 36,
+      "d_model": 2048,
+      "n_heads": 16
+    }
+  },
+  "passed": true
+}

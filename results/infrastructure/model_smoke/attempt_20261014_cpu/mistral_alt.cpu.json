@@ -1,0 +1,83 @@
+{
+  "checks": [
+    {
+      "name": "model_dir_exists",
+      "ok": true,
+      "severity": "hard",
+      "detail": "/scratch/pabitra/models/Mistral-7B-Instruct-v0.3"
+    },
+    {
+      "name": "manifest_present",
+      "ok": true,
+      "severity": "hard",
+      "detail": "mistral_alt.json"
+    },
+    {
+      "name": "files_match_manifest",
+      "ok": true,
+      "severity": "hard",
+      "detail": "15 manifest files, missing=[]"
+    },
+    {
+      "name": "safetensors_consistent",
+      "ok": true,
+      "severity": "hard",
+      "detail": "4 files, 582 tensors, dtypes={'BF16': 582}"
+    },
+    {
+      "name": "config_loads",
+      "ok": true,
+      "severity": "hard",
+      "detail": "mistral, layers=32, hidden=4096"
+    },
+    {
+      "name": "chat_tokenizer_loads",
+      "ok": true,
+      "severity": "hard",
+      "detail": "vocab=32768 pad='</s>'"
+    },
+    {
+      "name": "chat_template_markers",
+      "ok": true,
+      "severity": "hard",
+      "detail": "family=mistral marker='[INST]' prefix='<s>[INST] You are a precise physics problem solver. Solve th'"
+    },
+    {
+      "name": "cue_token_lookup",
+      "ok": true,
+      "severity": "hard",
+      "detail": "index=91 of 138, token='\\n'"
+    },
+    {
+      "name": "architecture_instantiates_on_meta",
+      "ok": true,
+      "severity": "hard",
+      "detail": "MistralForCausalLM, 7.25B params, stored elements 14.50B"
+    }
+  ],
+  "facts": {
+    "repo_id": "mistralai/Mistral-7B-Instruct-v0.3",
+    "path": "/scratch/pabitra/models/Mistral-7B-Instruct-v0.3",
+    "backend": "baukit",
+    "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+    "safetensors": {
+      "files": 4,
+      "tensors": 582,
+      "total_elements": 14496047104,
+      "dtype_counts": {
+        "BF16": 582
+      },
+      "index_entries_without_tensor": [],
+      "index_missing_count": 0
+    },
+    "num_layers": 32,
+    "hidden_size": 4096,
+    "model_type": "mistral",
+    "prompt_tokens": 138,
+    "meta_model": {
+      "class": "MistralForCausalLM",
+      "parameters": 7248023552
+    }
+  },
+  "passed": true
+}
