@@ -25,16 +25,17 @@ GIT_COMMIT_FALLBACK_FILENAME = ".physmon_git_commit"
 def get_git_commit(repo_root: str | Path | None = None) -> str:
     """Return the current Git commit hash, or `UNKNOWN` when unavailable.
 
+    The live repository is authoritative: `git rev-parse` is tried first so a
+    stale environment variable or marker file can never mislabel a run. The
+    `PHYSMON_GIT_COMMIT` variable and the `.physmon_git_commit` file are only
+    consulted when Git itself cannot answer (for example, outside a checkout).
+
     Args:
         repo_root: Optional repository root used for the Git query.
 
     Returns:
         Short Git commit hash or `UNKNOWN`.
     """
-
-    environment_commit = os.environ.get("PHYSMON_GIT_COMMIT", "").strip()
-    if environment_commit:
-        return environment_commit
 
     command = ["git", "rev-parse", "--short", "HEAD"]
     try:
@@ -46,14 +47,23 @@ def get_git_commit(repo_root: str | Path | None = None) -> str:
             text=True,
         )
     except (OSError, subprocess.CalledProcessError):
-        repo_path = Path(repo_root).resolve() if repo_root is not None else Path.cwd()
-        fallback_path = repo_path / GIT_COMMIT_FALLBACK_FILENAME
-        if fallback_path.exists():
-            fallback_commit = fallback_path.read_text(encoding="utf-8").strip()
-            if fallback_commit:
-                return fallback_commit
-        return "UNKNOWN"
-    return completed.stdout.strip() or "UNKNOWN"
+        pass
+    else:
+        live_commit = completed.stdout.strip()
+        if live_commit:
+            return live_commit
+
+    environment_commit = os.environ.get("PHYSMON_GIT_COMMIT", "").strip()
+    if environment_commit:
+        return environment_commit
+
+    repo_path = Path(repo_root).resolve() if repo_root is not None else Path.cwd()
+    fallback_path = repo_path / GIT_COMMIT_FALLBACK_FILENAME
+    if fallback_path.exists():
+        fallback_commit = fallback_path.read_text(encoding="utf-8").strip()
+        if fallback_commit:
+            return fallback_commit
+    return "UNKNOWN"
 
 
 @dataclass

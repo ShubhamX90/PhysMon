@@ -26,28 +26,21 @@ reported before hidden-state claims are interpreted (§6.2 and §9).
 - `results/`: small summary outputs only. Large tensors and activation-derived artifacts
   live on Sharanga scratch.
 
-## Sync Invariant
+## Working Model
 
-The local repository and `~/PhysMons/` on Sharanga must be deployed from a reviewed,
-committed source snapshot before job submission. Always inspect the direction-specific
-dry-run first:
+PhysMon is edited, tested, and run directly on Sharanga in `~/PhysMons` (Claude Code
+over Remote SSH). GitHub (`origin`, reached over SSH as
+`git@github-physmon:ShubhamX90/PhysMon.git`) is the shared record for review and
+handoff. There is no maintained laptop mirror and no sync step. Jobs read the live
+worktree, so commit and push from a clean tree before a serious run and record the
+full SHA.
 
-```bash
-make remote-preflight
-make sync-plan-up
-make sync-up
-python scripts/ops/remote_preflight.py --strict --expect-aligned
-
-make sync-plan-down
-make sync-down
-```
-
-`sync-up` and `sync-down` are non-destructive by default. `sync-check` remains a
-backward-compatible alias for `sync-plan-up`; `sync-plan-prune` is inspection only and
-never deletes. Large model weights, activation tensors, generated data, Slurm working
-files, and remote deployment-lease state are excluded from normal syncs. See
+The old `make sync-*` / `remote-preflight` targets and the `scripts/ops/` lease helpers
+belong to the retired mirror workflow. The Makefile targets refuse to run unless
+`PHYSMON_ALLOW_SYNC=1` is set. See
 [`skills/physmon-sharanga/SKILL.md`](skills/physmon-sharanga/SKILL.md) for the shared
-Sharanga and Slurm workflow.
+Sharanga, Git, and Slurm workflow. Large model weights, activation tensors, generated
+data, and Slurm working files stay out of Git.
 
 ## Development
 

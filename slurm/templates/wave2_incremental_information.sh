@@ -15,6 +15,8 @@ source "$(conda info --base)/etc/profile.d/conda.sh"
 conda activate physmon
 set -u
 
+# Ignore ~/.local user-site packages from other projects on this shared account.
+export PYTHONNOUSERSITE=1
 export SCRATCH=/scratch/pabitra
 export PHYSMON_ROOT="$HOME/PhysMons"
 export PYTHONPATH="$PHYSMON_ROOT/src:${PYTHONPATH:-}"

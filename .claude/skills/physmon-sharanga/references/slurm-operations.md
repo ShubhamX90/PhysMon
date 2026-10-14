@@ -116,7 +116,7 @@ nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv,noheader ||
 python --version
 ```
 
-Use `set -euo pipefail` for new templates. Existing templates using only
+The generic templates (`a100_single`, `h100_*`, `h200_*`) now print the commit, Python version, and `git status --short` at job start, and no longer export a stale commit marker; older stage templates still contain the retired marker block and a `make sync-up` echo, which are harmless because the marker file no longer exists. Use `set -euo pipefail` for new templates. Existing templates using only
 `set -eo pipefail` are historical context, not a reason to omit unset-variable
 checks in a new job. Make input/output directories before writing, and reject
 an existing nonempty attempt directory unless the task explicitly supports a

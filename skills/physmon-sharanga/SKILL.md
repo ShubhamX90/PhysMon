@@ -14,7 +14,7 @@ The normal setup is **Claude Code connected to Sharanga over Remote SSH**. The s
 | Location | Purpose | Authority |
 |---|---|---|
 | `~/PhysMons` on Sharanga | The working repository: editing, testing, committing, and job submission | The live worktree. Its uncommitted state is real work and may be read by queued or running jobs |
-| `origin` on GitHub | Shared record for viewing, review, and handoff | Git history and branch state. Anything not pushed exists only on the cluster |
+| `origin` on GitHub | Shared record for viewing, review, and handoff. Reached over SSH (see "GitHub Access") | Git history and branch state. Anything not pushed exists only on the cluster |
 | `/scratch/pabitra/physmon` | Models, activations, logs, checkpoints, large intermediates | Non-Git runtime data; never assume it can be reconstructed |
 | Any laptop clone | Optional, read-only convenience | Never authoritative. Do not push from it or sync files to or from it unless the user asks |
 
@@ -22,14 +22,32 @@ The retired mirror-and-rsync workflow (`make sync-up`, `sync-down`, `sync-plan-*
 
 The `pabitra` account is shared. Several people or agents can operate in the same worktree, so a dirty tree, an unfamiliar branch, or an unexplained file is an ownership question, not debris.
 
+## GitHub Access (SSH)
+
+`origin` is reached over SSH with a repository-scoped deploy key, so fetch and push never prompt for credentials:
+
+| Item | Value |
+|---|---|
+| Remote URL | `git@github-physmon:ShubhamX90/PhysMon.git` |
+| Host alias | `github-physmon` in `~/.ssh/config` (`HostName github.com`, `IdentitiesOnly yes`) |
+| Key | `~/.ssh/github_physmon` (ed25519, no passphrase). Deploy key `sharanga-physmon` with write access to this repository only |
+| Check | `ssh -T git@github-physmon` prints `Hi ShubhamX90/PhysMon! You've successfully authenticated...` |
+
+Rules:
+
+- Use only this alias and key for PhysMon. `~/.ssh/github_breast_cancer_pnstage` and `~/.ssh/id_ed25519` belong to other work on the shared account. Never use them, never print or copy a private key, and never embed a token in a remote URL.
+- If the check fails or a push is refused for permissions, do not improvise (no other key, no HTTPS token, no new remote). Report the exact error. Likely causes: the deploy key was removed or lacks write access in the GitHub repository settings, `origin` was reverted to an `https://` URL (`git remote -v`; restore with `git remote set-url origin git@github-physmon:ShubhamX90/PhysMon.git`), or `main` is branch-protected.
+- Pushing is still an external state change: push only when the current task authorizes it.
+- Recreating the key needs the user, because the public key must be added on GitHub (repository Settings, Deploy keys, "Allow write access"). Details are in [Git and Remote Workflow](references/git-and-sync.md).
+
 Read [Git and Remote Workflow](references/git-and-sync.md) for every task that can modify code, results, or Git state. Read [Sharanga Environment Snapshot](references/sharanga-environment.md) before selecting resources or a runtime environment. Read [Slurm Operations](references/slurm-operations.md) before any job action. Read [Operational Playbook](references/operational-playbook.md) for shift start, job provenance, and handoff.
 
 ## First Five Minutes
 
 1. Read the project's scientific-governance instructions (`README.md`, the applicable brief, decision log). They can forbid jobs, follow-up experiments, or paper claims even when this skill normally supports them.
 2. Confirm where you are: `hostname`, `pwd`, `git rev-parse --show-toplevel`. Inspect branch, HEAD commit, and `git status --short`. Do not touch dirty files you did not create.
-3. `git fetch origin` and compare the branch with its upstream. Resolve divergence by reading it, never by reset or force.
-4. Inspect the cluster read-only: `squeue` (whole queue, not just your jobs), `sinfo`, `df -h /scratch/pabitra`, and the previous handoff if one exists. Live Slurm output outranks the dated snapshot.
+3. `git fetch origin` and compare the branch with its upstream. Resolve divergence by reading it, never by reset or force. If the fetch fails on authentication, see "GitHub Access".
+4. Inspect the cluster read-only: `squeue` (whole queue, not just your jobs), `sinfo`, `df -h /scratch/pabitra`, and the previous handoff if one exists. Live Slurm output outranks the dated snapshot. Also confirm the scratch roots exist: `ls -ld /scratch/pabitra/physmon /scratch/pabitra/rag-reason/models`. If they are missing (as on 2026-10-14, which left the repo's `activations` symlink dangling), model, GPU, and activation work is blocked. Do not recreate or re-download anything without the user's approval.
 5. Check whether any queued or running job reads files in the worktree (see "Editing While Jobs Are Live" below) before changing source, templates, panels, or configs.
 
 A live-cluster action (submitting, holding, or cancelling a job; deleting or moving scratch data) needs explicit authorization in the current task. Read-only inspection does not.
@@ -37,7 +55,7 @@ A live-cluster action (submitting, holding, or cancelling a job; deleting or mov
 ## Edit, Commit, and Push
 
 1. Work on an attributable branch for any bounded change (for example `claude/<short-task>`); keep `main` as integration history. Continue an existing branch only after reading its history and handoff.
-2. Make a focused change and run proportionate tests (`make test`, `make lint`, or the specific test file). Report results honestly.
+2. Make a focused change and run proportionate tests (`make test`, `make lint`, or the specific test file). Report results honestly. The Makefile finds `ruff`, `pytest`, and `python3` itself (`./.venv`, then the `physmon` conda env, then PATH), so no environment activation is needed. The pre-commit hook runs `make lint`; if it fails, fix the finding. Never bypass it with `--no-verify`.
 3. Stage only the files belonging to the change (`git add <paths>`), never `git add -A` in a shared tree. Commit with a message that states what and why.
 4. `git push` only with permission for the current task. GitHub is where teammates and the user read the code, so unpushed work is invisible to them.
 5. Never use `git reset --hard`, `git checkout -- <path>`, `git clean`, `git stash drop`, a force push, or a blind `git pull --rebase` to resolve a shared worktree. Preserve facts first (`git status`, `git log`, `git diff`), then decide.

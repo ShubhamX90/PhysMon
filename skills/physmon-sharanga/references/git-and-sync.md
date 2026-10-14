@@ -7,11 +7,48 @@ Use this reference whenever a PhysMon task changes versioned code, commits or pu
 ## Current project contract
 
 - Claude Code runs on Sharanga via Remote SSH. The working repository is `~/PhysMons` under the shared `pabitra` account.
-- GitHub `origin` is where the user and teammates read the code and review work. It is the shared record, but it only contains what has been pushed.
-- There is no maintained mirror on a laptop. The old `make sync-up`, `sync-down`, `sync-plan-*`, `sync-check`, the `.physmon_ops/deployment_commit` marker, `scripts/ops/physmon_remote_lease.sh`, and `scripts/ops/remote_preflight.py --expect-aligned` belonged to that workflow. They may remain in the repository; do not run them unless the user explicitly asks to sync a workstation copy.
+- GitHub `origin` is where the user and teammates read the code and review work. It is the shared record, but it only contains what has been pushed. It is reached over SSH (see "GitHub authentication" below).
+- There is no maintained mirror on a laptop. The old `make sync-up`, `sync-down`, `sync-plan-*`, `sync-check`, the `.physmon_ops/deployment_commit` marker, `scripts/ops/physmon_remote_lease.sh`, and `scripts/ops/remote_preflight.py --expect-aligned` belonged to that workflow. They may remain in the repository; the Makefile targets now refuse to run unless `PHYSMON_ALLOW_SYNC=1` is set, and you must not set it unless the user explicitly asks to sync a workstation copy. The tracked legacy marker `.physmon_git_commit` was removed on 2026-10-14 because it held a stale SHA; `get_git_commit` now trusts live `git rev-parse` first.
 - Large files stay out of Git: activations, virtual environments, Python caches, model/checkpoint formats, `data/generated`, `slurm/submitted`. Keep them on scratch and reference them from manifests.
 
 Because the worktree is both the editing surface and the thing jobs run from, the two main hazards are (1) another person's or agent's uncommitted work in the same tree, and (2) editing files that a pending or running job will read. Everything below addresses those.
+
+## GitHub authentication
+
+Configured and verified 2026-10-14. Fetch and push work without prompts.
+
+```bash
+git remote -v                      # expect git@github-physmon:ShubhamX90/PhysMon.git
+ssh -T git@github-physmon          # expect: Hi ShubhamX90/PhysMon! You've successfully authenticated...
+```
+
+- The remote host `github-physmon` is an alias in `~/.ssh/config` that selects only `~/.ssh/github_physmon` (`IdentitiesOnly yes`). The key is an ed25519 deploy key named `sharanga-physmon` with write access to this repository only. It has no passphrase, so unattended pushes work. That is acceptable because it cannot reach any other repository.
+- The shared account holds keys for other projects (`github_breast_cancer_pnstage`, `id_ed25519`). Never use them for PhysMon, never read or print private keys, and never put a token in a remote URL or in `git config`.
+- Commit authorship comes from the repository's git identity, not from the key. The key only decides who may push.
+- Failure handling: report the exact error and stop. Do not try other keys, HTTPS tokens, or a different remote.
+
+| Symptom | Likely cause | Action |
+|---|---|---|
+| `could not read Username for 'https://github.com'` | `origin` is an `https://` URL | `git remote set-url origin git@github-physmon:ShubhamX90/PhysMon.git`, then re-check |
+| `Permission denied (publickey)` | Deploy key removed from GitHub, or key or config file missing or changed | Ask the user to check Settings, Deploy keys. Check that `~/.ssh/github_physmon` and the `Host github-physmon` block exist |
+| `ERROR: The key you are using is read-only` or a write refusal | Deploy key lacks "Allow write access" | Ask the user to re-add it with write access |
+| Push rejected by a protected-branch rule | `main` is protected | Push a `claude/<task>` branch and ask the user how to merge |
+| `Host key verification failed` | Changed or missing GitHub host key | Do not bypass. Report it to the user |
+
+Recreating the key (the user must add the public key on GitHub, so this needs them):
+
+```bash
+# First confirm ~/.ssh/github_physmon does not already exist: ssh-keygen would prompt before overwriting it.
+ssh-keygen -t ed25519 -N "" -C "sharanga-physmon" -f ~/.ssh/github_physmon
+# ~/.ssh/config needs:
+#   Host github-physmon
+#     HostName github.com
+#     User git
+#     IdentityFile ~/.ssh/github_physmon
+#     IdentitiesOnly yes
+#     StrictHostKeyChecking accept-new
+cat ~/.ssh/github_physmon.pub       # user pastes this at GitHub repo Settings > Deploy keys, with "Allow write access"
+```
 
 ## Shift-start inspection
 
@@ -62,6 +99,7 @@ Then decide whether it is an independent commit, a reviewed merge, or a conflict
 
 - Stage explicit paths. `git add -A` and `git commit -a` can sweep in another session's files in a shared tree.
 - Check `git diff --cached --stat` before committing.
+- `core.hooksPath` is `.githooks`, so every commit runs `make lint` (ruff plus the forbidden-phrase check). The Makefile resolves `ruff`, `pytest`, and `python3` from `./.venv`, then the `physmon` conda env (`PHYSMON_ENV`, default `~/.conda/envs/physmon`), then PATH, so no activation is needed. A hook failure is a real finding or a broken environment: fix it. Do not use `--no-verify`.
 - Commit and push are external state changes; do them only when the current task authorizes them. Because no mirror exists, ask the user at natural checkpoints (end of a working change, before a long job) whether to push, so work is backed up on GitHub.
 - Never commit model weights, activation tensors, caches, or scratch checkpoints. Check `git status` for large untracked paths before staging.
 - The untracked `activations` path observed at the repo root is a known pre-existing condition. Do not delete, stage, or `git clean` it.

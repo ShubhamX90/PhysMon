@@ -19,8 +19,18 @@ account data as shown below.
 | Model-store link | `/scratch/pabitra/physmon/models` | Symlink observed to `/scratch/pabitra/rag-reason/models`. |
 | Conda environment | `physmon` | Activated by templates after conda shell setup. |
 
-`origin` is the PhysMon GitHub repository. The checkout had
-an untracked `activations` path at audit time. This does not authorize cleanup:
+`origin` is the PhysMon GitHub repository (`ShubhamX90/PhysMon`), reached over SSH
+through the `github-physmon` alias and the `~/.ssh/github_physmon` deploy key (see
+`SKILL.md`, "GitHub Access"). The checkout had an untracked `activations` path at audit time.
+
+**Known condition, 2026-10-14:** `/scratch/pabitra/physmon` and
+`/scratch/pabitra/rag-reason/models` did not exist, so the `activations` symlink
+was dangling and every model path in `docs/model_registry.yml` and every
+`#SBATCH --output` log path pointed at a missing location. Scratch itself was
+healthy (about 150T free). The cause was not established. Verify these paths at
+shift start; if they are still missing, model, GPU, and activation work is
+blocked until the user restores or relocates them. Do not recreate or
+re-download anything without approval. This does not authorize cleanup:
 read it as a pre-existing operational condition until its owner and target are
 known.
 
@@ -129,6 +139,13 @@ An interactive audit loaded no environment modules. The observed environment
 had Python 3.11.15, Torch 2.7.1, PyTorch CUDA 12.1, TransformerLens 3.4,
 Transformers 5.11, Accelerate 1.14, Baukit 0.0.1, SymPy 1.14, scikit-learn
 1.9, and Ruff 0.15.17. That records a working snapshot, not an invariant.
+
+The shared account's `~/.local/lib/python3.11/site-packages` (user site) holds
+packages from other projects. On 2026-10-12 a `huggingface-hub 2.2.0` there
+shadowed the env's 1.18.0 and broke `import transformers` for any non-isolated
+`python`. The Makefile and the generic templates now set `PYTHONNOUSERSITE=1`.
+Do the same in any new template or ad hoc command that imports the model stack,
+and never modify or delete the user-site packages, which belong to other work.
 
 Do not add `module load cuda` only because a GPU partition is selected. It may
 conflict with the conda runtime. First inspect the current template and test

@@ -14,25 +14,27 @@ source "$(conda info --base)/etc/profile.d/conda.sh"
 conda activate physmon
 set -u
 
+# Ignore ~/.local user-site packages from other projects on this shared account.
+export PYTHONNOUSERSITE=1
 export SCRATCH=/scratch/pabitra
 export PHYSMON_ROOT="$HOME/PhysMons"
 export PYTHONPATH="$PHYSMON_ROOT/src:${PYTHONPATH:-}"
 export HF_HOME="$SCRATCH/physmon/hf_cache"
 export TRANSFORMERS_CACHE="$SCRATCH/physmon/hf_cache"
-if [ -f "$PHYSMON_ROOT/.physmon_git_commit" ]; then
-  export PHYSMON_GIT_COMMIT="$(cat "$PHYSMON_ROOT/.physmon_git_commit")"
-fi
+
+cd "$PHYSMON_ROOT"
 
 echo "=== PhysMon Job Start ==="
-echo "Reminder: run 'make sync-up' from the Mac repo before submitting jobs."
 echo "Job ID:    ${SLURM_JOB_ID:-unknown}"
 echo "Node:      $(hostname)"
 echo "GPU:       $(nvidia-smi --query-gpu=name --format=csv,noheader)"
 echo "Script:    ${SCRIPT:?'ERROR: SCRIPT variable not set'}"
 echo "Args:      ${ARGS:-none}"
+echo "Commit:    $(git rev-parse HEAD)"
+echo "Python:    $(python --version 2>&1)"
+echo "Git status (short):"
+git status --short || true
 echo "========================================="
-
-cd "$PHYSMON_ROOT"
 
 python "$SCRIPT" ${ARGS:-}
 
