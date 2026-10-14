@@ -89,6 +89,31 @@ the task-to-family mapping, and validate every shard before aggregate summary.
 The `%2` cap must also respect account job/GPU limits. It does not make a
 panel scientifically independent or authorize chained follow-up experiments.
 
+## Choosing a GPU partition from live data
+
+Do not default to a partition from habit. Free GPUs change hourly, and the shared `pabitra`
+account also runs other projects whose jobs consume the same per-user QoS caps.
+
+```bash
+# Per-node GPUs: compare CfgTRES with AllocTRES (all four GPU nodes of interest)
+scontrol show node gpunode4,gpunode5,gpunode6,gpunode7 | egrep "NodeName|State=|CfgTRES|AllocTRES"
+# What is queued ahead, and why
+squeue -h -p gpu_h100_4 -o "%i|%u|%T|%j|%b|%R"
+# Estimated start per candidate, without submitting (repeat for each partition/GRES)
+sbatch --test-only --time=03:00:00 --partition=gpu_h100_4 --gres=gpu:nvidia_h100_80gb_hbm3:1 --cpus-per-task=8 --mem=90G --wrap="true"
+# Caps and what the account already holds
+sacctmgr -n -P show qos format=Name,MaxTRESPerUser,MaxJobsPU
+squeue -h -u pabitra -o "%i|%T|%P|%j|%b|%R"
+```
+
+Pick the partition with the earliest estimated start that fits the model and the QoS caps.
+On 2026-10-14 all 8 A100s were busy (estimated start two days out) and H200 was blocked by
+another project's job holding the account's whole H200 allowance, while one H100 slot was
+free the same evening. Count GPUs held by the account's non-PhysMon jobs too, since the
+caps apply per user, not per project. Per-user caps seen that day: H100 one H100 GPU, 12
+CPU, 300G; A100 two GPUs; H200 two GPUs, 12 CPU, 300G. A one-GPU cap means one job at a
+time, so run models in sequence inside a single job and write per-model results as you go.
+
 ## Template and runtime contract
 
 Start from a current generic template in `slurm/templates/`, not an old copy in
