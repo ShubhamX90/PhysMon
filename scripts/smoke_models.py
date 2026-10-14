@@ -273,7 +273,10 @@ def gpu_phase(model_key: str, family: dict[str, Any], rb: Any, out: Path, device
         tokenizer.pad_token = tokenizer.eos_token
     prompt = rb.format_prompt_with_chat_template(variant["prompt"], tokenizer)
 
+    gen_started = time.time()
     completion = report.guarded("greedy_generation", lambda: rb.generate_completion(bundle, prompt, max_new_tokens))
+    report.facts["generation_seconds"] = round(time.time() - gen_started, 1)
+    report.facts["generation_device"] = str(first_param.device)
     if completion is not None:
         report.check(
             "greedy_generation",
@@ -319,8 +322,14 @@ def gpu_phase(model_key: str, family: dict[str, Any], rb: Any, out: Path, device
             cue_index = find_cue_token_index(prompt, variant["cue_sentence"], tokenizer)
             states = extract_targeted_activations(
                 bundle.hooked_model, prompt, ids[0].tolist(), [cue_index], layers=[layer],
-                sites=["resid_post_last_prompt", "resid_post_cue_token"], dtype="float16",
+                sites=["resid_post", "attn_out"], dtype="float16",
             )
+            expected_keys = {
+                f"resid_post_last_prompt_layer{layer}", f"resid_post_cue_token0_layer{layer}",
+                f"attn_out_last_prompt_layer{layer}", f"attn_out_cue_token0_layer{layer}",
+            }
+            if set(states) != expected_keys:
+                raise ValueError(f"unexpected keys: {sorted(set(states) ^ expected_keys)}")
             return {key: tuple(value.shape) for key, value in states.items()}
 
         shapes = report.guarded("activation_extraction", activations)
@@ -329,10 +338,11 @@ def gpu_phase(model_key: str, family: dict[str, Any], rb: Any, out: Path, device
             report.check("activation_extraction", all(s == (hidden,) for s in shapes.values()), shapes)
 
         def parity() -> dict[str, Any]:
-            ids = tokenizer(prompt, return_tensors="pt", add_special_tokens=True).input_ids.to(first_param.device)
+            ids = tokenizer(prompt, return_tensors="pt", add_special_tokens=True).input_ids
+            tl_device = next(bundle.hooked_model.parameters()).device
             with torch.no_grad():
-                hf_logits = bundle.hf_model(ids).logits[0, -1].float()
-                tl_logits = bundle.hooked_model(ids)[0, -1].float()
+                hf_logits = bundle.hf_model(ids.to(first_param.device)).logits[0, -1].float().cpu()
+                tl_logits = bundle.hooked_model(ids.to(tl_device))[0, -1].float().cpu()
             cosine = torch.nn.functional.cosine_similarity(hf_logits, tl_logits, dim=0).item()
             return {
                 "top1_equal": int(hf_logits.argmax()) == int(tl_logits.argmax()),
