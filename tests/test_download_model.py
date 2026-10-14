@@ -64,3 +64,56 @@ def test_verify_rejects_tampered_non_lfs_file(tmp_path):
     records = download_model.verify_files(tmp_path, [_sibling("config.json", b"{}", lfs=False)])
     assert records[0]["verified"] is False
     assert records[0]["problem"] == "hash mismatch"
+
+
+def _pointer_sibling(path):
+    """A listing that reports a 130-byte non-LFS file, like a pointer the API mis-describes."""
+    return {"path": path, "size": 130, "blob_id": "x" * 40, "lfs_sha256": None}
+
+
+def test_listing_size_mismatch_is_resolved_via_endpoint_hash(tmp_path):
+    content = b"real tokenizer bytes" * 10
+    (tmp_path / "tokenizer.model").write_bytes(content)
+    good = {"size": len(content), "sha256": hashlib.sha256(content).hexdigest()}
+    records = download_model.verify_files(
+        tmp_path, [_pointer_sibling("tokenizer.model")], fallback=lambda _path: good
+    )
+    assert records[0]["verified"] is True
+    assert "resolve endpoint" in records[0]["note"]
+    assert records[0]["size"] == len(content)
+
+
+def test_listing_size_mismatch_still_fails_on_wrong_endpoint_hash(tmp_path):
+    content = b"real tokenizer bytes" * 10
+    (tmp_path / "tokenizer.model").write_bytes(content)
+    wrong = {"size": len(content), "sha256": hashlib.sha256(b"other").hexdigest()}
+    records = download_model.verify_files(
+        tmp_path, [_pointer_sibling("tokenizer.model")], fallback=lambda _path: wrong
+    )
+    assert records[0]["verified"] is False
+    assert records[0]["problem"] == "hash mismatch"
+
+
+def test_listing_size_mismatch_fails_without_usable_fallback(tmp_path):
+    (tmp_path / "tokenizer.model").write_bytes(b"abc")
+    sibling = _pointer_sibling("tokenizer.model")
+    no_fallback = download_model.verify_files(tmp_path, [sibling])
+    unavailable = download_model.verify_files(tmp_path, [sibling], fallback=lambda _p: None)
+    wrong_size = download_model.verify_files(
+        tmp_path, [sibling], fallback=lambda _p: {"size": 999, "sha256": "a" * 64}
+    )
+    for records in (no_fallback, unavailable, wrong_size):
+        assert records[0]["verified"] is False
+        assert records[0]["problem"] == "size 3 != 130"
+
+
+def test_fallback_is_not_consulted_when_listing_size_matches(tmp_path):
+    (tmp_path / "config.json").write_bytes(b"{}")
+
+    def explode(_path):
+        raise AssertionError("fallback must not be called")
+
+    records = download_model.verify_files(
+        tmp_path, [_sibling("config.json", b"{}", lfs=False)], fallback=explode
+    )
+    assert records[0]["verified"] is True

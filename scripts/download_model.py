@@ -59,11 +59,18 @@ def git_blob_sha1(path: Path) -> str:
     return digest.hexdigest()
 
 
-def verify_files(root: Path, siblings: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def verify_files(
+    root: Path, siblings: list[dict[str, Any]], fallback: Any = None
+) -> list[dict[str, Any]]:
     """Check every published file exists with the published size and hash.
 
     Each sibling dict needs `path`, `size`, `blob_id`, and `lfs_sha256` (None for non-LFS).
     Returns one record per file, with `verified` True only when the content hash matched.
+
+    `fallback(path)` may return `{"size": int, "sha256": str}` taken from the resolve
+    endpoint. It is consulted only when the file listing's size disagrees with the file on
+    disk (for example an LFS pointer the listing reports as a 130-byte file). The local
+    content must then match the endpoint's size and SHA-256 exactly.
     """
 
     records = []
@@ -77,10 +84,24 @@ def verify_files(root: Path, siblings: list[dict[str, Any]]) -> list[dict[str, A
             "verified": False,
             "problem": None,
         }
+        actual_size = target.stat().st_size if target.is_file() else None
+        alternate = None
         if not target.is_file():
             record["problem"] = "missing"
-        elif sibling["size"] is not None and target.stat().st_size != sibling["size"]:
-            record["problem"] = f"size {target.stat().st_size} != {sibling['size']}"
+        elif sibling["size"] is not None and actual_size != sibling["size"]:
+            alternate = fallback(sibling["path"]) if fallback else None
+            if alternate and alternate["size"] == actual_size and alternate["sha256"]:
+                record["sha256"] = sha256_file(target)
+                record["verified"] = record["sha256"] == alternate["sha256"]
+                record["size"] = actual_size
+                record["note"] = (
+                    f"listing size {sibling['size']} disagreed with disk; verified against the "
+                    "resolve endpoint's size and SHA-256"
+                )
+                if not record["verified"]:
+                    record["problem"] = "hash mismatch"
+            else:
+                record["problem"] = f"size {actual_size} != {sibling['size']}"
         else:
             record["sha256"] = sha256_file(target)
             if sibling["lfs_sha256"] is not None:
@@ -118,6 +139,20 @@ def resolve_siblings(repo_id: str, revision: str | None, token: Any) -> tuple[st
     return info.sha, siblings
 
 
+def endpoint_metadata(repo_id: str, revision: str, path: str, token: Any) -> dict[str, Any] | None:
+    """Size and SHA-256 the resolve endpoint reports for one file, or None if unavailable."""
+
+    from huggingface_hub import get_hf_file_metadata, hf_hub_url
+
+    try:
+        meta = get_hf_file_metadata(hf_hub_url(repo_id, path, revision=revision), token=token)
+    except Exception:  # network or permission problem: leave the file unverified
+        return None
+    etag = (meta.etag or "").strip('"')
+    sha256 = etag if len(etag) == 64 and all(ch in "0123456789abcdef" for ch in etag) else None
+    return {"size": meta.size, "sha256": sha256}
+
+
 def compatibility_checks(root: Path, spec: dict[str, Any]) -> dict[str, Any]:
     """Load config and tokenizer with the installed transformers (no weights, no GPU)."""
 
@@ -125,6 +160,8 @@ def compatibility_checks(root: Path, spec: dict[str, Any]) -> dict[str, Any]:
     from transformers import AutoConfig, AutoTokenizer
 
     config = AutoConfig.from_pretrained(root, local_files_only=True)
+    # Multimodal and MoE composites keep the language-model dimensions under text_config.
+    text_config = config.get_text_config() if hasattr(config, "get_text_config") else config
     tokenizer = AutoTokenizer.from_pretrained(root, local_files_only=True)
     messages = [
         {"role": "system", "content": "You are a physics assistant."},
@@ -134,8 +171,8 @@ def compatibility_checks(root: Path, spec: dict[str, Any]) -> dict[str, Any]:
     result: dict[str, Any] = {
         "transformers_version": transformers.__version__,
         "architectures": list(getattr(config, "architectures", None) or []),
-        "num_hidden_layers": getattr(config, "num_hidden_layers", None),
-        "hidden_size": getattr(config, "hidden_size", None),
+        "num_hidden_layers": getattr(text_config, "num_hidden_layers", None),
+        "hidden_size": getattr(text_config, "hidden_size", None),
         "chat_template_prefix": rendered[:120],
         "problems": [],
     }
@@ -214,7 +251,9 @@ def main() -> int:
     )
 
     print("verifying file hashes against Hugging Face", flush=True)
-    records = verify_files(staging, siblings)
+    records = verify_files(
+        staging, siblings, fallback=lambda path: endpoint_metadata(repo_id, revision, path, token)
+    )
     bad = [record for record in records if not record["verified"]]
     if bad:
         for record in bad:
