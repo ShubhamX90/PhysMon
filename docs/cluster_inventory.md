@@ -1,5 +1,10 @@
 # Sharanga Cluster Inventory
 
+> **Historical snapshot.** Paths and capacities below are from 2026-06-13. The cluster's
+> scratch was wiped in 2026-10 and the model weights now live under `/scratch/pabitra/models`
+> (`PHYSMON_MODEL_ROOT`), not `/scratch/pabitra/rag-reason/models`. See
+> `docs/model_registry.yml` and `docs/model_manifests/` for current locations.
+
 Date: 2026-06-13
 
 This inventory records the live Sharanga environment discovered for PhysMon Part II.

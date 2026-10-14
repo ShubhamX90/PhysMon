@@ -47,7 +47,7 @@ Read [Git and Remote Workflow](references/git-and-sync.md) for every task that c
 1. Read the project's scientific-governance instructions (`README.md`, the applicable brief, decision log). They can forbid jobs, follow-up experiments, or paper claims even when this skill normally supports them.
 2. Confirm where you are: `hostname`, `pwd`, `git rev-parse --show-toplevel`. Inspect branch, HEAD commit, and `git status --short`. Do not touch dirty files you did not create.
 3. `git fetch origin` and compare the branch with its upstream. Resolve divergence by reading it, never by reset or force. If the fetch fails on authentication, see "GitHub Access".
-4. Inspect the cluster read-only: `squeue` (whole queue, not just your jobs), `sinfo`, `df -h /scratch/pabitra`, and the previous handoff if one exists. Live Slurm output outranks the dated snapshot. Also confirm the scratch roots exist: `ls -ld /scratch/pabitra/physmon /scratch/pabitra/rag-reason/models`. If they are missing (as on 2026-10-14, which left the repo's `activations` symlink dangling), model, GPU, and activation work is blocked. Do not recreate or re-download anything without the user's approval.
+4. Inspect the cluster read-only: `squeue` (whole queue, not just your jobs), `sinfo`, `df -h /scratch/pabitra`, and the previous handoff if one exists. Live Slurm output outranks the dated snapshot. Also confirm the scratch roots exist: `ls -ld /scratch/pabitra/physmon /scratch/pabitra/models`. If they are missing (as on 2026-10-14, which left the repo's `activations` symlink dangling), model, GPU, and activation work is blocked. Do not recreate or re-download anything without the user's approval.
 5. Check whether any queued or running job reads files in the worktree (see "Editing While Jobs Are Live" below) before changing source, templates, panels, or configs.
 
 A live-cluster action (submitting, holding, or cancelling a job; deleting or moving scratch data) needs explicit authorization in the current task. Read-only inspection does not.
@@ -103,7 +103,8 @@ Use repository-relative paths in code and derive runtime roots from environment 
 - `~/PhysMons`: the working repository.
 - `/scratch/pabitra/physmon/activations*`: large model-derived artifacts; do not delete or move casually.
 - `/scratch/pabitra/physmon/slurm_logs`: stdout/stderr provenance.
-- `/scratch/pabitra/physmon/hf_cache` and the `models` symlink: shared model/cache storage; do not purge or redownload without coordination.
+- `/scratch/pabitra/physmon/hf_cache`: shared Hugging Face cache; do not purge or redownload without coordination.
+- `/scratch/pabitra/models` (`PHYSMON_MODEL_ROOT`): model weights at the locations in `docs/model_registry.yml`. Re-create missing weights only with `scripts/download_model.py` (registry-driven, pinned revision, hash-verified, manifest in `docs/model_manifests/`). Never delete or overwrite a model directory.
 - `/scratch/pabitra/physmon/checkpoints`: run state; never overwrite another task's checkpoint.
 
 Read [Sharanga Environment Snapshot](references/sharanga-environment.md) for the verified layout, model registry, and a refresh procedure.

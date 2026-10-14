@@ -1,9 +1,12 @@
+# Model locations use ${PHYSMON_MODEL_ROOT}, resolved at load time by
+# physmon.utils.paths (default: $SCRATCH/models, i.e. /scratch/pabitra/models).
+# Set PHYSMON_MODEL_ROOT to relocate every model at once.
 d1_confirmed: true
 
 models:
   qwen_primary:
     name: "Qwen/Qwen2.5-7B-Instruct"
-    path: "/scratch/pabitra/rag-reason/models/Qwen2.5-7B-Instruct"
+    path: "${PHYSMON_MODEL_ROOT}/Qwen2.5-7B-Instruct"
     role: "PRIMARY_DENSE"
     family: "qwen"
     hook_backend: "transformer_lens"
@@ -15,7 +18,7 @@ models:
 
   qwen_3b:
     name: "Qwen/Qwen2.5-3B-Instruct"
-    path: "/scratch/pabitra/rag-reason/models/Qwen2.5-3B-Instruct"
+    path: "${PHYSMON_MODEL_ROOT}/Qwen2.5-3B-Instruct"
     role: "SCALE_FOLLOWUP"
     family: "qwen"
     hook_backend: "transformer_lens"
@@ -27,7 +30,7 @@ models:
 
   qwen_14b:
     name: "Qwen/Qwen2.5-14B-Instruct"
-    path: "/scratch/pabitra/rag-reason/models/Qwen2.5-14B-Instruct"
+    path: "${PHYSMON_MODEL_ROOT}/Qwen2.5-14B-Instruct"
     role: "SCALE_FOLLOWUP"
     family: "qwen"
     hook_backend: "transformer_lens"
@@ -39,7 +42,7 @@ models:
 
   llama_primary:
     name: "meta-llama/Llama-3.1-8B-Instruct"
-    path: "/scratch/pabitra/rag-reason/models/Llama-3.1-8B-Instruct"
+    path: "${PHYSMON_MODEL_ROOT}/Llama-3.1-8B-Instruct"
     role: "PRIMARY_DENSE"
     family: "llama"
     hook_backend: "transformer_lens"
@@ -51,7 +54,7 @@ models:
 
   mistral_alt:
     name: "mistralai/Mistral-7B-Instruct-v0.3"
-    path: "/scratch/pabitra/rag-reason/models/Mistral-7B-Instruct-v0.3"
+    path: "${PHYSMON_MODEL_ROOT}/Mistral-7B-Instruct-v0.3"
     role: "PRIMARY_DENSE"
     family: "mistral"
     hook_backend: "baukit"
@@ -63,7 +66,7 @@ models:
 
   deepseek_reasoning:
     name: "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"
-    path: "/scratch/pabitra/rag-reason/models/DeepSeek-R1-Distill-Qwen-32B"
+    path: "${PHYSMON_MODEL_ROOT}/DeepSeek-R1-Distill-Qwen-32B"
     role: "REASONING_TUNED"
     family: "deepseek"
     hook_backend: "baukit"
@@ -75,7 +78,7 @@ models:
 
   large_judge_pilot:
     name: "Qwen/Qwen2.5-32B-Instruct"
-    path: "/scratch/pabitra/rag-reason/models/Qwen2.5-32B-Instruct"
+    path: "${PHYSMON_MODEL_ROOT}/Qwen2.5-32B-Instruct"
     role: "LARGE_JUDGE"
     family: "qwen"
     hook_backend: "baukit"
@@ -87,7 +90,7 @@ models:
 
   large_judge_full_reserve:
     name: "Qwen/Qwen3.5-397B-A17B-NVFP4"
-    path: "/scratch/pabitra/rag-reason/models/Qwen3.5-397B-A17B-NVFP4"
+    path: "${PHYSMON_MODEL_ROOT}/Qwen3.5-397B-A17B-NVFP4"
     role: "LARGE_JUDGE"
     family: "qwen"
     hook_backend: "baukit"

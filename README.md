@@ -42,6 +42,23 @@ belong to the retired mirror workflow. The Makefile targets refuse to run unless
 Sharanga, Git, and Slurm workflow. Large model weights, activation tensors, generated
 data, and Slurm working files stay out of Git.
 
+### Runtime paths
+
+Cluster locations are not hardcoded in source. `src/physmon/utils/paths.py` resolves them
+from the environment, and the model registry writes each model as
+`${PHYSMON_MODEL_ROOT}/<directory>`:
+
+| Variable | Default | Holds |
+|---|---|---|
+| `SCRATCH` | `/scratch/pabitra` | Per-account scratch root |
+| `PHYSMON_MODEL_ROOT` | `$SCRATCH/models` | Model weights (`docs/model_registry.yml`) |
+| `PHYSMON_SCRATCH_ROOT` | `$SCRATCH/physmon` | Activations, logs, checkpoints, caches |
+
+Restore or add model weights with `scripts/download_model.py --model-key <key>`
+(registry-driven, pinned revision, hash-verified; manifests land in
+`docs/model_manifests/`). The `#SBATCH --output` log paths in `slurm/templates/` stay
+literal because Slurm does not expand environment variables there.
+
 ## Development
 
 ```bash

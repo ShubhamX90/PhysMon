@@ -26,11 +26,12 @@ if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
 from physmon.formal.constructs import STAGE6_EXCLUDE_FROM_PROBE  # noqa: E402
+from physmon.utils.paths import physmon_scratch_path  # noqa: E402
 from physmon.utils.io import write_json  # noqa: E402
 from run_probing import build_family_feature_tensors, filter_entries_and_tensors, load_per_family_rows, load_site_tensors  # noqa: E402
 
 
-DEFAULT_ACTIVATION_DIR = Path("/scratch/pabitra/physmon/activations_stage6/qwen_primary/")
+DEFAULT_ACTIVATION_DIR = physmon_scratch_path("activations_stage6", "qwen_primary")
 DEFAULT_FAMILY_CSV = Path("results/stage6/analysis_d2/stage6_d1_per_family.csv")
 DEFAULT_DEEPSEEK_CSV = Path("results/stage8/analysis_deepseek/deepseek_per_family.csv")
 DEFAULT_POSITIVES = Path("results/stage6/analysis_d2/stage6_positive_families.json")

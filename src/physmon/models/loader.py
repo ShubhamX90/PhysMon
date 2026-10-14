@@ -14,6 +14,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from physmon.utils.io import read_yaml
+from physmon.utils.paths import expand_model_path
 
 if TYPE_CHECKING:
     from transformer_lens import HookedTransformer
@@ -106,7 +107,7 @@ def load_model_registry(path: str | Path = DEFAULT_MODEL_REGISTRY_PATH) -> dict[
         registry[key] = ModelSpec(
             key=key,
             name=str(value["name"]),
-            path=str(value["path"]),
+            path=expand_model_path(str(value["path"])),
             role=str(value["role"]),
             family=str(value["family"]),
             hook_backend=str(hook_backend),

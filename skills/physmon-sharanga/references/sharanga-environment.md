@@ -16,23 +16,22 @@ account data as shown below.
 | Repository checkout | `~/PhysMons` | The working repository: edit, commit, and submit from here. Jobs read it live. |
 | Scratch home | `/scratch/pabitra` | Large non-Git data. |
 | PhysMon scratch root | `/scratch/pabitra/physmon` | Logs, caches, activations, checkpoints. |
-| Model-store link | `/scratch/pabitra/physmon/models` | Symlink observed to `/scratch/pabitra/rag-reason/models`. |
+| Model store | `/scratch/pabitra/models` | Since 2026-10-14 the model root (`PHYSMON_MODEL_ROOT`; registry paths are `${PHYSMON_MODEL_ROOT}/<dir>`). Before the 2026-10 scratch wipe the weights lived under `/scratch/pabitra/rag-reason/models`, a store shared with another project. |
 | Conda environment | `physmon` | Activated by templates after conda shell setup. |
 
 `origin` is the PhysMon GitHub repository (`ShubhamX90/PhysMon`), reached over SSH
 through the `github-physmon` alias and the `~/.ssh/github_physmon` deploy key (see
 `SKILL.md`, "GitHub Access"). The checkout had an untracked `activations` path at audit time.
+This does not authorize cleanup: read it as a pre-existing operational condition until its
+owner and target are known.
 
-**Known condition, 2026-10-14:** `/scratch/pabitra/physmon` and
-`/scratch/pabitra/rag-reason/models` did not exist, so the `activations` symlink
-was dangling and every model path in `docs/model_registry.yml` and every
-`#SBATCH --output` log path pointed at a missing location. Scratch itself was
-healthy (about 150T free). The cause was not established. Verify these paths at
-shift start; if they are still missing, model, GPU, and activation work is
-blocked until the user restores or relocates them. Do not recreate or
-re-download anything without approval. This does not authorize cleanup:
-read it as a pre-existing operational condition until its owner and target are
-known.
+**Known condition, 2026-10:** the cluster's scratch was wiped for every user during
+a repair and management overhaul, which removed `/scratch/pabitra/physmon` and the old
+model store. The `activations` symlink in the repo dangles until activations are
+regenerated. Model weights are being restored to `/scratch/pabitra/models` with
+`scripts/download_model.py`; see `docs/model_manifests/` for the pinned revisions and
+file hashes of what has been restored. Activations, checkpoints, and logs from earlier
+runs are gone and must be regenerated, not assumed. Verify the paths at shift start.
 
 ## Scratch layout and ownership
 

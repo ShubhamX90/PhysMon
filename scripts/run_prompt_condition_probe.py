@@ -27,6 +27,7 @@ if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
 from physmon.formal.constructs import STAGE6_EXCLUDE_FROM_PROBE
+from physmon.utils.paths import physmon_scratch_path
 from physmon.utils.io import write_json
 from physmon.utils.logging import ExperimentLogger
 
@@ -38,7 +39,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--activation-manifest",
-        default="/scratch/pabitra/physmon/activations_stage6/qwen_primary/manifest.json",
+        default=str(physmon_scratch_path("activations_stage6", "qwen_primary", "manifest.json")),
     )
     parser.add_argument("--site", default="resid_post_last_prompt")
     parser.add_argument("--layer", type=int, default=18)

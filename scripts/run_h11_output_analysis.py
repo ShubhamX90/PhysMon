@@ -20,6 +20,7 @@ if str(SRC_ROOT) not in sys.path:
     sys.path.insert(0, str(SRC_ROOT))
 
 from physmon.formal.constructs import STAGE6_EXCLUDE_FROM_PROBE
+from physmon.utils.paths import physmon_scratch_path
 from physmon.models.hooks import set_global_seed
 from physmon.models.loader import load_model, resolve_model_spec
 from physmon.utils.io import write_json
@@ -34,7 +35,7 @@ DEFAULT_HEADS = (11, 14, 15, 24)
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model-role", default="qwen_primary")
-    parser.add_argument("--activation-dir", type=Path, default=Path("/scratch/pabitra/physmon/activations_stage6/qwen_primary/"))
+    parser.add_argument("--activation-dir", type=Path, default=physmon_scratch_path("activations_stage6", "qwen_primary"))
     parser.add_argument("--site", default="resid_post_last_prompt")
     parser.add_argument("--probe-layer", type=int, default=16)
     parser.add_argument("--family-csv", type=Path, default=Path("results/stage6/analysis_d2/stage6_d1_per_family.csv"))
