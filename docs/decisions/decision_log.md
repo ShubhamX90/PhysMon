@@ -2769,3 +2769,36 @@ Both runs registered `complete_exploratory` / `exploratory_unfrozen`,
 `paper_eligibility: false`. The monitor layer, threshold and panel were selected
 on these same families in earlier stages, so this is discovery-tier and cannot
 be cited as confirmatory. Wave 2 permission remains false pending Wave 1A.
+
+## Model weights restored after the cluster scratch wipe — 2026-10-14
+
+Context: during the 2026-10 Sharanga repair and management overhaul, scratch was wiped
+for every user. `/scratch/pabitra/physmon` (activations, logs, checkpoints, HF cache)
+and the model store `/scratch/pabitra/rag-reason/models` no longer existed. All earlier
+Slurm logs, activations, and checkpoints are gone; the committed results and the Slurm
+run inventory (`results/stage13/wave0/sharanga_run_inventory_v7.jsonl`) are now the only
+record of those runs.
+
+Decision (user-directed): the model root moves to `/scratch/pabitra/models`. Registry
+paths are written as `${PHYSMON_MODEL_ROOT}/<dir>` and resolved by
+`physmon.utils.paths` (default `$SCRATCH/models`). Weights are restored with
+`scripts/download_model.py`: pinned revision, per-file hash verification against Hugging
+Face, config and chat-template check with the installed `transformers`, manifest in
+`docs/model_manifests/`. Code commit `25d7bc8`; environment `physmon` with
+`transformers 5.11.0`, `huggingface-hub 1.18.0`, `tokenizers 0.22.2`, `torch 2.7.1`
+(matches `docs/environment_lock.yml`).
+
+| Registry key | Repo | Revision | Job | Result |
+|---|---|---|---|---|
+| `qwen_primary` | `Qwen/Qwen2.5-7B-Instruct` | `a09a35458c702b33eeacc393d103063234e8bc28` | `395259` | 14/14 files verified; 28 layers, hidden 3584 |
+| `deepseek_reasoning` | `deepseek-ai/DeepSeek-R1-Distill-Qwen-32B` | `711ad2ea6aa40cfca18895e8aca02ab92df1a746` | `395260` | 17/17 files verified; 64 layers, hidden 5120 |
+| `llama_primary` | `meta-llama/Llama-3.1-8B-Instruct` | not yet downloaded | n/a | gated repository; pending credentials |
+
+Caveats:
+- No weight revision was pinned in the original June 2026 downloads, so these revisions
+  are the Hugging Face `main` at download time. They are very likely identical to the
+  weights used in earlier stages, but byte-identity with the original store cannot be
+  proven. Earlier results keep their recorded provenance and are not re-labelled.
+- Both downloads were unauthenticated (public repositories).
+- Qwen2.5-3B/14B and Mistral-7B (partial or empty in Stage 12) are not restored.
+- Status: infrastructure change only; no scientific result was produced or changed.
