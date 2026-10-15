@@ -10,9 +10,14 @@ the PDF. When the two disagree, the PDF wins; when a task touches a gate, re-rea
 
 Status of the guidance (user direction, 2026-10-15): this document is the guidance for Stage 14
 onwards. It replaces the June Part II plan as the plan of record (PDF p.3, "Replace, rather than
-lightly revise, the June 2026 Phase-II plan"). The Part II v1.1 + erratum governing rule in
-`docs/proposals/PhysMon_Part_II_governing_document_rule.md` is kept unedited because Stage 13
-gate code checks its text; read it as historical context.
+lightly revise, the June 2026 Phase-II plan"). On the same day the user directed that all
+instances of the June Part II plan be deleted: the plan PDF, the July erratum, the v1.2
+correction notice, its revision and supersession notes, and the governing-rule file were removed
+(recoverable from Git history, e.g. `git show eebca5c:docs/proposal/PhysMon_Part_II_Next_Phase_Scientific_and_Experimental_Plan.pdf`).
+Historical Stage 13 reports, briefs and the decision log still cite those paths as records.
+`scripts/stage13/write_stage13_gates_v7.py` reads the deleted governing-rule file, so re-running
+that v7 gate script would report a missing rule file; its committed outputs are unaffected, and a
+successor gate under the new plan is future work.
 
 ## 1. What the document is, and is not
 

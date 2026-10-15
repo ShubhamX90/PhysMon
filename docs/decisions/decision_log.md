@@ -2865,3 +2865,30 @@ Status and caveats:
 - No experiment under the new plan has started. The proposed order is in
   `docs/proposals/PhysMon_Research_v2_working_digest.md` section 9 and needs user approval.
 - Navigation: `AGENTS.md` and `README.md` now point to the document and its digest.
+
+### Addendum (2026-10-15): June Part II (Phase II) plan documents deleted
+
+User-directed deletion of all instances of the June 2026 Part II plan, now superseded by
+`docs/proposals/PhysMon_Research_v2.pdf`. Removed from the working tree (8 files):
+`docs/proposal/PhysMon_Part_II_Next_Phase_Scientific_and_Experimental_Plan.pdf` (the 42-page v1.1),
+`docs/proposals/PhysMon_Part_II_v1.1_Erratum_2026-07-03.{pdf,tex}`,
+`docs/proposals/PhysMon_Part_II_v1.2.{pdf,tex}`,
+`docs/proposals/PhysMon_Part_II_v1.2_revision_notes.md`,
+`docs/proposals/PhysMon_Part_II_v1.2_SUPERSEDED_BY_ERRATUM.md`, and
+`docs/proposals/PhysMon_Part_II_governing_document_rule.md`.
+All remain recoverable from Git history (last full copies at `eebca5c`, deletion in the commit
+that records this entry).
+
+Consequences and what was left alone:
+- Two Stage 13 tests that only asserted these files exist or contain particular text were
+  removed (`test_part2_v12_corrects_false_donor_language`, `test_erratum_is_not_treated_as_full_part2`).
+- Earlier decision-log entries, Stage 13 gate and preflight reports, the claim-evidence matrices
+  and the Stage 13 prompt briefs are historical records and still cite the old paths. They were
+  not rewritten, in line with the rule to preserve superseded artifacts.
+- The donor-on-renamed correction (zero evaluable rows, not a measured null) does not depend on the
+  deleted documents: it is recorded in earlier entries here,
+  `results/stage13/benchmark_integrity/donor_renamed_empty_panel_audit_v4.json`,
+  `docs/registry/claim_evidence_matrix_v7.md` (claim C10) and `docs/stage13/donor_control_statement_audit_v6.md`.
+- `scripts/stage13/write_stage13_gates_v7.py` and the v5/v6 remediation generators still reference
+  the deleted paths. They are historical and must not be re-run; rerunning the v7 gate would report
+  the governing-rule file as missing. A gate under the new plan is future work.

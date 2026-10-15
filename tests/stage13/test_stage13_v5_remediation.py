@@ -147,14 +147,6 @@ def test_claim_counts_do_not_default_to_155_for_small_panels():
     assert counts["partial"] >= 1
 
 
-def test_part2_v12_corrects_false_donor_language():
-    source = (ROOT / "docs/proposals/PhysMon_Part_II_v1.2.tex").read_text(encoding="utf-8")
-    assert "zero evaluable target-donor rows" in source
-    forbidden = ["100\\% specificity", "measured 0.0", "completed null"]
-    assert not any(term in source for term in forbidden)
-    assert (ROOT / "docs/proposals/PhysMon_Part_II_v1.2.pdf").exists()
-
-
 def test_v5_gates_bind_hashes_and_keep_wave2_forbidden():
     wave0 = load_json("results/stage13/wave0/wave0_gate_v5.json")
     wave1 = load_json("results/stage13/benchmark_integrity/wave1a_gate_v5.json")

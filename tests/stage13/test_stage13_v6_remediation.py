@@ -19,14 +19,6 @@ def load_jsonl(path: str):
     return [json.loads(line) for line in (ROOT / path).read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
-def test_erratum_is_not_treated_as_full_part2():
-    rule = (ROOT / "docs/proposals/PhysMon_Part_II_governing_document_rule.md").read_text(encoding="utf-8")
-    assert "complete 42-page Part II v1.1" in rule
-    assert "erratum supersedes only the renamed donor-control statements" in rule
-    assert "blocked_source_unavailable" in rule
-    assert (ROOT / "docs/proposals/PhysMon_Part_II_v1.1_Erratum_2026-07-03.pdf").exists()
-
-
 def test_misleading_mutation_names_removed_and_scope_recorded():
     summary = load_json("results/stage13/benchmark_integrity/mutation_test_summary_v6.json")
     active = {row["operator_id"] for row in summary["operator_summaries"]}
