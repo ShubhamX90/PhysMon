@@ -8,6 +8,12 @@ The governing scientific specification is stored in `docs/proposal/`:
 - `physmon_proposal.pdf`
 - `physmon_supplementary.pdf`
 
+**Stage 14 onwards:** the plan of record is `docs/proposals/PhysMon_Research_v2.pdf`
+(PhysMon Research Redesign v2.0, 14 October 2026; navigation digest in
+`docs/proposals/PhysMon_Research_v2_working_digest.md`). It adds a mandatory benchmark
+red-team phase (Phase B) before any new mechanistic claim and replaces the June Part II plan as
+guidance. The older documents below remain the historical record.
+
 Implementation must preserve the proposal's core distinction between prompt condition,
 observed model behaviour, and internal representation (§3.1). The primary monitoring
 target is model-specific behavioural shortcut sensitivity, not cue presence (§3.3-§3.4).

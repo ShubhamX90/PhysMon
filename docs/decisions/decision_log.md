@@ -2841,3 +2841,27 @@ Findings and corrections:
 - Status: infrastructure change only; no scientific result was produced or changed. The
   model store is complete for every registry entry. Activations, checkpoints, and Slurm
   logs from earlier runs remain lost and must be regenerated.
+
+## New plan of record for Stage 14 onwards: PhysMon Research Redesign v2.0 — 2026-10-15
+
+Decision (user-directed): `docs/proposals/PhysMon_Research_v2.pdf` (53 pages, dated 14 October
+2026, sha256 prefix `219ac6ff777ad476`) is the guidance for all work from Stage 14. It replaces
+the June Part II plan as the plan of record (its own p.3 states this) and adds a mandatory
+benchmark red-team and reconstruction phase (Phase B, B0-B7) ahead of the twelve critical-path
+blocks P0-P11, twelve experiment cards X01-X12, and a 104-contrast inventory.
+
+Status and caveats:
+- The document is a proposed, falsifiable protocol, not a record of results. Its Phase-I ledger
+  is taken from the submitted ICLR 2027 manuscript *Confidence Without Cause*, which is not in
+  this repository; those values are SUBMITTED claims requiring reproduction (task X01).
+- Verified against committed repo data on 2026-10-15: Qwen 70/140 and Llama 32/140 positives at
+  0.5 nat; the CM_B_UM_059 example on its p.8 (gold log-probs -45.531, -55.563, -45.000, -46.469;
+  legacy `S_lp` +10.031 at base 0, -9.094 at base 1) from
+  `results/stage6/behavioural_full_rerun/prompt_records.jsonl`; the Wave 2, leakage (34 clusters,
+  147 family pairs, 2,352 rendering pairs), run-coverage (0.703 / 0.451) and zero-row renamed-donor
+  records match this repo.
+- Part II v1.1 and the July erratum become historical context. The governing-document rule file
+  is left unedited because Stage 13 gate code checks its text.
+- No experiment under the new plan has started. The proposed order is in
+  `docs/proposals/PhysMon_Research_v2_working_digest.md` section 9 and needs user approval.
+- Navigation: `AGENTS.md` and `README.md` now point to the document and its digest.

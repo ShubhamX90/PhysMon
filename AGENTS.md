@@ -16,6 +16,18 @@ using the cluster.
 4. Do not revert, delete, or overwrite another contributor's work. Treat a
    dirty worktree or unexplained artifact as an ownership question.
 
+## Governing guidance for Stage 14 onwards
+
+The plan of record for all work from Stage 14 is
+`docs/proposals/PhysMon_Research_v2.pdf` (PhysMon Research Redesign v2.0, 14 October 2026),
+selected by the user on 2026-10-15. It replaces the June Part II plan as guidance. Before any
+Stage 14+ work, read its relevant section and the navigation digest
+`docs/proposals/PhysMon_Research_v2_working_digest.md` (searchable text:
+`docs/proposals/PhysMon_Research_v2.extracted.txt`), follow its gates (Phase B and P0-P11), its
+data roles, and its negative-result and missing-data policy, and cite the section you rely on in
+decision-log entries and experiment cards. If a task would contradict it, stop and ask. The
+rules in the core scientific section above still apply.
+
 ## Working model
 
 Work normally happens directly on Sharanga (Claude Code via Remote SSH) in

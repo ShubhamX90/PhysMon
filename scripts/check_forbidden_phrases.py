@@ -14,6 +14,9 @@ REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 SEARCH_ROOTS = ("src", "scripts", "tests", "docs")
 SKIP_PATHS = {
     Path("scripts/check_forbidden_phrases.py"),
+    # Verbatim text extraction of a source PDF. The flagged sentence is that document's own
+    # prohibition ("should not claim ..."), not a claim made by this repository.
+    Path("docs/proposals/PhysMon_Research_v2.extracted.txt"),
 }
 TEXT_SUFFIXES = {".py", ".md", ".txt", ".yml", ".yaml", ".json", ".jsonl", ".sh"}
 FORBIDDEN_PHRASES = (

@@ -1,0 +1,3222 @@
+# Derived text extraction of docs/proposals/PhysMon_Research_v2.pdf (pypdf 6.20.1, 2026-10-15).
+# Layout (tables, columns) is flattened. The PDF is the source of truth; this file exists for search.
+
+
+######## PAGE 1 ########
+PHYSMON / RESEARCH PROTOCOL
+PHYSICS‐COUNTERFACTUAL
+MECHANISMS
+Benchmark Red‐T eam, DECOY‐v2 Reconstruction,
+and a Gated Mechanistic Research Programme
+Revised research redesign, v2.0
+14 October 2026
+DOCUMENT STATUS
+This is a proposed, falsifiable experimental protocol, not a record of experiments that have been per-
+formed. Reported Phase-I evidence comes from the actual 25-page ICLR 2027 submission Confidence
+Without Cause . The revised protocol prioritizes benchmark validity and external replication before
+resource-intensive mechanistic claims.
+Maintained as an investigator working document. Revision‐sensitive hypotheses, labels, validation decisions, and claim scope re‐
+quire explicit decision‐log entries.
+
+######## PAGE 2 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+Contents
+1 Status, scope, and rules of evidence 2
+2 Executive scientific judgment 2
+2.1 Verified Phase-I starting ledger (SUBMITTED, not replicated here) . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+3 A mandatory new Phase B: red-team, reconstruct, and independently validate DECOY 4
+3.1 B0. A benchmark threat model, estimand map, and external novelty audit . . . . . . . . . . . . . . . . . . . . . 6
+3.2 B1. Reproduce and deliberately break the original benchmark . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+3.3 B2. Decide the correct construct before choosing how many examples to generate . . . . . . . . . . . . . . . . . 7
+3.4 B3. A modular v2 benchmark with mutually discriminating controls . . . . . . . . . . . . . . . . . . . . . . . . 8
+3.5 B4. Human validation as an independent scientific experiment . . . . . . . . . . . . . . . . . . . . . . . . . . . 9
+3.6 B5. External datasets as source material, not borrowed certificates . . . . . . . . . . . . . . . . . . . . . . . . . 10
+3.7 B6. Pilot, power , confirmation, and anti-cherry-picking rules . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+3.8 B7. Benchmark deliverables and acceptance rules for the later mechanism study . . . . . . . . . . . . . . . . . 13
+4 The falsifiable theoretical framework 13
+4.1 Competing mechanistic hypotheses: predictions and falsifiers . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
+4.2 Claim hierarchy and evidence gates . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+5 Ordered execution: the twelve critical-path blocks 15
+5.1 P0. Independent evidence reproduction, release provenance and code audit . . . . . . . . . . . . . . . . . . . . 16
+5.2 P1. Measurement validity: challenge the entire sensitivity construct . . . . . . . . . . . . . . . . . . . . . . . . 17
+5.3 P2. Scale the Phase-B-approved DECOY-v2 design (not the old benchmark) . . . . . . . . . . . . . . . . . . . . . 18
+5.4 P3. Scale independent expert validation, parser reliability and leakage firewall . . . . . . . . . . . . . . . . . . 20
+5.5 P4. Definitive behavioral mechanism discrimination and power planning . . . . . . . . . . . . . . . . . . . . . 21
+5.6 P5. A definitive monitoring study: does access to hidden states actually help? . . . . . . . . . . . . . . . . . . . 21
+5.7 P6. Re-localize the phenomenon under valid causal metrics and selection rules . . . . . . . . . . . . . . . . . . 23
+5.8 P7. Identify what the causal components actually compute . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 24
+5.9 P8. Recover and validate upstream/downstream computation, not just one head . . . . . . . . . . . . . . . . . . 26
+5.10 P9. Cross-model, cross-domain and post-training generalization . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+5.11 P10. Mechanism-guided repair and comparative efficacy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28
+5.12 P11. Confirmatory closure, adversarial review and publishable claim freeze . . . . . . . . . . . . . . . . . . . . 29
+6 Complete downstream experimental/ablation inventory (registered candidates; Phase-B contrasts are addi-
+tional) 29
+6.1 A. Input and task semantics (A01–A18) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 29
+6.2 B. Dataset integrity, ground truth and representation of physics (B01–B14) . . . . . . . . . . . . . . . . . . . . . 31
+6.3 C. Scoring, calibration, and behavioral endpoints (C01–C18) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32
+6.4 D. Monitoring, statistical selectivity and model comparison (D01–D16) . . . . . . . . . . . . . . . . . . . . . . . 34
+6.5 E. Direct causal localization, intervention semantics and specificity (E01–E18) . . . . . . . . . . . . . . . . . . . 36
+6.6 F . Functional mechanism, circuits, synthetic controls and mitigation (F01–F20) . . . . . . . . . . . . . . . . . . . 37
+7 Twelve decisive experiment cards (priority order) 39
+8 Statistical design: standards for inference, not decoration 41
+8.1 Independent experimental unit, estimands and non-independence . . . . . . . . . . . . . . . . . . . . . . . . . 41
+8.2 Multiple comparisons and research degrees of freedom . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41
+8.3 Power and precision protocol . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+8.4 Negative and missing result policy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 42
+9 Compute, human effort, storage and reproducibility architecture 42
+9.1 Machine-readable data contracts . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 43
+9.2 Preflight notebook skeleton / pseudocode . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 43
+10 Conditional decisions: how to react if the evidence is unfavorable 44
+11 Literature-grounded positioning and novelty test 45
+11.1 What could actually be novel (conditional claims) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 48
+12 The first execution sprint: benchmark credibility before expensive mechanism work 48
+13 Proposed paper architectures depending on the evidence 49
+14 Bibliography and primary-source links (verified online 14 Oct 2026) 50
+15 Definition of scientific completion 52
+Working research protocol – not completed results 1
+
+######## PAGE 3 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+1 Status, scope, and rules of evidence
+Purpose. Replace, rather than lightly revise, the June 2026 Phase-II plan with an independently rea-
+soned, falsifiable, executable research programme. Revision v2.0 adds a mandatory benchmark
+red-team and reconstruction programme (Phase B), after a critical audit of DECOY-v1. The
+previous v1.0 research redesign is preserved downstream with revised order and conditional-
+ity. The target is a scientifically strong future ICLR-calibre submission, not a guarantee of acceptance.
+The programme starts from the actual submitted 25-page ICLR 2027 paper , Confidence Without
+Cause: Predicting and Localizing Physics-Shortcut Sensitivity in Language Model Hidden States (submis-
+sion 50608), and treats its experiments as reported Phase-I findings requiring reproduction . The
+prior 30-page proposal, its 14-page supplement, the 42-page Phase-II plan, and the OpenReview/PAT
+feedback are historical context, not authorities on what must be done next. The differently titled 29-
+page Proved, Not Annotated file has not been established as the submitted manuscript and must not
+be confused with it.
+Critical epistemic constraint. A symbolic certificate that the correct physical answer is invariant to
+cue edits does not prove that the model’s probability of a particular answer string ought to remain
+invariant; it also does not prove cue use in the model’s reasoning. Cue effects on probabilities, in-
+ternal representations, correct/incorrect answers, and physically faithful computation are separate
+estimands. A first-rate study must show which estimands move and why. Throughout this protocol: S
+means an observational sensitivity measure; mechanism requires controlled, specific, predictive in-
+tervention evidence; shortcut reliance is reserved for evidence that model computation improperly
+incorporates the irrelevant cue, not merely a log-probability fluctuation.
+Research thesis to test, not presume. Some irrelevant numerical distractors compete with the task-
+relevant quantity during intermediate processing, and this competition is mediated by a structured
+and partially generalizable internal pathway. Distinct alternative theses are (i) language/answer-
+string probability and formatting effects, (ii) generic difficulty or uncertainty, (iii) numerical copying
+/ answer contamination without intervening on the physical solution, (iv) ordinary sensitivity of con-
+ditional language-model distributions to context, and (v) multiple unrelated cue-specific mechanisms.
+All are legitimate outcomes. Do not design experiments whose analysis only accepts the preferred
+hypothesis.
+Scope strategy. An upstream Phase B (B0–B7) tests whether the benchmark measures a compelling,
+valid phenomenon and decides whether to rebuild, narrow, or pivot. The later mechanistic critical
+path contains twelve blocks (P0–P11), some of which implement or deepen Phase-B checks rather than
+starting a separate dataset enterprise. A subsequent research catalogue gives compulsory controls, sec-
+ondary branches, and high-upside extensions. Some experiments are mutually exclusive alternatives
+or conditional escalations; performing every possible experiment is neither mathematically achiev-
+able nor scientifically optimal. Maximize discriminating evidence per unit of model compute and
+human review, while retaining a documented broad universe of possibilities. No new unvalidated
+experiments should be smuggled into a headline claim after seeing outcomes.
+Baseline source categories. SUBMITTED = reported in the actual ICLR manuscript, REVIEW = criticism
+appearing in the supplied PAT review, LITERATURE = independently checked public work linked in Ref-
+erences, and PROPOSAL = a new suggested experiment, hypothesis, threshold, or resource allocation. Nu-
+merical targets in this document other than clearly marked SUBMITTED values are planning choices,
+not results . Repository outputs are not attached here; therefore this plan cannot verify actual raw
+data, scheduler jobs, code, or version history.
+2 Executive scientific judgment
+The Phase-I work has potentially valuable ingredients, but the next paper needsone of two qualitatively
+stronger outcomes:
+Track M (mechanism-first, conditional on passing benchmark validity gates, preferred only if sup-
+ported): a verified causal account of a measurable cue-related computation. It should explain what
+Working research protocol – not completed results 2
+
+######## PAGE 4 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+information from the distractor is represented, where it travels , how it changes the competition be-
+tween a task-relevant answer and a distractor-derived alternative , and which intervention selectively
+removes that dependence while preserving correct physics. Its predictions must succeed on unseen
+physics templates and intervention sites, with a later replication in an independently selected model.
+A single exceptional head, even with a large recovery value, is insufficient.
+Track E (evaluation/measurement, fallback with genuine scientific value): a rigorous decompo-
+sition showing which previously apparent shortcut signals are artifacts of reference-answer scoring,
+prompt formatting, metric asymmetry, or data structure, and which survive as reproducible behav-
+ioral invariance violations. This could contribute a stronger certificate-backed evaluation protocol
+and a validated account of the limits of pre-generation monitors. It should not claim a reasoning cir-
+cuit.
+Optional Track R (robustness/repair): a selective, mechanism-informed intervention with a com-
+pelling trade-off: improved cue invariance and/or accuracy on unseen data, little damage to legitimate
+variable use, and an advantage over cheap prompt editing, multi-query verification, and training-
+based augmentation. This track becomes a paper-defining claim only if it survives held-out evalua-
+tion.
+Benchmark decision precedes the following decisions: Retain DECOY-v1 for history; rebuild a
+separate verified DECOY-v2 for controlled physical relevance, remove Cue C from the irrelevant-cue
+core into a representation-invariance track, and require a genuinely external validation set. Three
+decisions that precede expensive mechanism work: (1) Does the claimed behavior survive scoring
+and task-formulation challenges? (2) Is any internal effect specific to physically irrelevant distractors
+rather than a generic output perturbation? (3) Does the identified computation generalize beyond the
+selection panel? If any answer is no, stop using the corresponding stronger vocabulary.
+2.1 Verified Phase‐I starting ledger (SUBMITTED, not replicated here)
+Evidence item Submitted result / caveat Consequence
+DECOY size 155 canonical four-rendering
+families; 140 original behavioral
+families; 15 later-built transfer
+families
+Distinct populations; report
+separate denominators and version
+timestamps.
+Monitoring panel 135 families: 70 sensitive, 65 stable;
+five stable original-panel families
+removed after parsing failures
+Primary S_lp nominally does not
+need free-generation parsing; audit
+selection bias.
+Models Qwen2.5-7B-Instruct,
+Llama-3.1-8B-Instruct,
+DeepSeek-R1-Distill-Qwen-32B
+The reported DeepSeek
+teacher-forcing position has an
+unresolved reasoning-trace caveat.
+Behavioral sensitivity Qwen 70/140 at 0.5 nat, Llama
+32/140; 25 shared positives
+Model dependence is observed
+under one measurement definition.
+Mean-state prompt monitor L18 AUROC 0.7596 using four
+rendering activations averaged
+Four input passes are needed to
+score one family as defined.
+Single-rendering monitor L16 AUROC 0.7465, separately
+selected
+This, rather than 0.760, supports
+single-prompt deployment claims.
+Strong inexpensive comparator Fitted next-token entropy AUROC
+0.7270; Qwen correct-answer
+correctness probe AUROC 0.7657
+Incremental hidden-state value
+unproven against best fitted
+comparators.
+Paired statistical comparison Monitor-minus-entropy +0.033; 95%
+family bootstrap [-0.074,+0.141]
+Does not reject no benefit. The
+combined-plus-hidden gain +0.067
+also spans zero.
+Calibration and operating point Monitor Brier 0.2036 vs entropy
+0.2140; entropy ECE 0.0907 vs
+monitor 0.1041; FNR@FPR=.10 0.643
+entropy vs 0.714 monitor
+No unqualified ‘better calibrated’ or
+‘better operationally’ claim.
+Working research protocol – not completed results 3
+
+######## PAGE 5 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+Evidence item Submitted result / caveat Consequence
+Frozen expansion Pooled AUROC 0.820 on 15 families;
+within B ~0.667 (n=5) and C ~0.6875
+(n=10)
+Pooled gain is compatible with
+cue-type/base-rate confounding.
+Qwen causal intervention L16 four-head knockout recovery
+1.870 on 20 selected Cue-B families;
+head 11 alone 1.848; clipped
+four-head recovery 0.969
+Dominant site, but over-reversal
+and denominator effects demand
+absolute metrics and specificity.
+Causal transfer Cue A much stronger than Cue C;
+DeepSeek tested site small; Llama
+exploratory later head-2 result not
+paper-eligible
+Do not assume shared circuit or
+cross-model null.
+Validation Dual independent expert human
+validation not completed
+Physics-natural-language contract
+not independently established.
+Structural overlap 34 template clusters, 147 family
+pairs unresolved, 2,352 candidate
+rendering pairs; 71%
+family-held-out tests share a cluster
+with training
+Family LOOCV is not equivalent to
+template-cluster generalization.
+Provenance 182 science runs, registry coverage
+0.703 and strict coverage 0.451
+Establish a claim-to-artifact ledger
+before extending.
+Renamed-donor control Zero evaluable rows due to
+donor-selection defect
+Unmeasured, not a favorable
+negative control.
+Audit alert A. The submitted paper reports that every Qwen and Llama output in the highlighted
+CM_B_UM_059 example is wrong, while confidence in the teacher-forced correct answer varies
+strongly. That is a powerful distinction: the intervention may change the likelihood of an answer
+string without changing whether the model solves the problem. The research must not call this
+‘correctness repair’ without demonstrating changed free-generation accuracy.
+Audit alert B. The manuscript identifies a numerical near-match tail but also reports Pearson r=0.074
+over 100 Cue-B families. Near-match events are an interesting hypothesis; a general monotone prox-
+imity law is not established.
+Audit alert C. A nearby older proposal and another manuscript use different naming and evidence-
+status language. Build a single timestamped authoritative evidence table; never transfer an unverified
+‘completed’ label between documents.
+3 A mandatory new Phase B: red‐team, reconstruct, and independently
+validate DECOY
+Board decision (14 October 2026). Do not use the existing 155-family DECOY benchmark
+unchanged as the sole scientific foundation of a future PhysMon mechanism claim. Do
+not discard its Phase-I evidence, and do not substitute a pre-existing public physics bench-
+mark wholesale. Maintain immutable DECOY-v1 (historical reproduction and failure diagnosis);
+conditionally build a DECOY-v2 experimental suite for controlled causal discovery; establish a
+separately sourced, separately certified External Physics Counterfactuals (EPC) collection for
+confirmation; and use GSM-DC / GSM-Symbolic as non-physics controls. Treat unit/re-expression
+invariance as a distinct task, not interchangeable with irrelevant numerical cues. Neither a large
+newly generated dataset nor improved AUROC makes the work valuable unless these tests establish
+a precise, nontrivial model behavior and an independently validated causal explanation.
+Scientific reasons for the decision. (i) The original signed base-relative sensitivity label can change
+when the exact same four renderings are reindexed. (ii) A certificate about a symbolic answer value
+does not constrain the probability of a chosen answer string , and physical assumptions asserted in
+Working research protocol – not completed results 4
+
+######## PAGE 6 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+natural language are not independently checked by free-symbol elimination. (iii) Cue C changes how
+a governing quantity is expressed; it is not the same as adding physically irrelevant information. (iv)
+Five original Cue C families, 34 structure clusters, 2,352 unresolved cross-family rendering pairs,
+no completed independent expert validation, and a 135-family monitoring cohort with outcome-
+related filtering limit inference. (v) Existing GSM-Symbolic and GSM-DC already establish controlled
+irrelevant-context tests; novelty cannot be ‘symbolic templates plus distractors’. Each is a reported
+property or a falsification target , not a finding that the proposed v2 experiments have succeeded.
+Benchmark architecture, defined before collecting new outcomes:
+Track Scientific target Contents / status Allowed inference
+V1-R: frozen DECOY-v1 Reproduction and failure
+analysis
+All 155 original families,
+140 Phase-I behavioral
+families, five monitoring
+exclusions, 15
+later-created transfer
+families; original signed
+labels preserved
+Exactly which historic
+claims reproduce under
+their original protocol;
+not prospective
+generalization to
+independent tasks.
+V2-A: causal relevance
+and numeric
+interference
+Whether model use of a
+numeral is appropriately
+conditioned on physical
+relevance
+New independently
+defined physics structures,
+matched relevant and
+irrelevant edits, no-cue
+anchors,
+nonnumeric/numeric
+controls, numeral/units
+factorial
+Controlled
+relevance-selectivity and
+cue-interference effects on
+specified outcomes.
+V2-B: invari-
+ance/equivariance
+Whether models respect
+transformations of
+relevant representations
+Equivalent
+units/coordinate systems,
+reference-frame
+transformations where
+admissible,
+dimension/precision
+stress tests; retain old Cue
+C here
+Transformation-
+consistency failure; not by
+itself irrelevant-cue
+shortcut reliance.
+EPC: external physics
+counterfactuals
+External realism,
+independent source and
+structure generalization
+Only validated
+adaptations of
+PHYSICS-Verified,
+UGPhysics, selected
+PhysReason/SciBench
+cases and
+investigator-independent
+expert-authored cases
+Generalization beyond v2
+template grammar , subject
+to source-sampling and
+adaptation constraints.
+MATH-X: non-physics
+controls
+Separate physics-specific
+relevance from generic
+numerical distraction
+GSM-DC dependency
+graphs, GSM-Symbolic
+NoOp, unit-stripped or
+isomorphic algebraic
+analogues
+Whether effects or
+mechanisms are
+domain-general.
+Strict version policy. Any semantic revision of a governing equation, assumptions, target variable,
+accepted answer , or cue role increments the family’s version; it cannot be silently edited in place.
+Freeze source dataset revisions and hashes. Once a confirmatory panel is opened, do not use it to
+tune benchmark generation rules, architecture, scoring, parsers, threshold, site selection, or eligibility.
+Both negative and ineligible examples remain in an immutable manifest with reasons.
+Working research protocol – not completed results 5
+
+######## PAGE 7 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+3.1 B0. A benchmark threat model, estimand map, and external novelty audit
+B0.1 Define what the benchmark is not. The ground-truth theorem is about the physical mapping
+𝑦∗ = 𝑓(𝑟, 𝑎) ; it is not a theorem about equal conditional language-model probabilities𝑝𝜃(string(𝑦∗) ∣
+𝑥𝑖, 𝑞). An answer-invariant pair establishes a correct response target , not the model’s actual com-
+putation or its internal dependence on a nuisance. No label should automatically be named short-
+cut_reliance without controlled behavior and mechanism evidence. Declare separate records for (a)
+physical target invariant, (b) observed gold-string drift, (c) actual-answer shift, (d) distractor-derived
+answer preference, (e) erroneous dependency on a physical cue, (f) causal internal component or
+pathway.
+B0.2 Formal object. A task specification stores physical state 𝑠, assumptions 𝑎, a dependency
+graph/program 𝑔, target 𝑡, physical answer 𝑦∗(𝑠, 𝑎, 𝑡), candidate cue 𝑧, semantic role 𝑅(𝑧), pertur-
+bation operator 𝐼 , and rendering ℛ. A nuisance intervention satisfies 𝑦∗(𝐼𝑧(𝑠), 𝑎, 𝑡) = 𝑦 ∗(𝑠, 𝑎, 𝑡)
+within a declared domain 𝒟; a relevant intervention is a positive control for which the expected
+transformed target 𝑦∗(𝐼𝑟(𝑠), 𝑎, 𝑡) is computed, including cases where the numerical answer hap-
+pens to coincide despite true causal dependence. The role cannot be established by answer-value
+coincidence alone: a variable can be causally relevant even at a parameter setting with zero local
+effect.
+B0.3 Preregister the threat taxonomy. Audits must attack: incorrect physical semantics, missing
+boundary conditions, excluded-domain exceptions, dimensional/unit errors, answer-rounding ambi-
+guities, canonical-string/tokens, no-cue anchor dependence, arbitrary base choice, irrelevant numeri-
+cal value versus extra text, model prompt wrapper and generation position, template or source over-
+lap, near-match selection, cue-condition class prevalence, sampling/decoder variation, annotator sug-
+gestion/automation bias, architecture-specific scoring incompatibility, adaptive head selection, data
+contamination, and publication novelty. Each risk receives a test, accountable owner , possible failure
+class, and action.
+B0.4 Closest-work matrix. Inspect GSM-Symbolic (ICLR 2025), GSM-DC (EMNLP 2025), UGPhysics
+(ICML 2025), PhysReason (ACL 2025), PHYSICS-Verified (audited public release), and relevant mech-
+anism papers. For each: dependency program, control of nuisance/relevant edits, formal guarantee,
+human semantics review, challenge difficulty, model-output metrics, intervention capability, public
+data/derivation, and external transfer . The proposed differentiator must be independently confirmed
+as a joint contribution: physical-role interventions + honest behavior endpoints + mechanistic predic-
+tion/causal rescue + external confirmation. Do not call v2 novel because it is larger than v1.
+Deliverable B0: a versioned benchmark_claims_and_threats.md, a closest-work table with accessible pa-
+per/repository URLs, an estimand glossary, and an independent red-team protocol. Failure branch:
+if physics relevance cannot be distinguished from GSM-DC-style dependency selection, frame the re-
+search as generic numerical interference with physics as a controlled domain rather than claiming
+unique physics reasoning circuitry.
+3.2 B1. Reproduce and deliberately break the original benchmark
+B1.1 Complete provenance reconstruction. For every v1 rendering, retrieve exact solver expres-
+sion/assumption code; units/target; cue value; base index; prompt bytes; answer string; token IDs;
+native chat template; generation settings; raw log-probability; raw output; parse status; original la-
+bel; model commit; split/cluster; and intervention metadata. Reproduce every 155/140/135 denomi-
+nator and original Phase-I table without filling missing values. Identify which of the 15 new families
+belong to later confirmation, not unlabeled failed examples. Record author/agent creation, numeric-
+instantiation parentage, and original inclusion/exclusion timestamps.
+B1.2 Permutation attack (no GPU needed if raw values exist). For each four-rendering family,
+compute the legacy signed sensitivity under all four possible choices of base ; its minimum, max-
+imum, number of positive labels, fraction whose label flips, and pairwise rank inversions across
+models. Report overall and separately for Cue A/B/C, law, answer-token length, original sensitivity
+quantiles and family cluster . Compare with symmetric range max ℓ − min ℓ, median/SD/MAD of ℓ𝑖,
+Working research protocol – not completed results 6
+
+######## PAGE 8 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+and truly anchored no-cue contrasts (which do require new evaluations). Preserve original threshold-
+registration history; do not describe new metrics as having been preregistered in June.
+B1.3 Submitted-example sanity test. The reported torque family has Qwen gold-string log proba-
+bilities (−45.531, −55.562, −45.000, −46.469); base 0 yields about +10.031 nats whereas base 1
+yields about −9.093 nats. Write an executable unit test for this exact result. This is a mathemati-
+cal vulnerability of the chosen statistic , not evidence that the underlying model effect disappears
+with reindexing. Do not falsely claim that the order-independent range is a signed risk measure: it is
+absolute dispersion and must be interpreted separately.
+B1.4 Source audit of generated and ambiguous answers. Check whether the primary teacher-
+forced measure actually requires free-generation parsing. Inspect why the five stable families were
+excluded from the 135-family monitor , recompute inclusion-agnostic analyses, and treat parser fail-
+ures as their own observable. Validate example claims of correct/free-generated responses against
+raw outputs; enumerate the wrong->same wrong , wrong->different wrong , and correct->wrong cases with-
+out cherry-picking. Test the effect of source answer variants, precision and units on likelihoods; run
+targeted manual scoring on original large-effect families.
+B1.5 Certification stress audit. Review all symbol checks and unit identities under changed assump-
+tions: implicit friction, nonzero mass of a pulley, coupling through shared field, feedback/interaction
+with an ‘isolated’ system, sign and direction conventions, frames and unit conversion, piecewise con-
+ditions, singularities, domain restrictions, physically nonpositive parameters. A certificate that a nui-
+sance symbol is absent from the chosen equation is sound only given the equation and assumptions;
+test whether the natural language provides them. Use positive mutation controls that must remain
+valid and negative mutations that must fail.
+B1.6 Structural overlap and authorship. Reconstruct the reported 34 clusters/147 family
+pairs/2,352 unresolved rendering pairs, audit what ‘unresolved’ means, review overlap graph edges
+rather than declaring all collisions. Re-evaluate family-held-out results using unioned symbolic-
+computation-cluster splits and, separately, law-class and problem-source splits. Test whether the
+strongest non-activation predictors can detect the purported label from template ID, governing-law
+metadata or crude quantity features.
+Gate B1: publish an audit dashboard of verified, invalid, semantic-ambiguous, parser-uncertain and
+missing records, plus a table of metric/base/wrapper robustness. If the Phase-I effect remains only a
+teacher-forced string effect, preserve it as such; no new claim that model physics reasoning was
+manipulated. If benchmark artifacts cannot be reproduced, stop all dependent causal claims pending
+provenance repair .
+3.3 B2. Decide the correct construct before choosing how many examples to generate
+B2.1 Define four different hypothesis families. (H-P) Physical relevance selection: does the model
+correctly exclude non-governing physical variables and include governing variables? (H-N) Numer-
+ical interference: does magnitude/precision/digit identity of an irrelevant cue compete with target
+magnitude selection? (H-T) Text/interface effects: does number placement or tokenization alter a sin-
+gle reference-answer string without changing the physics solution? (H-U) Unit/representation trans-
+formations: does the model represent equivalent governing quantities consistently? Do not pool the
+fourth with the first three.
+B2.2 Specify primary behavior as an interpretable contrast. For each physically matched base
+task, observe deterministic answer correctness and answer class under (i) no cue, (ii) irrelevant cue of
+varying magnitude, (iii) style-matched nonnumerical extra content, (iv) generic numerical metadata,
+(v) physically relevant edit with recomputed gold answer , and (vi) adversarially constructed decoy
+answer . Primary recommended co-endpoints for thepilot: difference in probability of a wrong decoy-
+derived candidate under a fixed, prespecified candidate space, and change in free-answer correctness
+/ invalid answer rate; report symmetric teacher-forced dispersion as a diagnostic. Select one primary
+endpoint for confirmatory testing only after pilot reliability and incidence have been estimated.
+Working research protocol – not completed results 7
+
+######## PAGE 9 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+B2.3 Relevance is not a keyword. Match tasks with explicitly disconnected and physically connected
+subsystems, but do not fabricate a ‘single-word role flip’ if it changes other physical assumptions or
+allows multiple plausible interpretations. Every pair gets its own formal state change, recomputed
+solution and expert semantic validation. Add subtle relevance requiring causal tracing (an intermedi-
+ate variable changes only through an indirect coupling) alongside explicitly stated irrelevant cases, to
+distinguish genuine relevance computation from memorizing isolated or ignore.
+B2.4 Establish four eligibility strata before scoring. All valid problems (intent-to-evaluate popu-
+lation); format-parseable (limited to metrics truly requiring parsing); base-correct (what happens
+to a model already solving a task); and model-positive (eligible for sensitivity reduction or causal
+recovery). Report each, with its denominator and selection mechanism. A result conditional on base
+correctness is not a general result about all questions. The original signed effect must never be substi-
+tuted for the question ‘does a model output an incorrect answer?’.
+B2.5 Fix metric calibration and negative controls. Include symmetric range, actual answer flip
+and correctness, right-vs-decoy log odds, first-token/full-sequence scores and varied semantically
+equivalent output strings. Define a permitted null distribution of cue-free and formatting-only
+changes. Report absolute differences and robust quantiles; do not rank architectures solely by
+proportion crossing 0.5 nats. A no-cue reference is scientifically meaningful but cannot be called a
+universal neutral condition without testing omission-versus-added-text asymmetry.
+Gate B2: If H-P or H-N produces reliable behavior beyond generic text and answer-string effects, pro-
+ceed to a narrow causal benchmark emphasizing that phenomenon. If only H-T survives, create a
+measurement/LM-interface project and freeze physics-reliance claims. If only H-U survives, split it
+into a formal equivariance study, not the core shortcut programme. If all effects disappear under re-
+alistic controls, archive as a carefully documented negative result and do not manufacture additional
+distractor conditions to force a positive headline.
+3.4 B3. A modular v2 benchmark with mutually discriminating controls
+B3.1 Five problem-structure strata. (i) Single governing equation with natural nuisance (calibra-
+tion/causal simplicity); (ii) multistep dependency graph with the distractor attached to a non-ancestor
+node; (iii) interacting subsystems with an explicit or inferable physical disconnection; (iv) condi-
+tional laws/boundary constraints where relevance depends on a stated regime; (v) counterfactual
+‘role-reversal’ examples where the same measured quantity is relevant in one verified world and
+irrelevant in another . Include inverse problems and sign/vector questions where answer and
+representation validation are reliable. Do not assume thermodynamics or multimodal diagrams are
+easy to certify: admit only validated examples and retain excluded candidates in a selection log.
+B3.2 Typed executable graph generator . Each node stores dimension, unit, reference frame, sign
+convention, physical quantity type, provenance (measured/computed/assumed), uncertainty where
+relevant, and parent edges. Include a solver program and a small explanation-free proof object: as-
+sumptions, symbolic identities, relevance/non-relevance certificate, domain of admissible cue values
+and tested boundary cases. Maintain multiple routes to verify selected hard instances (e.g., indepen-
+dent numerical solver or human algebra), not merely multiple outputs of the same symbolic equation
+generator .
+B3.3 Core 3-factor behavioral interaction. Cross physical relevance (governing vs non-
+governing), numerical proximity (near-match vs predeclared far band) and unit relationship
+(same/equivalent vs incompatible); other factors held balanced. Primary statistical target is a
+preregistered interaction in answer competition or correctness , with cluster-level inference. Add
+diagnostic cells that isolate digit overlap from mathematical magnitude: close magnitudes with
+little lexical overlap; far magnitudes with shared leading digits; numerical equality but incompatible
+units; unit-compatible far distractor; unit-incompatible but lexically overlapping distractor . Treat
+not all unit/relevance combinations as physically admissible; use design constraints and explicitly
+record empty or impossible cells rather than inserting nonsensical prompts.
+Working research protocol – not completed results 8
+
+######## PAGE 10 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+B3.4 Factor families to expand only after the core signal. Placement/recency, ordering, number
+of nuisance values, repeated mentions, prose versus table/diagram, explicitness of isolation, nega-
+tion, irrelevant explanation length, tokenizer count, decimal precision, rounding, numerical sign and
+extremes, time-scale, unit scaling, reference-frame change, numerical instantiation, paraphrase and
+language, law familiarity, chain length, distractor attached to intermediate versus final target, multi-
+ple candidate governing laws, and contradiction detection. For each secondary factor define a paired
+negative control and at least one alternative causal explanation. Don’t claim a full Cartesian product:
+use balanced incomplete blocks or fractional factorials with estimable interactions and a documented
+design matrix.
+B3.5 Control no-op robustness vs valid sensitivity. Each family must have at least one irrelevant
+edit whose target is invariant and, wherever feasible, a matched relevant edit with a known changed
+solution. Also test a coupled-system counterexample where the formerly irrelevant physical quantity
+becomes governing; a model that simply ignores all extra numbers cannot pass both tests. Score the
+relevant positive controls on correctness of the new target, not ‘output invariance’. Include deliber-
+ately ill-posed/under-specified prompts solely in a labeled rejection task, never as verified-invariant
+examples.
+B3.6 Distributions matter .Maintain separately (a) unbiased/naturalistic distractor sampling, (b) bal-
+anced experimental intervention cells, and (c) budget-constrained adversarial optimization. Freeze
+the first two before seeing model scores; adaptive search examples must carry attack budget, query
+history, target model and generation seed. Never estimate typical failure rates from an adversarially
+optimized subset. Hold out newly generated source graphs and cue-value random seeds for final test.
+B3.7 Difficulty and ecological validity. Benchmark difficulty with independently measured physical
+structure: minimum derivation steps, unique dependency nodes, number of applicable laws, number
+of constraints and domain conditions. Supplement with blinded human solve-time/difficulty assess-
+ment. A model’s low accuracy does not establish higher structural difficulty. Include problems with
+ordinary narrative plausibility; separate unnatural constructed minimum pairs for mechanism dis-
+covery from human-readable external source questions for final evidence.
+Deliverable B3: proof-carrying generator; a fully specified factorial design matrix with feasibility
+flags; source/variant lineage; formal invariance+positive-control tests; first 10 wholly new certified
+structures and a discovery-only sample of roughly 40–60 independent structures for the gate pilot.
+Failure: artificiality or impossibility of role-matched cells -> redesign the generative grammar or
+narrow the causal question, not loosen verification criteria.
+3.5 B4. Human validation as an independent scientific experiment
+B4.1 Audit v1 before claiming certification of English text. All 155 families receive at least one
+qualified blinded semantics review; all families used in a publishable confirmatory claim receive two
+independent reviews and third-party adjudication where needed. The validation pilot includes sam-
+ples from A/B/C, all three original physics domains, largest gold-likelihood shifts, negative scores, pre-
+sumed easy stable cases, ambiguous coupled systems, and high-overlap clusters. Do not let the re-
+searchers who wrote a family silently self-certify its semantic naturalness.
+B4.2 A two-pass review instrument. Pass 1, without the authors’ equation: solve or outline
+the applicable physics; state assumptions, target, whether the cue could affect target, and whether
+wording permits another physical reading. Pass 2, with the encoded equation/certificate: check
+consistency of graph, units, domain, numerical answer , specified cues and any omitted dependency.
+Separate validity, clarity, difficulty and naturalness judgments rather than collapsing into one yes/no.
+Require validators to mark uncertainty explicitly and annotate counterexamples.
+B4.3 Qualification and independence. Screen reviewers with calibrated physics problems in-
+cluding boundary-condition traps, unit conversions and deliberately misleading ‘isolated’ claims;
+record expertise by domain. Balance assignments across authors, source datasets, cue types and
+expected difficulty; reviewers are blind to model outcomes and probe/circuit hypotheses. Estimate
+payment/time during a small pilot, then resource the whole set. Disagreements are adjudicated
+Working research protocol – not completed results 9
+
+######## PAGE 11 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+by a domain-qualified independent third reviewer . Agreement metrics include raw agreement,
+Cohen’s kappa on substantive claims, uncertainty intervals, and category-specific defect rates; report
+unresolved ambiguities.
+B4.4 Adversarial validation tests. Before release, insert predeclared planted defects : hidden
+coupling, missing assumption, relevant variable removed from equation, failed transformation iden-
+tity, inconvertible or inconsistent units, invalid parameter domain, insufficient boundary condition,
+invalid numerical precision, contradictory distractor statement, and a valid equivalent rewrite. Vali-
+date detection sensitivity and false-rejection rate by mutation type. If reviewers systematically miss
+a defect type, revise the checklist and repeat calibration before confirmation proceeds. The planted-
+invalid bank never enters the benchmark as ‘genuine’ physics.
+B4.5 Admission decision categories. CERTIFIED_AND_VALIDATED, SOLVER_VALID_LANGUAGE_AMBIGUOUS,
+SOLVER_INVALID, ANSWER_AMBIGUOUS, NATURALNESS_FLAG, REVISED_REVALIDATED, EXCLUDED, and UNREVIEWED.
+Report fractions both before and after repair . Store a signed reviewer record; do not silently count
+repaired examples as untouched independent examples. Publish a human-audit protocol and
+aggregate outcomes without exposing reviewers’ personal identifiers.
+Gate B4: Confirmatory physical-relevance claims are blocked until independent expert semantic val-
+idation, version-correct solver checks and the parser criterion for the relevant endpoint pass. No
+arbitrary agreement threshold substitutes for reviewing concrete physics defects. High disagreement
+or mutation-test failure means a new validation cycle, not optimistic averaging.
+3.6 B5. External datasets as source material, not borrowed certificates
+Why the hybrid design matters. Public benchmarks supply diversity and independent original prob-
+lem authorship, but generally do not supply DECOY-specific nuisance/relevance interventions or
+proofs of our modified problem’s target . The moment a source problem is rewritten, the adapta-
+tion becomes new benchmark data requiring independent verification. Synthetic v2 and adapted public
+questions serve different causal and generalization purposes.
+Candidate source
+Publicly established
+properties
+Proposed adaptation /
+main danger Decision
+PHYSICS-Verified (Yale
+NLP)
+Public 1,034
+PhD-qualifying-exam
+problems / 2,559
+individually scored
+answers, cleaned
+reference solutions; six
+physics areas; source card
+recommends it for new
+evaluations
+High structural/difficulty
+realism. Source answer
+checks do not validate
+our newly inserted cue ,
+and many
+proof/multimodal tasks
+are excluded. Small
+models may be mostly
+incorrect on untreated
+advanced items.
+Primary hard external
+source, screened for
+tractable
+symbolic/numeric
+intervention candidates.
+UGPhysics (ICML 2025) 5,520 undergraduate
+questions, 13 subjects,
+English/Chinese, seven
+answer types
+Strong breadth; varying
+answer-type and
+multimodal complexity;
+source license and
+derived-work permissions
+need review; not every
+question supports a
+certifiable intervention.
+Primary broad external
+source with predefined
+per-subject selection
+record.
+PhysReason (ACL 2025) 1,200 physics problems;
+knowledge/reasoning
+strata and process
+evaluation
+Useful multistep
+dependency-path
+challenges; reference
+rationale is not an
+internal reasoning trace
+and may not imply
+verified nuisance role.
+Secondary
+deep-structure source
+after source-problem
+reconstruction.
+Working research protocol – not completed results 10
+
+######## PAGE 12 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+Candidate source
+Publicly established
+properties
+Proposed adaptation /
+main danger Decision
+SciBench (ICML 2024) College-level scientific
+tasks from course material
+May contain unsuitable
+questions/figures or
+source-specific copyright
+constraints; new
+interventions require
+review.
+Optional external source
+when adaptation
+feasibility is
+demonstrated.
+GSM-DC (EMNLP 2025) Controlled symbolic
+dependency graphs,
+distracting-context
+injection and stepwise
+accuracy analysis
+Highly similar behavioral
+confounds; mathematics
+rather than physics
+Required
+methodological
+competitor and
+cross-domain control,
+not replacement.
+GSM-Symbolic (ICLR
+2025)
+Symbolic variants and
+irrelevant NoOp clauses in
+math
+Demonstrates
+numerical/context
+fragility; does not
+automatically establish a
+PhysMon circuit
+Required pre-existing
+benchmark comparator .
+B5.1 Sample the candidate pool independently of model outcomes. For each source, document
+dataset revision, inclusion criteria, population, random seed, subject/answer-type strata, sampling
+probabilities, original ID and provenance, any figures removed, and open-access/reuse constraints.
+Do not first inspect which published problems Qwen fails and preferentially adapt the dramatic ones
+for a ‘representative’ external test.
+B5.2 Conversion pipeline. (1) Identify the original target answer and material assumptions; (2) solve
+independently or reconstruct a transparent executable dependency program; (3) identify safe inter-
+vention points and candidate irrelevant/relevant quantities; (4) derive the output under both edits;
+(5) preserve essential problem semantics when rewriting; (6) conduct independent physics and natu-
+ralness review on each adapted pair ; (7) audit source overlap with v1/v2 and model-training contam-
+ination risks; (8) freeze result-bearing adapted examples and scoring before evaluating models. Log
+reason-coded rejections at each step.
+B5.3 Feasibility pilot. Draw a precommitted, stratified 20–40-candidate sample from each of
+PHYSICS-Verified and UGPhysics , with an optional smaller PhysReason sample; measure eligible-
+adaptation yield, reviewer hours, formal-certification rate, question difficulty and baseline solve rate.
+Report uncertainty intervals on yield and compare representativeness of retained/rejected questions.
+This is not yet a final external test; it determines whether each source is appropriate.
+B5.4 Two independent external sets. (i) EPC-D, an openly available adapted-development set that
+can inform methods and tooling but never confirm an already tuned claim; (ii)EPC-C, a locked external
+confirmation set authored/adapted/verified by different staff after the mechanism’s target and code
+are frozen. Aim for heterogeneity across law, source and difficulty, not merely a larger number of
+paraphrases. Separately maintain EPC-N, a new set of expert-authored problems not derived from
+public benchmarks to help limit contamination and copied-reference leakage. The final external set
+is opened once, and any post-failure revisions require a new independent set.
+B5.5 Source- and solvability-aware estimands. Report all eligible cases, base-correct cases and
+available physically meaningful wrong-answer alternatives. Small models will plausibly fail more dif-
+ficult problems; in that event, don’t cherry-pick only successes without disclosing selection and shifted
+target population. Use relevant-edit responsiveness even for models without baseline correctness, and
+stratified analyses where scientifically interpretable. Verify the native unit/answer scoring for each
+model before comparing them.
+B5.6 Cross-domain falsification. Select abstractly matched GSM-DC and GSM-Symbolic structures,
+measure interference under their own validated protocols, then evaluate a carefully translated subset
+Working research protocol – not completed results 11
+
+######## PAGE 13 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+with PhysMon’s controlled relevance conditions. If a supposed ‘physics relevance gate’ responds iden-
+tically to graph-equivalent grade-school arithmetic, interpret the mechanism as general dependency
+filtering or numerical copying unless a truly physics-specific manipulation distinguishes it.
+Gate B5: If adaptations are rare/ambiguous, preserve source rejection rates and either restrict the
+external question types or commission independent expert-authored tasks; don’t downgrade certifi-
+cation to inflate numbers. If only synthetic tasks show effects, make that limitation central and do
+not claim broad physics reasoning. Confirmed external effects are required for a broad ICLR-level
+generalization claim.
+3.7 B6. Pilot, power, confirmation, and anti‐cherry‐picking rules
+B6.1 Pilot matrix and endpoints. Run roughly 40–60 new independent discovery structures,
+enough to debug the construction and estimate variance, not to prove a small effect. For each,
+balance a prespecified attainable subset of relevance × proximity × units, no-cue and numeric
+metadata conditions; include at least two numeric instantiations and a fixed output grammar . Two
+independently implemented dense models are a defensible starting point; a third stronger model
+tests whether the phenomenon persists beyond 7–8B without presuming it will. Preselect the primary
+cue family and endpoint only on this discovery partition.
+B6.2 Estimate precision at the correct independent unit. Perform simulations and blinded design
+checks with random effects for physical structure, source/author , numeric instantiation and model.
+Target CIs for paired accuracy differences, relevance×proximity interactions, out-of-cluster AUROC
+margins, and causal rescue effect. Use a power target and minimum effect size that have an engi-
+neering/scientific interpretation. The pre-existing ‘300–600 symbolic structures’ is a tentative upper
+planning band, not a quota or evidence that 600 will have enough independent laws. A large library
+of paraphrases can be statistically less informative than a smaller set of independent dependency
+programs.
+B6.3 Lock five disjoint roles. EXPLORATION (pilot and unrestricted scans); GENERATOR_TUNING (natural-
+ness and control debugging, still nonconfirmatory); INTERNAL_CONFIRMATION (never used for choosing
+labels, models, heads or thresholds); EPC_CONFIRMATION (independent external source); and ADVERSAR-
+IAL_CHALLENGE (separate worst-case claim). Merge/group by graph lineage and template structure be-
+fore splitting. When physically related groups cannot be separated without losing power , state the
+limitation and reduce the generalization claim.
+B6.4 Primary hypothesis and the factorial null. Example prospective primary: a non-governing
+same-unit near-match alters correct-versus-decoy log-odds more than a token- and length-matched
+far distractor , while a physically governing change is tracked correctly. The exact statistical interac-
+tion and candidate-answer set must be frozen with the model and prompting regime. Declare an al-
+ternative hypothesis for lexical copying and a predeclared ‘no practical effect’ interval. Family-cluster
+paired tests, hierarchical regression and within-cluster permutation tests should agree qualitatively
+before calling the finding stable.
+B6.5 Reliability and adversarial budget. Reuse fixed cue random seeds across models; repeat deter-
+ministic scoring, investigate numerical precision and GPU backend variation, sample free generation
+where appropriate, and report median/tail outcomes. For adaptive adversarial cue search, fix allowed
+edit space and per-family query budget; report attack success separately from fixed-distribution ro-
+bustness. Avoid training monitor or selecting causal heads on adversarial-targeted test examples.
+Gate B6: Promote to heavy mechanistic research only when a validated causal contrast exists on
+held-out structural units, is not dominated by format/tokenization or one cue subtype, and is large
+enough to support meaningful interventions. If effect is absent on two independent sources, stop the
+broad claim and report boundary conditions. If model output shifts only within teacher-forced string
+probabilities, restrict the target to a calibrated likelihood/interface mechanism rather than physical
+shortcut reliance.
+Working research protocol – not completed results 12
+
+######## PAGE 14 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+3.8 B7. Benchmark deliverables and acceptance rules for the later mechanism study
+Release package. decoy_v1_frozen_manifest (legacy IDs and exact original scoring);decoy_v2_structures
+(typed graphs, physical assumptions, symbolic/numeric solvers, invariant and relevant-edit certifi-
+cates); decoy_v2_renderings (all factor cells, random generators, source lineage and text hashes);
+validation (blinded decisions and adjudication); scoring (model/wrapper/answer-token IDs and
+parser versions); external_adaptations (source IDs, acceptance/rejection ledger , licenses and valida-
+tor decisions); splits (lineage/cluster firewall); controls (no-cue, neutral text, generic numerals, role
+reversals, ill-posed negatives); results (exact estimands, eligible denominators, uncertainty and all
+failed runs); benchmark_card (intended uses, disallowed inferences, known limits, data provenance,
+contamination). Exact path strings are illustrative; finalize naming after code inspection.
+Quality-gate checklist: independent correct physics; explicit assumption and domain; proof or in-
+dependent executable certificate; verified relevant and irrelevant roles; matched surface manipula-
+tions as specified; validated parser and answer equivalence; source/license traceability; independent
+blinded review; cluster-independent split; frozen intervention budget and scoring; balanced reported
+strata; all intended-to-evaluate records; unchanged phase-1 reproduction; and one untouched exter-
+nal sample. No ‘certified’ claim about natural-language semantics based solely on a symbolic free-
+symbol test.
+Benchmark-only scientific value test. If the rebuilt dataset does not enable a genuinely new com-
+parison that GSM-DC, GSM-Symbolic and existing physics benchmarks cannot support, do not pitch
+benchmark size or formal verification as the lead novelty . Use it as infrastructure for the causal
+mechanism paper . A standalone dataset contribution requires demonstrated measurement validity,
+distinctive physics relevance factors, independently validated external tasks, baseline coverage and
+usable release tooling. Compare cost and quality, not only sample counts.
+Final Phase-B go/no-go: GO—MECHANISM if physically validated, structure-generalizable, answer-
+relevant interference is reproducible and sufficiently powered; GO—MEASUREMENT if a coherent
+output-likelihood/representation-invariance phenomenon survives but correctness/relevance claims
+do not; PIVOT—GENERAL NUMERIC if analogous GSM-DC/physics-stripped tasks explain the effect;
+REDESIGN—BENCHMARK if natural-language semantics or scoring cannot be trusted; STOP BROAD CLAIM if no
+meaningful effect survives held-out validation. Gate outcomes do not license retroactive relabeling
+of confirmatory data.
+4 The falsifiable theoretical framework
+Let a physical task be T=(r,a,g,y*) , with relevant variables r, assumptions a, governing equation g,
+certified answer y*, and nuisance cue z. A well-designed family contains independently varied cue
+z, numerical relevant variables, wording, output wrapper , and cue-placement/representation factors
+while recording what is held fixed. Y*(x) is physically invariant for certified nuisance edits. The model
+has a distribution p_theta(.|x,q) depending on prompt x and answer-scoring protocol q; never omit
+q when studying probabilities.
+Observable endpoints (distinct by construction):
+1. C_gen: free-generation correctness under an independently audited parser , with abstentions and
+invalid outputs explicit.
+2. A_gen: normalized parsed free-generation answer; F_flip: pairwise answer disagreement within
+family, stratified by correctness transitions.
+3. L_gold(x,q): length-normalized and raw teacher-forced log-probability assigned to a specified
+canonical answer sequence under protocol q.
+4. D_lp: distribution of within-family gold-answer likelihoods; primary reference-free candidate
+max_i L_gold - min_i L_gold , accompanied by SD/MAD and pairwise absolute differences. Unlike
+the legacy signed score, this is invariant to variant ordering, but it loses the distinction between
+decline and increase; report signed contrasts separately against a semantically defined no-cue
+anchor .
+Working research protocol – not completed results 13
+
+######## PAGE 15 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+5. P_gold: restricted answer-set normalized probability when a defensible set of answer alterna-
+tives exists; compare with first-answer-token and answer-token-chain scores, fully acknowl-
+edging closed-set conditioning.
+6. R_alt: log-odds log p(y* | x,q) - log p(y_decoy | x,q) for independently prespecified distractor-
+derived candidate answers when they are well-formed under the same unit/format . This identifies
+answer competition more directly than a raw gold-string likelihood, but is not defined for every
+cue type.
+7. C_cal: confidence calibration against actual correctness of predictions; do not call the teacher-
+forced gold-string log-probability an empirically calibrated belief in correctness.
+8. G_mech: a causal output contrast on a matched clean/corrupt pair , ideally a logit- or probability-
+margin between predeclared physically relevant and distractor-derived alternatives, assessed
+jointly with free-generation outcomes.
+9. I_select: a selective intervention’s effect on nuisance sensitivity minus its effect on genuinely
+relevant information, answer accuracy and unrelated tasks.
+Primary scientific distinction. An ideal symbolic solver yields the same answer value across irrele-
+vant edits. It need not be modeled as assigning exactly equal probability to a fixed byte string under
+differently worded contexts. Probability invariance is a desirable robustness convention , not en-
+tailed by the mathematical certificate. The new study must test whether different notions of instability
+cohere empirically, rather than treating one as a theorem-induced truth.
+4.1 Competing mechanistic hypotheses: predictions and falsifiers
+Code Explanatory hypothesis Distinct prediction Defeating result
+H0-F Answer-format /
+teacher-forcing artifact
+Effects vary strongly with
+canonical rendering,
+prefixed response and
+answer tokenization; little
+or no counterpart in
+natural answers
+Similar cue effects across
+controlled answer formats
+and in generated answer
+competition.
+H0-U Generic uncertainty /
+difficulty
+Correctness, entropy and
+prompt complexity
+explain label; perturbing
+many nonnumeric
+irrelevant statements has
+similar effect
+Factorially isolated
+numeric and
+causal-specific effects
+after matching these
+signals.
+H1-C Numeral-copying / lexical
+priming
+Cue numeral
+representation flows
+toward answer
+token/logits, effects
+depend on exact
+digits/token overlap even
+if units are incompatible
+Robust effects require
+semantic/physical
+relevance and survive
+numeral string mismatch.
+H1-M Magnitude/units
+competition
+Near-equal magnitudes
+and compatible units
+jointly predict failures;
+cue representations affect
+intermediate magnitude
+comparisons
+Effects entirely explained
+by raw token overlap after
+token-balanced tests.
+H1-R Relevance-gating failure Explicit
+isolation/relevance
+structure controls
+whether a distractor is
+used; QK attention to
+relevance language or
+gated OV pathway
+Gate manipulations do not
+change causal flow once
+surface form is controlled.
+Working research protocol – not completed results 14
+
+######## PAGE 16 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+Code Explanatory hypothesis Distinct prediction Defeating result
+H1-G General context routing Cue information flows
+through broadly shared
+circuitry, but no distinct
+physics-specific function
+A tight, physics-specific
+pathway proves necessary
+across held-out tasks.
+H1-H Heterogeneous
+mechanisms
+Cues A, B and C have
+distinct behav-
+ior/readouts/components;
+apparent pooled effect is
+composition
+Independently confirmed
+shared pathway with
+strong out-of-type transfer .
+H2-P Specific partially
+recoverable pathway
+Predeclared upstream
+sources, edges, head
+output and downstream
+targets pass
+patch/knockout/rescue on
+unseen clusters
+Only isolated head
+ablation changes scalar
+sensitivity; proposed path
+does not mediate outcome.
+H3-S Selective repair Mechanism-informed
+intervention improves cue
+invariance and accuracy
+with small damage and
+outperforms cheap
+baselines
+Improvement is cosmetic,
+not generalizable, or is
+dominated by prompt
+removal.
+High-priority prediction. Distinguish numeral copying from physically meaningful competition us-
+ing orthogonal manipulations of numeric closeness, digit overlap, unit compatibility, stated isolation,
+task relevance and output format. Without this experiment family, a ‘physical reasoning mechanism’
+claim remains underdetermined.
+4.2 Claim hierarchy and evidence gates
+• C1 (benchmark): certified task-answer invariance plus audited natural-language fidelity, inde-
+pendence, coverage, and well-specified exclusions.
+• C2 (behavioral): reproducible cue-specific behavioral instability on unseen template clusters,
+reported across multiple endpoints rather than one answer-string likelihood.
+• C3 (monitor): correctly scoped single-input monitoring with meaningful paired incremental
+value beyond tuned available baselines and enough precision to resolve deployment tradeoffs.
+• C4 (causal localization): multiple valid intervention families identify specific components,
+replicated on a held-out causal panel and not explained by model damage.
+• C5 (mechanistic explanation): a concrete, falsifiable functional account with necessity + con-
+trolled sufficiency + upstream/downstream path tests + causal abstraction/generalization.
+• C6 (repair): selective, generalizing intervention outperforming appropriate nonmechanistic al-
+ternatives with a documented utility/cost frontier .
+Promotion rule. A claim only advances one level when the corresponding tests pass; a highly signif-
+icant C3 monitor does not establish C4/C5. The next paper needs either a convincing C5, or an excep-
+tionally well-validated C1–C3 methodological finding with true novelty beyond current benchmark
+literature, preferably C6 if feasible.
+5 Ordered execution: the twelve critical‐path blocks
+Revised dependency (Phase B is mandatory). B0 runs alongside P0; B1 and P1 reuse the same
+frozen DECOY-v1 audit; B2/B3 create the formal behavior hypothesis and the small v2 discovery
+grammar; B4 validates the semantic contract; B5 pilots independently sourced external adaptation;
+B6 freezes the behavioral signal and confirms it on structures that were never used in genera-
+tor/probe/head selection; B7 approves the benchmark for its limited intended uses. Only then scale
+Working research protocol – not completed results 15
+
+######## PAGE 17 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+P2/P3 and run confirmatory P4. P5 (monitoring) and P6–P8 (mechanism) can proceed in parallel
+only after Phase-B gating and P4 freeze trustworthy partitions. Exploratory H11 checks may happen
+earlier if marked exploratory and nonclaim-bearing . P9 (external replication) begins after a causal
+hypothesis is frozen. P10 (repair) begins after P7 yields a specific intervention. P11 (paper synthesis)
+continuously updates a claim ledger but freezes final claims only when the required branches close.
+Avoid a calendar-driven plan: each gate is about correctness, not arbitrary dates.
+5.1 P0. Independent evidence reproduction, release provenance and code audit
+Question. Which of Phase I’s reported numbers actually follow from exact datasets, versions, model
+weights and scoring code? This is not clerical. A corrupted label, leaked fold or incorrectly aligned
+hook invalidates downstream mechanistic interpretations.
+P0.1 Build an immutable artifact registry. Assign each canonical family and numeric instantiation
+UUID; freeze hashes of symbolic template, rendered text, response prefix, reference answer , model
+revision, tokenizer , generation configuration, scoring script, fold ID, monitor checkpoint, donor/target
+identities, intervention site, scheduler job, git SHA and random seed. Associate one machine-readable
+claim_id -> exact artifact paths + generator code + checksum + eligibility rule + source doc
+table/figure. Mark exploration vs internal confirmation vs truly untouched confirmation. Include
+missing, cancelled and zero-row runs.
+P0.2 Reproduce submission tables and plots bottom-up. Starting from per-rendering
+records (not summary CSVs), regenerate 155 →140→135 inclusion logic; every cue/domain
+rate; Qwen/Llama/DeepSeek label overlaps; AUROC/AUPRC, Brier , ECE, FNR@FPR; the leave-one-
+family-out out-of-fold predictions; paired 10,000-bootstrap distributions, not merely intervals; Qwen
+layer-16 head subset ranking; causal run per-family numerator/denominator and CI; 15-family
+transfer membership. Never silently fill missing records. Compare raw generated answers to parser
+canonicalization and teacher-forced input IDs.
+P0.3 Re-run a small random selection end-to-end. Preselect at least 10 families stratified by model,
+label, cue type, gold-token length and reported effect, including CM_B_UM_059, plus five adversarial
+edge cases (near-match, Cue C, negative recovery, parse failure, one zero-like answer). Require exact
+determinism of frozen logits within a justified tolerance and consistency between raw hook-based and
+reference forward passes.
+P0.4 Inspect the code for leakage and cohort selection. Verify scaler/feature construction, hyper-
+parameter selection, threshold selection, layer selection, calibration, stacked predictors and correct-
+ness residualization are inside the appropriate nested training loop. Inspect whether first discovered
+candidate representations were selected using future confirmation families, whether class labels use
+model-generated parsing as an inclusion filter , and whether the same or structurally related templates
+cross the training/test border . Conduct an adversarial code review with a second investigator tracing
+one train/test observation by hand.
+P0.5 Fix provenance discrepancies explicitly. The submitted manuscript says renamed-donor con-
+trols had zero evaluable rows; the older Part-II record says these controls were completed with zero
+recovery. Resolve from job logs and donor-selection code, then run the corrected control only after
+freezing the eligible target/donor populations. The later Llama head-2 sweep (~1.85 in the appendix) is
+exploratory with incomplete provenance ; do not upgrade it without a complete clean replication.
+Deliverables. evidence_registry.parquet, machine-readable claim map, frozen manifests, re-
+computation notebooks/tests, inclusion-flow report, code-review checklist, reproducibility
+docker/conda lock, discrepancy log including unfixed defects. All values from the paper should
+be labeled verified, different but explained , unreproducible, or not enough source data .
+Gate P0 (hard stop). Proceed only if the behavioral likelihoods and labels can be independently
+regenerated and the intervention hooks demonstrably affect the claimed tensors and token positions.
+If any headline changes materially: publish a versioned erratum in the internal ledger , invalidate
+derived findings, and rerun the minimal upstream chain. Never patch new experiments onto a broken
+denominator .
+Working research protocol – not completed results 16
+
+######## PAGE 18 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+5.2 P1. Measurement validity: challenge the entire sensitivity construct
+Question. Does the observed signal reflect a model’s improper computation or mainly a property of
+the string and scoring interface? A robust measurement paper would be valuable even if the original
+construct fails.
+P1.1 Anchor-free full-factorial rescoring on the existing 140 families. From the four stored raw
+gold log-probabilities, compute: legacy max_{j != base}(L_base-L_j) ; range max(L)-min(L); SD, MAD
+and median absolute pairwise shift; pairwise signed differences; signed contrasts against a new no-
+cue rendering . Randomly permute the designated base through all four values without rerunning
+the model and report label stability, confusion matrix, reclassification rate, impact by cue type, and
+whether model differences preserve sign. Document that base-free range is always nonnegative and
+therefore has a different null distribution from the signed legacy statistic.
+P1.2 No-cue and nonnumeric controls. For each sampled family, generate (i) cue absent, (ii) irrele-
+vant numeric distractor , (iii) irrelevant nonnumeric sentence of comparable length, (iv) unrelated nu-
+meric metadata, (v) physically relevant number edit that deliberately changes the correct answer and
+is separately re-certified. Compare effects as matched differences-in-differences. This disambiguates
+sensitivity to the edit from generic extra information and proves the assay responds to genuinely rel-
+evant information.
+P1.3 Output-wrapper multiverse. Score the same semantic answer under exact frozen wrappers:
+plain digits; Answer: <value> <unit> ; boxed LaTeX; standardized JSON scalar; natural-language short
+answer; fixed number of decimals and scientific notation. Preserve units correctly; for incompara-
+ble strings, analyse within-wrapper contrasts rather than averaging raw log-probs. Compare model
+chat templates, system instruction, generation header , assistant-prefix token span and explicit stop
+tokens. Record exact tokenizer IDs for every answer sequence, correct prefix and target span; verify
+no accidental inclusion of prompt or padding tokens in the scored log-likelihood.
+P1.4 Length and tokenization controls. For each family, compute total and per-token gold log-
+likelihood; answer-token count; answer string length; number of numeric subword units; target unit-
+token rarity; likelihood on numeric value alone vs value+unit; first-token vs full-sequence sensitivity.
+Stratify within target-token-length bins, match families on exact length where possible, and rerun
+with equivalent canonical answers differing in the number of subword tokens. Test whether the 0.5-
+nat legacy label is systematically easier to cross for longer answer sequences.
+P1.5 Proper likelihood comparisons. Where a finite, solver-generated set of distractor-derived can-
+didate answers is meaningful, compute a normalized restricted-choice distribution over y*, y_decoy,
+plausible arithmetic alternatives and none-of-the-above. Verify that candidate strings are matched for
+output grammar/units and quantify sensitivity to distractor-set construction. Report correct-vs-decoy
+log-odds (answer competition) alongside raw absolute gold probability. Separately, calculate semantic
+answer distributions from repeated free generations at several temperatures, clustering equivalent
+answers; compare with teacher-forced endpoints without pretending that finite-sample JSD is exact.
+P1.6 Free-generation experiment. For matched cues, generate answers under deterministic de-
+code and repeated stochastic decodes (e.g., three temperature settings, 5–20 samples per cell where
+budget permits), using a locked, audited parser plus blinded human checks on an error-enriched sam-
+ple. Separate correct→correct with confidence shift , correct→wrong, wrong→correct, wrong→same
+wrong, wrong→different wrong , invalid/abstention. Report whether cue effects change numerical final
+answers, not only gold log-prob. Include a model-evaluated explanation of whether the cue is relevant
+as a correlate, never ground truth for internal use.
+P1.7 Test metric reliability. Re-score identical prompts across repeat passes, alternative preci-
+sion/quantization modes and batch configurations; for deterministic forward pass, require near-exact
+agreement. Test text-only punctuation, whitespace, equivalent mathematical unit renderings, equiv-
+alent output display precision, and instructions that change no physics. Compare measured cue shift
+to this baseline ‘presentation noise’ distribution.
+Working research protocol – not completed results 17
+
+######## PAGE 19 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+P1.8 Separate output-level invariance from decision-level reliability. Evaluate selective predic-
+tion: confidence bins for final-answer correctness, ECE/Brier with family-cluster confidence intervals,
+and a contrast between stable/unstable families at matched difficulty. A raw fall in p(y ) may be a
+desirable uncertainty response* if the cue makes the question harder to parse; the practical risk is
+overconfidence, erroneous answers, or unexplained drift despite certified invariance. Report each
+explicitly.
+Design. First run P1 on a balanced pre-registered audit subset of original families; then a full frozen
+rescore on all eligible originals. Use source family as inference unit, model as repeated measure, and
+nested variance components for multiple wrappers/cue variants. Register a small family of primary
+endpoints (reference-free range, free-generation correctness transition, and correct-vs-decoy log-odds
+where defined); all other tests are sensitivity analyses.
+Gate P1. If the reference-free, parser-independent phenomenon is stable and materially exceeds
+matched formatting/no-cue effects, proceed to new benchmark creation. If not: stop calling the cur-
+rent S_lp a shortcut construct; redirect to a scientifically valuable study of how answer-string scor-
+ing creates apparent counterfactual fragility . If free-generation remains invariant while teacher-
+forced p(y*) drifts, restrict the thesis to likelihood sensitivity, with no safety/correctness claims. If only
+Cue C exhibits enormous effects, separate it entirely as a format/unit-conversion phenomenon.
+5.3 P2. Scale the Phase‐B‐approved DECOY‐v2 design (not the old benchmark)
+Relationship to Phase B. B2–B6 govern whether, what, and how much new data should be built. P2 is
+the implementation and capacity-expansion package after those approvals; it must reuse the validated
+graph schema, factorial feasibility matrix, accepted scoring endpoints, and locked grouping policy. Do
+not create 300–600 examples to make the dataset look large if the B6 pilot fails. Old Cue C is analyzed
+separately in V2-B, not pooled with V2-A.
+Question. Can we independently manipulate the proposed mechanism’s causal ingredients while pre-
+serving physics, and hold out genuinely new structures?
+P2.1 Define an explicit generative grammar . Build symbolic programs with typed quantities, di-
+mensions, causal roles and assumptions. Make the equation a directed computation graph with nodes
+for governing inputs, intermediate quantities and the target. Every non-governing distractor must be
+accompanied by a proof/certificate of nondependence and an independent semantic checklist that
+verifies the rendered text matches the graph. In positive-control families, vary genuinely relevant
+variables and recompute y* exactly. In ‘mis-specified’ negative-control families, deliberately insert
+a subtle physical coupling and confirm validators/verifier reject it. Do not trust free-symbol absence
+alone if the omitted quantity changes assumptions, reference frames or boundary conditions.
+P2.2 Factorial cue design. Cross six primary axes while managing combinatorial explosion through
+prespecified orthogonal/blocked or fractional-factorial designs:
+• Numerical closeness: exact-match, near (predefined log-relative distance bands), moderate,
+far; negative values where physically meaningful; match numerical closeness while breaking digit
+overlap and match digit overlap while breaking numerical closeness .
+• Physical status: relevant variable, irrelevant isolated variable, same-unit non-governing quan-
+tity, dimensionally incompatible number , redundant-but-physically-equivalent expression, in-
+consistent/contradictory statement excluded from invariant-family claims.
+• Units/dimensions: exactly same units, convertible compatible units, unitless, incompatible,
+composite units, symbol-only numeric distractor , scientific notation; verify conversion factors
+rather than assuming textual equivalence.
+• Semantic relationship: explicit mechanically isolated subsystem, spatially separated system
+with a stated no-interaction assumption, same system but non-governing metadata, decoy
+framed as possible answer , decoy as historical/quoted example, redundant true fact.
+• Placement/format: before/after governing variables, adjacent to the question vs far from it,
+parenthetical vs prose vs table, cue at first/middle/last segment, keyword emphasis vs neutral,
+one vs multiple occurrences; matched length and answer position.
+Working research protocol – not completed results 18
+
+######## PAGE 20 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+• Task structure: one-step vs multi-step equation, intermediate near-match vs final-answer near-
+match, algebraic vs numerical answer , inverse problem, single vs multiple constraints, familiar
+vs newly composed lawful systems.
+P2.3 Crucial deconfounding cells. For every target measurement identify a cell with equal cue-digit
+tokens but different physical relevance; equal physical relevance but different digit overlap; matched
+target-answer value but different governing law; same law with different numerical instantiation;
+same numeric cue and units but different isolation sentence. This creates counterfactual tests that a
+simplistic lexical or generic difficulty explanation cannot simultaneously satisfy.
+P2.4 Quantity and independence. Target the number of truly distinct symbolic structures jus-
+tified by Phase-B pilot power , validator capacity, and lawful variation , not merely several hun-
+dred paraphrases of 34 clusters. Retain 300–600 independently authored/certified new canonical
+structures with 4–8 cue conditions and 2–3 numeric instantiations only as a provisional planning ceil-
+ing/range subject to B6 , not an acquisition quota or guaranteed power . Reserve complete template
+clusters, governing-law combinations, and source collections for locked confirmation; count them,
+not just surface renderings. If the number of genuinely different physical computation graphs is too
+small, prefer fewer valid distinct families and be candid about scope rather than relabeling siblings
+as independent observations.
+P2.5 Orthogonal physics extension. Keep classical mechanics and basic circuits as core; expand
+deliberately to dimensional-analysis problems, waves/oscillations, optics, energy conservation, and
+selected thermodynamics only when assumptions and equilibrium/path conditions can be exhaustively
+certified. Place each new domain into a separate external cohort rather than pooling it into a favorable
+aggregate. Physical domain difficulty is a measured covariate, not a reason to exclude hard results.
+P2.6 Out-of-distribution sources. Include human-written problems from newly devised curricula;
+naturally sourced textbook/exam-style material with licensing and contamination-risk audit; algorith-
+mically synthesized nonstandard legal setups; new symbolic compositions unconnected to DECOY.
+Use source-held-out and law-held-out tests. Avoid claiming no training contamination in black-box
+base-model pretraining; instead test memorization proxies, novelty, and paraphrase sensitivity.
+P2.7 Synthetic but adversarially plausible. Ask independent LLMs to identify wording ambiguity
+and suggest semantically tricky distractors, but not to assign physics ground truth . Require expert
+rewriting and symbolic validation before admission. Screen cases where the irrelevant cue makes
+the natural language pragmatically ambiguous even if the authors’ algebra says otherwise. Publish
+rejection reasons and excluded families, not just surviving clean positives.
+P2.8 Matched negative and positive sets. No cue; stylistically matched irrelevant text; numeric
+cue with wrong units; cue relevant by changing the actual physical dependence; answer changed in a
+certified and controlled way; solver question switched to a different target that makes the previously
+irrelevant variable relevant. This last role reversal is essential to demonstrate a selective relevance
+mechanism rather than indiscriminate digit suppression.
+P2.9 Domain-specific robustness. Check exact dimension conversions, alternate significant-figure
+conventions, sign and frame transformations, force conventions, rounding, algebraic simplification,
+near-zero denominators and degenerate limits. Anything requiring tacit real-world assumptions re-
+ceives an explicit stated-assumption audit and may be excluded from the core.
+Gate P2. New benchmark admission requires verifier pass, independent human semantic pass, no
+open leakage collision, and a declared structural parent/cluster . If balanced factorial creation pro-
+duces obvious artificial text, run a blind naturalness comparison against textbook-like prompts and
+improve the grammar; do not keep artificial examples because their effects are large. If independent
+law breadth cannot be achieved, reduce the claimed generalization scope and increase mechanistic
+depth in a narrower subdomain.
+Working research protocol – not completed results 19
+
+######## PAGE 21 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+5.4 P3. Scale independent expert validation, parser reliability and leakage firewall
+Relationship to Phase B. The validator qualification/pilot, v1 physical-semantic audit and external
+adaptation viability are already required in B4/B5. P3 delivers full new-data validation, blinded au-
+diting of the locked confirmation split, response-parser adjudication, and cluster-separation audits. A
+positive model result cannot waive these requirements.
+P3.1 Personnel and blinding. Recruit two independent physics-qualified validators per con-
+firmatory family, with a third adjudicator; calibrate on easy, adversarial and genuinely ambiguous
+cases. Validators must not see model outputs, sensitivity labels, probe scores, or the hypothesis that
+generated the family. Ask separately: equation correctness, sufficient assumptions, cue irrelevance,
+answer invariance, naturalness, potential missing interactions, unit correctness, correct rounding,
+and whether paired renderings differ only as intended. Record annotator confidence and reasons.
+P3.2 Quantify disagreements. Predefine exclusion and adjudication rules. Report raw agreement,
+Cohen’s kappa for core binary properties plus prevalence-aware and/or Gwet agreement if severe
+imbalance makes kappa misleading, bootstrap CIs at structure level, domain-specific failure rates, ad-
+judication edits and changed-label counts. A 0.80 kappa aspiration is not a license to drop difficult
+cases to improve agreement.
+P3.3 Mutational verification. Apply deliberate failure mutations: cue leaks into equation; change an
+assumption; remove mechanical isolation; unit conversion error; sign flip; change relevant variable;
+rename cue to relevant variable; swap target quantity; add a hidden dependence; omit a necessary
+boundary condition. Include algebraically equivalent positive mutations. Report sensitivity and speci-
+ficity of the validator/verifier system against the known mutations, stratified by mutator , and verify
+that invalid examples fail for the intended reason.
+P3.4 Parser study. Draw a blinded, stratified sample of responses across models, cue types and gener-
+ated formats including refusals, multiple numbers, intermediate answers, hallucinated units, LaTeX,
+scientific notation, significant figures, symbolic answers and truncations. Require two human adjudi-
+cators. Report coverage, error rate, coverage conditional on outcome, answer-equivalence false posi-
+tives, and impact of parser uncertainty on behavioral rates via conservative bounds. Keep ambiguous
+responses as an explicit category.
+P3.5 Multi-level overlap detection. Build union-find clusters from exact prompt hashes, number-
+masked text, normalized symbolic AST, equation graph isomorphism, governing-law family,
+tokenized frame, variable-renamed graph, cue-grammar identity, near-duplicate embeddings,
+manually reviewed semantic relationships, and identical solution programs. Freeze a transparent
+clustering policy and manually adjudicate a representative sample of both ‘same’ and ‘different’.
+Same law is not always leakage, but should be explicitly held out in a stricter transfer test. Group by
+connected components of the relevant relation so transitive siblings never straddle splits.
+P3.6 Audit the original 34 clusters. Review the 2,352 unresolved rendering pairs and 147 family
+pairs; do not automatically treat them all as leakage or as harmless. Re-evaluate the original LOOCV
+by cluster-held-out and by distinct symbolic program. Report overlap with new locked confirmation;
+newly generated semantic paraphrases of old computation graphs remain in discovery, not indepen-
+dent replication.
+P3.7 Freeze cohort version. Manifest the discovery set, internal confirmation, external confirma-
+tion, adversarial challenge and human-written source set. Every family and variant receives an im-
+mutable split assignment before labels are evaluated. A family removed after outcomes are seen re-
+tains a tombstone with reason; report intent-to-evaluate alongside eligible results. Keep a shadow test
+set inaccessible to all tuning scripts and agents.
+Gate P3. No confirmatory hidden-state or causal generalization claim until each confirmatory fam-
+ily’s natural language has passed the independent validation gate, and leakage risk is audited. If the
+certificate proves authors’ equations but validators reject a sizeable fraction of prompt semantics,
+revise the benchmark and restart affected behavioral measurements; it is not a statistical nuisance
+covariate.
+Working research protocol – not completed results 20
+
+######## PAGE 22 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+5.5 P4. Definitive behavioral mechanism discrimination and power planning
+P4.1 Preregister a small core experiment. Primary contrast: interaction of numerical proximity
+× unit compatibility × relevance status on (i) free-generation answer contamination, (ii) correct-vs-
+decoy log-odds, and (iii) reference-free gold-likelihood dispersion, with distinct hypotheses about each.
+Use held-out structural clusters and within-structure matched randomization. Prespecify which cue,
+output protocol and model form the headline analysis, leaving broad multiverse tables as secondary.
+P4.2 Estimate detection power honestly. From a discovery-only pilot, simulate data with hierarchi-
+cal cluster dependence, label prevalence and within-family correlation; evaluate width and coverage
+of CIs for interaction coefficients and paired AUROC differences at realistic effect sizes. Pick a con-
+firmatory sample large enough for the smallest scientifically meaningful effect , not for detecting any
+departure from zero. Record attrition assumptions from parser/validator failures. If model-time lim-
+its prevent a narrow enough CI, make a precision-limited conclusion, not a powered claim.
+P4.3 Multi-level regression. Fit transparent hierarchical mixed models or carefully predeclared
+GEE/cluster-robust models with structure random intercepts and, where estimable, random cue slopes.
+Test predeclared interactions (near-match × unit compatibility, proximity × digit overlap, relevance ×
+isolation language, cue type × architecture, position × distance to answer). Avoid post-hoc feature se-
+lection across a massive factorial without familywise or FDR correction and confirmatory replication.
+P4.4 Nonlinear near-match profile. Treat the current Pearson 0.074 as a warning. Compare a
+smooth monotone magnitude-distance model, a predeclared near-match threshold/tail model, and a
+token-overlap model. Use out-of-cluster held-out log predictive density / calibration rather than cel-
+ebrating maximum in-sample correlation. Create counterexamples to each model (numerically close
+but digit-disjoint; digit-similar but far; exact numeric answer but incompatible units).
+P4.5 Cross-model same-panel design. Use at least two independently implemented dense model
+families on the identical certified panels; add an independently selected reasoning-tuned model only
+with a verified reasoning/answer scoring protocol. Match output grammar without assuming model
+chat templates are interchangeable. Analyze paired family × model interactions. Document exact
+models, versions and instruction tuning, not just brand labels.
+P4.6 Severity and validity stratification. Separate family-positive rate, median absolute effect,
+90th/95th tail effects, answer flips, correctness transitions, high-confidence errors, model abstention,
+symbolic answer/rounded answer cases, and variants whose textual output is unrelated to gold. Verify
+effects persist when excluding the 1–3 most extreme family outliers. Report both means and robust
+quantiles.
+P4.7 Core negative tests. If the alleged near-match effect is reproduced by an irrelevant biblio-
+graphic numeral; if unit incompatibility does not change effect; if ‘mechanical isolation’ does nothing;
+if the effect vanishes under mathematically equivalent output formats; if only lexical token overlap
+matters; or if generated answers stay invariant with no decoy competition, then reject the physical-
+relevance-gating thesis. Those are scientific results, not failures to hide.
+Gate P4. Mechanistic discovery proceeds under a specified winning behavioral contrast . Exam-
+ples: near-match unit-compatible irrelevant cue changes gold/decoy log-odds but does not affect
+correct answer ; or cue changes actual wrong-answer selection . The contrast determines the mech-
+anistic metric; do not reuse the legacy normalized recovery for all questions. If the result is only
+format-sensitive confidence drift, publish Track E or pivot to model-calibration analysis. If distinct
+cue types behave differently, choose one primary cue for deep mechanism and use others as explicit
+external scope tests.
+5.6 P5. A definitive monitoring study: does access to hidden states actually help?
+Thesis. A monitor can only be called an operational advance if it is deployable under the claimed
+input budget, calibrated for the chosen target, statistically and practically better than appropriate
+cheaper alternatives on unseen structures, and robust to shift. A model that reads four renderings is
+a counterfactual-family diagnostic, not a one-input detector .
+Working research protocol – not completed results 21
+
+######## PAGE 23 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+P5.1 Define three separate prediction tasks. Task S (single-prompt): from one prompt’s state,
+predict expected vulnerability to future unseen nuisance edits of that prompt; no other family mem-
+ber may enter the features at inference. Task F (four-input): given a full family, predict observed
+sensitivity from averaged or variance features; compare against a four-query behavioral measure-
+ment, not a one-query baseline. Task V (variant-local): predict the effect of a particular cue value or
+proximity state on a particular rendering; train on per-variant labels obtained by leave-one-variant-
+out contrasts with a semantically meaningful anchor , not merely copies of the family label. No pooled
+AUROC across these tasks.
+P5.2 Freeze three primary feature sets. Single final-prompt residual stream at one predeclared
+layer from discovery; first/embedding layer as lexical control; next-token logits/entropy as cost-
+matched comparator . Additional sites (cue token, answer-elicitation prefix, attention output, MLP
+output, generation boundary) are discovery scans requiring a separate confirmatory test. Pooling
+means, variances, PCA or learned aggregators over multiple renderings is reported with actual query
+count.
+P5.3 Establish a serious comparator ladder:
+1. Untrained constant and empirical cue/law/base-rate predictors, plus difficulty-only model.
+2. Prompt-only TF–IDF , character/word n-grams, digit features, physical units, parser/tokenizer
+statistics, length and structural AST features; identical CV effort.
+3. Text semantic embeddings from a separately selected frozen encoder or the same model’s early
+layer; probe complexity matched as closely as feasible.
+4. One-pass output entropy, top-1 vs top-2 margin, reference-answer token likelihood (when answer
+known), energy/entropy across target vocabulary, logit norm and simple measures of syntactic
+uncertainty, all fitted inside nested training folds.
+5. Generic correct-answer predictor , semantic-entropy probe if the required generation setting
+exists, and a stronger uncertainty representation/stability comparator adapted from published
+work; avoid claiming ‘cost matched’ if the comparator requires extra generations.
+6. Black-box two-query and multi-query counterfactual consistency; direct answer uncertainty and
+sampled self-consistency; report real latency/GPU pass count.
+7. CoT/rationale classifier , small local judge, larger independent judge, outcome/step critic where
+legally available; these use generated output and are not pre-generation competitors.
+8. Fully tuned combined non-activation model, with proper nested stacking, calibration and feature
+selection. Hybrid with hidden states is only evaluated using out-of-fold training scores, never
+labels/features learned on the outer test family.
+P5.4 Probe family and capacity test. Compare L2 logistic/regression, sparse L1/elastic-net, low-rank
+supervised projection with nested rank choice, small MLP with strictly limited capacity, fixed embed-
+ding cosine/margin features, linear residualized probe, and representational distance to class proto-
+types. Match or report trainable parameter counts and label requirements. Use random-label and
+label-shuffle controls, a selectivity gap relative to lexical controls, and two seed/fold repetitions. Do
+not automatically pick a nonlinear high-capacity probe if it overfits a small set of templates.
+P5.5 Within- vs between-structure information. Predict across numeric instantiations of the same
+symbolic structure, across entirely held-out template clusters, across different governing laws, across
+new human-written law compositions, across held-out cue types, and across model checkpoints. If
+high AUC only appears when the train set contains the same governing law/templating scaffold, de-
+scribe the signal as template family recognition, not general hidden-state vulnerability prediction.
+P5.6 Negative controls against information leakage. Train on different random assignments of
+equivalent semantic answer strings; target permuted within structural strata; predict deliberately ir-
+relevant metadata labels; train test separated temporally and by generative template source; evaluate
+a prompt-only syntax parser with numeric-structure features. Check that normalizing by answer to-
+ken count, excluding Cue C, and no-cue-minus-cue contrast do not eliminate the nominal signal.
+P5.7 Correctness and entropy deconfounding. Use predictive models trained out-of-fold on cor-
+rectness/entropy, then estimate the incremental value of hidden-state scores via nested stacking and
+Working research protocol – not completed results 22
+
+######## PAGE 24 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+paired loss difference on the external set. Do not residualize on test labels. Compare entropy only , cor-
+rectness only , entropy+correctness, surface+entropy+correctness, hidden only , and all+hidden. Report
+change in AUROC, log loss, Brier , decision cost, ECE/AUPRC and confidence intervals; an AUC delta of
+0.03 is not a result if the CI crosses zero.
+P5.8 Model selection accounting. The original best L18 came from a 28-layer sweep, so account for
+the winner’s curse. Choose a layer from a discovery set, freeze before external evaluation, and use
+max-T or hierarchical/false-discovery correction for full exploratory scans. Use pre-specified L16/L18
+hypotheses only when not chosen retrospectively on the same confirmatory data.
+P5.9 Calibration and policy value. Fit calibrators solely on the training/development groups (Platt,
+isotonic, temperature, beta calibration); choose one by validation only. Compare class-conditional
+reliability, worst-bin and uncertainty, calibration under cue shift and new domains, expected cost at
+explicit FP/FN tradeoffs and intervention trigger budgets. Report FNR at FPR=0.05 and 0.10 and an
+entire ROC/PR curve with CIs rather than cherry-picked operating points. Evaluate prevalence shift
+separately because precision and calibration can change as a function of positives’ base rate.
+P5.10 Informational upper and lower bounds. Report how much one model pass can predict of
+counterfactual family vulnerability when the relevant future cue edits are not yet sampled. Consider
+oracle features using actual future cue values and oracle family statistics as nondeployable upper
+bounds, making clear which prediction problem they solve. Evaluate whether a single-input feature
+can possibly predict a near-match distractor introduced only later, a potentially fundamental infor-
+mation bottleneck.
+P5.11 Cost accounting. Time one forward pass, activation extraction, copying to CPU, classifier infer-
+ence, output entropy and multi-query black-box checks on the same hardware and batch sizes. Pro-
+vide memory bytes and wall clock per decision with uncertainty and practical batch throughput. A
+hidden-state monitor that costs the same forward pass but adds intrusive hooks may not beat reading
+next-token entropy in deployment.
+Gate P5. Promote a monitor as a result only if a frozen single-input specification achieves a prac-
+tically meaningful and statistically supported incremental advantage on a held-out structural cohort
+under a preregistered endpoint. If not: retain monitorability as a descriptive diagnostic, report null
+incremental value honestly, and redirect novelty toward mechanism (P6–P9) or benchmark measure-
+ment (Track E). An AUROC higher than 0.5 is not a substitute for incremental value.
+5.7 P6. Re‐localize the phenomenon under valid causal metrics and selection rules
+Question. Is Qwen layer-16 head 11 a causal component of a physical computation, or does indiscrim-
+inate perturbation of its output merely change logit scales and the legacy ratio metric?
+P6.1 Choose clean/corrupt pairs prospectively. For each problem structure prepare aligned no-
+cue, irrelevant cue, decoy near-match, decoy far-match, genuinely relevant edit and semantic-control
+prompts. Label pairs by what changes in model behavior , not by their inclusion in a high-S_likelihood
+set. Explicitly stratify correct/wrong, logprob-only, answer-flip, high-confidence wrong , and high-S
+legacy but low reference-free . Prefer same-token-count or equal-length spans within each model;
+when alignment impossible, patch semantically matched positions only and validate with position-
+ablation controls.
+P6.2 Freeze the causal response variable. Primary: absolute change in R_alt or correct-answer
+logit/logprob margin for a paired, fully specified candidate set. Secondary: reference-free family dis-
+persion, direct free-generation correctness change, KL divergence of answer distribution, and gold
+likelihood. Always report original score, intervened score, absolute difference, and denominator be-
+fore any normalized recovery. Never average unstable effect / near-zero original ratios without
+thresholded eligibility and robust alternatives; clipped/uncapped summaries must appear together .
+P6.3 Reproduce the Qwen effect as a new experiment. Use untouched held-out structures with
+prespecified L16 H11, the old four-head set, L15 and L17 flanks, near layers, unrelated heads matched
+in norm/attention entropy, and random-direction / random-site controls. Repeat original high-S panel
+Working research protocol – not completed results 23
+
+######## PAGE 25 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+separately and document its selection. Report per-family scatter (before/after), absolute shifts and
+directional restoration; if a knockout inverts the signed drop, ask whether it changed base and cue
+likelihoods in opposite directions.
+P6.4 Test several ablation semantics. Zero ablation, mean replacement with unconditional acti-
+vation, corruption-based replacement, no-cue donor activation, same-answer irrelevant-cue donor ,
+matched random vector , orthogonal projection/linear subspace removal, feature-level clamping and
+multiplicative rescaling. A zeroed head could force abnormal activations that trigger compensation;
+compare against on-manifold replacements and a path-specific natural contrast. Report a method-by-
+site stability table rather than interpreting one intervention flavor as definitive.
+P6.5 Necessity must be specific. A candidate component is necessary for the identified pathway on
+the tested distribution if its controlled removal suppresses the chosen decoy-specific effect while pre-
+serving (within a preregistered tolerance) response to relevant input changes and unrelated problems.
+Test in- vs out-of-distribution target panels and under role reversal where the formerly irrelevant
+quantity becomes relevant. Avoid global claims of logical necessity: transformers may use redundant
+pathways.
+P6.6 Sufficiency must use appropriate variables. Transplant candidate activation from near-
+match/sensitive to far-match/stable contexts (with clean shared physics), and vice versa; dose sweep
+both directions; test target logits and generated choices; compare content-preserving swaps from
+same-answer , same-law, same-unit but irrelevant donors. If direction injection changes the legacy S
+score but not answers or gold/decoy competition, do not call it sufficiency for shortcut use.
+P6.7 Detect off-target damage and self-repair . Test ordinary accuracy on an independent control
+suite including no-cue physics, genuinely relevant parameter edits, unrelated numerical and lexical
+tasks, common natural-language QA and syntactic completion. Measure loss and KL distribution shifts,
+next-token entropy, output length, and follow-on compensatory changes in nearby heads/MLPs. Abla-
+tion can trigger backup mechanisms, as shown in prior work on the Hydra effect; test local replace-
+ment vs global zeroing and cross-layer adaptations.
+P6.8 Revisit Llama and DeepSeek correctly. Recover original exploratory Llama L21 H2 candidates,
+implement clean provenance, validate sign and magnitude on a newly selected model-positive panel,
+and test predeclared layers/heads including matched negative controls. For DeepSeek independently
+confirm prompt boundary / reasoning trace / final-answer token scoring and match causal denom-
+inators before concluding it lacks the Qwen pathway. If a site misses, do a discovery sweep on an
+exploratory set, not repeated scans of confirmation families.
+Gate P6. If the Qwen effect disappears under reference-free and correct/decoy metrics, retire the
+claim that H11 mediates physics shortcut sensitivity; treat it as an endpoint-specific sensitivity artifact
+and investigate why. If it survives only zero ablation but not mean/replacement, it is a fragile lesion
+effect, not a reliable circuit. If it survives all controls but not free-generation accuracy, call it a cause of
+likelihood/answer-competition change, not of success/failure in physics. Only a robust, specific effect
+advances to P7.
+5.8 P7. Identify what the causal components actually compute
+Question. What computable function connects distractor tokens to altered answer tendencies? Lo-
+calization without function is insufficient for a high-impact mechanism claim.
+P7.1 Anatomize head 11 at L16. For every token position (governing variables, cue value, cue unit,
+isolation/irrelevance phrase, problem question, last prompt position, assistant prefix), measure QK
+attention patterns, attention logits, output vector norm, OV map contribution and direct residual/logit
+attribution across controlled factorial pairs. Do not treat an attention heatmap as causal evidence.
+Patch attention probabilities and value vectors separately; patch source-token contributions into the
+target position, then test whether they mediate the response. Compare input-token-level Q/K/V sites
+and output-projection pathways with attention/MLP processing nearby.
+P7.2 Test explicit candidate functions head-to-head.
+Working research protocol – not completed results 24
+
+######## PAGE 26 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+• F-copy: retrieves the largest/nearest/recent distractor numeral or copies its digit prefix.
+• F-match: encodes equality/proximity of numeral and target; may trigger when two quantities
+approximately coincide regardless of meaning.
+• F-unit: recognizes dimension/units, especially numerical objects with units matching target.
+• F-role: tests sentence-level semantic disconnection (mechanically isolated, separate system) and
+suppresses an otherwise attractive candidate.
+• F-position: attends to near-query tokens or sentence order independent of meaning.
+• F-answer prior: globally shifts confidence in one output format/answer length without repre-
+senting the distractor .
+For each function build at least two interventions that predict different effects from the alterna-
+tives: e.g. the same digits with wrong units (F-copy yes, F-unit no); same magnitude but digit-disjoint ex-
+ponential form (F-match yes, F-copy no); same tokens moved elsewhere (F-position changes, F-match
+preserved); switch target to make cue relevant (F-role reverses, F-copy may not). Use a held-out grid,
+not anecdotes.
+P7.3 Controlled activation decoding with interventions. Train simple nested linear probes from
+the candidate causal head output to predict cue numeral, target magnitude, digit overlap, unit com-
+patibility, semantic isolation, relevant variables and a binary importance tag. Probe success is only
+a correlate; complement with subspace interventions removing one decoded variable while preserv-
+ing others and testing actual behavior . Quantify whether causal directions for numeral/units/role are
+geometrically independent, oblique, or redundant. Compare causal component features with the L18
+monitoring direction to test whether diagnosis and mechanism overlap.
+P7.4 Representation geometry. Construct matched activation differences delta(z_near,z_far) and
+delta(relevant,irrelevant) at key sites. Quantify cross-structure alignment with CKA / linear CCA /
+principal angles / projection energy, controlling for tokenization and model width. Classify whether
+differences lie in a stable low-rank subspace or are high-rank context-specific. Fit subspaces only on
+discovery and predict held-out causal effect from projection magnitude. Include nearest-neighbor
+and random subspace nulls of equal dimension.
+P7.5 Direct logit attribution. Analyze head and MLP contributions to specific pre-registered an-
+swer token logit differences, not merely full vocabulary entropy. Follow with true counterfactual
+patching because linear logit attribution can omit nonlinear downstream transformations. Decom-
+pose whether the head changes gold score , decoy score , both, or generic output length; report full
+effects with nonlinear residuals.
+P7.6 Temporal localization at the prompt and generation boundary. Where token alignment is
+rigorous, score the first answer token and teacher-forced first intermediate physical quantity, then
+final answer . Separately follow independently generated explanations only via semantic event align-
+ment (e.g. law chosen, intermediate quantity emitted) and mark such trajectory analyses descriptive
+unless teacher forcing or controlled resampling makes positions comparable. Re-run interventions
+only at prompt positions when causal token comparability fails.
+P7.7 Invariance and role reversal. A legitimate relevance gate should ignore irrelevant z but re-
+spond when a modified problem makes z truly relevant. Patch the proposed representation between
+a cue-irrelevant and cue-relevant version with carefully matched numerical and syntactic content.
+Predict both the normal and role-reversal responses. This is more discriminating than simply making
+the model less sensitive to numbers.
+P7.8 Hypothesis scorecard. Each candidate function has a predeclared sign prediction over the fac-
+torial cells, a held-out prediction score, selective knockout/patch effect, falsifying control, alternative
+it beats, and failure case. Prioritize the simplest function that explains held-out intervention effects
+over the one with most attractive activation visualizations.
+Gate P7. Advance only if at least one explicit functional hypothesis predicts effect direction across
+independent manipulations and survives direct causal tests. Otherwise report a localized but un-
+interpreted causal handle, explore larger multi-component representations (P8), or pivot Track E.
+Working research protocol – not completed results 25
+
+######## PAGE 27 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+Do not label an activation feature ‘physics-relevance’ merely because high-scoring examples sound
+physics-related.
+5.9 P8. Recover and validate upstream/downstream computation, not just one head
+P8.1 Define sources and sinks before attribution. Sources: cue numeric tokens, cue unit token, se-
+mantic isolation phrase, physically relevant quantities, governing-law words, output-format instruc-
+tion. Candidate sinks: L16 H11 (or discovered stable mediator), L18 diagnostic state, correct-vs-decoy
+answer logit. Predefine the desired causal contrast: near-match irrelevant cue vs far-match irrele-
+vant cue with shared target answer; add a separate relevant-edit contrast in which the gold answer
+legitimately changes.
+P8.2 Two independent discovery procedures. Use gradient-based edge attribution/attribution
+patching (and integrated-gradient refinements when attribution saturates) as a candidate ranking
+method, plus targeted clean/corrupt activation patching at layer/position/head/MLP sites. Optionally
+compare circuit mask optimization. Causal confirmation uses true interventions, not approximate
+gradients; attribute graph methods can be misleading under reconstruction errors and feature
+approximation.
+P8.3 Path patching. Rank upstream attention heads, MLP outputs and input-token contributions to
+the mediator . Apply receiver-conditioned path patching so a candidate source is changed while alter-
+native branches are held fixed as far as the implementation permits. Repeat for source →mediator ,
+mediator→downstream layer , and downstream→answer . Check token and hook order , causal graph
+direction, numerical tolerance and reverse interventions. Demonstrate that the identified path mat-
+ters only when the mediator receives the source information.
+P8.4 Knockout–rescue logic. (a) Knock out upstream source, measure lost effect; (b) rescue with
+the mediator’s clean activation, test restoration; (c) knock out mediator , attempt upstream rescue and
+predict failure if mediator is necessary; (d) control with unrelated and matched same-answer donors;
+(e) rescue a role-reversal relevant-edit task to show the path is not simply a destructive filter . Contrast
+against rescuing a generic next-token loss change. This sequence is a stringent causal ordering test.
+P8.5 Circuit completeness and minimality. For a hypothesized edge set, measure faithfulness:
+run the model retaining only hypothesized pathways versus replacing complementary pathways with
+matched control activations. Evaluate sufficiency, comprehensiveness, selectivity, stability across cor-
+ruption choices and path sparsity. Generate faithfulness-vs-circuit-size curves and a specificity-vs-size
+frontier; report residual unexplained effect. Check that random matched graphs and a trivial high-
+capacity whole-residual patch do not provide the same explanatory power per component.
+P8.6 Causal abstraction validation. Write an explicit high-level algorithm (e.g., parse relevant vari-
+ables → parse candidate numeric values → evaluate relevance/unit consistency → choose candidate
+answer); define which neural subspaces map to each high-level variable. Use interchange interven-
+tions on paired input families and test whether the low-level model’s responses match interventions
+predicted by the high-level algorithm. Vary one high-level variable at a time while holding correlated
+variables matched. Poor interchange agreement falsifies the proposed explanation even if component
+knockouts are large.
+P8.7 Representational bottleneck hypotheses. Test whether the mediator stores raw value, nor-
+malized magnitude, a relevance flag, a source identifier , or a merged answer candidate. Probe sepa-
+rate source/value/role subspaces, conduct orthogonal projection ablations and donor swaps, quantify
+whether the same component acts as a routing gate or downstream logit amplifier . Confirm on entirely
+held-out laws, magnitudes, prompts and cue positions.
+P8.8 Sparse features: optional, validation-heavy. If the low-rank/head-level account stalls, com-
+pare existing open SAEs, transcoders/cross-layer transcoders, supervised distributed alignment search
+and ordinary MLP neurons on equal compute and feature budgets . Evaluate reconstruction error ,
+feature stability under seeds, causal interchange and suppression specificity; do not equate a seman-
+tically appealing SAE feature with a mechanism. MIB reports that SAEs are not always better than
+neuron baselines for causal variable localization; treat SAEs as a method to test , not a badge of depth.
+Working research protocol – not completed results 26
+
+######## PAGE 28 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+P8.9 Synthetic ground truth. Train a small controlled transformer or fine-tune a small open model
+on synthetic physics-graph tasks with a deliberately planted spurious numeric rule or well-specified
+shortcut curriculum. Know exactly which cue correlation was taught; assess whether the discovery
+pipeline recovers the planted variables/path. Add matched models trained without the shortcut. Re-
+covering a known route does not prove the same route operates naturally in Qwen, but failure to
+recover a simple planted route calls the method into question.
+Gate P8. A mechanistic paper needs a compact algorithmic story with validated source-to-mediator-
+to-sink effects on untouched families and counterfactual predictions that a simpler lexical/generic
+alternative cannot explain. If multiple redundant routes exist, report a distributed or partially re-
+dundant mechanism; do not force a single-head narrative. If only correlation graphs emerge, limit
+conclusions to localization, not circuit recovery.
+5.10 P9. Cross‐model, cross‐domain and post‐training generalization
+P9.1 Cross-architecture confirmation. Freeze the function hypothesis, not the head index. Use fresh
+discovery samples to localize functionally analogous components in a second architecture; evaluate
+the hypothesis on untouched clusters with matched causal endpoints. Distinguish transfer of a causal
+variable/function from transfer of individual hidden-state directions or identical layer depths. A
+functional analog in a different head is replication; a naive matched-layer knockout failing is not a
+complete null.
+P9.2 Scaling ladder .Conditional on compute, evaluate small→medium→large checkpoints within a
+model family, avoiding a giant number of models that each receive superficial analysis. The core com-
+parison should control architecture and training stage enough to interpret causal differences. Report
+behavior across scale before choosing expensive causal cases; instrument only models with stable
+access to required hooks and answer/trace scoring.
+P9.3 Same-backbone post-training. Compare base/instruct and, where available, same-backbone
+reasoning fine-tunes, with changes to system and answer prompting controlled. Analyze whether
+post-training changes rate of error , confidence sensitivity, identified causal function and component al-
+location. Do not attribute differences to RL without isolating comparable training runs or stating that
+multiple post-training changes are confounded.
+P9.4 Familiar-to-novel-law transfer .Create new physically valid symbolic worlds or dimensionally
+coherent toy laws with unfamiliar names/variables, teaching necessary rules explicitly. If a numeric
+shortcut generalizes to these tasks, it suggests a broader numerical/linguistic mechanism; if it disap-
+pears, familiar physics priors may be essential. Make sure the toy laws are learnable and that difficulty
+is matched by solver-assisted pilots.
+P9.5 Source and language transfer . Test human-written problems, new problem formats,
+terse structured equations, narrative descriptions and controlled bilingual renderings where na-
+tive/qualified validators can certify semantic equivalence. Record tokenization differences rather
+than confounding translation with mechanism. English-only results do not imply cross-lingual
+generality.
+P9.6 Cue composition and adversarial boundary. Add 2–3 simultaneously irrelevant cues; vary
+distractor congruence/contradiction, near-match competition and ordering. Look for additive, super-
+additive or suppressive interaction in behavior and circuit effect. A mechanism that only explains
+single numerical cues must be scoped accordingly. Adversarially search for maximally sensitive valid
+held-out examples under a fixed query budget, then retest on freshly authored confirmation examples
+to control optimizer overfitting.
+P9.7 Persistence across tools and precision. Use two independently implemented hook backends
+when feasible; compare fp16/bf16 and unquantized vs modest quantization (with a numerical
+agreement gate). If a component’s effect depends on a software implementation bug, retire it.
+Cross-backend reproducibility is a stronger assurance than adding unrelated models.
+Working research protocol – not completed results 27
+
+######## PAGE 29 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+Gate P9. Write separate conclusions for behavior , monitor , function and anatomy. If the function
+recurs across architectures but component identities differ , publish that heterogeneity as part of the
+mechanism. If only Qwen shows it, a deep Qwen case study is possible but needs stronger within-Qwen
+causal proof and a clear reason why the finding generalizes conceptually; do not state a universal ‘LLM
+shortcut circuit’.
+5.11 P10. Mechanism‐guided repair and comparative efficacy
+P10.1 Define operational loss. Optimize weighted free-generation error , cue-related answer-flips,
+correct/decoy log-odds, calibration and OOD robustness, subject to maximum allowable degradation
+on no-cue and relevant-variable tasks. Avoid optimizing only a teacher-forced gold-likelihood statistic,
+which could be improved by reducing likelihood everywhere or artificially flattening logits.
+P10.2 Nonmechanistic baseline ladder . Remove the distractor with a deterministic semantic filter;
+prompt an explicit ‘ignore irrelevant information’ instruction; rephrase into governing variables; an-
+swer via a small symbolic solver; use two-query consistency checking; majority vote/self-consistency;
+targeted counterfactual augmentation/fine-tuning. Compare latency/compute and the damage from
+mistakenly ignoring relevant variables. This ladder sets the bar for any purportedly superior circuit
+edit.
+P10.3 Training-free circuit interventions. Head-level mean/no-cue replacement conditioned on a
+high-specificity trigger; linearly project out a causal cue-direction; gate a proven source→mediator
+edge; apply tiny direction subtraction/addition at a specified site; selectively patch from a matched
+no-cue rendering. Tune intensity on development only, with a strength-vs-damage curve. Detect un-
+intended damage on prompts where the same numeral becomes relevant.
+P10.4 Monitoring-triggered repair . First measure the actual single-prompt monitor’s precision and
+FPR under shift; test selective edit only for the triggered subset and compare with applying the same
+edit to everyone. Show deployment benefit under realistic base rates and decision costs. An oracle
+trigger based on four future variants is only a nondeployable upper bound.
+P10.5 Training-based mitigation. If justified, train LoRA or lightweight fine-tunes using certificate-
+backed paired counterfactual consistency, plus a standard answer-correctness loss and relevance-
+preservation controls. Contrast with random distractor augmentation, strong-distractor curricula
+(cf. GSM-DC) and generic instruction tuning. Keep entire governing-law clusters out of training and
+compare relevant-variable responsiveness to avoid teaching the model to ignore all extra numbers.
+Follow training to see whether the original head mechanism weakens, relocates, or is bypassed.
+P10.6 Stress test attack/defense equilibrium. Optimize valid cue substitutions, wording and place-
+ments to evade the monitor or defeat the intervention under a declared budget; report adaptation
+curves and fresh-attack transfer . Include adaptive attacker access variants (knowledge of threshold
+only, monitor score, full gradient) and certification of each generated edit. If the intervention only
+fixes in-distribution examples, classify it as narrow mechanistic control.
+P10.7 Repair claims require causal linkage. Compare targeted edit, equal-norm random edit,
+nearby-layer edit, alternative-component edit, prompt-only baseline, and unedited. If repair
+improves outcomes but the learned mechanism does not explain why, report a useful empirical
+intervention without implying a causal circuit. A strong claim connects pathway suppression to
+counterfactual behavioral improvement and rescue/relapse.
+Gate P10. A positive result requires held-out paired improvement in a practically meaningful out-
+come (preferably correctness/answer competition), statistically resolved harm bounds, and advantage
+or distinctive tradeoff against simple nonmechanistic methods. If basic cue removal works better and
+with less damage, do not pretend an expensive neural edit is operationally superior; it may still be a
+valuable mechanistic test.
+Working research protocol – not completed results 28
+
+######## PAGE 30 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+5.12 P11. Confirmatory closure, adversarial review and publishable claim freeze
+P11.1 Build the paper around one causal chain, not the chronological lab log. Figure 1:
+invariant-task causal factorial and hypotheses. Figure 2: measurement audit separating gold-string,
+restricted-choice and generated answers. Figure 3: cue-feature interaction on independent clusters.
+Figure 4: true patch/knockout/rescue and absolute effect sizes. Figure 5: upstream path with
+counterfactual predictions. Figure 6: replication and/or selective repair . Include failures in compact
+explicit tables, not buried in supplements.
+P11.2 Mandatory final audit. Independent recomputation of main numbers, validation signatures,
+code and model versions, held-out contamination audit, pre-registration deviations, multiple-testing
+ledger , negative and zero-row results, exact intervention sites, confidence intervals, relevant base-
+lines, alternative metrics, artifacts and statistical unit. Ask an unaffiliated research peer to attack the
+strongest claim with the raw evidence and with only the released protocol. Attempt to falsify before
+submission.
+P11.3 Two-stage external confirmation. Internal hold-out is used for one explicit confirmatory de-
+cision. A fully untouched external cohort from newly written/law-held-out materials is opened once
+after hypotheses, functional representation, causal site and inference code are frozen. All additional
+tuning after opening the external cohort converts it into development; obtain new data for a subse-
+quent confirmation.
+P11.4 Reproducible release. Include rendered prompts, symbolic programs, typed equations, certifi-
+cates, validator labels/adjudications, all eligible model outputs and log probabilities, inclusion meta-
+data, per-family out-of-fold predictions, raw intervention before/after endpoints, code, environment,
+random seeds, hardware profiles and manifest checksums. Publish both passing and failing runs with
+an explicit authority hierarchy; include anonymized artifacts while under double-blind review where
+permitted.
+P11.5 Make venue choice contingent on the result. An ICLR-level mechanism narrative needs
+a substantial new insight , not the most pages of supplemental ablations. If the core contribution
+becomes measurement science, consider an evaluation/benchmark framing. If the central advance is
+trained mitigation, frame the paper as robustness/causal control. Do not keep all three narratives at
+equal weight unless their evidence makes a coherent, noninflated causal chain.
+Gate P11. No paper submission until an independent reader can reproduce the primary figures and
+state, in one paragraph, the causal explanation and the best attempt to falsify it. Disconfirming evi-
+dence must be integrated into the headline scope, not relegated to future work.
+6 Complete downstream experimental/ablation inventory (registered
+candidates; Phase‐B contrasts are additional)
+This catalogue is deliberately broader than the critical path. Each code describes a testable contrast,
+not a vague recommendation to ‘try more experiments’. R = required on the critical path; C = con-
+ditional on earlier evidence; X = exploratory/high-upside. Selection of a confirmatory subset must
+happen before the corresponding test cohort is opened. A negative result removes the branch’s sup-
+ported claim, not the datum.
+6.1 A. Input and task semantics (A01–A18)
+Working research protocol – not completed results 29
+
+######## PAGE 31 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+ID Status
+Contrast / causal question and
+mandatory readout
+A01 R No cue vs unrelated neutral
+sentence vs unrelated numeral;
+isolate nuisance effects from
+mere insertion. Pair by law,
+length and target.
+A02 R Numeric near-match vs
+far-match at fixed units and cue
+grammar; estimate nonlinear
+response and tail conditional
+effects.
+A03 R Exact printed-number match vs
+mathematical equality under
+alternate decimal/scientific
+notation; separate string
+identity from magnitude.
+A04 R Digit overlap matched while
+numerical proximity differs;
+test lexical-copy mechanism.
+A05 R Numerical proximity matched
+while digit/token overlap differs;
+test magnitude-comparison
+mechanism.
+A06 R Same-unit vs dimensionally
+incompatible distractor with
+identical numeral; test
+dimensional reasoning/gating.
+A07 R Same-unit vs exactly
+convertible-unit distractor with
+identical physical magnitude;
+distinguish text-unit from
+physical-unit coding.
+A08 R Explicitly mechanically isolated
+vs implicitly separate vs now
+coupled system, with the final
+case re-certified for relevance;
+test semantic causal boundary.
+A09 R Cue irrelevant to original target
+but relevant to counterfactual
+target question; test selective
+relevance rather than global
+numerical suppression.
+A10 R Cue before relevant variables,
+after relevant variables and
+adjacent to target question; test
+recency/position effect.
+A11 R One distractor appearance vs
+two and three, keeping total
+prompt length matched; test
+repetition amplification.
+A12 R Distractor as factual sentence vs
+quoted example vs suggested
+answer; test discourse role.
+Working research protocol – not completed results 30
+
+######## PAGE 32 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+ID Status
+Contrast / causal question and
+mandatory readout
+A13 C Cue as table cell, bullet,
+equation, prose and code-like
+JSON; test representational
+interface without changing
+physics.
+A14 C Correct target zero/near-zero,
+very large/small,
+positive/negative and rounded;
+identify pathological
+relative-proximity definitions.
+A15 C Change target precision (exact
+irrational, 3 decimal places, 1
+significant figure); measure
+answer-rendering ambiguity.
+A16 C Insert an unrelated
+intermediate quantity near a
+nonfinal intermediate answer
+while final answer is far; test
+where numerical competition
+occurs.
+A17 C One-step vs multi-step same
+final answer and comparable
+length; test whether internal
+computation depth is causal.
+A18 X Contradictory external sentence
+or malicious decoy; not an
+invariant family unless the
+contradiction’s semantics are
+explicitly resolved. Quantify
+out-of-scope robustness
+separately.
+6.2 B. Dataset integrity, ground truth and representation of physics (B01–B14)
+ID Status
+Contrast / causal question and
+mandatory readout
+B01 R Free-symbol certificate vs
+independently programmed
+equation-solver certificate on a
+sample; disagreements go to
+manual adjudication.
+B02 R Symbolic mutation that
+introduces cue dependence;
+measure verifier catch rate, not
+just acceptance of valid
+equations.
+B03 R Physical-assumption mutation
+removing ‘massless’,
+‘frictionless’, ‘mechanically
+isolated’, ideal-source or
+equilibrium constraints; test
+human and formal checks.
+Working research protocol – not completed results 31
+
+######## PAGE 33 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+ID Status
+Contrast / causal question and
+mandatory readout
+B04 R Same target with dimensionally
+incorrect unit; ensure
+validator/parser identify error
+instead of silently normalizing
+it.
+B05 R Exact prompt hashes vs
+AST/graph-normalized
+structural duplicates;
+re-estimate main probe on
+cluster-held-out split.
+B06 R Dual expert human validation
+blinded to generated outputs vs
+single expert/agent audit; report
+disagreement and exclusions.
+B07 R Native answer parser vs blinded
+human consensus; estimate
+failure modes and impact on
+sample admission.
+B08 R Select family for scoring before
+vs after parseability; test
+selective attrition of five
+historically removed stable
+families.
+B09 R Held-out same-law new
+numbers vs held-out new
+laws/graphs; quantify actual
+structural generalization gap.
+B10 C Cue-type-balanced vs natural
+prevalence panels; quantify
+base-rate-driven pooled AUROC
+changes.
+B11 C Prompt human-naturalness
+blinded preference test against
+curated real physics exercises;
+reject conspicuously synthetic
+cues.
+B12 C Parallel physics
+solvers/independent human
+derivations for subtle
+thermodynamics, frame and
+circuit cases.
+B13 C Construct-validation error
+bounds: pessimistic/optimistic
+imputation of all unresolved
+family semantics; bound
+primary effects.
+B14 X Distinct-model content
+contamination probes and
+source provenance checks;
+document limits of inferring
+actual pretraining membership.
+6.3 C. Scoring, calibration, and behavioral endpoints (C01–C18)
+Working research protocol – not completed results 32
+
+######## PAGE 34 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+ID Status
+Contrast / causal question and
+mandatory readout
+C01 R Arbitrary base 0 vs all four
+rotated bases; count changed
+sensitivity labels without new
+model calls.
+C02 R Legacy signed max drop vs
+symmetric range/variance/MAD
+and no-cue-anchored signed
+drop; assess construct stability.
+C03 R Raw summed log-prob vs
+per-token average, value-only
+and value+unit; quantify
+answer-length/token effects.
+C04 R Same physical answer under
+multiple equivalent serialized
+answers; matched
+within-wrapper contrasts rather
+than raw score pooling.
+C05 R Chat template/prefix/assistant
+headers and exact token slicing;
+verify that loss only covers
+target output tokens.
+C06 R Gold-string likelihood vs
+restricted gold-vs-decoy
+likelihood ratio; test whether a
+distractor actually gains relative
+probability.
+C07 R Teacher-forced score vs
+deterministic final-answer
+correctness and answer-flip;
+expose likelihood-only
+outcomes.
+C08 R Multiple decoding
+temperatures/seeds; estimate
+answer distribution and
+reproducibility of behavioral
+effects.
+C09 R Fixed prompt-length matched
+no-cue edit vs actual cue edit;
+normalize against the ordinary
+context variation of conditional
+LMs.
+C10 R Next-token entropy and
+response-token confidence vs
+model-correctness calibration;
+no conflation between entropy
+and knowledge of right answer .
+C11 R Fixed FPR .05/.10, precision
+under shifted base rate and
+cost-sensitive utility; evaluate
+operational rather than merely
+ranking value.
+Working research protocol – not completed results 33
+
+######## PAGE 35 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+ID Status
+Contrast / causal question and
+mandatory readout
+C12 C Average of valid numerical
+answer paraphrases vs max;
+quantify selection optimism and
+logsumexp semantic grouping
+approximation.
+C13 C Restricted answer-distribution
+JSD vs generated semantic
+answer divergence; specify
+truncation/sampling
+approximation.
+C14 C Confidence shift at first answer
+token vs along answer token
+chain vs first intermediate
+quantity; locate interface
+dependency.
+C15 C bf16/fp16, different batches and
+repeated exact prompts; show
+numerical accuracy of score
+computation.
+C16 C Different no-cue anchors
+matched for length/style; prove
+the preferred anchor is not just
+another arbitrary base.
+C17 C Exclude near-zero original
+causal sensitivities vs include
+with absolute-effect alternative;
+diagnose ratio instability.
+C18 X Alternative proper-scoring
+rules/semantic choice-set
+constructions on sufficiently
+enumerable answers; quantify
+sensitivity to answer-set
+selection.
+6.4 D. Monitoring, statistical selectivity and model comparison (D01–D16)
+ID Status
+Contrast / causal question and
+mandatory readout
+D01 R Four-rendering averaged L18
+family probe vs strictly
+one-rendering deployment
+probe; match query budgets.
+D02 R Within-family LOOCV vs
+withheld 34 structural clusters
+and entirely unseen symbolic
+graph classes.
+D03 R Fitted entropy vs probe vs
+calibrated combined model
+under identical nested folds;
+paired difference CI.
+Working research protocol – not completed results 34
+
+######## PAGE 36 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+ID Status
+Contrast / causal question and
+mandatory readout
+D04 R Generic correctness probe +
+entropy/surface vs sensitivity
+probe; test incremental
+information via held-out log
+loss.
+D05 R Embedding layer vs mid-layer
+vs final residual, preselected
+discovery layer vs
+best-of-all-layer selection.
+D06 R Digit-count, digit identity, unit
+lexicon, equation AST and
+prompt length baselines;
+surface models receive fair
+tuning.
+D07 R Class prevalence matched
+across cue types vs natural cue
+mixture; test pooled transfer
+inflation.
+D08 R Single prompted family
+vulnerability vs variant-specific
+event risk; avoid copying the
+family label into misleading
+variant-level claims.
+D09 C Logistic vs sparse probe vs
+nonlinear shallow MLP at
+controlled regularization and
+capacity.
+D10 C Hidden-state
+covariance/representation-
+stability uncertainty baselines,
+including multi-rendering costs.
+D11 C Calibration shift to novel
+laws/domains/numeral ranges
+and recalibration by training
+data only.
+D12 C Independently selected model
+families, reasoning-tuned
+checkpoints and same-backbone
+fine-tunes.
+D13 C Prompt-site cue-token vs last
+prompt vs answer-prefix states;
+match semantics and token
+positions.
+D14 C Probe directions trained on Cue
+A tested on B/C and vice versa;
+family-cluster holdout and
+base-rate control.
+D15 C Probe complexity/selectivity vs
+shuffled labels within structural
+strata and artificial metadata
+controls.
+Working research protocol – not completed results 35
+
+######## PAGE 37 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+ID Status
+Contrast / causal question and
+mandatory readout
+D16 X Learning-curve and
+label-efficiency experiment over
+growing distinct template
+clusters, not repeated
+paraphrases.
+6.5 E. Direct causal localization, intervention semantics and specificity (E01–E18)
+ID Status
+Contrast / causal question and
+mandatory readout
+E01 R Qwen L16 H11-only, original
+four-head set, no intervention,
+nearby layers/heads on
+untouched causal families;
+absolute effects.
+E02 R Zero vs mean vs donor
+replacement vs projected
+subspace deletion; detect
+artifact of intervention
+distribution.
+E03 R Same layer and norm matched
+random direction and random
+head; compare dose/expected
+change.
+E04 R Random prompt position,
+relevant variable, cue numeral,
+cue unit, isolation token and
+question token; localize
+source-target flow.
+E05 R Matched same-answer ,
+cue-present stable, unrelated,
+same-structure,
+different-structure donors;
+identify specificity.
+E06 R Correct recipient vs wrong
+recipient vs stable recipient;
+stratify by preintervention
+behavior and score.
+E07 R Cue near→far and far→near
+donor transplantation; test
+predicted reciprocal
+intervention sign.
+E08 R Knockout with/without rescue
+of H11 activation; test reversal
+of intervention effect on chosen
+endpoint.
+E09 R Full-head outputs vs QK pattern
+vs V/OV path and source-specific
+contribution; separate head
+functions.
+E10 R Accuracy/decoy-logodds vs
+unrelated-task loss/KL;
+constrain off-target damage.
+Working research protocol – not completed results 36
+
+######## PAGE 38 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+ID Status
+Contrast / causal question and
+mandatory readout
+E11 R Edit irrelevant cue vs relevant
+numeric input that changes y*;
+check whether lesion destroys
+legitimate computation.
+E12 R Original 20 high-S families vs
+new unbiased and
+near-threshold causal panels;
+assess selection effect.
+E13 C Model self-repair: ablate and
+measure downstream activation
+compensation in MLP and
+alternate heads.
+E14 C Joint knockouts of redundant
+head sets vs H11 solo; estimate
+nonadditivity and substitute
+routes.
+E15 C Direction injection into stable
+recipients at multiple scales and
+sign, with off-target outcome
+measures.
+E16 C Cross-family activation
+donation aligned by physical
+role, source output and
+tokenizer position.
+E17 C Run causal ablations during
+teacher-forced intermediate
+quantity prediction and
+generation-time answer .
+E18 X Matched learned steering
+vectors, gradient-based erasure,
+linear subspace projection and
+feature clamping.
+6.6 F. Functional mechanism, circuits, synthetic controls and mitigation (F01–F20)
+ID Status
+Contrast / causal question and
+mandatory readout
+F01 R Head’s near-match magnitude
+code vs same digits with distant
+numerical value; causal
+decoding and swap.
+F02 R Unit representation vs token
+overlap at fixed numeral;
+function-discriminating causal
+patch.
+F03 R Semantic isolation role vs
+no-isolation semantic variant;
+test whether upstream text
+gates H11 effect.
+F04 R Attention map vs
+source-token-value patch; do
+not infer causality from
+attention visuals alone.
+Working research protocol – not completed results 37
+
+######## PAGE 39 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+ID Status
+Contrast / causal question and
+mandatory readout
+F05 R Direct logit attribution vs true
+nonlinear patching; compare
+estimated to actual intervention
+effects.
+F06 R Source→H11 edge patch,
+H11→downstream patch,
+knockout/rescue; validate
+directed causal pathway.
+F07 R Whole-residual patch vs
+path-specific patch, measure
+causal specificity and
+reconstruction loss.
+F08 R Retain-only-circuit vs
+remove-circuit; faithful-
+ness/comprehensiveness,
+selected method robustness and
+edge-count frontier .
+F09 R Interchange intervention on
+high-level variable ‘cue
+relevant?’ vs low-level subspace;
+causal abstraction agreement.
+F10 R Held-out-law prediction of effect
+direction from discovered
+function; no refitting.
+F11 C Functionally aligned candidate
+pathway in second architecture,
+not same layer/head index.
+F12 C Supervised distributed
+alignment search vs sparse
+autoencoder features vs
+neuron/low-rank baseline;
+validate interchange effect.
+F13 C Synthetic planted-shortcut vs
+synthetic clean-trained model;
+estimate causal discovery
+sensitivity/specificity.
+F14 C Near-match-only vs multi-cue
+cases; test additive or competing
+routes.
+F15 C Mechanism-guided patch/head
+gate vs plain cue-removal and
+prompt editing; match accuracy
+and compute.
+F16 C Mechanism-guided training vs
+random distractor
+augmentation vs generic
+fine-tune on entire law-held-out
+test.
+F17 C Counterfactual consistency loss
+plus correctness loss vs either
+alone; test invariance/accuracy
+tradeoff.
+Working research protocol – not completed results 38
+
+######## PAGE 40 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+ID Status
+Contrast / causal question and
+mandatory readout
+F18 C Adversarially generated
+certified cue attacks against
+frozen monitor and repair , with
+fresh-validation transfer .
+F19 X Small model scale/curriculum
+scan for emergence of
+numeral-copy and
+relevance-gating pathways.
+F20 X Open cross-layer transcoder
+attribution graph and feature
+editing; demand faithfulness
+under reconstruction error and
+alternative-feature baseline.
+Total catalogue: 104 explicitly identified contrasts (18 A + 14 B + 18 C + 16 D + 18 E + 20 F), many
+with internal factorial cells. This is intentionally not 104 independent hypothesis tests. Group them
+into preregistered families, use screening/confirmation separation, and stop low-value branches early.
+The first-pass executable board should be roughly 12–20 decisive experimental packages , not 104
+disconnected GPU jobs.
+7 Twelve decisive experiment cards (priority order)
+These cards are minimal specifications for an engineer or research agent. Each has a primary out-
+come, primary competing models, a no-go response, and an artifact. Do not allow the agent to invent
+a different estimand or panel midrun.
+Card X01 — Authoritative reproduction
+Inputs: committed Phase-I raw logs, benchmark manifest, model/tokenizer checksums. Design: in-
+dependent recomputation of labels, panels, OOF probe scores, bootstrap distributions and H11 effects;
+validate 10+ hand-selected families directly against model forward passes. Primary outcome: equal-
+ity to reported panel denominators, checksum and endpoint values within declared numerical preci-
+sion. Controls: independent implementation, data/label lineage, no circular calculations from sum-
+mary tables. If failure: block every dependent experiment, localize and rerun upstream. Artifact:
+signed reconciliation ledger and replayable tests.
+Card X02 — Base‐variant invariance challenge
+Inputs: all original four-value log-prob arrays; no new GPU first. Design: rotate baseline through
+all four , compare legacy classifications to base-free range and no-cue anchor in selected examples;
+cross cue/model. Outcome: reclassification matrix and model rank concordance. If sensitivity de-
+pends heavily on arbitrary variant 0: retire the reference-based construct as a primary endpoint
+and reanalyze Phase I under preregistered replacement; retain history rather than rewriting original
+preregistration retroactively. Artifact: per-family metric multiverse with score versions.
+Card X03 — Format/tokenization falsification
+Inputs: stratified 60–100-family design with paired wrapper variants, both primary dense models.
+Design: 4–6 equal-meaning output wrappers and precise answer-token spans; matched cue/no-cue.
+Outcome: within-family nuisance effect versus wrapper × nuisance interaction on gold/decoy logodds
+and reference-free range. If wrapper dominates: causal-mechanism interpretation must be tied to
+output elicitation and cannot be universally presented as physics vulnerability. Artifact: tokenizer
+audit and hierarchical paired contrasts.
+Working research protocol – not completed results 39
+
+######## PAGE 41 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+Card X04 — Physics‐semantic factorial
+Inputs: novel certified structures with 2 × 2 × 2 × position blocks (physical relevance × unit compatibil-
+ity × digit overlap, with proximity manipulated independently where possible). Design: randomized
+cells under family/structure block, human validated, exact output protocol. Outcome: preregistered
+interaction in actual generated answer selection and gold/decoy logodds. If no relevance-dependent
+effect: prefer copying/priming mechanism and stop relevance-gating claims. Artifact: factorial table
+plus held-out conditional predicted effects.
+Card X05 — Structural leakage and real OOD monitoring
+Inputs: old 135 monitoring families + adjudicated 34 clusters, newly authored structure clusters. De-
+sign: nested train-by-cluster CV vs original family LOOCV; final frozen external test. Outcome: paired
+cluster-held-out AUROC/logloss versus fitted entropy and surface/AST baseline; CI corrected for selec-
+tion. If collapse: monitor reads template or editing grammar; no general out-of-structure deployment
+claim. Artifact: exact fold manifest, predictions and fairness/cost table.
+Card X06 — Frozen external behavioral replication
+Inputs: distinct source/cluster external panel independently authored and verified, two dense models.
+Design: output-format locked, reference-free + free generation endpoints. Outcome: interval for
+cue-specific effect and model interaction, tested before mechanistic selection. If no effect: narrow
+main thesis to historic panel and investigate distribution mismatch rather than cherry-picking rare
+positives. Artifact: blind external results and null-inclusive effect distribution.
+Card X07 — H11 lesion/patch specificity
+Inputs: untouched Cue-B panel including near and far plus role-reversal positive controls. Design:
+H11 zero, mean, clean/corrupt donor and norm-matched controls; record all logits and free outputs.
+Outcome: absolute correct-vs-decoy logit contrast restoration with limited effect on genuinely rele-
+vant edits. If only signed ratio improves: causal shortcut explanation rejected. Artifact: per-family
+before/after table and layer/head stability plot.
+Card X08 — Mechanistic function discrimination
+Inputs: held-out factorial cells of numeric proximity, digits, units, isolation, target and placement.
+Design: QK/V/OV patching at source tokens with fixed H11 receiver; pre-register opposite sign pre-
+dictions of F-copy/F-match/F-unit/F-role. Outcome: counterfactual effect-direction accuracy on un-
+seen structures under genuine interventions. If no simple function predicts: widen to distributed
+mechanism; do not reverse-engineer labels from top activation examples. Artifact: function-by-test
+prediction scorecard.
+Card X09 — Source‐to‐sink circuit and rescue
+Inputs: discovery graph then separate causal test panel; independent edge discovery and true patch-
+ing. Design: source→H11→downstream edits, knockout and rescue; faithfulness–sparsity curve
+with alternate ablation baselines. Outcome: significant selective mediated recovery and causal ab-
+straction agreement vs random/shortcut circuit. If source path cannot be validated: local effect
+remains real at best but circuit claim removed. Artifact: complete edge list, paths and counterfactual
+intervention trace.
+Card X10 — Architecture functional replication
+Inputs: Llama independently selected correctly matched panels; optionally same-backbone
+reasoning-tuned model. Design: find functional analog in exploratory partition then freeze site and
+evaluate identical hypothesis/endpoint on independent clusters. Outcome: sign-consistent inter-
+vention effects for function, not same head index. If no replication: publish architecture-specific
+mechanism if deep enough; discuss alternative pathways and limited scope. Artifact: model-specific
+mechanism table and matched denominators.
+Working research protocol – not completed results 40
+
+######## PAGE 42 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+Card X11 — Selective mitigation challenge
+Inputs: external OOD and role-reversal panels; targeted edit, generic edit, cue removal, no interven-
+tion and solver-routing comparators. Design: freeze edit and gate intensity on dev; match computa-
+tional costs and evaluate correct answer accuracy, correct/decoy odds, cue shift and harm. Outcome:
+constrained utility frontier and paired improvement in correct outcomes. If simpler filter wins:
+frame neural intervention as causal diagnostic , not deployable superiority. Artifact: attack/repair
+matrix with generated-output examples.
+Card X12 — External audit and claim freeze
+Inputs: untouched final cohort + full source and provenance registry. Design: independent review
+of three strongest claims, each adversarially tested with predeclared falsifier; one-time final cohort re-
+veal. Outcome: precisely scoped C1–C6 claim matrix with raw reproducible artifacts and uncertainty.
+If failed: transparently contract claims or keep result as a later experiment; do not tune on external
+test and call it confirmation. Artifact: frozen manuscript evidence matrix and reproducibility bun-
+dle.
+8 Statistical design: standards for inference, not decoration
+8.1 Independent experimental unit, estimands and non‐independence
+The independent unit for a primary generalization claim is the independently authored symbolic
+structure/template cluster, not a rendered prompt, paraphrase, numeric instantiation, or decoder sam-
+ple. A single structure may yield hundreds of observations; counting them as hundreds of independent
+examples is pseudoreplication. Model and cue variants are repeated measures, nested under clusters.
+For a generalization claim to new physics laws, treat the law/program cluster as the sampling unit or
+report that its population is fixed and inference is conditional on these laws. In a leave-one-domain-
+out test, only a few physics domains exist; do not report ordinary asymptotic p-values as if there were
+hundreds of independent domains.
+Primary behavioral estimand (to finalize after P1 discovery): conditional average cue effect on
+R_alt (when defined) and/or correctness transition for a randomized, certified nuisance edit, aver-
+aged over a specified target distribution of physics structures and cue values. Report both population-
+average and cue-stratified effects. Primary causal estimand: on a specified panel, the average of
+Y(intervention) - Y(control) under a fixed, documented site and recipient definition; this is an in-
+tervention on model activations, not necessarily the natural indirect effect of cue z because interven-
+ing changes the computation’s ordinary distribution. Primary monitoring estimand: out-of-sample
+paired difference in proper score (log loss or Brier) with AUROC as a ranking metric, conditional on
+the exact information/query budget.
+Report both unconditional performance across the defined population and conditional perfor-
+mance on model-positive/sensitive cases. The second can be useful to understand a mechanism but is
+selected on the outcome; its result cannot establish that the effect generalizes to all physics questions.
+Record eligibility pre-intervention and measure no-cue/relevant control performance.
+8.2 Multiple comparisons and research degrees of freedom
+• Freeze a small family of confirmatory hypotheses: (H-B) behavioral factorial effect, (H-M) single-
+prompt incremental monitoring value, (H-C) causal head/path effect, and optionally (H-R) selec-
+tive repair . Every hypothesis maps to a specific endpoint, model, held-out cohort, effect-direction
+prediction and null.
+• Use hierarchical testing or Holm correction for the small primary family; use Benjamini–
+Hochberg FDR for prespecified secondary scans and annotate exploratory plots without
+pretending FDR correction makes them confirmatory.
+• Selection over layers, heads, sites, formulations, decoders, metrics, threshold and cue conditions
+is a large multi-search. Handle it by discovery selection on one set and evaluation once on
+an independent set , not by announcing the best of many tests with a naïve CI.
+Working research protocol – not completed results 41
+
+######## PAGE 43 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+• For binary effect rates, report denominator , Wilson or appropriately clustered bootstrap inter-
+vals; for model comparisons on the same families, paired contingency/paired hierarchical anal-
+yses. For continuous skewed recovery, robust median/trimmed mean, bootstrap CI, absolute
+numerator/denominator and sensitivity to few extreme families are mandatory.
+• The classifier’s calibration binning is itself estimated; show reliability curves and uncertainty
+with sufficient bin support, and report ECE with fixed, declared bins plus a supplementary adap-
+tive strategy. Never infer ‘best calibrated’ solely from Brier or solely from ECE.
+8.3 Power and precision protocol
+Before collecting confirmation labels , simulate from pilot-estimated family-cluster variance and
+cue-specific distributions. Sweep realistic numbers of independent structures, 2–8 cue conditions, 2–3
+numeric instantiations and models. Compute estimated CI width, type-I error with the chosen resam-
+pling unit and power for minimum scientifically important contrasts. Run the exact proposed analysis
+on simulated null and effect datasets; ensure false-positive rate is calibrated. Include a scenario with
+20–40% loss from validation, parse failures, and ineligible causal recipients. An analysis that is too
+underpowered for ±0.03 AUROC improvement must not make a ‘statistically equivalent’ claim; use an
+equivalence test only after specifying a minimum practically important margin and achieving suffi-
+cient power .
+Sample size is decision-dependent. Starting target of 300–600 new symbolic structures is a planning
+allocation for independent validity and power , not a claim that this number will resolve all compar-
+isons. A tiny difference in paired AUROC may require much more than 600 if cluster correlation and
+label prevalence are unfavorable. Conversely, a large, specific causal effect could require fewer un-
+touched structures if all other controls are convincing. Publish the simulation and its assumptions
+alongside the final chosen number .
+8.4 Negative and missing result policy
+A zero-row job, failed hook, timeout, nonparseable response, ineligible family, or untested control is
+NOT_EVALUATED, not a null effect. Keep a missingness codebook with reason, first_seen, planned_run,
+attempts, eligible_population, and intended analysis. Report exclusions and completeness both by
+cue and by model. If a test fails after looking at response scores, keep all original units in a sensitivity
+analysis, including worst-case bounds for missing outcomes. Never silently replace data-dependent
+missing values with zero or negative labels.
+9 Compute, human effort, storage and reproducibility architecture
+Hardware assumption to verify. The June proposal described access patterns of up to 2×H200,
+3×H100, 2×A100 , not a guaranteed simultaneous dedicated allocation. Before beginning, check cur-
+rently available scheduler partitions, actual per-job GPU limits, software stacks and wall-time quota.
+Specific throughput and costs must be measured on Sharanga rather than invented here. Models
+should be reselected against present availability, licensing and stable hook support; avoid commit-
+ting to a 397B-class model merely because an old proposal mentioned one.
+Cost model. For behavioral runs, estimate N_structures × N_numeric × N_cue_cells × N_models ×
+(N_score_forward + N_generated_resamples) and record separately the repeated output-format wrap-
+pers. For activation jobs, additionally multiply by selected layer/site/head/position sets and donor-
+recipient pairs; cache only what is actually reused. One full all-layer/all-token dump can grow to
+terabytes for large models; the submitted manuscript cites a 1.57 TB upper-bound design motivat-
+ing staged extraction. Recompute memory from n_items × n_positions × n_layers × d_model ×
+bytes_per_value for current models rather than copying this figure.
+Compute escalation:
+1. CPU and light GPU: P0 registry, exact-raw logprob rescoring where already stored, parser and
+symbolic mutation, cluster graph; no model change until integrity passes.
+Working research protocol – not completed results 42
+
+######## PAGE 44 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+2. Small balanced GPU pilot: P1 wrapper and C contrast, 30–100 families, two models; estimate
+rates and precision and debug tokenizer/hook parity.
+3. Benchmark creation/validation: P2/P3 generation with symbolic solver and human review,
+parallel to small discovery not to locked test scoring.
+4. Behavioral confirmatory sweep: only validated families and frozen output protocol; favor
+inexpensive inference batching.
+5. Targeted activation discovery: 20–60 independent contrast pairs per functional hypothesis
+rather than storing all activations on every prompt.
+6. Causal confirmation: freeze 3–10 meaningful candidate sites/pathways from discovery, then
+run sufficiently powered held-out interventions with stringent controls.
+7. Optional heavy: multiple architecture causal studies, trained SAE/transcoder , intervention-
+based fine-tuning, adversarial optimization, if mechanism survives earlier gates.
+Storage guidance. Persist normalized per-family/per-variant raw records and complete model
+provenance; store activation caches transiently in scratch with object index/hashes; preserve only
+discovery-critical activation slices and reproducible extraction scripts if space constrained. Use
+safetensors/zarr/HDF5 or a tested equivalent, avoid pickled arbitrary code in shared artifacts, pin
+dtype, shape and named hook coordinates. Log when a source cache was produced under an earlier
+model revision. Make every run restartable and idempotent.
+Human validation workload. Conditional on an approved Phase-B scaling decision, for 400 dis-
+tinct structures with two validators, budget at least 800 independent family-level judgments plus cal-
+ibration/adjudication, and more if every numeric/linguistic variant needs separate review. Record
+average adjudication time during a 20-family pilot, then compute workload empirically. Determine
+qualified validator criteria, impartial assignment, pay, conflicts, communication and completion mile-
+stones. A self-authored agent review is not independent expert validation.
+First-stage staffing. One investigator owns scientific hypotheses, effect definitions and claim ledger;
+one owns benchmark/symbolic verifier; one owns model instrumentation and reproducibility; one
+coordinates validators; at least one independent reviewer attacks data leakage and causal interpreta-
+tion. Roles can be combined if headcount is small, but independence checks cannot all be performed
+by the same agent that wrote the original data.
+9.1 Machine‐readable data contracts
+Every raw record has run_id, phase_id, exploratory_or_confirmatory, structure_uuid, tem-
+plate_cluster_id, symbolic_program_hash, cue_type, cue_semantic_role, cue_numeric_value, unit_type,
+numeric_proximity, digit_overlap, cue_position, isolation_condition, model_id, model_commit, tok-
+enizer_commit, chat_template, answer_wrapper_id, target_answer_ids, target_span_start/end, gener-
+ated_answer_raw, parsed_answer, parse_status, gold_logprob_raw/per_token, alternative_scores, cor-
+rectness, seed, dtype, wall_time, and artifact_checksum. For causal results add receiver_id, donor_id,
+edit_site, edit_semantics, scale, clean/corrupt_definition, hook_tensor_shape, absolute_Y_control,
+absolute_Y_intervened, KL_damage, model_positive_eligibility, and recipient generation outcomes.
+Every derived table names the exact source manifest and calculation commit.
+Continuous integration checks: invariant answer across nuisance edits; correct answer changes
+under certified relevant positive controls; all cue spans are the only allowed mutations in restricted
+cells; exact duplicate and cluster split integrity; correct target span IDs; no train/test family or cluster
+collisions; leakage-free preprocessing; out-of-fold score generation; identical x-axis/denominators for
+paired models; no zero-row falsely interpreted as zero effect; hooks removed after each run; no gradi-
+ents accumulated inadvertently; no confirmed run using a development-fitted threshold on external
+labels.
+9.2 Preflight notebook skeleton / pseudocode
+# Conceptual validation contract, not runnable Phase-I implementation.
+manifest = freeze_structural_splits(certified_and_human_checked_families)
+assert no_cluster_overlap(manifest.discovery, manifest.confirmation)
+Working research protocol – not completed results 43
+
+######## PAGE 45 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+assert no_cluster_overlap(manifest.confirmation, manifest.external)
+for model in selected_models:
+validate_native_chat_template(model)
+validate_scored_answer_span(model)
+validate_hook_parity(model)
+for group in manifest.discovery:
+records = score_and_generate_all_preregistered_cells(model, group)
+assert cue_preserving_answer_invariance(records.symbolic_templates)
+emit_immutable_raw_records(records)
+# Freeze choices using discovery ONLY.
+protocol = choose_primary_metric_model_site_hypothesis(manifest.discovery)
+write_preregistration(protocol, git_sha = current_sha())
+# Confirmation panel is loaded ONCE by frozen script.
+result = evaluate_frozen_protocol(protocol, manifest.confirmation)
+report_cluster_robust_effects_and_all_eligible_units(result)
+# Unsuccessful results never silently reroute to a new confirmatory test.
+if not result.passes_prespecified_gate:
+close_claim_and_open_new_discovery_branch(protocol, result)
+10 Conditional decisions: how to react if the evidence is unfavorable
+Gate and observed
+outcome Scientific interpretation Required action Prohibited reaction
+P0 raw outputs not
+reproducible
+Evidence chain broken or
+model/runtime drift
+Fix code/provenance,
+rerun upstream and
+invalidate dependents
+Continue adding
+heads/plots around
+unverified metrics
+P1 scores change with
+base rotation
+Current binary label not
+indexing-invariant
+Use anchor-free and
+explicitly anchored
+endpoints; reassess
+paper’s claims
+Relabel retrospectively
+and say the original
+preregistration always
+meant the new metric
+P1 wrapper/tokenization
+explains effect
+String-scoring artifact or
+strong interaction
+Restrict claim; study
+interface sensitivity as
+Track E
+Assert physics reasoning
+failure from gold logprob
+alone
+P1 generated answers
+stable, p(y*) drifts
+Confidence/likelihood-
+only phenomenon
+Focus
+reliability/calibration, not
+answer corruption
+Claim model accuracy is
+repaired by likelihood edit
+P2/3 human review rejects
+semantics
+Benchmark construct
+invalid for affected
+prompts
+Redesign and revalidate,
+rerun affected findings
+Treat solver free-symbol
+check as sufficient
+evidence of
+natural-language
+correctness
+P4 no relevance ×
+proximity interaction
+Physical relevance gating
+unsupported
+Test numeral-
+copy/generic-context
+alternatives
+Add post-hoc cues until
+desired sign appears
+P4 strong Cue B, weak Cue
+A/C
+Heterogeneous cue
+phenomenon
+Deep-dive B; A/C as scope
+tests
+Pool cue types to claim a
+universal mechanism
+P5 monitor fails cluster
+split
+Template recognizer more
+plausible than universal
+monitor
+Remove deployment
+superiority; focus function
+or new representation
+only after fresh discovery
+Quote best family-LOOCV
+AUROC as OOD score
+Working research protocol – not completed results 44
+
+######## PAGE 46 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+Gate and observed
+outcome Scientific interpretation Required action Prohibited reaction
+P5 matches entropy under
+adequately powered test
+Hidden states add little
+incremental value for this
+task
+Report negative and avoid
+costly deployment claim
+Interpret absence of
+significance as superiority
+or equivalence without
+proper test
+P6 H11 zero only, no
+mean/patch effect
+Off-manifold lesion or
+delicate compensation
+Diagnose lesion; withhold
+causal function claim
+Call H11 necessary in all
+circumstances
+P6 H11 effect is gold
+likelihood only
+Causal contribution to
+scoring distribution
+Pursue specific
+output-sensitivity account
+or other metrics
+Claim improved physics
+solution computation
+P7 no one-feature account Distributed or multiple
+mechanism possible
+Test subspaces, multiple
+heads, edge discovery;
+simplify scope
+Human-label top
+activating examples and
+declare mechanistic
+understanding
+P8 path attribution fails
+rescue
+Proposed information
+route wrong or
+insufficient
+Redefine pathway on
+discovery data or fall back
+to localization
+Publish attribution arrows
+as proven information
+flow
+P9 second model has
+different component
+Functional mechanism
+may still recur
+Find analog with
+independent
+discovery/confirm, or
+narrow claim
+Equate same-layer misses
+with true architectural
+absence
+P9 no external functional
+replication
+Architecture/benchmark-
+specific mechanism
+Limit generalization,
+strengthen Qwen case
+study and explain
+boundary
+Keep universal LLM
+language
+P10 cheap cue filter
+dominates
+Circuit repair not practical Treat edit as scientific
+intervention, not product
+method
+Exclude cheap filter from
+comparison
+Final external set
+contradicts preferred
+claim
+Proposed
+mechanism/family not
+universal
+Report boundary, stop
+tuning, collect new
+confirmation set for
+revised claim
+Reuse opened external
+cohort until passing
+Stop–pivot hierarchy: credibility of the measured effect outranks benchmark size; causal interpre-
+tation outranks component count; reproducible out-of-cluster prediction outranks peak AUROC; selec-
+tive correctness improvement outranks ratio recovery. The plan is adaptive about which branch gets
+investigated, not about rewriting confirmatory statistics after outcomes.
+11 Literature‐grounded positioning and novelty test
+The following is a source-to-design map , not a list of papers inserted to make the proposal appear
+scholarly. Links were located and cross-checked against publisher , author-project or arXiv sources as
+of 14 October 2026. Publications marked preprint were not independently verified as peer-reviewed
+here. Every referenced paper must be read in full by the investigators before using it to claim novelty;
+this document gives the concrete method/overlap justified by the source’s verified abstract/method
+description. In particular ,absence of a related work in this selective review is not proof that no
+similar paper exists .
+Working research protocol – not completed results 45
+
+######## PAGE 47 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+Literature What is established or proposed
+Implication for PhysMon and
+decisive differentiation
+[L01] Mirzadeh et al., GSM-Symbolic
+(ICLR 2025)
+Symbolic templates vary arithmetic
+problem instantiations and
+demonstrate failure under
+perturbations/irrelevant clauses.
+Dataset novelty is not ‘symbolic
+problem generation’. Our
+incremental claim must concern
+certified physics-specific nuisance
+invariances, multiple behavioral
+estimands and an experimentally
+validated internal pathway.
+[L02] Yang et al., GSM-DC (EMNLP
+2025)
+Synthetic symbolic reasoning
+graphs with controlled irrelevant
+context, evidence about
+paths/accuracy, and
+strong-distractor robustness
+training.
+Very close benchmark and
+mitigation competitor . Compare
+controlled graph robustness,
+distractor strength, and
+augmentation; do not say prior
+work lacks controlled symbolic
+distractors.
+[L03] Cheng et al., Stochastic
+Chameleons (ACL 2025)
+Internals of irrelevant-context
+hallucinations and competing
+pathways across
+Llama/Mistral/Pythia in factual
+recall.
+Two-path mechanism is not
+unprecedented. Need a novel
+physics-grounded causal
+variable/function, not just generic
+‘two circuits compete’.
+[L04] Nikankin et al., Arithmetic
+Without Algorithms (ICLR 2025)
+Sparse arithmetic heuristic neurons
+implement numerical
+pattern-specific behaviors.
+Numerical near-match effects may
+be an arithmetic heuristic; compare
+numeric pattern/function tests
+before invoking scientific
+reasoning.
+[L05] Zhang & Nanda, Best Practices
+of Activation Patching (ICLR 2024)
+Patch outcomes depend on
+corruption, metric and intervention
+choices.
+Justifies absolute logit/likelihood
+endpoints, alternative ablations,
+clean/corrupt protocols, and
+non-inflated normalized recovery.
+[L06] Miller et al., Circuit
+Faithfulness Metrics Are Not Robust
+(preprint 2024)
+Reported circuit faithfulness is
+sensitive to ablation definitions.
+Requires complement restoration,
+multiple ablation semantics and
+explicit boundary of the circuit
+claim.
+[L07] Geiger et al., Causal
+Abstraction (JMLR 2025)
+Formal framework connecting
+low-level intervention, abstract
+variables, interchange and graded
+faithfulness.
+Provides formal target for what a
+purported relevance-gating subspace
+computes.
+[L08] Mueller et al., MIB (ICML
+2025)
+Benchmark comparing circuit and
+causal-variable localization;
+supervised DAS strong, SAE not
+uniformly superior to neurons.
+Evaluate discovered pathways on
+causal-variable/faithfulness tests;
+do not assume SAEs automatically
+deepen interpretation.
+[L09] Syed et al., Attribution
+Patching Outperforms Automated
+Circuit Discovery (preprint 2023)
+Gradient attribution can efficiently
+shortlist important edges.
+Use as inexpensive candidate
+discovery, followed by full
+intervened evaluations.
+[L10] Bricken et al., Circuit Tracing
+(2025 technical paper)
+Feature-level attribution graphs;
+limitations include reconstruction
+error and attention/global-circuit
+ambiguity.
+Attribution graph is a hypothesis
+generator; show causal
+path/knockout/rescue and
+reconstruction controls.
+[L11] Lindsey et al., On the Biology
+of a Large Language Model (2025
+technical paper)
+Detailed case studies using
+circuit-tracing methodology.
+Benchmark qualitative depth of
+functional analysis, not claimed as
+a direct comparison on PhysMon.
+[L12] McGrath et al., Hydra Effect
+(preprint 2023)
+Ablating attention components can
+cause compensating computations
+downstream.
+A zero-ablation result may not
+identify normal unperturbed
+information flow; measure
+self-repair .
+Working research protocol – not completed results 46
+
+######## PAGE 48 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+Literature What is established or proposed
+Implication for PhysMon and
+decisive differentiation
+[L13] Kossen et al., Semantic
+Entropy Probes (preprint 2024)
+Predict sampling-derived semantic
+uncertainty cheaply from hidden
+states.
+Stronger uncertainty baseline
+where task labels and compute
+budgets make evaluation
+meaningful.
+[L14] Chen et al., INSIDE (ICLR 2024) Hidden-state covariance/eigenvalue
+statistics for hallucination
+detection.
+Adapt comparable representational
+uncertainty controls without
+conflating multiple-generation
+access with one pass.
+[L15] Khanmohammadi et al., CCPS
+(EMNLP 2025)
+Perturbed representation stability
+improves confidence calibration on
+QA benchmarks.
+A serious internal-state competitor;
+its actual cost and perturbation
+protocol must be matched rather
+than treated as one free forward
+pass.
+[L16] Sun et al., Emperor’s New
+Clothes in Benchmarking? (ICML
+2025)
+Controlled assessment of fidelity vs
+contamination resistance across
+benchmark modifications.
+Merely paraphrasing old DECOY
+templates may not yield
+independent new tasks; demand
+structural novelty.
+[L17] Simin Chen et al.,
+Benchmarking Under Data
+Contamination (EMNLP 2025)
+Survey of static/dynamic
+benchmark contamination risks.
+Include independent source/cluster
+tests and external benchmark
+provenance.
+[L18] Chen, Luo & Pan, Mechanistic
+Data Attribution (ICML 2026)
+Tests training-data contributions to
+formation of interpretable circuits.
+Training-origin tracing is an
+optional ambitious different
+question; avoid claiming
+mechanism originated from
+particular pretraining examples
+without actual
+provenance/intervention.
+[L19] Khan et al., Can LM Agents Be
+Helpful Circuit Explainers?
+(preprint 2026)
+Agentic explanation workflow can
+be useful but validation failures
+remain a challenge.
+A coding agent may propose
+hypotheses, but experimental
+falsification and human ownership
+are mandatory.
+[L20] Naganna et al., Are Arithmetic
+Heuristic Neurons Form-Invariant?
+(preprint 2026)
+Studies arithmetic-neuron transfer
+across symbols, word problems and
+code.
+Strong motivation for
+format-invariance tests of numeric
+components; independently verify
+final publication status before
+citing as peer reviewed.
+[L21] Geirhos et al., Shortcut
+Learning in Deep Neural Networks
+(Nature MI 2020)
+General conceptual foundation for
+shortcuts and distribution shift.
+Use precise shortcut language; no
+novelty for demonstrating that
+shortcuts exist.
+[L22] Heimersheim & Nanda, How
+to Use and Interpret Activation
+Patching (preprint 2024)
+Practical pitfalls of interpreting
+patched activation effects.
+Required reading before designing
+causal sites/donors; not itself a
+proof of any proposed pathway.
+[L23] OpenAI/TransformerLens
+code (patching.py)
+Provides generic activation and
+head/position patching interfaces.
+Implementation reference, not a
+scientific claim; validate actual
+hook tensor identities and
+attention-head indexing.
+[L24] Anthropic open-source
+circuit-tracing announcement
+(2025)
+Public tooling for graph-based
+circuit exploration on open weights.
+Optional artifact/visualization tool,
+not substitute for P8 causal
+confirmation.
+[L25] ICLR 2027 Reviewer
+Guidelines
+Emphasize motivation, technical
+soundness, supported claims and
+significance; SOTA leaderboard
+dominance is not a requirement.
+Target new knowledge and
+explanatory rigor rather than
+experiment count.
+Working research protocol – not completed results 47
+
+######## PAGE 49 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+11.1 What could actually be novel (conditional claims)
+N1: A validated, reference-independent measurement of physics-specific nuisance influence that
+jointly captures gold-answer probability, distractor-answer competition and generated-answer be-
+havior , with explicit separation of language-model scoring artifacts.Risk: GSM-DC and GSM-Symbolic
+already offer strong controlled benchmarks; a new metric alone may not suffice.
+N2: A mechanistically predictive function for irrelevant numerical information (e.g., a quantified
+relevance-gating or numeral-copy pathway) established by orthogonal cue factorials, knockout, recip-
+rocal transplantation, path patching, rescue and causal abstraction on unseen physics computation
+graphs. Risk: broader class-based misgeneralization and arithmetic heuristics are already known;
+the specific functional discovery must exceed them.
+N3: A rigorous demonstration that a single-prompt internal monitor adds (or does not add) useful
+information beyond properly nested fitted uncertainty, correctness and numerical-template baselines,
+with independent cluster/source transfer . Risk: a small unresolvable AUC difference, by itself, is not
+a major contribution.
+N4: A selective intervention that changes the identified mechanism’s contribution and improves cor-
+rectness/reliability under valid nuisance edits without disabling legitimate use of relevant variables,
+outcompeting inexpensive alternatives on some defensible frontier . Risk: a raw accuracy boost from
+fine-tuning without mechanistic linkage belongs to robust training, not necessarily mech interp.
+Novelty falsification task before submission. Re-run targeted literature searches for certified
+physics distractor , counterfactual shortcut circuit , numerical competition attention heads , causal
+relevance gating , causal abstraction scientific reasoning , arithmetic heuristic mechanism and
+confidence variation answer string ; inspect papers’ experiment tables and code. Maintain a clos-
+est_work_matrix.csv with year/venue, exact benchmark generator , formal guarantee, behavioral tar-
+get, models, localization method, functional proof, external validity and intervention. No phrases like
+‘first to show’ unless directly verified against the full adjacent literature.
+12 The first execution sprint: benchmark credibility before expensive
+mechanism work
+These actions are ordered by which uncertainty could make all later experiments meaningless. Do not
+treat the order as calendar deadlines. A coding agent may execute independent audit jobs in parallel,
+but later confirmatory jobs remain gated.
+1. Tag and reproduce Phase I. Freeze the Confidence Without Cause 25-page ICLR PDF , 155-family
+manifest, model/tokenizer/chat-template commits, cue-parent lineage and every raw model
+record. Distinguish 140 original behavioral families from 15 later expansion families and the
+135-family monitor cohort. Exit: a top-to-bottom regenerated Phase-I claim table and list of
+conflicts.
+2. Run the zero-cost baseline permutation attack. For every four-rendering family, rotate the
+base index through all possibilities; compute the signed legacy score and a base-free range. Tabu-
+late label reclassification, Cue-A/B/C stratification and cross-model ranking. Exit: self-contained
+unit tests, machine-readable base_permutation_audit.csv and a reviewable discrepancy ledger .
+3. Inspect the scoring interface. Verify prompt bytes, answer-token spans, model-native
+templates and manual teacher-forced scoring on representative near-match, unit-conversion,
+negative-score, wrong-answer and parse-failure cases. Compare reference answer formats and
+numerical rounding. Exit: signed scoring_contract.md with passing/failing cases.
+4. Resolve structure overlap and the parser cohort issue. Independently adjudicate the 34
+reported structural clusters and 2,352 unresolved rendering pairs; rerun cluster-held-out base-
+lines. Identify why five stable families were excluded from teacher-forced monitoring. Exit:
+frozen lineage graph and eligibility trace with nonselected families retained.
+5. Qualify independent physics validators. Build a two-pass blind rubric and planted-invalid
+calibration bank. Audit a stratified sample of v1 large/small effects and Cue A/B/C, then budget
+Working research protocol – not completed results 48
+
+######## PAGE 50 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+the full audit. Exit: qualification decisions, agreement, defect taxonomy, reviewer workload and
+adjudication protocol.
+6. Implement the typed relevant/irrelevant generator . Create 10 fully certified new physical
+structures, each with no-cue, relevant-edit, non-governing, numeric metadata and distractor
+magnitude/unit conditions; automatically generate mutation tests. Exit: reproducible genera-
+tor , admissibility graph, factor-cell manifest and genuinely independent expert review.
+7. Pilot approximately 40–60 independent structures. On two open models, test the core rel-
+evance × proximity × unit interaction with free-answer behavior , right-versus-decoy log-odds
+and symmetric gold-string dispersion. Test near-match vs token-overlap confounding. Exit:
+discovery-only effect sizes, uncertainty, failures and a clear preferred or rejected behavioral
+hypothesis.
+8. Pilot external adaptation independently of model outputs. Draw prespecified candidate
+pools from PHYSICS-Verified and UGPhysics, reconstruct the physics, certify nuisance/relevant
+edits and record all exclusions. Add a smaller PhysReason feasibility check if resources allow.
+Exit: empirical adaptation yields, validation hours, task difficulty and a decision on EPC feasi-
+bility.
+9. Power and freeze the benchmark. Use pilot-derived cluster variance and eligible/attrition
+rates to set the v2 size and confirmation split. Retire Cue C from irrelevant-cue pooling, document
+the separate invariance/equivariance benchmark, set confirmed endpoints and preregister tests.
+Exit: immutable Phase-B gate report GO—MECHANISM / GO—MEASUREMENT / PIVOT—GENERAL NUMERIC /
+REDESIGN / STOP BROAD CLAIM .
+10. Only on GO—MECHANISM, start large-scale behavior and mechanistic confirmation. Run fresh
+frozen model comparisons on approved internal/external panels. Re-test Qwen H11 using abso-
+lute logits/answer competition, multiple ablation semantics and matched relevant edits before
+planning upstream path tracing. Exit: results that directly justify or prohibit the later circuit
+hypothesis.
+11. Write claim-specific experiment cards and update resource estimates. Freeze exact eli-
+gibility rules, models, hook sites, donors, statistics, cluster bootstrap plan, human-review sta-
+tus, GPU budget and failure branches. Exit: reproducible queue and independently reviewable
+claims-to-evidence matrix.
+The key policy is to allow a credible early negative result to change the project, rather than
+allowing the initial head-11 story to determine which benchmark we build.
+13 Proposed paper architectures depending on the evidence
+Architecture A: A Causal Mechanism of Numerically Induced Physics Reasoning Instability (high bar)
+Core figure chain: certifiable relevance factorial → behavioral source of vulnerability → causal
+head/function dissection → upstream path and knockout/rescue → cross-architecture analog → se-
+lective control. Required: truly new mechanistic content, causal abstraction or similarly strong func-
+tional tests, and external structural confirmation. Cannot be claimed from: one head knockout, an
+attractive attention map, high probe AUROC, or a correlated direction.
+Architecture B: What Do Certified Counterfactuals Actually Measure? (high‐quality measurement route)
+Core chain: original label ambiguity → format/base/tokenization audit → correct/decoy/free-
+generation alternative endpoints → new proof-carrying factorial benchmark → stringent cluster
+splits and model comparisons → limits of one-input monitoring. Required: surprising and conse-
+quential empirical evidence plus a generalizable diagnostic protocol. Cannot be claimed from:
+only more DECOY problem variants or a minor change in AUROC.
+Architecture C: Mechanism‐Guided Selective Robustness to Physically Irrelevant Information (intervention
+route)
+Core chain: causal vulnerability → verified specific mechanism → cheap and circuit-aware
+repair baselines → held-out relevant/irrelevant role reversals → quality/compute/damage frontier .
+Working research protocol – not completed results 49
+
+######## PAGE 51 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+Required: reliable performance gains on genuine correctness/reliability outcomes, external general-
+ization, meaningful tradeoff improvement and causal attribution. Cannot be claimed from: merely
+flipping the teacher-forced score or an untested rule-based cue filter .
+Editorial discipline. A future main paper should have one decisive thesis with appendices support-
+ing it. A research programme may discover three publishable projects; forcing all into one giant paper
+often weakens explanatory clarity. A future conference could reject excellent work for novelty/clarity
+reasons; this document promises a scientifically credible process, not an acceptance probability.
+14 Bibliography and primary‐source links (verified online 14 Oct 2026)
+1. [L01] I. Mirzadeh et al. (2025). GSM-Symbolic: Understanding the Limitations of Mathematical
+Reasoning in Large Language Models . ICLR. https://proceedings.iclr.cc/paper_files/paper/2025/h
+ash/ec2e7a896f8250986b3907f57621ce94-Abstract-Conference.html
+2. [L02] M. Yang et al. (2025). How Is LLM Reasoning Distracted by Irrelevant Context? An Analysis
+Using a Controlled Benchmark . EMNLP , pp. 13329–13347. https://aclanthology.org/2025.emnlp-
+main.674/
+3. [L03] Z. Cheng et al. (2025). Stochastic Chameleons: Irrelevant Context Hallucinations Reveal
+Class-Based (Mis)Generalization in LLMs . ACL, pp. 30187–30214. https://aclanthology.org/2
+025.acl-long.1458/
+4. [L04] Y. Nikankin et al. (2025). Arithmetic Without Algorithms: Language Models Solve Math with
+a Bag of Heuristics . ICLR. https://proceedings.iclr.cc/paper_files/paper/2025/hash/8c5f30296296
+d2ae402ebbd09aaa9c12-Abstract-Conference.html
+5. [L05] F . Zhang and N. Nanda (2024). Towards Best Practices of Activation Patching in Language
+Models: Metrics and Methods . ICLR. https://proceedings.iclr.cc/paper_files/paper/2024/hash/06
+a52a54c8ee03cd86771136bc91eb1f-Abstract-Conference.html
+6. [L06] J. Miller , B. Chughtai, W. Saunders (2024). Transformer Circuit Faithfulness Metrics are not
+Robust. arXiv preprint. https://arxiv.org/abs/2407.08734
+7. [L07] A. Geiger et al. (2025). Causal Abstraction: A Theoretical Foundation for Mechanistic Inter-
+pretability. JMLR 26(83):1–64. https://www.jmlr.org/papers/v26/23-0058.html
+8. [L08] A. Mueller et al. (2025). MIB: A Mechanistic Interpretability Benchmark . ICML / PMLR
+267:45069–45108. https://proceedings.mlr.press/v267/mueller25a.html
+9. [L09] A. Syed, C. Rager , A. Conmy (2023). Attribution Patching Outperforms Automated Circuit
+Discovery. arXiv preprint. https://arxiv.org/abs/2310.10348
+10. [L10] T. Bricken et al. (2025). Circuit Tracing: Revealing Computational Graphs in Language Mod-
+els. Transformer Circuits technical report. https://www.transformer-circuits.pub/2025/attribut
+ion-graphs/methods.html
+11. [L11] J. Lindsey et al. (2025). On the Biology of a Large Language Model . Transformer Circuits
+technical report. https://www.transformer-circuits.pub/2025/attribution-graphs/biology.html
+12. [L12] T. McGrath et al. (2023). The Hydra Effect: Emergent Self-repair in Language Model Compu-
+tations. arXiv preprint. https://arxiv.org/abs/2307.15771
+13. [L13] J. Kossen et al. (2024). Semantic Entropy Probes: Robust and Cheap Hallucination Detection
+in LLMs. arXiv preprint. https://arxiv.org/abs/2406.15927
+14. [L14] C. Chen et al. (2024). INSIDE: LLMs’ Internal States Retain the Power of Hallucination Detec-
+tion. ICLR. https://mlanthology.org/iclr/2024/chen2024iclr-inside/
+15. [L15] R. Khanmohammadi et al. (2025). Calibrating LLM Confidence by Probing Perturbed Repre-
+sentation Stability. EMNLP .https://aclanthology.org/2025.emnlp-main.530/
+Working research protocol – not completed results 50
+
+######## PAGE 52 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+16. [L16] Y. Sun et al. (2025). The Emperor’s New Clothes in Benchmarking? A Rigorous Examination
+of Mitigation Strategies for LLM Benchmark Data Contamination . ICML / PMLR 267. https://proc
+eedings.mlr.press/v267/sun25t.html
+17. [L17] S. Chen et al. (2025). Benchmarking Large Language Models Under Data Contamination:
+A Survey from Static to Dynamic Evaluation . EMNLP . https://aclanthology.org/2025.emnlp-
+main.511/
+18. [L18] J. Chen, Y. Luo, L. Pan (2026). Mechanistic Data Attribution: Tracing the Training Origins of
+Interpretable LLM Units . ICML / PMLR 306:15966–15998. https://proceedings.mlr.press/v306/che
+n26cv.html
+19. [L19] A. A. Khan et al. (2026). Can Language Model Agents be Helpful Circuit Explainers in Mech-
+anistic Interpretability? arXiv preprint. https://arxiv.org/abs/2606.24026
+20. [L20] S. Naganna, T. A. Sijan, U. Kalita (2026). Are Arithmetic Heuristic Neurons Form-Invariant?
+A Mechanistic Analysis of Symbols, Text, and Code in LLMs . arXiv preprint. https://arxiv.org/abs/
+2607.16693
+21. [L21] R. Geirhos et al. (2020). Shortcut Learning in Deep Neural Networks . Nature Machine Intel-
+ligence 2:665–673. https://doi.org/10.1038/s42256-020-00257-z
+22. [L22] S. Heimersheim and N. Nanda (2024). How to Use and Interpret Activation Patching . arXiv
+preprint. https://arxiv.org/abs/2404.15255
+23. [L23] TransformerLens (repository implementation). patching.py. https://github.com/Transfo
+rmerLensOrg/TransformerLens/blob/main/transformer_lens/patching.py
+24. [L24] Anthropic (2025). Open-sourcing Circuit Tracing Tools . https://www.anthropic.com/resear
+ch/open-source-circuit-tracing
+25. [L25] ICLR 2027. Reviewer Guidelines and Author Guidelines. https://iclr.cc/Conferences/2027/R
+eviewerGuidelines ; https://iclr.cc/Conferences/2027/AuthorGuidelines
+26. [L26] Yale NLP .PHYSICS-Verified: Audited Advanced Physics Benchmark (public dataset card; in-
+spected 14 October 2026). 1,034 qualifying-exam problems, 2,559 scored answers; newly adapted
+counterfactuals are not automatically validated by this source. https://huggingface.co/datasets/
+yale-nlp/physics-verified
+27. [L27] X. Xu et al. (2025). UGPhysics: A Comprehensive Benchmark for Undergraduate Physics
+Reasoning with Large Language Models . ICML, PMLR 267:69849–69877. https://proceedings.mlr.
+press/v267/xu25ai.html ; official repository: https://github.com/YangLabHKUST/UGPhysics
+28. [L28] X. Zhang et al. (2025). PhysReason: A Comprehensive Benchmark towards Physics-Based
+Reasoning. ACL 2025, pp. 16593–16615. https://aclanthology.org/2025.acl-long.811/
+29. [L29] X. Wang et al. (2024). SciBench: Evaluating College-Level Scientific Problem-Solving Abilities
+of Large Language Models . ICML 2024. https://proceedings.mlr.press/v235/wang24z.html
+30. [L30] Yale NLP . PHYSICS Benchmark Repository and PHYSICS-Verified migration guidance (au-
+dited source/reuse notes; inspected 14 October 2026). https://github.com/yale-nlp/Physics
+Attached-source index (not public citations): Actual submitted manuscript: Confidence Without
+Cause (25 pp., October user-provided); June original proposal (30 pp.); supplementary change log (14
+pp.); historical June Part-II plan v1.1 (42 pp.); supplied Google PAT/OpenReview LLM review (5 pp.);
+separate 29 pp. Proved, Not Annotated manuscript of undetermined relationship to submission. These
+primary artifacts motivate the initial evidence ledger and critiques; this document is a newly pro-
+posed protocol, not an attestation that suggested studies have been run .
+Working research protocol – not completed results 51
+
+######## PAGE 53 ########
+PHYSMON | RESEARCH REDESIGN REVISED V2.0 | OCT 2026
+15 Definition of scientific completion
+A final ICLR-calibre submission is scientifically ready only after Phase B passes its applicable gate ,
+and only when it can answer all of the following, with independently verifiable artifacts: (1) What
+precise model behavior changed, under which definition, and why should the physical answer be
+invariant? Which separate tests independently establish natural-language physical validity
+and matching of the encoded graph? (2) What weaker scoring/format/difficulty hypothesis was
+strongest, and where was it falsified? (3) Did a monitor add genuine information beyond fair inexpen-
+sive baselines on unseen structures, and if not is this acknowledged?(4) What neural computation was
+identified beyond an effect of removing a head? (5) Which controlled intervention predictions would
+fail if the proposed mechanistic story were false, and what happened when tested? (6) Which models,
+cue types, structures and prompting conditions do and do not replicate? (7) Can intervention improve
+a meaningful outcome without disrupting legitimately relevant numerical information? (8) Can an
+independent researcher reproduce both successes and null results, including denominators and exclu-
+sions? (9) Is the core insight substantially different from GSM-DC, GSM-Symbolic, numerical-heuristic
+circuits and existing causal interpretability work? (10) Does the manuscript say no more than the
+evidence supports?
+If the answer to (4) or (5) is no, the project can still produce rigorous measurement science, but it
+should not market itself as a completed mechanistic explanation. If (1) fails, return to the measure-
+ment definition regardless of how impressive other metrics look.
+Working research protocol – not completed results 52
