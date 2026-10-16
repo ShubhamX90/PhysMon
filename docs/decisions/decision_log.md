@@ -2957,3 +2957,35 @@ ledger now records 14 verified, 1 different-but-explained and 2 not-enough-sourc
 checked. The working digest section 7 received a dated correction note (its earlier list of "not verifiable"
 values was too pessimistic). Not started: P0.3 model re-run, P0.4 hand-traced leakage review, P0.5 corrected
 renamed-donor control.
+
+## Stage 14.2: X02 base-variant invariance challenge — 2026-10-16
+
+Decision: run card X02 (CPU only, stored values, no new model call): recompute the legacy 0.5-nat `S_lp` label
+under all four possible base variants in both written forms, with base-free dispersion, reclassification,
+rank concordance and cross-model discordance. Plan sections relied on: card X02 (p.39), B1.2-B1.3 (p.6-8),
+P1.1 (p.17), §10 (p.44). Journal: `docs/journal/stage14/14.2_x02_base_rotation.md`. Attempt:
+`results/stage14/x02_base_rotation/attempt_20261016_2b59e31/` (source commit `2b59e31`, clean tree).
+
+Findings (exploratory, descriptive at the family level; families are not independent, so no p-values):
+- Definition mismatch: the repo's legacy `S_lp` (max over all variants, includes the base, never negative) differs
+  from the plan's base-rotation form (max over j != base, can be negative). At the 0.5-nat threshold the labels are
+  identical under both forms (asserted per row); only scores and rank comparisons differ.
+- Structure: with a base-relative label, no family can be positive under all four bases, and "base-dependent" is
+  the same set as "range >= 0.5 nat". The 89% (Qwen) and 71% (Llama) base-dependent shares are therefore structural
+  and are not reported as an instability finding.
+- Empirical: positives by base 0/1/2/3 are Qwen 70/77/82/85 and Llama 32/45/69/53. 40-49% (Qwen) and 41-56% (Llama)
+  of the legacy positives turn negative when another rendering is the base. Variant 0 is the least likely rendering
+  more often than chance (Qwen 47, Llama 56 of 140; 35 expected), which is why the legacy base gives the fewest
+  positives; the cause is untested. Shared Qwen/Llama positives: 22 (base 0), 29, 46, 39 and 92 under range >= 0.5.
+- The CM_B_UM_059 example reproduces from raw records and is now an executable unit test
+  (`tests/v2/test_base_rotation_x02.py`).
+
+Interim rule (flagged for user confirmation): the X02 no-go condition is met on these descriptive criteria, so the
+legacy base-0 label is treated as a historical quantity and is not used as a primary endpoint for new Stage 14
+claims. Replacement endpoints are chosen after pilot reliability is estimated and are not described as
+preregistered in June. The 2026-06-14 pre-registration block and every Phase-I claim are left unedited.
+
+Status: diagnostic of a measurement definition on legacy exploratory data; nothing is confirmatory or paper-eligible.
+Claim ledger gains rows X02-R1 and X02-R2. Not done: anchor-free no-cue contrasts (need new evaluations), cluster
+stratification (Stage 14.4), true answer-token strata (Stage 14.3), explanation of the variant-0 pattern.
+

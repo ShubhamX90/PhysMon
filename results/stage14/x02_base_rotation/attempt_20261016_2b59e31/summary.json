@@ -1,0 +1,562 @@
+{
+  "card": "v2_X02_base_variant_invariance_challenge",
+  "command": "scripts/v2/x02_base_rotation.py",
+  "deferred": [
+    "anchor-free no-cue contrasts (need new model evaluations)",
+    "family-cluster stratification (Stage 14.4 adjudicates the 34 clusters)",
+    "true answer-token-length strata (Stage 14.3 scoring contract; answer_chars is a crude proxy)"
+  ],
+  "definitions": {
+    "legacy_plan_signed": "max over j != base of (L_base - L_j)  [v2 B1.3; can be negative]",
+    "legacy_repo_clamped": "max over all variants j of (L_base - L_j)  [includes j = base; >= 0]",
+    "range": "max_i L_i - min_i L_i  [absolute dispersion; not a signed risk measure]"
+  },
+  "discrepancy_ledger": [
+    {
+      "description": "Repo legacy S_lp (max over all variants, includes base) is never negative; the plan's base-rotation form (max over j != base) can be negative.",
+      "evidence": [
+        10.03125,
+        -9.09375,
+        10.5625,
+        9.09375,
+        10.03125,
+        0.0,
+        10.5625,
+        9.09375
+      ],
+      "id": "X02-D1",
+      "impact": "Labels at 0.5 nat are identical under both forms (the clamp cannot change a comparison with a positive threshold; asserted per row). Scores and rank-based comparisons differ. The plan's -9.094 for CM_B_UM_059 at base 1 corresponds to the signed form; the repo form gives 0.0 there.",
+      "kind": "definition_mismatch"
+    },
+    {
+      "description": "Qwen families whose 0.5-nat label depends on which rendering is called the base.",
+      "evidence": {
+        "base_dependent_mixed": 125,
+        "fraction_base_dependent": 0.8928571428571429,
+        "n": 140,
+        "positive_under_base0": 70,
+        "positive_under_range_ge_threshold": 125,
+        "robust_negative_all_four_bases": 15,
+        "robust_positive_all_four_bases": 0
+      },
+      "id": "X02-D2",
+      "impact": "125 of 140 evaluated Qwen families are positive under some bases and negative under others.",
+      "kind": "label_instability"
+    }
+  ],
+  "evidence_class": "exploratory diagnostic of a measurement definition on stored data; no confirmatory role; not paper-eligible",
+  "git_status_short": [
+    "?? activations",
+    "?? results/infrastructure/model_smoke/attempt_20261014_gpu_h100/",
+    "?? results/stage14/x02_base_rotation/"
+  ],
+  "inputs": {
+    "per_family": {
+      "path": "results/stage6/analysis_d2/stage6_d1_per_family.csv",
+      "sha256": "46f54ba4ce94776ff994e3bad29e67b2753ec6f76a508ef78213e03ac28b3a74"
+    },
+    "prompt_records": {
+      "path": "results/stage6/behavioural_full_rerun/prompt_records.jsonl",
+      "sha256": "08a8fa1ca92168b73ccf7fe452d5fa4e16db1747677f87d4cb37c1eda71f815c"
+    }
+  },
+  "interpretation": [
+    "Base-dependent labels are the same set as families with range >= 0.5 nat; the near-total base dependence is a structural property of a base-relative label, not an empirical surprise.",
+    "What is empirical: how many legacy-negative families have range >= 0.5 (the legacy label misses them when variant 0 is not one of the more likely renderings); how the positive count moves with the base (variant 0 gives the fewest positives for both models); and how the Qwen/Llama overlap changes with the definition (shared positives by base and by range).",
+    "The range is absolute dispersion with a different null distribution from the signed legacy statistic (v2 B1.3, P1.1). Range >= 0.5 is therefore not a corrected label; no presentation-noise baseline exists yet (P1.7) and the 0.5 threshold was set for the signed statistic.",
+    "Counts are descriptive at the family level; families are not independent (34 structure clusters, Stage 14.4), so no p-values or intervals are given."
+  ],
+  "numpy": "2.4.6",
+  "plan_example": {
+    "S_plan_signed_by_base": [
+      10.03125,
+      -9.09375,
+      10.5625,
+      9.09375
+    ],
+    "S_repo_clamped_by_base": [
+      10.03125,
+      0.0,
+      10.5625,
+      9.09375
+    ],
+    "gold_logprobs": [
+      -45.53125,
+      -55.5625,
+      -45.0,
+      -46.46875
+    ],
+    "labels_by_base": [
+      1,
+      0,
+      1,
+      1
+    ],
+    "matches_plan_at_reported_precision": {
+      "base0_signed": true,
+      "base1_signed": true,
+      "gold_logprobs": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "symmetric_range": true
+    },
+    "model": "Qwen/Qwen2.5-7B-Instruct",
+    "note": "-55.5625 is an exact binary half-way value; the plan prints -55.562 and the digest -55.563, so the base-1 signed value is -9.09375 (plan: about -9.093/-9.094).",
+    "range": 10.5625,
+    "reported_by_plan": {
+      "base0_signed": "+10.031",
+      "base1_signed": "-9.093",
+      "gold_logprobs": [
+        "-45.531",
+        "-55.562",
+        "-45.000",
+        "-46.469"
+      ],
+      "symmetric_range": "10.562",
+      "template_id": "CM_B_UM_059"
+    },
+    "template_id": "CM_B_UM_059"
+  },
+  "python": "3.11.15",
+  "source_commit": "2b59e31f516e9248b6d7081e032098a83e437592",
+  "summary": {
+    "cross_model": {
+      "n_common_evaluated_families": 140,
+      "qwen_llama_rank_concordance": {
+        "S_repo_b0": {
+          "discordant_pair_fraction": 0.3922431577499656,
+          "spearman": 0.25133306181124543
+        },
+        "S_repo_b1": {
+          "discordant_pair_fraction": 0.4434063959755659,
+          "spearman": 0.15296467579785605
+        },
+        "S_repo_b2": {
+          "discordant_pair_fraction": 0.38586222422332284,
+          "spearman": 0.3031926979774191
+        },
+        "S_repo_b3": {
+          "discordant_pair_fraction": 0.3633433366677781,
+          "spearman": 0.3807700611588082
+        },
+        "range": {
+          "discordant_pair_fraction": 0.39405550952775475,
+          "spearman": 0.3120315184821496
+        },
+        "sd": {
+          "discordant_pair_fraction": 0.39531298180696883,
+          "spearman": 0.31295654256053185
+        }
+      },
+      "shared_positive_by_base": {
+        "base0": 22,
+        "base1": 29,
+        "base2": 46,
+        "base3": 39
+      },
+      "shared_positive_range_ge_threshold": 92
+    },
+    "per_model": {
+      "Qwen/Qwen2.5-7B-Instruct": {
+        "by_S0_bin": {
+          "0 < S0 < 0.5": {
+            "base_dependent_mixed": 14,
+            "fraction_base_dependent": 0.6086956521739131,
+            "n": 23,
+            "positive_under_base0": 0,
+            "positive_under_range_ge_threshold": 14,
+            "robust_negative_all_four_bases": 9,
+            "robust_positive_all_four_bases": 0
+          },
+          "0.5 <= S0 < 2": {
+            "base_dependent_mixed": 36,
+            "fraction_base_dependent": 1.0,
+            "n": 36,
+            "positive_under_base0": 36,
+            "positive_under_range_ge_threshold": 36,
+            "robust_negative_all_four_bases": 0,
+            "robust_positive_all_four_bases": 0
+          },
+          "S0 == 0": {
+            "base_dependent_mixed": 41,
+            "fraction_base_dependent": 0.8723404255319149,
+            "n": 47,
+            "positive_under_base0": 0,
+            "positive_under_range_ge_threshold": 41,
+            "robust_negative_all_four_bases": 6,
+            "robust_positive_all_four_bases": 0
+          },
+          "S0 >= 2": {
+            "base_dependent_mixed": 34,
+            "fraction_base_dependent": 1.0,
+            "n": 34,
+            "positive_under_base0": 34,
+            "positive_under_range_ge_threshold": 34,
+            "robust_negative_all_four_bases": 0,
+            "robust_positive_all_four_bases": 0
+          }
+        },
+        "by_answer_length_tercile_PROXY_chars": {
+          "long": {
+            "base_dependent_mixed": 40,
+            "fraction_base_dependent": 0.8695652173913043,
+            "n": 46,
+            "positive_under_base0": 26,
+            "positive_under_range_ge_threshold": 40,
+            "robust_negative_all_four_bases": 6,
+            "robust_positive_all_four_bases": 0
+          },
+          "medium": {
+            "base_dependent_mixed": 44,
+            "fraction_base_dependent": 0.9361702127659575,
+            "n": 47,
+            "positive_under_base0": 21,
+            "positive_under_range_ge_threshold": 44,
+            "robust_negative_all_four_bases": 3,
+            "robust_positive_all_four_bases": 0
+          },
+          "short": {
+            "base_dependent_mixed": 41,
+            "fraction_base_dependent": 0.8723404255319149,
+            "n": 47,
+            "positive_under_base0": 23,
+            "positive_under_range_ge_threshold": 41,
+            "robust_negative_all_four_bases": 6,
+            "robust_positive_all_four_bases": 0
+          }
+        },
+        "by_cue_type": {
+          "frame_rendering": {
+            "base_dependent_mixed": 5,
+            "fraction_base_dependent": 1.0,
+            "n": 5,
+            "positive_under_base0": 5,
+            "positive_under_range_ge_threshold": 5,
+            "robust_negative_all_four_bases": 0,
+            "robust_positive_all_four_bases": 0
+          },
+          "irrelevant_variable": {
+            "base_dependent_mixed": 23,
+            "fraction_base_dependent": 0.6571428571428571,
+            "n": 35,
+            "positive_under_base0": 12,
+            "positive_under_range_ge_threshold": 23,
+            "robust_negative_all_four_bases": 12,
+            "robust_positive_all_four_bases": 0
+          },
+          "nongoverning_distractor": {
+            "base_dependent_mixed": 97,
+            "fraction_base_dependent": 0.97,
+            "n": 100,
+            "positive_under_base0": 53,
+            "positive_under_range_ge_threshold": 97,
+            "robust_negative_all_four_bases": 3,
+            "robust_positive_all_four_bases": 0
+          }
+        },
+        "by_domain": {
+          "electrostatics_circuits": {
+            "base_dependent_mixed": 32,
+            "fraction_base_dependent": 0.8648648648648649,
+            "n": 37,
+            "positive_under_base0": 17,
+            "positive_under_range_ge_threshold": 32,
+            "robust_negative_all_four_bases": 5,
+            "robust_positive_all_four_bases": 0
+          },
+          "mechanics": {
+            "base_dependent_mixed": 77,
+            "fraction_base_dependent": 0.8953488372093024,
+            "n": 86,
+            "positive_under_base0": 46,
+            "positive_under_range_ge_threshold": 77,
+            "robust_negative_all_four_bases": 9,
+            "robust_positive_all_four_bases": 0
+          },
+          "thermodynamics": {
+            "base_dependent_mixed": 16,
+            "fraction_base_dependent": 0.9411764705882353,
+            "n": 17,
+            "positive_under_base0": 7,
+            "positive_under_range_ge_threshold": 16,
+            "robust_negative_all_four_bases": 1,
+            "robust_positive_all_four_bases": 0
+          }
+        },
+        "label_counts_by_base": {
+          "base0": 70,
+          "base1": 77,
+          "base2": 82,
+          "base3": 85
+        },
+        "n_evaluated": 140,
+        "n_families_total": 140,
+        "not_evaluated": [],
+        "overall": {
+          "base_dependent_mixed": 125,
+          "fraction_base_dependent": 0.8928571428571429,
+          "n": 140,
+          "positive_under_base0": 70,
+          "positive_under_range_ge_threshold": 125,
+          "robust_negative_all_four_bases": 15,
+          "robust_positive_all_four_bases": 0
+        },
+        "range_label_vs_base0_label": {
+          "base0_negative_range_positive": 55,
+          "base0_positive_range_negative": 0,
+          "both_negative": 15,
+          "both_positive": 70
+        },
+        "reclassification_from_base0": {
+          "to_base1": {
+            "neg_to_neg": 31,
+            "neg_to_pos": 39,
+            "pos_to_neg": 32,
+            "pos_to_pos": 38
+          },
+          "to_base2": {
+            "neg_to_neg": 24,
+            "neg_to_pos": 46,
+            "pos_to_neg": 34,
+            "pos_to_pos": 36
+          },
+          "to_base3": {
+            "neg_to_neg": 27,
+            "neg_to_pos": 43,
+            "pos_to_neg": 28,
+            "pos_to_pos": 42
+          }
+        },
+        "score_rank_concordance_with_base0": {
+          "S_repo_b1": {
+            "discordant_pair_fraction": 0.5316744953662562,
+            "spearman": -0.06029093000889529
+          },
+          "S_repo_b2": {
+            "discordant_pair_fraction": 0.5312924330329589,
+            "spearman": -0.060882388426789905
+          },
+          "S_repo_b3": {
+            "discordant_pair_fraction": 0.49097038285576694,
+            "spearman": 0.04389370742343509
+          },
+          "range": {
+            "discordant_pair_fraction": 0.2958875464684015,
+            "spearman": 0.48141342553500427
+          }
+        },
+        "structural_identities": {
+          "base_dependent_set_equals_range_positive_set": true,
+          "families_negative_at_base0_but_range_positive": 55,
+          "families_positive_at_base0_but_range_negative": 0,
+          "lowest_variant_as_base_is_always_negative": true,
+          "n_base_dependent": 125,
+          "n_range_positive": 125,
+          "no_family_positive_under_all_four_bases": true
+        }
+      },
+      "meta-llama/Llama-3.1-8B-Instruct": {
+        "by_S0_bin": {
+          "0 < S0 < 0.5": {
+            "base_dependent_mixed": 26,
+            "fraction_base_dependent": 0.5,
+            "n": 52,
+            "positive_under_base0": 0,
+            "positive_under_range_ge_threshold": 26,
+            "robust_negative_all_four_bases": 26,
+            "robust_positive_all_four_bases": 0
+          },
+          "0.5 <= S0 < 2": {
+            "base_dependent_mixed": 24,
+            "fraction_base_dependent": 1.0,
+            "n": 24,
+            "positive_under_base0": 24,
+            "positive_under_range_ge_threshold": 24,
+            "robust_negative_all_four_bases": 0,
+            "robust_positive_all_four_bases": 0
+          },
+          "S0 == 0": {
+            "base_dependent_mixed": 41,
+            "fraction_base_dependent": 0.7321428571428571,
+            "n": 56,
+            "positive_under_base0": 0,
+            "positive_under_range_ge_threshold": 41,
+            "robust_negative_all_four_bases": 15,
+            "robust_positive_all_four_bases": 0
+          },
+          "S0 >= 2": {
+            "base_dependent_mixed": 8,
+            "fraction_base_dependent": 1.0,
+            "n": 8,
+            "positive_under_base0": 8,
+            "positive_under_range_ge_threshold": 8,
+            "robust_negative_all_four_bases": 0,
+            "robust_positive_all_four_bases": 0
+          }
+        },
+        "by_answer_length_tercile_PROXY_chars": {
+          "long": {
+            "base_dependent_mixed": 34,
+            "fraction_base_dependent": 0.7391304347826086,
+            "n": 46,
+            "positive_under_base0": 13,
+            "positive_under_range_ge_threshold": 34,
+            "robust_negative_all_four_bases": 12,
+            "robust_positive_all_four_bases": 0
+          },
+          "medium": {
+            "base_dependent_mixed": 35,
+            "fraction_base_dependent": 0.7446808510638298,
+            "n": 47,
+            "positive_under_base0": 11,
+            "positive_under_range_ge_threshold": 35,
+            "robust_negative_all_four_bases": 12,
+            "robust_positive_all_four_bases": 0
+          },
+          "short": {
+            "base_dependent_mixed": 30,
+            "fraction_base_dependent": 0.6382978723404256,
+            "n": 47,
+            "positive_under_base0": 8,
+            "positive_under_range_ge_threshold": 30,
+            "robust_negative_all_four_bases": 17,
+            "robust_positive_all_four_bases": 0
+          }
+        },
+        "by_cue_type": {
+          "frame_rendering": {
+            "base_dependent_mixed": 4,
+            "fraction_base_dependent": 0.8,
+            "n": 5,
+            "positive_under_base0": 3,
+            "positive_under_range_ge_threshold": 4,
+            "robust_negative_all_four_bases": 1,
+            "robust_positive_all_four_bases": 0
+          },
+          "irrelevant_variable": {
+            "base_dependent_mixed": 19,
+            "fraction_base_dependent": 0.5428571428571428,
+            "n": 35,
+            "positive_under_base0": 6,
+            "positive_under_range_ge_threshold": 19,
+            "robust_negative_all_four_bases": 16,
+            "robust_positive_all_four_bases": 0
+          },
+          "nongoverning_distractor": {
+            "base_dependent_mixed": 76,
+            "fraction_base_dependent": 0.76,
+            "n": 100,
+            "positive_under_base0": 23,
+            "positive_under_range_ge_threshold": 76,
+            "robust_negative_all_four_bases": 24,
+            "robust_positive_all_four_bases": 0
+          }
+        },
+        "by_domain": {
+          "electrostatics_circuits": {
+            "base_dependent_mixed": 27,
+            "fraction_base_dependent": 0.7297297297297297,
+            "n": 37,
+            "positive_under_base0": 6,
+            "positive_under_range_ge_threshold": 27,
+            "robust_negative_all_four_bases": 10,
+            "robust_positive_all_four_bases": 0
+          },
+          "mechanics": {
+            "base_dependent_mixed": 60,
+            "fraction_base_dependent": 0.6976744186046512,
+            "n": 86,
+            "positive_under_base0": 21,
+            "positive_under_range_ge_threshold": 60,
+            "robust_negative_all_four_bases": 26,
+            "robust_positive_all_four_bases": 0
+          },
+          "thermodynamics": {
+            "base_dependent_mixed": 12,
+            "fraction_base_dependent": 0.7058823529411765,
+            "n": 17,
+            "positive_under_base0": 5,
+            "positive_under_range_ge_threshold": 12,
+            "robust_negative_all_four_bases": 5,
+            "robust_positive_all_four_bases": 0
+          }
+        },
+        "label_counts_by_base": {
+          "base0": 32,
+          "base1": 45,
+          "base2": 69,
+          "base3": 53
+        },
+        "n_evaluated": 140,
+        "n_families_total": 140,
+        "not_evaluated": [],
+        "overall": {
+          "base_dependent_mixed": 99,
+          "fraction_base_dependent": 0.7071428571428572,
+          "n": 140,
+          "positive_under_base0": 32,
+          "positive_under_range_ge_threshold": 99,
+          "robust_negative_all_four_bases": 41,
+          "robust_positive_all_four_bases": 0
+        },
+        "range_label_vs_base0_label": {
+          "base0_negative_range_positive": 67,
+          "base0_positive_range_negative": 0,
+          "both_negative": 41,
+          "both_positive": 32
+        },
+        "reclassification_from_base0": {
+          "to_base1": {
+            "neg_to_neg": 80,
+            "neg_to_pos": 28,
+            "pos_to_neg": 15,
+            "pos_to_pos": 17
+          },
+          "to_base2": {
+            "neg_to_neg": 58,
+            "neg_to_pos": 50,
+            "pos_to_neg": 13,
+            "pos_to_pos": 19
+          },
+          "to_base3": {
+            "neg_to_neg": 69,
+            "neg_to_pos": 39,
+            "pos_to_neg": 18,
+            "pos_to_pos": 14
+          }
+        },
+        "score_rank_concordance_with_base0": {
+          "S_repo_b1": {
+            "discordant_pair_fraction": 0.5530464991982896,
+            "spearman": -0.1168483157017775
+          },
+          "S_repo_b2": {
+            "discordant_pair_fraction": 0.5392884566163296,
+            "spearman": -0.0737009129735629
+          },
+          "S_repo_b3": {
+            "discordant_pair_fraction": 0.5969685192382433,
+            "spearman": -0.22601751916724122
+          },
+          "range": {
+            "discordant_pair_fraction": 0.42110453648915186,
+            "spearman": 0.17120206194950435
+          }
+        },
+        "structural_identities": {
+          "base_dependent_set_equals_range_positive_set": true,
+          "families_negative_at_base0_but_range_positive": 67,
+          "families_positive_at_base0_but_range_negative": 0,
+          "lowest_variant_as_base_is_always_negative": true,
+          "n_base_dependent": 99,
+          "n_range_positive": 99,
+          "no_family_positive_under_all_four_bases": true
+        }
+      }
+    }
+  },
+  "threshold_nats": 0.5
+}

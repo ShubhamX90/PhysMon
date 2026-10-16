@@ -56,7 +56,7 @@ def test_valid_row_passes():
 
 def test_committed_ledger_is_valid_and_non_empty():
     rows = _load_ledger()
-    assert len(rows) == 25
+    assert len(rows) >= 25
     assert validate_ledger_rows(rows) == []
     assert missing_artifact_paths(rows, REPO_ROOT) == []
 
