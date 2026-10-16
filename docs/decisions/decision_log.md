@@ -3019,3 +3019,32 @@ NOT_EVALUATED and need a forward pass and explicit GPU authorization. Claim ledg
 
 Status: scoring-interface audit; nothing is confirmatory or paper-eligible.
 
+## Stage 14.4: structure overlap, cluster-held-out baselines, the five excluded families — 2026-10-16
+
+Decision: rebuild the structure clusters from the committed unresolved review and test what depends on them, using
+committed data only (CPU). Plan sections relied on: B1.4 and B1.6 (p.7-8), P0.4 (p.16), P3.5-P3.6 (p.20), card X05
+(p.40), B05 and B08 (p.32). Journal: `docs/journal/stage14/14.4_structure_overlap.md`. Attempt:
+`results/stage14/s144_structure_overlap/attempt_20261016_d637b0e/` (source commit `d637b0e`, clean tree). The label is the
+legacy Qwen `S_lp >= 0.5` label as the historical Phase-I target only (journal J14.2-008).
+
+Findings (exploratory; fixed hyperparameters; cluster bootstrap, 2,000 resamples, seed 42):
+- The 34 clusters are the connected components of the 147 unresolved family pairs; 110 of 155 canonical families sit in
+  a cluster, 45 are singletons. This is a lower bound (the semantic-similarity detector was unavailable) and not an
+  adjudication.
+- The plan's "71%" is 110/155 = 70.97% (all canonical families); for the 135-family monitoring cohort under
+  leave-one-family-out it is 95/135 = 70.4%. Ledger: `different_but_explained`.
+- Predictors that can only recognise the template lose their signal under cluster-held-out evaluation (metadata
+  0.595 to 0.456, difference +0.138 [+0.044, +0.220]; prompt statistics 0.469 to 0.385); fitted entropy does not
+  (0.729 to 0.726). Leave-one-family-out evaluation therefore rewards template recognition.
+- The stored monitor's AUROC is higher on families with a cluster mate in training (0.776, n=95) than on singletons
+  (0.685, n=40), as for template-recognition predictors and unlike fitted entropy; intervals are wide and overlap.
+- The exclusion of five "stable" families is outcome-dependent: of 11 Qwen parse-failure families the 5 with
+  `S_lp < 0.5` were excluded and the 6 with `S_lp >= 0.5` were kept, although `S_lp` is finite for all 140 families.
+  Including them changes the non-activation estimates by 0.007 to 0.018.
+
+Not done: the hidden-state monitor under cluster-held-out folds is NOT_EVALUATED (activation tensors lost; needs
+regeneration on a GPU with explicit authorization). The 2,352 pairs remain unadjudicated. Claim ledger gains
+S144-R1 to S144-R4 and `P1L-14` is updated. Card X05 is recorded as partly executed.
+
+Status: exploratory diagnostic on legacy data; nothing is confirmatory or paper-eligible.
+

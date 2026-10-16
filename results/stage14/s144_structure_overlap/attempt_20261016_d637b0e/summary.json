@@ -1,0 +1,495 @@
+{
+  "command": "scripts/v2/s144_structure_overlap.py --update-ledger --journal-ref J14.4-008",
+  "evidence_class": "exploratory diagnostic on legacy data; not paper-eligible; legacy S_lp label used as the historical Phase-I target only",
+  "git_status_short": [
+    "?? activations",
+    "?? results/infrastructure/model_smoke/attempt_20261014_gpu_h100/",
+    "?? results/stage14/s144_structure_overlap/"
+  ],
+  "inputs": {
+    "combined_oof": {
+      "path": "results/wave2/combined_baseline/combined_baseline_predictions.json",
+      "sha256": "b009f5d4c43ecc9d4d6a1dae96577255807da1a8d45b5aaa6423acd9cec1ade6"
+    },
+    "entropy_oof": {
+      "path": "results/stage9/baselines/entropy/entropy_per_family_scores.json",
+      "sha256": "f1df8d5d4c36b54a55859e0765e53aae1c63a3a6028f20c213706dac46957e0f"
+    },
+    "leakage_audit": {
+      "path": "results/stage13/benchmark_integrity/leakage_audit_v7.json",
+      "sha256": "5ffbb78f287de49f85a5528dd2c4699ab45beaf5559b52662eb72d57f56c3914"
+    },
+    "manifest": {
+      "path": "data/manifests/physmon_canonical_155.jsonl",
+      "sha256": "3f89c93941f5a47d6c013a1e1e020ea082127f6df858e58034b9f54a9ca95bb2"
+    },
+    "monitor_oof": {
+      "path": "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+      "sha256": "e31b8d4ddda086ab6dc1bfe6aadb891414cc5817103ea49ecff8df45ab8b2b46"
+    },
+    "per_family": {
+      "path": "results/stage6/analysis_d2/stage6_d1_per_family.csv",
+      "sha256": "46f54ba4ce94776ff994e3bad29e67b2753ec6f76a508ef78213e03ac28b3a74"
+    },
+    "prompt_records": {
+      "path": "results/stage6/behavioural_full_rerun/prompt_records.jsonl",
+      "sha256": "08a8fa1ca92168b73ccf7fe452d5fa4e16db1747677f87d4cb37c1eda71f815c"
+    },
+    "rendered": {
+      "path": "results/stage6/generated_full_benchmark",
+      "sha256": null
+    },
+    "review": {
+      "path": "results/stage13/benchmark_integrity/leakage_review_v7.csv",
+      "sha256": "017547e44ebd28ec6d8e9c0071dd38c2ff86b7d541b38f967687dc8c922d4ae2"
+    }
+  },
+  "numpy": "2.4.6",
+  "python": "3.11.15",
+  "scikit_learn": "1.9.0",
+  "source_commit": "d637b0ebafe876e33f4973f7c2cefee579d505d8",
+  "stage": "14.4",
+  "summary": {
+    "cv_comparison_135_cohort": {
+      "bootstrap_resamples": 2000,
+      "n_clusters": 70,
+      "n_families": 135,
+      "n_positive": 70,
+      "predictors": {
+        "combined_non_activation": {
+          "auroc_leave_one_cluster_out": 0.6731868131868132,
+          "auroc_leave_one_family_out": 0.6923076923076923,
+          "difference_cluster_bootstrap": {
+            "ci95_high": 0.0719228648486665,
+            "ci95_low": -0.02987380706978158,
+            "n_usable_resamples": 2000
+          },
+          "difference_family_minus_cluster": 0.01912087912087912
+        },
+        "fitted_entropy_features": {
+          "auroc_leave_one_cluster_out": 0.7263736263736263,
+          "auroc_leave_one_family_out": 0.7294505494505494,
+          "difference_cluster_bootstrap": {
+            "ci95_high": 0.01207600426049906,
+            "ci95_low": -0.004865861060710916,
+            "n_usable_resamples": 2000
+          },
+          "difference_family_minus_cluster": 0.003076923076923088
+        },
+        "metadata_law_cue_domain": {
+          "auroc_leave_one_cluster_out": 0.4563736263736264,
+          "auroc_leave_one_family_out": 0.5945054945054945,
+          "difference_cluster_bootstrap": {
+            "ci95_high": 0.21952921843820603,
+            "ci95_low": 0.04362682103923497,
+            "n_usable_resamples": 2000
+          },
+          "difference_family_minus_cluster": 0.13813186813186812
+        },
+        "prompt_statistics": {
+          "auroc_leave_one_cluster_out": 0.3854945054945055,
+          "auroc_leave_one_family_out": 0.4687912087912088,
+          "difference_cluster_bootstrap": {
+            "ci95_high": 0.16812638363388638,
+            "ci95_low": 0.0032642858589569004,
+            "n_usable_resamples": 2000
+          },
+          "difference_family_minus_cluster": 0.0832967032967033
+        },
+        "tfidf_prompt_text": {
+          "auroc_leave_one_cluster_out": 0.5150549450549451,
+          "auroc_leave_one_family_out": 0.6202197802197802,
+          "difference_cluster_bootstrap": {
+            "ci95_high": 0.23947554267023488,
+            "ci95_low": -0.04498003247531406,
+            "n_usable_resamples": 2000
+          },
+          "difference_family_minus_cluster": 0.1051648351648351
+        }
+      },
+      "seed": 42
+    },
+    "cv_comparison_140_inclusion_agnostic": {
+      "bootstrap_resamples": 2000,
+      "n_clusters": 72,
+      "n_families": 140,
+      "n_positive": 70,
+      "predictors": {
+        "metadata_law_cue_domain": {
+          "auroc_leave_one_cluster_out": 0.47,
+          "auroc_leave_one_family_out": 0.5814285714285714,
+          "difference_cluster_bootstrap": {
+            "ci95_high": 0.20110941893158385,
+            "ci95_low": 0.015391109868604995,
+            "n_usable_resamples": 2000
+          },
+          "difference_family_minus_cluster": 0.11142857142857143
+        },
+        "prompt_statistics": {
+          "auroc_leave_one_cluster_out": 0.3789795918367347,
+          "auroc_leave_one_family_out": 0.46244897959183673,
+          "difference_cluster_bootstrap": {
+            "ci95_high": 0.16493775672324265,
+            "ci95_low": 0.008372308797991912,
+            "n_usable_resamples": 2000
+          },
+          "difference_family_minus_cluster": 0.08346938775510204
+        },
+        "tfidf_prompt_text": {
+          "auroc_leave_one_cluster_out": 0.485,
+          "auroc_leave_one_family_out": 0.6022448979591837,
+          "difference_cluster_bootstrap": {
+            "ci95_high": 0.24358912226217708,
+            "ci95_low": -0.03170696924603169,
+            "n_usable_resamples": 2000
+          },
+          "difference_family_minus_cluster": 0.11724489795918369
+        }
+      },
+      "seed": 42
+    },
+    "excluded_five": {
+      "excluded": [
+        {
+          "cue_type": "irrelevant_variable",
+          "in_135_cohort": false,
+          "qwen_S_lp": 0.46875,
+          "qwen_label_at_0.5nat": 0,
+          "qwen_parse_ok": "False",
+          "template_id": "CM_A_STD_018"
+        },
+        {
+          "cue_type": "nongoverning_distractor",
+          "in_135_cohort": false,
+          "qwen_S_lp": 0.0,
+          "qwen_label_at_0.5nat": 0,
+          "qwen_parse_ok": "False",
+          "template_id": "CM_B_003"
+        },
+        {
+          "cue_type": "nongoverning_distractor",
+          "in_135_cohort": false,
+          "qwen_S_lp": 0.0,
+          "qwen_label_at_0.5nat": 0,
+          "qwen_parse_ok": "False",
+          "template_id": "CM_B_UM_051"
+        },
+        {
+          "cue_type": "nongoverning_distractor",
+          "in_135_cohort": false,
+          "qwen_S_lp": 0.0,
+          "qwen_label_at_0.5nat": 0,
+          "qwen_parse_ok": "False",
+          "template_id": "TH_B_UM_009"
+        },
+        {
+          "cue_type": "nongoverning_distractor",
+          "in_135_cohort": false,
+          "qwen_S_lp": 0.0,
+          "qwen_label_at_0.5nat": 0,
+          "qwen_parse_ok": "False",
+          "template_id": "TH_B_UM_010"
+        }
+      ],
+      "exclusion_depends_on_the_outcome_label": true,
+      "kept_despite_parse_failure": [
+        {
+          "cue_type": "irrelevant_variable",
+          "in_135_cohort": true,
+          "qwen_S_lp": 1.90625,
+          "qwen_label_at_0.5nat": 1,
+          "qwen_parse_ok": "False",
+          "template_id": "CM_A_002"
+        },
+        {
+          "cue_type": "irrelevant_variable",
+          "in_135_cohort": true,
+          "qwen_S_lp": 3.15625,
+          "qwen_label_at_0.5nat": 1,
+          "qwen_parse_ok": "False",
+          "template_id": "CM_A_STD_019"
+        },
+        {
+          "cue_type": "nongoverning_distractor",
+          "in_135_cohort": true,
+          "qwen_S_lp": 4.921875,
+          "qwen_label_at_0.5nat": 1,
+          "qwen_parse_ok": "False",
+          "template_id": "CM_B_UM_052"
+        },
+        {
+          "cue_type": "frame_rendering",
+          "in_135_cohort": true,
+          "qwen_S_lp": 6.78125,
+          "qwen_label_at_0.5nat": 1,
+          "qwen_parse_ok": "False",
+          "template_id": "CM_C_002"
+        },
+        {
+          "cue_type": "frame_rendering",
+          "in_135_cohort": true,
+          "qwen_S_lp": 13.546875,
+          "qwen_label_at_0.5nat": 1,
+          "qwen_parse_ok": "False",
+          "template_id": "CM_C_004"
+        },
+        {
+          "cue_type": "nongoverning_distractor",
+          "in_135_cohort": true,
+          "qwen_S_lp": 3.40625,
+          "qwen_label_at_0.5nat": 1,
+          "qwen_parse_ok": "False",
+          "template_id": "TH_B_UM_006"
+        }
+      ],
+      "n_qwen_parse_failure_families": 11,
+      "note": "S_lp is a teacher-forced log-probability difference and is defined for all 140 families (all five excluded families have a finite S_lp); the exclusion was not needed to compute the label. Excluding only parse-failed families that are negative is an outcome-dependent inclusion rule (v2 P0.4, B08).",
+      "prevalence_in_135_cohort": {
+        "n": 135,
+        "positives": 70,
+        "share": 0.5185185185185185
+      },
+      "prevalence_with_the_five": {
+        "n": 140,
+        "positives": 70,
+        "share": 0.5
+      },
+      "qwen_parse_failures_outside_the_degraded_set": 0,
+      "s_lp_needs_free_generation_parsing": false
+    },
+    "exposure": {
+      "cluster_size_distribution": [
+        12,
+        8,
+        7,
+        5,
+        5,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "cohort_exposed_under_leave_one_family_out": 95,
+      "cohort_share_exposed_under_leave_one_family_out": 0.7037037037037037,
+      "cohort_size": 135,
+      "exposed_by_cue_type": {
+        "frame_rendering": [
+          2,
+          5
+        ],
+        "irrelevant_variable": [
+          28,
+          34
+        ],
+        "nongoverning_distractor": [
+          65,
+          96
+        ]
+      },
+      "n_canonical_families": 155,
+      "n_clusters_with_two_or_more_families": 34,
+      "n_families_in_unresolved_review": 110,
+      "n_family_pairs": 147,
+      "n_singleton_families": 45,
+      "share_of_all_155_families_in_a_cluster": 0.7096774193548387
+    },
+    "hidden_state_monitor_cluster_held_out": "NOT_EVALUATED (activation tensors lost in the 2026-10 scratch wipe)",
+    "stored_and_refit_loo_predictions_by_cluster_exposure": {
+      "combined_non_activation_stored_nested_CV": {
+        "all": {
+          "auroc": 0.7048351648351648,
+          "cluster_bootstrap": {
+            "ci95_high": 0.7934526621368997,
+            "ci95_low": 0.6117825159914713,
+            "n_usable_resamples": 2000
+          },
+          "n": 135,
+          "n_positive": 70
+        },
+        "exposed_to_cluster_mate_in_training": {
+          "auroc": 0.6872227151730257,
+          "cluster_bootstrap": {
+            "ci95_high": 0.7955974585256043,
+            "ci95_low": 0.5657388108819658,
+            "n_usable_resamples": 2000
+          },
+          "n": 95,
+          "n_positive": 46
+        },
+        "n": 135,
+        "name": "combined_non_activation_stored_nested_CV",
+        "singleton_no_cluster_mate": {
+          "auroc": 0.7109375,
+          "cluster_bootstrap": {
+            "ci95_high": 0.8686868686868687,
+            "ci95_low": 0.5253181318681318,
+            "n_usable_resamples": 2000
+          },
+          "n": 40,
+          "n_positive": 24
+        }
+      },
+      "fitted_entropy_stored_LOO": {
+        "all": {
+          "auroc": 0.727032967032967,
+          "cluster_bootstrap": {
+            "ci95_high": 0.8183920765027322,
+            "ci95_low": 0.641877438155528,
+            "n_usable_resamples": 2000
+          },
+          "n": 135,
+          "n_positive": 70
+        },
+        "exposed_to_cluster_mate_in_training": {
+          "auroc": 0.7018633540372671,
+          "cluster_bootstrap": {
+            "ci95_high": 0.808506313131313,
+            "ci95_low": 0.5974859022556391,
+            "n_usable_resamples": 2000
+          },
+          "n": 95,
+          "n_positive": 46
+        },
+        "n": 135,
+        "name": "fitted_entropy_stored_LOO",
+        "singleton_no_cluster_mate": {
+          "auroc": 0.8072916666666666,
+          "cluster_bootstrap": {
+            "ci95_high": 0.9333333333333333,
+            "ci95_low": 0.6535993303571429,
+            "n_usable_resamples": 2000
+          },
+          "n": 40,
+          "n_positive": 24
+        }
+      },
+      "hidden_state_monitor_layer18_stored_LOO": {
+        "all": {
+          "auroc": 0.7595604395604396,
+          "cluster_bootstrap": {
+            "ci95_high": 0.8390977664576801,
+            "ci95_low": 0.6575391339033138,
+            "n_usable_resamples": 2000
+          },
+          "n": 135,
+          "n_positive": 70
+        },
+        "exposed_to_cluster_mate_in_training": {
+          "auroc": 0.7763975155279503,
+          "cluster_bootstrap": {
+            "ci95_high": 0.8650449141653257,
+            "ci95_low": 0.6466914456582874,
+            "n_usable_resamples": 2000
+          },
+          "n": 95,
+          "n_positive": 46
+        },
+        "n": 135,
+        "name": "hidden_state_monitor_layer18_stored_LOO",
+        "singleton_no_cluster_mate": {
+          "auroc": 0.6848958333333334,
+          "cluster_bootstrap": {
+            "ci95_high": 0.8571517857142856,
+            "ci95_low": 0.5054873511904762,
+            "n_usable_resamples": 2000
+          },
+          "n": 40,
+          "n_positive": 24
+        }
+      },
+      "metadata_law_cue_domain_refit_LOO": {
+        "all": {
+          "auroc": 0.5945054945054945,
+          "cluster_bootstrap": {
+            "ci95_high": 0.6818865679988698,
+            "ci95_low": 0.4899086150918047,
+            "n_usable_resamples": 2000
+          },
+          "n": 135,
+          "n_positive": 70
+        },
+        "exposed_to_cluster_mate_in_training": {
+          "auroc": 0.6197870452528838,
+          "cluster_bootstrap": {
+            "ci95_high": 0.7229937182382834,
+            "ci95_low": 0.4963785941308214,
+            "n_usable_resamples": 2000
+          },
+          "n": 95,
+          "n_positive": 46
+        },
+        "n": 135,
+        "name": "metadata_law_cue_domain",
+        "singleton_no_cluster_mate": {
+          "auroc": 0.4453125,
+          "cluster_bootstrap": {
+            "ci95_high": 0.6346153846153846,
+            "ci95_low": 0.2506109022556391,
+            "n_usable_resamples": 2000
+          },
+          "n": 40,
+          "n_positive": 24
+        }
+      },
+      "tfidf_prompt_text_refit_LOO": {
+        "all": {
+          "auroc": 0.6202197802197802,
+          "cluster_bootstrap": {
+            "ci95_high": 0.7158982843137255,
+            "ci95_low": 0.4947079709386748,
+            "n_usable_resamples": 2000
+          },
+          "n": 135,
+          "n_positive": 70
+        },
+        "exposed_to_cluster_mate_in_training": {
+          "auroc": 0.6619343389529725,
+          "cluster_bootstrap": {
+            "ci95_high": 0.7564288720538719,
+            "ci95_low": 0.5076297651135926,
+            "n_usable_resamples": 2000
+          },
+          "n": 95,
+          "n_positive": 46
+        },
+        "n": 135,
+        "name": "tfidf_prompt_text",
+        "singleton_no_cluster_mate": {
+          "auroc": 0.5026041666666666,
+          "cluster_bootstrap": {
+            "ci95_high": 0.6917293233082706,
+            "ci95_low": 0.3268953634085213,
+            "n_usable_resamples": 2000
+          },
+          "n": 40,
+          "n_positive": 24
+        }
+      }
+    }
+  }
+}

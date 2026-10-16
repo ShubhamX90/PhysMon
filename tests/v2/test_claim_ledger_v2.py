@@ -94,7 +94,8 @@ def test_stage_14_1_reproduction_findings_are_recorded_in_the_ledger():
     assert (component["reported"], component["recomputed"]) == (25, 22)
     # The combined-plus-hidden gain cannot be recomputed from committed predictions.
     assert rows["P1L-08"]["verification_label"] == "not_enough_source_data"
-    assert rows["P1L-14"]["verification_label"] == "not_enough_source_data"
+    # Stage 14.4 resolved the 71% figure: it is 110/155 of all canonical families (95/135 for the cohort).
+    assert rows["P1L-14"]["verification_label"] == "different_but_explained"
     # Rows X01 did not examine stay unchecked rather than inheriting a label.
     assert rows["P1L-12"]["verification_label"] == "not_yet_checked"
     assert rows["P1A-C"]["verification_label"] == "not_yet_checked"
