@@ -33,3 +33,5 @@ Artifact: Tokenizer audit and hierarchical paired contrasts.
 v2 Reference: Card X03 (p.39); P1.3 and P1.4 (p.17); B1.4 (p.7); C04 and C05 (p.33).
 
 Notes: Designed for the small balanced GPU pilot at compute-escalation level 2 (p.43). Cost model: N_structures x N_numeric x N_cue_cells x N_models x (N_score_forward + N_generated_resamples), recorded separately per wrapper (p.42).
+
+Stage 14.3 update (2026-10-16): the scoring contract and the seven frozen wrappers now exist (`docs/stage14/scoring_contract.md`, `src/physmon/benchmark/scoring_contract.py`, fingerprint `bb6bbec4...`). The audit found a Llama double-BOS defect and a missing-`Answer:`-prefix mismatch in the Stage 6 scoring (journal J14.3-005), so a new scorer that follows contract rules 1 to 8 is required before any X03 run. Execution still needs explicit GPU authorization.

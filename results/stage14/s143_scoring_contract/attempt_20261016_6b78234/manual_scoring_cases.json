@@ -1,0 +1,278 @@
+[
+  {
+    "case": "near_match_plan_example",
+    "template_id": "CM_B_UM_059",
+    "model": "Qwen/Qwen2.5-7B-Instruct",
+    "variants": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "answer": "6.928 N*m",
+    "formatted_prompt_sha256_variant0": "7e0f612016c544d0496d83d085656598c9c3adefe95c96ce0a90402404dd97d1",
+    "n_prompt_tokens_behavioural_variant0": 128,
+    "n_answer_tokens": 7,
+    "expected_span_behavioural": {
+      "start": 128,
+      "end": 135,
+      "logit_start": 127,
+      "logit_end": 134
+    },
+    "status": "NOT_EVALUATED",
+    "reason": "needs a model forward pass (GPU); not authorized or run in Stage 14.3"
+  },
+  {
+    "case": "near_match_plan_example",
+    "template_id": "CM_B_UM_059",
+    "model": "meta-llama/Llama-3.1-8B-Instruct",
+    "variants": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "answer": "6.928 N*m",
+    "formatted_prompt_sha256_variant0": "6b52d2c5a8ba2e83695dac098368e404df3a78ec2ba89412f773821a0e029e19",
+    "n_prompt_tokens_behavioural_variant0": 149,
+    "n_answer_tokens": 5,
+    "expected_span_behavioural": {
+      "start": 149,
+      "end": 154,
+      "logit_start": 148,
+      "logit_end": 153
+    },
+    "status": "NOT_EVALUATED",
+    "reason": "needs a model forward pass (GPU); not authorized or run in Stage 14.3"
+  },
+  {
+    "case": "frame_or_unit_rendering",
+    "template_id": "CM_C_001",
+    "model": "Qwen/Qwen2.5-7B-Instruct",
+    "variants": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "answer": "30.0 m/s",
+    "formatted_prompt_sha256_variant0": "f52c3568bfe53b8818327b8bf22b8f2e1e9ec7f4bc129ab24f77aa53a316136f",
+    "n_prompt_tokens_behavioural_variant0": 80,
+    "n_answer_tokens": 6,
+    "expected_span_behavioural": {
+      "start": 80,
+      "end": 86,
+      "logit_start": 79,
+      "logit_end": 85
+    },
+    "status": "NOT_EVALUATED",
+    "reason": "needs a model forward pass (GPU); not authorized or run in Stage 14.3"
+  },
+  {
+    "case": "frame_or_unit_rendering",
+    "template_id": "CM_C_001",
+    "model": "meta-llama/Llama-3.1-8B-Instruct",
+    "variants": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "answer": "30.0 m/s",
+    "formatted_prompt_sha256_variant0": "fdce1ca153fa25e99a623bf3a7ebe4782f4697728adab247c96e12db095c8f1d",
+    "n_prompt_tokens_behavioural_variant0": 102,
+    "n_answer_tokens": 5,
+    "expected_span_behavioural": {
+      "start": 102,
+      "end": 107,
+      "logit_start": 101,
+      "logit_end": 106
+    },
+    "status": "NOT_EVALUATED",
+    "reason": "needs a model forward pass (GPU); not authorized or run in Stage 14.3"
+  },
+  {
+    "case": "wrong_answer",
+    "template_id": "CM_A_007",
+    "model": "Qwen/Qwen2.5-7B-Instruct",
+    "variants": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "answer": "3.0 N",
+    "formatted_prompt_sha256_variant0": "8791df9a8e6fe6299e51b77a216cf14bb2a1596b7812e8805c52d01697569df4",
+    "n_prompt_tokens_behavioural_variant0": 105,
+    "n_answer_tokens": 4,
+    "expected_span_behavioural": {
+      "start": 105,
+      "end": 109,
+      "logit_start": 104,
+      "logit_end": 108
+    },
+    "status": "NOT_EVALUATED",
+    "reason": "needs a model forward pass (GPU); not authorized or run in Stage 14.3"
+  },
+  {
+    "case": "wrong_answer",
+    "template_id": "CM_A_007",
+    "model": "meta-llama/Llama-3.1-8B-Instruct",
+    "variants": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "answer": "3.0 N",
+    "formatted_prompt_sha256_variant0": "e0cc2d995cddec9de75e896d1fc9f229dd3bdb86f4e74cb61dc644b19b699453",
+    "n_prompt_tokens_behavioural_variant0": 128,
+    "n_answer_tokens": 4,
+    "expected_span_behavioural": {
+      "start": 128,
+      "end": 132,
+      "logit_start": 127,
+      "logit_end": 131
+    },
+    "status": "NOT_EVALUATED",
+    "reason": "needs a model forward pass (GPU); not authorized or run in Stage 14.3"
+  },
+  {
+    "case": "parse_failure_degraded",
+    "template_id": "CM_A_002",
+    "model": "Qwen/Qwen2.5-7B-Instruct",
+    "variants": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "answer": "14.0 m",
+    "formatted_prompt_sha256_variant0": "98b68b63226f1ce9046de449f904b3dcb04d5fe4df67583d2a0e56efb8a76517",
+    "n_prompt_tokens_behavioural_variant0": 115,
+    "n_answer_tokens": 5,
+    "expected_span_behavioural": {
+      "start": 115,
+      "end": 120,
+      "logit_start": 114,
+      "logit_end": 119
+    },
+    "status": "NOT_EVALUATED",
+    "reason": "needs a model forward pass (GPU); not authorized or run in Stage 14.3"
+  },
+  {
+    "case": "parse_failure_degraded",
+    "template_id": "CM_A_002",
+    "model": "meta-llama/Llama-3.1-8B-Instruct",
+    "variants": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "answer": "14.0 m",
+    "formatted_prompt_sha256_variant0": "6e4d1ca46a22db8aa7935d88efca4bc003d0277ba318e8d07167cd388e1ad3e6",
+    "n_prompt_tokens_behavioural_variant0": 138,
+    "n_answer_tokens": 4,
+    "expected_span_behavioural": {
+      "start": 138,
+      "end": 142,
+      "logit_start": 137,
+      "logit_end": 141
+    },
+    "status": "NOT_EVALUATED",
+    "reason": "needs a model forward pass (GPU); not authorized or run in Stage 14.3"
+  },
+  {
+    "case": "smallest_magnitude_answer",
+    "template_id": "CM_B_UM_040",
+    "model": "Qwen/Qwen2.5-7B-Instruct",
+    "variants": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "answer": "5.0e-5 C",
+    "formatted_prompt_sha256_variant0": "61a2590c4f21126e79cb8c94656edf3c82897347a7c70b48af4b6a5f062487af",
+    "n_prompt_tokens_behavioural_variant0": 126,
+    "n_answer_tokens": 7,
+    "expected_span_behavioural": {
+      "start": 126,
+      "end": 133,
+      "logit_start": 125,
+      "logit_end": 132
+    },
+    "status": "NOT_EVALUATED",
+    "reason": "needs a model forward pass (GPU); not authorized or run in Stage 14.3"
+  },
+  {
+    "case": "smallest_magnitude_answer",
+    "template_id": "CM_B_UM_040",
+    "model": "meta-llama/Llama-3.1-8B-Instruct",
+    "variants": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "answer": "5.0e-5 C",
+    "formatted_prompt_sha256_variant0": "59762f0004410915c36b0da080da57516c7272d9b5e0cb7fd07a30df9f21450f",
+    "n_prompt_tokens_behavioural_variant0": 148,
+    "n_answer_tokens": 7,
+    "expected_span_behavioural": {
+      "start": 148,
+      "end": 155,
+      "logit_start": 147,
+      "logit_end": 154
+    },
+    "status": "NOT_EVALUATED",
+    "reason": "needs a model forward pass (GPU); not authorized or run in Stage 14.3"
+  },
+  {
+    "case": "scientific_notation_answer",
+    "template_id": "CM_A_STD_013",
+    "model": "Qwen/Qwen2.5-7B-Instruct",
+    "variants": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "answer": "3.0e-4 C",
+    "formatted_prompt_sha256_variant0": "fcb6ba88e032b7c1202aedb4ccfdc49c898749995146f154efb7ccbda4f195e4",
+    "n_prompt_tokens_behavioural_variant0": 97,
+    "n_answer_tokens": 7,
+    "expected_span_behavioural": {
+      "start": 97,
+      "end": 104,
+      "logit_start": 96,
+      "logit_end": 103
+    },
+    "status": "NOT_EVALUATED",
+    "reason": "needs a model forward pass (GPU); not authorized or run in Stage 14.3"
+  },
+  {
+    "case": "scientific_notation_answer",
+    "template_id": "CM_A_STD_013",
+    "model": "meta-llama/Llama-3.1-8B-Instruct",
+    "variants": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "answer": "3.0e-4 C",
+    "formatted_prompt_sha256_variant0": "66cb49d1a10e069c040c1eca50da2a45c5384b6d1dfef3e647e8e92993593f31",
+    "n_prompt_tokens_behavioural_variant0": 119,
+    "n_answer_tokens": 7,
+    "expected_span_behavioural": {
+      "start": 119,
+      "end": 126,
+      "logit_start": 118,
+      "logit_end": 125
+    },
+    "status": "NOT_EVALUATED",
+    "reason": "needs a model forward pass (GPU); not authorized or run in Stage 14.3"
+  }
+]

@@ -2989,3 +2989,33 @@ Status: diagnostic of a measurement definition on legacy exploratory data; nothi
 Claim ledger gains rows X02-R1 and X02-R2. Not done: anchor-free no-cue contrasts (need new evaluations), cluster
 stratification (Stage 14.4), true answer-token strata (Stage 14.3), explanation of the variant-0 pattern.
 
+## Stage 14.3: scoring-interface contract — 2026-10-16
+
+Decision: freeze the scoring interface as code and audit what the Stage 6 records actually scored, using
+tokenizer files only (no model weights, CPU). Plan sections relied on: B1.4 (p.7), P1.3-P1.4 (p.17), C04-C05
+(p.33), card X03 (p.39), first sprint item 3 (p.48). Journal: `docs/journal/stage14/14.3_scoring_contract.md`.
+Contract: `docs/stage14/scoring_contract.md` (reviewer sign-off PENDING). Attempt:
+`results/stage14/s143_scoring_contract/attempt_20261016_6b78234/` (source commit `6b78234`, clean tree).
+
+Findings on the 1,120 committed Stage 6 records (clauses S1-S7):
+- S3 FAIL: all 560 Llama behavioural prompts start with two BOS tokens (chat template plus
+  `add_special_tokens=True`); Qwen has none.
+- S5 FAIL: the scored target is the bare reference answer (for example `6.928 N*m`) while all 1,120 generations
+  start with the instructed `Answer:` prefix, so the scored string is not the string the model emits.
+- S6 FAIL: for Llama the activation-extraction prompt ids (single BOS) differ from the behavioural/causal ids
+  (double BOS) in 560 of 560 records; Qwen's are identical.
+- S1, S2, S4, S7 PASS (prompt bytes, native template, exact answer span, wrapper boundary checks).
+- Answer-token count differs by tokenizer (Qwen 3-10, median 6; Llama 2-7, median 4) and shows no monotone
+  association with crossing the 0.5-nat label (Spearman with S0 0.03 and 0.00; descriptive).
+
+What the contract adds: seven frozen, equal-meaning output wrappers with matching instruction lines (the
+`answer_line` wrapper equals the Stage 6 prompt), a round-trip proof of their equivalence on all 140 committed
+answers, the span arithmetic, a duplicate-special-token check, and a fingerprint of every frozen string.
+
+No committed value or legacy script was changed (rewriting the scripts would sever record-to-code provenance).
+The findings qualify the Llama Phase-I numbers (not Qwen's on S3 and S6); the effect size is unmeasured. Manual
+teacher-forced scoring, a single-versus-double-BOS comparison and a bare-versus-prefixed comparison are
+NOT_EVALUATED and need a forward pass and explicit GPU authorization. Claim ledger gains S143-R1 to S143-R4.
+
+Status: scoring-interface audit; nothing is confirmatory or paper-eligible.
+

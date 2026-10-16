@@ -1,0 +1,328 @@
+{
+  "command": "scripts/v2/s143_scoring_audit.py",
+  "contract_fingerprint": "bb6bbec489ef185850a40c2d83955b4371a22b2343196135f2db885e6dabca81",
+  "contract_version": "v2-scoring-contract-1",
+  "evidence_class": "scoring-interface audit; tokenizer only; no model forward pass; not paper-eligible",
+  "git_status_short": [
+    "?? activations",
+    "?? results/infrastructure/model_smoke/attempt_20261014_gpu_h100/",
+    "?? results/stage14/s143_scoring_contract/"
+  ],
+  "inputs": {
+    "per_family": "results/stage6/analysis_d2/stage6_d1_per_family.csv",
+    "prompt_records": "results/stage6/behavioural_full_rerun/prompt_records.jsonl",
+    "registry": "docs/model_registry.yml",
+    "rendered_families": "results/stage6/generated_full_benchmark"
+  },
+  "manual_teacher_forced_scoring": "NOT_EVALUATED (needs a model forward pass; cases in manual_scoring_cases.json)",
+  "python": "3.11.15",
+  "source_commit": "6b7823484a7b0af527c37ea08d1e0b4c8898c578",
+  "stage": "14.3",
+  "summary": {
+    "contract_checks": [
+      {
+        "code": "S1",
+        "evidence": {
+          "Qwen/Qwen2.5-7B-Instruct": [
+            560,
+            560
+          ],
+          "meta-llama/Llama-3.1-8B-Instruct": [
+            560,
+            560
+          ]
+        },
+        "name": "raw prompt bytes and reference answer equal the rendered family JSON",
+        "result": "PASS"
+      },
+      {
+        "code": "S2",
+        "evidence": "1120 records",
+        "name": "chat template applied natively with the generation prompt",
+        "result": "PASS"
+      },
+      {
+        "code": "S3",
+        "evidence": {
+          "Qwen/Qwen2.5-7B-Instruct": 0,
+          "meta-llama/Llama-3.1-8B-Instruct": 560
+        },
+        "name": "no duplicated special token at the start of the scored or generation prompt",
+        "result": "FAIL"
+      },
+      {
+        "code": "S4",
+        "evidence": {
+          "Qwen/Qwen2.5-7B-Instruct": [
+            560,
+            560
+          ],
+          "meta-llama/Llama-3.1-8B-Instruct": [
+            560,
+            560
+          ]
+        },
+        "name": "separate tokenization of prompt and answer equals joint tokenization (span is exact)",
+        "result": "PASS"
+      },
+      {
+        "code": "S5",
+        "evidence": {
+          "generations_starting_with_Answer_prefix": {
+            "Qwen/Qwen2.5-7B-Instruct": [
+              560,
+              560
+            ],
+            "meta-llama/Llama-3.1-8B-Instruct": [
+              560,
+              560
+            ]
+          },
+          "instructed_format": "Answer: [value] [unit]",
+          "scored_string": "the bare reference answer, for example '6.928 N*m'"
+        },
+        "name": "the scored string is the string the model is instructed to emit",
+        "result": "FAIL"
+      },
+      {
+        "code": "S6",
+        "evidence": {
+          "Qwen/Qwen2.5-7B-Instruct": [
+            560,
+            560
+          ],
+          "meta-llama/Llama-3.1-8B-Instruct": [
+            0,
+            560
+          ]
+        },
+        "name": "behavioural scoring and activation extraction used identical prompt token ids",
+        "result": "FAIL"
+      },
+      {
+        "code": "S7",
+        "evidence": {
+          "Qwen/Qwen2.5-7B-Instruct": {},
+          "meta-llama/Llama-3.1-8B-Instruct": {}
+        },
+        "name": "every wrapper's separate and joint tokenization agree for every family",
+        "result": "PASS"
+      }
+    ],
+    "per_model": {
+      "Qwen/Qwen2.5-7B-Instruct": {
+        "answer_tokens_scored_distribution": {
+          "10": 8,
+          "3": 28,
+          "4": 80,
+          "5": 148,
+          "6": 184,
+          "7": 92,
+          "8": 16,
+          "9": 4
+        },
+        "behavioural_ids_equal_extraction_ids": 560,
+        "correct_answer_equals_rendered_family": 560,
+        "generation_starts_with_Answer_prefix": 560,
+        "length_audit": {
+          "answer_tokens": {
+            "max": 10,
+            "median": 6.0,
+            "min": 3
+          },
+          "by_answer_token_tercile": {
+            "long": {
+              "answer_tokens_min_max": [
+                6,
+                10
+              ],
+              "legacy_positive_base0": 24,
+              "n": 46,
+              "range_positive": 40
+            },
+            "medium": {
+              "answer_tokens_min_max": [
+                5,
+                6
+              ],
+              "legacy_positive_base0": 20,
+              "n": 47,
+              "range_positive": 44
+            },
+            "short": {
+              "answer_tokens_min_max": [
+                3,
+                5
+              ],
+              "legacy_positive_base0": 26,
+              "n": 47,
+              "range_positive": 41
+            }
+          },
+          "n_families": 140,
+          "spearman_answer_tokens_vs_S0": 0.032921459455809966,
+          "spearman_answer_tokens_vs_mean_logprob": -0.4490665692904517,
+          "spearman_answer_tokens_vs_range": 0.08001767550095679
+        },
+        "n_records": 560,
+        "raw_prompt_equals_rendered_family": 560,
+        "records_with_duplicate_leading_special_token_behavioural": 0,
+        "records_with_duplicate_leading_special_token_native": 0,
+        "separate_equals_joint_tokenization": 560,
+        "wrapper_separate_equals_joint": {
+          "answer_line": [
+            140,
+            140
+          ],
+          "boxed": [
+            140,
+            140
+          ],
+          "decimal_plain": [
+            140,
+            140
+          ],
+          "json": [
+            140,
+            140
+          ],
+          "plain": [
+            140,
+            140
+          ],
+          "scientific": [
+            140,
+            140
+          ],
+          "sentence": [
+            140,
+            140
+          ]
+        },
+        "wrapper_target_tokens_mean": {
+          "answer_line": 8.6,
+          "boxed": 9.6,
+          "decimal_plain": 8.657142857142857,
+          "json": 15.6,
+          "plain": 5.6,
+          "scientific": 9.257142857142858,
+          "sentence": 10.6
+        }
+      },
+      "meta-llama/Llama-3.1-8B-Instruct": {
+        "answer_tokens_scored_distribution": {
+          "2": 20,
+          "3": 100,
+          "4": 256,
+          "5": 108,
+          "6": 20,
+          "7": 56
+        },
+        "behavioural_ids_equal_extraction_ids": 0,
+        "correct_answer_equals_rendered_family": 560,
+        "generation_starts_with_Answer_prefix": 560,
+        "length_audit": {
+          "answer_tokens": {
+            "max": 7,
+            "median": 4.0,
+            "min": 2
+          },
+          "by_answer_token_tercile": {
+            "long": {
+              "answer_tokens_min_max": [
+                5,
+                7
+              ],
+              "legacy_positive_base0": 11,
+              "n": 46,
+              "range_positive": 32
+            },
+            "medium": {
+              "answer_tokens_min_max": [
+                4,
+                4
+              ],
+              "legacy_positive_base0": 11,
+              "n": 47,
+              "range_positive": 36
+            },
+            "short": {
+              "answer_tokens_min_max": [
+                2,
+                4
+              ],
+              "legacy_positive_base0": 10,
+              "n": 47,
+              "range_positive": 31
+            }
+          },
+          "n_families": 140,
+          "spearman_answer_tokens_vs_S0": 0.0028155804464305326,
+          "spearman_answer_tokens_vs_mean_logprob": -0.2542189817134152,
+          "spearman_answer_tokens_vs_range": -0.11028084254677226
+        },
+        "n_records": 560,
+        "raw_prompt_equals_rendered_family": 560,
+        "records_with_duplicate_leading_special_token_behavioural": 560,
+        "records_with_duplicate_leading_special_token_native": 0,
+        "separate_equals_joint_tokenization": 560,
+        "wrapper_separate_equals_joint": {
+          "answer_line": [
+            140,
+            140
+          ],
+          "boxed": [
+            140,
+            140
+          ],
+          "decimal_plain": [
+            140,
+            140
+          ],
+          "json": [
+            140,
+            140
+          ],
+          "plain": [
+            140,
+            140
+          ],
+          "scientific": [
+            140,
+            140
+          ],
+          "sentence": [
+            140,
+            140
+          ]
+        },
+        "wrapper_target_tokens_mean": {
+          "answer_line": 7.314285714285714,
+          "boxed": 8.314285714285715,
+          "decimal_plain": 7.178571428571429,
+          "json": 14.314285714285715,
+          "plain": 4.314285714285714,
+          "scientific": 8.757142857142858,
+          "sentence": 9.314285714285715
+        }
+      }
+    }
+  },
+  "tokenizers": {
+    "Qwen/Qwen2.5-7B-Instruct": {
+      "bos_token_id": null,
+      "path": "/scratch/pabitra/models/Qwen2.5-7B-Instruct",
+      "registry_key": "qwen_primary",
+      "tokenizer.json_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+      "tokenizer_config.json_sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583"
+    },
+    "meta-llama/Llama-3.1-8B-Instruct": {
+      "bos_token_id": 128000,
+      "path": "/scratch/pabitra/models/Llama-3.1-8B-Instruct",
+      "registry_key": "llama_primary",
+      "tokenizer.json_sha256": "79e3e522635f3171300913bb421464a87de6222182a0570b9b2ccba2a964b2b4",
+      "tokenizer_config.json_sha256": "177c7b61e616fecb84c17ce0591acb92c6c4d60e9ac5ababfb940ff23bbcd424"
+    }
+  },
+  "transformers": "5.11.0"
+}
