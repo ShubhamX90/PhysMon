@@ -75,8 +75,10 @@ Nothing from this pilot may be described as a confirmation, and no cell may be a
 ## 6. Cost model (v2 §9, p.42)
 
 N_structures x N_instances x N_cells x N_models x (N_score_forward + N_generated_resamples), per candidate. For the committed
-manifest this is 10 x 2 x 211/20 cells x 2 models; `scripts/v2/s147_pilot_plan.py --dry-run` computes the exact counts and token
-totals with the real tokenizers. **GPU time is not estimated here**: no throughput has been measured on the current stack, and the
+manifest this is 10 structures x 2 instantiations x 11 cells = 220 cells, of which 211 are feasible, x 2 models = 422 jobs.
+`scripts/v2/s147_pilot_plan.py` (a dry run: tokenizers only) computes the exact counts and token totals; the committed plan is
+`results/stage14/s147_pilot_plan/attempt_20261016_d22a65d/`: 306 scoring forward passes and 211 generations per model, with 95
+decoy-defined jobs per model, and 0 tokenization failures under either tokenizer. **GPU time is not estimated here**: no throughput has been measured on the current stack, and the
 2026-10-14 smoke job spent most of its 4 h 42 min loading weights from the network filesystem. Step 1 of any approved run is a
 short, measured throughput test.
 

@@ -3109,3 +3109,22 @@ first-sprint exit "genuinely independent expert review" is therefore not met. No
 
 Status: certified candidate materials; nothing is validated, confirmatory or paper-eligible.
 
+
+## Stage 14.7: pilot preparation, stopped at the submission boundary — 2026-10-16
+
+Decision: prepare the two-model pilot completely on CPU and do not submit it. Plan sections relied on: B2.2-B2.5 (p.7-8), B6.1-B6.5
+(p.12), P1.5-P1.7 (p.17), §8.1-§8.4 (p.41-42), §9 compute ladder (p.43), §10 (p.44), first sprint items 7 and 9 (p.50).
+Journal: `docs/journal/stage14/14.7_pilot_preparation.md`. Protocol: `docs/stage14/pilot_protocol.md`. Source commit `d22a65d`.
+
+What was built: a contract-conformant scorer (`physmon.scoring.v2_scorer`: BOS once, exact answer span, separate equals joint
+tokenization, failures recorded as statuses); a dry-run planner and its committed plan (`results/stage14/s147_pilot_plan/attempt_20261016_d22a65d/`:
+422 jobs, 306 scoring passes and 211 generations per model, 0 tokenization failures); a runner that writes raw JSONL only and refuses
+without an authorization reference; a frozen protocol (endpoints, descriptive analysis at the structure level, decision rules); an
+unsubmitted, unverified Slurm template. 442 tests pass.
+
+Why it stops here: the instruction "do the full stage 14" does not authorize submitting to a shared cluster, which `AGENTS.md` and the
+Sharanga skill require explicitly in the current task, with a live preflight. The plan also asks for gates that are not met: the ten
+structures are unreviewed (B4), there are ten not 40 to 60 (B6.1), P0 is open, and the post-wipe GPU validation is incomplete.
+
+Not done: any GPU run; GPU time is not estimated because no throughput has been measured. Nothing from this stage is a result, and
+nothing is validated, confirmatory or paper-eligible. A run on the current items, if authorized, is exploratory only.
