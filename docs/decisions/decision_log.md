@@ -3048,3 +3048,35 @@ S144-R1 to S144-R4 and `P1L-14` is updated. Card X05 is recorded as partly execu
 
 Status: exploratory diagnostic on legacy data; nothing is confirmatory or paper-eligible.
 
+## Stage 14.5: validator qualification materials — 2026-10-16
+
+Decision: build the instruments and candidate materials for independent validation (v2 B4), without recruiting,
+simulating or labelling reviewers. Plan sections relied on: B4.1-B4.5 (p.9-10), P3.1-P3.3 (p.20), §9 human workload
+(p.43), first sprint item 5 (p.48). Journal: `docs/journal/stage14/14.5_validator_qualification.md`. Handbook:
+`docs/validation/v2/validator_handbook_v2.md`. Materials: `docs/validation/v2/materials/v1/` (source commit `2acb79a`).
+
+What was built (CPU, committed data only):
+- A review-record contract and metrics (`src/physmon/governance/review.py`): separate validity, clarity, difficulty and
+  naturalness judgments, uncertainty and counterexamples, a blinding attestation, B4.5 admission categories, raw
+  agreement, Cohen's kappa (`None` when undefined; the older `compute_kappa` returns 1.0 there), Gwet's AC1, a
+  structure-cluster bootstrap, per-defect-type detection and false-rejection, and a completeness check.
+- A typed planted-defect injector for the ten B4.4 defect types, each tested to make exactly its declared edit.
+  Reading real items before committing exposed five poor rules (a negative temperature change is a valid cooling;
+  a dangling fragment; renderings scaled together stay equivalent; a restated value without its unit; deleting
+  "frictionless" where the acceleration is given), which were fixed; assumption and boundary edits are now explicit
+  allow-lists after reading each governing equation.
+- 73 shuffled items: 40 genuine families by the B4.1 strata (including the Stage 14.4 clusters) and 33 planted items on
+  disjoint base families, as blinded Pass 1 and Pass 2 packets with a separate restricted key, plus a 20-family timing
+  pilot.
+
+Gap against the Stage 13 v6 kit: single verdict instead of separate judgments, no admission categories, no typed planted
+defects, a pilot sample without the B4.1 strata, 12 one-line qualification cases without scoring, no AC1 or cluster
+intervals, no timing pilot. The v6 files were not edited.
+
+Not done, and not the agent's to do: physicist confirmation of the 33 planted items (none confirmed), reviewer
+recruitment and qualification, the timing pilot and the workload derived from it, nomination of genuinely ambiguous
+coupled systems, and review of the 147 unresolved family pairs. No time per judgment is assumed. The restricted key is
+committed for provenance and must be kept out of any copy shared with reviewers; moving it is flagged for the user.
+
+Status: candidate materials; nothing is validated or paper-eligible.
+
