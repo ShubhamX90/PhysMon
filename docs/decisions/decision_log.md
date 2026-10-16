@@ -2924,3 +2924,36 @@ Observations worth keeping (details in journal J14.0-003 and J14.0-004):
 
 Status: governance scaffold only; no scientific result was produced or changed. Nothing is paper-eligible.
 Not requested or started: any GPU work, Slurm submission, or Stage 14.7 pilot. Branch `claude/stage14-v2`.
+
+## Stage 14.1: X01 reproduction of the Phase-I ledger from committed records — 2026-10-16
+
+Decision: run card X01 (CPU only) by recomputing every Phase-I ledger value that has a committed source,
+with metric implementations independent of `physmon.probing.metrics`, and record one label per value
+(`verified`, `different_but_explained`, `unreproducible`, `not_enough_source_data`). Plan sections relied
+on: card X01 (p.39), P0.1-P0.5 (p.16), B1.1 (p.6), §8.4 (p.42). Journal:
+`docs/journal/stage14/14.1_x01_reproduction.md`. Attempt:
+`results/stage14/x01_reproduction/attempt_20261016_919c177/` (source commit `919c177`, clean tree).
+
+Result (51 components): everything with a committed source reproduces to the printed precision, with three
+exceptions that are recorded rather than smoothed over.
+- "25 shared positives" is the answer-flip (hat-S > 0) overlap, which is also the `both_sensitive` column of
+  `stage6_d1_per_family.csv`. Under the 0.5-nat `S_lp` definition the shared count is 22 (Qwen 70, Llama 32).
+  The Llama total of 46 in the table at decision-log lines 1086-1090 is likewise a hat-S count, which
+  resolves its apparent conflict with 32. Label: `different_but_explained`.
+- The combined-plus-hidden gain (+0.067) cannot be recomputed: its out-of-fold predictions were not committed.
+  Label: `not_enough_source_data` for that component.
+- The "71% of family-held-out tests share a cluster with training" figure has no committed source.
+  Label: `not_enough_source_data` for that component.
+- Context for reproduced numbers: 17 of 20 causal families have unclipped recovery above 1.0, so the clipped
+  mean 0.969 is largely a ceiling effect; the 0.7657 correctness-probe AUROC predicts answer correctness, not
+  sensitivity (different labels).
+
+Gate P0 (p.16) is recorded as NOT passed: values were recomputed from stored records, not regenerated through
+the model, and the hook-affects-tensor condition cannot be tested without activations and a GPU. Dependent
+mechanistic work (P6-P8, X07-X09) stays blocked. No headline value changed, so no erratum is issued.
+
+Status: reproduction audit on legacy exploratory data; nothing is confirmatory or paper-eligible. The v2 claim
+ledger now records 14 verified, 1 different-but-explained and 2 not-enough-source-data rows; 8 rows are not yet
+checked. The working digest section 7 received a dated correction note (its earlier list of "not verifiable"
+values was too pessimistic). Not started: P0.3 model re-run, P0.4 hand-traced leakage review, P0.5 corrected
+renamed-donor control.

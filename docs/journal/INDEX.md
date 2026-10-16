@@ -7,7 +7,7 @@ Plan of record: `docs/proposals/PhysMon_Research_v2.pdf`. Stage ordering below i
 | Stage | Topic | v2 reference | Compute | Status | Journal |
 |---|---|---|---|---|---|
 | 14.0 | Governance ingest: journal, decision-log entry, claim-to-artifact ledger, evidence-record contract, cards X01-X03 | P0.1, §9.1, §7 | CPU only | done | [14.0](stage14/14.0_governance_ingest.md) |
-| 14.1 | X01 authoritative reproduction from committed raw records | P0.2, card X01 | CPU only | not started | |
+| 14.1 | X01 authoritative reproduction from committed raw records | P0.2, card X01 | CPU only | done (CPU scope); P0 gate open | [14.1](stage14/14.1_x01_reproduction.md) |
 | 14.2 | X02 base-rotation attack with an executable CM_B_UM_059 unit test | B1.2, B1.3, P1.1, card X02 | CPU only | not started | |
 | 14.3 | Scoring-interface contract (prompt bytes, answer spans, wrappers) | B1.4, P1.3, card X03 | CPU design, small GPU later | not started | |
 | 14.4 | Structure overlap and the five excluded stable families | B1.6, P3.5, P3.6, card X05 | CPU only | not started | |

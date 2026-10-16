@@ -1,0 +1,941 @@
+{
+  "card": "v2_X01_authoritative_reproduction",
+  "command": "scripts/v2/x01_reproduce_phase1.py --update-ledger --journal-ref J14.1-008",
+  "components": {
+    "P1A-A": [
+      {
+        "artifacts": [
+          "results/stage6/behavioural_full_rerun/prompt_records.jsonl"
+        ],
+        "detail": "",
+        "name": "outputs_checked",
+        "outcome": "verified",
+        "recomputed": 8,
+        "reported": 8
+      },
+      {
+        "artifacts": [
+          "results/stage6/behavioural_full_rerun/prompt_records.jsonl"
+        ],
+        "detail": "",
+        "name": "every_output_wrong",
+        "outcome": "verified",
+        "recomputed": "8 of 8 wrong",
+        "reported": "all wrong"
+      },
+      {
+        "artifacts": [
+          "results/stage6/behavioural_full_rerun/prompt_records.jsonl"
+        ],
+        "detail": "",
+        "name": "qwen_gold_logprob_range",
+        "outcome": "verified",
+        "recomputed": 10.5625,
+        "reported": "10.562"
+      }
+    ],
+    "P1A-B": [
+      {
+        "artifacts": [
+          "results/stage10/distractor_proximity/proximity_vs_slp.json"
+        ],
+        "detail": "",
+        "name": "cue_b_families",
+        "outcome": "verified",
+        "recomputed": 100,
+        "reported": 100
+      },
+      {
+        "artifacts": [
+          "results/stage10/distractor_proximity/proximity_vs_slp.json"
+        ],
+        "detail": "",
+        "name": "pearson_r_min_relative_proximity_vs_S_lp",
+        "outcome": "verified",
+        "recomputed": 0.074179,
+        "reported": "0.074"
+      }
+    ],
+    "P1L-01": [
+      {
+        "artifacts": [
+          "data/manifests/physmon_canonical_155.jsonl"
+        ],
+        "detail": "",
+        "name": "canonical_total",
+        "outcome": "verified",
+        "recomputed": 155,
+        "reported": 155
+      },
+      {
+        "artifacts": [
+          "data/manifests/physmon_canonical_155.jsonl"
+        ],
+        "detail": "",
+        "name": "original_behavioural",
+        "outcome": "verified",
+        "recomputed": 140,
+        "reported": 140
+      },
+      {
+        "artifacts": [
+          "data/manifests/physmon_canonical_155.jsonl"
+        ],
+        "detail": "",
+        "name": "later_expansion",
+        "outcome": "verified",
+        "recomputed": 15,
+        "reported": 15
+      }
+    ],
+    "P1L-02": [
+      {
+        "artifacts": [
+          "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+          "results/stage6/analysis_d2/stage6_d1_per_family.csv",
+          "results/stage6/behavioural_full_rerun/prompt_records.jsonl"
+        ],
+        "detail": "",
+        "name": "cohort_size",
+        "outcome": "verified",
+        "recomputed": 135,
+        "reported": 135
+      },
+      {
+        "artifacts": [
+          "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+          "results/stage6/analysis_d2/stage6_d1_per_family.csv",
+          "results/stage6/behavioural_full_rerun/prompt_records.jsonl"
+        ],
+        "detail": "",
+        "name": "sensitive",
+        "outcome": "verified",
+        "recomputed": 70,
+        "reported": 70
+      },
+      {
+        "artifacts": [
+          "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+          "results/stage6/analysis_d2/stage6_d1_per_family.csv",
+          "results/stage6/behavioural_full_rerun/prompt_records.jsonl"
+        ],
+        "detail": "",
+        "name": "stable",
+        "outcome": "verified",
+        "recomputed": 65,
+        "reported": 65
+      },
+      {
+        "artifacts": [
+          "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+          "results/stage6/analysis_d2/stage6_d1_per_family.csv",
+          "results/stage6/behavioural_full_rerun/prompt_records.jsonl"
+        ],
+        "detail": "",
+        "name": "excluded_from_140",
+        "outcome": "verified",
+        "recomputed": 5,
+        "reported": 5
+      },
+      {
+        "artifacts": [
+          "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+          "results/stage6/analysis_d2/stage6_d1_per_family.csv",
+          "results/stage6/behavioural_full_rerun/prompt_records.jsonl"
+        ],
+        "detail": "",
+        "name": "excluded_are_stable_and_parse_failed",
+        "outcome": "verified",
+        "recomputed": "CM_A_STD_018, CM_B_003, CM_B_UM_051, TH_B_UM_009, TH_B_UM_010",
+        "reported": "five stable families, parsing failures"
+      },
+      {
+        "artifacts": [
+          "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+          "results/stage6/analysis_d2/stage6_d1_per_family.csv",
+          "results/stage6/behavioural_full_rerun/prompt_records.jsonl"
+        ],
+        "detail": "",
+        "name": "labels_regenerate_from_raw",
+        "outcome": "verified",
+        "recomputed": "0 mismatches",
+        "reported": "label = Qwen S_lp >= 0.5"
+      }
+    ],
+    "P1L-03": [
+      {
+        "artifacts": [
+          "docs/model_registry.yml"
+        ],
+        "detail": "",
+        "name": "registry_qwen_primary",
+        "outcome": "verified",
+        "recomputed": "Qwen/Qwen2.5-7B-Instruct",
+        "reported": "Qwen/Qwen2.5-7B-Instruct"
+      },
+      {
+        "artifacts": [
+          "docs/model_registry.yml"
+        ],
+        "detail": "",
+        "name": "registry_llama_primary",
+        "outcome": "verified",
+        "recomputed": "meta-llama/Llama-3.1-8B-Instruct",
+        "reported": "meta-llama/Llama-3.1-8B-Instruct"
+      },
+      {
+        "artifacts": [
+          "docs/model_registry.yml"
+        ],
+        "detail": "",
+        "name": "registry_deepseek_reasoning",
+        "outcome": "verified",
+        "recomputed": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+        "reported": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"
+      }
+    ],
+    "P1L-04": [
+      {
+        "artifacts": [
+          "results/stage6/behavioural_full_rerun/prompt_records.jsonl",
+          "results/stage6/analysis_d2/stage6_d1_per_family.csv"
+        ],
+        "detail": "",
+        "name": "qwen_positive_at_0.5nat",
+        "outcome": "verified",
+        "recomputed": 70,
+        "reported": 70
+      },
+      {
+        "artifacts": [
+          "results/stage6/behavioural_full_rerun/prompt_records.jsonl",
+          "results/stage6/analysis_d2/stage6_d1_per_family.csv"
+        ],
+        "detail": "",
+        "name": "llama_positive_at_0.5nat",
+        "outcome": "verified",
+        "recomputed": 32,
+        "reported": 32
+      },
+      {
+        "artifacts": [
+          "results/stage6/behavioural_full_rerun/prompt_records.jsonl",
+          "results/stage6/analysis_d2/stage6_d1_per_family.csv"
+        ],
+        "detail": "",
+        "name": "recomputed_S_lp_matches_per_family_csv",
+        "outcome": "verified",
+        "recomputed": "max abs diff 0",
+        "reported": "per-family CSV"
+      },
+      {
+        "artifacts": [
+          "results/stage6/behavioural_full_rerun/prompt_records.jsonl",
+          "results/stage6/analysis_d2/stage6_d1_per_family.csv"
+        ],
+        "detail": "Under the 0.5-nat S_lp definition the shared count is 22. The value 25 equals the answer-flip (hat-S > 0) overlap: 25 families, which is also the stage6_d1_per_family.csv 'both_sensitive' column (matches on every row). The decision-log table at lines 1086-1090 (25 both / 20 Qwen-only / 21 Llama-only) counts hat-S, not S_lp, which explains its Llama total of 46 versus 32 at 0.5 nat.",
+        "name": "shared_positives",
+        "outcome": "different_but_explained",
+        "recomputed": 22,
+        "reported": 25
+      }
+    ],
+    "P1L-05": [
+      {
+        "artifacts": [
+          "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+          "results/stage10/mean_probe_full_sweep_bigcompute/summary_resid_post_last_prompt.json"
+        ],
+        "detail": "",
+        "name": "auroc_layer18_from_oof",
+        "note": "recomputed from committed out-of-fold predictions; the predictions themselves cannot be regenerated because activation tensors were lost in the 2026-10 scratch wipe",
+        "outcome": "verified",
+        "recomputed": 0.75956,
+        "reported": "0.7596"
+      },
+      {
+        "artifacts": [
+          "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+          "results/stage10/mean_probe_full_sweep_bigcompute/summary_resid_post_last_prompt.json"
+        ],
+        "detail": "",
+        "name": "oof_layer",
+        "outcome": "verified",
+        "recomputed": [
+          18
+        ],
+        "reported": 18
+      }
+    ],
+    "P1L-06": [
+      {
+        "artifacts": [
+          "results/stage10/per_variant_probe_sweep/loo_predictions_per_variant.json",
+          "results/stage10/per_variant_probe_sweep/summary_per_variant_sweep.json"
+        ],
+        "detail": "",
+        "name": "variant_level_auroc_layer16",
+        "note": "540 variant-level samples pooled; family label copied to each variant; layers in file [16]; summary best_layer 16",
+        "outcome": "verified",
+        "recomputed": 0.746511,
+        "reported": "0.7465"
+      }
+    ],
+    "P1L-07": [
+      {
+        "artifacts": [
+          "results/stage9/baselines/entropy/entropy_per_family_scores.json"
+        ],
+        "detail": "",
+        "name": "fitted_entropy_auroc",
+        "outcome": "verified",
+        "recomputed": 0.727033,
+        "reported": "0.7270"
+      },
+      {
+        "artifacts": [
+          "results/stage9/baselines/correctness_probe/loo_predictions_variance.json",
+          "results/stage9/baselines/correctness_probe/summary_variance.json"
+        ],
+        "detail": "",
+        "name": "correctness_probe_auroc_on_its_own_target",
+        "note": "reproduces exactly, but the probe predicts answer correctness (target_measure=answer_correctness, threshold 0.75), not S_lp sensitivity: its labels differ from the sensitivity labels, so 0.7657 is not a like-for-like sensitivity AUROC",
+        "outcome": "verified",
+        "recomputed": 0.765682,
+        "reported": "0.7657"
+      }
+    ],
+    "P1L-08": [
+      {
+        "artifacts": [
+          "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+          "results/stage9/baselines/entropy/entropy_per_family_scores.json",
+          "results/wave2/combined_baseline/combined_baseline_predictions.json",
+          "results/wave2/incremental_information/incremental_information_summary.json"
+        ],
+        "detail": "",
+        "name": "monitor_minus_entropy_difference",
+        "outcome": "verified",
+        "recomputed": 0.032527,
+        "reported": "+0.033"
+      },
+      {
+        "artifacts": [
+          "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+          "results/stage9/baselines/entropy/entropy_per_family_scores.json",
+          "results/wave2/combined_baseline/combined_baseline_predictions.json",
+          "results/wave2/incremental_information/incremental_information_summary.json"
+        ],
+        "detail": "",
+        "name": "monitor_minus_entropy_ci_low",
+        "outcome": "verified",
+        "recomputed": -0.073626,
+        "reported": "-0.074"
+      },
+      {
+        "artifacts": [
+          "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+          "results/stage9/baselines/entropy/entropy_per_family_scores.json",
+          "results/wave2/combined_baseline/combined_baseline_predictions.json",
+          "results/wave2/incremental_information/incremental_information_summary.json"
+        ],
+        "detail": "",
+        "name": "monitor_minus_entropy_ci_high",
+        "outcome": "verified",
+        "recomputed": 0.141408,
+        "reported": "+0.141"
+      },
+      {
+        "artifacts": [
+          "results/wave2/incremental_information/incremental_information_summary.json"
+        ],
+        "detail": "out-of-fold predictions for the combined-plus-hidden model are not committed (only the summary values), so the +0.067 gain and its interval cannot be recomputed independently of re-running scripts/run_incremental_information.py, which would overwrite tracked results",
+        "name": "combined_plus_hidden_gain",
+        "outcome": "not_enough_source_data",
+        "recomputed": {
+          "ci95_high": 0.1374,
+          "ci95_low": -0.0007,
+          "excludes_zero": false,
+          "n_usable_resamples": 10000,
+          "observed_difference": 0.067,
+          "proportion_favouring_a": 0.9735
+        },
+        "reported": "+0.067 (CI spans zero)"
+      }
+    ],
+    "P1L-09": [
+      {
+        "artifacts": [
+          "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+          "results/stage9/baselines/entropy/entropy_per_family_scores.json"
+        ],
+        "detail": "",
+        "name": "monitor_brier",
+        "outcome": "verified",
+        "recomputed": 0.203631,
+        "reported": "0.2036"
+      },
+      {
+        "artifacts": [
+          "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+          "results/stage9/baselines/entropy/entropy_per_family_scores.json"
+        ],
+        "detail": "",
+        "name": "entropy_brier",
+        "outcome": "verified",
+        "recomputed": 0.214021,
+        "reported": "0.2140"
+      },
+      {
+        "artifacts": [
+          "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+          "results/stage9/baselines/entropy/entropy_per_family_scores.json"
+        ],
+        "detail": "",
+        "name": "entropy_ece",
+        "outcome": "verified",
+        "recomputed": 0.090701,
+        "reported": "0.0907"
+      },
+      {
+        "artifacts": [
+          "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+          "results/stage9/baselines/entropy/entropy_per_family_scores.json"
+        ],
+        "detail": "",
+        "name": "monitor_ece",
+        "outcome": "verified",
+        "recomputed": 0.104101,
+        "reported": "0.1041"
+      },
+      {
+        "artifacts": [
+          "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+          "results/stage9/baselines/entropy/entropy_per_family_scores.json"
+        ],
+        "detail": "",
+        "name": "entropy_fnr_at_fpr_0.10",
+        "outcome": "verified",
+        "recomputed": 0.642857,
+        "reported": "0.643"
+      },
+      {
+        "artifacts": [
+          "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+          "results/stage9/baselines/entropy/entropy_per_family_scores.json"
+        ],
+        "detail": "",
+        "name": "monitor_fnr_at_fpr_0.10",
+        "outcome": "verified",
+        "recomputed": 0.714286,
+        "reported": "0.714"
+      }
+    ],
+    "P1L-10": [
+      {
+        "artifacts": [
+          "results/stage12/expansion_probe_inference/family_mean_predictions.json",
+          "results/stage12/expansion_probe_inference/summary.json",
+          "data/manifests/physmon_canonical_155.jsonl"
+        ],
+        "detail": "",
+        "name": "expansion_families",
+        "outcome": "verified",
+        "recomputed": 15,
+        "reported": 15
+      },
+      {
+        "artifacts": [
+          "results/stage12/expansion_probe_inference/family_mean_predictions.json",
+          "results/stage12/expansion_probe_inference/summary.json",
+          "data/manifests/physmon_canonical_155.jsonl"
+        ],
+        "detail": "",
+        "name": "pooled_auroc",
+        "outcome": "verified",
+        "recomputed": 0.82,
+        "reported": "0.820"
+      },
+      {
+        "artifacts": [
+          "results/stage12/expansion_probe_inference/family_mean_predictions.json",
+          "results/stage12/expansion_probe_inference/summary.json",
+          "data/manifests/physmon_canonical_155.jsonl"
+        ],
+        "detail": "",
+        "name": "cue_b_n",
+        "outcome": "verified",
+        "recomputed": 5,
+        "reported": 5
+      },
+      {
+        "artifacts": [
+          "results/stage12/expansion_probe_inference/family_mean_predictions.json",
+          "results/stage12/expansion_probe_inference/summary.json",
+          "data/manifests/physmon_canonical_155.jsonl"
+        ],
+        "detail": "",
+        "name": "cue_c_n",
+        "outcome": "verified",
+        "recomputed": 10,
+        "reported": 10
+      },
+      {
+        "artifacts": [
+          "results/stage12/expansion_probe_inference/family_mean_predictions.json",
+          "results/stage12/expansion_probe_inference/summary.json",
+          "data/manifests/physmon_canonical_155.jsonl"
+        ],
+        "detail": "",
+        "name": "within_cue_b_auroc",
+        "outcome": "verified",
+        "recomputed": 0.666667,
+        "reported": "0.667"
+      },
+      {
+        "artifacts": [
+          "results/stage12/expansion_probe_inference/family_mean_predictions.json",
+          "results/stage12/expansion_probe_inference/summary.json",
+          "data/manifests/physmon_canonical_155.jsonl"
+        ],
+        "detail": "",
+        "name": "within_cue_c_auroc",
+        "outcome": "verified",
+        "recomputed": 0.6875,
+        "reported": "0.6875"
+      }
+    ],
+    "P1L-11": [
+      {
+        "artifacts": [
+          "results/stage8/multi_head_knockout/patching_results.csv"
+        ],
+        "detail": "",
+        "name": "causal_panel_families",
+        "outcome": "verified",
+        "recomputed": 20,
+        "reported": 20
+      },
+      {
+        "artifacts": [
+          "results/stage8/multi_head_knockout/patching_results.csv"
+        ],
+        "detail": "",
+        "name": "four_head_mean_recovery_L16",
+        "outcome": "verified",
+        "recomputed": 1.869722,
+        "reported": "1.870"
+      },
+      {
+        "artifacts": [
+          "results/stage10/full_head_sweep_l16/head_11/patching_results.csv"
+        ],
+        "detail": "",
+        "name": "head_11_alone_mean_recovery_L16",
+        "outcome": "verified",
+        "recomputed": 1.848253,
+        "reported": "1.848"
+      },
+      {
+        "artifacts": [
+          "results/stage8/multi_head_knockout/patching_results.csv"
+        ],
+        "detail": "",
+        "name": "four_head_clipped_mean_recovery_L16",
+        "note": "the plan does not state the clipping rule; clipping each family's recovery fraction to [0, 1] reproduces it. 17 of 20 families exceed 1.0 before clipping, so the clipped mean is largely a ceiling effect (v2 P6.2 asks for clipped and uncapped summaries together)",
+        "outcome": "verified",
+        "recomputed": 0.968901,
+        "reported": "0.969"
+      }
+    ],
+    "P1L-13": [
+      {
+        "artifacts": [
+          "results/stage13/benchmark_integrity/validation_agreement_v3.json"
+        ],
+        "detail": "",
+        "name": "dual_expert_validation_not_completed",
+        "outcome": "verified",
+        "recomputed": "status=HUMAN_LABELS_MISSING, families_marked_valid=0",
+        "reported": "not completed"
+      }
+    ],
+    "P1L-14": [
+      {
+        "artifacts": [
+          "results/stage13/benchmark_integrity/leakage_audit_v7.json"
+        ],
+        "detail": "",
+        "name": "template_clusters",
+        "outcome": "verified",
+        "recomputed": 34,
+        "reported": 34
+      },
+      {
+        "artifacts": [
+          "results/stage13/benchmark_integrity/leakage_audit_v7.json"
+        ],
+        "detail": "",
+        "name": "family_pairs",
+        "outcome": "verified",
+        "recomputed": 147,
+        "reported": 147
+      },
+      {
+        "artifacts": [
+          "results/stage13/benchmark_integrity/leakage_audit_v7.json"
+        ],
+        "detail": "",
+        "name": "rendering_pairs",
+        "outcome": "verified",
+        "recomputed": 2352,
+        "reported": 2352
+      },
+      {
+        "artifacts": [
+          "results/stage13/benchmark_integrity/leakage_audit_v7.json"
+        ],
+        "detail": "this figure is not computed by any committed artifact; it needs the submitted manuscript or a cluster-held-out re-analysis (Stage 14.4)",
+        "name": "family_held_out_share_cluster_with_training",
+        "outcome": "not_enough_source_data",
+        "recomputed": null,
+        "reported": "71%"
+      }
+    ],
+    "P1L-15": [
+      {
+        "artifacts": [
+          "results/stage13/wave0/registry_coverage_v7.json"
+        ],
+        "detail": "",
+        "name": "science_runs",
+        "outcome": "verified",
+        "recomputed": 182,
+        "reported": 182
+      },
+      {
+        "artifacts": [
+          "results/stage13/wave0/registry_coverage_v7.json"
+        ],
+        "detail": "",
+        "name": "registry_coverage",
+        "outcome": "verified",
+        "recomputed": 0.703297,
+        "reported": "0.703"
+      },
+      {
+        "artifacts": [
+          "results/stage13/wave0/registry_coverage_v7.json"
+        ],
+        "detail": "",
+        "name": "strict_coverage",
+        "outcome": "verified",
+        "recomputed": 0.450549,
+        "reported": "0.451"
+      }
+    ],
+    "P1L-16": [
+      {
+        "artifacts": [
+          "results/stage12/science/donor_renamed/same_answer/same_answer_donor_results.csv"
+        ],
+        "detail": "",
+        "name": "donor_same_data_rows",
+        "outcome": "verified",
+        "recomputed": 0,
+        "reported": 0
+      },
+      {
+        "artifacts": [
+          "results/stage12/science/donor_renamed/stable/stable_donor_results.csv"
+        ],
+        "detail": "",
+        "name": "donor_stable_data_rows",
+        "outcome": "verified",
+        "recomputed": 0,
+        "reported": 0
+      }
+    ]
+  },
+  "evidence_class": "reproduction_audit (exploratory; no confirmatory role)",
+  "git_status_short": [
+    "?? activations",
+    "?? results/infrastructure/model_smoke/attempt_20261014_gpu_h100/"
+  ],
+  "info": {
+    "P1A-A": {
+      "llama_logprobs": {
+        "0": -32.9375,
+        "1": -34.9375,
+        "2": -32.15625,
+        "3": -33.125
+      },
+      "qwen_S_lp_base0": 10.03125,
+      "qwen_logprobs": {
+        "0": -45.53125,
+        "1": -55.5625,
+        "2": -45.0,
+        "3": -46.46875
+      }
+    },
+    "P1A-B": {
+      "stored_pearson_r": 0.07417867591935826
+    },
+    "P1L-01": {
+      "all_canonical": true
+    },
+    "P1L-02": {
+      "excluded": {
+        "CM_A_STD_018": {
+          "notes": "qwen_degraded",
+          "qwen_S_lp": "0.46875",
+          "qwen_parse_ok": "False"
+        },
+        "CM_B_003": {
+          "notes": "qwen_degraded",
+          "qwen_S_lp": "0.0",
+          "qwen_parse_ok": "False"
+        },
+        "CM_B_UM_051": {
+          "notes": "qwen_degraded",
+          "qwen_S_lp": "0.0",
+          "qwen_parse_ok": "False"
+        },
+        "TH_B_UM_009": {
+          "notes": "qwen_degraded",
+          "qwen_S_lp": "0.0",
+          "qwen_parse_ok": "False"
+        },
+        "TH_B_UM_010": {
+          "notes": "qwen_degraded",
+          "qwen_S_lp": "0.0",
+          "qwen_parse_ok": "False"
+        }
+      },
+      "label_mismatches": []
+    },
+    "P1L-03": {},
+    "P1L-04": {
+      "hat_S_counts": {
+        "both": 25,
+        "csv_both_sensitive": 25,
+        "csv_flag_equals_hatS_both": true,
+        "llama": 46,
+        "qwen": 45
+      },
+      "not_evaluated_families": {
+        "Qwen/Qwen2.5-7B-Instruct": [],
+        "meta-llama/Llama-3.1-8B-Instruct": []
+      },
+      "shared_slp_families": [
+        "CM_A_STD_004",
+        "CM_A_STD_017",
+        "CM_B_STD_003",
+        "CM_B_STD_007",
+        "CM_B_STD_012",
+        "CM_B_STD_015",
+        "CM_B_UM_001",
+        "CM_B_UM_009",
+        "CM_B_UM_013",
+        "CM_B_UM_032",
+        "CM_B_UM_034",
+        "CM_B_UM_038",
+        "CM_B_UM_043",
+        "CM_B_UM_047",
+        "CM_B_UM_052",
+        "CM_B_UM_055",
+        "CM_B_UM_059",
+        "CM_C_002",
+        "CM_C_004",
+        "CM_C_005",
+        "EL_B_001",
+        "TH_B_UM_008"
+      ]
+    },
+    "P1L-05": {
+      "auprc": 0.728866
+    },
+    "P1L-06": {
+      "n_variant_samples": 540
+    },
+    "P1L-07": {
+      "correctness_labels_equal_sensitivity_labels": false,
+      "correctness_layer": [
+        24
+      ]
+    },
+    "P1L-08": {
+      "monitor_minus_combined": {
+        "ci95_high": 0.16051822573561714,
+        "ci95_low": -0.04695785510334692,
+        "n_usable_resamples": 10000,
+        "observed_difference": 0.054725274725274775,
+        "proportion_favouring_a": 0.851
+      },
+      "monitor_minus_entropy": {
+        "ci95_high": 0.14140844374770573,
+        "ci95_low": -0.07362637362637359,
+        "n_usable_resamples": 10000,
+        "observed_difference": 0.03252747252747257,
+        "proportion_favouring_a": 0.7223
+      },
+      "recompute_matches_stored_wave2_summary_4dp": true,
+      "stored_monitor_minus_combined": {
+        "ci95_high": 0.1605,
+        "ci95_low": -0.047,
+        "excludes_zero": false,
+        "n_usable_resamples": 10000,
+        "observed_difference": 0.0547,
+        "proportion_favouring_a": 0.8512
+      },
+      "stored_monitor_minus_entropy": {
+        "ci95_high": 0.1414,
+        "ci95_low": -0.0736,
+        "excludes_zero": false,
+        "n_usable_resamples": 10000,
+        "observed_difference": 0.0325,
+        "proportion_favouring_a": 0.7226
+      }
+    },
+    "P1L-09": {
+      "ece_bins": "10 equal-width (project default)"
+    },
+    "P1L-10": {
+      "positives_in_expansion": 10
+    },
+    "P1L-11": {
+      "clipping_rule_assumed": "each family's recovery fraction clipped to [0, 1] before the mean",
+      "families_above_1": 17,
+      "families_below_0": 0,
+      "median_recovery": 1.840476
+    },
+    "P1L-13": {},
+    "P1L-14": {
+      "status": "INCOMPLETE_PENDING_CROSS_FAMILY_REVIEW"
+    },
+    "P1L-15": {
+      "matched": 82,
+      "partial": 46,
+      "unmatched": 54
+    },
+    "P1L-16": {
+      "interpretation": "zero rows is NOT_EVALUATED, not a measured null (v2 8.4)"
+    }
+  },
+  "inputs": {
+    "combined_oof": {
+      "path": "results/wave2/combined_baseline/combined_baseline_predictions.json",
+      "sha256": "b009f5d4c43ecc9d4d6a1dae96577255807da1a8d45b5aaa6423acd9cec1ade6"
+    },
+    "correctness_oof": {
+      "path": "results/stage9/baselines/correctness_probe/loo_predictions_variance.json",
+      "sha256": "fb3b1856a454876fc1002e32378e3d005a8be0bf854ab4b87379f4fd94e96c54"
+    },
+    "correctness_summary": {
+      "path": "results/stage9/baselines/correctness_probe/summary_variance.json",
+      "sha256": "fa5fa167392196cdb55a5496e0aa4d9a1d02057311f1b32559a54d00cb17df59"
+    },
+    "coverage": {
+      "path": "results/stage13/wave0/registry_coverage_v7.json",
+      "sha256": "99e945e548f5577704ee1a83a317d8b594a9d34026b1fc5f69f29b46343d0170"
+    },
+    "donor_same": {
+      "path": "results/stage12/science/donor_renamed/same_answer/same_answer_donor_results.csv",
+      "sha256": "98e27ac1856ee0c41cd891393b0eb7cdf379f1c27e3d6598811a299bc6e9dbff"
+    },
+    "donor_stable": {
+      "path": "results/stage12/science/donor_renamed/stable/stable_donor_results.csv",
+      "sha256": "98e27ac1856ee0c41cd891393b0eb7cdf379f1c27e3d6598811a299bc6e9dbff"
+    },
+    "entropy_oof": {
+      "path": "results/stage9/baselines/entropy/entropy_per_family_scores.json",
+      "sha256": "f1df8d5d4c36b54a55859e0765e53aae1c63a3a6028f20c213706dac46957e0f"
+    },
+    "expansion_preds": {
+      "path": "results/stage12/expansion_probe_inference/family_mean_predictions.json",
+      "sha256": "c893923c15046dc2b0d984ae40dcb8f73d73e31eb27a8e5bf0ae13e64d3c23ef"
+    },
+    "expansion_summary": {
+      "path": "results/stage12/expansion_probe_inference/summary.json",
+      "sha256": "4779725304a722f131468eea6e3eabe61603100b55c01c4efadf3dea509fb3de"
+    },
+    "head11_csv": {
+      "path": "results/stage10/full_head_sweep_l16/head_11/patching_results.csv",
+      "sha256": "120e3161c77dc7c7ff2d72a547e0f00f74016f5dbf86880a9edee36aa095b7c5"
+    },
+    "leakage": {
+      "path": "results/stage13/benchmark_integrity/leakage_audit_v7.json",
+      "sha256": "5ffbb78f287de49f85a5528dd2c4699ab45beaf5559b52662eb72d57f56c3914"
+    },
+    "manifest": {
+      "path": "data/manifests/physmon_canonical_155.jsonl",
+      "sha256": "3f89c93941f5a47d6c013a1e1e020ea082127f6df858e58034b9f54a9ca95bb2"
+    },
+    "mhk_csv": {
+      "path": "results/stage8/multi_head_knockout/patching_results.csv",
+      "sha256": "de1fb67c1ba6a9690ef06673c5907bd70b6a178adef622f1996f2f34dbce54a9"
+    },
+    "monitor_oof": {
+      "path": "results/stage10/mean_probe_full_sweep_bigcompute/loo_predictions_resid_post_last_prompt.json",
+      "sha256": "e31b8d4ddda086ab6dc1bfe6aadb891414cc5817103ea49ecff8df45ab8b2b46"
+    },
+    "monitor_summary": {
+      "path": "results/stage10/mean_probe_full_sweep_bigcompute/summary_resid_post_last_prompt.json",
+      "sha256": "638439519e72b08b0d622c8a32975b67f33a449b57680c53b6d8160cc5d26305"
+    },
+    "per_family": {
+      "path": "results/stage6/analysis_d2/stage6_d1_per_family.csv",
+      "sha256": "46f54ba4ce94776ff994e3bad29e67b2753ec6f76a508ef78213e03ac28b3a74"
+    },
+    "per_variant_oof": {
+      "path": "results/stage10/per_variant_probe_sweep/loo_predictions_per_variant.json",
+      "sha256": "2a37aebb1c79374474aa9a06073f5a9b1875fe3b3be06d9e3300c50438de4160"
+    },
+    "per_variant_summary": {
+      "path": "results/stage10/per_variant_probe_sweep/summary_per_variant_sweep.json",
+      "sha256": "5d4a91127e15a809a7d2b5805b81ecbfa3d533ed052dca87f74fe9f2728c8e76"
+    },
+    "prompt_records": {
+      "path": "results/stage6/behavioural_full_rerun/prompt_records.jsonl",
+      "sha256": "08a8fa1ca92168b73ccf7fe452d5fa4e16db1747677f87d4cb37c1eda71f815c"
+    },
+    "proximity": {
+      "path": "results/stage10/distractor_proximity/proximity_vs_slp.json",
+      "sha256": "d3beaedfd4ad0d224b451e7efa05f714c693565d031f7e9fa599da916722f6ed"
+    },
+    "registry": {
+      "path": "docs/model_registry.yml",
+      "sha256": "6264c32a56ad589f4148ac4b0ceb9aefa8e5407d581f845a4e96d29460d839e9"
+    },
+    "validation": {
+      "path": "results/stage13/benchmark_integrity/validation_agreement_v3.json",
+      "sha256": "140be9b7a592662ae844c4c5d7c5b59ea1cb4c138b82848de0c75dbd95d5cf87"
+    },
+    "wave2_summary": {
+      "path": "results/wave2/incremental_information/incremental_information_summary.json",
+      "sha256": "15f8c72f0ca6b12940e92f7fabd384966de53d83c9f53003521cc84e9b7318cb"
+    }
+  },
+  "numpy": "2.4.6",
+  "python": "3.11.15",
+  "source_commit": "919c177cfc7b00d040e4f26354c99d29329f15eb",
+  "summary": {
+    "P1A-A": "verified",
+    "P1A-B": "verified",
+    "P1L-01": "verified",
+    "P1L-02": "verified",
+    "P1L-03": "verified",
+    "P1L-04": "different_but_explained",
+    "P1L-05": "verified",
+    "P1L-06": "verified",
+    "P1L-07": "verified",
+    "P1L-08": "not_enough_source_data",
+    "P1L-09": "verified",
+    "P1L-10": "verified",
+    "P1L-11": "verified",
+    "P1L-13": "verified",
+    "P1L-14": "not_enough_source_data",
+    "P1L-15": "verified",
+    "P1L-16": "verified"
+  }
+}

@@ -61,14 +61,43 @@ def test_committed_ledger_is_valid_and_non_empty():
     assert missing_artifact_paths(rows, REPO_ROOT) == []
 
 
-def test_committed_ledger_claims_nothing_is_checked_or_paper_eligible_yet():
+def test_committed_ledger_never_claims_confirmatory_or_paper_eligible_evidence():
     rows = _load_ledger()
-    assert {row["verification_label"] for row in rows} == {"not_yet_checked"}
     assert not any(row["paper_eligibility"] for row in rows)
     assert not any(row["evidence_status"] == "confirmatory" for row in rows)
+    assert not any(row["data_role"] in ("INTERNAL_CONFIRMATION", "EPC_CONFIRMATION") for row in rows)
     claim_levels = [row for row in rows if row["row_type"] == "claim_level"]
     assert [row["claim_id"] for row in claim_levels] == ["C1", "C2", "C3", "C4", "C5", "C6"]
     assert {row["gate_status"] for row in claim_levels} == {"not_passed"}
+
+
+def test_committed_ledger_checked_rows_carry_their_evidence():
+    rows = _load_ledger()
+    for row in rows:
+        if row["verification_label"] == "not_yet_checked":
+            # Unchecked rows have not been evaluated under v2 and must say so.
+            assert row["evidence_status"] == "NOT_EVALUATED"
+            continue
+        assert row["verified_in_stage"] and row["journal_ref"]
+        assert row["components"], row["claim_id"]
+        assert row["artifacts"], row["claim_id"]
+        # Legacy data stays exploratory; it is never promoted by being reproduced.
+        assert row["evidence_status"] in ("exploratory", "NOT_EVALUATED")
+
+
+def test_stage_14_1_reproduction_findings_are_recorded_in_the_ledger():
+    rows = {row["claim_id"]: row for row in _load_ledger()}
+    # "25 shared positives" is the answer-flip overlap; the 0.5-nat overlap is 22.
+    shared = rows["P1L-04"]
+    assert shared["verification_label"] == "different_but_explained"
+    component = next(c for c in shared["components"] if c["name"] == "shared_positives")
+    assert (component["reported"], component["recomputed"]) == (25, 22)
+    # The combined-plus-hidden gain cannot be recomputed from committed predictions.
+    assert rows["P1L-08"]["verification_label"] == "not_enough_source_data"
+    assert rows["P1L-14"]["verification_label"] == "not_enough_source_data"
+    # Rows X01 did not examine stay unchecked rather than inheriting a label.
+    assert rows["P1L-12"]["verification_label"] == "not_yet_checked"
+    assert rows["P1A-C"]["verification_label"] == "not_yet_checked"
 
 
 def test_renamed_donor_row_is_unmeasured_not_a_null():

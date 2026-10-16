@@ -143,6 +143,16 @@ Not verifiable here (no manuscript in repo): single-rendering monitor L16 0.7465
 four-head recovery 0.969; "71% of family-held-out tests share a cluster with training". These
 need the submitted PDF (task X01).
 
+**Correction (2026-10-16, Stage 14.1, journal J14.1-002 and J14.1-008):** the paragraph above was too
+pessimistic. Recomputing from committed artifacts (`results/stage14/x01_reproduction/attempt_20261016_919c177/`),
+every value in it reproduces to the printed precision except the 71% figure, which has no committed
+source. The sources are: single-rendering L16 0.7465 in `results/stage10/per_variant_probe_sweep/`;
+entropy and monitor Brier/ECE/FNR from the committed out-of-fold prediction files; frozen expansion
+0.820/0.667/0.6875 in `results/stage12/expansion_probe_inference/`; clipped four-head recovery 0.969 from
+`results/stage8/multi_head_knockout/patching_results.csv` when each family's recovery is clipped to [0, 1]
+(17 of 20 families exceed 1.0 before clipping). Also: "25 shared positives" equals the answer-flip overlap;
+the 0.5-nat overlap is 22. The original paragraph is left in place as a record.
+
 ## 8. Environment facts that constrain the plan
 
 - Activations, checkpoints and Slurm logs from earlier runs were wiped (2026-10 scratch wipe);
