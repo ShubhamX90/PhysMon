@@ -1,0 +1,323 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "k"
+      ],
+      "assumption_id": "A-hooke",
+      "kind": "modelling",
+      "text": "The spring is ideal and massless and obeys Hooke's law."
+    },
+    {
+      "applies_to": [
+        "m"
+      ],
+      "assumption_id": "A-table",
+      "kind": "modelling",
+      "text": "The table is horizontal and frictionless."
+    },
+    {
+      "applies_to": [
+        "x"
+      ],
+      "assumption_id": "A-release",
+      "kind": "boundary_condition",
+      "text": "The block is released from rest at the stated displacement."
+    }
+  ],
+  "domain": "mechanics",
+  "instances": [
+    {
+      "k": 200.0,
+      "m": 0.5,
+      "x": 0.15
+    },
+    {
+      "k": 150.0,
+      "m": 0.8,
+      "x": 0.2
+    }
+  ],
+  "law_family": "spring_release_speed",
+  "nodes": [
+    {
+      "description": "spring constant",
+      "domain": [
+        100.0,
+        400.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "k",
+      "provenance": "measured",
+      "quantity_type": "spring_constant",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "N/m",
+      "value": 200.0
+    },
+    {
+      "description": "initial displacement from equilibrium",
+      "domain": [
+        0.05,
+        0.3
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "x",
+      "provenance": "measured",
+      "quantity_type": "length",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m",
+      "value": 0.15
+    },
+    {
+      "description": "mass of the block",
+      "domain": [
+        0.3,
+        1.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "m",
+      "provenance": "measured",
+      "quantity_type": "mass",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "kg",
+      "value": 0.5
+    },
+    {
+      "description": "angular frequency",
+      "domain": null,
+      "expr": "sqrt(k/m)",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "omega",
+      "provenance": "computed",
+      "quantity_type": "angular_frequency",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "rad/s",
+      "value": null
+    },
+    {
+      "description": "maximum speed",
+      "domain": null,
+      "expr": "omega*x",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "v",
+      "provenance": "computed",
+      "quantity_type": "speed",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m/s",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "k"
+        ],
+        "assumption_id": "A-hooke",
+        "kind": "modelling",
+        "text": "The spring is ideal and massless and obeys Hooke's law."
+      },
+      {
+        "applies_to": [
+          "m"
+        ],
+        "assumption_id": "A-table",
+        "kind": "modelling",
+        "text": "The table is horizontal and frictionless."
+      },
+      {
+        "applies_to": [
+          "x"
+        ],
+        "assumption_id": "A-release",
+        "kind": "boundary_condition",
+        "text": "The block is released from rest at the stated displacement."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "2 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 2.30e-12 (tolerance 1e-06) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing k by x1.5 moves the answer by 22.5% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "8 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "21 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "mechanics",
+    "law_family": "spring_release_speed",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "M^1 T^-2",
+        "domain": [
+          100.0,
+          400.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "k",
+        "provenance": "measured",
+        "quantity_type": "spring_constant",
+        "sign_convention": "magnitudes are positive",
+        "unit": "N/m",
+        "value": 200.0
+      },
+      {
+        "dimension": "L^1",
+        "domain": [
+          0.05,
+          0.3
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "x",
+        "provenance": "measured",
+        "quantity_type": "length",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m",
+        "value": 0.15
+      },
+      {
+        "dimension": "M^1",
+        "domain": [
+          0.3,
+          1.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "m",
+        "provenance": "measured",
+        "quantity_type": "mass",
+        "sign_convention": "magnitudes are positive",
+        "unit": "kg",
+        "value": 0.5
+      },
+      {
+        "dimension": "T^-1",
+        "domain": null,
+        "expr": "sqrt(k/m)",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "omega",
+        "provenance": "computed",
+        "quantity_type": "angular_frequency",
+        "sign_convention": "magnitudes are positive",
+        "unit": "rad/s",
+        "value": null
+      },
+      {
+        "dimension": "L^1 T^-1",
+        "domain": null,
+        "expr": "omega*x",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "v",
+        "provenance": "computed",
+        "quantity_type": "speed",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m/s",
+        "value": null
+      }
+    ],
+    "program_hash": "62528138b3d9c57e9f3c1117cb0e8966d87b2ad5f74914f57c273c9469fc8a0e",
+    "seed": 42,
+    "solver_rel_tol": 1e-06,
+    "solver_route": "the oscillator equation integrated from rest with an adaptive ODE solver; the largest speed reached is taken",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S04",
+    "structure_uuid": "42ff7b65-4d52-5bc7-ae71-3a4c5f0d454a",
+    "symbolic_derivation": "x*sqrt(k/m)",
+    "title": "Maximum speed of a block released from a stretched spring"
+  },
+  "relevant_edit": {
+    "factor": 1.5,
+    "node": "k"
+  },
+  "render": {
+    "comparison_sentence": "A reference block-and-spring system B reaches a maximum speed of {v} {u}.",
+    "context": "A block of mass {m} kg rests on a horizontal frictionless table and is attached to a horizontal spring of spring constant {k} N/m. The block is pulled {x} m from its equilibrium position and released from rest.",
+    "equivalent_unit": "km/h",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate lamp B is rated at {v} {u}, but it is not connected to the spring.",
+    "incompatible_unit": "W",
+    "isolated_sentence": "A second block-and-spring system on another table reaches a maximum speed of {v} {u}, but it is not connected to this one.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "maximum speed of the block",
+    "question": "What is the maximum speed of the block?",
+    "target_unit": "m/s"
+  },
+  "solver_rel_tol": 1e-06,
+  "solver_route": "the oscillator equation integrated from rest with an adaptive ODE solver; the largest speed reached is taken",
+  "structure_id": "S04",
+  "target": "v",
+  "title": "Maximum speed of a block released from a stretched spring"
+}

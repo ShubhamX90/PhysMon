@@ -1,0 +1,360 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "g"
+      ],
+      "assumption_id": "A-g",
+      "kind": "modelling",
+      "text": "g is a uniform constant of the stated value."
+    },
+    {
+      "applies_to": [
+        "m1",
+        "m2"
+      ],
+      "assumption_id": "A-string",
+      "kind": "modelling",
+      "text": "The string is light and inextensible and does not slip on the pulley."
+    },
+    {
+      "applies_to": [
+        "M"
+      ],
+      "assumption_id": "A-pulley",
+      "kind": "modelling",
+      "text": "The pulley is a uniform solid disc turning without axle friction."
+    }
+  ],
+  "domain": "mechanics",
+  "instances": [
+    {
+      "M": 2.0,
+      "g": 9.8,
+      "m1": 3.0,
+      "m2": 5.0
+    },
+    {
+      "M": 3.0,
+      "g": 9.8,
+      "m1": 2.4,
+      "m2": 5.6
+    }
+  ],
+  "law_family": "atwood_massive_pulley",
+  "nodes": [
+    {
+      "description": "mass of the left block",
+      "domain": [
+        2.0,
+        4.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "m1",
+      "provenance": "measured",
+      "quantity_type": "mass",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "kg",
+      "value": 3.0
+    },
+    {
+      "description": "mass of the right block",
+      "domain": [
+        4.5,
+        7.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "m2",
+      "provenance": "measured",
+      "quantity_type": "mass",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "kg",
+      "value": 5.0
+    },
+    {
+      "description": "mass of the uniform disc pulley",
+      "domain": [
+        1.0,
+        4.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "M",
+      "provenance": "measured",
+      "quantity_type": "mass",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "kg",
+      "value": 2.0
+    },
+    {
+      "description": "gravitational acceleration, a stated constant",
+      "domain": [
+        9.7,
+        9.9
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "g",
+      "provenance": "assumed",
+      "quantity_type": "acceleration",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m/s^2",
+      "value": 9.8
+    },
+    {
+      "description": "effective inertial mass of the system",
+      "domain": null,
+      "expr": "m1 + m2 + M/2",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "m_eff",
+      "provenance": "computed",
+      "quantity_type": "mass",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "kg",
+      "value": null
+    },
+    {
+      "description": "acceleration of the blocks",
+      "domain": null,
+      "expr": "(m2 - m1)*g/m_eff",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "a",
+      "provenance": "computed",
+      "quantity_type": "acceleration",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m/s^2",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "g"
+        ],
+        "assumption_id": "A-g",
+        "kind": "modelling",
+        "text": "g is a uniform constant of the stated value."
+      },
+      {
+        "applies_to": [
+          "m1",
+          "m2"
+        ],
+        "assumption_id": "A-string",
+        "kind": "modelling",
+        "text": "The string is light and inextensible and does not slip on the pulley."
+      },
+      {
+        "applies_to": [
+          "M"
+        ],
+        "assumption_id": "A-pulley",
+        "kind": "modelling",
+        "text": "The pulley is a uniform solid disc turning without axle friction."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "2 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 3.00e-15 (tolerance 1e-09) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing m2 by x1.2 moves the answer by 35.0% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "16 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "21 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "mechanics",
+    "law_family": "atwood_massive_pulley",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "M^1",
+        "domain": [
+          2.0,
+          4.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "m1",
+        "provenance": "measured",
+        "quantity_type": "mass",
+        "sign_convention": "magnitudes are positive",
+        "unit": "kg",
+        "value": 3.0
+      },
+      {
+        "dimension": "M^1",
+        "domain": [
+          4.5,
+          7.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "m2",
+        "provenance": "measured",
+        "quantity_type": "mass",
+        "sign_convention": "magnitudes are positive",
+        "unit": "kg",
+        "value": 5.0
+      },
+      {
+        "dimension": "M^1",
+        "domain": [
+          1.0,
+          4.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "M",
+        "provenance": "measured",
+        "quantity_type": "mass",
+        "sign_convention": "magnitudes are positive",
+        "unit": "kg",
+        "value": 2.0
+      },
+      {
+        "dimension": "L^1 T^-2",
+        "domain": [
+          9.7,
+          9.9
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "g",
+        "provenance": "assumed",
+        "quantity_type": "acceleration",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m/s^2",
+        "value": 9.8
+      },
+      {
+        "dimension": "M^1",
+        "domain": null,
+        "expr": "m1 + m2 + M/2",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "m_eff",
+        "provenance": "computed",
+        "quantity_type": "mass",
+        "sign_convention": "magnitudes are positive",
+        "unit": "kg",
+        "value": null
+      },
+      {
+        "dimension": "L^1 T^-2",
+        "domain": null,
+        "expr": "(m2 - m1)*g/m_eff",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "a",
+        "provenance": "computed",
+        "quantity_type": "acceleration",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m/s^2",
+        "value": null
+      }
+    ],
+    "program_hash": "03e2a85a615bda05e4b81e6a31604b46076eaa786e65da3348e0304f0d830a61",
+    "seed": 42,
+    "solver_rel_tol": 1e-09,
+    "solver_route": "Newton's laws for each block and the pulley's rotational equation solved as a 3x3 linear system",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S01",
+    "structure_uuid": "6fea9c07-8243-539c-af85-fc6cc27fbe10",
+    "symbolic_derivation": "2*g*(-m1 + m2)/(M + 2*m1 + 2*m2)",
+    "title": "Atwood machine with a massive disc pulley"
+  },
+  "relevant_edit": {
+    "factor": 1.2,
+    "node": "m2"
+  },
+  "render": {
+    "comparison_sentence": "A reference pulley system B has an acceleration of {v} {u}.",
+    "context": "Two blocks hang from a light string that passes over a pulley, which is a uniform solid disc of mass {M} kg. The string does not slip on the pulley. The left block has mass {m1} kg and the right block has mass {m2} kg. Take g = {g} m/s².",
+    "equivalent_unit": "cm/s^2",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate sensor B reports a reading of {v} {u}, but it is not connected to the blocks.",
+    "incompatible_unit": "W",
+    "isolated_sentence": "In a separate experiment, a different pulley system B accelerates at {v} {u}, but it is mechanically isolated from the two blocks.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "acceleration of the blocks",
+    "question": "What is the magnitude of the acceleration of the blocks?",
+    "target_unit": "m/s^2"
+  },
+  "solver_rel_tol": 1e-09,
+  "solver_route": "Newton's laws for each block and the pulley's rotational equation solved as a 3x3 linear system",
+  "structure_id": "S01",
+  "target": "a",
+  "title": "Atwood machine with a massive disc pulley"
+}

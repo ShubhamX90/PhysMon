@@ -1,0 +1,358 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "g"
+      ],
+      "assumption_id": "A-g",
+      "kind": "modelling",
+      "text": "g is a uniform constant of the stated value."
+    },
+    {
+      "applies_to": [
+        "d"
+      ],
+      "assumption_id": "A-rest",
+      "kind": "boundary_condition",
+      "text": "The block starts from rest."
+    },
+    {
+      "applies_to": [
+        "mu"
+      ],
+      "assumption_id": "A-friction",
+      "kind": "modelling",
+      "text": "The coefficient of kinetic friction is constant along the incline."
+    }
+  ],
+  "domain": "mechanics",
+  "instances": [
+    {
+      "d": 4.0,
+      "g": 9.8,
+      "mu": 0.15,
+      "theta": 30.0
+    },
+    {
+      "d": 5.0,
+      "g": 9.8,
+      "mu": 0.1,
+      "theta": 40.0
+    }
+  ],
+  "law_family": "rough_incline_speed",
+  "nodes": [
+    {
+      "description": "incline angle",
+      "domain": [
+        25.0,
+        50.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "theta",
+      "provenance": "measured",
+      "quantity_type": "angle",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "deg",
+      "value": 30.0
+    },
+    {
+      "description": "coefficient of kinetic friction",
+      "domain": [
+        0.05,
+        0.2
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "mu",
+      "provenance": "measured",
+      "quantity_type": "coefficient",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "1",
+      "value": 0.15
+    },
+    {
+      "description": "distance slid along the incline",
+      "domain": [
+        2.0,
+        6.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "d",
+      "provenance": "measured",
+      "quantity_type": "length",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m",
+      "value": 4.0
+    },
+    {
+      "description": "gravitational acceleration, a stated constant",
+      "domain": [
+        9.7,
+        9.9
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "g",
+      "provenance": "assumed",
+      "quantity_type": "acceleration",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m/s^2",
+      "value": 9.8
+    },
+    {
+      "description": "acceleration down the incline",
+      "domain": null,
+      "expr": "g*(sin(theta) - mu*cos(theta))",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "a",
+      "provenance": "computed",
+      "quantity_type": "acceleration",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m/s^2",
+      "value": null
+    },
+    {
+      "description": "speed after sliding the distance",
+      "domain": null,
+      "expr": "sqrt(2*a*d)",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "v",
+      "provenance": "computed",
+      "quantity_type": "speed",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m/s",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "g"
+        ],
+        "assumption_id": "A-g",
+        "kind": "modelling",
+        "text": "g is a uniform constant of the stated value."
+      },
+      {
+        "applies_to": [
+          "d"
+        ],
+        "assumption_id": "A-rest",
+        "kind": "boundary_condition",
+        "text": "The block starts from rest."
+      },
+      {
+        "applies_to": [
+          "mu"
+        ],
+        "assumption_id": "A-friction",
+        "kind": "modelling",
+        "text": "The coefficient of kinetic friction is constant along the incline."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "2 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 2.48e-15 (tolerance 1e-06) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing d by x1.5 moves the answer by 22.5% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "16 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "22 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "mechanics",
+    "law_family": "rough_incline_speed",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "1",
+        "domain": [
+          25.0,
+          50.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "theta",
+        "provenance": "measured",
+        "quantity_type": "angle",
+        "sign_convention": "magnitudes are positive",
+        "unit": "deg",
+        "value": 30.0
+      },
+      {
+        "dimension": "1",
+        "domain": [
+          0.05,
+          0.2
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "mu",
+        "provenance": "measured",
+        "quantity_type": "coefficient",
+        "sign_convention": "magnitudes are positive",
+        "unit": "1",
+        "value": 0.15
+      },
+      {
+        "dimension": "L^1",
+        "domain": [
+          2.0,
+          6.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "d",
+        "provenance": "measured",
+        "quantity_type": "length",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m",
+        "value": 4.0
+      },
+      {
+        "dimension": "L^1 T^-2",
+        "domain": [
+          9.7,
+          9.9
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "g",
+        "provenance": "assumed",
+        "quantity_type": "acceleration",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m/s^2",
+        "value": 9.8
+      },
+      {
+        "dimension": "L^1 T^-2",
+        "domain": null,
+        "expr": "g*(sin(theta) - mu*cos(theta))",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "a",
+        "provenance": "computed",
+        "quantity_type": "acceleration",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m/s^2",
+        "value": null
+      },
+      {
+        "dimension": "L^1 T^-1",
+        "domain": null,
+        "expr": "sqrt(2*a*d)",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "v",
+        "provenance": "computed",
+        "quantity_type": "speed",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m/s",
+        "value": null
+      }
+    ],
+    "program_hash": "7bf653674713d8d0d3afaae000f4bc980ec643c4c21732c48c6a77acc1f2ce14",
+    "seed": 42,
+    "solver_rel_tol": 1e-06,
+    "solver_route": "force picture per unit mass integrated with an adaptive ODE solver from rest until the block has slid the distance",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S02",
+    "structure_uuid": "36c235fe-9758-590a-9de0-3c4309d0d540",
+    "symbolic_derivation": "sqrt(2)*sqrt(d*g*(-mu*cos(theta) + sin(theta)))",
+    "title": "Block sliding down a rough incline"
+  },
+  "relevant_edit": {
+    "factor": 1.5,
+    "node": "d"
+  },
+  "render": {
+    "comparison_sentence": "A reference cart B moves at {v} {u}.",
+    "context": "A block is released from rest on a rough incline that makes an angle of {theta} degrees with the horizontal. The coefficient of kinetic friction between the block and the incline is {mu}. Take g = {g} m/s². The block slides {d} m down the incline.",
+    "equivalent_unit": "km/h",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate heater B is rated at {v} {u}, but it is not connected to the block.",
+    "incompatible_unit": "W",
+    "isolated_sentence": "A separate cart B on another track is moving at {v} {u}, but it never interacts with the block.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "speed of the block",
+    "question": "What is the speed of the block after it has slid that distance?",
+    "target_unit": "m/s"
+  },
+  "solver_rel_tol": 1e-06,
+  "solver_route": "force picture per unit mass integrated with an adaptive ODE solver from rest until the block has slid the distance",
+  "structure_id": "S02",
+  "target": "v",
+  "title": "Block sliding down a rough incline"
+}

@@ -1,0 +1,416 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "T1",
+        "T2"
+      ],
+      "assumption_id": "A-heat",
+      "kind": "modelling",
+      "text": "No heat is exchanged with the surroundings and no phase change occurs."
+    },
+    {
+      "applies_to": [
+        "c1",
+        "c2"
+      ],
+      "assumption_id": "A-c",
+      "kind": "modelling",
+      "text": "The specific heats are constant over the temperature range."
+    }
+  ],
+  "domain": "thermodynamics",
+  "instances": [
+    {
+      "T1": 373.0,
+      "T2": 293.0,
+      "c1": 385.0,
+      "c2": 4186.0,
+      "m1": 0.5,
+      "m2": 0.4
+    },
+    {
+      "T1": 390.0,
+      "T2": 288.0,
+      "c1": 385.0,
+      "c2": 4186.0,
+      "m1": 0.7,
+      "m2": 0.35
+    }
+  ],
+  "law_family": "calorimetry_mixing_temperature",
+  "nodes": [
+    {
+      "description": "mass of the block",
+      "domain": [
+        0.3,
+        0.8
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "m1",
+      "provenance": "measured",
+      "quantity_type": "mass",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "kg",
+      "value": 0.5
+    },
+    {
+      "description": "specific heat of the block",
+      "domain": [
+        380.0,
+        390.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "c1",
+      "provenance": "assumed",
+      "quantity_type": "specific_heat",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "J/(kg*K)",
+      "value": 385.0
+    },
+    {
+      "description": "initial temperature of the block",
+      "domain": [
+        350.0,
+        400.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "T1",
+      "provenance": "measured",
+      "quantity_type": "temperature",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "K",
+      "value": 373.0
+    },
+    {
+      "description": "mass of the water",
+      "domain": [
+        0.3,
+        0.6
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "m2",
+      "provenance": "measured",
+      "quantity_type": "mass",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "kg",
+      "value": 0.4
+    },
+    {
+      "description": "specific heat of the water",
+      "domain": [
+        4100.0,
+        4250.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "c2",
+      "provenance": "assumed",
+      "quantity_type": "specific_heat",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "J/(kg*K)",
+      "value": 4186.0
+    },
+    {
+      "description": "initial temperature of the water",
+      "domain": [
+        280.0,
+        300.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "T2",
+      "provenance": "measured",
+      "quantity_type": "temperature",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "K",
+      "value": 293.0
+    },
+    {
+      "description": "final equilibrium temperature",
+      "domain": null,
+      "expr": "(m1*c1*T1 + m2*c2*T2)/(m1*c1 + m2*c2)",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "Tf",
+      "provenance": "computed",
+      "quantity_type": "temperature",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "K",
+      "value": null
+    },
+    {
+      "description": "temperature rise of the water",
+      "domain": null,
+      "expr": "Tf - T2",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "dT",
+      "provenance": "computed",
+      "quantity_type": "temperature_change",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "K",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "T1",
+          "T2"
+        ],
+        "assumption_id": "A-heat",
+        "kind": "modelling",
+        "text": "No heat is exchanged with the surroundings and no phase change occurs."
+      },
+      {
+        "applies_to": [
+          "c1",
+          "c2"
+        ],
+        "assumption_id": "A-c",
+        "kind": "modelling",
+        "text": "The specific heats are constant over the temperature range."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "2 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 1.54e-14 (tolerance 1e-09) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing m1 by x1.5 moves the answer by 42.6% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "64 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "20 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "thermodynamics",
+    "law_family": "calorimetry_mixing_temperature",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "M^1",
+        "domain": [
+          0.3,
+          0.8
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "m1",
+        "provenance": "measured",
+        "quantity_type": "mass",
+        "sign_convention": "magnitudes are positive",
+        "unit": "kg",
+        "value": 0.5
+      },
+      {
+        "dimension": "L^2 T^-2 Th^-1",
+        "domain": [
+          380.0,
+          390.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "c1",
+        "provenance": "assumed",
+        "quantity_type": "specific_heat",
+        "sign_convention": "magnitudes are positive",
+        "unit": "J/(kg*K)",
+        "value": 385.0
+      },
+      {
+        "dimension": "Th^1",
+        "domain": [
+          350.0,
+          400.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "T1",
+        "provenance": "measured",
+        "quantity_type": "temperature",
+        "sign_convention": "magnitudes are positive",
+        "unit": "K",
+        "value": 373.0
+      },
+      {
+        "dimension": "M^1",
+        "domain": [
+          0.3,
+          0.6
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "m2",
+        "provenance": "measured",
+        "quantity_type": "mass",
+        "sign_convention": "magnitudes are positive",
+        "unit": "kg",
+        "value": 0.4
+      },
+      {
+        "dimension": "L^2 T^-2 Th^-1",
+        "domain": [
+          4100.0,
+          4250.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "c2",
+        "provenance": "assumed",
+        "quantity_type": "specific_heat",
+        "sign_convention": "magnitudes are positive",
+        "unit": "J/(kg*K)",
+        "value": 4186.0
+      },
+      {
+        "dimension": "Th^1",
+        "domain": [
+          280.0,
+          300.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "T2",
+        "provenance": "measured",
+        "quantity_type": "temperature",
+        "sign_convention": "magnitudes are positive",
+        "unit": "K",
+        "value": 293.0
+      },
+      {
+        "dimension": "Th^1",
+        "domain": null,
+        "expr": "(m1*c1*T1 + m2*c2*T2)/(m1*c1 + m2*c2)",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "Tf",
+        "provenance": "computed",
+        "quantity_type": "temperature",
+        "sign_convention": "magnitudes are positive",
+        "unit": "K",
+        "value": null
+      },
+      {
+        "dimension": "Th^1",
+        "domain": null,
+        "expr": "Tf - T2",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "dT",
+        "provenance": "computed",
+        "quantity_type": "temperature_change",
+        "sign_convention": "magnitudes are positive",
+        "unit": "K",
+        "value": null
+      }
+    ],
+    "program_hash": "59036c98921b355f98040c37497b9dd7d8c4fe8292c6409cbcbdf3e4c212f7de",
+    "seed": 42,
+    "solver_rel_tol": 1e-09,
+    "solver_route": "the energy balance m1 c1 (T - T1) + m2 c2 (T - T2) = 0 solved for T with a bracketing root finder",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S09",
+    "structure_uuid": "5a10d234-d4ce-5900-b751-bcd219265813",
+    "symbolic_derivation": "c1*m1*(T1 - T2)/(c1*m1 + c2*m2)",
+    "title": "Temperature rise of water when a hot block is placed in it"
+  },
+  "relevant_edit": {
+    "factor": 1.5,
+    "node": "m1"
+  },
+  "render": {
+    "comparison_sentence": "A reference container B has a water temperature rise of {v} {u}.",
+    "context": "A {m1} kg block of copper with specific heat {c1} J/(kg*K) at {T1} K is placed in {m2} kg of water with specific heat {c2} J/(kg*K) at {T2} K inside a perfectly insulated container.",
+    "equivalent_unit": null,
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate cart B moves at {v} {u}, but it has nothing to do with the container.",
+    "incompatible_unit": "m/s",
+    "isolated_sentence": "A separate beaker of oil in the next room has warmed by {v} {u}, but it is not in contact with the container.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "temperature rise of the water",
+    "question": "By how many kelvin does the temperature of the water rise?",
+    "target_unit": "K"
+  },
+  "solver_rel_tol": 1e-09,
+  "solver_route": "the energy balance m1 c1 (T - T1) + m2 c2 (T - T2) = 0 solved for T with a bracketing root finder",
+  "structure_id": "S09",
+  "target": "dT",
+  "title": "Temperature rise of water when a hot block is placed in it"
+}

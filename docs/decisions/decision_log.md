@@ -3080,3 +3080,32 @@ committed for provenance and must be kept out of any copy shared with reviewers;
 
 Status: candidate materials; nothing is validated or paper-eligible.
 
+## Stage 14.6: typed generator and the first ten DECOY-v2 structures — 2026-10-16
+
+Decision: build the proof-carrying generator that v2 B3.2 requires and use it to produce ten new structures, CPU only, with no
+model run. Plan sections relied on: B3.2-B3.3 (p.8), P2.1-P2.4 (p.18-19), P3.3 (p.20), §9.1 (p.43), first sprint item 6 (p.49).
+Journal: `docs/journal/stage14/14.6_typed_generator.md`. Artifacts: `data/v2/structures/v1/` (source commit `32e0a95`).
+
+What was built: a dimensional checker over sympy expressions (the Stage 13 certificates listed it as unsupported); a typed DAG with
+unit, frame, sign convention, provenance and explicit assumptions in which nuisance quantities are never graph nodes; a certifier
+with eleven checks and a proof object, including a hand-coded independent solver route for every structure (linear system, ODE
+integration, quadratic, nodal analysis, root finder) and a check that every numeral in every rendered prompt traces to the graph;
+a mutation harness (75 planted defects from 9 mutators and 20 equivalent rewrites from 2 over the ten structures); and eleven
+predeclared factor cells with fixed proximity and digit-overlap bands. Of 220 cells (10 structures x 2 instantiations x 11 cells),
+211 are feasible; the rest are recorded with a reason instead of forced (B3.3).
+
+Results: all ten structures are SOLVER_CERTIFIED; 0 planted defects uncaught and 0 equivalent rewrites rejected, each defect failing
+for an intended reason; no new equation program or law label appears in v1. The checks found two design flaws in my own structures
+(a relevant edit outside the admissible domain; an absolute-temperature target that no edit could move by 5%, now a temperature
+rise) and one flawed mutator (a divisor that only appeared inside a sum), all fixed without changing the certifier.
+
+Observation: the 155 v1 families contain only 31 distinct renaming-invariant equation programs (the largest is shared by 44
+templates) although `governing_law` has 104 labels. Labels overstate the number of independent symbolic structures (v2 §8.1,
+P2.4). The hash covers the equation only, so it is a lower bound on distinct programs.
+
+Not done, and not the agent's to do: independent expert review of the English text and modelling choices (every structure and cell is
+UNREVIEWED); the 40 to 60 independent structures the pilot wants (ten exist); a naturalness comparison with textbook prompts. The
+first-sprint exit "genuinely independent expert review" is therefore not met. No model has been run on any structure.
+
+Status: certified candidate materials; nothing is validated, confirmatory or paper-eligible.
+

@@ -1,0 +1,371 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "C"
+      ],
+      "assumption_id": "A-uncharged",
+      "kind": "boundary_condition",
+      "text": "The capacitor is initially uncharged."
+    },
+    {
+      "applies_to": [
+        "V0",
+        "R"
+      ],
+      "assumption_id": "A-ideal",
+      "kind": "modelling",
+      "text": "The battery and wires are ideal and the capacitor does not leak."
+    }
+  ],
+  "domain": "circuits",
+  "instances": [
+    {
+      "C": 20.0,
+      "R": 5.0,
+      "V0": 12.0,
+      "t": 80.0
+    },
+    {
+      "C": 15.0,
+      "R": 8.0,
+      "V0": 9.0,
+      "t": 150.0
+    }
+  ],
+  "law_family": "rc_charging_voltage",
+  "nodes": [
+    {
+      "description": "battery emf",
+      "domain": [
+        6.0,
+        24.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "V0",
+      "provenance": "measured",
+      "quantity_type": "voltage",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "V",
+      "value": 12.0
+    },
+    {
+      "description": "series resistance",
+      "domain": [
+        2.0,
+        10.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "R",
+      "provenance": "measured",
+      "quantity_type": "resistance",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "kΩ",
+      "value": 5.0
+    },
+    {
+      "description": "capacitance",
+      "domain": [
+        10.0,
+        40.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "C",
+      "provenance": "measured",
+      "quantity_type": "capacitance",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "μF",
+      "value": 20.0
+    },
+    {
+      "description": "time after the connection",
+      "domain": [
+        40.0,
+        200.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "t",
+      "provenance": "measured",
+      "quantity_type": "time",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "ms",
+      "value": 80.0
+    },
+    {
+      "description": "time constant",
+      "domain": null,
+      "expr": "R*C",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "tau",
+      "provenance": "computed",
+      "quantity_type": "time",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "s",
+      "value": null
+    },
+    {
+      "description": "elapsed time in units of the time constant",
+      "domain": null,
+      "expr": "t/tau",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "x",
+      "provenance": "computed",
+      "quantity_type": "dimensionless",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "1",
+      "value": null
+    },
+    {
+      "description": "capacitor voltage",
+      "domain": null,
+      "expr": "V0*(1 - exp(-x))",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "VC",
+      "provenance": "computed",
+      "quantity_type": "voltage",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "V",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "C"
+        ],
+        "assumption_id": "A-uncharged",
+        "kind": "boundary_condition",
+        "text": "The capacitor is initially uncharged."
+      },
+      {
+        "applies_to": [
+          "V0",
+          "R"
+        ],
+        "assumption_id": "A-ideal",
+        "kind": "modelling",
+        "text": "The battery and wires are ideal and the capacitor does not leak."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "3 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 1.94e-12 (tolerance 1e-06) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing t by x1.5 moves the answer by 26.9% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "16 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "22 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "circuits",
+    "law_family": "rc_charging_voltage",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "M^1 L^2 T^-3 I^-1",
+        "domain": [
+          6.0,
+          24.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "V0",
+        "provenance": "measured",
+        "quantity_type": "voltage",
+        "sign_convention": "magnitudes are positive",
+        "unit": "V",
+        "value": 12.0
+      },
+      {
+        "dimension": "M^1 L^2 T^-3 I^-2",
+        "domain": [
+          2.0,
+          10.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "R",
+        "provenance": "measured",
+        "quantity_type": "resistance",
+        "sign_convention": "magnitudes are positive",
+        "unit": "kΩ",
+        "value": 5.0
+      },
+      {
+        "dimension": "M^-1 L^-2 T^4 I^2",
+        "domain": [
+          10.0,
+          40.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "C",
+        "provenance": "measured",
+        "quantity_type": "capacitance",
+        "sign_convention": "magnitudes are positive",
+        "unit": "μF",
+        "value": 20.0
+      },
+      {
+        "dimension": "T^1",
+        "domain": [
+          40.0,
+          200.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "t",
+        "provenance": "measured",
+        "quantity_type": "time",
+        "sign_convention": "magnitudes are positive",
+        "unit": "ms",
+        "value": 80.0
+      },
+      {
+        "dimension": "T^1",
+        "domain": null,
+        "expr": "R*C",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "tau",
+        "provenance": "computed",
+        "quantity_type": "time",
+        "sign_convention": "magnitudes are positive",
+        "unit": "s",
+        "value": null
+      },
+      {
+        "dimension": "1",
+        "domain": null,
+        "expr": "t/tau",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "x",
+        "provenance": "computed",
+        "quantity_type": "dimensionless",
+        "sign_convention": "magnitudes are positive",
+        "unit": "1",
+        "value": null
+      },
+      {
+        "dimension": "M^1 L^2 T^-3 I^-1",
+        "domain": null,
+        "expr": "V0*(1 - exp(-x))",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "VC",
+        "provenance": "computed",
+        "quantity_type": "voltage",
+        "sign_convention": "magnitudes are positive",
+        "unit": "V",
+        "value": null
+      }
+    ],
+    "program_hash": "2eacd258bdf5acc0061393e63895d05bb46e543edd9640277aa54007e7a36b95",
+    "seed": 42,
+    "solver_rel_tol": 1e-06,
+    "solver_route": "the charging equation dV/dt = (V0 - V)/(R C) integrated with an adaptive ODE solver",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S07",
+    "structure_uuid": "f6534e54-9246-5dd7-bb79-90d2a956d568",
+    "symbolic_derivation": "V0 - V0*exp(-t/(C*R))",
+    "title": "Capacitor voltage during charging through a resistor"
+  },
+  "relevant_edit": {
+    "factor": 1.5,
+    "node": "t"
+  },
+  "render": {
+    "comparison_sentence": "A reference capacitor circuit B has {v} {u} across its capacitor.",
+    "context": "A capacitor of {C} μF, initially uncharged, is connected in series with a {R} kΩ resistor to a battery of emf {V0} V. The connection is made at the start of the experiment.",
+    "equivalent_unit": "mV",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate heater B is rated at {v} {u}, but it is not connected to this circuit.",
+    "incompatible_unit": "W",
+    "isolated_sentence": "Another capacitor circuit on a different board has {v} {u} across its capacitor, but it is not connected to this circuit.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "voltage across the capacitor",
+    "question": "What is the voltage across the capacitor {t} ms after the connection is made?",
+    "target_unit": "V"
+  },
+  "solver_rel_tol": 1e-06,
+  "solver_route": "the charging equation dV/dt = (V0 - V)/(R C) integrated with an adaptive ODE solver",
+  "structure_id": "S07",
+  "target": "VC",
+  "title": "Capacitor voltage during charging through a resistor"
+}

@@ -12,7 +12,7 @@ Plan of record: `docs/proposals/PhysMon_Research_v2.pdf`. Stage ordering below i
 | 14.3 | Scoring-interface contract (prompt bytes, answer spans, wrappers) | B1.4, P1.3, card X03 | CPU design, small GPU later | done (tokenizer-only scope); reviewer sign-off and GPU cases pending | [14.3](stage14/14.3_scoring_contract.md) |
 | 14.4 | Structure overlap and the five excluded stable families | B1.6, P3.5, P3.6, card X05 | CPU only | done (committed-data scope); monitor under cluster-held-out folds NOT_EVALUATED | [14.4](stage14/14.4_structure_overlap.md) |
 | 14.5 | Validator qualification materials | B4, P3.1 | human task | done (instruments and candidate materials); no validator qualified, bank unconfirmed | [14.5](stage14/14.5_validator_qualification.md) |
-| 14.6 | Typed generator and first 10 certified v2 structures | B3.2, B3 deliverable | CPU plus human review | not started | |
+| 14.6 | Typed generator and first 10 certified v2 structures | B3.2, B3 deliverable | CPU plus human review | done (generator and solver certificates); all 10 structures UNREVIEWED | [14.6](stage14/14.6_typed_generator.md) |
 | 14.7 | Pilot on two dense models | B6, P1 | GPU | blocked on 14.2 to 14.4 and user approval | |
 
 Status values: `not started`, `in progress`, `done`, `blocked`, `superseded`.

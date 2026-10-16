@@ -1,0 +1,319 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "m1",
+        "m2"
+      ],
+      "assumption_id": "A-elastic",
+      "kind": "modelling",
+      "text": "The collision is perfectly elastic and the track is frictionless."
+    },
+    {
+      "applies_to": [
+        "v1",
+        "v2"
+      ],
+      "assumption_id": "A-1d",
+      "kind": "boundary_condition",
+      "text": "Both carts move along one straight line and the first cart overtakes the second."
+    }
+  ],
+  "domain": "mechanics",
+  "instances": [
+    {
+      "m1": 3.0,
+      "m2": 2.0,
+      "v1": 6.0,
+      "v2": 1.0
+    },
+    {
+      "m1": 4.0,
+      "m2": 1.5,
+      "v1": 5.0,
+      "v2": 0.5
+    }
+  ],
+  "law_family": "elastic_collision_1d",
+  "nodes": [
+    {
+      "description": "mass of the first cart",
+      "domain": [
+        2.5,
+        5.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "m1",
+      "provenance": "measured",
+      "quantity_type": "mass",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "kg",
+      "value": 3.0
+    },
+    {
+      "description": "velocity of the first cart before the collision",
+      "domain": [
+        4.0,
+        8.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "v1",
+      "provenance": "measured",
+      "quantity_type": "velocity",
+      "sign_convention": "positive along the first cart's original direction of motion",
+      "uncertainty": null,
+      "unit": "m/s",
+      "value": 6.0
+    },
+    {
+      "description": "mass of the second cart",
+      "domain": [
+        1.0,
+        2.4
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "m2",
+      "provenance": "measured",
+      "quantity_type": "mass",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "kg",
+      "value": 2.0
+    },
+    {
+      "description": "velocity of the second cart before the collision",
+      "domain": [
+        0.2,
+        2.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "v2",
+      "provenance": "measured",
+      "quantity_type": "velocity",
+      "sign_convention": "positive along the first cart's original direction of motion",
+      "uncertainty": null,
+      "unit": "m/s",
+      "value": 1.0
+    },
+    {
+      "description": "velocity of the first cart after the collision",
+      "domain": null,
+      "expr": "((m1 - m2)*v1 + 2*m2*v2)/(m1 + m2)",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "v1f",
+      "provenance": "computed",
+      "quantity_type": "velocity",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m/s",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "m1",
+          "m2"
+        ],
+        "assumption_id": "A-elastic",
+        "kind": "modelling",
+        "text": "The collision is perfectly elastic and the track is frictionless."
+      },
+      {
+        "applies_to": [
+          "v1",
+          "v2"
+        ],
+        "assumption_id": "A-1d",
+        "kind": "boundary_condition",
+        "text": "Both carts move along one straight line and the first cart overtakes the second."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "1 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 2.00e-15 (tolerance 1e-09) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing m1 by x1.25 moves the answer by 26.1% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "16 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "21 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "mechanics",
+    "law_family": "elastic_collision_1d",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "M^1",
+        "domain": [
+          2.5,
+          5.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "m1",
+        "provenance": "measured",
+        "quantity_type": "mass",
+        "sign_convention": "magnitudes are positive",
+        "unit": "kg",
+        "value": 3.0
+      },
+      {
+        "dimension": "L^1 T^-1",
+        "domain": [
+          4.0,
+          8.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "v1",
+        "provenance": "measured",
+        "quantity_type": "velocity",
+        "sign_convention": "positive along the first cart's original direction of motion",
+        "unit": "m/s",
+        "value": 6.0
+      },
+      {
+        "dimension": "M^1",
+        "domain": [
+          1.0,
+          2.4
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "m2",
+        "provenance": "measured",
+        "quantity_type": "mass",
+        "sign_convention": "magnitudes are positive",
+        "unit": "kg",
+        "value": 2.0
+      },
+      {
+        "dimension": "L^1 T^-1",
+        "domain": [
+          0.2,
+          2.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "v2",
+        "provenance": "measured",
+        "quantity_type": "velocity",
+        "sign_convention": "positive along the first cart's original direction of motion",
+        "unit": "m/s",
+        "value": 1.0
+      },
+      {
+        "dimension": "L^1 T^-1",
+        "domain": null,
+        "expr": "((m1 - m2)*v1 + 2*m2*v2)/(m1 + m2)",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "v1f",
+        "provenance": "computed",
+        "quantity_type": "velocity",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m/s",
+        "value": null
+      }
+    ],
+    "program_hash": "3da90143528186a20d700dcbaea66eb9811acf11b8840eb1e347ad65026c6bed",
+    "seed": 42,
+    "solver_rel_tol": 1e-09,
+    "solver_route": "conservation of momentum and kinetic energy combined into a quadratic whose non-trivial root is taken",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S03",
+    "structure_uuid": "ae37b9c6-b52a-5aea-b606-90671eae434f",
+    "symbolic_derivation": "(2*m2*v2 + v1*(m1 - m2))/(m1 + m2)",
+    "title": "One-dimensional perfectly elastic collision"
+  },
+  "relevant_edit": {
+    "factor": 1.25,
+    "node": "m1"
+  },
+  "render": {
+    "comparison_sentence": "A reference cart B has a velocity of {v} {u}.",
+    "context": "A cart of mass {m1} kg moves at {v1} m/s along a straight frictionless track and collides head-on with a second cart of mass {m2} kg that is moving ahead of it at {v2} m/s in the same direction. The collision is perfectly elastic.",
+    "equivalent_unit": "km/h",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate lamp B is rated at {v} {u} and takes no part in the collision.",
+    "incompatible_unit": "W",
+    "isolated_sentence": "A third cart B on a different track moves at {v} {u} but takes no part in the collision.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "velocity of the first cart",
+    "question": "What is the velocity of the first cart immediately after the collision, taking its original direction of motion as positive?",
+    "target_unit": "m/s"
+  },
+  "solver_rel_tol": 1e-09,
+  "solver_route": "conservation of momentum and kinetic energy combined into a quadratic whose non-trivial root is taken",
+  "structure_id": "S03",
+  "target": "v1f",
+  "title": "One-dimensional perfectly elastic collision"
+}

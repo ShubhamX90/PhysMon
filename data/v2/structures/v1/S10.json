@@ -1,0 +1,360 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "g"
+      ],
+      "assumption_id": "A-g",
+      "kind": "modelling",
+      "text": "g is a uniform constant of the stated value."
+    },
+    {
+      "applies_to": [
+        "v",
+        "theta"
+      ],
+      "assumption_id": "A-drag",
+      "kind": "modelling",
+      "text": "Air resistance is neglected."
+    },
+    {
+      "applies_to": [
+        "h0"
+      ],
+      "assumption_id": "A-ground",
+      "kind": "boundary_condition",
+      "text": "The ground is level and the platform height is measured from it."
+    }
+  ],
+  "domain": "mechanics",
+  "instances": [
+    {
+      "g": 9.8,
+      "h0": 5.0,
+      "theta": 40.0,
+      "v": 20.0
+    },
+    {
+      "g": 9.8,
+      "h0": 8.0,
+      "theta": 55.0,
+      "v": 15.0
+    }
+  ],
+  "law_family": "projectile_apex_from_platform",
+  "nodes": [
+    {
+      "description": "launch speed",
+      "domain": [
+        12.0,
+        30.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "v",
+      "provenance": "measured",
+      "quantity_type": "speed",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m/s",
+      "value": 20.0
+    },
+    {
+      "description": "launch angle above the horizontal",
+      "domain": [
+        30.0,
+        70.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "theta",
+      "provenance": "measured",
+      "quantity_type": "angle",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "deg",
+      "value": 40.0
+    },
+    {
+      "description": "height of the platform above the ground",
+      "domain": [
+        1.0,
+        10.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "h0",
+      "provenance": "measured",
+      "quantity_type": "length",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m",
+      "value": 5.0
+    },
+    {
+      "description": "gravitational acceleration, a stated constant",
+      "domain": [
+        9.7,
+        9.9
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "g",
+      "provenance": "assumed",
+      "quantity_type": "acceleration",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m/s^2",
+      "value": 9.8
+    },
+    {
+      "description": "initial vertical speed",
+      "domain": null,
+      "expr": "v*sin(theta)",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "vy",
+      "provenance": "computed",
+      "quantity_type": "speed",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m/s",
+      "value": null
+    },
+    {
+      "description": "maximum height above the ground",
+      "domain": null,
+      "expr": "h0 + vy**2/(2*g)",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "H",
+      "provenance": "computed",
+      "quantity_type": "length",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "g"
+        ],
+        "assumption_id": "A-g",
+        "kind": "modelling",
+        "text": "g is a uniform constant of the stated value."
+      },
+      {
+        "applies_to": [
+          "v",
+          "theta"
+        ],
+        "assumption_id": "A-drag",
+        "kind": "modelling",
+        "text": "Air resistance is neglected."
+      },
+      {
+        "applies_to": [
+          "h0"
+        ],
+        "assumption_id": "A-ground",
+        "kind": "boundary_condition",
+        "text": "The ground is level and the platform height is measured from it."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "2 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 1.54e-15 (tolerance 1e-06) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing v by x1.25 moves the answer by 35.3% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "16 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "20 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "mechanics",
+    "law_family": "projectile_apex_from_platform",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "L^1 T^-1",
+        "domain": [
+          12.0,
+          30.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "v",
+        "provenance": "measured",
+        "quantity_type": "speed",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m/s",
+        "value": 20.0
+      },
+      {
+        "dimension": "1",
+        "domain": [
+          30.0,
+          70.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "theta",
+        "provenance": "measured",
+        "quantity_type": "angle",
+        "sign_convention": "magnitudes are positive",
+        "unit": "deg",
+        "value": 40.0
+      },
+      {
+        "dimension": "L^1",
+        "domain": [
+          1.0,
+          10.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "h0",
+        "provenance": "measured",
+        "quantity_type": "length",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m",
+        "value": 5.0
+      },
+      {
+        "dimension": "L^1 T^-2",
+        "domain": [
+          9.7,
+          9.9
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "g",
+        "provenance": "assumed",
+        "quantity_type": "acceleration",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m/s^2",
+        "value": 9.8
+      },
+      {
+        "dimension": "L^1 T^-1",
+        "domain": null,
+        "expr": "v*sin(theta)",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "vy",
+        "provenance": "computed",
+        "quantity_type": "speed",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m/s",
+        "value": null
+      },
+      {
+        "dimension": "L^1",
+        "domain": null,
+        "expr": "h0 + vy**2/(2*g)",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "H",
+        "provenance": "computed",
+        "quantity_type": "length",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m",
+        "value": null
+      }
+    ],
+    "program_hash": "40151666295d941ff616524e0464c242414bda1d425b68447bc1e1b3dc2f53a9",
+    "seed": 42,
+    "solver_rel_tol": 1e-06,
+    "solver_route": "the vertical motion integrated with an adaptive ODE solver until the apex (vertical velocity zero)",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S10",
+    "structure_uuid": "c5eb3a1e-bf43-5719-87e3-906530f68175",
+    "symbolic_derivation": "h0 + v**2*sin(theta)**2/(2*g)",
+    "title": "Maximum height of a ball launched from a platform"
+  },
+  "relevant_edit": {
+    "factor": 1.25,
+    "node": "v"
+  },
+  "render": {
+    "comparison_sentence": "A reference drone B hovers at a height of {v} {u}.",
+    "context": "A ball is launched with speed {v} m/s at {theta} degrees above the horizontal from a platform {h0} m above level ground. Neglect air resistance and take g = {g} m/s².",
+    "equivalent_unit": "cm",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate lamp B is rated at {v} {u}, but it plays no part in the ball's motion.",
+    "incompatible_unit": "W",
+    "isolated_sentence": "A separate drone B hovers at a height of {v} {u} nearby, but it plays no part in the ball's motion.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "maximum height of the ball",
+    "question": "What is the maximum height of the ball above the ground?",
+    "target_unit": "m"
+  },
+  "solver_rel_tol": 1e-06,
+  "solver_route": "the vertical motion integrated with an adaptive ODE solver until the apex (vertical velocity zero)",
+  "structure_id": "S10",
+  "target": "H",
+  "title": "Maximum height of a ball launched from a platform"
+}

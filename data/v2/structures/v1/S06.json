@@ -1,0 +1,427 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "V"
+      ],
+      "assumption_id": "A-battery",
+      "kind": "modelling",
+      "text": "The battery has negligible internal resistance."
+    },
+    {
+      "applies_to": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "assumption_id": "A-ohmic",
+      "kind": "modelling",
+      "text": "All resistors are ohmic and the wires have negligible resistance."
+    }
+  ],
+  "domain": "circuits",
+  "instances": [
+    {
+      "R1": 4.0,
+      "R2": 6.0,
+      "R3": 12.0,
+      "V": 12.0
+    },
+    {
+      "R1": 3.0,
+      "R2": 9.0,
+      "R3": 15.0,
+      "V": 18.0
+    }
+  ],
+  "law_family": "series_parallel_current",
+  "nodes": [
+    {
+      "description": "battery emf",
+      "domain": [
+        6.0,
+        24.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "V",
+      "provenance": "measured",
+      "quantity_type": "voltage",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "V",
+      "value": 12.0
+    },
+    {
+      "description": "series resistor",
+      "domain": [
+        2.0,
+        8.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "R1",
+      "provenance": "measured",
+      "quantity_type": "resistance",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "Ω",
+      "value": 4.0
+    },
+    {
+      "description": "first resistor of the parallel pair",
+      "domain": [
+        3.0,
+        12.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "R2",
+      "provenance": "measured",
+      "quantity_type": "resistance",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "Ω",
+      "value": 6.0
+    },
+    {
+      "description": "second resistor of the parallel pair",
+      "domain": [
+        8.0,
+        24.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "R3",
+      "provenance": "measured",
+      "quantity_type": "resistance",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "Ω",
+      "value": 12.0
+    },
+    {
+      "description": "equivalent resistance of the parallel pair",
+      "domain": null,
+      "expr": "R2*R3/(R2 + R3)",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "R23",
+      "provenance": "computed",
+      "quantity_type": "resistance",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "Ω",
+      "value": null
+    },
+    {
+      "description": "total resistance",
+      "domain": null,
+      "expr": "R1 + R23",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "Req",
+      "provenance": "computed",
+      "quantity_type": "resistance",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "Ω",
+      "value": null
+    },
+    {
+      "description": "total current",
+      "domain": null,
+      "expr": "V/Req",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "Itot",
+      "provenance": "computed",
+      "quantity_type": "current",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "A",
+      "value": null
+    },
+    {
+      "description": "voltage across the parallel pair",
+      "domain": null,
+      "expr": "Itot*R23",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "V23",
+      "provenance": "computed",
+      "quantity_type": "voltage",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "V",
+      "value": null
+    },
+    {
+      "description": "current through the second resistor of the pair",
+      "domain": null,
+      "expr": "V23/R3",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "I3",
+      "provenance": "computed",
+      "quantity_type": "current",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "A",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "V"
+        ],
+        "assumption_id": "A-battery",
+        "kind": "modelling",
+        "text": "The battery has negligible internal resistance."
+      },
+      {
+        "applies_to": [
+          "R1",
+          "R2",
+          "R3"
+        ],
+        "assumption_id": "A-ohmic",
+        "kind": "modelling",
+        "text": "All resistors are ohmic and the wires have negligible resistance."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "5 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 3.59e-16 (tolerance 1e-09) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing V by x1.5 moves the answer by 50.0% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "16 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "22 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "circuits",
+    "law_family": "series_parallel_current",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "M^1 L^2 T^-3 I^-1",
+        "domain": [
+          6.0,
+          24.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "V",
+        "provenance": "measured",
+        "quantity_type": "voltage",
+        "sign_convention": "magnitudes are positive",
+        "unit": "V",
+        "value": 12.0
+      },
+      {
+        "dimension": "M^1 L^2 T^-3 I^-2",
+        "domain": [
+          2.0,
+          8.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "R1",
+        "provenance": "measured",
+        "quantity_type": "resistance",
+        "sign_convention": "magnitudes are positive",
+        "unit": "Ω",
+        "value": 4.0
+      },
+      {
+        "dimension": "M^1 L^2 T^-3 I^-2",
+        "domain": [
+          3.0,
+          12.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "R2",
+        "provenance": "measured",
+        "quantity_type": "resistance",
+        "sign_convention": "magnitudes are positive",
+        "unit": "Ω",
+        "value": 6.0
+      },
+      {
+        "dimension": "M^1 L^2 T^-3 I^-2",
+        "domain": [
+          8.0,
+          24.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "R3",
+        "provenance": "measured",
+        "quantity_type": "resistance",
+        "sign_convention": "magnitudes are positive",
+        "unit": "Ω",
+        "value": 12.0
+      },
+      {
+        "dimension": "M^1 L^2 T^-3 I^-2",
+        "domain": null,
+        "expr": "R2*R3/(R2 + R3)",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "R23",
+        "provenance": "computed",
+        "quantity_type": "resistance",
+        "sign_convention": "magnitudes are positive",
+        "unit": "Ω",
+        "value": null
+      },
+      {
+        "dimension": "M^1 L^2 T^-3 I^-2",
+        "domain": null,
+        "expr": "R1 + R23",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "Req",
+        "provenance": "computed",
+        "quantity_type": "resistance",
+        "sign_convention": "magnitudes are positive",
+        "unit": "Ω",
+        "value": null
+      },
+      {
+        "dimension": "I^1",
+        "domain": null,
+        "expr": "V/Req",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "Itot",
+        "provenance": "computed",
+        "quantity_type": "current",
+        "sign_convention": "magnitudes are positive",
+        "unit": "A",
+        "value": null
+      },
+      {
+        "dimension": "M^1 L^2 T^-3 I^-1",
+        "domain": null,
+        "expr": "Itot*R23",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "V23",
+        "provenance": "computed",
+        "quantity_type": "voltage",
+        "sign_convention": "magnitudes are positive",
+        "unit": "V",
+        "value": null
+      },
+      {
+        "dimension": "I^1",
+        "domain": null,
+        "expr": "V23/R3",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "I3",
+        "provenance": "computed",
+        "quantity_type": "current",
+        "sign_convention": "magnitudes are positive",
+        "unit": "A",
+        "value": null
+      }
+    ],
+    "program_hash": "e684618a5d8a4caf3bdc994a02c8c3157af5778cd7f1ff79e95b2c718853c5fa",
+    "seed": 42,
+    "solver_rel_tol": 1e-09,
+    "solver_route": "nodal analysis for the junction voltage, then the current through the second resistor",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S06",
+    "structure_uuid": "7b317f8a-3de9-5222-9396-454399857351",
+    "symbolic_derivation": "R2*V/(R1*(R2 + R3) + R2*R3)",
+    "title": "Current through one resistor of a series-parallel network"
+  },
+  "relevant_edit": {
+    "factor": 1.5,
+    "node": "V"
+  },
+  "render": {
+    "comparison_sentence": "A reference circuit B carries a current of {v} {u}.",
+    "context": "A battery of emf {V} V and negligible internal resistance is connected in series with a {R1} Ω resistor and then with a parallel pair made of a first resistor of {R2} Ω and a second resistor of {R3} Ω.",
+    "equivalent_unit": "mA",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate oscillator B runs at {v} {u}, but it is not part of this circuit.",
+    "incompatible_unit": "Hz",
+    "isolated_sentence": "A separate circuit B on another board carries a current of {v} {u}, but it shares no connection with this circuit.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "current through the second resistor of the parallel pair",
+    "question": "What current flows through the second resistor of the parallel pair?",
+    "target_unit": "A"
+  },
+  "solver_rel_tol": 1e-09,
+  "solver_route": "nodal analysis for the junction voltage, then the current through the second resistor",
+  "structure_id": "S06",
+  "target": "I3",
+  "title": "Current through one resistor of a series-parallel network"
+}
