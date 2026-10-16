@@ -1,0 +1,109 @@
+# Pilot protocol (Research v2.0, Stage 14.7): prepared, not run
+
+Status: **prepared by the agent; NOT authorized to run; blocked on the items in section 8.** No GPU job has been submitted
+and no model has been scored on any v2 structure.
+
+Plan reference: v2 B2.2-B2.5 (p.7-8), B6.1-B6.5 (p.12), P1.5-P1.7 (p.17), §8.1-§8.4 (p.41-42), §9 compute ladder level 2
+(p.43), §10 (p.44), first sprint items 7 and 9 (p.50). Scoring rules: `docs/stage14/scoring_contract.md`. Journal:
+`docs/journal/stage14/14.7_pilot_preparation.md`.
+
+## 1. Purpose and what this pilot cannot do
+
+A small balanced pilot to debug construction and estimate variance, not to prove a small effect (B6.1). With ten structures
+the pilot is **precision-limited**: the independent unit is the structure (v2 §8.1), so ten structures cannot support a
+powered claim about any interaction, and none is attempted. Its outputs are discovery-only: data role EXPLORATION, evidence
+class `exploratory`, `paper_eligibility` false. It does not select the primary confirmatory endpoint (B2.2: that is chosen
+only after reliability and incidence have been estimated, on a discovery partition, and frozen before any confirmatory data is
+opened).
+
+## 2. Design (frozen here, before any model score exists)
+
+- **Items:** the ten structures in `data/v2/structures/v1/`, two numeric instantiations, the 211 feasible factor cells
+  (`factor_cell_manifest.jsonl`). Infeasible cells are not run. Admission category: UNREVIEWED (see section 8).
+- **Models:** Qwen2.5-7B-Instruct and Llama-3.1-8B-Instruct, the two primary dense models (B6.1, P4.5), loaded from
+  `/scratch/pabitra/models` with their registry keys (`qwen_primary`, `llama_primary`) with pinned manifests; no third model.
+- **Output grammar:** one wrapper, `answer_line` (identical to the Stage 6 instruction), so that the pilot is comparable to Phase
+  I. The wrapper multiverse is card X03 and is a separate, later run.
+- **Scoring:** the contract in `docs/stage14/scoring_contract.md` (BOS once; exact answer span; separate equals joint
+  tokenization; the scored string is the instructed string). The legacy scripts are not used.
+- **Candidate space for answer competition (R_alt, v2 §4):** fixed in advance from the cell: the gold answer string and one
+  decoy-derived string, the cue numeral written with the target unit in the same wrapper. Defined only for the cells with a
+  numeric cue that can be an answer (same-unit near, moderate, far; incompatible-unit near). For the other cells R_alt is
+  NOT_EVALUATED, never 0.
+- **Free generation:** deterministic greedy decoding, at most 40 new tokens, seed 42, parsed by the wrapper's parser. A
+  generation that does not parse, or has several candidates, is recorded as such (`UNPARSEABLE`, `MULTIPLE_CANDIDATES`,
+  `EMPTY`); it is never counted as wrong or correct.
+
+## 3. Endpoints (co-endpoints; none promoted in this pilot)
+
+| Endpoint | Definition | Cells |
+|---|---|---|
+| C_gen correctness transition | free-generation correctness (`correct`, `wrong`, or the parse status) relative to the no-cue anchor of the same instantiation | all |
+| R_alt | log p(gold) minus log p(decoy) under the same prompt and wrapper | numeric-cue cells |
+| D_lp | reference-free range of the gold log-probability across the cells of one instantiation, with SD, MAD and signed contrasts to the no-cue anchor | per instantiation |
+| Presentation noise | repeat-pass and dtype variation of the same prompt (P1.7) | no-cue anchors |
+
+The legacy base-0 `S_lp` label is not computed (journal J14.2-008).
+
+## 4. Analysis plan (descriptive; precision-limited)
+
+- Unit of analysis: the structure (n = 10); instantiations and cells are nested repeated measures. Report each effect per
+  structure and as a structure-level summary with a cluster bootstrap over structures (2,000 resamples, seed 42); no p-values for
+  interactions.
+- Contrasts: each cue cell minus the no-cue anchor on R_alt where defined, on gold log-probability, and on C_gen; near minus
+  far; same-unit minus incompatible-unit at the near numeral; relevant edit minus no-cue (the assay must respond to a relevant
+  change); role reversal. All reported absolute and as signed contrasts, never as a ratio of a near-zero baseline.
+- Eligibility strata with denominators (B2.4): all valid items; format-parseable; base-correct (no-cue anchor correct); model-positive.
+  A result conditional on base correctness is labelled as such.
+- Reliability first (P1.7): repeat-pass and dtype variation of the no-cue anchors; cue effects are read against this
+  presentation-noise distribution.
+- Missing data: a zero-row job, failed hook, timeout, parse failure, `BOUNDARY_MISMATCH` or `DUPLICATE_SPECIAL_TOKEN` record is
+  NOT_EVALUATED with a reason code, reported by cell and by model; it is never replaced by zero (v2 §8.4).
+
+## 5. Decision rules (what each outcome would do; B2 Gate, §10)
+
+| Observation | Interpretation | Action | Prohibited reaction |
+|---|---|---|---|
+| Assay does not respond to the relevant edit | the measurement does not track physics | stop; debug scoring and grammar | proceed to cue comparisons |
+| Cue effects within presentation noise | no detectable effect at this precision | report as precision-limited; do not call it null | claim equivalence |
+| Effects only on gold log-probability, not on C_gen or R_alt | likelihood-only phenomenon | restrict to a likelihood-interface account | claim physics reasoning failure |
+| Near-match effect equals the incompatible-unit effect | numeral copying or lexical priming | test the copying account (P4) | claim relevance gating |
+| Effect tied to one structure | structure-specific | report per structure | pool to a headline |
+
+Nothing from this pilot may be described as a confirmation, and no cell may be added after seeing outcomes (v2 p.3).
+
+## 6. Cost model (v2 §9, p.42)
+
+N_structures x N_instances x N_cells x N_models x (N_score_forward + N_generated_resamples), per candidate. For the committed
+manifest this is 10 x 2 x 211/20 cells x 2 models; `scripts/v2/s147_pilot_plan.py --dry-run` computes the exact counts and token
+totals with the real tokenizers. **GPU time is not estimated here**: no throughput has been measured on the current stack, and the
+2026-10-14 smoke job spent most of its 4 h 42 min loading weights from the network filesystem. Step 1 of any approved run is a
+short, measured throughput test.
+
+## 7. Provenance and execution rules
+
+Submit only from a clean, committed, pushed tree; record the full SHA; use a new attempt directory per run (the runner refuses a
+non-empty one); unique `%j` logs; `PYTHONNOUSERSITE=1`; print SHA, `git status --short`, hostname, GPU and package versions at job
+start; record the contract fingerprint and tokenizer file hashes; write raw per-record JSONL before any aggregation; keep
+activations out (this pilot needs no hooks and stores none). Partition, GRES, CPU, memory and walltime come from a live preflight
+(`sinfo`, `scontrol show node`, `sbatch --test-only`, per-user caps), not from this document. The template
+`slurm/templates/stage14_pilot_scoring.sh` is unverified against the live cluster.
+
+## 8. Blockers and what must be authorized
+
+| # | Blocker | Why it matters | Owner |
+|---|---|---|---|
+| 1 | Independent expert review of the ten structures (all UNREVIEWED) | v2 B4 gate: no claim on items whose English is unreviewed | physicist and reviewers (Stage 14.5 materials) |
+| 2 | Ten structures, not 40 to 60 | B6.1 asks for roughly 40 to 60 independent discovery structures | user / further generator work after review |
+| 3 | P0 gate open: values recomputed, not regenerated through the model; hook check needs activations | v2 P0 hard stop (p.16) | needs this pilot's models on GPU under an approved run |
+| 4 | Post-wipe GPU validation of the two models is incomplete (4 of 7 smoke results predate the fix, no rerun) | the loader and hooks are unproven on the restored weights | needs a short approved GPU job |
+| 5 | Explicit user authorization to submit Slurm jobs, with partition and resource limits chosen from a live preflight | AGENTS.md and the Sharanga skill | user |
+
+Per v2 p.50 the pilot follows the Phase-B gates; running it on unreviewed items would be exploratory only and must say so.
+
+## 9. Sign-off
+
+| Role | Name | Date | Decision |
+|---|---|---|---|
+| Protocol author (agent) | Claude Sonnet 5.5 for atharvgaur1845 | 2026-10-16 | prepared |
+| Approving investigator | | | PENDING |
