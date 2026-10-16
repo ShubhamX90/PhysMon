@@ -82,6 +82,11 @@ def test_matches_reported_uses_the_reported_precision():
     assert rc.matches_reported(-0.0736, "-0.074")
     assert rc.matches_reported(1.86972, "1.870")
     assert not rc.matches_reported(0.7048, "0.7596")
+    # Default tolerance accepts a correctly rounded printing only; units=1.0 also accepts truncation.
+    assert rc.matches_reported(-9.09375, "-9.094")
+    assert not rc.matches_reported(-9.09375, "-9.093")
+    assert rc.matches_reported(-9.09375, "-9.093", units=1.0)
+    assert not rc.matches_reported(-9.0951, "-9.093", units=1.0)
 
 
 def test_blank_is_none_not_zero():
@@ -89,3 +94,30 @@ def test_blank_is_none_not_zero():
     assert rc.as_float_or_none(None) is None
     assert rc.as_float_or_none("nan") is None
     assert rc.as_float_or_none("0") == 0.0
+
+
+def test_rank_helpers_agree_with_scipy():
+    scipy_stats = pytest.importorskip("scipy.stats")
+    generator = np.random.default_rng(11)
+    x = np.round(generator.random(60) * 8) / 8  # ties
+    y = np.round(generator.random(60) * 8) / 8
+    assert rc.spearman(x, y) == pytest.approx(scipy_stats.spearmanr(x, y)[0], abs=1e-12)
+    tau = scipy_stats.kendalltau(x, y, variant="b")[0]
+    comparable = rc.discordant_pair_fraction(x, y)
+    # With no ties, discordant fraction = (1 - tau) / 2 exactly.
+    a = generator.random(40)
+    b = generator.random(40)
+    assert rc.discordant_pair_fraction(a, b) == pytest.approx(
+        (1 - scipy_stats.kendalltau(a, b)[0]) / 2, abs=1e-12
+    )
+    assert 0.0 <= comparable <= 1.0 and not np.isnan(tau)
+
+
+def test_dispersion_helpers_on_the_plan_example():
+    values = [-45.53125, -55.5625, -45.0, -46.46875]
+    assert max(values) - min(values) == pytest.approx(10.5625)
+    assert rc.median_abs_deviation(values) == pytest.approx(0.734375)
+    assert rc.median_abs_pairwise_difference(values) == pytest.approx(
+        np.median([abs(a - b) for i, a in enumerate(values) for b in values[i + 1 :]])
+    )
+    assert rc.sample_sd(values) == pytest.approx(np.std(values, ddof=1))

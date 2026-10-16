@@ -27,7 +27,7 @@ def _as_arrays(y_true: Iterable[int], y_score: Iterable[float]) -> tuple[np.ndar
     return labels, scores
 
 
-def _average_ranks(values: np.ndarray) -> np.ndarray:
+def average_ranks(values: np.ndarray) -> np.ndarray:
     """Average ranks (1-based) with ties sharing the mean rank."""
 
     unique, inverse, counts = np.unique(values, return_inverse=True, return_counts=True)
@@ -45,7 +45,7 @@ def auroc(y_true: Iterable[int], y_score: Iterable[float]) -> float:
     n_neg = int(labels.size - n_pos)
     if n_pos == 0 or n_neg == 0:
         raise ValueError("AUROC needs both classes")
-    ranks = _average_ranks(scores)
+    ranks = average_ranks(scores)
     return float((ranks[labels == 1].sum() - n_pos * (n_pos + 1) / 2.0) / (n_pos * n_neg))
 
 
@@ -169,12 +169,65 @@ def legacy_slp_plan_signed(logprobs_by_variant: Mapping[int, float], base: int =
     return max(base_value - value for key, value in logprobs_by_variant.items() if key != base)
 
 
-def matches_reported(recomputed: float, reported: str | float) -> bool:
-    """True if `recomputed` rounds to the reported value at the reported number of decimals."""
+def spearman(x: Sequence[float], y: Sequence[float]) -> float:
+    """Spearman rank correlation (Pearson correlation of tie-averaged ranks)."""
+
+    a = average_ranks(np.asarray(x, dtype=float))
+    b = average_ranks(np.asarray(y, dtype=float))
+    return pearson(a, b)
+
+
+def discordant_pair_fraction(x: Sequence[float], y: Sequence[float]) -> float:
+    """Fraction of pairs ordered oppositely by x and y among pairs untied in both.
+
+    This is the normalised count of pairwise rank inversions between two scorings of the same units.
+    """
+
+    a = np.asarray(x, dtype=float)
+    b = np.asarray(y, dtype=float)
+    if a.size != b.size or a.size < 2:
+        raise ValueError("need two equal-length samples of at least 2 values")
+    da = np.sign(a[:, None] - a[None, :])
+    db = np.sign(b[:, None] - b[None, :])
+    upper = np.triu_indices(a.size, k=1)
+    product = (da * db)[upper]
+    comparable = product != 0
+    if not comparable.any():
+        raise ValueError("no pair is untied in both samples")
+    return float((product[comparable] < 0).mean())
+
+
+def sample_sd(values: Sequence[float]) -> float:
+    """Sample standard deviation (ddof=1)."""
+
+    return float(np.std(np.asarray(values, dtype=float), ddof=1))
+
+
+def median_abs_deviation(values: Sequence[float]) -> float:
+    """Median absolute deviation around the median (unscaled)."""
+
+    array = np.asarray(values, dtype=float)
+    return float(np.median(np.abs(array - np.median(array))))
+
+
+def median_abs_pairwise_difference(values: Sequence[float]) -> float:
+    """Median of |v_i - v_j| over all unordered pairs."""
+
+    array = np.asarray(values, dtype=float)
+    upper = np.triu_indices(array.size, k=1)
+    return float(np.median(np.abs(array[:, None] - array[None, :])[upper]))
+
+
+def matches_reported(recomputed: float, reported: str | float, units: float = 0.5) -> bool:
+    """True if `recomputed` is within `units` of the last printed digit of `reported`.
+
+    The default of 0.5 units accepts a correctly rounded printing and nothing else. Pass `units=1.0`
+    only where a source may have truncated instead of rounded (for example -9.09375 printed as -9.093).
+    """
 
     text = str(reported).strip().lstrip("+")
     decimals = len(text.split(".")[1]) if "." in text else 0
-    return bool(round(float(recomputed), decimals) == round(float(text), decimals))
+    return bool(abs(float(recomputed) - float(text)) <= units * 10.0 ** (-decimals) + 1e-12)
 
 
 def as_float_or_none(value: Any) -> float | None:
