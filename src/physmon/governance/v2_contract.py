@@ -48,6 +48,15 @@ VERIFICATION_LABELS = (
 # Source tags (v2 §1, p.3).
 SOURCE_TAGS = ("SUBMITTED", "REVIEW", "LITERATURE", "PROPOSAL", "REPO")
 
+# Severity order used when a row has several components: the row takes the most conservative
+# component label, so a partly reproducible row can never read as fully verified.
+LABEL_SEVERITY = {
+    "verified": 0,
+    "different_but_explained": 1,
+    "not_enough_source_data": 2,
+    "unreproducible": 3,
+}
+
 ROW_TYPES = ("phase1_ledger_item", "audit_alert", "claim_level")
 
 # Claim hierarchy (v2 §4.2, p.15). A claim only advances when its own tests pass.
@@ -173,6 +182,15 @@ def validate_ledger_rows(rows: Iterable[Mapping[str, Any]]) -> list[str]:
     return errors
 
 
+def worst_label(outcomes: Iterable[str]) -> str:
+    """Return the most conservative verification label among component outcomes."""
+
+    outcome_list = list(outcomes)
+    if not outcome_list:
+        raise ValueError("worst_label needs at least one component outcome.")
+    return max(outcome_list, key=lambda name: LABEL_SEVERITY[name])
+
+
 def missing_artifact_paths(rows: Iterable[Mapping[str, Any]], repo_root: Path) -> list[str]:
     """Return errors for artifact paths that do not exist (checked for every row that lists any)."""
 
@@ -191,6 +209,27 @@ def _check_choice(
         errors.append(f"{prefix} {field}={row[field]!r} is not one of {list(allowed)}")
 
 
+def _check_components(prefix: str, label: Any, components: Any) -> list[str]:
+    errors: list[str] = []
+    if not isinstance(components, list) or not components:
+        return [f"{prefix} components must be a non-empty list"]
+    outcomes: list[str] = []
+    for position, component in enumerate(components):
+        if not isinstance(component, dict) or not str(component.get("name", "")).strip():
+            errors.append(f"{prefix} component {position} needs a 'name'")
+            continue
+        outcome = component.get("outcome")
+        if outcome not in LABEL_SEVERITY:
+            errors.append(f"{prefix} component '{component['name']}' outcome {outcome!r} is invalid")
+            continue
+        outcomes.append(outcome)
+        if outcome != "verified" and not str(component.get("detail", "")).strip():
+            errors.append(f"{prefix} component '{component['name']}' needs a 'detail'")
+    if outcomes and label != "not_yet_checked" and label != worst_label(outcomes):
+        errors.append(f"{prefix} label '{label}' must equal the most conservative component outcome")
+    return errors
+
+
 def _check_row_rules(prefix: str, row: Mapping[str, Any]) -> list[str]:
     errors: list[str] = []
     label = row.get("verification_label")
@@ -205,6 +244,10 @@ def _check_row_rules(prefix: str, row: Mapping[str, Any]) -> list[str]:
     if label in ("different_but_explained", "unreproducible", "not_enough_source_data"):
         if not str(row.get("explanation", "")).strip():
             errors.append(f"{prefix} label '{label}' needs an 'explanation'")
+
+    components = row.get("components")
+    if components is not None:
+        errors.extend(_check_components(prefix, label, components))
 
     if status == "confirmatory":
         if row.get("data_role") not in CONFIRMATORY_ROLES:

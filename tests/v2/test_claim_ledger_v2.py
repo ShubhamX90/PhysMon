@@ -21,6 +21,7 @@ from physmon.governance.v2_contract import (  # noqa: E402
     missing_artifact_paths,
     missing_record_fields,
     validate_ledger_rows,
+    worst_label,
 )
 
 LEDGER = REPO_ROOT / "docs/registry/v2/claim_ledger.jsonl"
@@ -153,3 +154,36 @@ def test_raw_record_contract_reports_absent_fields_but_accepts_explicit_none():
     del record["target_span_start"]
     assert missing_record_fields(record) == ["target_span_start"]
     assert set(missing_record_fields(record, causal=True)) >= set(CAUSAL_RECORD_EXTRA_FIELDS)
+
+
+def _checked_row(label, components):
+    return _row(
+        verification_label=label,
+        verified_in_stage="14.1",
+        journal_ref="J14.1-001",
+        artifacts=["data/manifests/physmon_canonical_155.jsonl"],
+        explanation="see components",
+        components=components,
+    )
+
+
+def test_row_label_must_be_the_most_conservative_component_outcome():
+    mixed = [
+        {"name": "a", "outcome": "verified"},
+        {"name": "b", "outcome": "not_enough_source_data", "detail": "no artifact"},
+    ]
+    assert validate_ledger_rows([_checked_row("not_enough_source_data", mixed)]) == []
+    errors = validate_ledger_rows([_checked_row("verified", mixed)])
+    assert any("most conservative component outcome" in error for error in errors)
+    assert worst_label(["verified", "different_but_explained"]) == "different_but_explained"
+    assert worst_label(["not_enough_source_data", "unreproducible"]) == "unreproducible"
+
+
+def test_components_need_names_valid_outcomes_and_details():
+    bad = [{"name": "", "outcome": "verified"}]
+    assert any("needs a 'name'" in e for e in validate_ledger_rows([_checked_row("verified", bad)]))
+    bad = [{"name": "a", "outcome": "mostly_ok"}]
+    assert any("is invalid" in e for e in validate_ledger_rows([_checked_row("verified", bad)]))
+    bad = [{"name": "a", "outcome": "unreproducible"}]
+    assert any("needs a 'detail'" in e for e in validate_ledger_rows([_checked_row("unreproducible", bad)]))
+    assert any("non-empty list" in e for e in validate_ledger_rows([_checked_row("verified", [])]))
