@@ -2892,3 +2892,35 @@ Consequences and what was left alone:
 - `scripts/stage13/write_stage13_gates_v7.py` and the v5/v6 remediation generators still reference
   the deleted paths. They are historical and must not be re-run; rerunning the v7 gate would report
   the governing-rule file as missing. A gate under the new plan is future work.
+
+## Stage 14.0: governance ingest for Research Redesign v2.0 — 2026-10-16
+
+Decision (user-directed, 2026-10-16): begin Stage 14 implementation stage by stage under
+`docs/proposals/PhysMon_Research_v2.pdf`, journaling every decision and change in the repository.
+Stage ordering follows `docs/proposals/PhysMon_Research_v2_working_digest.md` section 9 (14.0 to 14.7).
+This entry covers 14.0 only. Plan sections relied on: P0.1 (p.16), §4.2 (p.15), §7 cards X01-X03
+(p.39), §8.4 (p.42), §9.1 (p.43), §12 (p.48-50).
+
+What was done (CPU only; no Slurm, GPU, scratch, or model work):
+- Journal: `docs/journal/README.md` (rules), `docs/journal/INDEX.md`, `docs/journal/stage14/14.0_governance_ingest.md`.
+  The journal is append-only and carries the observations, alternatives, commands and open items behind
+  each decision; this log carries only the durable decisions.
+- A single, stdlib-only vocabulary and record contract for v2: `src/physmon/governance/v2_contract.py`
+  (status values including `NOT_EVALUATED`, five data roles plus `UNASSIGNED_LEGACY`, verification labels,
+  claim levels, admission categories, raw and causal record fields). It does not change Stage 13 vocabularies.
+- Claim-to-artifact ledger skeleton `docs/registry/v2/claim_ledger.jsonl` (25 rows: 16 Phase-I ledger items,
+  3 audit alerts, 6 claim levels), all `not_yet_checked`, `NOT_EVALUATED`, not paper-eligible, with its
+  validator `scripts/v2/validate_claim_ledger.py` and 13 tests in `tests/v2/`.
+- Experiment cards `docs/experiment_cards/v2/X01`, `X02`, `X03`.
+
+Observations worth keeping (details in journal J14.0-003 and J14.0-004):
+- The repo's legacy `S_lp` takes the maximum over all four variants including the base, so it is never
+  negative (`src/physmon/formal/sensitivity.py:187-195`, `scripts/analyse_stage4.py:258-275`). The plan's
+  base-rotation numbers (+10.031 at base 0, -9.094 at base 1) use the maximum over the other three variants.
+  Stage 14.2 reports both definitions explicitly.
+- The plan's CM_B_UM_059 audit alert A reproduces from committed raw records: gold log-probs -45.53125,
+  -55.5625, -45.0, -46.46875; legacy Qwen `S_lp` 10.03125; correct answer 6.928 N*m; all Qwen and Llama
+  generated answers are wrong.
+
+Status: governance scaffold only; no scientific result was produced or changed. Nothing is paper-eligible.
+Not requested or started: any GPU work, Slurm submission, or Stage 14.7 pilot. Branch `claude/stage14-v2`.
