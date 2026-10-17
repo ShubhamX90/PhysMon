@@ -3182,3 +3182,9 @@ After two failures caused by git being unusable on gpunode6 (399511 not executed
 direct Hugging Face path, all OK, 62 s of scoring (median 0.32 s per job) after about 6.5 min of start-up. Records: `results/stage14/s147_pilot_run/attempt_399539_qwen_primary/` (exploratory; not paper-eligible; no aggregation).
 Open decision for the user: the correctness tolerance (the code uses 1e-3, which I chose without declaring it and which marks a correctly rounded 3-significant-figure answer wrong); it must be fixed before any analysis, and the rule
 is post hoc relative to these 20 outcomes. Journal: J14.7-014 to J14.7-019. No further job is authorized.
+
+## Correctness rule declared for the pilot; job authorization for the session — 2026-10-17
+
+Rule (protocol section 4b): unit match, equality at the answer's printed precision, and within 0.5% of the gold; coarse or copied near-match answers are `wrong`, parse failures keep their status. It replaces the undeclared 1e-3 relative tolerance
+that rejected a correctly rounded answer; it is post hoc relative to the 20 throughput records (one label changes) and is fixed before the full pilot is graded. Records store `relative_error` and the strict label.
+The user gave full authorization for PhysMon jobs for this session and asked for regular commits as atharvgaur1845; each submission still gets a recorded live preflight (journal J14.7-020).

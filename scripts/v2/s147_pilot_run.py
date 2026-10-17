@@ -89,10 +89,13 @@ def make_record(job: dict, ctx: dict, logprobs, model, tokenizer) -> dict[str, A
     gold = score_alternative(logprobs, tokenizer, prompt, job["gold_text"], wrapper) if status == "OK" else None
     decoy = score_alternative(logprobs, tokenizer, prompt, job["decoy_text"], wrapper) if status == "OK" else None
     generated, parsed, correctness = None, vs.ParsedOutput("NOT_EVALUATED"), "NOT_EVALUATED"
+    rel_error, strict = None, "NOT_EVALUATED"
     if status == "OK" and gold is not None and gold["status"] == "OK":
         generated = vs.greedy_generate(model, tokenizer, prompt, ctx["max_new_tokens"])
         parsed = vs.parse_wrapped(wrapper, generated)
         correctness = vs.classify_answer(parsed, float(job["gold_value"]), job["gold_unit"])
+        rel_error = vs.relative_error(parsed, float(job["gold_value"]))
+        strict = vs.classify_answer(parsed, float(job["gold_value"]), job["gold_unit"], rel_tol=vs.STRICT_REL_TOL)
     elif status == "OK":
         status = f"GOLD_{gold['status']}" if gold else "NOT_EVALUATED"
     record: dict[str, Any] = {
@@ -114,7 +117,8 @@ def make_record(job: dict, ctx: dict, logprobs, model, tokenizer) -> dict[str, A
         "gold_logprob_raw": gold["logprob_raw"] if gold else None,
         "gold_logprob_per_token": gold["logprob_per_token"] if gold else None,
         "alternative_scores": {"decoy": decoy} if decoy else None,
-        "correctness": correctness, "seed": ctx["seed"], "dtype": ctx["dtype"],
+        "correctness": correctness, "correctness_rule": vs.CORRECTNESS_RULE,
+        "relative_error": rel_error, "correctness_strict_1e-3": strict, "seed": ctx["seed"], "dtype": ctx["dtype"],
         "wall_time": round(time.time() - started, 4), "artifact_checksum": None,
         "job_id": job["job_id"], "structure_id": job["structure_id"], "instance": job["instance"],
         "cell_id": job["cell_id"], "expected_effect": job["expected_effect"], "status": status,

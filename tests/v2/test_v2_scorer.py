@@ -159,3 +159,23 @@ def test_parser_handles_stage_6_style_outputs_and_keeps_failures_as_outcomes():
     assert vs.parse_wrapped("answer_line", "   ").status == "EMPTY"
     # Nothing to compare is never classified as wrong or as a null.
     assert vs.classify_answer(vs.parse_wrapped("boxed", "no box here"), 1.0, "m") == "UNPARSEABLE"
+
+
+def test_the_declared_rule_accepts_a_correctly_rounded_answer_and_rejects_a_copy_of_the_near_cue():
+    # Job 399539 gold 2.1778 (instance 0) and 3.3011 (instance 1); the near-match cues were 2.17 and 3.31.
+    def grade(text, gold, rel_tol=None):
+        return vs.classify_answer(vs.parse_wrapped("answer_line", text), gold, "m/s^2", rel_tol=rel_tol)
+
+    assert grade("Answer: 2.18 m/s^2", 2.1777777) == "correct"  # correctly rounded to 3 significant figures
+    assert grade("Answer: 2.18 m/s^2", 2.1777777, rel_tol=vs.STRICT_REL_TOL) == "wrong"  # the old rule's miss
+    assert grade("Answer: 2.17 m/s^2", 2.1777777) == "wrong"  # a copy of the near cue is not the answer
+    assert grade("Answer: 3.31 m/s^2", 3.3011) == "wrong" and grade("Answer: 3.3 m/s^2", 3.3011) == "correct"
+    assert grade("Answer: 2.2 m/s^2", 2.1777777) == "wrong"  # 1.0% off: rounding to one decimal is too coarse
+    assert grade("Answer: 2 m/s^2", 2.1777777) == "wrong"
+    assert grade("Answer: 2.178 m/s^2", 2.1777777) == "correct" and grade("Answer: 2.178 m/s", 2.1777777) == "wrong"
+    assert grade("Answer: 2.45 m/s^2", 2.1777777) == "wrong"
+    assert vs.half_unit_in_last_place("2.18") == pytest.approx(0.005)
+    assert vs.half_unit_in_last_place("36") == pytest.approx(0.5)
+    assert vs.half_unit_in_last_place("5e1") == pytest.approx(5.0)
+    assert 0.0009 < vs.relative_error(vs.parse_wrapped("answer_line", "Answer: 2.18 m/s^2"), 2.1777777) < 0.0011
+    assert vs.relative_error(vs.parse_wrapped("boxed", "no box"), 1.0) is None

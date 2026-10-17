@@ -131,8 +131,8 @@ def greedy_generate(model: Any, tokenizer: Any, formatted_prompt: str, max_new_t
     ids = tokenizer(formatted_prompt, add_special_tokens=False, return_tensors="pt").input_ids
     ids = ids.to(next(model.parameters()).device)
     with torch.no_grad():
-        output = model.generate(ids, do_sample=False, max_new_tokens=max_new_tokens,
-                                pad_token_id=getattr(tokenizer, "eos_token_id", None))
+        output = model.generate(ids, attention_mask=torch.ones_like(ids), do_sample=False,
+                                max_new_tokens=max_new_tokens, pad_token_id=getattr(tokenizer, "eos_token_id", None))
     return tokenizer.decode(output[0][ids.shape[1]:], skip_special_tokens=True)
 
 
@@ -155,6 +155,7 @@ class ParsedOutput:
     status: str  # PARSED | UNPARSEABLE | MULTIPLE_CANDIDATES | EMPTY
     value: float | None = None
     unit: str | None = None
+    value_text: str | None = None  # the number exactly as printed, for its precision
 
 
 def normalise_unit(text: str) -> str:
@@ -172,14 +173,47 @@ def parse_wrapped(wrapper_id: str, text: str) -> ParsedOutput:
         return ParsedOutput("UNPARSEABLE")
     if len(matches) > 1:
         return ParsedOutput("MULTIPLE_CANDIDATES")
-    return ParsedOutput("PARSED", float(matches[0].group("v")), normalise_unit(matches[0].group("u")))
+    return ParsedOutput("PARSED", float(matches[0].group("v")), normalise_unit(matches[0].group("u")),
+                        matches[0].group("v"))
 
 
-def classify_answer(parsed: ParsedOutput, gold_value: float, gold_unit: str, rel_tol: float = 1e-3) -> str:
-    """`correct`, `wrong`, or the parse status when there is nothing to compare (never `wrong` by default)."""
+CORRECTNESS_RULE = ("unit matches; the answer equals the gold at the answer's own printed precision (|a - g| is at most "
+                    "half a unit in the last printed place) and is within 0.5% of the gold")
+COARSE_REL_TOL = 5e-3  # guard so that a very coarse answer ("2" for 2.178) is not accepted by the rounding test
+STRICT_REL_TOL = 1e-3  # sensitivity rule: the relative tolerance the code used before the rule was declared
+
+
+def half_unit_in_last_place(text: str) -> float:
+    """Half a unit of the last printed digit: 0.005 for '2.18', 0.5 for '36', 5 for '5e1'."""
+
+    from decimal import Decimal
+
+    return float(Decimal("0.5") * Decimal(10) ** Decimal(text).as_tuple().exponent)
+
+
+def relative_error(parsed: ParsedOutput, gold_value: float) -> float | None:
+    """|answer - gold| / |gold| for a parsed answer, else None (nothing to compare)."""
+
+    if parsed.status != "PARSED":
+        return None
+    return abs(parsed.value - gold_value) / max(abs(gold_value), 1e-300)
+
+
+def classify_answer(parsed: ParsedOutput, gold_value: float, gold_unit: str, rel_tol: float | None = None) -> str:
+    """`correct`, `wrong`, or the parse status when there is nothing to compare (never `wrong` by default).
+
+    Without `rel_tol` the declared rule (`CORRECTNESS_RULE`) applies. With `rel_tol` a plain relative tolerance is used
+    (the strict sensitivity rule). The declared rule is post hoc relative to job 399539 (journal J14.7-020), chosen because
+    a plain relative tolerance either rejects a correctly rounded answer (0.1%) or accepts a copy of the near-match cue (0.5%).
+    """
 
     if parsed.status != "PARSED":
         return parsed.status
     right_unit = parsed.unit == normalise_unit(gold_unit)
-    right_value = abs(parsed.value - gold_value) <= rel_tol * max(abs(gold_value), 1e-300)
+    error = abs(parsed.value - gold_value)
+    if rel_tol is not None:
+        right_value = error <= rel_tol * max(abs(gold_value), 1e-300)
+    else:
+        right_value = (error <= half_unit_in_last_place(parsed.value_text) * (1 + 1e-9)
+                       and error <= COARSE_REL_TOL * max(abs(gold_value), 1e-300))
     return "correct" if right_unit and right_value else "wrong"

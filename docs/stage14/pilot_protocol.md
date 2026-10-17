@@ -60,6 +60,15 @@ The legacy base-0 `S_lp` label is not computed (journal J14.2-008).
 - Missing data: a zero-row job, failed hook, timeout, parse failure, `BOUNDARY_MISMATCH` or `DUPLICATE_SPECIAL_TOKEN` record is
   NOT_EVALUATED with a reason code, reported by cell and by model; it is never replaced by zero (v2 §8.4).
 
+## 4b. Correctness rule (declared 2026-10-17; post hoc relative to the 20-record throughput test)
+
+A parsed generation is `correct` if its unit matches the gold unit, it equals the gold at the answer's own printed precision (|answer - gold| at most
+half a unit in the last printed place), and it is within 0.5% of the gold; otherwise `wrong`. An unparseable, empty or multi-candidate generation keeps
+that status and is never `wrong` by default. Why not a plain relative tolerance: 0.1% rejects a correctly rounded three-figure answer, and 0.5% accepts a
+copy of the near-match cue (2.17 for a gold of 2.1778), which is the construct under study. Every record also stores `relative_error` and the strict 0.1%
+label, so any other rule can be applied later and a sensitivity analysis needs no re-run. This rule was chosen after seeing the 20 throughput records (one record changes: "2.18" for 2.1778 becomes correct),
+so it is post hoc relative to them; the full pilot is graded under it as written here, before its outcomes exist.
+
 ## 5. Decision rules (what each outcome would do; B2 Gate, §10)
 
 | Observation | Interpretation | Action | Prohibited reaction |
