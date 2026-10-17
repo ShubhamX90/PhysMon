@@ -179,3 +179,13 @@ def test_the_runner_without_git_uses_the_submitters_commit_or_refuses(plan_dir, 
     assert summary["source_commit"] == "a" * 40 and "git unavailable" in summary["source_commit_from"]
     assert summary["git_status_short"] == "NOT AVAILABLE"
     assert all(r["source_commit"] == "a" * 40 for r in _jsonl(tmp_path / "g1" / "raw_records.jsonl"))
+
+
+@pytest.mark.parametrize("error", [FileNotFoundError("git"), PermissionError(13, "Permission denied", "git")])
+def test_git_that_cannot_be_executed_gives_an_empty_string_not_a_crash(error, monkeypatch):
+    # Job 399530 died on gpunode6 with PermissionError from subprocess, not FileNotFoundError.
+    def boom(*args, **kwargs):
+        raise error
+
+    monkeypatch.setattr(run_mod.subprocess, "run", boom)
+    assert run_mod.git("rev-parse", "HEAD") == ""

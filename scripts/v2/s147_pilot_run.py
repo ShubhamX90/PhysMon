@@ -44,12 +44,12 @@ REGISTRY = "docs/model_registry.yml"
 
 
 def git(*args: str) -> str:
-    """Run git; an empty string if it fails or is not installed (job 399511 ran on a node without git)."""
+    """Run git; an empty string if it fails or cannot be run (gpunode6: not found in job 399511, PermissionError in 399530)."""
 
     try:
         return subprocess.run(["git", *args], cwd=REPO_ROOT, capture_output=True, text=True,
                               check=False).stdout.strip()
-    except FileNotFoundError:
+    except OSError:  # FileNotFoundError, PermissionError (a PATH entry the job cannot execute), and similar
         return ""
 
 
