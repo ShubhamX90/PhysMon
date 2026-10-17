@@ -96,6 +96,7 @@ activations out (this pilot needs no hooks and stores none). Partition, GRES, CP
 | # | Blocker | Why it matters | Owner |
 |---|---|---|---|
 | 1 | Independent expert review of the ten structures (all UNREVIEWED) | v2 B4 gate: no claim on items whose English is unreviewed | physicist and reviewers (Stage 14.5 materials) |
+|   | Update 2026-10-17: the user approved all ten in one open walkthrough (`docs/validation/v2/structure_review_2026-10-17.json`). One reviewer, not blinded, expertise not stated; the certificates still say UNREVIEWED. Partly addressed, not cleared. | | |
 | 2 | Ten structures, not 40 to 60 | B6.1 asks for roughly 40 to 60 independent discovery structures | user / further generator work after review |
 | 3 | P0 gate open: values recomputed, not regenerated through the model; hook check needs activations | v2 P0 hard stop (p.16) | needs this pilot's models on GPU under an approved run |
 | 4 | Post-wipe GPU validation of the two models is incomplete (4 of 7 smoke results predate the fix, no rerun) | the loader and hooks are unproven on the restored weights | needs a short approved GPU job |

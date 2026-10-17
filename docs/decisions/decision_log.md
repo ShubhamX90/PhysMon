@@ -3152,3 +3152,10 @@ equal no other number in the prompt (Q002 0.2 to 0.3 m, Q004 0.1 to 0.15 m). Ban
 carry the user's v1 verdicts unchanged; Q002, Q004 and the new CM_A_008 item need review. Twelve of the 40 genuine sample families changed as a
 side effect of the shared random stream. Journal: J14.5-012. Code `e8d00ec`; `docs/validation/v2/materials/v2/`.
 Not a validation; the physicist-confirmation requirement is still open.
+
+## Structure review by the user; structures stay UNREVIEWED in their certificates — 2026-10-17
+
+The user reviewed S01 to S10 in an open walkthrough and approved all ten as written, and accepted the generic cue-sentence phrasing. Record:
+`docs/validation/v2/structure_review_2026-10-17.json`; journal J14.6-009. This is one reviewer, an open walkthrough rather than the blinded
+two-pass protocol, and the reviewer did not state that they are a physicist, so no structure is assigned `CERTIFIED_AND_VALIDATED` and the
+certificate files keep `UNREVIEWED`. Blocker 1 of the pilot protocol is partly addressed; the other four blockers stand.
