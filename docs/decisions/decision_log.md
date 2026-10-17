@@ -3159,3 +3159,12 @@ The user reviewed S01 to S10 in an open walkthrough and approved all ten as writ
 `docs/validation/v2/structure_review_2026-10-17.json`; journal J14.6-009. This is one reviewer, an open walkthrough rather than the blinded
 two-pass protocol, and the reviewer did not state that they are a physicist, so no structure is assigned `CERTIFIED_AND_VALIDATED` and the
 certificate files keep `UNREVIEWED`. Blocker 1 of the pilot protocol is partly addressed; the other four blockers stand.
+
+## Authorized smoke rerun for the two pilot models (job 399217) — 2026-10-17
+
+The user authorized one GPU job, the post-wipe smoke rerun for `qwen_primary` and `llama_primary`, after a live preflight and approval of the exact
+command. Job 399217 (`gpu_h100_4`, 1 H100, 8 CPU, 90G, 3 h) completed with exit code 0 in 59 min 56 s; both models passed all seven checks
+(TransformerLens loader and hooks, HF parity). Two earlier attempts (399209, 399215 on H200) were cancelled by me with the user's authorization after
+pending on per-user QoS caps that `sbatch --test-only` does not model; I recorded that mistake in J14.7-010. The result validates the loader and
+hook path only, not the Hugging Face scoring path of the pilot runner, and not P0. No v2 structure was scored. Journal: J14.7-009 to J14.7-012.
+Results: `results/infrastructure/model_smoke/attempt_20261017_gpu_h100/` (infrastructure evidence, not scientific evidence).

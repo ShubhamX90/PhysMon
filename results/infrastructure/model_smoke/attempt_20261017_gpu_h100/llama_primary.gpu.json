@@ -1,0 +1,87 @@
+{
+  "checks": [
+    {
+      "name": "load_model",
+      "ok": true,
+      "severity": "hard",
+      "detail": "1158.7s dtype=torch.float16 device=cpu backend=transformer_lens"
+    },
+    {
+      "name": "greedy_generation",
+      "ok": true,
+      "severity": "hard",
+      "detail": "18 chars; head='Answer: 5.0 m/s^2.'"
+    },
+    {
+      "name": "answer_parseable",
+      "ok": true,
+      "severity": "soft",
+      "detail": "parsed='5 m/s^2' expected='5.0 m/s^2' (informational)"
+    },
+    {
+      "name": "reference_answer_logprob",
+      "ok": true,
+      "severity": "hard",
+      "detail": "-21.188"
+    },
+    {
+      "name": "hook_points_present",
+      "ok": true,
+      "severity": "hard",
+      "detail": {
+        "kind": "transformer_lens",
+        "needed": [
+          "blocks.16.hook_resid_post",
+          "blocks.16.attn.hook_z"
+        ],
+        "present": [
+          true,
+          true
+        ]
+      }
+    },
+    {
+      "name": "activation_extraction",
+      "ok": true,
+      "severity": "hard",
+      "detail": {
+        "resid_post_last_prompt_layer16": [
+          4096
+        ],
+        "resid_post_cue_token0_layer16": [
+          4096
+        ],
+        "attn_out_last_prompt_layer16": [
+          4096
+        ],
+        "attn_out_cue_token0_layer16": [
+          4096
+        ]
+      }
+    },
+    {
+      "name": "hf_vs_transformer_lens_parity",
+      "ok": true,
+      "severity": "hard",
+      "detail": {
+        "top1_equal": true,
+        "cosine": 0.99999,
+        "max_abs_diff": 0.0312
+      }
+    }
+  ],
+  "facts": {
+    "repo_id": "meta-llama/Llama-3.1-8B-Instruct",
+    "backend": "transformer_lens",
+    "gpu": "NVIDIA H100 80GB HBM3",
+    "load_seconds": 1158.7,
+    "dtype": "torch.float16",
+    "param_device": "cpu",
+    "generation_seconds": 18.1,
+    "generation_device": "cpu",
+    "parsed_answer": "5 m/s^2",
+    "reference_logprob": -21.1875,
+    "peak_gpu_gb": 33.0
+  },
+  "passed": true
+}
