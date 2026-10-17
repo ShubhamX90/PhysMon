@@ -100,6 +100,7 @@ activations out (this pilot needs no hooks and stores none). Partition, GRES, CP
 | 2 | Ten structures, not 40 to 60 | B6.1 asks for roughly 40 to 60 independent discovery structures | user / further generator work after review |
 | 3 | P0 gate open: values recomputed, not regenerated through the model; hook check needs activations | v2 P0 hard stop (p.16) | needs this pilot's models on GPU under an approved run |
 | 4 | Post-wipe GPU validation of the two models is incomplete (4 of 7 smoke results predate the fix, no rerun) | the loader and hooks are unproven on the restored weights | needs a short approved GPU job |
+|   | Update 2026-10-17 (later): job 399539 ran the real runner for 20 S01 jobs on Qwen2.5-7B through the direct HF path; all records OK. Throughput measured (see J14.7-018). Remaining: the correctness-tolerance rule is undeclared (code uses 1e-3), Llama untested on this path, P0 regeneration open. | | |
 |   | Update 2026-10-17: job 399217 reran the smoke for the two pilot models; all checks pass (TransformerLens loader and hooks). The direct Hugging Face scoring path used by the runner is still untested on real weights. Partly addressed. | | |
 | 5 | Explicit user authorization to submit Slurm jobs, with partition and resource limits chosen from a live preflight | AGENTS.md and the Sharanga skill | user |
 

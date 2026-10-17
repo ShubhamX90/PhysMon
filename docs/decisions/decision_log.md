@@ -3175,3 +3175,10 @@ Authorized job 399511 failed in under three minutes with exit code 6: gpunode6 h
 loaded and nothing was scored; the failure and its logs are preserved (scratch) and recorded in J14.7-014. The template and runner now take the submitter's commit when git is absent
 and refuse without provenance; the clean-tree and pushed checks become the submitter's responsibility on such a node and are printed as NOT CHECKED. A resubmission
 needs a new authorization because the template changed.
+
+## Throughput test of the real pilot runner completed (job 399539) — 2026-10-17
+
+After two failures caused by git being unusable on gpunode6 (399511 not executed to the model; 399530 PermissionError), each fixed, tested and re-authorized, job 399539 completed: 20 jobs of Qwen2.5-7B on S01 through the
+direct Hugging Face path, all OK, 62 s of scoring (median 0.32 s per job) after about 6.5 min of start-up. Records: `results/stage14/s147_pilot_run/attempt_399539_qwen_primary/` (exploratory; not paper-eligible; no aggregation).
+Open decision for the user: the correctness tolerance (the code uses 1e-3, which I chose without declaring it and which marks a correctly rounded 3-significant-figure answer wrong); it must be fixed before any analysis, and the rule
+is post hoc relative to these 20 outcomes. Journal: J14.7-014 to J14.7-019. No further job is authorized.

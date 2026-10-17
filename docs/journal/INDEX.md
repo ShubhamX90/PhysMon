@@ -13,6 +13,6 @@ Plan of record: `docs/proposals/PhysMon_Research_v2.pdf`. Stage ordering below i
 | 14.4 | Structure overlap and the five excluded stable families | B1.6, P3.5, P3.6, card X05 | CPU only | done (committed-data scope); monitor under cluster-held-out folds NOT_EVALUATED | [14.4](stage14/14.4_structure_overlap.md) |
 | 14.5 | Validator qualification materials | B4, P3.1 | human task | done (instruments and candidate materials v2); bank reviewed by the user (30 of 33 items carried, 3 to re-review); no validator qualified, no physicist confirmation | [14.5](stage14/14.5_validator_qualification.md) |
 | 14.6 | Typed generator and first 10 certified v2 structures | B3.2, B3 deliverable | CPU plus human review | done (generator and solver certificates); all 10 approved by one open user walkthrough, certificates still UNREVIEWED | [14.6](stage14/14.6_typed_generator.md) |
-| 14.7 | Pilot on two dense models | B6, P1 | GPU | prepared, not run; smoke rerun for both pilot models passed (job 399217); pilot blocked on a new authorization, certified-structure review, open P0 gate | [14.7](stage14/14.7_pilot_preparation.md) |
+| 14.7 | Pilot on two dense models | B6, P1 | GPU | prepared; smoke rerun passed (399217); 20-job throughput test of the runner done (399539, Qwen, S01 only); full pilot not run; open: correctness-tolerance rule, new authorization, certified-structure review, P0 gate | [14.7](stage14/14.7_pilot_preparation.md) |
 
 Status values: `not started`, `in progress`, `done`, `blocked`, `superseded`.
