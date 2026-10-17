@@ -11,7 +11,7 @@ Plan of record: `docs/proposals/PhysMon_Research_v2.pdf`. Stage ordering below i
 | 14.2 | X02 base-rotation attack with an executable CM_B_UM_059 unit test | B1.2, B1.3, P1.1, card X02 | CPU only | done (stored-value scope); retirement of the legacy label awaits user confirmation | [14.2](stage14/14.2_x02_base_rotation.md) |
 | 14.3 | Scoring-interface contract (prompt bytes, answer spans, wrappers) | B1.4, P1.3, card X03 | CPU design, small GPU later | done (tokenizer-only scope); reviewer sign-off and GPU cases pending | [14.3](stage14/14.3_scoring_contract.md) |
 | 14.4 | Structure overlap and the five excluded stable families | B1.6, P3.5, P3.6, card X05 | CPU only | done (committed-data scope); monitor under cluster-held-out folds NOT_EVALUATED | [14.4](stage14/14.4_structure_overlap.md) |
-| 14.5 | Validator qualification materials | B4, P3.1 | human task | done (instruments and candidate materials); no validator qualified, bank unconfirmed | [14.5](stage14/14.5_validator_qualification.md) |
+| 14.5 | Validator qualification materials | B4, P3.1 | human task | done (instruments and candidate materials v2); bank reviewed by the user (30 of 33 items carried, 3 to re-review); no validator qualified, no physicist confirmation | [14.5](stage14/14.5_validator_qualification.md) |
 | 14.6 | Typed generator and first 10 certified v2 structures | B3.2, B3 deliverable | CPU plus human review | done (generator and solver certificates); all 10 structures UNREVIEWED | [14.6](stage14/14.6_typed_generator.md) |
 | 14.7 | Pilot on two dense models | B6, P1 | GPU | prepared, not run (CPU scope); blocked on Slurm authorization, expert review of the 10 structures, open P0 gate | [14.7](stage14/14.7_pilot_preparation.md) |
 

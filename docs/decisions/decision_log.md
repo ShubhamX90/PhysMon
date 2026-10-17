@@ -3143,3 +3143,12 @@ physicist, so the physicist-confirmation requirement stays open. Required fixes 
 edit of v1): drop or reclassify Q009 (rule for CM_B_UM_011), reword Q002 and Q004, show the edited rendering for Q017, Q057, Q069.
 The user also stated that reviewers never see this repository, so the restricted key files stay committed (J14.5-007), and chose to leave the
 Phase-I manuscript out of the repository for now: its values stay SUBMITTED claims in the ledger.
+
+## Validation materials v2: bank fixes from the user's review — 2026-10-17
+
+Decision: fix the three problems found in the 33-item bank review by building materials v2 (v1 kept, marked superseded) rather than
+editing v1. Boundary rule: CM_B_UM_011 dropped, CM_A_008 added (words and restated value deleted together). Contradictory note: value must
+equal no other number in the prompt (Q002 0.2 to 0.3 m, Q004 0.1 to 0.15 m). Bank rows record every rendering. Reviewed items are pinned: 30 of 33
+carry the user's v1 verdicts unchanged; Q002, Q004 and the new CM_A_008 item need review. Twelve of the 40 genuine sample families changed as a
+side effect of the shared random stream. Journal: J14.5-012. Code `e8d00ec`; `docs/validation/v2/materials/v2/`.
+Not a validation; the physicist-confirmation requirement is still open.

@@ -1,0 +1,95 @@
+{
+  "bank_applicability_census": {
+    "contradictory_distractor_statement": 119,
+    "failed_transformation_identity": 5,
+    "hidden_coupling": 22,
+    "inconsistent_units": 47,
+    "insufficient_boundary_condition": 3,
+    "invalid_numerical_precision": 54,
+    "invalid_parameter_domain": 51,
+    "missing_assumption": 4,
+    "relevant_variable_removed_from_equation": 136,
+    "valid_equivalent_rewrite": 73
+  },
+  "bank_shortfalls": {},
+  "command": "scripts/v2/s145_validation_materials.py --version v2 --pin-from docs/validation/v2/materials/v1/planted_defect_bank_FOR_PHYSICIST_CONFIRMATION.jsonl",
+  "families_disjoint_between_planted_and_genuine": true,
+  "file_sha256": {
+    "genuine_pilot_sample.csv": "d74004f096bed2641478679b8110c7b76e3432fa2c4adc6e49aa4d0f79db9848",
+    "packet_key_RESTRICTED.json": "de7813a4754ffbe33bbdb6cb335210d6a66bb7e06d9cf1fd96118495d085000a",
+    "pass1_packets.jsonl": "c9669522cd90b4cb60ec611f2babeee2d9024e68713ebcf5d8318bf51c09440e",
+    "pass2_packets.jsonl": "6c084d0f73a537b1edb9c30a88ddad4eb550bd437ccb57c64c3b798fc73efcd2",
+    "planted_defect_bank_FOR_PHYSICIST_CONFIRMATION.jsonl": "a181ee5356612079864e5b285adba1776b10bd6811b044a79d8af36050293905"
+  },
+  "genuine_by_stratum": {
+    "assumption_sensitive_isolation": 6,
+    "cell_coverage": 1,
+    "cue_c_frame_rendering": 1,
+    "high_overlap_cluster": 4,
+    "largest_gold_shift": 6,
+    "negative_base_score": 4,
+    "presumed_easy_stable": 6,
+    "random_fill": 12
+  },
+  "git_status_short": [
+    "?? activations",
+    "?? docs/validation/v2/materials/v2/",
+    "?? results/infrastructure/model_smoke/attempt_20261014_gpu_h100/"
+  ],
+  "inputs": {
+    "clusters": "results/stage14/s144_structure_overlap/attempt_20261016_d637b0e/clusters.csv",
+    "per_family": "results/stage6/analysis_d2/stage6_d1_per_family.csv",
+    "rendered": "results/stage6/generated_full_benchmark",
+    "templates": "data/raw/templates",
+    "x02": "results/stage14/x02_base_rotation/attempt_20261016_2b59e31/base_permutation_audit.csv"
+  },
+  "materials_version": "v2",
+  "n_genuine": 40,
+  "n_items": 73,
+  "n_planted": 33,
+  "pinned_from": "docs/validation/v2/materials/v1/planted_defect_bank_FOR_PHYSICIST_CONFIRMATION.jsonl",
+  "pins_dropped_rule_no_longer_applies": [
+    {
+      "defect_type": "insufficient_boundary_condition",
+      "family": "CM_B_UM_011"
+    }
+  ],
+  "planted_by_defect_type": {
+    "contradictory_distractor_statement": 3,
+    "failed_transformation_identity": 3,
+    "hidden_coupling": 3,
+    "inconsistent_units": 3,
+    "insufficient_boundary_condition": 3,
+    "invalid_numerical_precision": 3,
+    "invalid_parameter_domain": 3,
+    "missing_assumption": 3,
+    "relevant_variable_removed_from_equation": 3,
+    "valid_equivalent_rewrite": 6
+  },
+  "seed": 42,
+  "source_commit": "e8d00ec6844e13c744d20cc8a1ab23f89129afa7",
+  "stage": "14.5",
+  "status": "CANDIDATE: requires physicist confirmation of the bank and independent reviewers; the agent is not a validator",
+  "timing_pilot_item_ids": [
+    "Q025",
+    "Q052",
+    "Q032",
+    "Q021",
+    "Q003",
+    "Q005",
+    "Q007",
+    "Q008",
+    "Q040",
+    "Q047",
+    "Q022",
+    "Q020",
+    "Q030",
+    "Q010",
+    "Q042",
+    "Q049",
+    "Q034",
+    "Q055",
+    "Q033",
+    "Q011"
+  ]
+}

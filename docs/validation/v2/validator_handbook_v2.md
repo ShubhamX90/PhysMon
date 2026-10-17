@@ -29,7 +29,7 @@ Journal: `docs/journal/stage14/14.5_validator_qualification.md`.
    expected difficulty. Every one of the 155 v1 families gets at least one blinded review; every family used in a
    publishable confirmatory claim gets two independent reviews and a third-party adjudicator (B4.1, P3.1).
 2. Reviewers never see model outputs, sensitivity labels, probe scores, the circuit hypothesis, or which items are
-   planted. The restricted files are listed in `materials/v1/README.md`.
+   planted. The restricted files are listed in `materials/v2/README.md`.
 3. Reviewers are pseudonymous in every record (`reviewer_id`); expertise is recorded by domain in a separate
    coordinator file that is not published.
 4. A reviewer who learns an item's status after the fact keeps the earlier locked judgment; later changes go in an
@@ -119,7 +119,7 @@ judgments, plus calibration and adjudication, and more if each numeric or lingui
 (`in_timing_pilot_20`) records `minutes_spent` per review and the adjudication time; reviewer-hours are then
 `judgments x mean minutes / 60` with the measured spread, and the budget follows from that, not before.
 
-## 8. Materials (`docs/validation/v2/materials/v1/`)
+## 8. Materials (`docs/validation/v2/materials/v2/`; v1 is superseded, see `materials/v1/SUPERSEDED.md`)
 
 | File | Audience |
 |---|---|
