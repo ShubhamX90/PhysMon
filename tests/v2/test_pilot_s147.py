@@ -189,3 +189,30 @@ def test_git_that_cannot_be_executed_gives_an_empty_string_not_a_crash(error, mo
 
     monkeypatch.setattr(run_mod.subprocess, "run", boom)
     assert run_mod.git("rev-parse", "HEAD") == ""
+
+
+def test_each_decoy_is_also_scored_under_the_no_cue_prompt_of_the_same_instantiation(plan_dir, tiny_model_dir, tmp_path):
+    transformers = pytest.importorskip("transformers")
+    sc = run_mod.sc
+    vs = run_mod.vs
+    assert _run(plan_dir, tiny_model_dir, tmp_path, "a1", ("--authorization-ref", "TEST-ONLY")) == 0
+    # _run limits to 5 jobs, which already include a near-cue cell with a decoy; the anchor prompt comes from the full manifest.
+    records = _jsonl(tmp_path / "a1" / "raw_records.jsonl")
+    with_decoy = [r for r in records if r["alternative_scores"]]
+    assert with_decoy and all(r["alternative_scores"]["decoy_under_anchor_prompt"] is not None for r in with_decoy)
+    assert all(r["alternative_scores"] is None for r in records if r["cell_id"] in ("no_cue", "nonnumeric_extra"))
+    jobs = [j for j in _jsonl(plan_dir / "job_manifest.jsonl") if j["model_key"] == "llama_primary"]
+    anchors = {(j["structure_id"], j["instance"]): j["user_prompt"] for j in jobs if j["cell_id"] == "no_cue"}
+    tokenizer = transformers.AutoTokenizer.from_pretrained(str(tiny_model_dir), local_files_only=True)
+    model = transformers.AutoModelForCausalLM.from_pretrained(str(tiny_model_dir), local_files_only=True)
+    model.eval()
+    fn = vs.make_hf_logprob_fn(model, "cpu")
+    for record in with_decoy:
+        anchor_prompt = vs.build_chat_prompt(tokenizer, sc.instruction_for("answer_line"),
+                                             anchors[(record["structure_id"], record["instance"])])
+        pair = vs.tokenize_pair(tokenizer, anchor_prompt, record["alternative_scores"]["decoy"]["text"])
+        expected = vs.score_pair(fn, pair, "answer_line", record["alternative_scores"]["decoy"]["text"]).gold_logprob_raw
+        stored = record["alternative_scores"]["decoy_under_anchor_prompt"]["logprob_raw"]
+        assert stored == pytest.approx(expected, abs=1e-4)
+        # A different prompt gives a different score, so the field is not a copy of the cue-prompt score.
+        assert stored != record["alternative_scores"]["decoy"]["logprob_raw"]

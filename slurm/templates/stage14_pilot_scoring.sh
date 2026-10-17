@@ -12,7 +12,7 @@
 #   PLAN_DIR           directory with plan.json and job_manifest.jsonl (from scripts/v2/s147_pilot_plan.py)
 #   AUTHORIZATION_REF  a non-empty reference to the user's authorization (the runner refuses without it)
 # Needed only on a node without git: SUBMIT_COMMIT (the full SHA from the submission node).
-# Optional: MODELS (default "qwen_primary llama_primary", run in sequence inside this one job because the
+# Optional: DTYPES (default "bfloat16"; for example "bfloat16 float32" repeats the run per dtype), MODELS (default "qwen_primary llama_primary", run in sequence inside this one job because the
 # per-user cap observed on 2026-10-14 was one H100 GPU), MAX_JOBS (a measured throughput test first, for example 20).
 #
 # The walltime is a placeholder: no throughput has been measured. Set it from a measured test, within the caps.
@@ -47,6 +47,7 @@ cd "$PHYSMON_ROOT"
 : "${PLAN_DIR:?ERROR: PLAN_DIR is not set}"
 : "${AUTHORIZATION_REF:?ERROR: AUTHORIZATION_REF is not set (this pilot is not authorized by default)}"
 MODELS="${MODELS:-qwen_primary llama_primary}"
+DTYPES="${DTYPES:-bfloat16}"
 
 # Some compute nodes (gpunode6 on 2026-10-17, job 399511) have no git. Then the submitter's commit is used and the
 # clean-tree and pushed checks, which only git can make, are reported as NOT CHECKED. The submitter must run them
@@ -96,13 +97,15 @@ if [ "${GIT_ON_NODE}" = yes ]; then
 fi
 
 for MODEL in ${MODELS}; do
-  python -u scripts/v2/s147_pilot_run.py \
-    --plan-dir "${PLAN_DIR}" \
-    --model-key "${MODEL}" \
-    --authorization-ref "${AUTHORIZATION_REF}" \
-    --attempt-id "attempt_${SLURM_JOB_ID:-nojob}_${MODEL}" \
-    --device cuda --dtype bfloat16 \
-    ${MAX_JOBS:+--max-jobs "${MAX_JOBS}"}
+  for DTYPE in ${DTYPES}; do
+    python -u scripts/v2/s147_pilot_run.py \
+      --plan-dir "${PLAN_DIR}" \
+      --model-key "${MODEL}" \
+      --authorization-ref "${AUTHORIZATION_REF}" \
+      --attempt-id "attempt_${SLURM_JOB_ID:-nojob}_${MODEL}_${DTYPE}" \
+      --device cuda --dtype "${DTYPE}" \
+      ${MAX_JOBS:+--max-jobs "${MAX_JOBS}"}
+  done
 done
 
 echo "=== PhysMon Stage 14.7 pilot scoring complete ==="

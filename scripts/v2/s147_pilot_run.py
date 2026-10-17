@@ -88,6 +88,13 @@ def make_record(job: dict, ctx: dict, logprobs, model, tokenizer) -> dict[str, A
         status = "PROMPT_HASH_MISMATCH"
     gold = score_alternative(logprobs, tokenizer, prompt, job["gold_text"], wrapper) if status == "OK" else None
     decoy = score_alternative(logprobs, tokenizer, prompt, job["decoy_text"], wrapper) if status == "OK" else None
+    # The same decoy string scored under the no-cue prompt of the same instantiation: the cue effect on the decoy is the
+    # change from that score, not a comparison between two different strings (Stage 14.8, J14.8-003).
+    decoy_anchor = None
+    anchor_user_prompt = ctx.get("anchor_user_prompts", {}).get((job["structure_id"], job["instance"]))
+    if status == "OK" and job["decoy_text"] is not None and anchor_user_prompt is not None:
+        anchor_prompt = vs.build_chat_prompt(tokenizer, sc.instruction_for(wrapper), anchor_user_prompt)
+        decoy_anchor = score_alternative(logprobs, tokenizer, anchor_prompt, job["decoy_text"], wrapper)
     generated, parsed, correctness = None, vs.ParsedOutput("NOT_EVALUATED"), "NOT_EVALUATED"
     rel_error, strict = None, "NOT_EVALUATED"
     if status == "OK" and gold is not None and gold["status"] == "OK":
@@ -116,7 +123,7 @@ def make_record(job: dict, ctx: dict, logprobs, model, tokenizer) -> dict[str, A
         "parse_status": parsed.status,
         "gold_logprob_raw": gold["logprob_raw"] if gold else None,
         "gold_logprob_per_token": gold["logprob_per_token"] if gold else None,
-        "alternative_scores": {"decoy": decoy} if decoy else None,
+        "alternative_scores": ({"decoy": decoy, "decoy_under_anchor_prompt": decoy_anchor} if decoy else None),
         "correctness": correctness, "correctness_rule": vs.CORRECTNESS_RULE,
         "relative_error": rel_error, "correctness_strict_1e-3": strict, "seed": ctx["seed"], "dtype": ctx["dtype"],
         "wall_time": round(time.time() - started, 4), "artifact_checksum": None,
@@ -192,11 +199,14 @@ def main() -> int:
 
     jobs = [json.loads(line) for line in (plan_dir / "job_manifest.jsonl").read_text(encoding="utf-8").splitlines()
             if line.strip()]
-    jobs = [j for j in jobs if j["model_key"] == args.model_key][: args.max_jobs]
+    jobs = [j for j in jobs if j["model_key"] == args.model_key]
+    anchor_user_prompts = {(j["structure_id"], j["instance"]): j["user_prompt"] for j in jobs if j["cell_id"] == "no_cue"}
+    jobs = jobs[: args.max_jobs]
     ctx = {
         "run_id": f"{attempt}", "model_name": registry["name"], "model_revision": model_manifest_revision(args.model_key),
         "tokenizer_sha256": sha256_file(path / "tokenizer.json"), "dtype": dtype_name, "seed": args.seed,
         "source_commit": sha, "authorization_ref": args.authorization_ref, "max_new_tokens": args.max_new_tokens,
+        "anchor_user_prompts": anchor_user_prompts,
     }
     header = {
         "source_commit": sha, "source_commit_from": "git" if git_available else "PHYSMON_SOURCE_COMMIT (git unavailable)",
