@@ -3134,3 +3134,12 @@ nothing is validated, confirmatory or paper-eligible. A run on the current items
 The user confirmed (session answer of 2026-10-17) the interim rule from Stage 14.2: the legacy base-0 `S_lp` label is not computed
 for v2 analyses. Earlier results that used it remain exploratory with the X02 caveat. Journal: `docs/journal/stage14/14.2_x02_base_rotation.md`
 J14.2-011. This closes one of the five items listed as needing the user in the Stage 14.7 handoff.
+
+## Planted-defect bank reviewed by the user; restricted key files stay — 2026-10-17
+
+The user reviewed all 33 items one at a time (24 defective as declared, 2 ambiguous not contradictory, 1 not defective, 6 valid controls).
+Record: `docs/validation/v2/materials/v1/bank_confirmation_2026-10-17.json`; journal J14.5-010. The reviewer did not state that they are a
+physicist, so the physicist-confirmation requirement stays open. Required fixes before the bank is used (new materials version, not an
+edit of v1): drop or reclassify Q009 (rule for CM_B_UM_011), reword Q002 and Q004, show the edited rendering for Q017, Q057, Q069.
+The user also stated that reviewers never see this repository, so the restricted key files stay committed (J14.5-007), and chose to leave the
+Phase-I manuscript out of the repository for now: its values stay SUBMITTED claims in the ledger.
