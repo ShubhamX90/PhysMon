@@ -3128,3 +3128,9 @@ structures are unreviewed (B4), there are ten not 40 to 60 (B6.1), P0 is open, a
 
 Not done: any GPU run; GPU time is not estimated because no throughput has been measured. Nothing from this stage is a result, and
 nothing is validated, confirmatory or paper-eligible. A run on the current items, if authorized, is exploratory only.
+
+## Confirmation: legacy base-0 label retired — 2026-10-17
+
+The user confirmed (session answer of 2026-10-17) the interim rule from Stage 14.2: the legacy base-0 `S_lp` label is not computed
+for v2 analyses. Earlier results that used it remain exploratory with the X02 caveat. Journal: `docs/journal/stage14/14.2_x02_base_rotation.md`
+J14.2-011. This closes one of the five items listed as needing the user in the Stage 14.7 handoff.
