@@ -90,19 +90,34 @@ def variant0_prompt(family: dict) -> str:
 # ---------------------------------------------------------------------------------------------
 
 
-def build_bank(families, templates, rng: random.Random, reserved: set[str]) -> tuple[list[dict], dict[str, Any]]:
+def build_bank(families, templates, rng: random.Random, reserved: set[str],
+               pinned: dict[str, list[str]] | None = None) -> tuple[list[dict], dict[str, Any]]:
+    """Pick the bank. `pinned` maps a defect type to families kept from an earlier, already reviewed bank; a pinned
+    family is re-injected under the current rules, and dropped (and recorded) if the rule no longer applies to it."""
+
+    pinned = pinned or {}
+    all_pinned = {fid for fids in pinned.values() for fid in fids}
     census = {dt: [fid for fid, fam in sorted(families.items())
                    if di.inject(dt, fam, templates.get(fid)).applicable] for dt in di.DEFECT_TYPES}
     used: set[str] = set(reserved)  # families reserved for the genuine sample are never planted
     bank: list[dict] = []
     shortfalls: dict[str, int] = {}
+    dropped_pins: list[dict] = []
     order = sorted(di.DEFECT_TYPES, key=lambda dt: (len(census[dt]), dt))  # scarcest first
     for defect_type in order:
         want = N_CONTROLS if defect_type == di.CONTROL else PER_DEFECT
-        pool = [f for f in census[defect_type] if f not in used]
+        picked: list[str] = []
+        for fid in pinned.get(defect_type, []):
+            if fid in census[defect_type] and fid not in used and len(picked) < want:
+                picked.append(fid)
+                used.add(fid)
+            else:
+                dropped_pins.append({"family": fid, "defect_type": defect_type})
+        pool = [f for f in census[defect_type] if f not in used and f not in all_pinned]
         rng.shuffle(pool)
         domains_taken: dict[str, int] = {}
-        picked: list[str] = []
+        for fid in picked:
+            domains_taken[families[fid]["domain"]] = domains_taken.get(families[fid]["domain"], 0) + 1
         while pool and len(picked) < want:
             pool.sort(key=lambda f: domains_taken.get(families[f]["domain"], 0))
             fid = pool.pop(0)
@@ -114,7 +129,8 @@ def build_bank(families, templates, rng: random.Random, reserved: set[str]) -> t
         for fid in sorted(picked):
             injection = di.inject(defect_type, families[fid], templates.get(fid))
             bank.append({"family": fid, "defect_type": defect_type, "injection": injection})
-    return bank, {"census": {k: len(v) for k, v in census.items()}, "shortfalls": shortfalls}
+    return bank, {"census": {k: len(v) for k, v in census.items()}, "shortfalls": shortfalls,
+                  "pins_dropped_rule_no_longer_applies": dropped_pins}
 
 
 # ---------------------------------------------------------------------------------------------
@@ -219,6 +235,8 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--version", default="v1")
     parser.add_argument("--out-base", default=OUT_BASE)
+    parser.add_argument("--pin-from", default=None,
+                        help="An earlier bank (planted_defect_bank_*.jsonl) whose reviewed families are kept.")
     args = parser.parse_args()
     out_dir = (REPO_ROOT / args.out_base / args.version).resolve()
     if out_dir.exists() and any(out_dir.iterdir()):
@@ -229,7 +247,13 @@ def main() -> int:
     rng = random.Random(SEED)
     cue_c = sorted(f for f, fam in families.items() if fam["cue_type"] == "frame_rendering")
     reserved = set(rng.sample(cue_c, 2))  # Cue C is scarce (5 families); keep two genuine, plant the rest
-    bank, bank_info = build_bank(families, templates, rng, reserved)
+    pinned: dict[str, list[str]] = {}
+    if args.pin_from:
+        for line in Path(args.pin_from).read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                row = json.loads(line)
+                pinned.setdefault(row["defect_type"], []).append(row["family"])
+    bank, bank_info = build_bank(families, templates, rng, reserved, pinned)
     planted_families = {b["family"] for b in bank}
     sample = build_sample(families, planted_families, rng, reserved)
 
@@ -284,6 +308,12 @@ def main() -> int:
                 "description": inj.description,
                 "original_variant0_prompt": variant0_prompt(original),
                 "edited_variant0_prompt": inj.edited_prompts[0],
+                # Every rendering, because some defects (failed_transformation_identity) edit only rendering 1.
+                "original_prompts": [v["prompt"] for v in sorted(original["variants"], key=lambda v: int(v["variant_id"]))],
+                "edited_prompts": inj.edited_prompts,
+                "changed_variant_ids": [int(v["variant_id"]) for v, e in zip(
+                    sorted(original["variants"], key=lambda v: int(v["variant_id"])), inj.edited_prompts, strict=True)
+                    if e != v["prompt"]],
                 "original_equation": template["governing_equation_sympy"],
                 "edited_equation": inj.edited_equation,
                 "original_answer": original["correct_answer"], "edited_answer": inj.edited_answer,
@@ -334,6 +364,7 @@ def main() -> int:
         "genuine_by_stratum": dict(sorted(strata_counts.items())),
         "planted_by_defect_type": dict(sorted(defect_counts.items())),
         "bank_applicability_census": bank_info["census"], "bank_shortfalls": bank_info["shortfalls"],
+        "pinned_from": args.pin_from, "pins_dropped_rule_no_longer_applies": bank_info["pins_dropped_rule_no_longer_applies"],
         "families_disjoint_between_planted_and_genuine": not (planted_families & {it["family"] for it in genuine_items}),
         "timing_pilot_item_ids": timing_order,
         "inputs": {k: v for k, v in INPUTS.items()},

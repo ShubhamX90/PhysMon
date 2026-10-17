@@ -173,11 +173,14 @@ def invalid_parameter_domain(family, template=None) -> Injection:
                                  "difference is deliberately not used: a negative change is valid)")
 
 
-# Initial conditions that the governing law needs (journal J14.5-003). CM_A_008 is excluded on purpose: it restates
-# 'initially at rest (0.0 m/s)', so deleting the words would leave the value in place and not be a defect.
+# Initial conditions that the governing law needs (journal J14.5-003, J14.5-012). CM_B_UM_011 was removed after the
+# user's review judged that deleting 'from rest' from 'dropped from rest' is not a defect ('dropped' already means
+# released from rest). CM_A_008 restates 'initially at rest (0.0 m/s)': deleting only the words would leave the value
+# in place, so the rule deletes the words together with the restated value, which does leave object 2's velocity
+# unspecified, like CM_B_009.
 BOUNDARY_EDITS: dict[str, tuple[str, str]] = {
+    "CM_A_008": (r"\s+initially at rest \(0\.0 m/s\)", ""),
     "CM_B_009": (r",\s*which is initially at rest", ""),
-    "CM_B_UM_011": (r"dropped from rest and falls", "dropped and falls"),
     "CM_B_UM_047": (r"starts from rest and descends", "descends"),
 }
 
@@ -211,9 +214,23 @@ def invalid_numerical_precision(family, template=None) -> Injection:
                                  f"({rounded:g}), a {abs(rounded - value) / abs(value):.1%} error")
 
 
+CONTRADICTION_FACTORS = (2, 3, 5)
+
+
+def _same_number(a: float, b: float) -> bool:
+    return math.isclose(a, b, rel_tol=1e-9, abs_tol=1e-12)
+
+
 def contradictory_distractor_statement(family, template=None) -> Injection:
+    """Append a note that restates the distractor (cue) quantity at a different value.
+
+    The multiplier is the first of 2, 3, 5 whose new value equals no other number in any variant's prompt. The user's
+    review (J14.5-010) found that a note value equal to the target's own quantity (0.2 m, 0.1 m) made the defect an
+    ambiguity about which quantity the note refers to, not a clean contradiction.
+    """
+
     variants = sorted(family["variants"], key=lambda v: int(v["variant_id"]))
-    prompts = []
+    rows = []
     for variant in variants:
         cue, value, prompt = (str(variant.get("cue_sentence") or ""), str(variant.get("cue_value", "")),
                               str(variant["prompt"]))
@@ -223,12 +240,22 @@ def contradictory_distractor_statement(family, template=None) -> Injection:
             return _not_applicable("contradictory_distractor_statement", "non-numeric cue value")
         if not cue or cue not in prompt:
             return _not_applicable("contradictory_distractor_statement", "no cue sentence in every variant")
+        rows.append((cue, value, number, prompt))
+    factor = next((k for k in CONTRADICTION_FACTORS
+                   if not any(_same_number(number * k, float(n)) for _, _, number, prompt in rows
+                              for n in numbers_in(prompt))), None)
+    if factor is None:
+        return _not_applicable("contradictory_distractor_statement",
+                               "every candidate note value equals another number in the prompt")
+    prompts = []
+    for cue, value, number, prompt in rows:
         unit_match = re.search(re.escape(value) + r"\s+([^\s,.;()]+)", cue)
         unit = f" {unit_match.group(1)}" if unit_match else ""
-        extra = f" (A later note reports this same quantity as {number * 2:g}{unit} instead.)"
+        extra = f" (A later note reports this same quantity as {number * factor:g}{unit} instead.)"
         prompts.append(prompt.replace(cue, cue + extra, 1))
     return Injection("contradictory_distractor_statement", True, prompts,
-                     description="a later sentence restates the cue quantity, with its unit, at twice the value")
+                     description=f"a later sentence restates the distractor quantity, with its unit, at {factor} times "
+                                 "the value, and the new value equals no other number in the prompt")
 
 
 def valid_equivalent_rewrite(family, template=None) -> Injection:

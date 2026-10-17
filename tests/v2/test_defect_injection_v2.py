@@ -119,15 +119,26 @@ def test_inconsistent_units_turns_one_mass_into_a_length():
             assert di.numbers_in(edited) == di.numbers_in(original)
 
 
-def test_contradictory_statement_adds_exactly_the_doubled_cue_value_with_its_unit():
+def test_contradictory_statement_restates_the_cue_at_a_value_that_collides_with_no_other_number():
     for _, family, result in _applicable("contradictory_distractor_statement"):
         variants = sorted(family["variants"], key=lambda v: int(v["variant_id"]))
         for variant, edited in zip(variants, result.edited_prompts, strict=True):
-            added = di.numbers_in(edited)
             original = di.numbers_in(variant["prompt"])
+            added = di.numbers_in(edited)
             assert len(added) == len(original) + 1
-            assert f"{float(variant['cue_value']) * 2:g}" in added
             assert re.search(r"A later note reports this same quantity as [-\d.eE+]+ ?\S* instead\.\)", edited)
+            new_value = float(re.search(r"quantity as ([-\d.eE+]+)", edited).group(1))
+            assert new_value != float(variant["cue_value"])
+            assert all(not di._same_number(new_value, float(n)) for n in original), (variant["prompt"], new_value)
+
+
+def test_contradictory_statement_avoids_the_collisions_found_in_review():
+    # Review J14.5-010: 0.2 m (the target's own distance) and 0.1 m (the target's own depth) made the note ambiguous.
+    for fid, bad in (("CM_B_STD_011", "0.2"), ("CM_B_STD_006", "0.1")):
+        result = di.inject("contradictory_distractor_statement", FAMILIES[fid], TEMPLATES.get(fid))
+        assert result.applicable
+        assert all(f"quantity as {bad} " not in edited and f"quantity as {bad}0 " not in edited
+                   for edited in result.edited_prompts)
 
 
 def test_failed_transformation_alters_only_rendering_one_so_renderings_disagree():
@@ -142,14 +153,21 @@ def test_failed_transformation_alters_only_rendering_one_so_renderings_disagree(
 
 def test_insufficient_boundary_condition_removes_a_needed_initial_condition_cleanly():
     found = _applicable("insufficient_boundary_condition", 10)
-    assert {fid for fid, _, _ in found} == set(di.BOUNDARY_EDITS)
+    assert {fid for fid, _, _ in found} == set(di.BOUNDARY_EDITS) == {"CM_A_008", "CM_B_009", "CM_B_UM_047"}
     for _, family, result in found:
         for original, edited in zip(_prompts(family), result.edited_prompts, strict=True):
             assert "rest" in original and "rest" not in edited
             assert len(edited) < len(original)
             assert " which is." not in edited and ", ." not in edited  # no dangling fragment
-    # A restated initial value (CM_A_008 keeps '(0.0 m/s)') is not a defect and must not be planted.
-    assert not di.inject("insufficient_boundary_condition", FAMILIES["CM_A_008"], TEMPLATES["CM_A_008"]).applicable
+    # CM_A_008 restates 'initially at rest (0.0 m/s)': the value is deleted with the words, so none is left behind.
+    edited = di.inject("insufficient_boundary_condition", FAMILIES["CM_A_008"], TEMPLATES["CM_A_008"]).edited_prompts[0]
+    assert "0.0 m/s" not in edited and "at rest" not in edited
+
+
+def test_dropped_from_rest_is_not_planted_because_dropped_already_means_released_from_rest():
+    # Review J14.5-010 (Q009): the user judged this edit not defective.
+    assert "CM_B_UM_011" not in di.BOUNDARY_EDITS
+    assert not di.inject("insufficient_boundary_condition", FAMILIES["CM_B_UM_011"], TEMPLATES["CM_B_UM_011"]).applicable
 
 
 def test_equation_defect_really_disagrees_with_the_certified_answer():

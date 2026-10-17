@@ -100,6 +100,14 @@ def test_key_and_bank_agree_and_every_planted_item_really_differs_from_its_origi
                    or row["defect_type"] == "failed_transformation_identity")
         assert changed, row["item_id"]
         assert row["physicist_confirmation"]["confirmed_by"] is None  # not confirmed by anyone yet
+        # Every rendering is recorded, so an edit confined to one rendering is visible (review J14.5-010).
+        assert len(row["original_prompts"]) == len(row["edited_prompts"]) >= 1
+        assert row["edited_variant0_prompt"] == row["edited_prompts"][0]
+        diff_ids = [i for i, (a, b) in enumerate(zip(row["original_prompts"], row["edited_prompts"], strict=True))
+                    if a != b]
+        assert diff_ids == row["changed_variant_ids"]
+        if row["defect_type"] == "failed_transformation_identity":
+            assert row["changed_variant_ids"] == [1]
 
 
 def test_genuine_sample_covers_every_cue_type_and_domain_and_a_timing_pilot_of_twenty(built):
@@ -122,3 +130,25 @@ def test_build_is_deterministic_and_refuses_to_overwrite(built, tmp_path, monkey
         assert (built / name).read_text(encoding="utf-8") == (tmp_path / "t2" / name).read_text(encoding="utf-8")
     monkeypatch.setattr(sys, "argv", ["s145", "--out-base", str(tmp_path), "--version", "t2"])
     assert s145.main() == 2
+
+
+def test_pinning_keeps_reviewed_families_and_replaces_only_the_dropped_rule(tmp_path, monkeypatch):
+    v1 = REPO_ROOT / "docs/validation/v2/materials/v1/planted_defect_bank_FOR_PHYSICIST_CONFIRMATION.jsonl"
+    monkeypatch.setattr(sys, "argv", ["s145", "--out-base", str(tmp_path), "--version", "p1", "--pin-from", str(v1)])
+    assert s145.main() == 0
+    new = _jsonl(tmp_path / "p1" / "planted_defect_bank_FOR_PHYSICIST_CONFIRMATION.jsonl")
+    old = _jsonl(v1)
+    keys = lambda rows: {(r["family"], r["defect_type"]) for r in rows}  # noqa: E731
+    assert len(new) == 33
+    assert keys(old) - keys(new) == {("CM_B_UM_011", "insufficient_boundary_condition")}
+    assert keys(new) - keys(old) == {("CM_A_008", "insufficient_boundary_condition")}
+    summary = json.loads((tmp_path / "p1" / "summary.json").read_text(encoding="utf-8"))
+    assert summary["pins_dropped_rule_no_longer_applies"] == [
+        {"family": "CM_B_UM_011", "defect_type": "insufficient_boundary_condition"}]
+    # Every other reviewed item keeps its exact edit, except the two whose note value was changed.
+    by_old = {(r["family"], r["defect_type"]): r for r in old}
+    changed = [k for k in keys(new) & keys(old)
+               if next(r for r in new if (r["family"], r["defect_type"]) == k)["edited_variant0_prompt"]
+               != by_old[k]["edited_variant0_prompt"]]
+    assert sorted(changed) == [("CM_B_STD_006", "contradictory_distractor_statement"),
+                               ("CM_B_STD_011", "contradictory_distractor_statement")]
