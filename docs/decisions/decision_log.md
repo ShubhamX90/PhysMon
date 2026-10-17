@@ -3188,3 +3188,10 @@ is post hoc relative to these 20 outcomes. Journal: J14.7-014 to J14.7-019. No f
 Rule (protocol section 4b): unit match, equality at the answer's printed precision, and within 0.5% of the gold; coarse or copied near-match answers are `wrong`, parse failures keep their status. It replaces the undeclared 1e-3 relative tolerance
 that rejected a correctly rounded answer; it is post hoc relative to the 20 throughput records (one label changes) and is fixed before the full pilot is graded. Records store `relative_error` and the strict label.
 The user gave full authorization for PhysMon jobs for this session and asked for regular commits as atharvgaur1845; each submission still gets a recorded live preflight (journal J14.7-020).
+
+## Stage 14.8: descriptive pilot analysis; the pilot is a design diagnostic — 2026-10-17
+
+Decision: analyse the 422 pilot records exactly as protocol sections 3 to 5 prescribe (structure-level, cluster bootstrap over ten structures, no interaction tests) and record what the pilot cannot support. Journal: `docs/journal/stage14/14.8_pilot_analysis.md`.
+Artifacts: `results/stage14/s148_pilot_analysis/attempt_20261017_f8c4145/`; source commit `f8c4145`.
+Result: 9 of 30 intervals exclude zero with no multiplicity control (about 1.5 expected by chance); R_alt contrasts are confounded because decoy strings differ across cells and are not scored under the no-cue prompt; correctness is at the floor so C_gen is not estimable;
+no dtype noise floor exists; the relevant-edit response is inconclusive. No cue contrast is to be cited. Proposed next: Stage 14.9 (anchor-matched decoy scoring and a float32 pass). Nothing is validated, confirmatory or paper-eligible.
