@@ -11,6 +11,7 @@
 # Required environment at submission:
 #   PLAN_DIR           directory with plan.json and job_manifest.jsonl (from scripts/v2/s147_pilot_plan.py)
 #   AUTHORIZATION_REF  a non-empty reference to the user's authorization (the runner refuses without it)
+# Needed only on a node without git: SUBMIT_COMMIT (the full SHA from the submission node).
 # Optional: MODELS (default "qwen_primary llama_primary", run in sequence inside this one job because the
 # per-user cap observed on 2026-10-14 was one H100 GPU), MAX_JOBS (a measured throughput test first, for example 20).
 #
@@ -47,13 +48,33 @@ cd "$PHYSMON_ROOT"
 : "${AUTHORIZATION_REF:?ERROR: AUTHORIZATION_REF is not set (this pilot is not authorized by default)}"
 MODELS="${MODELS:-qwen_primary llama_primary}"
 
+# Some compute nodes (gpunode6 on 2026-10-17, job 399511) have no git. Then the submitter's commit is used and the
+# clean-tree and pushed checks, which only git can make, are reported as NOT CHECKED. The submitter must run them
+# before sbatch (`git status --short`, `git fetch`, `git status -sb`) and pass SUBMIT_COMMIT=$(git rev-parse HEAD).
+if command -v git >/dev/null 2>&1; then
+  GIT_ON_NODE=yes
+  COMMIT="$(git rev-parse HEAD)"
+else
+  GIT_ON_NODE=no
+  COMMIT="${SUBMIT_COMMIT:-}"
+  if [ -z "${COMMIT}" ]; then
+    echo "ERROR: git is not installed on $(hostname) and SUBMIT_COMMIT is not set; refusing to run without provenance." >&2
+    exit 8
+  fi
+fi
+export PHYSMON_SOURCE_COMMIT="${COMMIT}"
+
 echo "=== PhysMon Stage 14.7 pilot scoring ==="
 echo "Job ID:    ${SLURM_JOB_ID:-unknown}"
 echo "Node:      $(hostname)"
 echo "GPU:       $(nvidia-smi --query-gpu=name,driver_version,memory.total --format=csv,noheader || true)"
-echo "Commit:    $(git rev-parse HEAD)"
-echo "Tracked dirty: $(if git diff --quiet HEAD; then echo no; else echo yes; fi)"
-echo "Untracked:     $(git ls-files --others --exclude-standard | tr '\n' ' ')"
+echo "Commit:    ${COMMIT} (git on node: ${GIT_ON_NODE})"
+if [ "${GIT_ON_NODE}" = yes ]; then
+  echo "Tracked dirty: $(if git diff --quiet HEAD; then echo no; else echo yes; fi)"
+  echo "Untracked:     $(git ls-files --others --exclude-standard | tr '\n' ' ')"
+else
+  echo "Tracked dirty: NOT CHECKED on node (no git); the submitter verified before sbatch"
+fi
 echo "Python:    $(python --version 2>&1)"
 echo "Packages:  $(python -c 'import torch, transformers; print("torch", torch.__version__, "transformers", transformers.__version__)')"
 echo "Plan:      ${PLAN_DIR}"
@@ -62,14 +83,16 @@ echo "Class:     exploratory (NOT confirmatory); data role EXPLORATION"
 echo "========================================="
 
 # A serious run starts from a clean, committed, pushed tree.
-if ! git diff --quiet HEAD; then
-  echo "ERROR: tracked files are modified; commit before running." >&2
-  exit 6
-fi
-AHEAD="$(git rev-list --left-right --count HEAD...@{upstream} | cut -f1)"
-if [ "${AHEAD}" != "0" ]; then
-  echo "ERROR: HEAD is ahead of its upstream by ${AHEAD} commit(s); push before running." >&2
-  exit 7
+if [ "${GIT_ON_NODE}" = yes ]; then
+  if ! git diff --quiet HEAD; then
+    echo "ERROR: tracked files are modified; commit before running." >&2
+    exit 6
+  fi
+  AHEAD="$(git rev-list --left-right --count HEAD...@{upstream} | cut -f1)"
+  if [ "${AHEAD}" != "0" ]; then
+    echo "ERROR: HEAD is ahead of its upstream by ${AHEAD} commit(s); push before running." >&2
+    exit 7
+  fi
 fi
 
 for MODEL in ${MODELS}; do

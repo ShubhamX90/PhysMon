@@ -162,3 +162,20 @@ def test_the_runner_refuses_a_stale_contract_a_missing_gpu_and_a_used_directory(
     (used / "keep.txt").write_text("existing evidence", encoding="utf-8")
     assert _run(plan_dir, tiny_model_dir, tmp_path, "r4", ("--authorization-ref", "x")) == 2
     assert (used / "keep.txt").read_text(encoding="utf-8") == "existing evidence"
+
+
+def test_the_runner_without_git_uses_the_submitters_commit_or_refuses(plan_dir, tiny_model_dir, tmp_path, monkeypatch):
+    # Job 399511 failed because the node had no git. With no git on PATH the runner must not crash or record an empty
+    # commit: it takes PHYSMON_SOURCE_COMMIT and says so, and it refuses without one.
+    empty_bin = tmp_path / "empty_bin"
+    empty_bin.mkdir()
+    monkeypatch.setenv("PATH", str(empty_bin))
+    monkeypatch.delenv("PHYSMON_SOURCE_COMMIT", raising=False)
+    assert _run(plan_dir, tiny_model_dir, tmp_path, "g0", ("--authorization-ref", "TEST-ONLY")) == 8
+    assert not (tmp_path / "g0").exists()
+    monkeypatch.setenv("PHYSMON_SOURCE_COMMIT", "a" * 40)
+    assert _run(plan_dir, tiny_model_dir, tmp_path, "g1", ("--authorization-ref", "TEST-ONLY")) == 0
+    summary = json.loads((tmp_path / "g1" / "run_summary.json").read_text(encoding="utf-8"))
+    assert summary["source_commit"] == "a" * 40 and "git unavailable" in summary["source_commit_from"]
+    assert summary["git_status_short"] == "NOT AVAILABLE"
+    assert all(r["source_commit"] == "a" * 40 for r in _jsonl(tmp_path / "g1" / "raw_records.jsonl"))

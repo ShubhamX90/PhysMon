@@ -3168,3 +3168,10 @@ command. Job 399217 (`gpu_h100_4`, 1 H100, 8 CPU, 90G, 3 h) completed with exit 
 pending on per-user QoS caps that `sbatch --test-only` does not model; I recorded that mistake in J14.7-010. The result validates the loader and
 hook path only, not the Hugging Face scoring path of the pilot runner, and not P0. No v2 structure was scored. Journal: J14.7-009 to J14.7-012.
 Results: `results/infrastructure/model_smoke/attempt_20261017_gpu_h100/` (infrastructure evidence, not scientific evidence).
+
+## Throughput test job 399511 failed (no git on gpunode6); template and runner made git-independent — 2026-10-17
+
+Authorized job 399511 failed in under three minutes with exit code 6: gpunode6 has no `git`, and the template's clean-tree guard failed closed. No model was
+loaded and nothing was scored; the failure and its logs are preserved (scratch) and recorded in J14.7-014. The template and runner now take the submitter's commit when git is absent
+and refuse without provenance; the clean-tree and pushed checks become the submitter's responsibility on such a node and are printed as NOT CHECKED. A resubmission
+needs a new authorization because the template changed.

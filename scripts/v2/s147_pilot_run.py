@@ -20,6 +20,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import platform
 import socket
 import subprocess
@@ -43,8 +44,13 @@ REGISTRY = "docs/model_registry.yml"
 
 
 def git(*args: str) -> str:
-    return subprocess.run(["git", *args], cwd=REPO_ROOT, capture_output=True, text=True,
-                          check=False).stdout.strip()
+    """Run git; an empty string if it fails or is not installed (job 399511 ran on a node without git)."""
+
+    try:
+        return subprocess.run(["git", *args], cwd=REPO_ROOT, capture_output=True, text=True,
+                              check=False).stdout.strip()
+    except FileNotFoundError:
+        return ""
 
 
 def sha256_text(text: str) -> str:
@@ -155,7 +161,14 @@ def main() -> int:
         return 5
 
     sha = git("rev-parse", "HEAD")
-    day = git("log", "-1", "--format=%cd", "--date=format:%Y%m%d")
+    git_available = bool(sha)
+    if not sha:  # no git on the node: take the commit the submitter recorded, and say so in the header
+        sha = os.environ.get("PHYSMON_SOURCE_COMMIT", "")
+    if not sha:
+        print("Refusing to run: no git on this node and PHYSMON_SOURCE_COMMIT is not set (no provenance).",
+              file=sys.stderr)
+        return 8
+    day = git("log", "-1", "--format=%cd", "--date=format:%Y%m%d") or time.strftime("%Y%m%d")
     attempt = args.attempt_id or f"attempt_{day}_{sha[:7]}_{args.model_key}"
     out_dir = (REPO_ROOT / args.out_root / attempt).resolve()
     if out_dir.exists() and any(out_dir.iterdir()):
@@ -182,7 +195,9 @@ def main() -> int:
         "source_commit": sha, "authorization_ref": args.authorization_ref, "max_new_tokens": args.max_new_tokens,
     }
     header = {
-        "source_commit": sha, "git_status_short": git("status", "--short").splitlines(), "host": socket.gethostname(),
+        "source_commit": sha, "source_commit_from": "git" if git_available else "PHYSMON_SOURCE_COMMIT (git unavailable)",
+        "git_status_short": git("status", "--short").splitlines() if git_available else "NOT AVAILABLE",
+        "host": socket.gethostname(),
         "device": args.device, "python": platform.python_version(), "torch": torch.__version__,
         "transformers": transformers.__version__, "contract_fingerprint": sc.contract_fingerprint(),
         "model_key": args.model_key, "model_path": str(path), "n_jobs": len(jobs),
