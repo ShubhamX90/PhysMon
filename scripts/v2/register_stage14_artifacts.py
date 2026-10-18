@@ -19,6 +19,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -94,13 +95,30 @@ def entry_for(root: Path, stage: str, kind: str, directory: Path) -> dict[str, A
     }
 
 
-def scan(root: Path) -> list[dict[str, Any]]:
-    entries = []
-    for stage, kind, pattern in ARTIFACT_GLOBS:
-        for directory in sorted(root.glob(pattern)):
-            if directory.is_dir():
-                entries.append(entry_for(root, stage, kind, directory))
-    return entries
+def job_id_of(directory: Path) -> str | None:
+    """The Slurm job id in an `attempt_<jobid>_...` directory name, if there is one."""
+
+    match = re.match(r"attempt_(\d{5,7})_", directory.name)
+    return match.group(1) if match else None
+
+
+def live_jobs(job_ids: list[str]) -> set[str]:
+    """Job ids still pending or running (read-only `squeue`); an unreadable queue is an error, never 'nothing is running'."""
+
+    if not job_ids:
+        return set()
+    result = subprocess.run(["squeue", "-h", "-j", ",".join(job_ids), "-o", "%i"], capture_output=True, text=True, check=False)
+    if result.returncode != 0 and "Invalid job id" not in result.stderr:
+        raise RuntimeError(f"squeue failed: {result.stderr.strip()}")
+    return {line.strip() for line in result.stdout.splitlines() if line.strip()}
+
+
+def scan(root: Path, skip_live: bool = False) -> list[dict[str, Any]]:
+    """Every artifact directory; with `skip_live`, those of a job that is still queued or running are left out (still being written)."""
+
+    found = [(stage, kind, d) for stage, kind, pattern in ARTIFACT_GLOBS for d in sorted(root.glob(pattern)) if d.is_dir()]
+    live = live_jobs(sorted({j for _, _, d in found if (j := job_id_of(d))})) if skip_live else set()
+    return [entry_for(root, stage, kind, d) for stage, kind, d in found if job_id_of(d) not in live]
 
 
 def read_register(path: Path) -> list[dict[str, Any]]:
@@ -135,7 +153,7 @@ def verify(root: Path, register_path: Path) -> list[str]:
     for row in rows:
         problems += compare(root, row)
     known = {row["path"] for row in rows}
-    for entry in scan(root):
+    for entry in scan(root, skip_live=True):  # a running job's directory is not expected to be registered yet
         if entry["path"] not in known:
             problems.append(f"{entry['artifact_id']}: artifact directory is not registered")
     return problems
@@ -149,7 +167,7 @@ def write(root: Path, register_path: Path) -> tuple[list[dict[str, Any]], list[s
     if problems:
         return [], problems
     known = {row["path"] for row in existing}
-    new = [e for e in scan(root) if e["path"] not in known]
+    new = [e for e in scan(root, skip_live=True) if e["path"] not in known]
     if new:
         register_path.parent.mkdir(parents=True, exist_ok=True)
         with register_path.open("a", encoding="utf-8") as handle:
