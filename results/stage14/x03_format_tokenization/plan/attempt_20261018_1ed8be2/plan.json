@@ -1,0 +1,216 @@
+{
+  "authorized_to_run": false,
+  "blockers": [
+    "independent expert review of the ten structures (all UNREVIEWED)",
+    "ten structures, not the 40 to 60 that B6.1 asks for",
+    "P0 gate open (values recomputed, not regenerated through the model)",
+    "post-wipe GPU validation of the two models is incomplete",
+    "no explicit user authorization to submit Slurm jobs, and no live preflight of partition and caps"
+  ],
+  "command": "scripts/v2/s147_pilot_plan.py --out-root results/stage14/x03_format_tokenization/plan --wrappers answer_line plain boxed json sentence decimal_plain scientific",
+  "contract_fingerprint": "bb6bbec489ef185850a40c2d83955b4371a22b2343196135f2db885e6dabca81",
+  "contract_version": "v2-scoring-contract-1",
+  "cost": {
+    "gpu_time_estimate": "NOT ESTIMATED: no throughput has been measured on the current stack",
+    "max_new_tokens_per_generation": 40,
+    "n_cells_feasible": 211,
+    "n_cells_in_manifest": 220,
+    "n_cells_infeasible_not_run": 9,
+    "per_model": {
+      "llama_primary": {
+        "max_generated_tokens": 59080,
+        "n_generations": 1477,
+        "n_jobs": 1477,
+        "n_jobs_with_decoy": 665,
+        "n_scoring_forward_passes": 2142,
+        "prompt_tokens_min_mean_max": [
+          120,
+          165.45023696682463,
+          204
+        ],
+        "tokenization_failures": {
+          "boundary_mismatch_decoy": 0,
+          "boundary_mismatch_gold": 0,
+          "duplicate_special_token": 0
+        },
+        "tokenizer_audit_by_wrapper": {
+          "answer_line": {
+            "boundary_mismatch_decoy": 0,
+            "boundary_mismatch_gold": 0,
+            "duplicate_special_token": 0,
+            "mean_gold_tokens": 7.521327014218009,
+            "n_jobs": 211
+          },
+          "boxed": {
+            "boundary_mismatch_decoy": 0,
+            "boundary_mismatch_gold": 0,
+            "duplicate_special_token": 0,
+            "mean_gold_tokens": 8.52132701421801,
+            "n_jobs": 211
+          },
+          "decimal_plain": {
+            "boundary_mismatch_decoy": 0,
+            "boundary_mismatch_gold": 0,
+            "duplicate_special_token": 0,
+            "mean_gold_tokens": 7.521327014218009,
+            "n_jobs": 211
+          },
+          "json": {
+            "boundary_mismatch_decoy": 0,
+            "boundary_mismatch_gold": 0,
+            "duplicate_special_token": 0,
+            "mean_gold_tokens": 14.52132701421801,
+            "n_jobs": 211
+          },
+          "plain": {
+            "boundary_mismatch_decoy": 0,
+            "boundary_mismatch_gold": 0,
+            "duplicate_special_token": 0,
+            "mean_gold_tokens": 4.61611374407583,
+            "n_jobs": 211
+          },
+          "scientific": {
+            "boundary_mismatch_decoy": 0,
+            "boundary_mismatch_gold": 0,
+            "duplicate_special_token": 0,
+            "mean_gold_tokens": 9.649289099526067,
+            "n_jobs": 211
+          },
+          "sentence": {
+            "boundary_mismatch_decoy": 0,
+            "boundary_mismatch_gold": 0,
+            "duplicate_special_token": 0,
+            "mean_gold_tokens": 9.52132701421801,
+            "n_jobs": 211
+          }
+        },
+        "total_prompt_tokens_for_generation_prefill": 244370,
+        "total_tokens_through_scoring_forward_passes": 378299
+      },
+      "qwen_primary": {
+        "max_generated_tokens": 59080,
+        "n_generations": 1477,
+        "n_jobs": 1477,
+        "n_jobs_with_decoy": 665,
+        "n_scoring_forward_passes": 2142,
+        "prompt_tokens_min_mean_max": [
+          101,
+          146.82938388625593,
+          183
+        ],
+        "tokenization_failures": {
+          "boundary_mismatch_decoy": 0,
+          "boundary_mismatch_gold": 0,
+          "duplicate_special_token": 0
+        },
+        "tokenizer_audit_by_wrapper": {
+          "answer_line": {
+            "boundary_mismatch_decoy": 0,
+            "boundary_mismatch_gold": 0,
+            "duplicate_special_token": 0,
+            "mean_gold_tokens": 9.090047393364928,
+            "n_jobs": 211
+          },
+          "boxed": {
+            "boundary_mismatch_decoy": 0,
+            "boundary_mismatch_gold": 0,
+            "duplicate_special_token": 0,
+            "mean_gold_tokens": 10.090047393364928,
+            "n_jobs": 211
+          },
+          "decimal_plain": {
+            "boundary_mismatch_decoy": 0,
+            "boundary_mismatch_gold": 0,
+            "duplicate_special_token": 0,
+            "mean_gold_tokens": 9.090047393364928,
+            "n_jobs": 211
+          },
+          "json": {
+            "boundary_mismatch_decoy": 0,
+            "boundary_mismatch_gold": 0,
+            "duplicate_special_token": 0,
+            "mean_gold_tokens": 16.09004739336493,
+            "n_jobs": 211
+          },
+          "plain": {
+            "boundary_mismatch_decoy": 0,
+            "boundary_mismatch_gold": 0,
+            "duplicate_special_token": 0,
+            "mean_gold_tokens": 6.184834123222749,
+            "n_jobs": 211
+          },
+          "scientific": {
+            "boundary_mismatch_decoy": 0,
+            "boundary_mismatch_gold": 0,
+            "duplicate_special_token": 0,
+            "mean_gold_tokens": 11.123222748815166,
+            "n_jobs": 211
+          },
+          "sentence": {
+            "boundary_mismatch_decoy": 0,
+            "boundary_mismatch_gold": 0,
+            "duplicate_special_token": 0,
+            "mean_gold_tokens": 11.090047393364928,
+            "n_jobs": 211
+          }
+        },
+        "total_prompt_tokens_for_generation_prefill": 216867,
+        "total_tokens_through_scoring_forward_passes": 341553
+      }
+    }
+  },
+  "data_role": "EXPLORATION",
+  "evidence_class": "exploratory; not paper-eligible; not run",
+  "git_status_short": [
+    "?? activations",
+    "?? results/infrastructure/model_smoke/attempt_20261014_gpu_h100/",
+    "?? results/stage14/x03_format_tokenization/"
+  ],
+  "instruction": "You are a precise physics problem solver. Solve the problem silently and return exactly one line in this format: Answer: [value] [unit]. Do not include reasoning, derivations, equations, or any extra text.",
+  "instructions": {
+    "answer_line": "You are a precise physics problem solver. Solve the problem silently and return exactly one line in this format: Answer: [value] [unit]. Do not include reasoning, derivations, equations, or any extra text.",
+    "boxed": "You are a precise physics problem solver. Solve the problem silently and return exactly one line in this format: \\boxed{[value] [unit]}. Do not include reasoning, derivations, equations, or any extra text.",
+    "decimal_plain": "You are a precise physics problem solver. Solve the problem silently and return exactly one line in this format: Answer: [value] [unit], with the value written as a plain decimal number without scientific notation. Do not include reasoning, derivations, equations, or any extra text.",
+    "json": "You are a precise physics problem solver. Solve the problem silently and return exactly one line in this format: {\"value\": [value], \"unit\": \"[unit]\"}. Do not include reasoning, derivations, equations, or any extra text.",
+    "plain": "You are a precise physics problem solver. Solve the problem silently and return exactly one line in this format: [value] [unit]. Do not include reasoning, derivations, equations, or any extra text.",
+    "scientific": "You are a precise physics problem solver. Solve the problem silently and return exactly one line in this format: Answer: [value] [unit], with the value written in scientific notation. Do not include reasoning, derivations, equations, or any extra text.",
+    "sentence": "You are a precise physics problem solver. Solve the problem silently and return exactly one line in this format: The answer is [value] [unit].. Do not include reasoning, derivations, equations, or any extra text."
+  },
+  "kind": "pilot plan (dry run)",
+  "manifest": {
+    "path": "data/v2/structures/v1/factor_cell_manifest.jsonl",
+    "sha256": "0966bec0f29a2839f0fc8acb19477f5aaab986858ee41ab32e7488da6449300c"
+  },
+  "n_jobs": 2954,
+  "protocol": {
+    "path": "docs/stage14/pilot_protocol.md",
+    "sha256": "e231cdfee4e9423caa947b2c7d227202e6bb245628cf0b6acd644b2552044ea9"
+  },
+  "source_commit": "1ed8be2b9eaa496b4a32458cfcd3a1b2bdb2ebab",
+  "stage": "14.7",
+  "tokenizers": {
+    "llama_primary": {
+      "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "path": "/scratch/pabitra/models/Llama-3.1-8B-Instruct",
+      "tokenizer.json_sha256": "79e3e522635f3171300913bb421464a87de6222182a0570b9b2ccba2a964b2b4",
+      "tokenizer_config.json_sha256": "177c7b61e616fecb84c17ce0591acb92c6c4d60e9ac5ababfb940ff23bbcd424"
+    },
+    "qwen_primary": {
+      "model_name": "Qwen/Qwen2.5-7B-Instruct",
+      "path": "/scratch/pabitra/models/Qwen2.5-7B-Instruct",
+      "tokenizer.json_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+      "tokenizer_config.json_sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583"
+    }
+  },
+  "transformers": "5.11.0",
+  "wrapper_id": "multiple",
+  "wrapper_ids": [
+    "answer_line",
+    "plain",
+    "boxed",
+    "json",
+    "sentence",
+    "decimal_plain",
+    "scientific"
+  ]
+}
