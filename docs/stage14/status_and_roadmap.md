@@ -19,7 +19,7 @@ Integrity check: `python3 scripts/v2/register_stage14_artifacts.py --verify` (no
 
 ## What the evidence supports, in one paragraph
 
-A same-unit numeral that appears in the prompt becomes a far more likely continuation as the answer (about 10 to 13 nats for Qwen, 3.5 to 5 for Llama from the no-cue prompt), about equally for near, moderate and far values, in all seven output formats; this is what in-context copying of a string predicts, and it is not evidence of a physics failure or of relevance gating. Both 7 to 8 B models are almost never correct on the ten structures when they must answer in one line, so correctness-based endpoints cannot be estimated.
+A same-unit numeral that appears in the prompt becomes a far more likely continuation as the answer (about 10 to 13 nats for Qwen, 3.5 to 5 for Llama from the no-cue prompt), about equally for near, moderate and far values, in all seven output formats; the boost depends on whether the numeral's unit matches the requested quantity (J14.9-006), so it is not explained by surface copying of the digits alone, and it is not evidence of a physics failure or of relevance gating. Both 7 to 8 B models are almost never correct on the ten structures when they must answer in one line, so correctness-based endpoints cannot be estimated.
 
 ## Open, and what each needs
 

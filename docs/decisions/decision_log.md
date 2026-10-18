@@ -3213,3 +3213,8 @@ Result (journal J14.10-004 to J14.10-006; `results/stage14/x03_format_tokenizati
 
 Decision: register every Stage 14 result and material directory by SHA-256 (append-only, verifiable, `paper_eligible: false` throughout) and keep the failed and cancelled Slurm jobs of this task on record. 22 artifacts and 9 jobs are registered; `--verify` passes.
 Files: `docs/registry/v2/artifact_register.jsonl`, `docs/registry/v2/slurm_jobs.jsonl`; journal `docs/journal/stage14/14.11_artifact_registry.md` (v2 P0.1). The register ties results to bytes; it does not make any result authoritative.
+
+## Correction to the Stage 14.8 and 14.9 readings — 2026-10-18
+
+Two statements of mine were wrong or over-stated: (1) the decoy strings do not differ between cells in unit (journal J14.8-005): in every decoy cell the decoy carries the target unit; (2) the same-unit boost is not "what in-context copying predicts" (J14.9-006): the incompatible-unit cell has the same decoy string and the same digits in the prompt and a much smaller boost, so unit compatibility modulates it.
+Revised reading: a numeral whose unit matches the requested quantity becomes a far more likely answer, about equally for near, moderate and far values, while a numeral with another unit gains much less; still a likelihood-level fact, not a physics failure, and no statement about relevance gating without a relevant-role control. Raw results and numbers are unchanged.
