@@ -3202,3 +3202,9 @@ Job 400932 (authorized by the user per submission) repeated the full pilot plan 
 Results: `results/stage14/s149_noise_and_anchor/attempt_20261018_3cd6e48/`. bfloat16 is reproducible exactly between jobs on the same node; dtype noise on a gold log-probability has SD 0.09 (Llama) and 0.19 (Qwen) nats, comparable to the sub-1-nat Stage 14.8 effects.
 Anchor-matched: same-unit cue numerals raise their own likelihood as an answer by about 10 to 13 nats (Qwen) and 3.5 to 5 (Llama) from the no-cue prompt, about equally for near, moderate and far values; the gold's shift is small and uncertain. This is what in-context copying predicts and says nothing about relevance gating without a relevant-role control.
 Descriptive and exploratory; nothing is a confirmation or paper-eligible. Gaps 2 and 3 are closed; the correctness floor and the relevant-edit response remain.
+
+## Stage 14.10: X03 wrapper multiverse on the v2 structures — 2026-10-18
+
+Decision: run X03 on the ten v2 structures under seven wrappers (a deviation from the card's 60 to 100 legacy families, stated in J14.10-001), with the analysis rule frozen and committed before the job (user accepted the exact command; job 401287, 2 x 1,477 records OK).
+Result (journal J14.10-004 to J14.10-006; `results/stage14/x03_format_tokenization/analysis/attempt_20261018_a63121d/`): by the frozen rule one wrapper dominates for Qwen (`scientific`) and none for Llama; the same-unit near cue numeral raises the likelihood of the cue-valued answer over the gold in all seven wrappers for both models; parse rates differ widely by wrapper;
+60 intervals, 20 exclude zero, about 3 expected by chance. The card's no-go response applies: effect size is not stated independent of output format. Descriptive and exploratory; not a confirmation or paper-eligible.
