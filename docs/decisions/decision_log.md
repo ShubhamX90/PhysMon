@@ -3232,3 +3232,8 @@ Journal: `docs/journal/stage14/14.15_structures_batch_b.md`; data: `data/v2/stru
 ## Batch B structure review by the user; structures stay UNREVIEWED in their certificates — 2026-10-18
 
 The user approved S11 to S20 as written in an open walkthrough and accepted the generic cue phrasing. Record: `docs/validation/v2/structure_review_batch_b_2026-10-18.json`; journal J14.15-004. One reviewer, not blinded, expertise not stated, assumption lists not displayed: no structure is assigned `CERTIFIED_AND_VALIDATED`.
+
+## Stage 14.16: legacy-family X03 plan — 2026-10-18
+
+Decision: plan the X03 version the card names: 60 of the 135 cohort families, stratified by cue type and domain with a seeded draw frozen before any score, four wrappers, and a candidate matrix inside each family (each rendering's cue numeral scored in every rendering of its family), because legacy families have no no-cue prompt. 8,448 jobs; tokenizer audit clean. Not run; needs a score-only runner mode, a frozen analysis and a per-submission acceptance.
+Journal: `docs/journal/stage14/14.16_legacy_x03_plan.md`.

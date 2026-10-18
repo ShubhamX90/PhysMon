@@ -1,0 +1,153 @@
+{
+  "authorized_to_run": false,
+  "cohort": {
+    "n": 135,
+    "path": "results/stage14/s144_structure_overlap/attempt_20261016_d637b0e/clusters.csv",
+    "sha256": "1d5ad7582dee21befeb2c00be6376ab66227919d681491ba6adfed2de287a990"
+  },
+  "command": "scripts/v2/s156_legacy_x03_plan.py",
+  "contract_fingerprint": "bb6bbec489ef185850a40c2d83955b4371a22b2343196135f2db885e6dabca81",
+  "contract_version": "v2-scoring-contract-1",
+  "data_role": "EXPLORATION",
+  "evidence_class": "exploratory; not paper-eligible; not run",
+  "git_status_short": [
+    "?? activations",
+    "?? results/infrastructure/model_smoke/attempt_20261014_gpu_h100/",
+    "?? results/stage14/s147_pilot_plan/attempt_20261018_0d95997_batch_b/",
+    "?? results/stage14/s152_reasoning_run/attempt_401357_qwen_primary_reasoning/",
+    "?? results/stage14/s156_legacy_x03_plan/"
+  ],
+  "kind": "legacy-family X03 plan (dry run)",
+  "n_jobs": 8448,
+  "per_model": {
+    "llama_primary": {
+      "by_kind": {
+        "cue_candidate": 3264,
+        "gold": 960
+      },
+      "by_wrapper": {
+        "answer_line": 1056,
+        "boxed": 1056,
+        "json": 1056,
+        "plain": 1056
+      },
+      "candidates_whose_numeral_is_also_in_a_foreign_prompt": 204,
+      "gpu_time_estimate": "NOT ESTIMATED: score-only passes; measure on the stack",
+      "n_jobs": 4224,
+      "tokenization_failures": 0
+    },
+    "qwen_primary": {
+      "by_kind": {
+        "cue_candidate": 3264,
+        "gold": 960
+      },
+      "by_wrapper": {
+        "answer_line": 1056,
+        "boxed": 1056,
+        "json": 1056,
+        "plain": 1056
+      },
+      "candidates_whose_numeral_is_also_in_a_foreign_prompt": 204,
+      "gpu_time_estimate": "NOT ESTIMATED: score-only passes; measure on the stack",
+      "n_jobs": 4224,
+      "tokenization_failures": 0
+    }
+  },
+  "sample": [
+    "CM_A_003",
+    "CM_A_005",
+    "CM_A_006",
+    "CM_A_007",
+    "CM_A_009",
+    "CM_A_010",
+    "CM_A_STD_003",
+    "CM_A_STD_008",
+    "CM_A_STD_010",
+    "CM_A_STD_011",
+    "CM_A_STD_014",
+    "CM_A_STD_015",
+    "CM_A_STD_017",
+    "CM_A_STD_020",
+    "CM_B_001",
+    "CM_B_004",
+    "CM_B_010",
+    "CM_B_STD_001",
+    "CM_B_STD_002",
+    "CM_B_STD_003",
+    "CM_B_STD_010",
+    "CM_B_STD_013",
+    "CM_B_UM_005",
+    "CM_B_UM_006",
+    "CM_B_UM_007",
+    "CM_B_UM_009",
+    "CM_B_UM_016",
+    "CM_B_UM_019",
+    "CM_B_UM_020",
+    "CM_B_UM_022",
+    "CM_B_UM_023",
+    "CM_B_UM_025",
+    "CM_B_UM_027",
+    "CM_B_UM_028",
+    "CM_B_UM_029",
+    "CM_B_UM_030",
+    "CM_B_UM_031",
+    "CM_B_UM_038",
+    "CM_B_UM_040",
+    "CM_B_UM_041",
+    "CM_B_UM_042",
+    "CM_B_UM_044",
+    "CM_B_UM_049",
+    "CM_B_UM_050",
+    "CM_B_UM_054",
+    "CM_B_UM_056",
+    "CM_B_UM_058",
+    "CM_B_UM_060",
+    "CM_C_001",
+    "CM_C_002",
+    "CM_C_004",
+    "CM_C_005",
+    "EL_A_004",
+    "EL_A_005",
+    "EL_B_001",
+    "TH_B_UM_002",
+    "TH_B_UM_003",
+    "TH_B_UM_004",
+    "TH_B_UM_006",
+    "TH_B_UM_008"
+  ],
+  "sample_strata": {
+    "frame_rendering|electrostatics_circuits": 1,
+    "frame_rendering|mechanics": 3,
+    "irrelevant_variable|electrostatics_circuits": 5,
+    "irrelevant_variable|mechanics": 9,
+    "irrelevant_variable|thermodynamics": 2,
+    "nongoverning_distractor|electrostatics_circuits": 11,
+    "nongoverning_distractor|mechanics": 24,
+    "nongoverning_distractor|thermodynamics": 5
+  },
+  "sampling_rule": "60 of the 135 cohort families, stratified by cue type and domain, at least one per non-empty stratum, the rest by largest remainder, seeded draw; frozen before any score",
+  "seed": 42,
+  "source_commit": "1e9056f527010073f4259e828bfc0cc57cd23f9c",
+  "stage": "14.16",
+  "tokenizers": {
+    "llama_primary": {
+      "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "path": "/scratch/pabitra/models/Llama-3.1-8B-Instruct",
+      "tokenizer.json_sha256": "79e3e522635f3171300913bb421464a87de6222182a0570b9b2ccba2a964b2b4",
+      "tokenizer_config.json_sha256": "177c7b61e616fecb84c17ce0591acb92c6c4d60e9ac5ababfb940ff23bbcd424"
+    },
+    "qwen_primary": {
+      "model_name": "Qwen/Qwen2.5-7B-Instruct",
+      "path": "/scratch/pabitra/models/Qwen2.5-7B-Instruct",
+      "tokenizer.json_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+      "tokenizer_config.json_sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583"
+    }
+  },
+  "transformers": "5.11.0",
+  "wrapper_ids": [
+    "answer_line",
+    "plain",
+    "boxed",
+    "json"
+  ]
+}

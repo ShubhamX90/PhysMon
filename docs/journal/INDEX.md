@@ -22,5 +22,6 @@ Plan of record: `docs/proposals/PhysMon_Research_v2.pdf`. Stage ordering below i
 | 14.13 | Reasoning-allowed pilot (correctness floor) | B2.4, B1.4 | CPU tooling, GPU run | tooling and frozen analysis committed; run pending | [14.13](stage14/14.13_reasoning_pilot.md) |
 | 14.14 | Numeral-presence control (matched relevant-role comparison) | P4, protocol §5 row 4 | CPU plan and analysis, GPU run | plan (3,924 jobs) and analysis tooling committed; run pending | [14.14](stage14/14.14_numeral_presence_control.md) |
 | 14.15 | Second structure batch S11-S20 (shorter chains, four domains) | B3, B6.1 | CPU only | done (certified, UNREVIEWED); 20 of 40 to 60 structures | [14.15](stage14/14.15_structures_batch_b.md) |
+| 14.16 | Legacy-family X03 plan (60 families, 4 wrappers, candidate matrix) | X03, P1.3, P1.4 | CPU plan, GPU run | plan (8,448 jobs) committed; run pending | [14.16](stage14/14.16_legacy_x03_plan.md) |
 
 Status values: `not started`, `in progress`, `done`, `blocked`, `superseded`.
