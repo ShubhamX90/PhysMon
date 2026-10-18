@@ -21,6 +21,7 @@ Plan reference: B3.2-B3.3 (p.8), P2.1-P2.4 (p.18-19), P3.3 (p.20), §9.1 (p.43),
 from __future__ import annotations
 
 import argparse
+import importlib
 import collections
 import dataclasses
 import glob
@@ -43,7 +44,6 @@ sys.path.insert(0, str(REPO_ROOT / "src"))
 from physmon.benchmark.v2 import certify as ce  # noqa: E402
 from physmon.benchmark.v2 import design as dg  # noqa: E402
 from physmon.benchmark.v2 import graph as gr  # noqa: E402
-from physmon.benchmark.v2 import library as lib  # noqa: E402
 
 OUT_BASE = "data/v2/structures"
 FACTOR_AXES = {
@@ -109,7 +109,10 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--version", default="v1")
     parser.add_argument("--out-base", default=OUT_BASE)
+    parser.add_argument("--library", default="library", choices=["library", "library_b"],
+                        help="library = S01 to S10 (Stage 14.6); library_b = S11 to S20 (Stage 14.15).")
     args = parser.parse_args()
+    lib = importlib.import_module(f"physmon.benchmark.v2.{args.library}")
     out_dir = (REPO_ROOT / args.out_base / args.version).resolve()
     if out_dir.exists() and any(out_dir.iterdir()):
         print(f"Refusing to reuse non-empty directory: {out_dir}", file=sys.stderr)
@@ -168,7 +171,7 @@ def main() -> int:
     }, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     cells_feasible = sum(r["feasible"] for r in admissibility)
     summary = {
-        "stage": "14.6", "version": args.version, "source_commit": git("rev-parse", "HEAD"),
+        "stage": "14.6" if args.library == "library" else "14.15", "library": args.library, "version": args.version, "source_commit": git("rev-parse", "HEAD"),
         "git_status_short": git("status", "--short").splitlines(), "command": " ".join(sys.argv),
         "python": platform.python_version(), "numpy": np.__version__, "scipy": scipy.__version__,
         "sympy": sympy.__version__,
@@ -195,17 +198,19 @@ def main() -> int:
 
 
 def _readme(summary: dict[str, Any]) -> str:
-    return f"""# DECOY-v2 structures {summary['version']} (Stage 14.6)
+    ids = sorted(summary["status"])
+    count = summary["n_structures"]
+    return f"""# DECOY-v2 structures {summary['version']} (Stage {summary['stage']})
 
-Ten new structures, each with two numeric instantiations and eleven predeclared factor cells, built by
-`scripts/v2/s146_generate_structures.py` at source commit `{summary['source_commit'][:7]}`.
+{count} new structures ({ids[0]} to {ids[-1]}), each with two numeric instantiations and eleven predeclared factor cells, built by
+`scripts/v2/s146_generate_structures.py --library {summary['library']}` at source commit `{summary['source_commit'][:7]}`.
 
 Status: **SOLVER_CERTIFIED and UNREVIEWED.** Certification covers the typed graph, an independently coded numeric
 solver, dimensional consistency, the assumptions list, and the match between every numeral in every rendered prompt
 and the graph. It does not certify the English text or the modelling choices. Independent expert review (v2 B4,
 `docs/validation/v2/validator_handbook_v2.md`) is required before any use, and no model has been run on these items.
 
-- `S01.json` to `S10.json`: graph, assumptions, prompt grammar, instantiations, proof object.
+- `{ids[0]}.json` to `{ids[-1]}.json`: graph, assumptions, prompt grammar, instantiations, proof object.
 - `factor_cell_manifest.jsonl`: {summary['n_cells']} cells ({summary['n_cells_feasible']} feasible) with the v2 §9.1 factor fields.
 - `admissibility.json`: the factor axes and the feasibility matrix, with a reason for every infeasible cell.
 - `mutation_report.json`: {summary['n_mutants']} mutants; negative mutants not caught: {summary['n_negative_mutants_not_caught']};

@@ -95,6 +95,8 @@ def _units() -> dict[str, Unit]:
         ("K", dim(Th=1), 1.0), ("mol", dim(N=1), 1.0),
         ("J/(kg*K)", _ENERGY / (_MASS * dim(Th=1)), 1.0),
         ("N/m", _FORCE / _LENGTH, 1.0),
+        ("H", _VOLT * _TIME / dim(I=1), 1.0), ("mH", _VOLT * _TIME / dim(I=1), 1e-3),
+        ("K/W", dim(Th=1) / _POWER, 1.0), ("m^3", _LENGTH ** 3, 1.0), ("L", _LENGTH ** 3, 1e-3),
     ]
     return {name: Unit(name, d, f) for name, d, f in table}
 
