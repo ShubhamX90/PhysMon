@@ -119,3 +119,12 @@ def test_main_writes_outputs_and_refuses_to_reuse_a_directory(tmp_path, monkeypa
     assert (out / "presence_effects.csv").stat().st_size > 0
     monkeypatch.setattr(sys, "argv", argv)
     assert s155.main() == 2
+
+
+def test_a_control_string_shared_by_two_numerals_of_one_prompt_pairs_each_record_with_its_own_plan_job():
+    jobs, records = build()
+    control = next(j for j in jobs if j["candidate_kind"] == "absent_control")
+    twin = dict(control, candidate_matched_to="other")
+    rows = s155.join(records + [dict(next(r for r in records if r["job_id"] == control["job_id"]))], jobs + [twin])
+    shared = [r for r in rows if r["job_id"] == control["job_id"]]
+    assert [r["matched_to"] for r in shared] == [control["candidate_matched_to"], "other"]

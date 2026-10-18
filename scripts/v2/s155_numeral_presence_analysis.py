@@ -48,18 +48,25 @@ s148 = _load("s148_pilot_analysis", "scripts/v2/s148_pilot_analysis.py")
 
 
 def join(records: list[dict], jobs: list[dict]) -> list[dict]:
-    """Records joined to their planned candidate; an unmatched record or job is an error, not a silent drop."""
+    """Records joined to their planned candidate; an unmatched record or an extra copy is an error, not a silent drop.
 
-    by_id = {j["job_id"]: j for j in jobs}
-    seen = set()
+    A control string can legitimately be drawn for two numerals of one prompt (for example a one-digit numeral); the plan then holds
+    two jobs with one id, and the run holds two records with that id. They are paired in order, each with its own `matched_to`.
+    """
+
+    by_id: dict[str, list[dict]] = defaultdict(list)
+    for j in jobs:
+        by_id[j["job_id"]].append(j)
+    used: dict[str, int] = defaultdict(int)
     rows = []
     for r in records:
-        if r["job_id"] not in by_id:
+        planned = by_id.get(r["job_id"])
+        if not planned:
             raise ValueError(f"record {r['job_id']} is not in the plan")
-        if r["job_id"] in seen:
+        if used[r["job_id"]] >= len(planned):
             raise ValueError(f"duplicate record {r['job_id']}")
-        seen.add(r["job_id"])
-        job = by_id[r["job_id"]]
+        job = planned[used[r["job_id"]]]
+        used[r["job_id"]] += 1
         rows.append({"job_id": r["job_id"], "structure": job["structure_id"], "instance": int(job["instance"]),
                      "cell": job["cell_id"], "kind": job["candidate_kind"], "text": job["candidate_text"],
                      "matched_to": job["candidate_matched_to"], "role": job["candidate_role"],
