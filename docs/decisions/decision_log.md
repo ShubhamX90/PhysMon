@@ -3228,3 +3228,7 @@ Journal: `docs/journal/stage14/14.12_copying_vs_relevance.md`. Descriptive; expl
 
 Decision: add ten certified structures with shorter equation chains so a model that may reason has a chance of solving them (the first batch is near the correctness floor), taking the count to 20 of the 40 to 60 B6.1 asks for. All ten are SOLVER_CERTIFIED and UNREVIEWED; 212 of 220 cells feasible; 91 mutants with none missed; no overlap with any v1 or first-batch program.
 Journal: `docs/journal/stage14/14.15_structures_batch_b.md`; data: `data/v2/structures/v2/`. Not reviewed by anyone; no model has been run on them.
+
+## Batch B structure review by the user; structures stay UNREVIEWED in their certificates — 2026-10-18
+
+The user approved S11 to S20 as written in an open walkthrough and accepted the generic cue phrasing. Record: `docs/validation/v2/structure_review_batch_b_2026-10-18.json`; journal J14.15-004. One reviewer, not blinded, expertise not stated, assumption lists not displayed: no structure is assigned `CERTIFIED_AND_VALIDATED`.
