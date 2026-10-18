@@ -1,0 +1,811 @@
+{
+  "command": "scripts/v2/s153_reasoning_analysis.py --records results/stage14/s152_reasoning_run/attempt_401357_qwen_primary_reasoning/raw_records.jsonl results/stage14/s152_reasoning_run/attempt_401357_llama_primary_reasoning/raw_records.jsonl",
+  "evidence_class": "exploratory; not paper-eligible",
+  "gate_min_base_correct": 8,
+  "git_status_short": [
+    "?? activations",
+    "?? results/infrastructure/model_smoke/attempt_20261014_gpu_h100/",
+    "?? results/stage14/s147_pilot_plan/attempt_20261018_0d95997_batch_b/"
+  ],
+  "inputs": {
+    "results/stage14/s152_reasoning_run/attempt_401357_llama_primary_reasoning/raw_records.jsonl": {
+      "n_records": 211,
+      "sha256": "f501d13eccba2787d45013fd042e75ea90ccbb70db0b12ae154dd817eae13c43"
+    },
+    "results/stage14/s152_reasoning_run/attempt_401357_qwen_primary_reasoning/raw_records.jsonl": {
+      "n_records": 211,
+      "sha256": "f8bb31976f462f30474602dd776b2288cc2ba6b8f04a60dea21171c58f274e9b"
+    }
+  },
+  "kind": "reasoning-allowed pilot analysis",
+  "models": {
+    "Qwen/Qwen2.5-7B-Instruct": {
+      "cell_outcomes": {
+        "no_cue": {
+          "mean_generated_tokens": 647.35,
+          "n": 20,
+          "n_correct": 11,
+          "n_graded": 19,
+          "parse_status_counts": {
+            "PARSED": 19,
+            "UNPARSEABLE": 1
+          }
+        },
+        "nongov_incompatible_unit_near": {
+          "mean_generated_tokens": 660.55,
+          "n": 20,
+          "n_correct": 10,
+          "n_graded": 19,
+          "parse_status_counts": {
+            "PARSED": 19,
+            "UNPARSEABLE": 1
+          }
+        },
+        "nongov_same_magnitude_convertible_unit": {
+          "mean_generated_tokens": 675.0,
+          "n": 16,
+          "n_correct": 7,
+          "n_graded": 16,
+          "parse_status_counts": {
+            "PARSED": 16
+          }
+        },
+        "nongov_same_unit_far": {
+          "mean_generated_tokens": 656.4,
+          "n": 20,
+          "n_correct": 10,
+          "n_graded": 20,
+          "parse_status_counts": {
+            "PARSED": 20
+          }
+        },
+        "nongov_same_unit_moderate": {
+          "mean_generated_tokens": 659.2,
+          "n": 20,
+          "n_correct": 8,
+          "n_graded": 20,
+          "parse_status_counts": {
+            "PARSED": 20
+          }
+        },
+        "nongov_same_unit_near_high_overlap": {
+          "mean_generated_tokens": 645.4,
+          "n": 20,
+          "n_correct": 9,
+          "n_graded": 20,
+          "parse_status_counts": {
+            "PARSED": 20
+          }
+        },
+        "nongov_same_unit_near_low_overlap": {
+          "mean_generated_tokens": 625.3333333333334,
+          "n": 15,
+          "n_correct": 7,
+          "n_graded": 15,
+          "parse_status_counts": {
+            "PARSED": 15
+          }
+        },
+        "nonnumeric_extra": {
+          "mean_generated_tokens": 669.0,
+          "n": 20,
+          "n_correct": 7,
+          "n_graded": 20,
+          "parse_status_counts": {
+            "PARSED": 20
+          }
+        },
+        "numeric_metadata": {
+          "mean_generated_tokens": 644.65,
+          "n": 20,
+          "n_correct": 10,
+          "n_graded": 20,
+          "parse_status_counts": {
+            "PARSED": 20
+          }
+        },
+        "relevant_edit": {
+          "mean_generated_tokens": 693.3,
+          "n": 20,
+          "n_correct": 6,
+          "n_graded": 19,
+          "parse_status_counts": {
+            "PARSED": 19,
+            "UNPARSEABLE": 1
+          }
+        },
+        "role_reversal": {
+          "mean_generated_tokens": 653.35,
+          "n": 20,
+          "n_correct": 11,
+          "n_graded": 19,
+          "parse_status_counts": {
+            "PARSED": 19,
+            "UNPARSEABLE": 1
+          }
+        }
+      },
+      "copy_rate_of_cue_numeral": {
+        "nongov_incompatible_unit_near": {
+          "n_equal_to_cue_numeral": 1,
+          "n_parsed": 19,
+          "n_records": 20,
+          "wilson95": [
+            0.009351752490529969,
+            0.2463921533654521
+          ]
+        },
+        "nongov_same_magnitude_convertible_unit": {
+          "n_equal_to_cue_numeral": 1,
+          "n_parsed": 16,
+          "n_records": 16,
+          "wilson95": [
+            0.01111905730833121,
+            0.2832926836802987
+          ]
+        },
+        "nongov_same_unit_far": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 20,
+          "n_records": 20,
+          "wilson95": [
+            0.0,
+            0.16113012549493322
+          ]
+        },
+        "nongov_same_unit_moderate": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 20,
+          "n_records": 20,
+          "wilson95": [
+            0.0,
+            0.16113012549493322
+          ]
+        },
+        "nongov_same_unit_near_high_overlap": {
+          "n_equal_to_cue_numeral": 1,
+          "n_parsed": 20,
+          "n_records": 20,
+          "wilson95": [
+            0.008881219432873136,
+            0.23613589351256675
+          ]
+        },
+        "nongov_same_unit_near_low_overlap": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 15,
+          "n_records": 15,
+          "wilson95": [
+            0.0,
+            0.20388926630434784
+          ]
+        },
+        "numeric_metadata": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 20,
+          "n_records": 20,
+          "wilson95": [
+            0.0,
+            0.16113012549493322
+          ]
+        },
+        "role_reversal": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 19,
+          "n_records": 20,
+          "wilson95": [
+            0.0,
+            0.16818436536845052
+          ]
+        }
+      },
+      "correctness_transitions": {
+        "flip_to_wrong_given_base_correct[nongov_incompatible_unit_near]": {
+          "by_structure": {
+            "S01": 0.5,
+            "S02": 1.0,
+            "S03": 0.0,
+            "S04": 0.0,
+            "S05": 0.0,
+            "S07": 0.0,
+            "S10": 0.0
+          },
+          "ci95": [
+            0.0,
+            0.5
+          ],
+          "mean": 0.21428571428571427,
+          "n_graded": 11,
+          "n_hit": 2,
+          "n_negative": 0,
+          "n_not_graded": 0,
+          "n_positive": 2,
+          "n_structures": 7,
+          "n_zero": 5,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "flip_to_wrong_given_base_correct[nongov_same_magnitude_convertible_unit]": {
+          "by_structure": {
+            "S01": 1.0,
+            "S02": 0.0,
+            "S03": 0.0,
+            "S04": 0.0,
+            "S07": 0.0,
+            "S10": 1.0
+          },
+          "ci95": [
+            0.0,
+            0.6666666666666666
+          ],
+          "mean": 0.3333333333333333,
+          "n_graded": 9,
+          "n_hit": 3,
+          "n_negative": 0,
+          "n_not_graded": 0,
+          "n_positive": 2,
+          "n_structures": 6,
+          "n_zero": 4,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "flip_to_wrong_given_base_correct[nongov_same_unit_far]": {
+          "by_structure": {
+            "S01": 1.0,
+            "S02": 1.0,
+            "S03": 0.0,
+            "S04": 0.0,
+            "S05": 0.0,
+            "S07": 0.0,
+            "S10": 0.0
+          },
+          "ci95": [
+            0.0,
+            0.7142857142857143
+          ],
+          "mean": 0.2857142857142857,
+          "n_graded": 11,
+          "n_hit": 3,
+          "n_negative": 0,
+          "n_not_graded": 0,
+          "n_positive": 2,
+          "n_structures": 7,
+          "n_zero": 5,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "flip_to_wrong_given_base_correct[nongov_same_unit_moderate]": {
+          "by_structure": {
+            "S01": 1.0,
+            "S02": 1.0,
+            "S03": 0.0,
+            "S04": 0.0,
+            "S05": 0.0,
+            "S07": 0.0,
+            "S10": 0.0
+          },
+          "ci95": [
+            0.0,
+            0.7142857142857143
+          ],
+          "mean": 0.2857142857142857,
+          "n_graded": 11,
+          "n_hit": 3,
+          "n_negative": 0,
+          "n_not_graded": 0,
+          "n_positive": 2,
+          "n_structures": 7,
+          "n_zero": 5,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "flip_to_wrong_given_base_correct[nongov_same_unit_near_high_overlap]": {
+          "by_structure": {
+            "S01": 1.0,
+            "S02": 0.0,
+            "S03": 0.0,
+            "S04": 0.0,
+            "S05": 0.0,
+            "S07": 0.0,
+            "S10": 0.0
+          },
+          "ci95": [
+            0.0,
+            0.42857142857142855
+          ],
+          "mean": 0.14285714285714285,
+          "n_graded": 11,
+          "n_hit": 2,
+          "n_negative": 0,
+          "n_not_graded": 0,
+          "n_positive": 1,
+          "n_structures": 7,
+          "n_zero": 6,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "flip_to_wrong_given_base_correct[nongov_same_unit_near_low_overlap]": {
+          "by_structure": {
+            "S01": 1.0,
+            "S02": 1.0,
+            "S03": 0.0,
+            "S04": 0.0,
+            "S05": 0.0,
+            "S07": 0.0
+          },
+          "ci95": [
+            0.0,
+            0.6666666666666666
+          ],
+          "mean": 0.3333333333333333,
+          "n_graded": 8,
+          "n_hit": 2,
+          "n_negative": 0,
+          "n_not_graded": 0,
+          "n_positive": 2,
+          "n_structures": 6,
+          "n_zero": 4,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "flip_to_wrong_given_base_correct[nonnumeric_extra]": {
+          "by_structure": {
+            "S01": 1.0,
+            "S02": 1.0,
+            "S03": 0.0,
+            "S04": 0.0,
+            "S05": 0.0,
+            "S07": 0.0,
+            "S10": 1.0
+          },
+          "ci95": [
+            0.0,
+            0.7142857142857143
+          ],
+          "mean": 0.42857142857142855,
+          "n_graded": 11,
+          "n_hit": 4,
+          "n_negative": 0,
+          "n_not_graded": 0,
+          "n_positive": 3,
+          "n_structures": 7,
+          "n_zero": 4,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "flip_to_wrong_given_base_correct[numeric_metadata]": {
+          "by_structure": {
+            "S01": 0.5,
+            "S02": 0.0,
+            "S03": 0.0,
+            "S04": 0.0,
+            "S05": 0.0,
+            "S07": 0.0,
+            "S10": 1.0
+          },
+          "ci95": [
+            0.0,
+            0.5
+          ],
+          "mean": 0.21428571428571427,
+          "n_graded": 11,
+          "n_hit": 2,
+          "n_negative": 0,
+          "n_not_graded": 0,
+          "n_positive": 2,
+          "n_structures": 7,
+          "n_zero": 5,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "rescue_to_correct_given_base_wrong[nongov_incompatible_unit_near]": {
+          "by_structure": {
+            "S02": 0.0,
+            "S03": 0.0,
+            "S06": 0.5,
+            "S08": 0.0,
+            "S09": 0.0,
+            "S10": 0.0
+          },
+          "ci95": [
+            0.0,
+            0.25
+          ],
+          "mean": 0.08333333333333333,
+          "n_graded": 8,
+          "n_hit": 1,
+          "n_negative": 0,
+          "n_not_graded": 0,
+          "n_positive": 1,
+          "n_structures": 6,
+          "n_zero": 5,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "rescue_to_correct_given_base_wrong[nongov_same_magnitude_convertible_unit]": {
+          "by_structure": {
+            "S02": 0.0,
+            "S03": 0.0,
+            "S06": 0.0,
+            "S08": 0.0,
+            "S10": 1.0
+          },
+          "ci95": [
+            0.0,
+            0.6
+          ],
+          "mean": 0.2,
+          "n_graded": 6,
+          "n_hit": 1,
+          "n_negative": 0,
+          "n_not_graded": 0,
+          "n_positive": 1,
+          "n_structures": 5,
+          "n_zero": 4,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "rescue_to_correct_given_base_wrong[nongov_same_unit_far]": {
+          "by_structure": {
+            "S02": 0.0,
+            "S03": 0.0,
+            "S06": 0.5,
+            "S08": 0.0,
+            "S09": 0.0,
+            "S10": 0.0
+          },
+          "ci95": [
+            0.0,
+            0.25
+          ],
+          "mean": 0.08333333333333333,
+          "n_graded": 8,
+          "n_hit": 1,
+          "n_negative": 0,
+          "n_not_graded": 0,
+          "n_positive": 1,
+          "n_structures": 6,
+          "n_zero": 5,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "rescue_to_correct_given_base_wrong[nongov_same_unit_moderate]": {
+          "by_structure": {
+            "S02": 0.0,
+            "S03": 0.0,
+            "S06": 0.0,
+            "S08": 0.0,
+            "S09": 0.0,
+            "S10": 0.0
+          },
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0,
+          "n_graded": 8,
+          "n_hit": 0,
+          "n_negative": 0,
+          "n_not_graded": 0,
+          "n_positive": 0,
+          "n_structures": 6,
+          "n_zero": 6,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "rescue_to_correct_given_base_wrong[nongov_same_unit_near_high_overlap]": {
+          "by_structure": {
+            "S02": 0.0,
+            "S03": 0.0,
+            "S06": 0.0,
+            "S08": 0.0,
+            "S09": 0.0,
+            "S10": 0.0
+          },
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0,
+          "n_graded": 8,
+          "n_hit": 0,
+          "n_negative": 0,
+          "n_not_graded": 0,
+          "n_positive": 0,
+          "n_structures": 6,
+          "n_zero": 6,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "rescue_to_correct_given_base_wrong[nongov_same_unit_near_low_overlap]": {
+          "by_structure": {
+            "S02": 0.0,
+            "S06": 0.0,
+            "S08": 0.0,
+            "S09": 0.0
+          },
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0,
+          "n_graded": 6,
+          "n_hit": 0,
+          "n_negative": 0,
+          "n_not_graded": 0,
+          "n_positive": 0,
+          "n_structures": 4,
+          "n_zero": 4,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "rescue_to_correct_given_base_wrong[nonnumeric_extra]": {
+          "by_structure": {
+            "S02": 0.0,
+            "S03": 0.0,
+            "S06": 0.0,
+            "S08": 0.0,
+            "S09": 0.0,
+            "S10": 0.0
+          },
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0,
+          "n_graded": 8,
+          "n_hit": 0,
+          "n_negative": 0,
+          "n_not_graded": 0,
+          "n_positive": 0,
+          "n_structures": 6,
+          "n_zero": 6,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "rescue_to_correct_given_base_wrong[numeric_metadata]": {
+          "by_structure": {
+            "S02": 0.0,
+            "S03": 0.0,
+            "S06": 0.5,
+            "S08": 0.0,
+            "S09": 0.0,
+            "S10": 0.0
+          },
+          "ci95": [
+            0.0,
+            0.25
+          ],
+          "mean": 0.08333333333333333,
+          "n_graded": 8,
+          "n_hit": 1,
+          "n_negative": 0,
+          "n_not_graded": 0,
+          "n_positive": 1,
+          "n_structures": 6,
+          "n_zero": 5,
+          "status": "precision-limited descriptive interval; not a test"
+        }
+      },
+      "eligibility": {
+        "all_valid_items": 211,
+        "anchors": 20,
+        "anchors_graded": 19,
+        "base_correct_anchors": 11,
+        "gate_min_base_correct": 8,
+        "parseable": 207
+      },
+      "gate_met": true,
+      "model_id": "Qwen/Qwen2.5-7B-Instruct",
+      "n_records": 211,
+      "relevant_edit_assay": {
+        "n": 20,
+        "n_correct_under_edit": 6,
+        "n_graded": 19,
+        "note": "the gold of this cell differs from the anchor's; a correct answer under the edited prompt shows the assay follows a relevant change"
+      }
+    },
+    "meta-llama/Llama-3.1-8B-Instruct": {
+      "cell_outcomes": {
+        "no_cue": {
+          "mean_generated_tokens": 940.3,
+          "n": 20,
+          "n_correct": 7,
+          "n_graded": 16,
+          "parse_status_counts": {
+            "PARSED": 16,
+            "TRUNCATED": 4
+          }
+        },
+        "nongov_incompatible_unit_near": {
+          "mean_generated_tokens": 759.35,
+          "n": 20,
+          "n_correct": 6,
+          "n_graded": 16,
+          "parse_status_counts": {
+            "PARSED": 16,
+            "TRUNCATED": 4
+          }
+        },
+        "nongov_same_magnitude_convertible_unit": {
+          "mean_generated_tokens": 721.4375,
+          "n": 16,
+          "n_correct": 1,
+          "n_graded": 13,
+          "parse_status_counts": {
+            "PARSED": 13,
+            "TRUNCATED": 2,
+            "UNPARSEABLE": 1
+          }
+        },
+        "nongov_same_unit_far": {
+          "mean_generated_tokens": 699.6,
+          "n": 20,
+          "n_correct": 4,
+          "n_graded": 14,
+          "parse_status_counts": {
+            "PARSED": 14,
+            "TRUNCATED": 3,
+            "UNPARSEABLE": 3
+          }
+        },
+        "nongov_same_unit_moderate": {
+          "mean_generated_tokens": 577.25,
+          "n": 20,
+          "n_correct": 6,
+          "n_graded": 16,
+          "parse_status_counts": {
+            "PARSED": 16,
+            "TRUNCATED": 1,
+            "UNPARSEABLE": 3
+          }
+        },
+        "nongov_same_unit_near_high_overlap": {
+          "mean_generated_tokens": 824.45,
+          "n": 20,
+          "n_correct": 4,
+          "n_graded": 13,
+          "parse_status_counts": {
+            "PARSED": 13,
+            "TRUNCATED": 4,
+            "UNPARSEABLE": 3
+          }
+        },
+        "nongov_same_unit_near_low_overlap": {
+          "mean_generated_tokens": 604.8,
+          "n": 15,
+          "n_correct": 3,
+          "n_graded": 13,
+          "parse_status_counts": {
+            "PARSED": 13,
+            "TRUNCATED": 1,
+            "UNPARSEABLE": 1
+          }
+        },
+        "nonnumeric_extra": {
+          "mean_generated_tokens": 615.1,
+          "n": 20,
+          "n_correct": 9,
+          "n_graded": 17,
+          "parse_status_counts": {
+            "PARSED": 17,
+            "TRUNCATED": 2,
+            "UNPARSEABLE": 1
+          }
+        },
+        "numeric_metadata": {
+          "mean_generated_tokens": 642.3,
+          "n": 20,
+          "n_correct": 5,
+          "n_graded": 17,
+          "parse_status_counts": {
+            "PARSED": 17,
+            "TRUNCATED": 2,
+            "UNPARSEABLE": 1
+          }
+        },
+        "relevant_edit": {
+          "mean_generated_tokens": 633.55,
+          "n": 20,
+          "n_correct": 4,
+          "n_graded": 17,
+          "parse_status_counts": {
+            "PARSED": 17,
+            "TRUNCATED": 2,
+            "UNPARSEABLE": 1
+          }
+        },
+        "role_reversal": {
+          "mean_generated_tokens": 675.45,
+          "n": 20,
+          "n_correct": 1,
+          "n_graded": 16,
+          "parse_status_counts": {
+            "PARSED": 16,
+            "TRUNCATED": 1,
+            "UNPARSEABLE": 3
+          }
+        }
+      },
+      "copy_rate_of_cue_numeral": {
+        "nongov_incompatible_unit_near": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 16,
+          "n_records": 20,
+          "wilson95": [
+            0.0,
+            0.19361341827271994
+          ]
+        },
+        "nongov_same_magnitude_convertible_unit": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 13,
+          "n_records": 16,
+          "wilson95": [
+            0.0,
+            0.22810184305529166
+          ]
+        },
+        "nongov_same_unit_far": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 14,
+          "n_records": 20,
+          "wilson95": [
+            0.0,
+            0.21531701192718142
+          ]
+        },
+        "nongov_same_unit_moderate": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 16,
+          "n_records": 20,
+          "wilson95": [
+            0.0,
+            0.19361341827271994
+          ]
+        },
+        "nongov_same_unit_near_high_overlap": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 13,
+          "n_records": 20,
+          "wilson95": [
+            0.0,
+            0.22810184305529166
+          ]
+        },
+        "nongov_same_unit_near_low_overlap": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 13,
+          "n_records": 15,
+          "wilson95": [
+            0.0,
+            0.22810184305529166
+          ]
+        },
+        "numeric_metadata": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 17,
+          "n_records": 20,
+          "wilson95": [
+            0.0,
+            0.18432366037156456
+          ]
+        },
+        "role_reversal": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 16,
+          "n_records": 20,
+          "wilson95": [
+            0.0,
+            0.19361341827271994
+          ]
+        }
+      },
+      "correctness_transitions": "NOT_EVALUATED: 7 of 20 no-cue anchors are correct, below the gate of 8; the correctness floor persists",
+      "eligibility": {
+        "all_valid_items": 211,
+        "anchors": 20,
+        "anchors_graded": 16,
+        "base_correct_anchors": 7,
+        "gate_min_base_correct": 8,
+        "parseable": 168
+      },
+      "gate_met": false,
+      "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+      "n_records": 211,
+      "relevant_edit_assay": {
+        "n": 20,
+        "n_correct_under_edit": 4,
+        "n_graded": 17,
+        "note": "the gold of this cell differs from the anchor's; a correct answer under the edited prompt shows the assay follows a relevant change"
+      }
+    }
+  },
+  "source_commit": "db8ecff5534964a29d600485cd38e6f45db4071e",
+  "stage": "14.13"
+}

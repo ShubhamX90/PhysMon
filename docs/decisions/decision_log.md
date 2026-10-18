@@ -3237,3 +3237,7 @@ The user approved S11 to S20 as written in an open walkthrough and accepted the 
 
 Decision: plan the X03 version the card names: 60 of the 135 cohort families, stratified by cue type and domain with a seeded draw frozen before any score, four wrappers, and a candidate matrix inside each family (each rendering's cue numeral scored in every rendering of its family), because legacy families have no no-cue prompt. 8,448 jobs; tokenizer audit clean. Not run; needs a score-only runner mode, a frozen analysis and a per-submission acceptance.
 Journal: `docs/journal/stage14/14.16_legacy_x03_plan.md`.
+
+## Stage 14.13: reasoning-allowed pilot result — 2026-10-18
+
+Job 401357 (reasoning-v1, 2,048 tokens; the 512-token attempt 401327 was cancelled as a measurement artifact and its partial records are unused) completed with 2 x 211 records. By the frozen gate the correctness endpoint is estimable for Qwen (11 of 20 base-correct anchors) and not for Llama (7 of 20). For Qwen, correct-to-wrong flips are 14% to 43% across cue cells among 11 items from 7 structures, and the sentence with no number flips as often as any numeric cue, so they measure sensitivity to an added sentence; the cue numeral is almost never the final answer. Journal J14.13-006 and J14.13-007; ledger rows S1413-R1 and S1413-R2. Descriptive and exploratory; certificates UNREVIEWED.
