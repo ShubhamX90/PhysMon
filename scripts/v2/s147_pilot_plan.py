@@ -74,8 +74,8 @@ def load_tokenizers(model_keys: tuple[str, ...]) -> tuple[dict[str, Any], dict[s
     return tokenizers, provenance
 
 
-def read_manifest(structures: set[str] | None) -> list[dict]:
-    rows = [json.loads(line) for line in (REPO_ROOT / MANIFEST).read_text(encoding="utf-8").splitlines()
+def read_manifest(structures: set[str] | None, manifest: str = MANIFEST) -> list[dict]:
+    rows = [json.loads(line) for line in (REPO_ROOT / manifest).read_text(encoding="utf-8").splitlines()
             if line.strip()]
     return [r for r in rows if not structures or r["structure_id"] in structures]
 
@@ -176,6 +176,8 @@ def main() -> int:
     parser.add_argument("--attempt-id", default=None)
     parser.add_argument("--out-root", default=OUT_ROOT)
     parser.add_argument("--structures", nargs="*", default=None, help="Restrict to these structure ids (tests).")
+    parser.add_argument("--manifest", default=MANIFEST,
+                        help="Factor-cell manifest (default: S01 to S10; data/v2/structures/v2/ holds S11 to S20).")
     parser.add_argument("--models", nargs="*", default=list(MODELS))
     parser.add_argument("--wrappers", nargs="*", default=[WRAPPER], choices=sorted(sc.WRAPPERS),
                         help="Output wrappers (Stage 14.3 contract); the default reproduces the committed pilot plan.")
@@ -193,7 +195,7 @@ def main() -> int:
 
     model_keys = tuple(args.models)
     tokenizers, provenance = load_tokenizers(model_keys)
-    rows = read_manifest(set(args.structures) if args.structures else None)
+    rows = read_manifest(set(args.structures) if args.structures else None, args.manifest)
     wrappers = tuple(args.wrappers)
     jobs = build_jobs(rows, tokenizers, model_keys, wrappers)
     summary = cost_summary(jobs, len(rows), sum(1 for r in rows if r["feasible"]))
@@ -209,7 +211,7 @@ def main() -> int:
         "wrapper_id": wrappers[0] if len(wrappers) == 1 else "multiple", "wrapper_ids": list(wrappers),
         "instructions": {w: sc.instruction_for(w) for w in wrappers}, "instruction": sc.instruction_for(wrappers[0]),
         "protocol": {"path": PROTOCOL, "sha256": sha256_file(REPO_ROOT / PROTOCOL)},
-        "manifest": {"path": MANIFEST, "sha256": sha256_file(REPO_ROOT / MANIFEST)},
+        "manifest": {"path": args.manifest, "sha256": sha256_file(REPO_ROOT / args.manifest)},
         "tokenizers": provenance, "cost": summary, "n_jobs": len(jobs),
         "data_role": "EXPLORATION", "evidence_class": "exploratory; not paper-eligible; not run",
     }

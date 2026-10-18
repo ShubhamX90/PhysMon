@@ -268,3 +268,20 @@ def test_the_runner_scores_and_parses_under_each_non_default_wrapper(tmp_path, l
         assert record["status"] == "OK" and record["gold_text"].startswith("\\boxed{")
         assert set(RAW_RECORD_FIELDS) <= set(record)
         assert record["correctness"] in ("correct", "wrong", "UNPARSEABLE", "MULTIPLE_CANDIDATES", "EMPTY")
+
+
+def test_the_planner_can_plan_the_second_structure_batch_from_its_own_manifest(tmp_path, llama_tokenizer):
+    manifest = "data/v2/structures/v2/factor_cell_manifest.jsonl"
+    argv = sys.argv
+    sys.argv = ["s147_plan", "--out-root", str(tmp_path), "--attempt-id", "b1", "--structures", "S11", "S20", "--models",
+                "llama_primary", "--manifest", manifest]
+    try:
+        assert plan_mod.main() == 0
+    finally:
+        sys.argv = argv
+    plan = json.loads((tmp_path / "b1" / "plan.json").read_text(encoding="utf-8"))
+    jobs = _jsonl(tmp_path / "b1" / "job_manifest.jsonl")
+    assert plan["manifest"]["path"] == manifest and plan["authorized_to_run"] is False
+    assert {j["structure_id"] for j in jobs} == {"S11", "S20"} and len({j["job_id"] for j in jobs}) == len(jobs) == plan["n_jobs"]
+    rows = [json.loads(line) for line in (REPO_ROOT / manifest).read_text(encoding="utf-8").splitlines() if line.strip()]
+    assert len(jobs) == sum(1 for r in rows if r["feasible"] and r["structure_id"] in ("S11", "S20"))
