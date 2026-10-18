@@ -80,49 +80,53 @@ def read_manifest(structures: set[str] | None) -> list[dict]:
     return [r for r in rows if not structures or r["structure_id"] in structures]
 
 
-def target_texts(row: dict) -> tuple[str, str | None]:
-    """The gold string and (for numeric-cue cells) the decoy string, both under the answer-line wrapper."""
+def target_texts(row: dict, wrapper: str = WRAPPER) -> tuple[str, str | None]:
+    """The gold string and (for numeric-cue cells) the decoy string, both under one wrapper."""
 
     unit = dg.display_unit(row["gold_unit"])
-    gold = sc.render_target(WRAPPER, dg.positional(row["gold_value"], 4), unit)
+    gold = sc.render_target(wrapper, dg.positional(row["gold_value"], 4), unit)
     decoy = None
     if row["cell_id"] in DECOY_CELLS and row.get("cue_numeric_value") is not None:
-        decoy = sc.render_target(WRAPPER, dg.positional(row["cue_numeric_value"], 3), unit)
+        decoy = sc.render_target(wrapper, dg.positional(row["cue_numeric_value"], 3), unit)
     return gold, decoy
 
 
-def build_jobs(rows: list[dict], tokenizers: dict[str, Any], model_keys: tuple[str, ...]) -> list[dict[str, Any]]:
-    system = sc.instruction_for(WRAPPER)
+def build_jobs(rows: list[dict], tokenizers: dict[str, Any], model_keys: tuple[str, ...],
+               wrappers: tuple[str, ...] = (WRAPPER,)) -> list[dict[str, Any]]:
     jobs: list[dict[str, Any]] = []
     for key in model_keys:
         tok = tokenizers[key]
-        for row in rows:
-            if not row["feasible"]:
-                continue
-            gold, decoy = target_texts(row)
-            prompt = vs.build_chat_prompt(tok, system, row["prompt"])
-            gold_pair = vs.tokenize_pair(tok, prompt, gold)
-            decoy_pair = vs.tokenize_pair(tok, prompt, decoy) if decoy else None
-            jobs.append({
-                "job_id": f"{key}:{row['structure_id']}:{row['instance']}:{row['cell_id']}",
-                "model_key": key, "wrapper_id": WRAPPER, "structure_id": row["structure_id"],
-                "structure_uuid": row["structure_uuid"], "template_cluster_id": row["template_cluster_id"],
-                "symbolic_program_hash": row["symbolic_program_hash"], "instance": row["instance"],
-                "cell_id": row["cell_id"], "expected_effect": row["expected_effect"],
-                "cue_semantic_role": row.get("cue_semantic_role"), "numeric_proximity": row.get("numeric_proximity"),
-                "unit_type": row.get("unit_type"), "digit_overlap": row.get("digit_overlap"),
-                "cue_position": row.get("cue_position"), "isolation_condition": row.get("isolation_condition"),
-                "cue_numeric_value": row.get("cue_numeric_value"), "cue_unit": row.get("cue_unit"),
-                "gold_value": row["gold_value"], "gold_unit": row["gold_unit"],
-                "user_prompt": row["prompt"], "user_prompt_sha256": row["prompt_sha256"],
-                "formatted_prompt_sha256": gold_pair.prompt_sha256,
-                "gold_text": gold, "decoy_text": decoy, "decoy_defined": decoy is not None,
-                "n_prompt_tokens": len(gold_pair.prompt_ids), "n_gold_tokens": len(gold_pair.target_ids),
-                "n_decoy_tokens": len(decoy_pair.target_ids) if decoy_pair else None,
-                "gold_tokenization_status": gold_pair.status,
-                "decoy_tokenization_status": decoy_pair.status if decoy_pair else "NOT_APPLICABLE",
-                "leading_special_tokens": gold_pair.n_leading_special,
-            })
+        for wrapper in wrappers:
+            system = sc.instruction_for(wrapper)
+            for row in rows:
+                if not row["feasible"]:
+                    continue
+                gold, decoy = target_texts(row, wrapper)
+                prompt = vs.build_chat_prompt(tok, system, row["prompt"])
+                gold_pair = vs.tokenize_pair(tok, prompt, gold)
+                decoy_pair = vs.tokenize_pair(tok, prompt, decoy) if decoy else None
+                # The answer_line job id has no wrapper suffix, so the committed pilot plan and its records keep their ids.
+                suffix = "" if wrapper == WRAPPER else f":{wrapper}"
+                jobs.append({
+                    "job_id": f"{key}:{row['structure_id']}:{row['instance']}:{row['cell_id']}{suffix}",
+                    "model_key": key, "wrapper_id": wrapper, "structure_id": row["structure_id"],
+                    "structure_uuid": row["structure_uuid"], "template_cluster_id": row["template_cluster_id"],
+                    "symbolic_program_hash": row["symbolic_program_hash"], "instance": row["instance"],
+                    "cell_id": row["cell_id"], "expected_effect": row["expected_effect"],
+                    "cue_semantic_role": row.get("cue_semantic_role"), "numeric_proximity": row.get("numeric_proximity"),
+                    "unit_type": row.get("unit_type"), "digit_overlap": row.get("digit_overlap"),
+                    "cue_position": row.get("cue_position"), "isolation_condition": row.get("isolation_condition"),
+                    "cue_numeric_value": row.get("cue_numeric_value"), "cue_unit": row.get("cue_unit"),
+                    "gold_value": row["gold_value"], "gold_unit": row["gold_unit"],
+                    "user_prompt": row["prompt"], "user_prompt_sha256": row["prompt_sha256"],
+                    "formatted_prompt_sha256": gold_pair.prompt_sha256,
+                    "gold_text": gold, "decoy_text": decoy, "decoy_defined": decoy is not None,
+                    "n_prompt_tokens": len(gold_pair.prompt_ids), "n_gold_tokens": len(gold_pair.target_ids),
+                    "n_decoy_tokens": len(decoy_pair.target_ids) if decoy_pair else None,
+                    "gold_tokenization_status": gold_pair.status,
+                    "decoy_tokenization_status": decoy_pair.status if decoy_pair else "NOT_APPLICABLE",
+                    "leading_special_tokens": gold_pair.n_leading_special,
+                })
     return jobs
 
 
@@ -138,7 +142,17 @@ def cost_summary(jobs: list[dict[str, Any]], n_cells_total: int, n_cells_feasibl
         prompt_tokens = [j["n_prompt_tokens"] for j in mine]
         forward_tokens = sum(j["n_prompt_tokens"] + j["n_gold_tokens"] for j in mine) + sum(
             j["n_prompt_tokens"] + j["n_decoy_tokens"] for j in decoys)
+        audit = {}
+        for wrapper in sorted({j["wrapper_id"] for j in mine}):
+            rows_w = [j for j in mine if j["wrapper_id"] == wrapper]
+            audit[wrapper] = {
+                "n_jobs": len(rows_w),
+                "mean_gold_tokens": float(np.mean([j["n_gold_tokens"] for j in rows_w])),
+                "duplicate_special_token": sum(j["gold_tokenization_status"] == "DUPLICATE_SPECIAL_TOKEN" for j in rows_w),
+                "boundary_mismatch_gold": sum(j["gold_tokenization_status"] == "BOUNDARY_MISMATCH" for j in rows_w),
+                "boundary_mismatch_decoy": sum(j["decoy_tokenization_status"] == "BOUNDARY_MISMATCH" for j in rows_w)}
         summary["per_model"][key] = {
+            "tokenizer_audit_by_wrapper": audit,
             "n_jobs": len(mine), "n_jobs_with_decoy": len(decoys),
             "n_scoring_forward_passes": len(mine) + len(decoys), "n_generations": len(mine),
             "prompt_tokens_min_mean_max": [int(min(prompt_tokens)), float(np.mean(prompt_tokens)),
@@ -163,6 +177,8 @@ def main() -> int:
     parser.add_argument("--out-root", default=OUT_ROOT)
     parser.add_argument("--structures", nargs="*", default=None, help="Restrict to these structure ids (tests).")
     parser.add_argument("--models", nargs="*", default=list(MODELS))
+    parser.add_argument("--wrappers", nargs="*", default=[WRAPPER], choices=sorted(sc.WRAPPERS),
+                        help="Output wrappers (Stage 14.3 contract); the default reproduces the committed pilot plan.")
     args = parser.parse_args()
 
     sha = git("rev-parse", "HEAD")
@@ -178,7 +194,8 @@ def main() -> int:
     model_keys = tuple(args.models)
     tokenizers, provenance = load_tokenizers(model_keys)
     rows = read_manifest(set(args.structures) if args.structures else None)
-    jobs = build_jobs(rows, tokenizers, model_keys)
+    wrappers = tuple(args.wrappers)
+    jobs = build_jobs(rows, tokenizers, model_keys, wrappers)
     summary = cost_summary(jobs, len(rows), sum(1 for r in rows if r["feasible"]))
 
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -189,7 +206,8 @@ def main() -> int:
         "source_commit": sha, "git_status_short": git("status", "--short").splitlines(),
         "command": " ".join(sys.argv), "transformers": transformers.__version__,
         "contract_version": sc.CONTRACT_VERSION, "contract_fingerprint": sc.contract_fingerprint(),
-        "wrapper_id": WRAPPER, "instruction": sc.instruction_for(WRAPPER),
+        "wrapper_id": wrappers[0] if len(wrappers) == 1 else "multiple", "wrapper_ids": list(wrappers),
+        "instructions": {w: sc.instruction_for(w) for w in wrappers}, "instruction": sc.instruction_for(wrappers[0]),
         "protocol": {"path": PROTOCOL, "sha256": sha256_file(REPO_ROOT / PROTOCOL)},
         "manifest": {"path": MANIFEST, "sha256": sha256_file(REPO_ROOT / MANIFEST)},
         "tokenizers": provenance, "cost": summary, "n_jobs": len(jobs),

@@ -216,3 +216,55 @@ def test_each_decoy_is_also_scored_under_the_no_cue_prompt_of_the_same_instantia
         assert stored == pytest.approx(expected, abs=1e-4)
         # A different prompt gives a different score, so the field is not a copy of the cue-prompt score.
         assert stored != record["alternative_scores"]["decoy"]["logprob_raw"]
+
+
+def test_a_multi_wrapper_plan_has_unique_ids_unchanged_answer_line_ids_and_equivalent_targets(tmp_path, llama_tokenizer):
+    sc = plan_mod.sc
+    argv = sys.argv
+    sys.argv = ["s147_plan", "--out-root", str(tmp_path), "--attempt-id", "w1", "--structures", "S06", "--models",
+                "llama_primary", "--wrappers", "answer_line", "plain", "boxed", "json", "sentence", "decimal_plain",
+                "scientific"]
+    try:
+        assert plan_mod.main() == 0
+    finally:
+        sys.argv = argv
+    jobs = _jsonl(tmp_path / "w1" / "job_manifest.jsonl")
+    plan = json.loads((tmp_path / "w1" / "plan.json").read_text(encoding="utf-8"))
+    assert plan["wrapper_id"] == "multiple" and len(plan["wrapper_ids"]) == 7
+    assert len({j["job_id"] for j in jobs}) == len(jobs)
+    per_wrapper = {w: [j for j in jobs if j["wrapper_id"] == w] for w in plan["wrapper_ids"]}
+    assert len({len(v) for v in per_wrapper.values()}) == 1 and len(jobs) == 7 * len(per_wrapper["plain"])
+    assert all(j["job_id"] == f"llama_primary:{j['structure_id']}:{j['instance']}:{j['cell_id']}"
+               for j in per_wrapper["answer_line"])  # answer_line ids carry no wrapper suffix
+    assert all(j["job_id"].endswith(f":{j['wrapper_id']}") for w, rows in per_wrapper.items() if w != "answer_line"
+               for j in rows)
+    # Every wrapper encodes the same physical answer: parsing the gold string recovers the same value and unit.
+    for wrapper, rows in per_wrapper.items():
+        for job in rows:
+            value, unit = sc.parse_target(wrapper, job["gold_text"])
+            assert value == pytest.approx(float(f"{job['gold_value']:.4g}"), rel=1e-9)
+            if job["decoy_text"]:
+                assert sc.parse_target(wrapper, job["decoy_text"])[1] == unit
+    audit = plan["cost"]["per_model"]["llama_primary"]["tokenizer_audit_by_wrapper"]
+    assert set(audit) == set(plan["wrapper_ids"])
+    assert all(a["duplicate_special_token"] == 0 for a in audit.values())
+
+
+def test_the_runner_scores_and_parses_under_each_non_default_wrapper(tmp_path, llama_tokenizer, tiny_model_dir):
+    plan_root = tmp_path / "plans"
+    argv = sys.argv
+    sys.argv = ["s147_plan", "--out-root", str(plan_root), "--attempt-id", "wp", "--structures", "S06", "--models",
+                "llama_primary", "--wrappers", "boxed", "json"]
+    try:
+        assert plan_mod.main() == 0
+    finally:
+        sys.argv = argv
+    jobs = _jsonl(plan_root / "wp" / "job_manifest.jsonl")
+    assert {j["wrapper_id"] for j in jobs} == {"boxed", "json"}
+    assert _run(plan_root / "wp", tiny_model_dir, tmp_path / "out", "w", ("--authorization-ref", "TEST-ONLY")) == 0
+    records = _jsonl(tmp_path / "out" / "w" / "raw_records.jsonl")
+    assert len(records) == 5 and {r["answer_wrapper_id"] for r in records} == {"boxed"}  # the first five jobs are boxed
+    for record in records:
+        assert record["status"] == "OK" and record["gold_text"].startswith("\\boxed{")
+        assert set(RAW_RECORD_FIELDS) <= set(record)
+        assert record["correctness"] in ("correct", "wrong", "UNPARSEABLE", "MULTIPLE_CANDIDATES", "EMPTY")
