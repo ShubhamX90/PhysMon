@@ -1,0 +1,660 @@
+{
+  "command": "scripts/v2/s155_numeral_presence_analysis.py --plan-dir results/stage14/s154_numeral_presence_plan/attempt_20261018_ce06549 --records results/stage14/s154_numeral_presence_run/attempt_401607_qwen_primary_scoreonly/raw_records.jsonl results/stage14/s154_numeral_presence_run/attempt_401607_llama_primary_scoreonly/raw_records.jsonl --attempt-id attempt_20261018_job401607",
+  "evidence_class": "exploratory; not paper-eligible",
+  "git_status_short": [
+    "?? activations",
+    "?? results/infrastructure/model_smoke/attempt_20261014_gpu_h100/",
+    "?? results/stage14/s148_pilot_analysis/attempt_20261018_batch_b_bf16/",
+    "?? results/stage14/s149_noise_and_anchor/attempt_20261018_batch_b/",
+    "?? results/stage14/s153_reasoning_analysis/attempt_20261018_batch_b/",
+    "?? results/stage14/s157_legacy_x03_analysis/"
+  ],
+  "inputs": {
+    "plan_job_manifest": "93448e7c0692391b3ea5c0508e3344b76db515affdb166a4cef8f6f1558d3ea8",
+    "results/stage14/s154_numeral_presence_run/attempt_401607_llama_primary_scoreonly/raw_records.jsonl": {
+      "n_records": 1962,
+      "sha256": "4e394eb0201a025d34b8fe78bf7e275743e3fe88ab3ac1388b268e71fafec42f"
+    },
+    "results/stage14/s154_numeral_presence_run/attempt_401607_qwen_primary_scoreonly/raw_records.jsonl": {
+      "n_records": 1962,
+      "sha256": "5da6ff22e154dcd86eb32643e56d3b9de3bec5d2d54aea79f57fb19369501264"
+    }
+  },
+  "kind": "numeral-presence control analysis",
+  "models": {
+    "Qwen/Qwen2.5-7B-Instruct": {
+      "n_not_evaluated": 0,
+      "n_numerals": 981,
+      "paired_contrasts": {
+        "cue_irrelevant_metadata minus relevant_input (same prompt)": {
+          "by_structure": {
+            "S01": -2.5667031845840143,
+            "S02": 14.388831335648007,
+            "S03": 5.646959897346921,
+            "S04": 2.295059486298461,
+            "S05": 16.231118151950938,
+            "S06": 0.3763131760060787,
+            "S07": -9.96009660512209,
+            "S08": -6.355058476306416,
+            "S09": 2.9891379170682293,
+            "S10": 6.198021601714686
+          },
+          "ci95": [
+            -1.7806838340268178,
+            7.827790372263283
+          ],
+          "mean": 2.9243583300020797,
+          "n_negative": 3,
+          "n_positive": 7,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "cue_nongoverning_isolated[equivalent] minus relevant_input (same prompt)": {
+          "by_structure": {
+            "S01": 4.719306515296452,
+            "S02": 14.595354657538508,
+            "S03": 2.3851387632021215,
+            "S04": 8.50659111666359,
+            "S06": 8.624227435913781,
+            "S07": 5.115330468863249,
+            "S08": 7.680387715275666,
+            "S10": 1.047332695357909
+          },
+          "ci95": [
+            4.046541816300174,
+            9.427885665440549
+          ],
+          "mean": 6.58420867101391,
+          "n_negative": 0,
+          "n_positive": 8,
+          "n_structures": 8,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "cue_nongoverning_isolated[incompatible] minus relevant_input (same prompt)": {
+          "by_structure": {
+            "S01": 5.405757509341135,
+            "S02": 4.58991788328829,
+            "S03": 5.674409942424063,
+            "S04": -8.042720410425469,
+            "S05": -3.3228106213980197,
+            "S06": 15.533893932763021,
+            "S07": 3.4049217108185985,
+            "S08": -11.198431067047181,
+            "S09": 6.089664232780097,
+            "S10": -2.926500013673831
+          },
+          "ci95": [
+            -3.1188831992153463,
+            6.24869897933103
+          ],
+          "mean": 1.5208103098870704,
+          "n_negative": 4,
+          "n_positive": 6,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "cue_nongoverning_isolated[same] minus relevant_input (same prompt)": {
+          "by_structure": {
+            "S01": 12.991569760785891,
+            "S02": 3.7997751417209757,
+            "S03": 8.482036795013908,
+            "S04": 14.848342002085863,
+            "S05": 7.7240470140618225,
+            "S06": 17.238884011116095,
+            "S07": -0.7552892467120387,
+            "S08": 9.215457361964395,
+            "S09": 6.367925367526333,
+            "S10": 2.5806781684125704
+          },
+          "ci95": [
+            5.074890879967631,
+            11.595369054895908
+          ],
+          "mean": 8.249342637597582,
+          "n_negative": 1,
+          "n_positive": 9,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "cue_relevant_reference minus relevant_input (same prompt)": {
+          "by_structure": {
+            "S01": 2.987989240750178,
+            "S02": -5.0857481247644385,
+            "S03": 4.447927074235699,
+            "S04": -1.11850825790658,
+            "S05": -0.7391659584147874,
+            "S06": 12.972556027253933,
+            "S07": -0.7293748204538133,
+            "S08": 8.451281576322382,
+            "S09": 3.7399452775571262,
+            "S10": 7.024976322296425
+          },
+          "ci95": [
+            0.032176427998162255,
+            6.428621093506092
+          ],
+          "mean": 3.1951878356876127,
+          "n_negative": 4,
+          "n_positive": 6,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "same-unit near cue minus incompatible-unit near cue": {
+          "by_structure": {
+            "S01": 8.53231570841983,
+            "S02": 4.678117111936444,
+            "S03": 1.7419217951610335,
+            "S04": 21.808244853323178,
+            "S05": 11.216666813518753,
+            "S06": 6.073198471563046,
+            "S07": -0.8609178715373673,
+            "S08": 18.117662255618594,
+            "S09": 3.2141377065454435,
+            "S10": 8.098270208009126
+          },
+          "ci95": [
+            4.250996983752578,
+            12.80895134145451
+          ],
+          "mean": 8.261961705255809,
+          "n_negative": 1,
+          "n_positive": 9,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        }
+      },
+      "role_presence_effect": {
+        "cue_irrelevant_metadata": {
+          "by_structure": {
+            "S01": 0.9169134944466748,
+            "S02": 8.632395638665912,
+            "S03": 7.972882717845739,
+            "S04": 10.01955509185791,
+            "S05": 16.561216422269354,
+            "S06": 2.5848697125911713,
+            "S07": -4.82092821598053,
+            "S08": -2.4414116144323543,
+            "S09": 1.5883368253707886,
+            "S10": 11.243175223469734
+          },
+          "ci95": [
+            1.1027942433751663,
+            9.239820059387702
+          ],
+          "mean": 5.22570052961044,
+          "n_negative": 2,
+          "n_positive": 8,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "cue_nongoverning_isolated[equivalent]": {
+          "by_structure": {
+            "S01": 7.5347835123539255,
+            "S02": 12.590557665112954,
+            "S03": 1.7460257930215448,
+            "S04": 13.60976466265356,
+            "S06": 7.285520242181519,
+            "S07": 6.642748612910509,
+            "S08": 15.36496386652334,
+            "S10": 5.734135448932648
+          },
+          "ci95": [
+            5.9626062606903725,
+            11.76683770788151
+          ],
+          "mean": 8.81356247546125,
+          "n_negative": 0,
+          "n_positive": 8,
+          "n_structures": 8,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "cue_nongoverning_isolated[incompatible]": {
+          "by_structure": {
+            "S01": 10.773693827818661,
+            "S02": 0.6623862009473669,
+            "S03": 6.405025650470634,
+            "S04": -0.2505060425028205,
+            "S05": -2.650992279456659,
+            "S06": 16.61774136609165,
+            "S07": 6.246584646731208,
+            "S08": -6.392110056966885,
+            "S09": 5.776534783708485,
+            "S10": 3.254086098400876
+          },
+          "ci95": [
+            0.18015799334275126,
+            8.060888527343675
+          ],
+          "mean": 4.044244419524252,
+          "n_negative": 3,
+          "n_positive": 7,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "cue_nongoverning_isolated[same]": {
+          "by_structure": {
+            "S01": 17.682163933431713,
+            "S02": 1.8270910946623076,
+            "S03": 9.135174030951498,
+            "S04": 19.088523601407132,
+            "S05": 8.897999750594144,
+            "S06": 17.179228292921152,
+            "S07": 5.096311858936986,
+            "S08": 14.412437767914732,
+            "S09": 6.095733288998417,
+            "S10": 9.19966145508071
+          },
+          "ci95": [
+            7.358645174178443,
+            14.244077963502663
+          ],
+          "mean": 10.86143250748988,
+          "n_negative": 0,
+          "n_positive": 10,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "cue_relevant_reference": {
+          "by_structure": {
+            "S01": 6.143593103866124,
+            "S02": -6.357133080835464,
+            "S03": 6.9905755860917225,
+            "S04": 11.958796939162685,
+            "S05": 0.4820531602409801,
+            "S06": 13.885765922546852,
+            "S07": 2.386803930538008,
+            "S08": 11.823008784616263,
+            "S09": 4.256566873766133,
+            "S10": 11.098156948217365
+          },
+          "ci95": [
+            2.4197137662028227,
+            9.90708184857731
+          ],
+          "mean": 6.266818816821067,
+          "n_negative": 1,
+          "n_positive": 9,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "relevant_input": {
+          "by_structure": {
+            "S01": 4.101583305844476,
+            "S02": -3.817415469966721,
+            "S03": 1.339070847623502,
+            "S04": 7.536290678367775,
+            "S05": 1.2579932574459995,
+            "S06": 1.2743210847291984,
+            "S07": 4.905355902092362,
+            "S08": 5.394192689455537,
+            "S09": -0.24597737457223304,
+            "S10": 6.21529283000029
+          },
+          "ci95": [
+            0.6568919279109231,
+            4.7689417668465905
+          ],
+          "mean": 2.7960707751020184,
+          "n_negative": 2,
+          "n_positive": 8,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "relevant_input[no_cue prompt only]": {
+          "by_structure": {
+            "S01": 4.049510571001587,
+            "S02": -6.832494952016101,
+            "S03": 2.950921233990793,
+            "S04": 11.611979044886102,
+            "S05": 0.23683883011749174,
+            "S06": 3.5317768715322018,
+            "S07": 5.36176054738462,
+            "S08": 4.965408682791424,
+            "S09": 0.25880384383102256,
+            "S10": 7.453876311303361
+          },
+          "ci95": [
+            0.48183789802808574,
+            6.155933132474236
+          ],
+          "mean": 3.35883809848225,
+          "n_negative": 1,
+          "n_positive": 9,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        }
+      }
+    },
+    "meta-llama/Llama-3.1-8B-Instruct": {
+      "n_not_evaluated": 0,
+      "n_numerals": 981,
+      "paired_contrasts": {
+        "cue_irrelevant_metadata minus relevant_input (same prompt)": {
+          "by_structure": {
+            "S01": 0.020721589789900463,
+            "S02": 5.228634709091239,
+            "S03": 0.07287067181505336,
+            "S04": 0.8098992036505781,
+            "S05": 1.475292454727878,
+            "S06": -0.18699451287587476,
+            "S07": -1.2848996371030807,
+            "S08": 0.2076596061233431,
+            "S09": 3.045396329679837,
+            "S10": 2.5276093396532815
+          },
+          "ci95": [
+            0.1395218624091615,
+            2.3764710948706207
+          ],
+          "mean": 1.1916189754552156,
+          "n_negative": 2,
+          "n_positive": 8,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "cue_nongoverning_isolated[equivalent] minus relevant_input (same prompt)": {
+          "by_structure": {
+            "S01": 4.27989958615035,
+            "S02": 7.079399166808798,
+            "S03": -0.9171628661302975,
+            "S04": 5.642769090103684,
+            "S06": 3.696365008751551,
+            "S07": 1.0481961406767368,
+            "S08": 8.502694543232792,
+            "S10": 1.1180494778382126
+          },
+          "ci95": [
+            1.733240408752588,
+            5.936771687510678
+          ],
+          "mean": 3.806276268428978,
+          "n_negative": 1,
+          "n_positive": 7,
+          "n_structures": 8,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "cue_nongoverning_isolated[incompatible] minus relevant_input (same prompt)": {
+          "by_structure": {
+            "S01": 1.718969894642214,
+            "S02": 1.059218395372227,
+            "S03": 1.9035395682572016,
+            "S04": -5.028767969586322,
+            "S05": 0.30186509076406765,
+            "S06": 6.29175525916556,
+            "S07": -0.9340818403288722,
+            "S08": 0.6889558829522381,
+            "S09": 3.3837092158598048,
+            "S10": 6.138630854256917
+          },
+          "ci95": [
+            -0.40097208028581,
+            3.4559557035184225
+          ],
+          "mean": 1.5523794351355036,
+          "n_negative": 2,
+          "n_positive": 8,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "cue_nongoverning_isolated[same] minus relevant_input (same prompt)": {
+          "by_structure": {
+            "S01": 7.225960870198053,
+            "S02": 0.6824902862260274,
+            "S03": 2.373605326144246,
+            "S04": 4.879849343317541,
+            "S05": 4.730030708520417,
+            "S06": 6.194540462774967,
+            "S07": 0.15856503805844113,
+            "S08": 4.070015820379315,
+            "S09": 2.9354718639612356,
+            "S10": 2.593786373278514
+          },
+          "ci95": [
+            2.221775954710927,
+            4.9136608145744995
+          ],
+          "mean": 3.5844316092858755,
+          "n_negative": 0,
+          "n_positive": 10,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "cue_relevant_reference minus relevant_input (same prompt)": {
+          "by_structure": {
+            "S01": 2.550642733123823,
+            "S02": 2.1509860104042673,
+            "S03": 4.305017660021804,
+            "S04": 0.2741370597729351,
+            "S05": 3.4319475744778174,
+            "S06": 3.961334626811246,
+            "S07": -0.30403135815868154,
+            "S08": 4.797179928792805,
+            "S09": 4.384754186418529,
+            "S10": 4.192276544752531
+          },
+          "ci95": [
+            1.9189524355724283,
+            3.963795966126262
+          ],
+          "mean": 2.9744244966417073,
+          "n_negative": 1,
+          "n_positive": 9,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "same-unit near cue minus incompatible-unit near cue": {
+          "by_structure": {
+            "S01": 5.033193469753314,
+            "S02": 0.54269110903806,
+            "S03": -0.6572213996587379,
+            "S04": 7.707662593251371,
+            "S05": 3.823447084752843,
+            "S06": 2.244693140324671,
+            "S07": -0.05249022488715127,
+            "S08": 3.4831248021437204,
+            "S09": 1.9504917144658975,
+            "S10": -3.336476718308404
+          },
+          "ci95": [
+            0.2649338051499763,
+            3.9371098675947658
+          ],
+          "mean": 2.073911557087558,
+          "n_negative": 3,
+          "n_positive": 7,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        }
+      },
+      "role_presence_effect": {
+        "cue_irrelevant_metadata": {
+          "by_structure": {
+            "S01": 1.8671119736973196,
+            "S02": 3.5901361107826233,
+            "S03": 2.0214876743848436,
+            "S04": 2.5126414203477907,
+            "S05": 3.0269834354985505,
+            "S06": -0.3144805431365967,
+            "S07": -0.012881159782409668,
+            "S08": 0.46922693913802505,
+            "S09": 2.4360013604164124,
+            "S10": 6.7802828550338745
+          },
+          "ci95": [
+            1.0698257837232086,
+            3.4989719668915495
+          ],
+          "mean": 2.2376510066380435,
+          "n_negative": 2,
+          "n_positive": 8,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "cue_nongoverning_isolated[equivalent]": {
+          "by_structure": {
+            "S01": 5.400595406477805,
+            "S02": 6.1594161440152675,
+            "S03": 1.6068093884714472,
+            "S04": 6.0290167277125875,
+            "S06": 3.9753620624542236,
+            "S07": 1.966366346925497,
+            "S08": 10.430208664925885,
+            "S10": 3.8627731800079346
+          },
+          "ci95": [
+            3.2729935793474167,
+            6.816716929235554
+          ],
+          "mean": 4.928818490123831,
+          "n_negative": 0,
+          "n_positive": 8,
+          "n_structures": 8,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "cue_nongoverning_isolated[incompatible]": {
+          "by_structure": {
+            "S01": 2.9628455771307927,
+            "S02": -0.2959872867213562,
+            "S03": 4.840432223623793,
+            "S04": 1.8078103334119078,
+            "S05": 1.4187344207894057,
+            "S06": 6.739156494666531,
+            "S07": 0.2324455352500081,
+            "S08": 0.3896248214878142,
+            "S09": 1.921717575227376,
+            "S10": 10.417760125594214
+          },
+          "ci95": [
+            1.2290765789361286,
+            5.068026383456162
+          ],
+          "mean": 3.0434539820460484,
+          "n_negative": 1,
+          "n_positive": 9,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "cue_nongoverning_isolated[same]": {
+          "by_structure": {
+            "S01": 8.279998581273892,
+            "S02": -0.04334315600772243,
+            "S03": 4.844887012610083,
+            "S04": 9.213866451391368,
+            "S05": 5.450432413654198,
+            "S06": 6.381263514367674,
+            "S07": 0.8233583627152257,
+            "S08": 5.854942310163096,
+            "S09": 2.8422208154952386,
+            "S10": 6.007821422458316
+          },
+          "ci95": [
+            3.2328661049801624,
+            6.677388336982314
+          ],
+          "mean": 4.9655447728121365,
+          "n_negative": 1,
+          "n_positive": 9,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "cue_relevant_reference": {
+          "by_structure": {
+            "S01": 3.7660361797316,
+            "S02": 2.7582206570950802,
+            "S03": 5.0247774279851,
+            "S04": 6.235796821361873,
+            "S05": 3.4501267740270123,
+            "S06": 5.0708058485761285,
+            "S07": 1.5955125679611228,
+            "S08": 7.537793401908857,
+            "S09": 5.30301628052257,
+            "S10": 7.377496049273759
+          },
+          "ci95": [
+            3.6712908680968392,
+            5.945437718667936
+          ],
+          "mean": 4.811958200844311,
+          "n_negative": 0,
+          "n_positive": 10,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "relevant_input": {
+          "by_structure": {
+            "S01": 1.3900305290870685,
+            "S02": -1.0571963362409116,
+            "S03": 2.107385877264231,
+            "S04": 3.282514516792472,
+            "S05": 1.0045948981064954,
+            "S06": 0.3008420112345254,
+            "S07": 1.005828911269253,
+            "S08": 1.1686540870941824,
+            "S09": -0.5284111449388244,
+            "S10": 3.7218043882603524
+          },
+          "ci95": [
+            0.3641418538182343,
+            2.148203872529041
+          ],
+          "mean": 1.2396047737928844,
+          "n_negative": 2,
+          "n_positive": 8,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "relevant_input[no_cue prompt only]": {
+          "by_structure": {
+            "S01": 1.7800768574961694,
+            "S02": -1.5992477475083433,
+            "S03": 1.639362844145353,
+            "S04": 2.4009888717819194,
+            "S05": 1.7163757410575045,
+            "S06": 0.7482378364851078,
+            "S07": 1.3189359307289124,
+            "S08": 0.5874375465597647,
+            "S09": -1.1060305440623779,
+            "S10": 4.7247211184876505
+          },
+          "ci95": [
+            0.10216095562580416,
+            2.3175270937742467
+          ],
+          "mean": 1.221085845517166,
+          "n_negative": 2,
+          "n_positive": 8,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        }
+      }
+    }
+  },
+  "source_commit": "93550b772dc1f614dce8b149aeafb30a9ab5c829",
+  "stage": "14.14"
+}
