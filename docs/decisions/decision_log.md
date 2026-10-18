@@ -3208,3 +3208,8 @@ Descriptive and exploratory; nothing is a confirmation or paper-eligible. Gaps 2
 Decision: run X03 on the ten v2 structures under seven wrappers (a deviation from the card's 60 to 100 legacy families, stated in J14.10-001), with the analysis rule frozen and committed before the job (user accepted the exact command; job 401287, 2 x 1,477 records OK).
 Result (journal J14.10-004 to J14.10-006; `results/stage14/x03_format_tokenization/analysis/attempt_20261018_a63121d/`): by the frozen rule one wrapper dominates for Qwen (`scientific`) and none for Llama; the same-unit near cue numeral raises the likelihood of the cue-valued answer over the gold in all seven wrappers for both models; parse rates differ widely by wrapper;
 60 intervals, 20 exclude zero, about 3 expected by chance. The card's no-go response applies: effect size is not stated independent of output format. Descriptive and exploratory; not a confirmation or paper-eligible.
+
+## Stage 14.11: artifact registry and Slurm job register — 2026-10-18
+
+Decision: register every Stage 14 result and material directory by SHA-256 (append-only, verifiable, `paper_eligible: false` throughout) and keep the failed and cancelled Slurm jobs of this task on record. 22 artifacts and 9 jobs are registered; `--verify` passes.
+Files: `docs/registry/v2/artifact_register.jsonl`, `docs/registry/v2/slurm_jobs.jsonl`; journal `docs/journal/stage14/14.11_artifact_registry.md` (v2 P0.1). The register ties results to bytes; it does not make any result authoritative.
