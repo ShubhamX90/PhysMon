@@ -1,4 +1,4 @@
-# Stage 14 status and roadmap (updated 2026-10-18, after Stage 14.16 planning)
+# Stage 14 status and roadmap (updated 2026-10-18, after the four-job batch 401607 to 401610)
 
 Plan of record: `docs/proposals/PhysMon_Research_v2.pdf`. Journal index: `docs/journal/INDEX.md`. Decisions: `docs/decisions/decision_log.md`.
 **Nothing in Stage 14 is a confirmation, a validated item set, or paper-eligible.** Every result below is exploratory (data role EXPLORATION).
@@ -15,25 +15,25 @@ Plan of record: `docs/proposals/PhysMon_Research_v2.pdf`. Journal index: `docs/j
 | 14.10 | X03 on the v2 structures under seven wrappers: the sign of the cue effect persists in every format, its size depends on format for Qwen, parse rates depend heavily on format |
 | 14.11 | Append-only artifact registry (22 artifacts) and Slurm job register (9 jobs); five exploratory ledger rows |
 | 14.12 | Copying versus relevance from the existing records: unit compatibility modulates the boost (same strings and digits); Qwen expresses it in generation, Llama almost never; no matched relevant-role control exists in these records |
-| 14.13 | Reasoning-allowed contract (`reasoning-v1`, own fingerprint), runner and frozen analysis; job 401327 cancelled (512 tokens truncated most generations); rerun at 2,048 tokens (job 401357) in progress when this was written |
-| 14.14 | Numeral-presence control: plan (3,924 jobs), analysis tooling, score-only runner; run pending |
-| 14.15 | Second structure batch S11 to S20 (shorter chains, four domains): certified, approved by the user's open walkthrough, certificates UNREVIEWED; pilot plan for them (424 jobs) committed, run pending |
-| 14.16 | Legacy-family X03 plan (60 stratified families, 4 wrappers, candidate matrix; 8,448 jobs) and frozen analysis; run pending |
+| 14.13 | Reasoning-allowed contract (`reasoning-v1`, own fingerprint), runner and frozen analysis; job 401327 cancelled (512 tokens truncated most generations); rerun at 2,048 tokens (job 401357): correctness gate met for Qwen (11 of 20 anchors), not Llama (7); on the second batch (job 401610) the gate is met for both (Qwen 15, Llama 8 of 18 graded, at the threshold); flips cannot be attributed to numerals |
+| 14.14 | Numeral-presence control: plan (3,924 jobs), analysis tooling, score-only runner; run done (job 401607): every number in a prompt gets a presence boost, larger for a cue and largest for a same-unit cue; copying and numeric plausibility are not separated |
+| 14.15 | Second structure batch S11 to S20 (shorter chains, four domains): certified, approved by the user's open walkthrough, certificates UNREVIEWED; pilot run (jobs 401609, 401610) done: correctness still at the floor without reasoning (4 and 1 of 20), noise floor and decoy-shift direction match batch A, reasoning gate met for both models |
+| 14.16 | Legacy-family X03 plan (60 stratified families, 4 wrappers, candidate matrix; 8,448 jobs) and frozen analysis; run done (job 401608): a presence effect exists in about 35 template clusters for both models, and no wrapper dominates by the frozen rule |
 
 Integrity check: `python3 scripts/v2/register_stage14_artifacts.py --verify` (non-zero exit on any change); `python3 scripts/v2/validate_claim_ledger.py`.
 
 ## What the evidence supports, in one paragraph
 
-A same-unit numeral that appears in the prompt becomes a far more likely continuation as the answer (about 10 to 13 nats for Qwen, 3.5 to 5 for Llama from the no-cue prompt), about equally for near, moderate and far values, in all seven output formats; the boost depends on whether the numeral's unit matches the requested quantity (J14.9-006), so it is not explained by surface copying of the digits alone, and it is not evidence of a physics failure or of relevance gating. Both 7 to 8 B models are almost never correct on the ten structures when they must answer in one line, so correctness-based endpoints cannot be estimated.
+A same-unit numeral that appears in the prompt becomes a far more likely continuation as the answer (about 10 to 13 nats for Qwen, 3.5 to 5 for Llama from the no-cue prompt), about equally for near, moderate and far values, in all seven output formats; the boost depends on whether the numeral's unit matches the requested quantity (J14.9-006), so it is not explained by surface copying of the digits alone, and it is not evidence of a physics failure or of relevance gating. Both 7 to 8 B models are almost never correct on either batch of ten structures when they must answer in one line, so correctness-based endpoints cannot be estimated without reasoning. With reasoning the gate is met for Qwen on both batches and for Llama on batch B only (at the threshold), but the cells hold 5 to 15 base-correct items and a sentence with no number flips answers as often as numeric cues. The numeral-presence control shows that every number in a prompt, including the numbers the problem needs, is boosted as an answer, a cue more than a relevant input; it does not separate copying from the numeric plausibility of a near-gold number. The presence effect and the wrapper rule were also seen in 35 legacy template clusters.
 
 ## Open, and what each needs
 
 | Open item | State and need |
 |---|---|
-| Correctness floor | Addressed by the reasoning contract: job 401357 (2,048 tokens) is running on S01 to S10; the frozen gate (at least 8 base-correct anchors of 20 per model) decides whether the correctness endpoint can be estimated. Batch B (S11 to S20) was built with shorter chains for the same purpose and has a planned pilot. |
-| Copying versus relevance | The numeral-presence control (plan and analysis committed) needs one GPU run to compare the isolated cue with the numbers the problem needs. |
+| Correctness floor | Reasoning lifts it (J14.13, J14.15-008); the endpoint is estimable for Qwen on both batches and for Llama on batch B at the threshold, with 5 to 15 base-correct items per cell. More structures or items are needed before a flip share can carry a claim. |
+| Copying versus relevance | Run (J14.14-005): the boost is not specific to a cue. A control that separates copying from the plausibility of a near-gold numeral (for example numerals matched in distance to the gold) is not designed. |
 | Relevant-edit assay | Inconclusive under the no-reasoning answer; the reasoning run gives new data for it. |
-| Legacy-family X03 | Planned and frozen; needs a GPU run (score-only). |
+| Legacy-family X03 | Run and analysed (J14.16-005); no further GPU step planned. The Llama irrelevant-variable group (11 clusters) meets the dominance arithmetic for json and plain outside the frozen test; no follow-up is frozen. |
 | P0 gate (regenerate Phase-I values through the model; hook check) | Not started; large; changes what earlier results mean; needs a decision. |
 | 40 to 60 independent structures | 20 exist (S01 to S20), all with one-reviewer open walkthrough approval only. 20 to 40 more, and a certified review by someone other than the author and the walkthrough reviewer. |
 | Independent expert review, physicist confirmation of the planted bank, validator recruitment | People outside this session; the user reviewed as one non-blinded reviewer whose physics expertise was not stated. |
@@ -41,4 +41,4 @@ A same-unit numeral that appears in the prompt becomes a far more likely continu
 
 ## Jobs and authorization
 
-Every job needed the user's per-submission acceptance after the first block of the permission layer (J14.7-021). Jobs so far: COMPLETED 399217, 399539, 399969, 400932, 401287; FAILED 399511 and 399530 (git unusable on gpunode6); CANCELLED 399209, 399215 (my own pending H200 jobs) and 401327 (reasoning, 512-token budget, at the user's choice). Job 401357 (reasoning, 2,048 tokens) was running when this was written. Jobs of other projects on the shared account were not touched. See `docs/registry/v2/slurm_jobs.jsonl`.
+Every job needed the user's per-submission acceptance after the first block of the permission layer (J14.7-021). Jobs so far: COMPLETED 399217, 399539, 399969, 400932, 401287; FAILED 399511 and 399530 (git unusable on gpunode6); CANCELLED 399209, 399215 (my own pending H200 jobs) and 401327 (reasoning, 512-token budget, at the user's choice). COMPLETED also 401357 (reasoning, 2,048 tokens) and the four-job batch 401607 (numeral presence), 401608 (legacy X03), 401609 (batch-B likelihood pilot), 401610 (batch-B reasoning), all exit 0:0. Jobs of other projects on the shared account were not touched. See `docs/registry/v2/slurm_jobs.jsonl`.
