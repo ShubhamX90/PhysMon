@@ -1,0 +1,282 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "dT"
+      ],
+      "assumption_id": "A-steady",
+      "kind": "modelling",
+      "text": "The heat flow is steady and one-dimensional through both layers."
+    },
+    {
+      "applies_to": [
+        "Ra",
+        "Rb"
+      ],
+      "assumption_id": "A-series",
+      "kind": "modelling",
+      "text": "The layers are in good thermal contact, so their resistances add."
+    }
+  ],
+  "domain": "thermodynamics",
+  "instances": [
+    {
+      "Ra": 0.1,
+      "Rb": 0.15,
+      "dT": 20.0
+    },
+    {
+      "Ra": 0.2,
+      "Rb": 0.1,
+      "dT": 30.0
+    }
+  ],
+  "law_family": "two_layer_wall_heat_flow",
+  "nodes": [
+    {
+      "description": "temperature difference between the outer surfaces",
+      "domain": [
+        10.0,
+        40.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "dT",
+      "provenance": "measured",
+      "quantity_type": "temperature_change",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "K",
+      "value": 20.0
+    },
+    {
+      "description": "thermal resistance of the first layer",
+      "domain": [
+        0.05,
+        0.5
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "Ra",
+      "provenance": "measured",
+      "quantity_type": "thermal_resistance",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "K/W",
+      "value": 0.1
+    },
+    {
+      "description": "thermal resistance of the second layer",
+      "domain": [
+        0.05,
+        0.5
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "Rb",
+      "provenance": "measured",
+      "quantity_type": "thermal_resistance",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "K/W",
+      "value": 0.15
+    },
+    {
+      "description": "rate of heat flow through the wall",
+      "domain": null,
+      "expr": "dT/(Ra + Rb)",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "q",
+      "provenance": "computed",
+      "quantity_type": "power",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "W",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "dT"
+        ],
+        "assumption_id": "A-steady",
+        "kind": "modelling",
+        "text": "The heat flow is steady and one-dimensional through both layers."
+      },
+      {
+        "applies_to": [
+          "Ra",
+          "Rb"
+        ],
+        "assumption_id": "A-series",
+        "kind": "modelling",
+        "text": "The layers are in good thermal contact, so their resistances add."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "1 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 0.00e+00 (tolerance 1e-09) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing dT by x1.25 moves the answer by 25.0% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "8 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "21 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "thermodynamics",
+    "law_family": "two_layer_wall_heat_flow",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "Th^1",
+        "domain": [
+          10.0,
+          40.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "dT",
+        "provenance": "measured",
+        "quantity_type": "temperature_change",
+        "sign_convention": "magnitudes are positive",
+        "unit": "K",
+        "value": 20.0
+      },
+      {
+        "dimension": "M^-1 L^-2 T^3 Th^1",
+        "domain": [
+          0.05,
+          0.5
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "Ra",
+        "provenance": "measured",
+        "quantity_type": "thermal_resistance",
+        "sign_convention": "magnitudes are positive",
+        "unit": "K/W",
+        "value": 0.1
+      },
+      {
+        "dimension": "M^-1 L^-2 T^3 Th^1",
+        "domain": [
+          0.05,
+          0.5
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "Rb",
+        "provenance": "measured",
+        "quantity_type": "thermal_resistance",
+        "sign_convention": "magnitudes are positive",
+        "unit": "K/W",
+        "value": 0.15
+      },
+      {
+        "dimension": "M^1 L^2 T^-3",
+        "domain": null,
+        "expr": "dT/(Ra + Rb)",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "q",
+        "provenance": "computed",
+        "quantity_type": "power",
+        "sign_convention": "magnitudes are positive",
+        "unit": "W",
+        "value": null
+      }
+    ],
+    "program_hash": "ef14042f02fc5d16185f3f8e2ae92fde0367956faf9eb8798c05d6642408bc51",
+    "seed": 42,
+    "solver_rel_tol": 1e-09,
+    "solver_route": "heat-flow continuity at the interface solved as a linear system, then the flow through the first layer",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S17",
+    "structure_uuid": "1861316f-69b5-5d85-9466-5c8f576be341",
+    "symbolic_derivation": "dT/(Ra + Rb)",
+    "title": "Heat flow through a two-layer wall"
+  },
+  "relevant_edit": {
+    "factor": 1.25,
+    "node": "dT"
+  },
+  "render": {
+    "comparison_sentence": "A reference wall B loses heat at {v} {u}.",
+    "context": "A wall consists of two layers in series. The first layer has a thermal resistance of {Ra} K/W and the second layer has a thermal resistance of {Rb} K/W. The temperature difference between the two outer surfaces is {dT} K, and the heat flow is steady.",
+    "equivalent_unit": "kW",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate meter B reads {v} {u}, but it plays no part in the heat flow.",
+    "incompatible_unit": "Hz",
+    "isolated_sentence": "A separate wall B in another room loses heat at {v} {u}, but it is unrelated to this wall.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "rate of heat flow through the wall",
+    "question": "What is the rate of heat flow through the wall?",
+    "target_unit": "W"
+  },
+  "solver_rel_tol": 1e-09,
+  "solver_route": "heat-flow continuity at the interface solved as a linear system, then the flow through the first layer",
+  "structure_id": "S17",
+  "target": "q",
+  "title": "Heat flow through a two-layer wall"
+}

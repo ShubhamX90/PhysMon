@@ -1,0 +1,245 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "f"
+      ],
+      "assumption_id": "A-thin",
+      "kind": "modelling",
+      "text": "The lens is thin and the rays are close to the axis."
+    },
+    {
+      "applies_to": [
+        "do"
+      ],
+      "assumption_id": "A-object",
+      "kind": "boundary_condition",
+      "text": "The object is on the axis, beyond the focal length, on the side the light comes from."
+    }
+  ],
+  "domain": "optics",
+  "instances": [
+    {
+      "do": 40.0,
+      "f": 12.0
+    },
+    {
+      "do": 35.0,
+      "f": 10.0
+    }
+  ],
+  "law_family": "thin_lens_image_distance",
+  "nodes": [
+    {
+      "description": "focal length of the lens",
+      "domain": [
+        8.0,
+        14.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "f",
+      "provenance": "measured",
+      "quantity_type": "length",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "cm",
+      "value": 12.0
+    },
+    {
+      "description": "distance of the object from the lens",
+      "domain": [
+        20.0,
+        60.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "do",
+      "provenance": "measured",
+      "quantity_type": "length",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "cm",
+      "value": 40.0
+    },
+    {
+      "description": "distance of the image from the lens",
+      "domain": null,
+      "expr": "f*do/(do - f)",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "di",
+      "provenance": "computed",
+      "quantity_type": "length",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "cm",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "f"
+        ],
+        "assumption_id": "A-thin",
+        "kind": "modelling",
+        "text": "The lens is thin and the rays are close to the axis."
+      },
+      {
+        "applies_to": [
+          "do"
+        ],
+        "assumption_id": "A-object",
+        "kind": "boundary_condition",
+        "text": "The object is on the axis, beyond the focal length, on the side the light comes from."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "1 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 3.02e-14 (tolerance 1e-09) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing do by x1.25 moves the answer by 7.9% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "4 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "21 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "optics",
+    "law_family": "thin_lens_image_distance",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "L^1",
+        "domain": [
+          8.0,
+          14.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "f",
+        "provenance": "measured",
+        "quantity_type": "length",
+        "sign_convention": "magnitudes are positive",
+        "unit": "cm",
+        "value": 12.0
+      },
+      {
+        "dimension": "L^1",
+        "domain": [
+          20.0,
+          60.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "do",
+        "provenance": "measured",
+        "quantity_type": "length",
+        "sign_convention": "magnitudes are positive",
+        "unit": "cm",
+        "value": 40.0
+      },
+      {
+        "dimension": "L^1",
+        "domain": null,
+        "expr": "f*do/(do - f)",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "di",
+        "provenance": "computed",
+        "quantity_type": "length",
+        "sign_convention": "magnitudes are positive",
+        "unit": "cm",
+        "value": null
+      }
+    ],
+    "program_hash": "46fac99c5e79fed33b48161447466c2e834c13916567db87a566baf1f437db9a",
+    "seed": 42,
+    "solver_rel_tol": 1e-09,
+    "solver_route": "the thin-lens equation 1/f = 1/do + 1/di solved for di with a bracketing root finder",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S20",
+    "structure_uuid": "ba2072c9-4503-586d-8852-3a33cdb66d44",
+    "symbolic_derivation": "do*f/(do - f)",
+    "title": "Image distance of a thin converging lens"
+  },
+  "relevant_edit": {
+    "factor": 1.25,
+    "node": "do"
+  },
+  "render": {
+    "comparison_sentence": "A reference lens B forms an image {v} {u} from it.",
+    "context": "A thin converging lens has a focal length of {f} cm. An object is placed on the axis {do} cm in front of the lens.",
+    "equivalent_unit": "m",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate lamp B is rated at {v} {u}, but it plays no part in the imaging.",
+    "incompatible_unit": "W",
+    "isolated_sentence": "A separate lens B on another bench forms an image {v} {u} from it, but it is unrelated to this lens.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "distance of the image from the lens",
+    "question": "How far from the lens is the real image formed?",
+    "target_unit": "cm"
+  },
+  "solver_rel_tol": 1e-09,
+  "solver_route": "the thin-lens equation 1/f = 1/do + 1/di solved for di with a bracketing root finder",
+  "structure_id": "S20",
+  "target": "di",
+  "title": "Image distance of a thin converging lens"
+}

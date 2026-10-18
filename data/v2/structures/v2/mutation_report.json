@@ -1,0 +1,1289 @@
+{
+  "n_mutants": 91,
+  "n_negative_not_caught": 0,
+  "n_positive_wrongly_rejected": 0,
+  "rows": [
+    {
+      "failed_checks": [
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "cue_leak_into_equation",
+      "note": "target depends on the nuisance cue",
+      "outcome": "caught",
+      "structure_id": "S11"
+    },
+    {
+      "failed_checks": [
+        "dimensions"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "unit_error",
+      "note": "v0 declared in kg",
+      "outcome": "caught",
+      "structure_id": "S11"
+    },
+    {
+      "failed_checks": [
+        "positive_control",
+        "role_reversal_twin",
+        "route_agreement"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "sign_flip",
+      "note": "target expression negated",
+      "outcome": "caught",
+      "structure_id": "S11"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "boundary_cases",
+        "dimensions",
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema",
+        "symbols_acyclic",
+        "target_and_inputs_relevant"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "remove_required_input",
+      "note": "input v0 removed",
+      "outcome": "caught",
+      "structure_id": "S11"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "hidden_dependence",
+      "note": "an extra input scales the target",
+      "outcome": "caught",
+      "structure_id": "S11"
+    },
+    {
+      "failed_checks": [
+        "boundary_cases",
+        "route_agreement"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "divisor_domain_includes_zero",
+      "note": "the domain of divisor g reaches zero",
+      "outcome": "caught",
+      "structure_id": "S11"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "drop_sole_assumption",
+      "note": "assumption A-g dropped",
+      "outcome": "caught",
+      "structure_id": "S11"
+    },
+    {
+      "failed_checks": [
+        "dimensions",
+        "prompt_matches_graph"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "misdeclared_answer_unit",
+      "note": "answer unit declared as kg",
+      "outcome": "caught",
+      "structure_id": "S11"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "equivalent_rewrite",
+      "note": "expressions simplified",
+      "outcome": "passed",
+      "structure_id": "S11"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "rename_symbols",
+      "note": "every node renamed",
+      "outcome": "passed",
+      "structure_id": "S11"
+    },
+    {
+      "failed_checks": [
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "cue_leak_into_equation",
+      "note": "target depends on the nuisance cue",
+      "outcome": "caught",
+      "structure_id": "S12"
+    },
+    {
+      "failed_checks": [
+        "dimensions"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "unit_error",
+      "note": "r declared in kg",
+      "outcome": "caught",
+      "structure_id": "S12"
+    },
+    {
+      "failed_checks": [
+        "positive_control",
+        "role_reversal_twin",
+        "route_agreement"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "sign_flip",
+      "note": "target expression negated",
+      "outcome": "caught",
+      "structure_id": "S12"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "boundary_cases",
+        "dimensions",
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema",
+        "symbols_acyclic",
+        "target_and_inputs_relevant"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "remove_required_input",
+      "note": "input r removed",
+      "outcome": "caught",
+      "structure_id": "S12"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "hidden_dependence",
+      "note": "an extra input scales the target",
+      "outcome": "caught",
+      "structure_id": "S12"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "drop_sole_assumption",
+      "note": "assumption A-g dropped",
+      "outcome": "caught",
+      "structure_id": "S12"
+    },
+    {
+      "failed_checks": [
+        "dimensions",
+        "prompt_matches_graph"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "misdeclared_answer_unit",
+      "note": "answer unit declared as kg",
+      "outcome": "caught",
+      "structure_id": "S12"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "equivalent_rewrite",
+      "note": "expressions simplified",
+      "outcome": "passed",
+      "structure_id": "S12"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "rename_symbols",
+      "note": "every node renamed",
+      "outcome": "passed",
+      "structure_id": "S12"
+    },
+    {
+      "failed_checks": [
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "cue_leak_into_equation",
+      "note": "target depends on the nuisance cue",
+      "outcome": "caught",
+      "structure_id": "S13"
+    },
+    {
+      "failed_checks": [
+        "dimensions"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "unit_error",
+      "note": "L declared in kg",
+      "outcome": "caught",
+      "structure_id": "S13"
+    },
+    {
+      "failed_checks": [
+        "positive_control",
+        "role_reversal_twin",
+        "route_agreement"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "sign_flip",
+      "note": "target expression negated",
+      "outcome": "caught",
+      "structure_id": "S13"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "boundary_cases",
+        "dimensions",
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema",
+        "symbols_acyclic",
+        "target_and_inputs_relevant"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "remove_required_input",
+      "note": "input L removed",
+      "outcome": "caught",
+      "structure_id": "S13"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "hidden_dependence",
+      "note": "an extra input scales the target",
+      "outcome": "caught",
+      "structure_id": "S13"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "drop_sole_assumption",
+      "note": "assumption A-g dropped",
+      "outcome": "caught",
+      "structure_id": "S13"
+    },
+    {
+      "failed_checks": [
+        "dimensions",
+        "prompt_matches_graph"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "misdeclared_answer_unit",
+      "note": "answer unit declared as kg",
+      "outcome": "caught",
+      "structure_id": "S13"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "equivalent_rewrite",
+      "note": "expressions simplified",
+      "outcome": "passed",
+      "structure_id": "S13"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "rename_symbols",
+      "note": "every node renamed",
+      "outcome": "passed",
+      "structure_id": "S13"
+    },
+    {
+      "failed_checks": [
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "cue_leak_into_equation",
+      "note": "target depends on the nuisance cue",
+      "outcome": "caught",
+      "structure_id": "S14"
+    },
+    {
+      "failed_checks": [
+        "dimensions"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "unit_error",
+      "note": "m declared in m",
+      "outcome": "caught",
+      "structure_id": "S14"
+    },
+    {
+      "failed_checks": [
+        "positive_control",
+        "role_reversal_twin",
+        "route_agreement"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "sign_flip",
+      "note": "target expression negated",
+      "outcome": "caught",
+      "structure_id": "S14"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "boundary_cases",
+        "dimensions",
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema",
+        "symbols_acyclic",
+        "target_and_inputs_relevant"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "remove_required_input",
+      "note": "input m removed",
+      "outcome": "caught",
+      "structure_id": "S14"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "hidden_dependence",
+      "note": "an extra input scales the target",
+      "outcome": "caught",
+      "structure_id": "S14"
+    },
+    {
+      "failed_checks": [
+        "boundary_cases",
+        "route_agreement"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "divisor_domain_includes_zero",
+      "note": "the domain of divisor t reaches zero",
+      "outcome": "caught",
+      "structure_id": "S14"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "drop_sole_assumption",
+      "note": "assumption A-g dropped",
+      "outcome": "caught",
+      "structure_id": "S14"
+    },
+    {
+      "failed_checks": [
+        "dimensions",
+        "prompt_matches_graph"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "misdeclared_answer_unit",
+      "note": "answer unit declared as kg",
+      "outcome": "caught",
+      "structure_id": "S14"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "equivalent_rewrite",
+      "note": "expressions simplified",
+      "outcome": "passed",
+      "structure_id": "S14"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "rename_symbols",
+      "note": "every node renamed",
+      "outcome": "passed",
+      "structure_id": "S14"
+    },
+    {
+      "failed_checks": [
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "cue_leak_into_equation",
+      "note": "target depends on the nuisance cue",
+      "outcome": "caught",
+      "structure_id": "S15"
+    },
+    {
+      "failed_checks": [
+        "dimensions"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "unit_error",
+      "note": "V declared in kg",
+      "outcome": "caught",
+      "structure_id": "S15"
+    },
+    {
+      "failed_checks": [
+        "positive_control",
+        "role_reversal_twin",
+        "route_agreement"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "sign_flip",
+      "note": "target expression negated",
+      "outcome": "caught",
+      "structure_id": "S15"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "boundary_cases",
+        "dimensions",
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema",
+        "symbols_acyclic",
+        "target_and_inputs_relevant"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "remove_required_input",
+      "note": "input V removed",
+      "outcome": "caught",
+      "structure_id": "S15"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "hidden_dependence",
+      "note": "an extra input scales the target",
+      "outcome": "caught",
+      "structure_id": "S15"
+    },
+    {
+      "failed_checks": [
+        "boundary_cases",
+        "route_agreement"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "divisor_domain_includes_zero",
+      "note": "the domain of divisor R1 reaches zero",
+      "outcome": "caught",
+      "structure_id": "S15"
+    },
+    {
+      "failed_checks": [
+        "dimensions",
+        "prompt_matches_graph"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "misdeclared_answer_unit",
+      "note": "answer unit declared as kg",
+      "outcome": "caught",
+      "structure_id": "S15"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "equivalent_rewrite",
+      "note": "expressions simplified",
+      "outcome": "passed",
+      "structure_id": "S15"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "rename_symbols",
+      "note": "every node renamed",
+      "outcome": "passed",
+      "structure_id": "S15"
+    },
+    {
+      "failed_checks": [
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "cue_leak_into_equation",
+      "note": "target depends on the nuisance cue",
+      "outcome": "caught",
+      "structure_id": "S16"
+    },
+    {
+      "failed_checks": [
+        "dimensions"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "unit_error",
+      "note": "V declared in kg",
+      "outcome": "caught",
+      "structure_id": "S16"
+    },
+    {
+      "failed_checks": [
+        "positive_control",
+        "role_reversal_twin",
+        "route_agreement"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "sign_flip",
+      "note": "target expression negated",
+      "outcome": "caught",
+      "structure_id": "S16"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "boundary_cases",
+        "dimensions",
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema",
+        "symbols_acyclic",
+        "target_and_inputs_relevant"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "remove_required_input",
+      "note": "input V removed",
+      "outcome": "caught",
+      "structure_id": "S16"
+    },
+    {
+      "failed_checks": [
+        "dimensions",
+        "positive_control",
+        "role_reversal_twin",
+        "route_agreement",
+        "target_and_inputs_relevant"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "swap_target",
+      "note": "target swapped for x",
+      "outcome": "caught",
+      "structure_id": "S16"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "hidden_dependence",
+      "note": "an extra input scales the target",
+      "outcome": "caught",
+      "structure_id": "S16"
+    },
+    {
+      "failed_checks": [
+        "boundary_cases",
+        "route_agreement"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "divisor_domain_includes_zero",
+      "note": "the domain of divisor R reaches zero",
+      "outcome": "caught",
+      "structure_id": "S16"
+    },
+    {
+      "failed_checks": [
+        "dimensions",
+        "prompt_matches_graph"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "misdeclared_answer_unit",
+      "note": "answer unit declared as kg",
+      "outcome": "caught",
+      "structure_id": "S16"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "equivalent_rewrite",
+      "note": "expressions simplified",
+      "outcome": "passed",
+      "structure_id": "S16"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "rename_symbols",
+      "note": "every node renamed",
+      "outcome": "passed",
+      "structure_id": "S16"
+    },
+    {
+      "failed_checks": [
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "cue_leak_into_equation",
+      "note": "target depends on the nuisance cue",
+      "outcome": "caught",
+      "structure_id": "S17"
+    },
+    {
+      "failed_checks": [
+        "dimensions"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "unit_error",
+      "note": "dT declared in kg",
+      "outcome": "caught",
+      "structure_id": "S17"
+    },
+    {
+      "failed_checks": [
+        "positive_control",
+        "role_reversal_twin",
+        "route_agreement"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "sign_flip",
+      "note": "target expression negated",
+      "outcome": "caught",
+      "structure_id": "S17"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "boundary_cases",
+        "dimensions",
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema",
+        "symbols_acyclic",
+        "target_and_inputs_relevant"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "remove_required_input",
+      "note": "input dT removed",
+      "outcome": "caught",
+      "structure_id": "S17"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "hidden_dependence",
+      "note": "an extra input scales the target",
+      "outcome": "caught",
+      "structure_id": "S17"
+    },
+    {
+      "failed_checks": [
+        "dimensions",
+        "prompt_matches_graph"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "misdeclared_answer_unit",
+      "note": "answer unit declared as kg",
+      "outcome": "caught",
+      "structure_id": "S17"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "equivalent_rewrite",
+      "note": "expressions simplified",
+      "outcome": "passed",
+      "structure_id": "S17"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "rename_symbols",
+      "note": "every node renamed",
+      "outcome": "passed",
+      "structure_id": "S17"
+    },
+    {
+      "failed_checks": [
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "cue_leak_into_equation",
+      "note": "target depends on the nuisance cue",
+      "outcome": "caught",
+      "structure_id": "S18"
+    },
+    {
+      "failed_checks": [
+        "dimensions"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "unit_error",
+      "note": "p1 declared in kg",
+      "outcome": "caught",
+      "structure_id": "S18"
+    },
+    {
+      "failed_checks": [
+        "positive_control",
+        "role_reversal_twin",
+        "route_agreement"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "sign_flip",
+      "note": "target expression negated",
+      "outcome": "caught",
+      "structure_id": "S18"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "boundary_cases",
+        "dimensions",
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema",
+        "symbols_acyclic",
+        "target_and_inputs_relevant"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "remove_required_input",
+      "note": "input p1 removed",
+      "outcome": "caught",
+      "structure_id": "S18"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "hidden_dependence",
+      "note": "an extra input scales the target",
+      "outcome": "caught",
+      "structure_id": "S18"
+    },
+    {
+      "failed_checks": [
+        "dimensions",
+        "prompt_matches_graph"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "misdeclared_answer_unit",
+      "note": "answer unit declared as kg",
+      "outcome": "caught",
+      "structure_id": "S18"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "equivalent_rewrite",
+      "note": "expressions simplified",
+      "outcome": "passed",
+      "structure_id": "S18"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "rename_symbols",
+      "note": "every node renamed",
+      "outcome": "passed",
+      "structure_id": "S18"
+    },
+    {
+      "failed_checks": [
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "cue_leak_into_equation",
+      "note": "target depends on the nuisance cue",
+      "outcome": "caught",
+      "structure_id": "S19"
+    },
+    {
+      "failed_checks": [
+        "dimensions"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "unit_error",
+      "note": "v declared in kg",
+      "outcome": "caught",
+      "structure_id": "S19"
+    },
+    {
+      "failed_checks": [
+        "positive_control",
+        "role_reversal_twin",
+        "route_agreement"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "sign_flip",
+      "note": "target expression negated",
+      "outcome": "caught",
+      "structure_id": "S19"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "boundary_cases",
+        "dimensions",
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema",
+        "symbols_acyclic",
+        "target_and_inputs_relevant"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "remove_required_input",
+      "note": "input v removed",
+      "outcome": "caught",
+      "structure_id": "S19"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "hidden_dependence",
+      "note": "an extra input scales the target",
+      "outcome": "caught",
+      "structure_id": "S19"
+    },
+    {
+      "failed_checks": [
+        "boundary_cases",
+        "route_agreement"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "divisor_domain_includes_zero",
+      "note": "the domain of divisor g reaches zero",
+      "outcome": "caught",
+      "structure_id": "S19"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "drop_sole_assumption",
+      "note": "assumption A-g dropped",
+      "outcome": "caught",
+      "structure_id": "S19"
+    },
+    {
+      "failed_checks": [
+        "dimensions",
+        "prompt_matches_graph"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "misdeclared_answer_unit",
+      "note": "answer unit declared as kg",
+      "outcome": "caught",
+      "structure_id": "S19"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "equivalent_rewrite",
+      "note": "expressions simplified",
+      "outcome": "passed",
+      "structure_id": "S19"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "rename_symbols",
+      "note": "every node renamed",
+      "outcome": "passed",
+      "structure_id": "S19"
+    },
+    {
+      "failed_checks": [
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "cue_leak_into_equation",
+      "note": "target depends on the nuisance cue",
+      "outcome": "caught",
+      "structure_id": "S20"
+    },
+    {
+      "failed_checks": [
+        "dimensions",
+        "positive_control",
+        "role_reversal_twin",
+        "route_agreement"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "unit_error",
+      "note": "f declared in kg",
+      "outcome": "caught",
+      "structure_id": "S20"
+    },
+    {
+      "failed_checks": [
+        "positive_control",
+        "role_reversal_twin",
+        "route_agreement"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "sign_flip",
+      "note": "target expression negated",
+      "outcome": "caught",
+      "structure_id": "S20"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "boundary_cases",
+        "dimensions",
+        "nuisance_independence",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema",
+        "symbols_acyclic",
+        "target_and_inputs_relevant"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "remove_required_input",
+      "note": "input f removed",
+      "outcome": "caught",
+      "structure_id": "S20"
+    },
+    {
+      "failed_checks": [
+        "assumptions_cover_assumed",
+        "positive_control",
+        "prompt_matches_graph",
+        "role_reversal_twin",
+        "route_agreement",
+        "schema"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "hidden_dependence",
+      "note": "an extra input scales the target",
+      "outcome": "caught",
+      "structure_id": "S20"
+    },
+    {
+      "failed_checks": [
+        "dimensions",
+        "prompt_matches_graph"
+      ],
+      "failed_for_an_intended_reason": true,
+      "kind": "negative",
+      "mutator_id": "misdeclared_answer_unit",
+      "note": "answer unit declared as kg",
+      "outcome": "caught",
+      "structure_id": "S20"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "equivalent_rewrite",
+      "note": "expressions simplified",
+      "outcome": "passed",
+      "structure_id": "S20"
+    },
+    {
+      "failed_checks": [],
+      "failed_for_an_intended_reason": true,
+      "kind": "positive",
+      "mutator_id": "rename_symbols",
+      "note": "every node renamed",
+      "outcome": "passed",
+      "structure_id": "S20"
+    }
+  ],
+  "summary_by_mutator": {
+    "cue_leak_into_equation": {
+      "correct": 10,
+      "failed_for_an_intended_reason": 10,
+      "kind": "negative",
+      "n": 10,
+      "sensitivity": 1.0
+    },
+    "divisor_domain_includes_zero": {
+      "correct": 5,
+      "failed_for_an_intended_reason": 5,
+      "kind": "negative",
+      "n": 5,
+      "sensitivity": 1.0
+    },
+    "drop_sole_assumption": {
+      "correct": 5,
+      "failed_for_an_intended_reason": 5,
+      "kind": "negative",
+      "n": 5,
+      "sensitivity": 1.0
+    },
+    "equivalent_rewrite": {
+      "correct": 10,
+      "failed_for_an_intended_reason": 10,
+      "kind": "positive",
+      "n": 10,
+      "specificity": 1.0
+    },
+    "hidden_dependence": {
+      "correct": 10,
+      "failed_for_an_intended_reason": 10,
+      "kind": "negative",
+      "n": 10,
+      "sensitivity": 1.0
+    },
+    "misdeclared_answer_unit": {
+      "correct": 10,
+      "failed_for_an_intended_reason": 10,
+      "kind": "negative",
+      "n": 10,
+      "sensitivity": 1.0
+    },
+    "remove_required_input": {
+      "correct": 10,
+      "failed_for_an_intended_reason": 10,
+      "kind": "negative",
+      "n": 10,
+      "sensitivity": 1.0
+    },
+    "rename_symbols": {
+      "correct": 10,
+      "failed_for_an_intended_reason": 10,
+      "kind": "positive",
+      "n": 10,
+      "specificity": 1.0
+    },
+    "sign_flip": {
+      "correct": 10,
+      "failed_for_an_intended_reason": 10,
+      "kind": "negative",
+      "n": 10,
+      "sensitivity": 1.0
+    },
+    "swap_target": {
+      "correct": 1,
+      "failed_for_an_intended_reason": 1,
+      "kind": "negative",
+      "n": 1,
+      "sensitivity": 1.0
+    },
+    "unit_error": {
+      "correct": 10,
+      "failed_for_an_intended_reason": 10,
+      "kind": "negative",
+      "n": 10,
+      "sensitivity": 1.0
+    }
+  }
+}

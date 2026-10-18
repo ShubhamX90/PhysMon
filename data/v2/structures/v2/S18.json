@@ -1,0 +1,282 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "p1",
+        "V1"
+      ],
+      "assumption_id": "A-ideal",
+      "kind": "modelling",
+      "text": "The gas is ideal and the expansion is slow and isothermal."
+    },
+    {
+      "applies_to": [
+        "rho"
+      ],
+      "assumption_id": "A-initial",
+      "kind": "boundary_condition",
+      "text": "The pressure and volume given are those of the gas before the expansion."
+    }
+  ],
+  "domain": "thermodynamics",
+  "instances": [
+    {
+      "V1": 0.005,
+      "p1": 200.0,
+      "rho": 2.0
+    },
+    {
+      "V1": 0.004,
+      "p1": 300.0,
+      "rho": 3.0
+    }
+  ],
+  "law_family": "isothermal_expansion_work",
+  "nodes": [
+    {
+      "description": "initial pressure",
+      "domain": [
+        100.0,
+        400.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "p1",
+      "provenance": "measured",
+      "quantity_type": "pressure",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "kPa",
+      "value": 200.0
+    },
+    {
+      "description": "initial volume",
+      "domain": [
+        0.001,
+        0.01
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "V1",
+      "provenance": "measured",
+      "quantity_type": "volume",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m^3",
+      "value": 0.005
+    },
+    {
+      "description": "final volume divided by initial volume",
+      "domain": [
+        1.5,
+        4.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "rho",
+      "provenance": "measured",
+      "quantity_type": "ratio",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "1",
+      "value": 2.0
+    },
+    {
+      "description": "work done by the gas",
+      "domain": null,
+      "expr": "p1*V1*log(rho)",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "W",
+      "provenance": "computed",
+      "quantity_type": "energy",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "J",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "p1",
+          "V1"
+        ],
+        "assumption_id": "A-ideal",
+        "kind": "modelling",
+        "text": "The gas is ideal and the expansion is slow and isothermal."
+      },
+      {
+        "applies_to": [
+          "rho"
+        ],
+        "assumption_id": "A-initial",
+        "kind": "boundary_condition",
+        "text": "The pressure and volume given are those of the gas before the expansion."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "1 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 3.84e-16 (tolerance 1e-09) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing p1 by x1.25 moves the answer by 25.0% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "8 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "21 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "thermodynamics",
+    "law_family": "isothermal_expansion_work",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "M^1 L^-1 T^-2",
+        "domain": [
+          100.0,
+          400.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "p1",
+        "provenance": "measured",
+        "quantity_type": "pressure",
+        "sign_convention": "magnitudes are positive",
+        "unit": "kPa",
+        "value": 200.0
+      },
+      {
+        "dimension": "L^3",
+        "domain": [
+          0.001,
+          0.01
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "V1",
+        "provenance": "measured",
+        "quantity_type": "volume",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m^3",
+        "value": 0.005
+      },
+      {
+        "dimension": "1",
+        "domain": [
+          1.5,
+          4.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "rho",
+        "provenance": "measured",
+        "quantity_type": "ratio",
+        "sign_convention": "magnitudes are positive",
+        "unit": "1",
+        "value": 2.0
+      },
+      {
+        "dimension": "M^1 L^2 T^-2",
+        "domain": null,
+        "expr": "p1*V1*log(rho)",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "W",
+        "provenance": "computed",
+        "quantity_type": "energy",
+        "sign_convention": "magnitudes are positive",
+        "unit": "J",
+        "value": null
+      }
+    ],
+    "program_hash": "c2742bea4b2a2455c940951722ad9c778a2ec145da10d275c6187f3d555ac6eb",
+    "seed": 42,
+    "solver_rel_tol": 1e-09,
+    "solver_route": "the integral of p dV along the isotherm p = p1 V1 / V, computed by adaptive quadrature",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S18",
+    "structure_uuid": "e40a3c2f-e89b-5421-842d-9be7029fb324",
+    "symbolic_derivation": "V1*p1*log(rho)",
+    "title": "Work done by a gas expanding at constant temperature"
+  },
+  "relevant_edit": {
+    "factor": 1.25,
+    "node": "p1"
+  },
+  "render": {
+    "comparison_sentence": "A reference gas B does {v} {u} of work.",
+    "context": "A gas at a pressure of {p1} kPa occupies {V1} m³ in a cylinder. It expands slowly at constant temperature until its volume is {rho} times its initial volume.",
+    "equivalent_unit": "kJ",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate meter B reads {v} {u}, but it plays no part in the expansion.",
+    "incompatible_unit": "Hz",
+    "isolated_sentence": "A separate engine B on another bench does {v} {u} of work per stroke, but it is unrelated to this gas.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "work done by the gas",
+    "question": "How much work does the gas do during the expansion?",
+    "target_unit": "J"
+  },
+  "solver_rel_tol": 1e-09,
+  "solver_route": "the integral of p dV along the isotherm p = p1 V1 / V, computed by adaptive quadrature",
+  "structure_id": "S18",
+  "target": "W",
+  "title": "Work done by a gas expanding at constant temperature"
+}

@@ -3223,3 +3223,8 @@ Revised reading: a numeral whose unit matches the requested quantity becomes a f
 
 Decision: analyse what the committed pilot records support (no job): unit compatibility modulates the likelihood boost of the cue-valued decoy (same gold, decoy and digits: Qwen +9.19, Llama +3.36 nats between the same-unit and incompatible-unit cells), Qwen expresses it in generation (15 of 75 same-unit cases, 0 of 20 incompatible-unit), Llama almost never; the matched relevant-role control cannot be built from these records and moves to the redesigned pilot.
 Journal: `docs/journal/stage14/14.12_copying_vs_relevance.md`. Descriptive; exploratory; nothing is a confirmation.
+
+## Stage 14.15: second structure batch S11 to S20 — 2026-10-18
+
+Decision: add ten certified structures with shorter equation chains so a model that may reason has a chance of solving them (the first batch is near the correctness floor), taking the count to 20 of the 40 to 60 B6.1 asks for. All ten are SOLVER_CERTIFIED and UNREVIEWED; 212 of 220 cells feasible; 91 mutants with none missed; no overlap with any v1 or first-batch program.
+Journal: `docs/journal/stage14/14.15_structures_batch_b.md`; data: `data/v2/structures/v2/`. Not reviewed by anyone; no model has been run on them.

@@ -1,0 +1,319 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "g"
+      ],
+      "assumption_id": "A-g",
+      "kind": "modelling",
+      "text": "g is a uniform constant of the stated value."
+    },
+    {
+      "applies_to": [
+        "m",
+        "h",
+        "t"
+      ],
+      "assumption_id": "A-const",
+      "kind": "modelling",
+      "text": "The load rises at constant speed and friction in the lifting gear is neglected."
+    }
+  ],
+  "domain": "mechanics",
+  "instances": [
+    {
+      "g": 9.8,
+      "h": 6.0,
+      "m": 80.0,
+      "t": 10.0
+    },
+    {
+      "g": 9.8,
+      "h": 4.0,
+      "m": 120.0,
+      "t": 8.0
+    }
+  ],
+  "law_family": "constant_speed_lift_power",
+  "nodes": [
+    {
+      "description": "mass of the load",
+      "domain": [
+        50.0,
+        200.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "m",
+      "provenance": "measured",
+      "quantity_type": "mass",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "kg",
+      "value": 80.0
+    },
+    {
+      "description": "height of the lift",
+      "domain": [
+        2.0,
+        10.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "h",
+      "provenance": "measured",
+      "quantity_type": "length",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m",
+      "value": 6.0
+    },
+    {
+      "description": "time taken for the lift",
+      "domain": [
+        4.0,
+        20.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "t",
+      "provenance": "measured",
+      "quantity_type": "time",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "s",
+      "value": 10.0
+    },
+    {
+      "description": "gravitational acceleration, a stated constant",
+      "domain": [
+        9.7,
+        9.9
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "g",
+      "provenance": "assumed",
+      "quantity_type": "acceleration",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m/s^2",
+      "value": 9.8
+    },
+    {
+      "description": "average mechanical power delivered to the load",
+      "domain": null,
+      "expr": "m*g*h/t",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "P",
+      "provenance": "computed",
+      "quantity_type": "power",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "W",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "g"
+        ],
+        "assumption_id": "A-g",
+        "kind": "modelling",
+        "text": "g is a uniform constant of the stated value."
+      },
+      {
+        "applies_to": [
+          "m",
+          "h",
+          "t"
+        ],
+        "assumption_id": "A-const",
+        "kind": "modelling",
+        "text": "The load rises at constant speed and friction in the lifting gear is neglected."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "1 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 4.85e-16 (tolerance 1e-09) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing m by x1.25 moves the answer by 25.0% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "16 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "22 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "mechanics",
+    "law_family": "constant_speed_lift_power",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "M^1",
+        "domain": [
+          50.0,
+          200.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "m",
+        "provenance": "measured",
+        "quantity_type": "mass",
+        "sign_convention": "magnitudes are positive",
+        "unit": "kg",
+        "value": 80.0
+      },
+      {
+        "dimension": "L^1",
+        "domain": [
+          2.0,
+          10.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "h",
+        "provenance": "measured",
+        "quantity_type": "length",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m",
+        "value": 6.0
+      },
+      {
+        "dimension": "T^1",
+        "domain": [
+          4.0,
+          20.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "t",
+        "provenance": "measured",
+        "quantity_type": "time",
+        "sign_convention": "magnitudes are positive",
+        "unit": "s",
+        "value": 10.0
+      },
+      {
+        "dimension": "L^1 T^-2",
+        "domain": [
+          9.7,
+          9.9
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "g",
+        "provenance": "assumed",
+        "quantity_type": "acceleration",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m/s^2",
+        "value": 9.8
+      },
+      {
+        "dimension": "M^1 L^2 T^-3",
+        "domain": null,
+        "expr": "m*g*h/t",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "P",
+        "provenance": "computed",
+        "quantity_type": "power",
+        "sign_convention": "magnitudes are positive",
+        "unit": "W",
+        "value": null
+      }
+    ],
+    "program_hash": "5df892c325c97de7fe3e808abab983bc7ee0228689e258973bcf6af2a13a2745",
+    "seed": 42,
+    "solver_rel_tol": 1e-09,
+    "solver_route": "the work of the supporting force at constant speed integrated over the lifting time, divided by the time",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S14",
+    "structure_uuid": "319e6c07-e8d9-595b-9af7-8af781d0699e",
+    "symbolic_derivation": "g*h*m/t",
+    "title": "Average power of a motor lifting a load"
+  },
+  "relevant_edit": {
+    "factor": 1.25,
+    "node": "m"
+  },
+  "render": {
+    "comparison_sentence": "A reference motor B delivers {v} {u}.",
+    "context": "A motor lifts a load of {m} kg through a height of {h} m at constant speed in {t} s. Take g = {g} m/s².",
+    "equivalent_unit": "kW",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate meter B reads {v} {u}, but it plays no part in the lift.",
+    "incompatible_unit": "Hz",
+    "isolated_sentence": "A separate pump B on another floor delivers {v} {u}, but it is unrelated to the load.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "average power delivered to the load",
+    "question": "What average mechanical power does the motor deliver to the load?",
+    "target_unit": "W"
+  },
+  "solver_rel_tol": 1e-09,
+  "solver_route": "the work of the supporting force at constant speed integrated over the lifting time, divided by the time",
+  "structure_id": "S14",
+  "target": "P",
+  "title": "Average power of a motor lifting a load"
+}

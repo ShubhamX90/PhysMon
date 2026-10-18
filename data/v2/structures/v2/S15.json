@@ -1,0 +1,282 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "V"
+      ],
+      "assumption_id": "A-battery",
+      "kind": "modelling",
+      "text": "The battery has negligible internal resistance and the wires have negligible resistance."
+    },
+    {
+      "applies_to": [
+        "R1",
+        "R2"
+      ],
+      "assumption_id": "A-ohmic",
+      "kind": "modelling",
+      "text": "Both resistors are ohmic."
+    }
+  ],
+  "domain": "circuits",
+  "instances": [
+    {
+      "R1": 6.0,
+      "R2": 12.0,
+      "V": 12.0
+    },
+    {
+      "R1": 5.0,
+      "R2": 15.0,
+      "V": 9.0
+    }
+  ],
+  "law_family": "parallel_resistor_power",
+  "nodes": [
+    {
+      "description": "battery emf",
+      "domain": [
+        6.0,
+        24.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "V",
+      "provenance": "measured",
+      "quantity_type": "voltage",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "V",
+      "value": 12.0
+    },
+    {
+      "description": "first resistor",
+      "domain": [
+        4.0,
+        20.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "R1",
+      "provenance": "measured",
+      "quantity_type": "resistance",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "Ω",
+      "value": 6.0
+    },
+    {
+      "description": "second resistor",
+      "domain": [
+        8.0,
+        40.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "R2",
+      "provenance": "measured",
+      "quantity_type": "resistance",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "Ω",
+      "value": 12.0
+    },
+    {
+      "description": "total power dissipated",
+      "domain": null,
+      "expr": "V**2*(1/R1 + 1/R2)",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "P",
+      "provenance": "computed",
+      "quantity_type": "power",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "W",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "V"
+        ],
+        "assumption_id": "A-battery",
+        "kind": "modelling",
+        "text": "The battery has negligible internal resistance and the wires have negligible resistance."
+      },
+      {
+        "applies_to": [
+          "R1",
+          "R2"
+        ],
+        "assumption_id": "A-ohmic",
+        "kind": "modelling",
+        "text": "Both resistors are ohmic."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "1 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 2.19e-16 (tolerance 1e-09) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing V by x1.25 moves the answer by 56.2% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "8 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "21 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "circuits",
+    "law_family": "parallel_resistor_power",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "M^1 L^2 T^-3 I^-1",
+        "domain": [
+          6.0,
+          24.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "V",
+        "provenance": "measured",
+        "quantity_type": "voltage",
+        "sign_convention": "magnitudes are positive",
+        "unit": "V",
+        "value": 12.0
+      },
+      {
+        "dimension": "M^1 L^2 T^-3 I^-2",
+        "domain": [
+          4.0,
+          20.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "R1",
+        "provenance": "measured",
+        "quantity_type": "resistance",
+        "sign_convention": "magnitudes are positive",
+        "unit": "Ω",
+        "value": 6.0
+      },
+      {
+        "dimension": "M^1 L^2 T^-3 I^-2",
+        "domain": [
+          8.0,
+          40.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "R2",
+        "provenance": "measured",
+        "quantity_type": "resistance",
+        "sign_convention": "magnitudes are positive",
+        "unit": "Ω",
+        "value": 12.0
+      },
+      {
+        "dimension": "M^1 L^2 T^-3",
+        "domain": null,
+        "expr": "V**2*(1/R1 + 1/R2)",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "P",
+        "provenance": "computed",
+        "quantity_type": "power",
+        "sign_convention": "magnitudes are positive",
+        "unit": "W",
+        "value": null
+      }
+    ],
+    "program_hash": "0d96c144ee4bff869c39ad23fbae846aaa7a30f0f86ef9c3d0f65fcb32023084",
+    "seed": 42,
+    "solver_rel_tol": 1e-09,
+    "solver_route": "the branch currents computed first, then the power drawn from the source",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S15",
+    "structure_uuid": "74742a53-13dc-529f-a44d-2d2e366be05e",
+    "symbolic_derivation": "V**2*(R1 + R2)/(R1*R2)",
+    "title": "Power dissipated by two parallel resistors"
+  },
+  "relevant_edit": {
+    "factor": 1.25,
+    "node": "V"
+  },
+  "render": {
+    "comparison_sentence": "A reference circuit B dissipates {v} {u}.",
+    "context": "A battery of emf {V} V and negligible internal resistance is connected across two resistors in parallel, of {R1} Ω and {R2} Ω.",
+    "equivalent_unit": "mW",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate oscillator B runs at {v} {u}, but it is not part of this circuit.",
+    "incompatible_unit": "Hz",
+    "isolated_sentence": "A separate heater B on another board dissipates {v} {u}, but it shares no connection with this circuit.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "total power dissipated by the resistors",
+    "question": "What total power do the two resistors dissipate?",
+    "target_unit": "W"
+  },
+  "solver_rel_tol": 1e-09,
+  "solver_route": "the branch currents computed first, then the power drawn from the source",
+  "structure_id": "S15",
+  "target": "P",
+  "title": "Power dissipated by two parallel resistors"
+}
