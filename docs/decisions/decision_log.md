@@ -3218,3 +3218,8 @@ Files: `docs/registry/v2/artifact_register.jsonl`, `docs/registry/v2/slurm_jobs.
 
 Two statements of mine were wrong or over-stated: (1) the decoy strings do not differ between cells in unit (journal J14.8-005): in every decoy cell the decoy carries the target unit; (2) the same-unit boost is not "what in-context copying predicts" (J14.9-006): the incompatible-unit cell has the same decoy string and the same digits in the prompt and a much smaller boost, so unit compatibility modulates it.
 Revised reading: a numeral whose unit matches the requested quantity becomes a far more likely answer, about equally for near, moderate and far values, while a numeral with another unit gains much less; still a likelihood-level fact, not a physics failure, and no statement about relevance gating without a relevant-role control. Raw results and numbers are unchanged.
+
+## Stage 14.12: copying versus relevance from the existing records — 2026-10-18
+
+Decision: analyse what the committed pilot records support (no job): unit compatibility modulates the likelihood boost of the cue-valued decoy (same gold, decoy and digits: Qwen +9.19, Llama +3.36 nats between the same-unit and incompatible-unit cells), Qwen expresses it in generation (15 of 75 same-unit cases, 0 of 20 incompatible-unit), Llama almost never; the matched relevant-role control cannot be built from these records and moves to the redesigned pilot.
+Journal: `docs/journal/stage14/14.12_copying_vs_relevance.md`. Descriptive; exploratory; nothing is a confirmation.

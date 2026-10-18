@@ -1,0 +1,346 @@
+{
+  "command": "scripts/v2/s151_copying_vs_relevance.py --records results/stage14/s147_pilot_run/attempt_400932_qwen_primary_bfloat16/raw_records.jsonl results/stage14/s147_pilot_run/attempt_400932_llama_primary_bfloat16/raw_records.jsonl",
+  "evidence_class": "exploratory; not paper-eligible",
+  "git_status_short": [
+    "?? activations",
+    "?? results/infrastructure/model_smoke/attempt_20261014_gpu_h100/"
+  ],
+  "inputs": {
+    "results/stage14/s147_pilot_run/attempt_400932_llama_primary_bfloat16/raw_records.jsonl": {
+      "n_records": 211,
+      "sha256": "116886d3f75fe4172b4d23cdbc234844a2937e0b12efc36ee8c581509882b29b"
+    },
+    "results/stage14/s147_pilot_run/attempt_400932_qwen_primary_bfloat16/raw_records.jsonl": {
+      "n_records": 211,
+      "sha256": "10567e291e51103b36da5f6a237c12875f3eb4633200b9a04dc9800fe2d84c29"
+    }
+  },
+  "kind": "copying versus relevance from existing records",
+  "models": {
+    "Qwen/Qwen2.5-7B-Instruct": {
+      "copy_rates": {
+        "nongov_incompatible_unit_near": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 20,
+          "n_records": 20,
+          "wilson95": [
+            0.0,
+            0.16113012549493322
+          ]
+        },
+        "nongov_same_magnitude_convertible_unit": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 16,
+          "n_records": 16,
+          "wilson95": [
+            0.0,
+            0.19361341827271994
+          ]
+        },
+        "nongov_same_unit_far": {
+          "n_equal_to_cue_numeral": 3,
+          "n_parsed": 20,
+          "n_records": 20,
+          "wilson95": [
+            0.05236779195949584,
+            0.36042329588695743
+          ]
+        },
+        "nongov_same_unit_moderate": {
+          "n_equal_to_cue_numeral": 5,
+          "n_parsed": 20,
+          "n_records": 20,
+          "wilson95": [
+            0.11186005278940309,
+            0.4687050099580636
+          ]
+        },
+        "nongov_same_unit_near_high_overlap": {
+          "n_equal_to_cue_numeral": 4,
+          "n_parsed": 20,
+          "n_records": 20,
+          "wilson95": [
+            0.0806563532712,
+            0.41602172202575993
+          ]
+        },
+        "nongov_same_unit_near_low_overlap": {
+          "n_equal_to_cue_numeral": 3,
+          "n_parsed": 15,
+          "n_records": 15,
+          "wilson95": [
+            0.07047420643610414,
+            0.4518593533465045
+          ]
+        },
+        "numeric_metadata": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 20,
+          "n_records": 20,
+          "wilson95": [
+            0.0,
+            0.16113012549493322
+          ]
+        },
+        "role_reversal": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 18,
+          "n_records": 20,
+          "wilson95": [
+            0.0,
+            0.1758845505823749
+          ]
+        }
+      },
+      "role_reversal": {
+        "gold_is_negative_in": 20,
+        "limit": "the question asks for a difference, so these rates are not comparable with the isolated cells",
+        "n_correct": 1,
+        "n_equal_to_cue_numeral": 0,
+        "n_parsed": 18,
+        "n_records": 20,
+        "n_with_the_sign_of_the_gold": 15
+      },
+      "unit_modulation": {
+        "decoy_shift": {
+          "by_structure": {
+            "S01": 6.810415462088056,
+            "S02": 6.773920532137936,
+            "S03": 4.166992579041107,
+            "S04": 12.632653551816038,
+            "S05": 17.82363556292714,
+            "S06": 9.75483905985131,
+            "S07": 2.386690906202773,
+            "S08": 21.61601740189326,
+            "S09": 5.629583420653944,
+            "S10": 4.3362924695379945
+          },
+          "ci95": [
+            5.7458439550728,
+            13.212431407927072
+          ],
+          "mean": 9.193104094614956,
+          "n_negative": 0,
+          "n_positive": 10,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "gold_shift": {
+          "by_structure": {
+            "S01": -2.9624812020215856,
+            "S02": -0.24182511534672813,
+            "S03": -0.03664219163329108,
+            "S04": -0.386270882446734,
+            "S05": 5.0313694352123015,
+            "S06": 0.0011055584646051386,
+            "S07": -0.16578712498522918,
+            "S08": 6.494169004112024,
+            "S09": 0.4494457175023854,
+            "S10": 0.6095415857403452
+          },
+          "ci95": [
+            -0.6028475657852711,
+            2.663015332399094
+          ],
+          "mean": 0.8792624784598093,
+          "n_negative": 5,
+          "n_positive": 5,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "n_items_excluded": 0,
+        "r_alt_shift": {
+          "by_structure": {
+            "S01": -9.772896664109641,
+            "S02": -7.015745647484664,
+            "S03": -4.203634770674398,
+            "S04": -13.018924434262772,
+            "S05": -12.79226612771484,
+            "S06": -9.753733501386705,
+            "S07": -2.552478031188002,
+            "S08": -15.121848397781235,
+            "S09": -5.1801377031515585,
+            "S10": -3.7267508837976493
+          },
+          "ci95": [
+            -10.986810961230402,
+            -5.592990581344841
+          ],
+          "mean": -8.313841616155146,
+          "n_negative": 10,
+          "n_positive": 0,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        }
+      }
+    },
+    "meta-llama/Llama-3.1-8B-Instruct": {
+      "copy_rates": {
+        "nongov_incompatible_unit_near": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 20,
+          "n_records": 20,
+          "wilson95": [
+            0.0,
+            0.16113012549493322
+          ]
+        },
+        "nongov_same_magnitude_convertible_unit": {
+          "n_equal_to_cue_numeral": 2,
+          "n_parsed": 16,
+          "n_records": 16,
+          "wilson95": [
+            0.034976749337057134,
+            0.3602333143674828
+          ]
+        },
+        "nongov_same_unit_far": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 20,
+          "n_records": 20,
+          "wilson95": [
+            0.0,
+            0.16113012549493322
+          ]
+        },
+        "nongov_same_unit_moderate": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 20,
+          "n_records": 20,
+          "wilson95": [
+            0.0,
+            0.16113012549493322
+          ]
+        },
+        "nongov_same_unit_near_high_overlap": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 20,
+          "n_records": 20,
+          "wilson95": [
+            0.0,
+            0.16113012549493322
+          ]
+        },
+        "nongov_same_unit_near_low_overlap": {
+          "n_equal_to_cue_numeral": 2,
+          "n_parsed": 15,
+          "n_records": 15,
+          "wilson95": [
+            0.0373604698913593,
+            0.3788249920651624
+          ]
+        },
+        "numeric_metadata": {
+          "n_equal_to_cue_numeral": 0,
+          "n_parsed": 20,
+          "n_records": 20,
+          "wilson95": [
+            0.0,
+            0.16113012549493322
+          ]
+        },
+        "role_reversal": {
+          "n_equal_to_cue_numeral": 3,
+          "n_parsed": 20,
+          "n_records": 20,
+          "wilson95": [
+            0.05236779195949584,
+            0.36042329588695743
+          ]
+        }
+      },
+      "role_reversal": {
+        "gold_is_negative_in": 20,
+        "limit": "the question asks for a difference, so these rates are not comparable with the isolated cells",
+        "n_correct": 0,
+        "n_equal_to_cue_numeral": 3,
+        "n_parsed": 20,
+        "n_records": 20,
+        "n_with_the_sign_of_the_gold": 0
+      },
+      "unit_modulation": {
+        "decoy_shift": {
+          "by_structure": {
+            "S01": 3.5488353598761933,
+            "S02": 0.3907759884423285,
+            "S03": 0.28461919206256425,
+            "S04": 7.754853437872498,
+            "S05": 11.606946253601109,
+            "S06": 1.0687188379033614,
+            "S07": 0.29536036198669535,
+            "S08": 6.693841992486796,
+            "S09": 2.438385270781737,
+            "S10": -0.45166303921104145
+          },
+          "ci95": [
+            1.2083789709190098,
+            5.845119469586251
+          ],
+          "mean": 3.363067365580224,
+          "n_negative": 1,
+          "n_positive": 9,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "gold_shift": {
+          "by_structure": {
+            "S01": 1.000386143214655,
+            "S02": 0.8886164709947479,
+            "S03": -0.09606467136563879,
+            "S04": 3.1346791217360988,
+            "S05": 5.090478893170712,
+            "S06": -0.7990539351212647,
+            "S07": 0.18821513728880745,
+            "S08": 2.760897785260113,
+            "S09": 0.12104333839511128,
+            "S10": -2.784058020385771
+          },
+          "ci95": [
+            -0.3134589415973504,
+            2.335787514497378
+          ],
+          "mean": 0.950514026318757,
+          "n_negative": 3,
+          "n_positive": 7,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        },
+        "n_items_excluded": 0,
+        "r_alt_shift": {
+          "by_structure": {
+            "S01": -2.5484492166615382,
+            "S02": 0.4978404825524194,
+            "S03": -0.38068386342820304,
+            "S04": -4.620174316136399,
+            "S05": -6.516467360430397,
+            "S06": -1.867772773024626,
+            "S07": -0.1071452246978879,
+            "S08": -3.932944207226683,
+            "S09": -2.3173419323866256,
+            "S10": -2.3323949811747298
+          },
+          "ci95": [
+            -3.760736665982749,
+            -1.2004444480108578
+          ],
+          "mean": -2.412553339261467,
+          "n_negative": 9,
+          "n_positive": 1,
+          "n_structures": 10,
+          "n_zero": 0,
+          "status": "precision-limited descriptive interval; not a test"
+        }
+      }
+    }
+  },
+  "not_evaluated": {
+    "matched relevant-role control": "no record scores the same candidate string where the same numeral plays a relevant role"
+  },
+  "source_commit": "d6713b04035581df872fb7302c5b43d0df8ac3cc",
+  "stage": "14.12"
+}

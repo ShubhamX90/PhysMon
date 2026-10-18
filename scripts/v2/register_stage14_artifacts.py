@@ -42,6 +42,7 @@ ARTIFACT_GLOBS = (
     ("14.7", "pilot_run", "results/stage14/s147_pilot_run/attempt_*"),
     ("14.8", "pilot_analysis", "results/stage14/s148_pilot_analysis/attempt_*"),
     ("14.9", "noise_and_anchor_analysis", "results/stage14/s149_noise_and_anchor/attempt_*"),
+    ("14.12", "copying_vs_relevance", "results/stage14/s151_copying_vs_relevance/attempt_*"),
     ("14.10", "x03_plan", "results/stage14/x03_format_tokenization/plan/attempt_*"),
     ("14.10", "x03_run", "results/stage14/x03_format_tokenization/run/attempt_*"),
     ("14.10", "x03_analysis", "results/stage14/x03_format_tokenization/analysis/attempt_*"),
