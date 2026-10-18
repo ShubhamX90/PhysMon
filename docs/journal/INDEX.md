@@ -19,5 +19,6 @@ Plan of record: `docs/proposals/PhysMon_Research_v2.pdf`. Stage ordering below i
 | 14.10 | X03 format and tokenization falsification (v2 structures, 7 wrappers) | X03, P1.3, P1.4 | CPU plan, GPU run | done (v2-structure version, job 401287); one wrapper (Qwen scientific) dominates the near-cell shift, sign persists in all 7; legacy-family version not done | [14.10](stage14/14.10_x03_wrapper_multiverse.md) |
 | 14.11 | Immutable artifact registry and Slurm job register | P0.1, §9.1 | CPU only | done; 22 artifacts and 9 jobs registered, verification passes | [14.11](stage14/14.11_artifact_registry.md) |
 | 14.12 | Copying versus relevance from the existing pilot records | P4, protocol §5 row 4 | CPU only | done for what the records support; matched relevant-role control not possible with these records | [14.12](stage14/14.12_copying_vs_relevance.md) |
+| 14.13 | Reasoning-allowed pilot (correctness floor) | B2.4, B1.4 | CPU tooling, GPU run | tooling and frozen analysis committed; run pending | [14.13](stage14/14.13_reasoning_pilot.md) |
 
 Status values: `not started`, `in progress`, `done`, `blocked`, `superseded`.

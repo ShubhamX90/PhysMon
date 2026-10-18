@@ -123,8 +123,11 @@ def make_hf_logprob_fn(model: Any, device: str | None = None) -> LogprobFn:
     return run
 
 
-def greedy_generate(model: Any, tokenizer: Any, formatted_prompt: str, max_new_tokens: int = 40) -> str:
-    """Deterministic greedy continuation of a chat-templated prompt (BOS once)."""
+def greedy_generate_counted(model: Any, tokenizer: Any, formatted_prompt: str, max_new_tokens: int = 40) -> tuple[str, int, bool]:
+    """Deterministic greedy continuation of a chat-templated prompt (BOS once): (text, new tokens, hit the token limit).
+
+    The limit counts as hit when the model produced `max_new_tokens` tokens without an end-of-sequence token.
+    """
 
     import torch
 
@@ -133,7 +136,17 @@ def greedy_generate(model: Any, tokenizer: Any, formatted_prompt: str, max_new_t
     with torch.no_grad():
         output = model.generate(ids, attention_mask=torch.ones_like(ids), do_sample=False,
                                 max_new_tokens=max_new_tokens, pad_token_id=getattr(tokenizer, "eos_token_id", None))
-    return tokenizer.decode(output[0][ids.shape[1]:], skip_special_tokens=True)
+    new_tokens = output[0][ids.shape[1]:]
+    eos = getattr(tokenizer, "eos_token_id", None)
+    ended = eos is not None and bool((new_tokens == eos).any().item())
+    return tokenizer.decode(new_tokens, skip_special_tokens=True), int(new_tokens.shape[0]), (
+        int(new_tokens.shape[0]) >= max_new_tokens and not ended)
+
+
+def greedy_generate(model: Any, tokenizer: Any, formatted_prompt: str, max_new_tokens: int = 40) -> str:
+    """Deterministic greedy continuation of a chat-templated prompt (BOS once)."""
+
+    return greedy_generate_counted(model, tokenizer, formatted_prompt, max_new_tokens)[0]
 
 
 # --- parsing --------------------------------------------------------------------------------------
