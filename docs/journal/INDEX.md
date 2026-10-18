@@ -15,5 +15,6 @@ Plan of record: `docs/proposals/PhysMon_Research_v2.pdf`. Stage ordering below i
 | 14.6 | Typed generator and first 10 certified v2 structures | B3.2, B3 deliverable | CPU plus human review | done (generator and solver certificates); all 10 approved by one open user walkthrough, certificates still UNREVIEWED | [14.6](stage14/14.6_typed_generator.md) |
 | 14.7 | Pilot on two dense models | B6, P1 | GPU | prepared; smoke rerun passed (399217); 20-job throughput test of the runner done (399539, Qwen, S01 only); full pilot not run; open: correctness-tolerance rule, new authorization, certified-structure review, P0 gate | [14.7](stage14/14.7_pilot_preparation.md) |
 | 14.8 | Descriptive analysis of the pilot records | B2, P1 | CPU only | done; no cue contrast is interpretable (design gaps recorded) | [14.8](stage14/14.8_pilot_analysis.md) |
+| 14.9 | Anchor-matched decoy scoring and dtype noise floor | P1.7, §4 | GPU (job 400932) | done; noise floor and anchor-matched shifts measured; descriptive only | [14.9](stage14/14.9_anchor_decoy_and_noise.md) |
 
 Status values: `not started`, `in progress`, `done`, `blocked`, `superseded`.

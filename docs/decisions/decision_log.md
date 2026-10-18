@@ -3195,3 +3195,10 @@ Decision: analyse the 422 pilot records exactly as protocol sections 3 to 5 pres
 Artifacts: `results/stage14/s148_pilot_analysis/attempt_20261017_f8c4145/`; source commit `f8c4145`.
 Result: 9 of 30 intervals exclude zero with no multiplicity control (about 1.5 expected by chance); R_alt contrasts are confounded because decoy strings differ across cells and are not scored under the no-cue prompt; correctness is at the floor so C_gen is not estimable;
 no dtype noise floor exists; the relevant-edit response is inconclusive. No cue contrast is to be cited. Proposed next: Stage 14.9 (anchor-matched decoy scoring and a float32 pass). Nothing is validated, confirmatory or paper-eligible.
+
+## Stage 14.9: dtype noise floor and anchor-matched answer competition — 2026-10-18
+
+Job 400932 (authorized by the user per submission) repeated the full pilot plan in bfloat16 and float32 for both models, with every decoy also scored under the no-cue prompt (844 of 844 records OK). Journal: `docs/journal/stage14/14.9_anchor_decoy_and_noise.md`.
+Results: `results/stage14/s149_noise_and_anchor/attempt_20261018_3cd6e48/`. bfloat16 is reproducible exactly between jobs on the same node; dtype noise on a gold log-probability has SD 0.09 (Llama) and 0.19 (Qwen) nats, comparable to the sub-1-nat Stage 14.8 effects.
+Anchor-matched: same-unit cue numerals raise their own likelihood as an answer by about 10 to 13 nats (Qwen) and 3.5 to 5 (Llama) from the no-cue prompt, about equally for near, moderate and far values; the gold's shift is small and uncertain. This is what in-context copying predicts and says nothing about relevance gating without a relevant-role control.
+Descriptive and exploratory; nothing is a confirmation or paper-eligible. Gaps 2 and 3 are closed; the correctness floor and the relevant-edit response remain.
