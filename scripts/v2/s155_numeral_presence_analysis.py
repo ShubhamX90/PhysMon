@@ -111,7 +111,12 @@ def summarise(values_by_structure: dict[str, list[float]], rng: np.random.Genera
 
 
 def analyse(rows: list[dict], rng: np.random.Generator) -> dict[str, Any]:
-    effects = presence_effects(rows)
+    return analyse_effects(presence_effects(rows), rng)
+
+
+def analyse_effects(effects: list[dict], rng: np.random.Generator) -> dict[str, Any]:
+    """Role summaries and paired contrasts from per-numeral effects (`structure`, `instance`, `cell`, `role`, `unit_type`, `effect`)."""
+
     prompts = by_prompt(effects)
     n_not_evaluated = sum(e["effect"] is None for e in effects)
     role_means: dict[str, dict[str, list[float]]] = defaultdict(lambda: defaultdict(list))
