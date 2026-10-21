@@ -109,8 +109,8 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--version", default="v1")
     parser.add_argument("--out-base", default=OUT_BASE)
-    parser.add_argument("--library", default="library", choices=["library", "library_b"],
-                        help="library = S01 to S10 (Stage 14.6); library_b = S11 to S20 (Stage 14.15).")
+    parser.add_argument("--library", default="library", choices=["library", "library_b", "library_c"],
+                        help="library = S01 to S10 (Stage 14.6); library_b = S11 to S20 (Stage 14.15); library_c = S21 to S30 (Stage 14.18).")
     args = parser.parse_args()
     lib = importlib.import_module(f"physmon.benchmark.v2.{args.library}")
     out_dir = (REPO_ROOT / args.out_base / args.version).resolve()
@@ -171,7 +171,7 @@ def main() -> int:
     }, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     cells_feasible = sum(r["feasible"] for r in admissibility)
     summary = {
-        "stage": "14.6" if args.library == "library" else "14.15", "library": args.library, "version": args.version, "source_commit": git("rev-parse", "HEAD"),
+        "stage": {"library": "14.6", "library_b": "14.15", "library_c": "14.18"}[args.library], "library": args.library, "version": args.version, "source_commit": git("rev-parse", "HEAD"),
         "git_status_short": git("status", "--short").splitlines(), "command": " ".join(sys.argv),
         "python": platform.python_version(), "numpy": np.__version__, "scipy": scipy.__version__,
         "sympy": sympy.__version__,
