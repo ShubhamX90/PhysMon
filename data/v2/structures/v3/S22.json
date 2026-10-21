@@ -1,0 +1,282 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "L"
+      ],
+      "assumption_id": "A-fixed",
+      "kind": "modelling",
+      "text": "The string is fixed at both ends and vibrates in its fundamental mode."
+    },
+    {
+      "applies_to": [
+        "T",
+        "m"
+      ],
+      "assumption_id": "A-uniform",
+      "kind": "modelling",
+      "text": "The string is uniform, flexible and under constant tension."
+    }
+  ],
+  "domain": "acoustics",
+  "instances": [
+    {
+      "L": 0.8,
+      "T": 100.0,
+      "m": 0.01
+    },
+    {
+      "L": 0.65,
+      "T": 150.0,
+      "m": 0.012
+    }
+  ],
+  "law_family": "stretched_string_fundamental",
+  "nodes": [
+    {
+      "description": "tension in the string",
+      "domain": [
+        50.0,
+        400.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "T",
+      "provenance": "measured",
+      "quantity_type": "force",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "N",
+      "value": 100.0
+    },
+    {
+      "description": "mass of the string",
+      "domain": [
+        0.005,
+        0.05
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "m",
+      "provenance": "measured",
+      "quantity_type": "mass",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "kg",
+      "value": 0.01
+    },
+    {
+      "description": "length of the vibrating part of the string",
+      "domain": [
+        0.5,
+        1.5
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "L",
+      "provenance": "measured",
+      "quantity_type": "length",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m",
+      "value": 0.8
+    },
+    {
+      "description": "fundamental frequency of the string",
+      "domain": null,
+      "expr": "sqrt(T/(m*L))/2",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "f1",
+      "provenance": "computed",
+      "quantity_type": "frequency",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "Hz",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "L"
+        ],
+        "assumption_id": "A-fixed",
+        "kind": "modelling",
+        "text": "The string is fixed at both ends and vibrates in its fundamental mode."
+      },
+      {
+        "applies_to": [
+          "T",
+          "m"
+        ],
+        "assumption_id": "A-uniform",
+        "kind": "modelling",
+        "text": "The string is uniform, flexible and under constant tension."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "1 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 4.50e-15 (tolerance 1e-09) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing T by x1.5 moves the answer by 22.5% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "8 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "22 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "acoustics",
+    "law_family": "stretched_string_fundamental",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "M^1 L^1 T^-2",
+        "domain": [
+          50.0,
+          400.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "T",
+        "provenance": "measured",
+        "quantity_type": "force",
+        "sign_convention": "magnitudes are positive",
+        "unit": "N",
+        "value": 100.0
+      },
+      {
+        "dimension": "M^1",
+        "domain": [
+          0.005,
+          0.05
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "m",
+        "provenance": "measured",
+        "quantity_type": "mass",
+        "sign_convention": "magnitudes are positive",
+        "unit": "kg",
+        "value": 0.01
+      },
+      {
+        "dimension": "L^1",
+        "domain": [
+          0.5,
+          1.5
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "L",
+        "provenance": "measured",
+        "quantity_type": "length",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m",
+        "value": 0.8
+      },
+      {
+        "dimension": "T^-1",
+        "domain": null,
+        "expr": "sqrt(T/(m*L))/2",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "f1",
+        "provenance": "computed",
+        "quantity_type": "frequency",
+        "sign_convention": "magnitudes are positive",
+        "unit": "Hz",
+        "value": null
+      }
+    ],
+    "program_hash": "c89abea862fa602dd96345f5886ac039dc22e84b72188a2bb4880a711e0a57a9",
+    "seed": 42,
+    "solver_rel_tol": 1e-09,
+    "solver_route": "the wave speed v with v squared times the mass per length equal to the tension, then the frequency as the root of 2 L f = v",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S22",
+    "structure_uuid": "f4524d68-f142-56cc-af0b-02f348f56968",
+    "symbolic_derivation": "sqrt(T/(L*m))/2",
+    "title": "Fundamental frequency of a stretched string"
+  },
+  "relevant_edit": {
+    "factor": 1.5,
+    "node": "T"
+  },
+  "render": {
+    "comparison_sentence": "A reference string B vibrates at {v} {u}.",
+    "context": "A uniform string of mass {m} kg and length {L} m is fixed at both ends and stretched to a tension of {T} N.",
+    "equivalent_unit": "kHz",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate lamp B is rated at {v} {u}, but it plays no part in the vibration.",
+    "incompatible_unit": "W",
+    "isolated_sentence": "A separate guitar B in another room sounds a note of {v} {u}, but it is unrelated to this string.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "fundamental frequency of the string",
+    "question": "What is the fundamental frequency at which the string vibrates?",
+    "target_unit": "Hz"
+  },
+  "solver_rel_tol": 1e-09,
+  "solver_route": "the wave speed v with v squared times the mass per length equal to the tension, then the frequency as the root of 2 L f = v",
+  "structure_id": "S22",
+  "target": "f1",
+  "title": "Fundamental frequency of a stretched string"
+}

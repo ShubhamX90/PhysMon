@@ -1,0 +1,245 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "Lind"
+      ],
+      "assumption_id": "A-ideal",
+      "kind": "modelling",
+      "text": "The coil is ideal: it has no resistance and no core losses."
+    },
+    {
+      "applies_to": [
+        "Icur"
+      ],
+      "assumption_id": "A-steady",
+      "kind": "boundary_condition",
+      "text": "The current has reached its steady value."
+    }
+  ],
+  "domain": "circuits",
+  "instances": [
+    {
+      "Icur": 3.0,
+      "Lind": 250.0
+    },
+    {
+      "Icur": 5.0,
+      "Lind": 120.0
+    }
+  ],
+  "law_family": "inductor_stored_energy",
+  "nodes": [
+    {
+      "description": "inductance of the coil",
+      "domain": [
+        50.0,
+        500.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "Lind",
+      "provenance": "measured",
+      "quantity_type": "inductance",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "mH",
+      "value": 250.0
+    },
+    {
+      "description": "steady current through the coil",
+      "domain": [
+        1.0,
+        8.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "Icur",
+      "provenance": "measured",
+      "quantity_type": "current",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "A",
+      "value": 3.0
+    },
+    {
+      "description": "energy stored in the magnetic field",
+      "domain": null,
+      "expr": "Lind*Icur**2/2",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "Wm",
+      "provenance": "computed",
+      "quantity_type": "energy",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "mJ",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "Lind"
+        ],
+        "assumption_id": "A-ideal",
+        "kind": "modelling",
+        "text": "The coil is ideal: it has no resistance and no core losses."
+      },
+      {
+        "applies_to": [
+          "Icur"
+        ],
+        "assumption_id": "A-steady",
+        "kind": "boundary_condition",
+        "text": "The current has reached its steady value."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "1 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 3.59e-16 (tolerance 1e-09) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing Icur by x1.25 moves the answer by 56.2% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "4 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "21 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "circuits",
+    "law_family": "inductor_stored_energy",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "M^1 L^2 T^-2 I^-2",
+        "domain": [
+          50.0,
+          500.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "Lind",
+        "provenance": "measured",
+        "quantity_type": "inductance",
+        "sign_convention": "magnitudes are positive",
+        "unit": "mH",
+        "value": 250.0
+      },
+      {
+        "dimension": "I^1",
+        "domain": [
+          1.0,
+          8.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "Icur",
+        "provenance": "measured",
+        "quantity_type": "current",
+        "sign_convention": "magnitudes are positive",
+        "unit": "A",
+        "value": 3.0
+      },
+      {
+        "dimension": "M^1 L^2 T^-2",
+        "domain": null,
+        "expr": "Lind*Icur**2/2",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "Wm",
+        "provenance": "computed",
+        "quantity_type": "energy",
+        "sign_convention": "magnitudes are positive",
+        "unit": "mJ",
+        "value": null
+      }
+    ],
+    "program_hash": "7cc39a008ad0d75a224cf64f4ca7b66c756e135c644f1843873bbb67bfbaeb3f",
+    "seed": 42,
+    "solver_rel_tol": 1e-09,
+    "solver_route": "the work against the induced emf while the current is raised from zero, the integral of L i di",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S25",
+    "structure_uuid": "9f7c9238-2828-537a-9371-73aa6f6dd2ed",
+    "symbolic_derivation": "Icur**2*Lind/2",
+    "title": "Energy stored in an inductor"
+  },
+  "relevant_edit": {
+    "factor": 1.25,
+    "node": "Icur"
+  },
+  "render": {
+    "comparison_sentence": "A reference coil B stores {v} {u}.",
+    "context": "An ideal coil has an inductance of {Lind} mH and carries a steady current of {Icur} A.",
+    "equivalent_unit": "J",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate lamp B is rated at {v} {u}, but it plays no part in the field.",
+    "incompatible_unit": "W",
+    "isolated_sentence": "A separate battery B on another bench stores {v} {u}, but it is unrelated to the coil.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "energy stored in the coil",
+    "question": "How much energy is stored in the magnetic field of the coil?",
+    "target_unit": "mJ"
+  },
+  "solver_rel_tol": 1e-09,
+  "solver_route": "the work against the induced emf while the current is raised from zero, the integral of L i di",
+  "structure_id": "S25",
+  "target": "Wm",
+  "title": "Energy stored in an inductor"
+}

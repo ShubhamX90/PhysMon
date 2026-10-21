@@ -1,0 +1,249 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "a",
+        "v"
+      ],
+      "assumption_id": "A-start",
+      "kind": "boundary_condition",
+      "text": "The car starts from rest at the moment it passes the truck, which already travels at constant speed."
+    },
+    {
+      "applies_to": [
+        "a",
+        "v"
+      ],
+      "assumption_id": "A-const",
+      "kind": "modelling",
+      "text": "The acceleration of the car and the speed of the truck are constant and both move along the same line."
+    }
+  ],
+  "domain": "mechanics",
+  "instances": [
+    {
+      "a": 2.0,
+      "v": 15.0
+    },
+    {
+      "a": 1.5,
+      "v": 12.0
+    }
+  ],
+  "law_family": "uniform_acceleration_catch_up",
+  "nodes": [
+    {
+      "description": "constant acceleration of the car",
+      "domain": [
+        0.5,
+        4.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "a",
+      "provenance": "measured",
+      "quantity_type": "acceleration",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m/s^2",
+      "value": 2.0
+    },
+    {
+      "description": "constant speed of the truck",
+      "domain": [
+        5.0,
+        30.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "v",
+      "provenance": "measured",
+      "quantity_type": "speed",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m/s",
+      "value": 15.0
+    },
+    {
+      "description": "time at which the car draws level with the truck",
+      "domain": null,
+      "expr": "2*v/a",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "t",
+      "provenance": "computed",
+      "quantity_type": "time",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "s",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "a",
+          "v"
+        ],
+        "assumption_id": "A-start",
+        "kind": "boundary_condition",
+        "text": "The car starts from rest at the moment it passes the truck, which already travels at constant speed."
+      },
+      {
+        "applies_to": [
+          "a",
+          "v"
+        ],
+        "assumption_id": "A-const",
+        "kind": "modelling",
+        "text": "The acceleration of the car and the speed of the truck are constant and both move along the same line."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "1 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 8.46e-15 (tolerance 1e-09) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing a by x1.5 moves the answer by 33.3% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "4 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "22 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "mechanics",
+    "law_family": "uniform_acceleration_catch_up",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "L^1 T^-2",
+        "domain": [
+          0.5,
+          4.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "a",
+        "provenance": "measured",
+        "quantity_type": "acceleration",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m/s^2",
+        "value": 2.0
+      },
+      {
+        "dimension": "L^1 T^-1",
+        "domain": [
+          5.0,
+          30.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "v",
+        "provenance": "measured",
+        "quantity_type": "speed",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m/s",
+        "value": 15.0
+      },
+      {
+        "dimension": "T^1",
+        "domain": null,
+        "expr": "2*v/a",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "t",
+        "provenance": "computed",
+        "quantity_type": "time",
+        "sign_convention": "magnitudes are positive",
+        "unit": "s",
+        "value": null
+      }
+    ],
+    "program_hash": "b5e13c3ffec8249ac4f9700c0aa9deb7ece41f1c5ecda4766c75300bd0c88a66",
+    "seed": 42,
+    "solver_rel_tol": 1e-09,
+    "solver_route": "the non-trivial root of the gap function a t squared over two minus v t, found with a bracketing root finder",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S28",
+    "structure_uuid": "8bc71138-940a-5eb5-8bbd-36ab5069dcf2",
+    "symbolic_derivation": "2*v/a",
+    "title": "Time for an accelerating car to overtake a truck"
+  },
+  "relevant_edit": {
+    "factor": 1.5,
+    "node": "a"
+  },
+  "render": {
+    "comparison_sentence": "A reference car B draws level after {v} {u}.",
+    "context": "A truck travels at a constant {v} m/s along a straight road. At the instant it passes a stationary car, the car starts from rest and accelerates at a constant {a} m/s² in the same direction.",
+    "equivalent_unit": "min",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate lamp B is rated at {v} {u}, but it plays no part in the chase.",
+    "incompatible_unit": "W",
+    "isolated_sentence": "A separate lorry B on another road needs {v} {u} to stop, but it is unrelated to the car.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "time for the car to draw level",
+    "question": "How long after the truck passes the car does the car draw level with the truck?",
+    "target_unit": "s"
+  },
+  "solver_rel_tol": 1e-09,
+  "solver_route": "the non-trivial root of the gap function a t squared over two minus v t, found with a bracketing root finder",
+  "structure_id": "S28",
+  "target": "t",
+  "title": "Time for an accelerating car to overtake a truck"
+}

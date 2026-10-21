@@ -1,0 +1,282 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "Th",
+        "Tc"
+      ],
+      "assumption_id": "A-reversible",
+      "kind": "modelling",
+      "text": "The engine is reversible and operates in a cycle between the two reservoirs."
+    },
+    {
+      "applies_to": [
+        "Qh"
+      ],
+      "assumption_id": "A-cycle",
+      "kind": "boundary_condition",
+      "text": "The heat taken in is the heat taken from the hot reservoir in one cycle."
+    }
+  ],
+  "domain": "thermodynamics",
+  "instances": [
+    {
+      "Qh": 800.0,
+      "Tc": 300.0,
+      "Th": 600.0
+    },
+    {
+      "Qh": 1200.0,
+      "Tc": 350.0,
+      "Th": 700.0
+    }
+  ],
+  "law_family": "carnot_engine_work",
+  "nodes": [
+    {
+      "description": "heat taken from the hot reservoir",
+      "domain": [
+        200.0,
+        2000.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "Qh",
+      "provenance": "measured",
+      "quantity_type": "energy",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "kJ",
+      "value": 800.0
+    },
+    {
+      "description": "temperature of the hot reservoir",
+      "domain": [
+        450.0,
+        900.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "Th",
+      "provenance": "measured",
+      "quantity_type": "temperature",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "K",
+      "value": 600.0
+    },
+    {
+      "description": "temperature of the cold reservoir",
+      "domain": [
+        250.0,
+        400.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "Tc",
+      "provenance": "measured",
+      "quantity_type": "temperature",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "K",
+      "value": 300.0
+    },
+    {
+      "description": "net work done by the engine",
+      "domain": null,
+      "expr": "Qh*(1 - Tc/Th)",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "W",
+      "provenance": "computed",
+      "quantity_type": "energy",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "kJ",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "Th",
+          "Tc"
+        ],
+        "assumption_id": "A-reversible",
+        "kind": "modelling",
+        "text": "The engine is reversible and operates in a cycle between the two reservoirs."
+      },
+      {
+        "applies_to": [
+          "Qh"
+        ],
+        "assumption_id": "A-cycle",
+        "kind": "boundary_condition",
+        "text": "The heat taken in is the heat taken from the hot reservoir in one cycle."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "1 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 6.55e-16 (tolerance 1e-09) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing Qh by x1.25 moves the answer by 25.0% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "8 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "22 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "thermodynamics",
+    "law_family": "carnot_engine_work",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "M^1 L^2 T^-2",
+        "domain": [
+          200.0,
+          2000.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "Qh",
+        "provenance": "measured",
+        "quantity_type": "energy",
+        "sign_convention": "magnitudes are positive",
+        "unit": "kJ",
+        "value": 800.0
+      },
+      {
+        "dimension": "Th^1",
+        "domain": [
+          450.0,
+          900.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "Th",
+        "provenance": "measured",
+        "quantity_type": "temperature",
+        "sign_convention": "magnitudes are positive",
+        "unit": "K",
+        "value": 600.0
+      },
+      {
+        "dimension": "Th^1",
+        "domain": [
+          250.0,
+          400.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "Tc",
+        "provenance": "measured",
+        "quantity_type": "temperature",
+        "sign_convention": "magnitudes are positive",
+        "unit": "K",
+        "value": 300.0
+      },
+      {
+        "dimension": "M^1 L^2 T^-2",
+        "domain": null,
+        "expr": "Qh*(1 - Tc/Th)",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "W",
+        "provenance": "computed",
+        "quantity_type": "energy",
+        "sign_convention": "magnitudes are positive",
+        "unit": "kJ",
+        "value": null
+      }
+    ],
+    "program_hash": "8665b2b42b59d2702632d9b1924490545e92e31e28ad0235ffa0513890c63f37",
+    "seed": 42,
+    "solver_rel_tol": 1e-09,
+    "solver_route": "the entropy balance Qc / Tc = Qh / Th together with W + Qc = Qh, solved as a linear system",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S24",
+    "structure_uuid": "78d6f832-de12-53ac-968a-bf1062acfdfe",
+    "symbolic_derivation": "Qh*(-Tc + Th)/Th",
+    "title": "Work output of a reversible heat engine"
+  },
+  "relevant_edit": {
+    "factor": 1.25,
+    "node": "Qh"
+  },
+  "render": {
+    "comparison_sentence": "A reference engine B does {v} {u} of work per cycle.",
+    "context": "A reversible heat engine takes {Qh} kJ of heat from a reservoir at {Th} K in each cycle and rejects heat to a reservoir at {Tc} K.",
+    "equivalent_unit": "J",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate lamp B is rated at {v} {u}, but it plays no part in the cycle.",
+    "incompatible_unit": "W",
+    "isolated_sentence": "A separate generator B in another plant delivers {v} {u} per cycle, but it is unrelated to the engine.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "net work done in one cycle",
+    "question": "How much net work does the engine do in one cycle?",
+    "target_unit": "kJ"
+  },
+  "solver_rel_tol": 1e-09,
+  "solver_route": "the entropy balance Qc / Tc = Qh / Th together with W + Qc = Qh, solved as a linear system",
+  "structure_id": "S24",
+  "target": "W",
+  "title": "Work output of a reversible heat engine"
+}

@@ -1,0 +1,282 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "n1",
+        "n2"
+      ],
+      "assumption_id": "A-flat",
+      "kind": "modelling",
+      "text": "The interface is flat and the light travels from the first medium into the second."
+    },
+    {
+      "applies_to": [
+        "theta1"
+      ],
+      "assumption_id": "A-angle",
+      "kind": "boundary_condition",
+      "text": "Angles are measured from the normal to the interface."
+    }
+  ],
+  "domain": "optics",
+  "instances": [
+    {
+      "n1": 1.0,
+      "n2": 1.5,
+      "theta1": 40.0
+    },
+    {
+      "n1": 1.2,
+      "n2": 1.7,
+      "theta1": 35.0
+    }
+  ],
+  "law_family": "snell_refraction_angle",
+  "nodes": [
+    {
+      "description": "refractive index of the first medium",
+      "domain": [
+        1.0,
+        1.4
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "n1",
+      "provenance": "measured",
+      "quantity_type": "coefficient",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "1",
+      "value": 1.0
+    },
+    {
+      "description": "refractive index of the second medium",
+      "domain": [
+        1.3,
+        1.9
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "n2",
+      "provenance": "measured",
+      "quantity_type": "coefficient",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "1",
+      "value": 1.5
+    },
+    {
+      "description": "angle of incidence from the normal",
+      "domain": [
+        20.0,
+        60.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "theta1",
+      "provenance": "measured",
+      "quantity_type": "angle",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "deg",
+      "value": 40.0
+    },
+    {
+      "description": "angle of refraction from the normal",
+      "domain": null,
+      "expr": "asin(n1*sin(theta1)/n2)",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "theta2",
+      "provenance": "computed",
+      "quantity_type": "angle",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "deg",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "n1",
+          "n2"
+        ],
+        "assumption_id": "A-flat",
+        "kind": "modelling",
+        "text": "The interface is flat and the light travels from the first medium into the second."
+      },
+      {
+        "applies_to": [
+          "theta1"
+        ],
+        "assumption_id": "A-angle",
+        "kind": "boundary_condition",
+        "text": "Angles are measured from the normal to the interface."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "1 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 4.07e-15 (tolerance 1e-09) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing theta1 by x1.25 moves the answer by 21.0% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "8 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "21 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "optics",
+    "law_family": "snell_refraction_angle",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "1",
+        "domain": [
+          1.0,
+          1.4
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "n1",
+        "provenance": "measured",
+        "quantity_type": "coefficient",
+        "sign_convention": "magnitudes are positive",
+        "unit": "1",
+        "value": 1.0
+      },
+      {
+        "dimension": "1",
+        "domain": [
+          1.3,
+          1.9
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "n2",
+        "provenance": "measured",
+        "quantity_type": "coefficient",
+        "sign_convention": "magnitudes are positive",
+        "unit": "1",
+        "value": 1.5
+      },
+      {
+        "dimension": "1",
+        "domain": [
+          20.0,
+          60.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "theta1",
+        "provenance": "measured",
+        "quantity_type": "angle",
+        "sign_convention": "magnitudes are positive",
+        "unit": "deg",
+        "value": 40.0
+      },
+      {
+        "dimension": "1",
+        "domain": null,
+        "expr": "asin(n1*sin(theta1)/n2)",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "theta2",
+        "provenance": "computed",
+        "quantity_type": "angle",
+        "sign_convention": "magnitudes are positive",
+        "unit": "deg",
+        "value": null
+      }
+    ],
+    "program_hash": "94a6b7ae870e7835a8e394702c02992cb8720c4b1645e39ff1f6ba6f4b003dde",
+    "seed": 42,
+    "solver_rel_tol": 1e-09,
+    "solver_route": "the refraction angle as the root of n1 sin(theta1) = n2 sin(theta2) on the first quadrant",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S26",
+    "structure_uuid": "0426ea44-c272-59b5-b9ec-bde59ce6f6f7",
+    "symbolic_derivation": "asin(n1*sin(theta1)/n2)",
+    "title": "Angle of refraction at a flat interface"
+  },
+  "relevant_edit": {
+    "factor": 1.25,
+    "node": "theta1"
+  },
+  "render": {
+    "comparison_sentence": "A reference ray B is refracted by {v} {u}.",
+    "context": "A ray of light in a medium of refractive index {n1} meets a flat interface with a second medium of refractive index {n2}. The angle of incidence, measured from the normal, is {theta1} degrees.",
+    "equivalent_unit": "rad",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate lamp B is rated at {v} {u}, but it plays no part in the refraction.",
+    "incompatible_unit": "W",
+    "isolated_sentence": "A separate ray B in another prism leaves at an angle of {v} {u}, but it is unrelated to the interface.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "angle of refraction",
+    "question": "What is the angle of refraction, measured from the normal?",
+    "target_unit": "deg"
+  },
+  "solver_rel_tol": 1e-09,
+  "solver_route": "the refraction angle as the root of n1 sin(theta1) = n2 sin(theta2) on the first quadrant",
+  "structure_id": "S26",
+  "target": "theta2",
+  "title": "Angle of refraction at a flat interface"
+}

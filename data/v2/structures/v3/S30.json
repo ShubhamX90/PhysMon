@@ -1,0 +1,315 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "P"
+      ],
+      "assumption_id": "A-loss",
+      "kind": "modelling",
+      "text": "All of the heater power goes into the water and no heat is lost to the surroundings."
+    },
+    {
+      "applies_to": [
+        "c"
+      ],
+      "assumption_id": "A-c",
+      "kind": "modelling",
+      "text": "The specific heat capacity is the stated constant over the whole temperature range."
+    }
+  ],
+  "domain": "thermodynamics",
+  "instances": [
+    {
+      "P": 1500.0,
+      "c": 4186.0,
+      "dT": 40.0,
+      "m": 2.0
+    },
+    {
+      "P": 2000.0,
+      "c": 4186.0,
+      "dT": 60.0,
+      "m": 1.5
+    }
+  ],
+  "law_family": "electric_heater_water_heating_time",
+  "nodes": [
+    {
+      "description": "mass of the water",
+      "domain": [
+        0.5,
+        5.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "m",
+      "provenance": "measured",
+      "quantity_type": "mass",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "kg",
+      "value": 2.0
+    },
+    {
+      "description": "specific heat capacity of water, a stated constant",
+      "domain": [
+        4100.0,
+        4200.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "c",
+      "provenance": "assumed",
+      "quantity_type": "specific_heat",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "J/(kg*K)",
+      "value": 4186.0
+    },
+    {
+      "description": "required rise in temperature",
+      "domain": [
+        10.0,
+        70.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "dT",
+      "provenance": "measured",
+      "quantity_type": "temperature",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "K",
+      "value": 40.0
+    },
+    {
+      "description": "power delivered to the water by the heater",
+      "domain": [
+        500.0,
+        3000.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "P",
+      "provenance": "measured",
+      "quantity_type": "power",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "W",
+      "value": 1500.0
+    },
+    {
+      "description": "time needed for the water to warm by the required amount",
+      "domain": null,
+      "expr": "m*c*dT/P",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "t",
+      "provenance": "computed",
+      "quantity_type": "time",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "s",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "P"
+        ],
+        "assumption_id": "A-loss",
+        "kind": "modelling",
+        "text": "All of the heater power goes into the water and no heat is lost to the surroundings."
+      },
+      {
+        "applies_to": [
+          "c"
+        ],
+        "assumption_id": "A-c",
+        "kind": "modelling",
+        "text": "The specific heat capacity is the stated constant over the whole temperature range."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "1 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 7.61e-16 (tolerance 1e-06) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing dT by x1.25 moves the answer by 25.0% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "16 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "21 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "thermodynamics",
+    "law_family": "electric_heater_water_heating_time",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "M^1",
+        "domain": [
+          0.5,
+          5.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "m",
+        "provenance": "measured",
+        "quantity_type": "mass",
+        "sign_convention": "magnitudes are positive",
+        "unit": "kg",
+        "value": 2.0
+      },
+      {
+        "dimension": "L^2 T^-2 Th^-1",
+        "domain": [
+          4100.0,
+          4200.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "c",
+        "provenance": "assumed",
+        "quantity_type": "specific_heat",
+        "sign_convention": "magnitudes are positive",
+        "unit": "J/(kg*K)",
+        "value": 4186.0
+      },
+      {
+        "dimension": "Th^1",
+        "domain": [
+          10.0,
+          70.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "dT",
+        "provenance": "measured",
+        "quantity_type": "temperature",
+        "sign_convention": "magnitudes are positive",
+        "unit": "K",
+        "value": 40.0
+      },
+      {
+        "dimension": "M^1 L^2 T^-3",
+        "domain": [
+          500.0,
+          3000.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "P",
+        "provenance": "measured",
+        "quantity_type": "power",
+        "sign_convention": "magnitudes are positive",
+        "unit": "W",
+        "value": 1500.0
+      },
+      {
+        "dimension": "T^1",
+        "domain": null,
+        "expr": "m*c*dT/P",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "t",
+        "provenance": "computed",
+        "quantity_type": "time",
+        "sign_convention": "magnitudes are positive",
+        "unit": "s",
+        "value": null
+      }
+    ],
+    "program_hash": "d86de163a9c46f826d16599dc71557e0b81b4614cfb50e6f36dc572e9f69c6b6",
+    "seed": 42,
+    "solver_rel_tol": 1e-06,
+    "solver_route": "the temperature rise integrated at the constant rate P / (m c) until it reaches the required rise",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S30",
+    "structure_uuid": "838949aa-afe0-5e78-9e2b-43c421bf0481",
+    "symbolic_derivation": "c*dT*m/P",
+    "title": "Time for a heater to warm water"
+  },
+  "relevant_edit": {
+    "factor": 1.25,
+    "node": "dT"
+  },
+  "render": {
+    "comparison_sentence": "A reference heater B needs {v} {u} for the same rise.",
+    "context": "An electric heater delivers {P} W to {m} kg of water. The specific heat capacity of water is {c} J/(kg·K).",
+    "equivalent_unit": "min",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate lamp B is rated at {v} {u}, but it plays no part in the heating.",
+    "incompatible_unit": "W",
+    "isolated_sentence": "A separate kettle B in another kitchen needs {v} {u} to boil, but it is unrelated to this heater.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "time to warm the water",
+    "question": "How long does it take to raise the temperature of the water by {dT} K?",
+    "target_unit": "s"
+  },
+  "solver_rel_tol": 1e-06,
+  "solver_route": "the temperature rise integrated at the constant rate P / (m c) until it reaches the required rise",
+  "structure_id": "S30",
+  "target": "t",
+  "title": "Time for a heater to warm water"
+}

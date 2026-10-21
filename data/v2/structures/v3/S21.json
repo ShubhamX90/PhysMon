@@ -1,0 +1,280 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "vs"
+      ],
+      "assumption_id": "A-medium",
+      "kind": "modelling",
+      "text": "The air is still and the listener is at rest; the source moves directly toward the listener."
+    },
+    {
+      "applies_to": [
+        "c"
+      ],
+      "assumption_id": "A-sound",
+      "kind": "modelling",
+      "text": "The speed of sound is the stated constant."
+    }
+  ],
+  "domain": "acoustics",
+  "instances": [
+    {
+      "c": 343.0,
+      "f": 440.0,
+      "vs": 20.0
+    },
+    {
+      "c": 343.0,
+      "f": 512.0,
+      "vs": 30.0
+    }
+  ],
+  "law_family": "doppler_approaching_source",
+  "nodes": [
+    {
+      "description": "frequency emitted by the source",
+      "domain": [
+        200.0,
+        1000.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "f",
+      "provenance": "measured",
+      "quantity_type": "frequency",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "Hz",
+      "value": 440.0
+    },
+    {
+      "description": "speed of sound in the air, a stated constant",
+      "domain": [
+        330.0,
+        350.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "c",
+      "provenance": "assumed",
+      "quantity_type": "speed",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m/s",
+      "value": 343.0
+    },
+    {
+      "description": "speed of the source toward the listener",
+      "domain": [
+        5.0,
+        80.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "vs",
+      "provenance": "measured",
+      "quantity_type": "speed",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m/s",
+      "value": 20.0
+    },
+    {
+      "description": "frequency heard by the listener",
+      "domain": null,
+      "expr": "f*c/(c - vs)",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "fo",
+      "provenance": "computed",
+      "quantity_type": "frequency",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "Hz",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "vs"
+        ],
+        "assumption_id": "A-medium",
+        "kind": "modelling",
+        "text": "The air is still and the listener is at rest; the source moves directly toward the listener."
+      },
+      {
+        "applies_to": [
+          "c"
+        ],
+        "assumption_id": "A-sound",
+        "kind": "modelling",
+        "text": "The speed of sound is the stated constant."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "1 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 2.29e-16 (tolerance 1e-09) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing vs by x2.0 moves the answer by 6.6% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "8 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "22 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "acoustics",
+    "law_family": "doppler_approaching_source",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "T^-1",
+        "domain": [
+          200.0,
+          1000.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "f",
+        "provenance": "measured",
+        "quantity_type": "frequency",
+        "sign_convention": "magnitudes are positive",
+        "unit": "Hz",
+        "value": 440.0
+      },
+      {
+        "dimension": "L^1 T^-1",
+        "domain": [
+          330.0,
+          350.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "c",
+        "provenance": "assumed",
+        "quantity_type": "speed",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m/s",
+        "value": 343.0
+      },
+      {
+        "dimension": "L^1 T^-1",
+        "domain": [
+          5.0,
+          80.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "vs",
+        "provenance": "measured",
+        "quantity_type": "speed",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m/s",
+        "value": 20.0
+      },
+      {
+        "dimension": "T^-1",
+        "domain": null,
+        "expr": "f*c/(c - vs)",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "fo",
+        "provenance": "computed",
+        "quantity_type": "frequency",
+        "sign_convention": "magnitudes are positive",
+        "unit": "Hz",
+        "value": null
+      }
+    ],
+    "program_hash": "49a33f55a021ca88aa65b68977c3b06fdd3f990d796485ad05fa242c63941128",
+    "seed": 42,
+    "solver_rel_tol": 1e-09,
+    "solver_route": "the heard frequency as the root of f_obs (c - vs) = f c, found with a bracketing root finder",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S21",
+    "structure_uuid": "641410d3-4015-5cee-abfa-c4dafa3dd716",
+    "symbolic_derivation": "c*f/(c - vs)",
+    "title": "Frequency heard from an approaching source"
+  },
+  "relevant_edit": {
+    "factor": 2.0,
+    "node": "vs"
+  },
+  "render": {
+    "comparison_sentence": "A reference tuning fork B vibrates at {v} {u}.",
+    "context": "A siren emits a steady tone of {f} Hz while it moves directly toward a stationary listener at {vs} m/s. The speed of sound in the air is {c} m/s.",
+    "equivalent_unit": "kHz",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate lamp B is rated at {v} {u}, but it plays no part in the sound.",
+    "incompatible_unit": "W",
+    "isolated_sentence": "A separate alarm B in another building emits a tone of {v} {u}, but it is unrelated to the siren.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "frequency heard by the listener",
+    "question": "What frequency does the listener hear?",
+    "target_unit": "Hz"
+  },
+  "solver_rel_tol": 1e-09,
+  "solver_route": "the heard frequency as the root of f_obs (c - vs) = f c, found with a bracketing root finder",
+  "structure_id": "S21",
+  "target": "fo",
+  "title": "Frequency heard from an approaching source"
+}

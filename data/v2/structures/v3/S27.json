@@ -1,0 +1,331 @@
+{
+  "assumptions": [
+    {
+      "applies_to": [
+        "g"
+      ],
+      "assumption_id": "A-g",
+      "kind": "modelling",
+      "text": "g is a uniform constant of the stated value."
+    },
+    {
+      "applies_to": [
+        "rho"
+      ],
+      "assumption_id": "A-static",
+      "kind": "modelling",
+      "text": "The liquid is at rest and its density is uniform."
+    },
+    {
+      "applies_to": [
+        "p0"
+      ],
+      "assumption_id": "A-surface",
+      "kind": "boundary_condition",
+      "text": "The pressure at the free surface is the stated value."
+    }
+  ],
+  "domain": "fluids",
+  "instances": [
+    {
+      "g": 9.8,
+      "h": 12.0,
+      "p0": 101.0,
+      "rho": 1000.0
+    },
+    {
+      "g": 9.8,
+      "h": 20.0,
+      "p0": 100.0,
+      "rho": 850.0
+    }
+  ],
+  "law_family": "hydrostatic_pressure_at_depth",
+  "nodes": [
+    {
+      "description": "pressure at the free surface",
+      "domain": [
+        95.0,
+        105.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "p0",
+      "provenance": "measured",
+      "quantity_type": "pressure",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "kPa",
+      "value": 101.0
+    },
+    {
+      "description": "density of the liquid",
+      "domain": [
+        700.0,
+        1400.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "rho",
+      "provenance": "measured",
+      "quantity_type": "density",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "kg/m^3",
+      "value": 1000.0
+    },
+    {
+      "description": "gravitational acceleration, a stated constant",
+      "domain": [
+        9.7,
+        9.9
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "g",
+      "provenance": "assumed",
+      "quantity_type": "acceleration",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m/s^2",
+      "value": 9.8
+    },
+    {
+      "description": "depth below the surface",
+      "domain": [
+        2.0,
+        30.0
+      ],
+      "expr": null,
+      "frame": "laboratory frame",
+      "kind": "input",
+      "name": "h",
+      "provenance": "measured",
+      "quantity_type": "length",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "m",
+      "value": 12.0
+    },
+    {
+      "description": "absolute pressure at that depth",
+      "domain": null,
+      "expr": "p0 + rho*g*h",
+      "frame": "laboratory frame",
+      "kind": "computed",
+      "name": "p",
+      "provenance": "computed",
+      "quantity_type": "pressure",
+      "sign_convention": "magnitudes are positive",
+      "uncertainty": null,
+      "unit": "kPa",
+      "value": null
+    }
+  ],
+  "proof": {
+    "admission_category": "UNREVIEWED",
+    "assumptions": [
+      {
+        "applies_to": [
+          "g"
+        ],
+        "assumption_id": "A-g",
+        "kind": "modelling",
+        "text": "g is a uniform constant of the stated value."
+      },
+      {
+        "applies_to": [
+          "rho"
+        ],
+        "assumption_id": "A-static",
+        "kind": "modelling",
+        "text": "The liquid is at rest and its density is uniform."
+      },
+      {
+        "applies_to": [
+          "p0"
+        ],
+        "assumption_id": "A-surface",
+        "kind": "boundary_condition",
+        "text": "The pressure at the free surface is the stated value."
+      }
+    ],
+    "checks": [
+      {
+        "detail": "ok",
+        "name": "schema",
+        "passed": true
+      },
+      {
+        "detail": "acyclic; every symbol declared",
+        "name": "symbols_acyclic",
+        "passed": true
+      },
+      {
+        "detail": "1 computed nodes and the answer unit are dimensionally consistent",
+        "name": "dimensions",
+        "passed": true
+      },
+      {
+        "detail": "every input is an ancestor",
+        "name": "target_and_inputs_relevant",
+        "passed": true
+      },
+      {
+        "detail": "the nuisance symbol is not an ancestor of the target",
+        "name": "nuisance_independence",
+        "passed": true
+      },
+      {
+        "detail": "every assumed node is covered and every assumption names an existing node",
+        "name": "assumptions_cover_assumed",
+        "passed": true
+      },
+      {
+        "detail": "worst relative disagreement 4.08e-16 (tolerance 1e-09) over the base point, 40 random points and the domain corners",
+        "name": "route_agreement",
+        "passed": true
+      },
+      {
+        "detail": "editing h by x1.5 moves the answer by 26.9% (minimum 5%); routes agree: True; edit inside the admissible domain: True",
+        "name": "positive_control",
+        "passed": true
+      },
+      {
+        "detail": "routes agree: True; the answer tracks the reference value exactly: True",
+        "name": "role_reversal_twin",
+        "passed": true
+      },
+      {
+        "detail": "16 domain corners evaluated; non-finite results: 0",
+        "name": "boundary_cases",
+        "passed": true
+      },
+      {
+        "detail": "21 of 22 cells feasible; prompts whose numerals do not match the graph: []",
+        "name": "prompt_matches_graph",
+        "passed": true
+      }
+    ],
+    "domain": "fluids",
+    "law_family": "hydrostatic_pressure_at_depth",
+    "n_random_draws": 40,
+    "nodes": [
+      {
+        "dimension": "M^1 L^-1 T^-2",
+        "domain": [
+          95.0,
+          105.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "p0",
+        "provenance": "measured",
+        "quantity_type": "pressure",
+        "sign_convention": "magnitudes are positive",
+        "unit": "kPa",
+        "value": 101.0
+      },
+      {
+        "dimension": "M^1 L^-3",
+        "domain": [
+          700.0,
+          1400.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "rho",
+        "provenance": "measured",
+        "quantity_type": "density",
+        "sign_convention": "magnitudes are positive",
+        "unit": "kg/m^3",
+        "value": 1000.0
+      },
+      {
+        "dimension": "L^1 T^-2",
+        "domain": [
+          9.7,
+          9.9
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "g",
+        "provenance": "assumed",
+        "quantity_type": "acceleration",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m/s^2",
+        "value": 9.8
+      },
+      {
+        "dimension": "L^1",
+        "domain": [
+          2.0,
+          30.0
+        ],
+        "expr": null,
+        "frame": "laboratory frame",
+        "kind": "input",
+        "name": "h",
+        "provenance": "measured",
+        "quantity_type": "length",
+        "sign_convention": "magnitudes are positive",
+        "unit": "m",
+        "value": 12.0
+      },
+      {
+        "dimension": "M^1 L^-1 T^-2",
+        "domain": null,
+        "expr": "p0 + rho*g*h",
+        "frame": "laboratory frame",
+        "kind": "computed",
+        "name": "p",
+        "provenance": "computed",
+        "quantity_type": "pressure",
+        "sign_convention": "magnitudes are positive",
+        "unit": "kPa",
+        "value": null
+      }
+    ],
+    "program_hash": "02ed7b5af8db8295c5403f78d6d7eb3c54f417b7802e4ad48ff3a114859665f9",
+    "seed": 42,
+    "solver_rel_tol": 1e-09,
+    "solver_route": "the surface pressure plus the integral of rho g dz over the depth",
+    "statement": "Certifies the graph, the independent solver route and the rendered numerals. Does not certify the English text or the physical modelling choices; independent expert review is required.",
+    "status": "SOLVER_CERTIFIED",
+    "structure_id": "S27",
+    "structure_uuid": "23972ce1-7237-50e1-9b8c-96a7aa22e263",
+    "symbolic_derivation": "g*h*rho + p0",
+    "title": "Absolute pressure at depth in a liquid"
+  },
+  "relevant_edit": {
+    "factor": 1.5,
+    "node": "h"
+  },
+  "render": {
+    "comparison_sentence": "A reference tank B has a pressure of {v} {u} at its bottom.",
+    "context": "A tank is filled with a liquid of density {rho} kg/m³. The pressure at the free surface is {p0} kPa. Take g = {g} m/s².",
+    "equivalent_unit": "Pa",
+    "fixed_numbers": [],
+    "formats": {},
+    "incompatible_sentence": "A separate lamp B is rated at {v} {u}, but it plays no part in the pressure.",
+    "incompatible_unit": "W",
+    "isolated_sentence": "A separate gauge B in another tank reads {v} {u}, but it is unrelated to this liquid.",
+    "metadata_sentence": "The laboratory temperature is {v} {u}.",
+    "metadata_unit": "°C",
+    "nonnumeric_sentence": "The apparatus was assembled on a sturdy wooden bench near the window.",
+    "quantity_phrase": "absolute pressure at that depth",
+    "question": "What is the absolute pressure at a depth of {h} m?",
+    "target_unit": "kPa"
+  },
+  "solver_rel_tol": 1e-09,
+  "solver_route": "the surface pressure plus the integral of rho g dz over the depth",
+  "structure_id": "S27",
+  "target": "p",
+  "title": "Absolute pressure at depth in a liquid"
+}
