@@ -1,0 +1,90 @@
+{
+  "authorized_to_run": false,
+  "command": "scripts/v2/s159_matched_distance_plan.py",
+  "contract_fingerprint": "bb6bbec489ef185850a40c2d83955b4371a22b2343196135f2db885e6dabca81",
+  "contract_version": "v2-scoring-contract-1",
+  "data_role": "EXPLORATION",
+  "evidence_class": "exploratory; not paper-eligible; not run",
+  "git_status_short": [
+    "?? activations",
+    "?? results/infrastructure/model_smoke/attempt_20261014_gpu_h100/",
+    "?? results/stage14/s159_matched_distance_plan/"
+  ],
+  "kind": "plausibility-matched numeral-presence plan (dry run)",
+  "manifests": [
+    {
+      "path": "data/v2/structures/v1/factor_cell_manifest.jsonl",
+      "sha256": "0966bec0f29a2839f0fc8acb19477f5aaab986858ee41ab32e7488da6449300c"
+    },
+    {
+      "path": "data/v2/structures/v2/factor_cell_manifest.jsonl",
+      "sha256": "a6d0bb3975184a88c2665bedb6ce99599da2242d73726a5b35d813c9733b7b08"
+    }
+  ],
+  "match_rule": {
+    "absent_from_prompt": true,
+    "distance": "|ln(v / gold)| within a factor of the numeral's own",
+    "factor": 2.0,
+    "min_distance": 0.001,
+    "per_side": 2,
+    "relaxed_factor": 4.0,
+    "shape": "same count of integer digits and decimals"
+  },
+  "n_jobs": 16678,
+  "n_unmatched_numerals_per_model": 56,
+  "per_model": {
+    "llama_primary": {
+      "by_kind": {
+        "matched_control": 6580,
+        "present": 1759
+      },
+      "by_role": {
+        "cue_irrelevant_metadata": 40,
+        "cue_nongoverning_isolated": 223,
+        "cue_relevant_reference": 40,
+        "relevant_input": 1456
+      },
+      "gpu_time_estimate": "NOT ESTIMATED: score-only passes; measure on the stack",
+      "n_jobs": 8339,
+      "n_prompts": 423,
+      "relaxed_factor_controls": 346,
+      "tokenization_failures": 0
+    },
+    "qwen_primary": {
+      "by_kind": {
+        "matched_control": 6580,
+        "present": 1759
+      },
+      "by_role": {
+        "cue_irrelevant_metadata": 40,
+        "cue_nongoverning_isolated": 223,
+        "cue_relevant_reference": 40,
+        "relevant_input": 1456
+      },
+      "gpu_time_estimate": "NOT ESTIMATED: score-only passes; measure on the stack",
+      "n_jobs": 8339,
+      "n_prompts": 423,
+      "relaxed_factor_controls": 346,
+      "tokenization_failures": 0
+    }
+  },
+  "seed": 42,
+  "source_commit": "d13b857dee73d3102ec5cfad1f8113c42c6bf2c8",
+  "stage": "14.17",
+  "tokenizers": {
+    "llama_primary": {
+      "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "path": "/scratch/pabitra/models/Llama-3.1-8B-Instruct",
+      "tokenizer.json_sha256": "79e3e522635f3171300913bb421464a87de6222182a0570b9b2ccba2a964b2b4",
+      "tokenizer_config.json_sha256": "177c7b61e616fecb84c17ce0591acb92c6c4d60e9ac5ababfb940ff23bbcd424"
+    },
+    "qwen_primary": {
+      "model_name": "Qwen/Qwen2.5-7B-Instruct",
+      "path": "/scratch/pabitra/models/Qwen2.5-7B-Instruct",
+      "tokenizer.json_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+      "tokenizer_config.json_sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583"
+    }
+  },
+  "transformers": "5.11.0",
+  "wrapper_id": "answer_line"
+}
