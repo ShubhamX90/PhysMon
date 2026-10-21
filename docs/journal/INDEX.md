@@ -25,3 +25,5 @@ Plan of record: `docs/proposals/PhysMon_Research_v2.pdf`. Stage ordering below i
 | 14.16 | Legacy-family X03 plan (60 families, 4 wrappers, candidate matrix) | X03, P1.3, P1.4 | CPU plan, GPU run | plan (8,448 jobs), run (job 401608) and analysis done; presence effect in both models, no wrapper dominates | [14.16](stage14/14.16_legacy_x03_plan.md) |
 
 Status values: `not started`, `in progress`, `done`, `blocked`, `superseded`.
+| 14.17 | Plausibility-matched numeral-presence control | P4, protocol §5 row 4 | CPU plan and analysis, GPU run | plan (8,339 jobs per model) and frozen analysis committed; job 407836 submitted, pending | [14.17](stage14/14.17_matched_distance_control.md) |
+| 14.18 | Third structure batch S21-S30 (acoustics, gas, heat engine, inductor, refraction, fluids, pursuit, power, heating) | B3, B6.1 | CPU only | done (certified, UNREVIEWED); 30 of 40 to 60 structures; pilot plan (428 jobs) committed, not run | [14.18](stage14/14.18_structures_batch_c.md) |

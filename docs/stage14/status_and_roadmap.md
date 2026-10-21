@@ -1,4 +1,4 @@
-# Stage 14 status and roadmap (updated 2026-10-18, after the four-job batch 401607 to 401610)
+# Stage 14 status and roadmap (updated 2026-10-21, after Stages 14.17 and 14.18)
 
 Plan of record: `docs/proposals/PhysMon_Research_v2.pdf`. Journal index: `docs/journal/INDEX.md`. Decisions: `docs/decisions/decision_log.md`.
 **Nothing in Stage 14 is a confirmation, a validated item set, or paper-eligible.** Every result below is exploratory (data role EXPLORATION).
@@ -19,6 +19,8 @@ Plan of record: `docs/proposals/PhysMon_Research_v2.pdf`. Journal index: `docs/j
 | 14.14 | Numeral-presence control: plan (3,924 jobs), analysis tooling, score-only runner; run done (job 401607): every number in a prompt gets a presence boost, larger for a cue and largest for a same-unit cue; copying and numeric plausibility are not separated |
 | 14.15 | Second structure batch S11 to S20 (shorter chains, four domains): certified, approved by the user's open walkthrough, certificates UNREVIEWED; pilot run (jobs 401609, 401610) done: correctness still at the floor without reasoning (4 and 1 of 20), noise floor and decoy-shift direction match batch A, reasoning gate met for both models |
 | 14.16 | Legacy-family X03 plan (60 stratified families, 4 wrappers, candidate matrix; 8,448 jobs) and frozen analysis; run done (job 401608): a presence effect exists in about 35 template clusters for both models, and no wrapper dominates by the frozen rule |
+| 14.17 | Plausibility-matched numeral-presence control: plan (8,339 jobs per model) and frozen analysis with a reading rule fixed before any score; job 407836 submitted and pending behind the account's H100 cap |
+| 14.18 | Third structure batch S21 to S30 (acoustics, gas, heat engine, inductor, refraction, fluids, pursuit, power, heating): certified, UNREVIEWED; 30 of 40 to 60 structures; pilot plan (428 jobs) committed, not run; the user's walkthrough review is pending |
 
 Integrity check: `python3 scripts/v2/register_stage14_artifacts.py --verify` (non-zero exit on any change); `python3 scripts/v2/validate_claim_ledger.py`.
 
@@ -31,14 +33,14 @@ A same-unit numeral that appears in the prompt becomes a far more likely continu
 | Open item | State and need |
 |---|---|
 | Correctness floor | Reasoning lifts it (J14.13, J14.15-008); the endpoint is estimable for Qwen on both batches and for Llama on batch B at the threshold, with 5 to 15 base-correct items per cell. More structures or items are needed before a flip share can carry a claim. |
-| Copying versus relevance | Run (J14.14-005): the boost is not specific to a cue. A control that separates copying from the plausibility of a near-gold numeral (for example numerals matched in distance to the gold) is not designed. |
+| Copying versus relevance | Run (J14.14-005): the boost is not specific to a cue. The plausibility-matched control is planned and its analysis frozen (J14.17); job 407836 is pending and no matched-control score exists yet. |
 | Relevant-edit assay | Inconclusive under the no-reasoning answer; the reasoning run gives new data for it. |
 | Legacy-family X03 | Run and analysed (J14.16-005); no further GPU step planned. The Llama irrelevant-variable group (11 clusters) meets the dominance arithmetic for json and plain outside the frozen test; no follow-up is frozen. |
 | P0 gate (regenerate Phase-I values through the model; hook check) | Not started; large; changes what earlier results mean; needs a decision. |
-| 40 to 60 independent structures | 20 exist (S01 to S20), all with one-reviewer open walkthrough approval only. 20 to 40 more, and a certified review by someone other than the author and the walkthrough reviewer. |
+| 40 to 60 independent structures | 30 exist (S01 to S30); S01 to S20 have one-reviewer open walkthrough approval only and S21 to S30 none yet. 10 to 30 more, and a certified review by someone other than the author and the walkthrough reviewer. |
 | Independent expert review, physicist confirmation of the planted bank, validator recruitment | People outside this session; the user reviewed as one non-blinded reviewer whose physics expertise was not stated. |
 | Phase-I manuscript | Not in the repository; its numbers stay SUBMITTED claims. |
 
 ## Jobs and authorization
 
-Every job needed the user's per-submission acceptance after the first block of the permission layer (J14.7-021). Jobs so far: COMPLETED 399217, 399539, 399969, 400932, 401287; FAILED 399511 and 399530 (git unusable on gpunode6); CANCELLED 399209, 399215 (my own pending H200 jobs) and 401327 (reasoning, 512-token budget, at the user's choice). COMPLETED also 401357 (reasoning, 2,048 tokens) and the four-job batch 401607 (numeral presence), 401608 (legacy X03), 401609 (batch-B likelihood pilot), 401610 (batch-B reasoning), all exit 0:0. Jobs of other projects on the shared account were not touched. See `docs/registry/v2/slurm_jobs.jsonl`.
+Every job needed the user's per-submission acceptance after the first block of the permission layer (J14.7-021). Jobs so far: COMPLETED 399217, 399539, 399969, 400932, 401287; FAILED 399511 and 399530 (git unusable on gpunode6); CANCELLED 399209, 399215 (my own pending H200 jobs) and 401327 (reasoning, 512-token budget, at the user's choice). COMPLETED also 401357 (reasoning, 2,048 tokens) and the four-job batch 401607 (numeral presence), 401608 (legacy X03), 401609 (batch-B likelihood pilot), 401610 (batch-B reasoning), all exit 0:0. Job 407836 (the plausibility-matched presence run, J14.17-005) was submitted at the user's instruction on 2026-10-21 and was pending behind the shared account's H100 cap when this was written. Jobs of other projects on the shared account were not touched. See `docs/registry/v2/slurm_jobs.jsonl`.

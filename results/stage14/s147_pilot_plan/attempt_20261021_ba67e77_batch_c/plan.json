@@ -1,0 +1,120 @@
+{
+  "authorized_to_run": false,
+  "blockers": [
+    "independent expert review of the ten structures (all UNREVIEWED)",
+    "ten structures, not the 40 to 60 that B6.1 asks for",
+    "P0 gate open (values recomputed, not regenerated through the model)",
+    "post-wipe GPU validation of the two models is incomplete",
+    "no explicit user authorization to submit Slurm jobs, and no live preflight of partition and caps"
+  ],
+  "command": "scripts/v2/s147_pilot_plan.py --manifest data/v2/structures/v3/factor_cell_manifest.jsonl --attempt-id attempt_20261021_ba67e77_batch_c",
+  "contract_fingerprint": "bb6bbec489ef185850a40c2d83955b4371a22b2343196135f2db885e6dabca81",
+  "contract_version": "v2-scoring-contract-1",
+  "cost": {
+    "gpu_time_estimate": "NOT ESTIMATED: no throughput has been measured on the current stack",
+    "max_new_tokens_per_generation": 40,
+    "n_cells_feasible": 214,
+    "n_cells_in_manifest": 220,
+    "n_cells_infeasible_not_run": 6,
+    "per_model": {
+      "llama_primary": {
+        "max_generated_tokens": 8560,
+        "n_generations": 214,
+        "n_jobs": 214,
+        "n_jobs_with_decoy": 94,
+        "n_scoring_forward_passes": 308,
+        "prompt_tokens_min_mean_max": [
+          115,
+          146.2196261682243,
+          170
+        ],
+        "tokenization_failures": {
+          "boundary_mismatch_decoy": 0,
+          "boundary_mismatch_gold": 0,
+          "duplicate_special_token": 0
+        },
+        "tokenizer_audit_by_wrapper": {
+          "answer_line": {
+            "boundary_mismatch_decoy": 0,
+            "boundary_mismatch_gold": 0,
+            "duplicate_special_token": 0,
+            "mean_gold_tokens": 6.705607476635514,
+            "n_jobs": 214
+          }
+        },
+        "total_prompt_tokens_for_generation_prefill": 31291,
+        "total_tokens_through_scoring_forward_passes": 47599
+      },
+      "qwen_primary": {
+        "max_generated_tokens": 8560,
+        "n_generations": 214,
+        "n_jobs": 214,
+        "n_jobs_with_decoy": 94,
+        "n_scoring_forward_passes": 308,
+        "prompt_tokens_min_mean_max": [
+          95,
+          129.19158878504672,
+          153
+        ],
+        "tokenization_failures": {
+          "boundary_mismatch_decoy": 0,
+          "boundary_mismatch_gold": 0,
+          "duplicate_special_token": 0
+        },
+        "tokenizer_audit_by_wrapper": {
+          "answer_line": {
+            "boundary_mismatch_decoy": 0,
+            "boundary_mismatch_gold": 0,
+            "duplicate_special_token": 0,
+            "mean_gold_tokens": 8.532710280373832,
+            "n_jobs": 214
+          }
+        },
+        "total_prompt_tokens_for_generation_prefill": 27647,
+        "total_tokens_through_scoring_forward_passes": 42957
+      }
+    }
+  },
+  "data_role": "EXPLORATION",
+  "evidence_class": "exploratory; not paper-eligible; not run",
+  "git_status_short": [
+    "?? activations",
+    "?? results/infrastructure/model_smoke/attempt_20261014_gpu_h100/",
+    "?? results/stage14/s147_pilot_plan/attempt_20261021_ba67e77_batch_c/"
+  ],
+  "instruction": "You are a precise physics problem solver. Solve the problem silently and return exactly one line in this format: Answer: [value] [unit]. Do not include reasoning, derivations, equations, or any extra text.",
+  "instructions": {
+    "answer_line": "You are a precise physics problem solver. Solve the problem silently and return exactly one line in this format: Answer: [value] [unit]. Do not include reasoning, derivations, equations, or any extra text."
+  },
+  "kind": "pilot plan (dry run)",
+  "manifest": {
+    "path": "data/v2/structures/v3/factor_cell_manifest.jsonl",
+    "sha256": "76fb90f0f7e9ff0c42bc2886b6551592252a2e5ba7179ce1c13afde81438265e"
+  },
+  "n_jobs": 428,
+  "protocol": {
+    "path": "docs/stage14/pilot_protocol.md",
+    "sha256": "e231cdfee4e9423caa947b2c7d227202e6bb245628cf0b6acd644b2552044ea9"
+  },
+  "source_commit": "ba67e7792268c65212c9f71823540c4af5cbfbd5",
+  "stage": "14.7",
+  "tokenizers": {
+    "llama_primary": {
+      "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+      "path": "/scratch/pabitra/models/Llama-3.1-8B-Instruct",
+      "tokenizer.json_sha256": "79e3e522635f3171300913bb421464a87de6222182a0570b9b2ccba2a964b2b4",
+      "tokenizer_config.json_sha256": "177c7b61e616fecb84c17ce0591acb92c6c4d60e9ac5ababfb940ff23bbcd424"
+    },
+    "qwen_primary": {
+      "model_name": "Qwen/Qwen2.5-7B-Instruct",
+      "path": "/scratch/pabitra/models/Qwen2.5-7B-Instruct",
+      "tokenizer.json_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+      "tokenizer_config.json_sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583"
+    }
+  },
+  "transformers": "5.11.0",
+  "wrapper_id": "answer_line",
+  "wrapper_ids": [
+    "answer_line"
+  ]
+}
