@@ -1,0 +1,1556 @@
+{
+ "S01": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct: a = (m2-m1) g/(m1+m2+M/2) gives 2.17778 and 3.30105 m/s^2.",
+   "Well posed: a uniform disc pulley, no slipping and no axle friction are stated.",
+   "Plan correct: (T2-T1) R = (M/2) R^2 a/R, effective mass m1+m2+M/2. The check (M tends to 0 gives the ideal Atwood result, and a < g) is right."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct: a = (m2-m1) g/(m1+m2+M/2) gives 2.17778 and 3.30105 m/s^2.",
+   "Well posed: a uniform disc pulley, no slipping and no axle friction are stated.",
+   "Plan correct: (T2-T1) R = (M/2) R^2 a/R, effective mass m1+m2+M/2. The check (M tends to 0 gives the ideal Atwood result, and a < g) is right."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S02": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct: v = sqrt(2 g (sin(theta) - mu cos(theta)) d) gives 5.38661 and 7.44889 m/s.",
+   "Well posed: the prompt states that the block slides the given distance. Across the input ranges tan(theta) >= tan 25 deg = 0.47 > mu_max = 0.2, so the claim in the plan check ('slides only if tan(theta) exceeds mu, which holds in the stated range') is true.",
+   "Plan correct. The wording 'stated range' refers to the generator ranges, not the problem text. This is harmless."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct: v = sqrt(2 g (sin(theta) - mu cos(theta)) d) gives 5.38661 and 7.44889 m/s.",
+   "Well posed: the prompt states that the block slides the given distance. Across the input ranges tan(theta) >= tan 25 deg = 0.47 > mu_max = 0.2, so the claim in the plan check ('slides only if tan(theta) exceeds mu, which holds in the stated range') is true.",
+   "Plan correct. The wording 'stated range' refers to the generator ranges, not the problem text. This is harmless."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S03": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct: v1f = ((m1-m2) v1 + 2 m2 v2)/(m1+m2) gives 2 and 2.54545 m/s. In both instances v1 > v2, so the collision does occur.",
+   "Well posed: 1D, frictionless, perfectly elastic, and the sign convention is stated.",
+   "Plan correct: conservation of momentum plus equal relative speeds. The checks (equal masses exchange velocities, v2 = 0 limit) are right."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct: v1f = ((m1-m2) v1 + 2 m2 v2)/(m1+m2) gives 2 and 2.54545 m/s. In both instances v1 > v2, so the collision does occur.",
+   "Well posed: 1D, frictionless, perfectly elastic, and the sign convention is stated.",
+   "Plan correct: conservation of momentum plus equal relative speeds. The checks (equal masses exchange velocities, v2 = 0 limit) are right."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S04": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct: v_max = x sqrt(k/m) gives 3 and 2.73861 m/s.",
+   "Well posed: released from rest at displacement x, which is therefore the amplitude. The surface is frictionless and the spring ideal.",
+   "Plan correct. The energy cross-check and the SHM route agree."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct: v_max = x sqrt(k/m) gives 3 and 2.73861 m/s.",
+   "Well posed: released from rest at displacement x, which is therefore the amplitude. The surface is frictionless and the spring ideal.",
+   "Plan correct. The energy cross-check and the SHM route agree."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S05": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct: alpha = (tau - tau_f)/(m r^2/2) gives 36 and 40.7407 rad/s^2.",
+   "Well posed: a uniform solid disc about its central axis, with a constant driving torque and an opposing constant friction torque. The prompt asks for magnitude.",
+   "Plan correct. The unit rad/s^2 and the doubling-the-mass check are correct."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct: alpha = (tau - tau_f)/(m r^2/2) gives 36 and 40.7407 rad/s^2.",
+   "Well posed: a uniform solid disc about its central axis, with a constant driving torque and an opposing constant friction torque. The prompt asks for magnitude.",
+   "Plan correct. The unit rad/s^2 and the doubling-the-mass check are correct."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S06": {
+  "blind_match": true,
+  "domain": "electromagnetism",
+  "issues": [
+   "R23 = 4, Req = 8, I = 1.5 A, V23 = 6 V, I3 = 0.5 A. Instance 1 (V = 18, R1 = 3, R2 = 9, R3 = 15) gives R23 = 5.625, Req = 8.625, V23 = 11.739 V and I3 = 0.782609 A. Matches the blind solver.",
+   "The prompt wording ('in series with a 4 ohm resistor and then with a parallel pair') is slightly awkward but has one reading. The plan steps and why-statements are correct, and the check (branch currents sum to Itot, V23 < V) is correct."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "R23 = 4, Req = 8, I = 1.5 A, V23 = 6 V, I3 = 0.5 A. Instance 1 (V = 18, R1 = 3, R2 = 9, R3 = 15) gives R23 = 5.625, Req = 8.625, V23 = 11.739 V and I3 = 0.782609 A. Matches the blind solver.",
+   "The prompt wording ('in series with a 4 ohm resistor and then with a parallel pair') is slightly awkward but has one reading. The plan steps and why-statements are correct, and the check (branch currents sum to Itot, V23 < V) is correct."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S07": {
+  "blind_match": true,
+  "domain": "electromagnetism",
+  "issues": [
+   "V = V0 (1 - e^(-t/RC)): 6.60805 V (x = 0.8) and 6.42146 V (R C = 0.12 s, x = 1.25) re-derived and match the blind solver.",
+   "Plan principle (loop rule gives the charging law), the 63 percent check and the limiting behaviour are correct. The prompt is unambiguous."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "V = V0 (1 - e^(-t/RC)): 6.60805 V (x = 0.8) and 6.42146 V (R C = 0.12 s, x = 1.25) re-derived and match the blind solver.",
+   "Plan principle (loop rule gives the charging law), the 63 percent check and the limiting behaviour are correct. The prompt is unambiguous."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S08": {
+  "blind_match": true,
+  "domain": "electromagnetism",
+  "issues": [
+   "Ceq = 3 uF gives U = 15 mJ. Ceq = 3.75 uF at 150 V gives 42.1875 mJ. Re-derived and match the blind solver.",
+   "Plan why-statements are correct. The check clause (answer smaller than either capacitor alone across the full emf) is true because Ceq is smaller than both capacitances."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Ceq = 3 uF gives U = 15 mJ. Ceq = 3.75 uF at 150 V gives 42.1875 mJ. Re-derived and match the blind solver.",
+   "Plan why-statements are correct. The check clause (answer smaller than either capacitor alone across the full emf) is true because Ceq is smaller than both capacitances."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S09": {
+  "blind_match": true,
+  "domain": "thermodynamics",
+  "issues": [
+   "Gold re-derived: Tf = 301.249 K, dT = 8.249 K (instance 0); Tf = 303.847 K, dT = 15.847 K (instance 1). The blind solver matched both.",
+   "Prompt gap (non-blocking): the graph assumption 'no phase change, constant specific heats' is not written in the prompt, which says only 'perfectly insulated container'. In instance 1 the block starts at 390 K, above the boiling point of water, so a strict reader could ask about boiling. The final temperature (303.8 K) is far below 373 K, so the answer is unchanged and the blind solver noted the assumption and still matched. An optional sentence such as 'no water boils away' would remove the doubt. It is not recommended as a required change, because editing an existing structure's prompt would invalidate earlier runs.",
+   "Plan is correct: the energy balance m1 c1 (T1-Tf) = m2 c2 (Tf-T2) matches the graph expression, and the weighted-average statement is correct. The checks are correct (Tf between the initial temperatures, rise positive and smaller than T1-T2)."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived: Tf = 301.249 K, dT = 8.249 K (instance 0); Tf = 303.847 K, dT = 15.847 K (instance 1). The blind solver matched both.",
+   "Prompt gap (non-blocking): the graph assumption 'no phase change, constant specific heats' is not written in the prompt, which says only 'perfectly insulated container'. In instance 1 the block starts at 390 K, above the boiling point of water, so a strict reader could ask about boiling. The final temperature (303.8 K) is far below 373 K, so the answer is unchanged and the blind solver noted the assumption and still matched. An optional sentence such as 'no water boils away' would remove the doubt. It is not recommended as a required change, because editing an existing structure's prompt would invalidate earlier runs.",
+   "Plan is correct: the energy balance m1 c1 (T1-Tf) = m2 c2 (Tf-T2) matches the graph expression, and the weighted-average statement is correct. The checks are correct (Tf between the initial temperatures, rise positive and smaller than T1-T2)."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S10": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct: H = h0 + (v sin(theta))^2/(2g) gives 13.4322 and 15.7029 m, measured above the ground as the question asks.",
+   "Well posed: the launch is from a platform at a stated height, and drag is neglected.",
+   "Plan correct. The limit checks (theta = 90 degrees gives vertical throw, theta = 0 gives H = h0) are right."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct: H = h0 + (v sin(theta))^2/(2g) gives 13.4322 and 15.7029 m, measured above the ground as the question asks.",
+   "Well posed: the launch is from a platform at a stated height, and drag is neglected.",
+   "Plan correct. The limit checks (theta = 90 degrees gives vertical throw, theta = 0 gives H = h0) are right."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S11": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct: d = v0^2/(2 mu g) gives 40.8163 and 16.3994 m.",
+   "Well posed: level road, locked wheels, kinetic friction coefficient given. Mass cancels.",
+   "Plan correct. The scaling checks (d quadruples when v doubles) are right."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct: d = v0^2/(2 mu g) gives 40.8163 and 16.3994 m.",
+   "Well posed: level road, locked wheels, kinetic friction coefficient given. Mass cancels.",
+   "Plan correct. The scaling checks (d quadruples when v doubles) are right."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S12": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct: v = sqrt(mu g r) gives 17.1464 and 19.799 m/s.",
+   "Well posed: a flat curve, static friction at its limit, no banking.",
+   "Plan correct. The approach sentence mentions a vertical force balance, which the step uses as N = m g. The check (quadrupling r doubles v) is right."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct: v = sqrt(mu g r) gives 17.1464 and 19.799 m/s.",
+   "Well posed: a flat curve, static friction at its limit, no banking.",
+   "Plan correct. The approach sentence mentions a vertical force balance, which the step uses as N = m g. The check (quadrupling r doubles v) is right."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S13": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct: T = 2 pi sqrt(L/g) gives 1.7952 and 2.19866 s.",
+   "Well posed: small amplitude, light string, small bob.",
+   "Plan correct. The derivation m L theta'' = -m g sin(theta) and the check (1 m gives about 2 s) are right."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct: T = 2 pi sqrt(L/g) gives 1.7952 and 2.19866 s.",
+   "Well posed: small amplitude, light string, small bob.",
+   "Plan correct. The derivation m L theta'' = -m g sin(theta) and the check (1 m gives about 2 s) are right."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S14": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct: P = m g h/t gives 470.4 and 588 W.",
+   "Well posed: constant speed, the load's potential-energy gain, and the power delivered to the load rather than electrical input. The question asks for the mechanical power the motor delivers to the load, so losses in the motor are not involved.",
+   "Plan correct. The statement that the motor force equals the weight at constant speed is right. The 10 W per kg-metre-per-second check is right."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct: P = m g h/t gives 470.4 and 588 W.",
+   "Well posed: constant speed, the load's potential-energy gain, and the power delivered to the load rather than electrical input. The question asks for the mechanical power the motor delivers to the load, so losses in the motor are not involved.",
+   "Plan correct. The statement that the motor force equals the weight at constant speed is right. The 10 W per kg-metre-per-second check is right."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S15": {
+  "blind_match": true,
+  "domain": "electromagnetism",
+  "issues": [
+   "P = V^2 (1/R1 + 1/R2) = 36 W. Instance 1 (V = 9, R1 = 5, R2 = 15) gives 21.6 W. Matches the blind solver.",
+   "The plan is correct and complete. Single-step structure, and the approach is sensible."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "P = V^2 (1/R1 + 1/R2) = 36 W. Instance 1 (V = 9, R1 = 5, R2 = 15) gives 21.6 W. Matches the blind solver.",
+   "The plan is correct and complete. Single-step structure, and the approach is sensible."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S16": {
+  "blind_match": true,
+  "domain": "electromagnetism",
+  "issues": [
+   "I = (V/R)(1 - e^(-R t/L)): tau = 10 ms, x = 1.5 gives 0.466122 A. Instance 1 (tau = 10 ms, x = 2) gives 0.518799 A. Re-derived and match the blind solver.",
+   "The prompt states 'negligible resistance' for the coil and zero initial current. The plan principles and checks are correct."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "I = (V/R)(1 - e^(-R t/L)): tau = 10 ms, x = 1.5 gives 0.466122 A. Instance 1 (tau = 10 ms, x = 2) gives 0.518799 A. Re-derived and match the blind solver.",
+   "The prompt states 'negligible resistance' for the coil and zero initial current. The plan principles and checks are correct."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S17": {
+  "blind_match": true,
+  "domain": "thermodynamics",
+  "issues": [
+   "Gold re-derived: 20/0.25 = 80 W and 30/0.30 = 100 W. The blind solver matched both.",
+   "Well-posed: the two thermal resistances in K/W, dT and steady flow are given. Plan: series addition and q = dT/R_total are correct, and the checks (q below dT/Ra and dT/Rb, linear in dT, K/(K/W)=W) are correct. The single-step plan is adequate for a one-line law."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived: 20/0.25 = 80 W and 30/0.30 = 100 W. The blind solver matched both.",
+   "Well-posed: the two thermal resistances in K/W, dT and steady flow are given. Plan: series addition and q = dT/R_total are correct, and the checks (q below dT/Ra and dT/Rb, linear in dT, K/(K/W)=W) are correct. The single-step plan is adequate for a one-line law."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S18": {
+  "blind_match": true,
+  "domain": "thermodynamics",
+  "issues": [
+   "Gold re-derived: p1 V1 ln(rho) = 200e3*0.005*ln2 = 693.147 J and 300e3*0.004*ln3 = 1318.33 J. The blind solver matched both.",
+   "Prompt gap (non-blocking): the prompt says 'A gas ... expands slowly at constant temperature' but never says 'ideal'. The answer needs pV = const, i.e. an ideal gas, and the plan and the A-ideal assumption use it. No solver can compute any other answer without an equation of state, so the answer is unique in practice. Adding the word 'ideal' would make the prompt strictly complete, but changing an existing structure's prompt would invalidate earlier runs, so this is optional.",
+   "Plan is correct: W = integral of p dV with p = p1V1/V gives p1V1 ln(rho). The checks are correct (ln rho < rho-1, so W < p1V1(rho-1); W equals the heat absorbed because the internal energy is unchanged)."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived: p1 V1 ln(rho) = 200e3*0.005*ln2 = 693.147 J and 300e3*0.004*ln3 = 1318.33 J. The blind solver matched both.",
+   "Prompt gap (non-blocking): the prompt says 'A gas ... expands slowly at constant temperature' but never says 'ideal'. The answer needs pV = const, i.e. an ideal gas, and the plan and the A-ideal assumption use it. No solver can compute any other answer without an equation of state, so the answer is unique in practice. Adding the word 'ideal' would make the prompt strictly complete, but changing an existing structure's prompt would invalidate earlier runs, so this is optional.",
+   "Plan is correct: W = integral of p dV with p = p1V1/V gives p1V1 ln(rho). The checks are correct (ln rho < rho-1, so W < p1V1(rho-1); W equals the heat absorbed because the internal energy is unchanged)."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S19": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct: R = v^2 sin(2 theta)/g gives 38.3548 and 62.8066 m.",
+   "Well posed: launch from and landing on the same level, drag neglected.",
+   "Plan correct: t = 2 v sin(theta)/g, x = v cos(theta) t. The checks (maximum at 45 degrees, complementary angles) are right."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct: R = v^2 sin(2 theta)/g gives 38.3548 and 62.8066 m.",
+   "Well posed: launch from and landing on the same level, drag neglected.",
+   "Plan correct: t = 2 v sin(theta)/g, x = v cos(theta) t. The checks (maximum at 45 degrees, complementary angles) are right."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S20": {
+  "blind_match": true,
+  "domain": "optics",
+  "issues": [
+   "Hand re-derived: di = f do/(do - f) gives 17.143 cm (f = 12, do = 40) and 14 cm (f = 10, do = 35). They match the gold and the blind solver.",
+   "Well-posed. Thin lens, paraxial rays and object beyond the focal length are stated.",
+   "Plan checked: the Gaussian thin-lens equation and the solved form are correct. The check (distant object gives di tends to f; do = 2f gives di = 2f; do tends to f gives di tends to infinity) is correct.",
+   "No defects found."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Hand re-derived: di = f do/(do - f) gives 17.143 cm (f = 12, do = 40) and 14 cm (f = 10, do = 35). They match the gold and the blind solver.",
+   "Well-posed. Thin lens, paraxial rays and object beyond the focal length are stated.",
+   "Plan checked: the Gaussian thin-lens equation and the solved form are correct. The check (distant object gives di tends to f; do = 2f gives di = 2f; do tends to f gives di tends to infinity) is correct.",
+   "No defects found."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S21": {
+  "blind_match": true,
+  "domain": "optics",
+  "issues": [
+   "Hand re-derived: fo = f c/(c - vs) gives 467.245 Hz (440, 343, 20) and 561.073 Hz (512, 343, 30). They match the gold and the blind solver.",
+   "Well-posed. Stationary listener, still air, source moving directly toward the listener, and c given.",
+   "Plan checked: the wavelength in air is (c - vs)/f, the listener receives c divided by that wavelength, the shift is about f vs/c for small vs, and the frequency diverges as vs tends to c. All are correct.",
+   "No defects found."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Hand re-derived: fo = f c/(c - vs) gives 467.245 Hz (440, 343, 20) and 561.073 Hz (512, 343, 30). They match the gold and the blind solver.",
+   "Well-posed. Stationary listener, still air, source moving directly toward the listener, and c given.",
+   "Plan checked: the wavelength in air is (c - vs)/f, the listener receives c divided by that wavelength, the shift is about f vs/c for small vs, and the frequency diverges as vs tends to c. All are correct.",
+   "No defects found."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S22": {
+  "blind_match": true,
+  "domain": "optics",
+  "issues": [
+   "Hand re-derived: v = sqrt(T L/m) and f1 = v/(2L) = sqrt(T/(mL))/2 give 55.902 Hz (100, 0.01, 0.8) and 69.338 Hz (150, 0.012, 0.65). They match the gold and the blind solver.",
+   "Well-posed: a uniform string fixed at both ends, the whole string length is the vibrating length, and the fundamental mode is asked for.",
+   "Plan checked: mu = m/L, lam = 2L, and the algebra to sqrt(T/(mL))/2 are correct. The dimensional check, f proportional to sqrt(T) and the remark that a lighter or shorter string gives a higher pitch (at fixed m, f is proportional to 1/sqrt(L)) are correct.",
+   "No defects found."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Hand re-derived: v = sqrt(T L/m) and f1 = v/(2L) = sqrt(T/(mL))/2 give 55.902 Hz (100, 0.01, 0.8) and 69.338 Hz (150, 0.012, 0.65). They match the gold and the blind solver.",
+   "Well-posed: a uniform string fixed at both ends, the whole string length is the vibrating length, and the fundamental mode is asked for.",
+   "Plan checked: mu = m/L, lam = 2L, and the algebra to sqrt(T/(mL))/2 are correct. The dimensional check, f proportional to sqrt(T) and the remark that a lighter or shorter string gives a higher pitch (at fixed m, f is proportional to 1/sqrt(L)) are correct.",
+   "No defects found."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S23": {
+  "blind_match": true,
+  "domain": "thermodynamics",
+  "issues": [
+   "Gold re-derived: 100*6*360/(4*300) = 180 kPa and 150*8*400/(5*320) = 300 kPa. The blind solver matched both.",
+   "Well-posed: the prompt states an ideal gas, a sealed amount, absolute temperatures in kelvin and consistent units for the p1 V1 / (p2 V2) ratio. Plan: the combined gas law and its checks (Boyle, Gay-Lussac) are correct. The plan correctly warns that temperatures must be in kelvin."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived: 100*6*360/(4*300) = 180 kPa and 150*8*400/(5*320) = 300 kPa. The blind solver matched both.",
+   "Well-posed: the prompt states an ideal gas, a sealed amount, absolute temperatures in kelvin and consistent units for the p1 V1 / (p2 V2) ratio. Plan: the combined gas law and its checks (Boyle, Gay-Lussac) are correct. The plan correctly warns that temperatures must be in kelvin."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S24": {
+  "blind_match": true,
+  "domain": "thermodynamics",
+  "issues": [
+   "Gold re-derived: 800*(1-300/600) = 400 kJ and 1200*(1-350/700) = 600 kJ. The blind solver matched both.",
+   "Well-posed: a reversible engine between two reservoirs, with the heat taken from the hot reservoir stated per cycle. Plan: first law W = Qh - Qc and Clausius equality Qc/Tc = Qh/Th for a reversible cycle are correct. The checks are correct (W < Qh, efficiency between 0 and 1, W = Qh only at Tc = 0)."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived: 800*(1-300/600) = 400 kJ and 1200*(1-350/700) = 600 kJ. The blind solver matched both.",
+   "Well-posed: a reversible engine between two reservoirs, with the heat taken from the hot reservoir stated per cycle. Plan: first law W = Qh - Qc and Clausius equality Qc/Tc = Qh/Th for a reversible cycle are correct. The checks are correct (W < Qh, efficiency between 0 and 1, W = Qh only at Tc = 0)."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S25": {
+  "blind_match": true,
+  "domain": "electromagnetism",
+  "issues": [
+   "U = L I^2/2: 1125 mJ and 1500 mJ re-derived and match the blind solver.",
+   "The approach says 'with the unit converted at the end'. The mH to H conversion actually enters at the start, but the SI evaluation then gives mJ at the end. Not wrong in substance. The plan principle (integral of L i di) is correct."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "U = L I^2/2: 1125 mJ and 1500 mJ re-derived and match the blind solver.",
+   "The approach says 'with the unit converted at the end'. The mH to H conversion actually enters at the start, but the SI evaluation then gives mJ at the end. Not wrong in substance. The plan principle (integral of L i di) is correct."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S26": {
+  "blind_match": true,
+  "domain": "optics",
+  "issues": [
+   "Hand re-derived: theta2 = asin(n1 sin(theta1)/n2) gives 25.374 degrees (1.0, 1.5, 40) and 23.883 degrees (1.2, 1.7, 35). They match the gold and the blind solver.",
+   "Well-posed: flat interface, n2 greater than n1 in both instances (so no total internal reflection), and angles from the normal.",
+   "Plan checked: Snell's law and the check (normal incidence undeflected, bends toward the normal for n2 > n1, equal indices give equal angles) are correct.",
+   "No defects found."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Hand re-derived: theta2 = asin(n1 sin(theta1)/n2) gives 25.374 degrees (1.0, 1.5, 40) and 23.883 degrees (1.2, 1.7, 35). They match the gold and the blind solver.",
+   "Well-posed: flat interface, n2 greater than n1 in both instances (so no total internal reflection), and angles from the normal.",
+   "Plan checked: Snell's law and the check (normal incidence undeflected, bends toward the normal for n2 > n1, equal indices give equal angles) are correct.",
+   "No defects found."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S27": {
+  "blind_match": true,
+  "domain": "fluids",
+  "issues": [
+   "Gold is correct: p = p0 + rho g h gives 218.6 kPa for (101 kPa, 1000 kg/m^3, 12 m) and 266.6 kPa for (100 kPa, 850 kg/m^3, 20 m). The blind solver matched both exactly.",
+   "The problem is well-posed with one answer. Minor: 'the liquid is at rest' is in the assumptions but not in the prompt. 'A tank filled with a liquid' implies it, and no strong model would read it otherwise.",
+   "The plan is correct and complete. The hydrostatic law and the unit-column why-statement are right, and the check is right: zero depth returns p0, the units are Pa, and 10 m of water adds about one atmosphere. The approach is good."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold is correct: p = p0 + rho g h gives 218.6 kPa for (101 kPa, 1000 kg/m^3, 12 m) and 266.6 kPa for (100 kPa, 850 kg/m^3, 20 m). The blind solver matched both exactly.",
+   "The problem is well-posed with one answer. Minor: 'the liquid is at rest' is in the assumptions but not in the prompt. 'A tank filled with a liquid' implies it, and no strong model would read it otherwise.",
+   "The plan is correct and complete. The hydrostatic law and the unit-column why-statement are right, and the check is right: zero depth returns p0, the units are Pa, and 10 m of water adds about one atmosphere. The approach is good."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S28": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct: t = 2 v/a gives 15 and 16 s. The t = 0 root is explicitly excluded in the plan.",
+   "Well posed: the car starts from rest at the instant it passes the truck, with constant acceleration and constant truck speed.",
+   "Plan correct. The check (car speed 2v at overtaking, consistent with average speed v) is right."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct: t = 2 v/a gives 15 and 16 s. The t = 0 root is explicitly excluded in the plan.",
+   "Well posed: the car starts from rest at the instant it passes the truck, with constant acceleration and constant truck speed.",
+   "Plan correct. The check (car speed 2v at overtaking, consistent with average speed v) is right."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S29": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct: P = F v cos(theta) gives 103.923 and 108.757 W.",
+   "Well posed: the angle is stated to be above the horizontal, the tension (not the net force) is given, and the question asks for the power the rope delivers. The ground friction is irrelevant here.",
+   "Plan correct. The checks (theta = 0 gives F v, theta = 90 degrees gives zero) are right."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct: P = F v cos(theta) gives 103.923 and 108.757 W.",
+   "Well posed: the angle is stated to be above the horizontal, the tension (not the net force) is given, and the question asks for the power the rope delivers. The ground friction is irrelevant here.",
+   "Plan correct. The checks (theta = 0 gives F v, theta = 90 degrees gives zero) are right."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S30": {
+  "blind_match": true,
+  "domain": "thermodynamics",
+  "issues": [
+   "Gold re-derived: 2*4186*40/1500 = 223.253 s and 1.5*4186*60/2000 = 188.37 s. The blind solver matched both.",
+   "Well-posed: the prompt says the heater 'delivers' the power to the water, so no loss term is needed, and the plan's 'all the heater power goes into the water' follows from that wording. Plan: Q = mc dT and P = Q/t are correct. The unit check and scaling checks are correct, and the 'few minutes' remark is realistic (about 4 min)."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived: 2*4186*40/1500 = 223.253 s and 1.5*4186*60/2000 = 188.37 s. The blind solver matched both.",
+   "Well-posed: the prompt says the heater 'delivers' the power to the water, so no loss term is needed, and the plan's 'all the heater power goes into the water' follows from that wording. Plan: Q = mc dT and P = Q/t are correct. The unit check and scaling checks are correct, and the 'few minutes' remark is realistic (about 4 min)."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S31": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct on all 4 instantiations: independently t=sqrt(2h/g), x=v*t gives 30.3046, 36.3655, 49.4619, 27.9942 m.",
+   "Well posed: level ground, horizontal launch, no drag and g are all stated. Answer unit m is SI.",
+   "Plan physics and wording correct; the check sentence (5 m takes about 1 s) is right.",
+   "Cosmetic only: Step 7 check mentions the 5 m fall, which is not one of the instantiations. It is a sanity check, not a claim about the data."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct on all 4 instantiations: independently t=sqrt(2h/g), x=v*t gives 30.3046, 36.3655, 49.4619, 27.9942 m.",
+   "Well posed: level ground, horizontal launch, no drag and g are all stated. Answer unit m is SI.",
+   "Plan physics and wording correct; the check sentence (5 m takes about 1 s) is right.",
+   "Cosmetic only: Step 7 check mentions the 5 m fall, which is not one of the instantiations. It is a sanity check, not a claim about the data."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S32": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct: s = k x^2/(2 mu m g) gives 3.26531, 5.5102, 1.36054, 12.7421 m. Same result as my own energy derivation.",
+   "Well posed: the prompt says the block is released from rest, the spring pushes it, friction is kinetic and the question asks for distance from the release point. Friction during the push is covered by the stated friction coefficient and the assumption text.",
+   "For all instances k x > mu m g and s > x. The block therefore leaves the spring at natural length and then decelerates, so separation at natural length is consistent.",
+   "Compression is given in cm while the answer is in m. This is unambiguous and the blind solver converted it correctly.",
+   "Plan is correct. 'The result must exceed the compression' and 'with no friction the block would never stop' are true under the stated model."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct: s = k x^2/(2 mu m g) gives 3.26531, 5.5102, 1.36054, 12.7421 m. Same result as my own energy derivation.",
+   "Well posed: the prompt says the block is released from rest, the spring pushes it, friction is kinetic and the question asks for distance from the release point. Friction during the push is covered by the stated friction coefficient and the assumption text.",
+   "For all instances k x > mu m g and s > x. The block therefore leaves the spring at natural length and then decelerates, so separation at natural length is consistent.",
+   "Compression is given in cm while the answer is in m. This is unambiguous and the blind solver converted it correctly.",
+   "Plan is correct. 'The result must exceed the compression' and 'with no friction the block would never stop' are true under the stated model."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S33": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct: F = m v (1+e)/dt gives 600, 450, 648, 448 N. Masses are given in g and contact times in ms; the conversions are right.",
+   "Well posed: e is defined in the prompt, weight is neglected and the force is an average over the contact time.",
+   "Plan correct. The reversal of direction (v + vout, not the difference) is stated explicitly and is the only trap.",
+   "Check bounds are correct: m v/dt <= F <= 2 m v/dt, and 600 N lies between 375 N and 750 N."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct: F = m v (1+e)/dt gives 600, 450, 648, 448 N. Masses are given in g and contact times in ms; the conversions are right.",
+   "Well posed: e is defined in the prompt, weight is neglected and the force is an average over the contact time.",
+   "Plan correct. The reversal of direction (v + vout, not the difference) is stated explicitly and is the only trap.",
+   "Check bounds are correct: m v/dt <= F <= 2 m v/dt, and 600 N lies between 375 N and 750 N."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S34": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct: d = 7 v0^2/(10 g sin(theta)) gives 6.08452, 9.14286, 6.89244, 12.4532 m. This agrees with the plan route a = 5 g sin(theta)/7, d = v0^2/(2a).",
+   "Well posed: uniform solid sphere, rolling without slipping, g given, incline long enough. The friction coefficient is not needed, since rolling without slipping is stated.",
+   "Plan correct: the friction direction (up the slope while rolling up) and f = (2/5) m a are right. The statement that d is 7/5 of the frictionless sliding distance is correct."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct: d = 7 v0^2/(10 g sin(theta)) gives 6.08452, 9.14286, 6.89244, 12.4532 m. This agrees with the plan route a = 5 g sin(theta)/7, d = v0^2/(2a).",
+   "Well posed: uniform solid sphere, rolling without slipping, g given, incline long enough. The friction coefficient is not needed, since rolling without slipping is stated.",
+   "Plan correct: the friction direction (up the slope while rolling up) and f = (2/5) m a are right. The statement that d is 7/5 of the frictionless sliding distance is correct."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S35": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct: T = 2 pi sqrt(L cos(theta)/g) gives 2.04608, 1.50957, 2.75153, 1.86074 s.",
+   "Well posed: the angle with the vertical is stated, the motion is steady, and the string is light and inextensible.",
+   "Plan correct and consistent with the graph: r = L sin(theta), v^2 = g r tan(theta), T = 2 pi r/v. The limit check (theta tends to 0 gives the simple pendulum, larger angles give shorter periods) is right."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct: T = 2 pi sqrt(L cos(theta)/g) gives 2.04608, 1.50957, 2.75153, 1.86074 s.",
+   "Well posed: the angle with the vertical is stated, the motion is steady, and the string is light and inextensible.",
+   "Plan correct and consistent with the graph: r = L sin(theta), v^2 = g r tan(theta), T = 2 pi r/v. The limit check (theta tends to 0 gives the simple pendulum, larger angles give shorter periods) is right."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S36": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct: T = 2 pi sqrt((L^2/12 + d^2)/(g d)) gives 1.67925, 1.53294, 1.87074, 2.18904 s. In every instance d < L/2, so the pivot lies on the rod.",
+   "Well posed: thin uniform rod, horizontal axis perpendicular to the rod, small amplitude, no friction.",
+   "Plan correct. The limit checks (L tends to 0 gives 2 pi sqrt(d/g); d = L/2 gives 2 pi sqrt(2L/(3g))) are right.",
+   "Cosmetic: the computed node is named 'kk' and appears in the rendered trace as 'kk = L**2/12 + d**2'. The prose says it is I/m, so it is understandable. Renaming it to I_per_m would be nicer but is not needed."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct: T = 2 pi sqrt((L^2/12 + d^2)/(g d)) gives 1.67925, 1.53294, 1.87074, 2.18904 s. In every instance d < L/2, so the pivot lies on the rod.",
+   "Well posed: thin uniform rod, horizontal axis perpendicular to the rod, small amplitude, no friction.",
+   "Plan correct. The limit checks (L tends to 0 gives 2 pi sqrt(d/g); d = L/2 gives 2 pi sqrt(2L/(3g))) are right.",
+   "Cosmetic: the computed node is named 'kk' and appears in the rendered trace as 'kk = L**2/12 + d**2'. The prose says it is I/m, so it is understandable. Renaming it to I_per_m would be nicer but is not needed."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S37": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold verified independently with T = 2*pi*sqrt((R+h)^3/(g R^2)): 92.5097, 100.7758, 115.9725, 90.4003 min for the four instantiations (R,g,h = 6371,9.8,400; 6371,9.81,800; 6378,9.8,1500; 6360,9.8,300). All match the gold and the blind solver to better than 4e-7 relative. The blind solver raised no concerns.",
+   "Problem is well posed: one answer, R and g stated, circular orbit, no drag, uniform spherical Earth, unit requested (minutes). No wrong physics; G and M are not needed because GM = gR^2.",
+   "Plan principles are correct and consistent with the graph (r = R + h; v = sqrt(g R^2 / r); T = 2 pi r / v). The why-statements are right and the plan is complete enough for a student to reach the answer. The check (h = 0 gives 2 pi sqrt(R/g), about 84 min; T scales as r^(3/2)) is correct.",
+   "Cosmetic only: the Given line reads 'a stated constant; stated constant' (repeated phrase from the renderer). The check calls the h = 0 period 'the shortest possible period', true for circular orbits of the stated spherical Earth.",
+   "Distractor templates (separate satellite B with a period, reference satellite B, a telescope rated at a time-like value) are all explicitly unrelated or separate bodies and cannot be confused with the target quantity."
+  ],
+  "repair_changed": [
+   "/home/pabitra/PhysMons/src/physmon/benchmark/v2/lib_mechanics.py: S37 question text changed from 'What is the orbital period of the satellite?' to 'What is the orbital period of the satellite, in minutes?' (target unit stays min; the distractor and isolated-cue sentences that quote a period in {u} are already in minutes, so they remain consistent)."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold values are correct: T = 2 pi sqrt(r^3/(g R^2)) with r = R + h gives 92.5097, 100.776, 115.973, 90.4003 min. Physics, plan and the 84 min surface-orbit check are all correct.",
+   "Ambiguity in the answer unit: the question text 'What is the orbital period of the satellite?' does not give the unit, but the gold unit is minutes.",
+   "The model-facing instruction (scoring_contract.INSTRUCTION_TEMPLATE) only asks for '[value] [unit]', and v2_scorer.classify_answer requires parsed.unit == normalise_unit(gold_unit). A correct answer such as '5551 s' or '1.54 h' would therefore be scored wrong.",
+   "The blind solver matched only because its packet carried an answer_unit field ('min'), which the actual model prompt does not carry. This is the only structure of this module whose target unit is not the natural SI unit.",
+   "Minor: instance 3 asks the model to take an Earth radius of 6360 km. This is stated in the prompt, so it is well posed, but it is slightly unrealistic and harmless."
+  ],
+  "round1_required_changes": [
+   "Change the question text in the S37 _spec from 'What is the orbital period of the satellite?' to 'What is the orbital period of the satellite, in minutes?' Alternatively change the target unit to 's'. If the question is edited, the distractor and isolated-cue sentences that quote a period in {u} stay consistent with minutes. Re-run s161_check_module.py afterwards."
+  ],
+  "round1_verdict": "fix",
+  "status": "accepted_after_repair"
+ },
+ "S38": {
+  "blind_match": true,
+  "domain": "mechanics",
+  "issues": [
+   "Gold correct: F = sqrt(Fwall^2 + Ngnd^2) with Fwall = (m/2 + M x) g/tan(theta) and Ngnd = (m+M) g gives 841.624, 765.012, 925.947, 767.1 N. This is consistent with my own torque-about-the-foot derivation.",
+   "Well posed: smooth wall (horizontal force only), rough ground, no slipping, a uniform ladder, and the question asks for the magnitude of the total (vector) ground force. The friction coefficient is not needed.",
+   "Plan correct. Torques about the foot, vertical balance, horizontal balance f = N_w, and Pythagoras are all right. The check that the resultant exceeds the total weight and tends to it as theta tends to 90 degrees is correct. The plan symbol N_w stands for the node Fwall, which is clear from the text."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold correct: F = sqrt(Fwall^2 + Ngnd^2) with Fwall = (m/2 + M x) g/tan(theta) and Ngnd = (m+M) g gives 841.624, 765.012, 925.947, 767.1 N. This is consistent with my own torque-about-the-foot derivation.",
+   "Well posed: smooth wall (horizontal force only), rough ground, no slipping, a uniform ladder, and the question asks for the magnitude of the total (vector) ground force. The friction coefficient is not needed.",
+   "Plan correct. Torques about the foot, vertical balance, horizontal balance f = N_w, and Pythagoras are all right. The check that the resultant exceeds the total weight and tends to it as theta tends to 90 degrees is correct. The plan symbol N_w stands for the node Fwall, which is clear from the text."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S41": {
+  "blind_match": true,
+  "domain": "electromagnetism",
+  "issues": [
+   "Checked by own derivation: charges are 5q and -q, so each sphere keeps 2q after contact. F1/F0 = (4/5)(d0/d1)^2 = 0.2. Gold 16, 60, 68.5714 and 2.25 mN all re-derived by hand and match the blind solver.",
+   "Well-posed: opposite signs, ratio, one force and both separations are given. Point-charge and equal-sharing assumptions are in the prompt or in the assumptions list. All instances have rq > 1, so none gives zero force.",
+   "Plan check clause: (rq-1)^2/(4 rq) is the correct factor at fixed separation. The clause 'smaller whenever that factor is below one' is true but trivial, since the factor is below one only for rq < 5.83. Not wrong.",
+   "The A-force assumption (air treated as vacuum) appears only in the plan, not in the prompt. Harmless."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Checked by own derivation: charges are 5q and -q, so each sphere keeps 2q after contact. F1/F0 = (4/5)(d0/d1)^2 = 0.2. Gold 16, 60, 68.5714 and 2.25 mN all re-derived by hand and match the blind solver.",
+   "Well-posed: opposite signs, ratio, one force and both separations are given. Point-charge and equal-sharing assumptions are in the prompt or in the assumptions list. All instances have rq > 1, so none gives zero force.",
+   "Plan check clause: (rq-1)^2/(4 rq) is the correct factor at fixed separation. The clause 'smaller whenever that factor is below one' is true but trivial, since the factor is below one only for rq < 5.83. Not wrong.",
+   "The A-force assumption (air treated as vacuum) appears only in the plan, not in the prompt. Harmless."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S42": {
+  "blind_match": true,
+  "domain": "electromagnetism",
+  "issues": [
+   "R = rho L/A at constant volume gives R x k^2. P = V^2/(k^2 R0) = 144/18 = 8 W. Instances 13.5, 10 and 7.2 W re-derived and match the blind solver.",
+   "Well-posed: constant volume and resistivity are stated, the battery is ideal, and the wire is uniform.",
+   "The plan's why-statements (area divided by k, both effects raise R, P = V I all dissipated in the wire) are correct and consistent with the graph expressions Rnew = R0 k^2, I = V/Rnew, P = V I."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "R = rho L/A at constant volume gives R x k^2. P = V^2/(k^2 R0) = 144/18 = 8 W. Instances 13.5, 10 and 7.2 W re-derived and match the blind solver.",
+   "Well-posed: constant volume and resistivity are stated, the battery is ideal, and the wire is uniform.",
+   "The plan's why-statements (area divided by k, both effects raise R, P = V I all dissipated in the wire) are correct and consistent with the graph expressions Rnew = R0 k^2, I = V/Rnew, P = V I."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S43": {
+  "blind_match": true,
+  "domain": "electromagnetism",
+  "issues": [
+   "Two layers in series: C = C0/(1 - (t/d)(1 - 1/kappa)). dQ = (C - C0) V at fixed V. Instances: 160 pF gives 0.72 nC; 100 pF from 60 pF gives 0.8 nC; 135 pF gives 0.675 nC; 300 pF gives 1.8 nC. All re-derived and match the blind solver.",
+   "Well-posed. The slab position does not matter because of the series stacking, and 'without touching either plate' is consistent with that. Battery stays connected, and the 'additional charge' is positive.",
+   "The plan's 'dielectric counts as an air layer of thickness t/kappa', 'same charge on every layer' and 'voltages add' statements are correct. The limiting-case checks (frac = 1 gives kappa C0, kappa = 1 or frac = 0 gives no change) are correct."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Two layers in series: C = C0/(1 - (t/d)(1 - 1/kappa)). dQ = (C - C0) V at fixed V. Instances: 160 pF gives 0.72 nC; 100 pF from 60 pF gives 0.8 nC; 135 pF gives 0.675 nC; 300 pF gives 1.8 nC. All re-derived and match the blind solver.",
+   "Well-posed. The slab position does not matter because of the series stacking, and 'without touching either plate' is consistent with that. Battery stays connected, and the 'additional charge' is positive.",
+   "The plan's 'dielectric counts as an air layer of thickness t/kappa', 'same charge on every layer' and 'voltages add' statements are correct. The limiting-case checks (frac = 1 gives kappa C0, kappa = 1 or frac = 0 gives no change) are correct."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S44": {
+  "blind_match": true,
+  "domain": "electromagnetism",
+  "issues": [
+   "I = m g/(B L): 1.4, 2.6133, 1.575 and 1.6333 A re-derived and match the blind solver. g = 9.8 is stated.",
+   "Well-posed: the rod is perpendicular to B and fully in the field, the force points upward, and 'just support its weight' is unambiguous.",
+   "The leads assumption appears only in the plan, not in the prompt. Harmless. The plan check on scaling and order of magnitude is correct."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "I = m g/(B L): 1.4, 2.6133, 1.575 and 1.6333 A re-derived and match the blind solver. g = 9.8 is stated.",
+   "Well-posed: the rod is perpendicular to B and fully in the field, the force points upward, and 'just support its weight' is unambiguous.",
+   "The leads assumption appears only in the plan, not in the prompt. Harmless. The plan check on scaling and order of magnitude is correct."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S45": {
+  "blind_match": true,
+  "domain": "electromagnetism",
+  "issues": [
+   "v = sqrt(2qV/m) and r = m v/(q B) give 62.5, 252.982, 100 and 52.7046 cm. All re-derived and match the blind solver.",
+   "Well-posed: non-relativistic, field perpendicular to v, the bead starts from rest, and a positive charge is implied. The radii in cm (up to about 2.5 m) are unusual but unambiguous.",
+   "The approach (v from the work-energy theorem, then omega = qB/m, then r = v/omega) is valid, though slightly roundabout compared with r = m v/(qB). The plan's check clause gives the direct formula. The why-statements (the magnetic force does no work, constant-magnitude centripetal force, omega independent of v) are correct."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "v = sqrt(2qV/m) and r = m v/(q B) give 62.5, 252.982, 100 and 52.7046 cm. All re-derived and match the blind solver.",
+   "Well-posed: non-relativistic, field perpendicular to v, the bead starts from rest, and a positive charge is implied. The radii in cm (up to about 2.5 m) are unusual but unambiguous.",
+   "The approach (v from the work-energy theorem, then omega = qB/m, then r = v/omega) is valid, though slightly roundabout compared with r = m v/(qB). The plan's check clause gives the direct formula. The why-statements (the magnetic force does no work, constant-magnitude centripetal force, omega independent of v) are correct."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S46": {
+  "blind_match": true,
+  "domain": "electromagnetism",
+  "issues": [
+   "Own derivation with a vertical B and a rod moving down a slope at angle theta: emf = B l v cos(theta), the force on the rod is horizontal with magnitude B I l, and its component along the slope is B I l cos(theta). Balance: m g sin(theta) = B^2 l^2 cos^2(theta) v/R. This equals the gold v = Fg R/(Beff l)^2. Instances 2.83565, 2.52112, 2.86256 and 6.32637 m/s re-derived and match the blind solver.",
+   "The blind solver flagged a concern on q021 to q024 ('field is vertical, not perpendicular to the incline, so cos(theta) factors enter; assumed the rod stays horizontal and rails are the incline'). It then used exactly the gold formula, so the blind solver and the gold agree. The concern is only the solver noting that the vertical field needs a cos(theta) factor. The prompt states 'horizontal rod' and 'vertical field', so the problem is well-posed.",
+   "Plan wording (accepted): Beff = B cos(theta) is correct as the component normal to the rail plane, which gives the flux and emf, and also the along-slope force factor. The 'effective field' phrasing glosses over the fact that the actual force is horizontal, with an along-slope component I l B cos(theta). A student following it still reaches the right answer.",
+   "The self-inductance-negligible assumption is not in the prompt. It does not affect a terminal speed, so it is harmless."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Own derivation with a vertical B and a rod moving down a slope at angle theta: emf = B l v cos(theta), the force on the rod is horizontal with magnitude B I l, and its component along the slope is B I l cos(theta). Balance: m g sin(theta) = B^2 l^2 cos^2(theta) v/R. This equals the gold v = Fg R/(Beff l)^2. Instances 2.83565, 2.52112, 2.86256 and 6.32637 m/s re-derived and match the blind solver.",
+   "The blind solver flagged a concern on q021 to q024 ('field is vertical, not perpendicular to the incline, so cos(theta) factors enter; assumed the rod stays horizontal and rails are the incline'). It then used exactly the gold formula, so the blind solver and the gold agree. The concern is only the solver noting that the vertical field needs a cos(theta) factor. The prompt states 'horizontal rod' and 'vertical field', so the problem is well-posed.",
+   "Plan wording (accepted): Beff = B cos(theta) is correct as the component normal to the rail plane, which gives the flux and emf, and also the along-slope force factor. The 'effective field' phrasing glosses over the fact that the actual force is horizontal, with an along-slope component I l B cos(theta). A student following it still reaches the right answer.",
+   "The self-inductance-negligible assumption is not in the prompt. It does not affect a terminal speed, so it is harmless."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S47": {
+  "blind_match": true,
+  "domain": "electromagnetism",
+  "issues": [
+   "Reflected load a^2 RL, I1 = Vs/(Rs + a^2 RL), I2 = a I1, P = I2^2 RL. Instances 45, 320, 144 and 412.174 W re-derived and match the blind solver. Power-balance check: I1^2 a^2 RL = I2^2 RL, consistent.",
+   "Well-posed: a = N1/N2 is stated as 'primary has a times as many turns', and all emfs and currents are rms. The ideal-transformer and resistive-load assumptions are in the prompt or the assumptions list.",
+   "Stylistic nit: the approach sentence writes 'a_squared times RL' with an underscore, which reads like a variable token. Prefer 'a squared times RL'.",
+   "Step I2 says 'with more turns on the primary than on the secondary the current is stepped up'. This is correct for all instances (a is 2 to 10) and the prompt fixes primary > secondary."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Reflected load a^2 RL, I1 = Vs/(Rs + a^2 RL), I2 = a I1, P = I2^2 RL. Instances 45, 320, 144 and 412.174 W re-derived and match the blind solver. Power-balance check: I1^2 a^2 RL = I2^2 RL, consistent.",
+   "Well-posed: a = N1/N2 is stated as 'primary has a times as many turns', and all emfs and currents are rms. The ideal-transformer and resistive-load assumptions are in the prompt or the assumptions list.",
+   "Stylistic nit: the approach sentence writes 'a_squared times RL' with an underscore, which reads like a variable token. Prefer 'a squared times RL'.",
+   "Step I2 says 'with more turns on the primary than on the secondary the current is stepped up'. This is correct for all instances (a is 2 to 10) and the prompt fixes primary > secondary."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S48": {
+  "blind_match": true,
+  "domain": "electromagnetism",
+  "issues": [
+   "Gold checked independently: f_d = (1/2pi)*sqrt(1/(LC) - (R/2L)^2) gives 63.662, 123.537, 158.357 and 68.339 Hz for the four instantiations (R, L, C = 60 ohm/100 mH/40 uF; 24/80/20; 20/100/10; 50/200/25). The blind solver matched all four (max relative error about 2e-5, rounding only) with the same formula and raised no concerns. Instance 0 is a clean 3-4-5 case (alpha=300, w0=500, wd=400 rad/s).",
+   "Well-posed: the prompt gives R, L, C, states there is no source, and says the capacitor starts charged. The answer unit is Hz, so there is no f versus omega ambiguity. The elements are in series and any coil resistance is included in R. Underdamping holds over the whole sampling range: the worst case R=80 ohm, L=80 mH, C=40 uF has 2*sqrt(L/C)=89.4 ohm, above 80 ohm. All four fixed instances are underdamped.",
+   "The independent solver (np.roots of L s^2 + R s + 1/C, imaginary part over 2pi) agrees with the graph expression. The graph expressions alpha=R/(2Lc), w0=1/sqrt(Lc*C), wd=sqrt(w0^2-alpha^2), fd=wd/(2pi) are correct and unit-consistent after SI conversion of mH and uF, as the rendered trace shows.",
+   "Plan text, minor imprecision (not blocking): the alpha step says that dividing the loop equation by L means the term with the first derivative defines the damping rate R/(2L). After division the coefficient of q' is R/L = 2*alpha, not alpha, so a literal reader could be briefly confused about the factor 2. Suggested wording: the coefficient of the first-derivative term is R/L, and half of it, R/(2L), is the decay rate of the amplitude.",
+   "Plan text, minor: the wd step says q is proportional to e^(-alpha t) cos(omega_d t). The general solution has a phase, cos(omega_d t + phi). This is harmless because the frequency is independent of the phase, but writing the phase would be more exact.",
+   "Distractors (B oscillator in Hz with equivalent kHz, reference circuit B in Hz, lamp in W) are clearly stated as unrelated to the loop and do not make the problem ambiguous. The Hz-valued distractors share the answer's unit, which is intended for the sensitivity test.",
+   "LEVELS marks S48 as upper_university, though the problem is a standard intro/intermediate RLC result. This is a labelling matter only and does not affect correctness.",
+   "Admission status remains agent-verified, not expert-reviewed."
+  ],
+  "repair_changed": [
+   "/home/pabitra/PhysMons/src/physmon/benchmark/v2/lib_electromagnetism.py: S48 no longer has a node with the wrong unit rad/s^2. The old w0sq node (1/(Lc*C), unit rad/s^2) is replaced by w0 = 1/sqrt(Lc*C) in rad/s. wd is now sqrt(w0**2 - alpha**2). The S48 Plan step is renamed from w0sq to w0, and its text now states omega0 = 1/sqrt(L C)."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Physics and answers are correct. alpha = R/(2L), w0^2 = 1/(LC), wd = sqrt(w0^2 - alpha^2), f = wd/(2 pi). Gold 63.662, 123.537, 158.357 and 68.3394 Hz re-derived and match the blind solver. All instances are underdamped, and the minimum critical R over the declared input domain is about 89 ohm, above the maximum R of 80. Well-posed.",
+   "Unit error in the gold trace: node w0sq (square of the undamped angular frequency) is declared with unit 'rad/s^2', and the rendered step reads '2.5e+05 rad/s^2'. rad/s^2 is the unit of angular acceleration, but w0^2 has units of 1/s^2 (rad^2/s^2). The numeric value is right but the printed unit is wrong and could mislead a reader or a model trained on the trace.",
+   "dimensions.py has no '1/s^2' unit. The dimension of 'rad/s^2' is T^-2, so the checker passes, but the label is misleading."
+  ],
+  "round1_required_changes": [
+   "In lib_electromagnetism.py s48, change the unit of the w0sq node from 'rad/s^2' to '1/s^2' (or 'rad^2/s^2'). Add that unit to the dimensions.py unit table with dimension _TIME ** -2 and factor 1.0, since it is not currently registered. Re-run s161_check_module.py and confirm the rendered step reads '2.5e+05 1/s^2'."
+  ],
+  "round1_verdict": "fix",
+  "status": "accepted_after_repair"
+ },
+ "S51": {
+  "blind_match": true,
+  "domain": "thermodynamics",
+  "issues": [
+   "Gold re-derived independently: W = nRT1(r^(gamma-1)-1)/(gamma-1) gives 4.0450, 5.0520, 9.2430 and 2.8961 kJ. The blind solver matched all four (rel err <=1e-7).",
+   "Well-posed: the prompt states ideal gas, slow adiabatic compression, constant gamma and R, so the reversible adiabat is the only reading. The blind solver's note that it assumed reversibility is covered by 'compressed slowly and adiabatically'.",
+   "Plan: T V^(gamma-1)=const and pV^gamma=const are both correct. First law with Q=0 and Cv=R/(gamma-1) from Mayer's relation is correct. Sign convention (work done on the gas, positive) is consistent. The check claim that W exceeds the isothermal work nRT1 ln r holds for all four instances (2.59, 3.46, 5.14, 2.01 kJ).",
+   "Minor: instance 3 relevant edit (r x1.25 = 12.5) is outside the declared input range (3,12). This is cosmetic and does not affect correctness."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived independently: W = nRT1(r^(gamma-1)-1)/(gamma-1) gives 4.0450, 5.0520, 9.2430 and 2.8961 kJ. The blind solver matched all four (rel err <=1e-7).",
+   "Well-posed: the prompt states ideal gas, slow adiabatic compression, constant gamma and R, so the reversible adiabat is the only reading. The blind solver's note that it assumed reversibility is covered by 'compressed slowly and adiabatically'.",
+   "Plan: T V^(gamma-1)=const and pV^gamma=const are both correct. First law with Q=0 and Cv=R/(gamma-1) from Mayer's relation is correct. Sign convention (work done on the gas, positive) is consistent. The check claim that W exceeds the isothermal work nRT1 ln r holds for all four instances (2.59, 3.46, 5.14, 2.01 kJ).",
+   "Minor: instance 3 relevant edit (r x1.25 = 12.5) is outside the declared input range (3,12). This is cosmetic and does not affect correctness."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S52": {
+  "blind_match": true,
+  "domain": "thermodynamics",
+  "issues": [
+   "Gold re-derived: final excess temperatures are 23.48, 20.04, 28.37 and 39.14 K. Qlost is 34.582, 41.790, 54.330 and 29.871 kJ. It equals mi*Lf + mi*c*dTf in every instance, so the energy balance is closed. In all four instances and in the relevant edit the water holds enough heat to melt all the ice (Qw > Qm), so the stated 'all of the ice melts' is true.",
+   "The blind solver's concern ('ice mass/initial temperature only implied') is not a real ambiguity. The prompt gives the ice mass, the water mass and 'dTw K above the melting point', and asks for the heat given up by the original warm water, which is mw*c*(dTw-dTf). Only temperature differences enter, so the Celsius/kelvin scale does not matter.",
+   "Plan: the dTf principle 'mw c (dTw - dTf) = Qm + mi c dTf' is consistent with the graph expression (Qw-Qm)/((mi+mw)c). The Qm, Qw and Qlost steps use the correct laws (Q=mL_f, Q=mc dT). The check (equality with Qm + mi c dTf) is a valid independent test.",
+   "Minor: Lf is given in kJ/kg and c in J/(kg K), so a careless solver could mix units. Both are stated explicitly, so this is not an ambiguity."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived: final excess temperatures are 23.48, 20.04, 28.37 and 39.14 K. Qlost is 34.582, 41.790, 54.330 and 29.871 kJ. It equals mi*Lf + mi*c*dTf in every instance, so the energy balance is closed. In all four instances and in the relevant edit the water holds enough heat to melt all the ice (Qw > Qm), so the stated 'all of the ice melts' is true.",
+   "The blind solver's concern ('ice mass/initial temperature only implied') is not a real ambiguity. The prompt gives the ice mass, the water mass and 'dTw K above the melting point', and asks for the heat given up by the original warm water, which is mw*c*(dTw-dTf). Only temperature differences enter, so the Celsius/kelvin scale does not matter.",
+   "Plan: the dTf principle 'mw c (dTw - dTf) = Qm + mi c dTf' is consistent with the graph expression (Qw-Qm)/((mi+mw)c). The Qm, Qw and Qlost steps use the correct laws (Q=mL_f, Q=mc dT). The check (equality with Qm + mi c dTf) is a valid independent test.",
+   "Minor: Lf is given in kJ/kg and c in J/(kg K), so a careless solver could mix units. Both are stated explicitly, so this is not an ambiguity."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S53": {
+  "blind_match": true,
+  "domain": "thermodynamics",
+  "issues": [
+   "Gold re-derived with thicknesses converted from cm to m: 160.00, 113.21, 186.21 and 136.36 W. The blind solver matched all four.",
+   "Well-posed: area, thicknesses, conductivities, dT, steady 1-D flow and perfect contact ('in contact') are all stated. Foam dominates the resistance in every instance, so the answer is not dominated by an easily skipped term.",
+   "Plan: Fourier's law, R=L/(kA), series resistances and P=dT/R_total are all correct. The checks are correct (P below dT/R1 and dT/R2, linear in dT).",
+   "Minor wording: the R2 why-statement says the foam layer 'most strongly limits the heat current when its conductivity is small'. This is loosely worded, since the limiting layer is the one with the larger L/k, but it is true in all four instances and is not wrong."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived with thicknesses converted from cm to m: 160.00, 113.21, 186.21 and 136.36 W. The blind solver matched all four.",
+   "Well-posed: area, thicknesses, conductivities, dT, steady 1-D flow and perfect contact ('in contact') are all stated. Foam dominates the resistance in every instance, so the answer is not dominated by an easily skipped term.",
+   "Plan: Fourier's law, R=L/(kA), series resistances and P=dT/R_total are all correct. The checks are correct (P below dT/R1 and dT/R2, linear in dT).",
+   "Minor wording: the R2 why-statement says the foam layer 'most strongly limits the heat current when its conductivity is small'. This is loosely worded, since the limiting layer is the one with the larger L/k, but it is true in all four instances and is not wrong."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S54": {
+  "blind_match": true,
+  "domain": "thermodynamics",
+  "issues": [
+   "Gold re-derived: P2 = P1 (r2/r1)^2 (T2/T1)^4 gives 12.4416, 3.01255, 0.518799 and 2.39000 kW. The blind solver matched all four.",
+   "Physical consistency: back-computing the emissivity from sigma, the radius and T of sphere 1 gives e = 0.842, 0.802, 0.809 and 0.799 in the four instances. All are below 1 and plausible for a metal surface, so no instantiation implies an unphysical emissivity.",
+   "Well-posed: same constant emissivity, negligible absorbed radiation and spherical shape are stated, so e and sigma cancel. The blind solver's emissivity concern is already settled by the prompt ('Both spheres have the same constant emissivity').",
+   "Plan: Stefan-Boltzmann law, area ratio (r2/r1)^2 and temperature ratio (T2/T1)^4 are correct. The check statements (x4 for double radius, x16 for double absolute T) are correct."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived: P2 = P1 (r2/r1)^2 (T2/T1)^4 gives 12.4416, 3.01255, 0.518799 and 2.39000 kW. The blind solver matched all four.",
+   "Physical consistency: back-computing the emissivity from sigma, the radius and T of sphere 1 gives e = 0.842, 0.802, 0.809 and 0.799 in the four instances. All are below 1 and plausible for a metal surface, so no instantiation implies an unphysical emissivity.",
+   "Well-posed: same constant emissivity, negligible absorbed radiation and spherical shape are stated, so e and sigma cancel. The blind solver's emissivity concern is already settled by the prompt ('Both spheres have the same constant emissivity').",
+   "Plan: Stefan-Boltzmann law, area ratio (r2/r1)^2 and temperature ratio (T2/T1)^4 are correct. The check statements (x4 for double radius, x16 for double absolute T) are correct."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S55": {
+  "blind_match": true,
+  "domain": "thermodynamics",
+  "issues": [
+   "Gold re-derived: v_rms = sqrt(3RT/M) with M in kg/mol gives 1367.72, 558.368, 516.948 and 445.424 m/s. The blind solver matched all four.",
+   "Well-posed: the rms speed depends only on the translational energy, so the prompt does not need to say whether the gas is monatomic. The molar mass is in g/mol, a deliberate unit conversion that is stated.",
+   "Plan: equipartition for translation (3/2 kT per molecule, 3/2 RT per mole) and (1/2) M v_rms^2 = Ek are correct. The check (equals sqrt(3RT/M), scales as sqrt(T), lighter is faster) is correct. The 'comparable to the speed of sound' remark is correct to within a factor of about 1.5."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived: v_rms = sqrt(3RT/M) with M in kg/mol gives 1367.72, 558.368, 516.948 and 445.424 m/s. The blind solver matched all four.",
+   "Well-posed: the rms speed depends only on the translational energy, so the prompt does not need to say whether the gas is monatomic. The molar mass is in g/mol, a deliberate unit conversion that is stated.",
+   "Plan: equipartition for translation (3/2 kT per molecule, 3/2 RT per mole) and (1/2) M v_rms^2 = Ek are correct. The check (equals sqrt(3RT/M), scales as sqrt(T), lighter is faster) is correct. The 'comparable to the speed of sound' remark is correct to within a factor of about 1.5."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S56": {
+  "blind_match": true,
+  "domain": "thermodynamics",
+  "issues": [
+   "Gold re-derived: Pw = Pc / (f Tc/(Th-Tc)) gives 60.606, 39.683, 207.692 and 59.952 W. The blind solver matched all four.",
+   "Well-posed. One implicit assumption: the electrical power equals the work input of the cycle, with no motor or compressor losses. The graph states this in A-steady but the prompt does not. Every textbook treatment and every blind solution makes this reading, and no other efficiency is given, so the answer is unique in practice. A sentence such as 'all of the electrical power drives the refrigerator' could be added if desired, but it is not required.",
+   "Plan: the Carnot COP derivation (Qh = Qc + W with Qc/Qh = Tc/Th, giving Tc/(Th-Tc)) is correct. COP = f*COPr and Pw = Pc/COP are correct. The check statements are correct (the heat rejected exceeds the heat removed, and power tends to 0 as Th approaches Tc).",
+   "Distractor note: the shared 'The laboratory temperature is 21 C' sentence sits beside a kitchen at 300 K and an interior at 275 K. It names a different place (laboratory), so it is not contradictory and only acts as a numeric distractor."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived: Pw = Pc / (f Tc/(Th-Tc)) gives 60.606, 39.683, 207.692 and 59.952 W. The blind solver matched all four.",
+   "Well-posed. One implicit assumption: the electrical power equals the work input of the cycle, with no motor or compressor losses. The graph states this in A-steady but the prompt does not. Every textbook treatment and every blind solution makes this reading, and no other efficiency is given, so the answer is unique in practice. A sentence such as 'all of the electrical power drives the refrigerator' could be added if desired, but it is not required.",
+   "Plan: the Carnot COP derivation (Qh = Qc + W with Qc/Qh = Tc/Th, giving Tc/(Th-Tc)) is correct. COP = f*COPr and Pw = Pc/COP are correct. The check statements are correct (the heat rejected exceeds the heat removed, and power tends to 0 as Th approaches Tc).",
+   "Distractor note: the shared 'The laboratory temperature is 21 C' sentence sits beside a kitchen at 300 K and an interior at 275 K. It names a different place (laboratory), so it is not contradictory and only acts as a numeric distractor."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S57": {
+  "blind_match": true,
+  "domain": "thermodynamics",
+  "issues": [
+   "Gold re-derived: W = m c [(Tb-Tl) - Tl ln(Tb/Tl)] gives 61.076, 40.490, 102.653 and 58.900 kJ. The blind solver matched all four.",
+   "The blind solver's note that c = 4180 in instance 3 versus 4186 in the others is correct and harmless: the value is stated in the prompt and the gold uses it.",
+   "Well-posed: reservoir of fixed temperature, reversible engine, water cooled to Tl, c constant and liquid (Tb <= 370 K, below 373 K). The 'maximum total work' is unique.",
+   "Plan: Q = mc dT, dS = integral of mc dT/T = mc ln(Tb/Tl), and the rejected heat = Tl*dS (zero total entropy production, with the engine's working fluid returning to its state) are all correct. The check claims are correct: W < Q(1 - Tl/Tb), since the integrand (1 - Tl/T) is at most (1 - Tl/Tb), and W is quadratic in (Tb-Tl) while Q is linear, so W vanishes faster."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived: W = m c [(Tb-Tl) - Tl ln(Tb/Tl)] gives 61.076, 40.490, 102.653 and 58.900 kJ. The blind solver matched all four.",
+   "The blind solver's note that c = 4180 in instance 3 versus 4186 in the others is correct and harmless: the value is stated in the prompt and the gold uses it.",
+   "Well-posed: reservoir of fixed temperature, reversible engine, water cooled to Tl, c constant and liquid (Tb <= 370 K, below 373 K). The 'maximum total work' is unique.",
+   "Plan: Q = mc dT, dS = integral of mc dT/T = mc ln(Tb/Tl), and the rejected heat = Tl*dS (zero total entropy production, with the engine's working fluid returning to its state) are all correct. The check claims are correct: W < Q(1 - Tl/Tb), since the integrand (1 - Tl/T) is at most (1 - Tl/Tb), and W is quadratic in (Tb-Tl) while Q is linear, so W vanishes faster."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S61": {
+  "blind_match": true,
+  "domain": "optics",
+  "issues": [
+   "Hand re-derived all four instances: y = m*lam*D/d gives 12, 6, 31.2 and 18 mm. They match the gold and the blind solver.",
+   "Well-posed. Small angle, normal incidence and order zero at the centre are all stated. The largest angle is about 0.006 rad, so the approximation is excellent.",
+   "Plan checked: the d sin(theta) = m lam condition, the spacing lam D/d and y = m*dy are correct and consistent with the graph. The sanity check (halving d doubles the spacing, fringes a few mm apart) is correct.",
+   "No defects found."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Hand re-derived all four instances: y = m*lam*D/d gives 12, 6, 31.2 and 18 mm. They match the gold and the blind solver.",
+   "Well-posed. Small angle, normal incidence and order zero at the centre are all stated. The largest angle is about 0.006 rad, so the approximation is excellent.",
+   "Plan checked: the d sin(theta) = m lam condition, the spacing lam D/d and y = m*dy are correct and consistent with the graph. The sanity check (halving d doubles the spacing, fringes a few mm apart) is correct.",
+   "No defects found."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S62": {
+  "blind_match": true,
+  "domain": "optics",
+  "issues": [
+   "Hand re-derived: P3 = (P0/2) cos^2(th1) cos^2(th2) gives 8.802, 7.5, 27.558 and 14.594 mW. They match the gold and the blind solver.",
+   "Well-posed. 'Unpolarised' and 'ideal' are stated, and the angles are explicitly between successive axes. Only the cos^2 enters, so the sign of an angle does not matter.",
+   "Mild remark, not a defect: a laser is usually polarised, but the prompt says 'unpolarised laser beam', so there is no ambiguity.",
+   "Plan checked: the one-half rule (the average of cos^2 over random directions is 1/2) then Malus twice is correct and consistent with the graph. The check (result <= P0/2; 0 degrees changes nothing, 90 degrees blocks all) is correct."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Hand re-derived: P3 = (P0/2) cos^2(th1) cos^2(th2) gives 8.802, 7.5, 27.558 and 14.594 mW. They match the gold and the blind solver.",
+   "Well-posed. 'Unpolarised' and 'ideal' are stated, and the angles are explicitly between successive axes. Only the cos^2 enters, so the sign of an angle does not matter.",
+   "Mild remark, not a defect: a laser is usually polarised, but the prompt says 'unpolarised laser beam', so there is no ambiguity.",
+   "Plan checked: the one-half rule (the average of cos^2 over random directions is 1/2) then Malus twice is correct and consistent with the graph. The check (result <= P0/2; 0 degrees changes nothing, 90 degrees blocks all) is correct."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S63": {
+  "blind_match": true,
+  "domain": "optics",
+  "issues": [
+   "Hand re-derived: f = 3c/(4L) with c = sqrt(gam R T / M) and M in kg/mol gives 428.66, 578.33, 1504.95 and 218.55 Hz. They match the gold and the blind solver. The solver finds the root of cos(kL) = 0 and uses rho from the ideal-gas law, so it is independent of the graph.",
+   "Well-posed. R is stated, M is given in g/mol (the plan reminds the solver to convert to kg/mol), end corrections are neglected, and 'the lowest is the fundamental' removes any ambiguity about 'second-lowest'.",
+   "Plan checked: c^2 = gamma p/rho with p = rho R T/M, the node at the closed end and antinode at the open end giving L = (2k-1) lam/4, and lam = 4L/3 are all correct. The check (3c/(4L), helium about 1000 m/s) is correct.",
+   "Cosmetic only: the c step says the speed 'depends only on gamma, temperature and molar mass', but R is also needed. R is a stated constant and the formula is shown, so this is harmless."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Hand re-derived: f = 3c/(4L) with c = sqrt(gam R T / M) and M in kg/mol gives 428.66, 578.33, 1504.95 and 218.55 Hz. They match the gold and the blind solver. The solver finds the root of cos(kL) = 0 and uses rho from the ideal-gas law, so it is independent of the graph.",
+   "Well-posed. R is stated, M is given in g/mol (the plan reminds the solver to convert to kg/mol), end corrections are neglected, and 'the lowest is the fundamental' removes any ambiguity about 'second-lowest'.",
+   "Plan checked: c^2 = gamma p/rho with p = rho R T/M, the node at the closed end and antinode at the open end giving L = (2k-1) lam/4, and lam = 4L/3 are all correct. The check (3c/(4L), helium about 1000 m/s) is correct.",
+   "Cosmetic only: the c step says the speed 'depends only on gamma, temperature and molar mass', but R is also needed. R is a stated constant and the formula is shown, so this is harmless."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S64": {
+  "blind_match": true,
+  "domain": "optics",
+  "issues": [
+   "Hand re-derived all four instances. di1 = 18, 15, 22.5 and 15 cm; o2 = 27, 35, 37.5 and 33 cm; di2 = 13.5, 8.75, 9.375 and 10.56 cm. They match the gold and the blind solver, and the ray-transfer-matrix solver is independent.",
+   "Well-posed. In every instance the first image lies between the lenses (di1 < sep) and o2 > f2, so the final image is real, as the assumptions state. The relevant-edit scaling (f2 x 0.8) also keeps o2 > f2.",
+   "Plan checked: Gaussian equation twice, with o2 = sep - di1 as a real object. Every principle and sign convention is correct.",
+   "Minor looseness in the check text: 'if the second lens had a very long focal length the light would simply continue to the first image' is true only in the sense that di2 tends to -o2, a virtual image at the first image position. It is not wrong, and no change is required."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Hand re-derived all four instances. di1 = 18, 15, 22.5 and 15 cm; o2 = 27, 35, 37.5 and 33 cm; di2 = 13.5, 8.75, 9.375 and 10.56 cm. They match the gold and the blind solver, and the ray-transfer-matrix solver is independent.",
+   "Well-posed. In every instance the first image lies between the lenses (di1 < sep) and o2 > f2, so the final image is real, as the assumptions state. The relevant-edit scaling (f2 x 0.8) also keeps o2 > f2.",
+   "Plan checked: Gaussian equation twice, with o2 = sep - di1 as a real object. Every principle and sign convention is correct.",
+   "Minor looseness in the check text: 'if the second lens had a very long focal length the light would simply continue to the first image' is true only in the sense that di2 tends to -o2, a virtual image at the first image position. It is not wrong, and no change is required."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S65": {
+  "blind_match": true,
+  "domain": "optics",
+  "issues": [
+   "Hand re-derived: sin(theta_max) = sqrt(n1^2 - n2^2)/n0 gives 24.835, 26.729, 33.211 and 47.501 degrees. They match the gold and the blind solver. All sines are below 1, and the relevant-edit scaling (n1 x 1.06) keeps it so.",
+   "Well-posed. Meridional rays, a flat end face perpendicular to the axis, n0 given and TIR as the guiding condition are all stated.",
+   "Plan checked: sin(theta_c) = n2/n1; thr = 90 degrees - theta_c; Snell at the end face with n0 sin(theta) = n1 sin(theta_r). The graph expression asin(n1 sin(thr)/n0) is consistent. The remark that the end-face normal lies along the axis is correct, and the NA identity in the check is correct.",
+   "No defects found."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Hand re-derived: sin(theta_max) = sqrt(n1^2 - n2^2)/n0 gives 24.835, 26.729, 33.211 and 47.501 degrees. They match the gold and the blind solver. All sines are below 1, and the relevant-edit scaling (n1 x 1.06) keeps it so.",
+   "Well-posed. Meridional rays, a flat end face perpendicular to the axis, n0 given and TIR as the guiding condition are all stated.",
+   "Plan checked: sin(theta_c) = n2/n1; thr = 90 degrees - theta_c; Snell at the end face with n0 sin(theta) = n1 sin(theta_r). The graph expression asin(n1 sin(thr)/n0) is consistent. The remark that the end-face normal lies along the axis is correct, and the NA identity in the check is correct.",
+   "No defects found."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S66": {
+  "blind_match": true,
+  "domain": "optics",
+  "issues": [
+   "Hand re-derived: asin(m lam2/d) - asin(m lam1/d) gives 5.963, 5.751, 9.860 and 4.447 degrees. They match the gold and the blind solver.",
+   "Well-posed. Normal incidence, the order and 'one side of the central beam' are stated. All sines are below 1 (largest 0.552 even after the d x 0.75 edit), so the orders exist.",
+   "Plan checked: the grating equation d sin(theta) = m lam. The check is correct: the small-angle estimate m(lam2 - lam1)/d, e.g. 5.73 against 5.96 degrees in instance 0, underestimates the true value because asin is convex.",
+   "No defects found."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Hand re-derived: asin(m lam2/d) - asin(m lam1/d) gives 5.963, 5.751, 9.860 and 4.447 degrees. They match the gold and the blind solver.",
+   "Well-posed. Normal incidence, the order and 'one side of the central beam' are stated. All sines are below 1 (largest 0.552 even after the d x 0.75 edit), so the orders exist.",
+   "Plan checked: the grating equation d sin(theta) = m lam. The check is correct: the small-angle estimate m(lam2 - lam1)/d, e.g. 5.73 against 5.96 degrees in instance 0, underestimates the true value because asin is convex.",
+   "No defects found."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S67": {
+  "blind_match": true,
+  "domain": "optics",
+  "issues": [
+   "Hand re-derived: R = ((n-1)/(n+1))^2 and T = (1-R)/(1+R) give 46.154, 69.923, 28.042 and 84.906 mW. The geometric series (1-R)^2/(1-R^2) is the same. They match the gold and the blind solver.",
+   "Well-posed. Lossless plate, incoherent addition of the beams, normal incidence and 'including all the beams reflected inside' are stated. The Fresnel normal-incidence formula is standard and is not given in the prompt, but a strong solver derives or recalls it. The blind solver reached the gold value in all four instances.",
+   "Plan checked: R is the same from both sides at normal incidence; the series sums correctly; the reflected fraction is 2R/(1+R); T + reflected = 1; T is greater than (1-R)^2 and less than 1. All statements are correct.",
+   "No defects found."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Hand re-derived: R = ((n-1)/(n+1))^2 and T = (1-R)/(1+R) give 46.154, 69.923, 28.042 and 84.906 mW. The geometric series (1-R)^2/(1-R^2) is the same. They match the gold and the blind solver.",
+   "Well-posed. Lossless plate, incoherent addition of the beams, normal incidence and 'including all the beams reflected inside' are stated. The Fresnel normal-incidence formula is standard and is not given in the prompt, but a strong solver derives or recalls it. The blind solver reached the gold value in all four instances.",
+   "Plan checked: R is the same from both sides at normal incidence; the series sums correctly; the reflected fraction is 2R/(1+R); T + reflected = 1; T is greater than (1-R)^2 and less than 1. All statements are correct.",
+   "No defects found."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S71": {
+  "blind_match": true,
+  "domain": "quantum",
+  "issues": [
+   "Gold re-derived for all 4 instances (K=hc/lam-phi, v=c*sqrt(2K/mc2)): 968.0, 846.3, 528.5 and 1147.2 km/s, all correct. The blind solver matches to 1e-16 and raises no concern.",
+   "The prompt is well posed: all constants are stated and the non-relativistic relation is requested. The K/mc2 ratio is about 5e-6, so the relativistic correction is negligible anyway.",
+   "Plan: every principle is correctly named and consistent with the graph expressions, and the plan is complete.",
+   "Minor wording only: step 2 says the fastest electrons 'come from the surface'. Strictly they are those at the top of the occupied band (the Fermi level) that lose only phi. The physics and the number are unaffected."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived for all 4 instances (K=hc/lam-phi, v=c*sqrt(2K/mc2)): 968.0, 846.3, 528.5 and 1147.2 km/s, all correct. The blind solver matches to 1e-16 and raises no concern.",
+   "The prompt is well posed: all constants are stated and the non-relativistic relation is requested. The K/mc2 ratio is about 5e-6, so the relativistic correction is negligible anyway.",
+   "Plan: every principle is correctly named and consistent with the graph expressions, and the plan is complete.",
+   "Minor wording only: step 2 says the fastest electrons 'come from the surface'. Strictly they are those at the top of the occupied band (the Fermi level) that lose only phi. The physics and the number are unaffected."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S72": {
+  "blind_match": true,
+  "domain": "quantum",
+  "issues": [
+   "Gold re-derived: lam=hc/sqrt(2*mc2*K) gives 100.15, 166.92, 122.66 and 70.82 pm for K=150, 54, 100 and 300 eV. All correct, and the blind solver matches exactly with no concerns.",
+   "The prompt states non-relativistic treatment, hc and mc2, so there is one unambiguous answer. K/mc2 is at most 6e-4, so the non-relativistic choice does not change the result at the 0.5 percent level.",
+   "Plan: de Broglie relation and p c = sqrt(2 mc2 K) are correct and match the graph. The check (lambda ~ K^-1/2, dimensions, size of an atomic spacing) is correct."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived: lam=hc/sqrt(2*mc2*K) gives 100.15, 166.92, 122.66 and 70.82 pm for K=150, 54, 100 and 300 eV. All correct, and the blind solver matches exactly with no concerns.",
+   "The prompt states non-relativistic treatment, hc and mc2, so there is one unambiguous answer. K/mc2 is at most 6e-4, so the non-relativistic choice does not change the result at the 0.5 percent level.",
+   "Plan: de Broglie relation and p c = sqrt(2 mc2 K) are correct and match the graph. The check (lambda ~ K^-1/2, dimensions, size of an atomic spacing) is correct."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S73": {
+  "blind_match": true,
+  "domain": "quantum",
+  "issues": [
+   "Gold values verified independently (54.9462, 100.473, 237.368, 35.1656 nm); blind solver matched all four.",
+   "Dipole repair complete: instantiations use odd changes in n (3, 3, 1, 3).",
+   "Minor: input ranges still admit even-change pairs (not used by any shipped sample); the assumption sentence refers to the benchmark; no explicit non-relativistic clause; the check text says 'ultraviolet or visible' while all shipped photons are ultraviolet."
+  ],
+  "repair_changed": [
+   "/home/pabitra/PhysMons/src/physmon/benchmark/v2/lib_quantum.py: S73 instances replaced with dipole-allowed transitions (L nm, ni->nf): (0.5, 4->1), (0.8, 5->2), (0.6, 3->2), (0.4, 4->1); all stay within the declared domains ni in [3,5], nf in [1,2] and L in [0.3,1.0].",
+   "Same file: assumption A-photon now ends with 'Every transition used has an odd change in quantum number, so it is allowed by the electric-dipole selection rule.'"
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Numbers are correct. E1=hc^2/(8 mc2 L^2) and lam=hc/((ni^2-nf^2)E1) give 103.02, 175.83, 49.45 and 105.50 nm, which I re-derived. The blind solver matches exactly.",
+   "Physics defect in three of the four instantiations: the prompt asserts the electron 'makes a transition ... and emits one photon', but 3->1, 4->2 and 5->1 connect states of the same parity. The electric-dipole matrix element of x between the sin states is zero for even Delta n, so those transitions cannot emit a photon by dipole radiation. Only 3->2 (Delta n = 1) is dipole-allowed. The number is still unambiguous because the problem stipulates the emission, but the problem as written describes a forbidden process and a physicist would object.",
+   "Plan text is otherwise correct: levels n^2 E1, one-half-wavelength quantisation, and lam proportional to L^2 are right. The check's 'ultraviolet or visible' is acceptable, since the wavelengths 49-176 nm are vacuum ultraviolet."
+  ],
+  "round1_required_changes": [
+   "Replace the four instances with dipole-allowed transitions (odd Delta n) inside the stated domains ni in [3,5], nf in [1,2]. Examples: (L=0.5, ni=4, nf=1), (L=0.8, ni=5, nf=2), (L=0.6, ni=3, nf=2) and (L=0.4, ni=4, nf=1). Check that the new gold values and the blind solver still agree.",
+   "Alternatively, keep the instances but make the prompt say 'emits one photon (for example through a higher-order process)' and add that wording to assumption A-photon. The first option is cleaner."
+  ],
+  "round1_verdict": "fix",
+  "round2_note": "round-2 review asked only for wording: the assumption sentence was malformed; fixed by the author (full stop) and re-verified",
+  "round2_verdict": "fix",
+  "round3_blind_match": true,
+  "round3_verdict": "accept",
+  "status": "accepted_after_repair"
+ },
+ "S74": {
+  "blind_match": true,
+  "domain": "quantum",
+  "issues": [
+   "Gold re-derived: Eph=Ry(1/nf^2-1/ni^2), p=E/c, v=p/M gives 0.6027, 0.8136, 2.036 and 0.3223 m/s. All correct for the stated data (c=3e8 m/s, 1 u = 1.66054e-27 kg, 1 eV = 1.602e-19 J).",
+   "The blind solver is off by 1.39e-3 on every instance, inside the 5e-3 compare tolerance. The cause is the problem, not a gold error. The prompt gives mass only in u and gives c = 300000 km/s, but states neither u-to-kg nor eV-to-J. The solver took 1 u = 931.494 MeV/c^2 with the true c and then used the stated c, which gives a factor (c_stated/c_true)^2. A solver using u = 1.66e-27 kg and e = 1.6e-19 C lands within about 0.1 to 0.2 percent. This is a mild ambiguity, not an error.",
+   "The blind concern that the photon-energy recoil correction is neglected is valid but immaterial: the correction is about E^2/(2 M c^2) of order 1e-9 relative. The plan states this explicitly, and the prompt's 'Bohr levels with Rydberg energy ... for every isotope' pins the model.",
+   "Plan: Bohr levels, p=E/c and M v = p are all correct, and the check (recoil KE far below photon energy, v ~ 1/M) is correct."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived: Eph=Ry(1/nf^2-1/ni^2), p=E/c, v=p/M gives 0.6027, 0.8136, 2.036 and 0.3223 m/s. All correct for the stated data (c=3e8 m/s, 1 u = 1.66054e-27 kg, 1 eV = 1.602e-19 J).",
+   "The blind solver is off by 1.39e-3 on every instance, inside the 5e-3 compare tolerance. The cause is the problem, not a gold error. The prompt gives mass only in u and gives c = 300000 km/s, but states neither u-to-kg nor eV-to-J. The solver took 1 u = 931.494 MeV/c^2 with the true c and then used the stated c, which gives a factor (c_stated/c_true)^2. A solver using u = 1.66e-27 kg and e = 1.6e-19 C lands within about 0.1 to 0.2 percent. This is a mild ambiguity, not an error.",
+   "The blind concern that the photon-energy recoil correction is neglected is valid but immaterial: the correction is about E^2/(2 M c^2) of order 1e-9 relative. The plan states this explicitly, and the prompt's 'Bohr levels with Rydberg energy ... for every isotope' pins the model.",
+   "Plan: Bohr levels, p=E/c and M v = p are all correct, and the check (recoil KE far below photon energy, v ~ 1/M) is correct."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S75": {
+  "blind_match": true,
+  "domain": "quantum",
+  "issues": [
+   "Gold re-derived by hand with lamC=hc/mc2=2.4266 pm: Ke = 6.709, 13.417, 6.304 and 3.740 keV. The blind solver matches exactly, using the same Compton formula, and the solver in the module uses exact energy-momentum conservation, so the two routes agree.",
+   "Well posed: free electron at rest, angle measured between incident and scattered photon directions, constants stated.",
+   "Plan: Compton shift lam'-lam = lamC(1-cos theta), K=E-E' and the check (zero at theta=0, shift at most 2*lamC) are all correct and consistent with the graph."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived by hand with lamC=hc/mc2=2.4266 pm: Ke = 6.709, 13.417, 6.304 and 3.740 keV. The blind solver matches exactly, using the same Compton formula, and the solver in the module uses exact energy-momentum conservation, so the two routes agree.",
+   "Well posed: free electron at rest, angle measured between incident and scattered photon directions, constants stated.",
+   "Plan: Compton shift lam'-lam = lamC(1-cos theta), K=E-E' and the check (zero at theta=0, shift at most 2*lamC) are all correct and consistent with the graph."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S76": {
+  "blind_match": true,
+  "domain": "quantum",
+  "issues": [
+   "Gold re-derived: r0=(hbar c)^2/(mc2 Z ke2)=0.05290 nm and Eb=Z ke2/(2 r0)=13.610 Z^2 eV, giving 13.61, 39.33, 54.44 and 23.00 eV. All correct, and the blind solver matches exactly. Its remark that Z=1 reproduces the hydrogen ground state is correct, and the problem requests only the minimisation result.",
+   "The prompt gives E(r) in full, including the p=hbar/r prescription, so there is no ambiguity.",
+   "Minor wording in plan step 2: it calls the relation KE = |PE|/2 'the virial theorem'. Here it is simply a consequence of minimising this E(r), which coincides with the virial result for a 1/r potential. The statement is true, so no change is needed."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived: r0=(hbar c)^2/(mc2 Z ke2)=0.05290 nm and Eb=Z ke2/(2 r0)=13.610 Z^2 eV, giving 13.61, 39.33, 54.44 and 23.00 eV. All correct, and the blind solver matches exactly. Its remark that Z=1 reproduces the hydrogen ground state is correct, and the problem requests only the minimisation result.",
+   "The prompt gives E(r) in full, including the p=hbar/r prescription, so there is no ambiguity.",
+   "Minor wording in plan step 2: it calls the relation KE = |PE|/2 'the virial theorem'. Here it is simply a consequence of minimising this E(r), which coincides with the virial result for a 1/r potential. The statement is true, so no change is needed."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S77": {
+  "blind_match": true,
+  "domain": "quantum",
+  "issues": [
+   "Gold re-derived: kappa=sqrt(2 mc2 (U0-E))/hbarc and a=-ln(T)/(2 kappa) give 0.3892, 0.2118, 0.5189 and 0.2585 nm. All correct, and the blind solver matches exactly.",
+   "The prompt defines T=exp(-x), x=2 a kappa and hbar kappa explicitly, so there is one answer even though the exponential form is only an approximation for thin barriers (kappa a is about 2.3 to 4.6 here).",
+   "The plan describes the exponential as the 'thick-barrier approximation' and says the decay rate depends on U0-E. Both statements are correct. The check on scaling and order of magnitude is correct."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived: kappa=sqrt(2 mc2 (U0-E))/hbarc and a=-ln(T)/(2 kappa) give 0.3892, 0.2118, 0.5189 and 0.2585 nm. All correct, and the blind solver matches exactly.",
+   "The prompt defines T=exp(-x), x=2 a kappa and hbar kappa explicitly, so there is one answer even though the exponential form is only an approximation for thin barriers (kappa a is about 2.3 to 4.6 here).",
+   "The plan describes the exponential as the 'thick-barrier approximation' and says the decay rate depends on U0-E. Both statements are correct. The check on scaling and order of magnitude is correct."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S78": {
+  "blind_match": true,
+  "domain": "quantum",
+  "issues": [
+   "Gold re-derived: omega=sqrt(k/mu), hbar omega=hbarc*omega/c, E=(n+1/2)hbar omega gives 0.3986, 0.9258, 0.1461 and 1.7947 eV. The values correspond to CO, HCl, N2 and HF respectively and are physically sensible. The blind solver matches to 1e-9.",
+   "The blind concern that the u-to-kg conversion is not given is valid but small. A solver using 1.66e-27 kg differs by about 1e-4 relative, far inside the tolerance, and the conversion is a standard constant. Adding '1 u = 1.66054e-27 kg' to the prompt would be tidy but is not necessary.",
+   "Plan: omega=sqrt(k/mu), hbar=(hbar c)/c and E_n=(n+1/2)hbar omega are all correct. The infrared-range remark is correct, with spacings of 0.27 to 0.51 eV corresponding to roughly 2.4 to 4.7 micrometres. The graph and the plan agree."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived: omega=sqrt(k/mu), hbar omega=hbarc*omega/c, E=(n+1/2)hbar omega gives 0.3986, 0.9258, 0.1461 and 1.7947 eV. The values correspond to CO, HCl, N2 and HF respectively and are physically sensible. The blind solver matches to 1e-9.",
+   "The blind concern that the u-to-kg conversion is not given is valid but small. A solver using 1.66e-27 kg differs by about 1e-4 relative, far inside the tolerance, and the conversion is a standard constant. Adding '1 u = 1.66054e-27 kg' to the prompt would be tidy but is not necessary.",
+   "Plan: omega=sqrt(k/mu), hbar=(hbar c)/c and E_n=(n+1/2)hbar omega are all correct. The infrared-range remark is correct, with spacings of 0.27 to 0.51 eV corresponding to roughly 2.4 to 4.7 micrometres. The graph and the plan agree."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S79": {
+  "blind_match": true,
+  "domain": "quantum",
+  "issues": [
+   "Gold re-derived: lam_min=hc/K and theta=asin(lam/(2d)) give 4.203, 3.151, 7.087 and 2.515 degrees. All correct. The blind solver matches exactly, and the question states 'glancing angle, first order', so there is no ambiguity.",
+   "Plan: the Duane-Hunt limit, Bragg's law 2 d sin(theta) = m lambda and the check are correct. The units are clear (angle from the planes, answer in degrees)."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold re-derived: lam_min=hc/K and theta=asin(lam/(2d)) give 4.203, 3.151, 7.087 and 2.515 degrees. All correct. The blind solver matches exactly, and the question states 'glancing angle, first order', so there is no ambiguity.",
+   "Plan: the Duane-Hunt limit, Bragg's law 2 d sin(theta) = m lambda and the check are correct. The units are clear (angle from the planes, answer in degrees)."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S81": {
+  "blind_match": true,
+  "domain": "modern",
+  "issues": [
+   "Gold checked by hand for all 4 instances: tau = d/(beta c gamma). For beta 0.8, d 60 m, c 299800 km/s this gives 150.10 ns. The other three give 200.13, 116.667 and 161.548 ns. All four match the gold and the blind solver (rel err below 3e-6).",
+   "Well-posed: the stated constant c and the lab-frame distance are given, the assumptions name the proper-time target, and the answer is unique. The blind solver raised no concerns.",
+   "The plan's principles and why-statements are correct and agree with the graph (gamma, v = beta c, t = d/v, tau = t/gamma). The check, including the invariant-interval second route, is correct. The approach sentence is a good strategy.",
+   "Minor cosmetic point: the numeric-metadata distractor says 'A separate muon B ... lifetime of 151 ns'. A muon lifetime is about 2200 ns, so that is physically implausible, although the sentence says it is unrelated. A neutral 'particle B' would be more consistent. This does not affect correctness."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold checked by hand for all 4 instances: tau = d/(beta c gamma). For beta 0.8, d 60 m, c 299800 km/s this gives 150.10 ns. The other three give 200.13, 116.667 and 161.548 ns. All four match the gold and the blind solver (rel err below 3e-6).",
+   "Well-posed: the stated constant c and the lab-frame distance are given, the assumptions name the proper-time target, and the answer is unique. The blind solver raised no concerns.",
+   "The plan's principles and why-statements are correct and agree with the graph (gamma, v = beta c, t = d/v, tau = t/gamma). The check, including the invariant-interval second route, is correct. The approach sentence is a good strategy.",
+   "Minor cosmetic point: the numeric-metadata distractor says 'A separate muon B ... lifetime of 151 ns'. A muon lifetime is about 2200 ns, so that is physically implausible, although the sentence says it is unrelated. A neutral 'particle B' would be more consistent. This does not affect correctness."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S82": {
+  "blind_match": true,
+  "domain": "modern",
+  "issues": [
+   "Gold checked for all 4 instances using lam2 = lam1*T1/T2 and E = hc/lam2. The values are 1000 nm -> 1.24 eV, 720 nm -> 1.7222 eV, 400 nm -> 3.1 eV and 500 nm (hc 1230) -> 2.46 eV. All match the gold and the blind solver.",
+   "The independent solver, the Planck peak condition x/(1-e^-x) = 5 calibrated on star 1, is mathematically identical to Wien scaling. This is why the agreement is at machine precision. The condition is correct for the peak per unit wavelength.",
+   "Well-posed: the prompt says 'per unit wavelength' explicitly and gives hc, so there is no ambiguity about the wavelength versus frequency peak. Numbers are realistic (5800 K -> 500 nm).",
+   "The plan is correct: Wien's displacement law with the constant eliminated by calibration on star 1, then Planck-Einstein E = hc/lambda. The check text is correct. The approach is sound.",
+   "Minor: instance 3 uses hc = 1230 eV nm, and the stated constant is 0.8% off the usual 1240. It is stated in the prompt, so it is unambiguous."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold checked for all 4 instances using lam2 = lam1*T1/T2 and E = hc/lam2. The values are 1000 nm -> 1.24 eV, 720 nm -> 1.7222 eV, 400 nm -> 3.1 eV and 500 nm (hc 1230) -> 2.46 eV. All match the gold and the blind solver.",
+   "The independent solver, the Planck peak condition x/(1-e^-x) = 5 calibrated on star 1, is mathematically identical to Wien scaling. This is why the agreement is at machine precision. The condition is correct for the peak per unit wavelength.",
+   "Well-posed: the prompt says 'per unit wavelength' explicitly and gives hc, so there is no ambiguity about the wavelength versus frequency peak. Numbers are realistic (5800 K -> 500 nm).",
+   "The plan is correct: Wien's displacement law with the constant eliminated by calibration on star 1, then Planck-Einstein E = hc/lambda. The check text is correct. The approach is sound.",
+   "Minor: instance 3 uses hc = 1230 eV nm, and the stated constant is 0.8% off the usual 1240. It is stated in the prompt, so it is unambiguous."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S83": {
+  "blind_match": true,
+  "domain": "modern",
+  "issues": [
+   "Gold checked for all 4 instances as dm*uc2/(Z+N). The values are 7.0747 MeV (He-4), 7.6802 (C-12), 7.9760 (O-16) and 8.7863 (Fe-56 with 931.0 MeV/u). All match the gold and the blind solver. The data are realistic.",
+   "Well-posed: the mass defect is defined in the prompt as separated nucleons minus nucleus and is given in u, and the conversion constant is stated.",
+   "The plan is correct. The why of the Etot step ('the mass that is released as energy') is slightly loose but not wrong. 'Converted into the binding energy' would be cleaner. The check range of 7 to 9 MeV is stated as 'most' stable nuclei, which is acceptable.",
+   "Observation about the relevant_edit cell only (dm x1.25): the edited golds are 8.84, 9.60, 9.97 and 10.98 MeV per nucleon. These exceed the physical maximum of about 8.8 MeV for Fe-56 and for the light nuclei, so the edited prompts describe non-physical nuclei. They are still arithmetically unambiguous, so I do not require a change, but a smaller factor (for example 1.1) would be more realistic.",
+   "Instance 3 states 931 MeV/u rather than 931.5. It is stated, so it is unambiguous."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold checked for all 4 instances as dm*uc2/(Z+N). The values are 7.0747 MeV (He-4), 7.6802 (C-12), 7.9760 (O-16) and 8.7863 (Fe-56 with 931.0 MeV/u). All match the gold and the blind solver. The data are realistic.",
+   "Well-posed: the mass defect is defined in the prompt as separated nucleons minus nucleus and is given in u, and the conversion constant is stated.",
+   "The plan is correct. The why of the Etot step ('the mass that is released as energy') is slightly loose but not wrong. 'Converted into the binding energy' would be cleaner. The check range of 7 to 9 MeV is stated as 'most' stable nuclei, which is acceptable.",
+   "Observation about the relevant_edit cell only (dm x1.25): the edited golds are 8.84, 9.60, 9.97 and 10.98 MeV per nucleon. These exceed the physical maximum of about 8.8 MeV for Fe-56 and for the light nuclei, so the edited prompts describe non-physical nuclei. They are still arithmetically unambiguous, so I do not require a change, but a smaller factor (for example 1.1) would be more realistic.",
+   "Instance 3 states 931 MeV/u rather than 931.5. It is stated, so it is unambiguous."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S84": {
+  "blind_match": true,
+  "domain": "modern",
+  "issues": [
+   "Gold checked independently: t = T_half*log2(A0/A). Inst 0: 5730*log2(240/150)=3885.35 yr. Inst 1: 5730*log2(250/96)=7912.11 yr. Inst 2: 5730*log2(300/45)=15682.8 yr. Inst 3 (T_half=5700): 5700*log2(300/180)=4200.70 yr. All four match the gold. The blind solver matched all four to better than 3e-8 relative error and raised no concerns.",
+   "Well-posed: the text gives the half-life, the sample activity and the living-carbon activity of the same mass. It states that the living activity per unit mass is constant in time and that the sample decayed freely, so the answer is one number in years. Instance 3 states a half-life of 5700 years in the prompt, so it is consistent. The year length cancels because the half-life and the age are both in yr, even though lam is displayed in 1/s.",
+   "Plan principles are correct and correctly named. R = A/A0 follows from A = lambda N for the same isotope. lambda = ln2/T_half follows from N(T_half) = N0/2. A = A0 exp(-lambda t) gives t = ln(A0/A)/lambda. The graph expression t = -log(R)/lam equals this. A student following the three steps reaches the answer. Using A0 for the living-tree activity matches the problem's notation.",
+   "Approach sentence and check are sound: half activity gives one half-life, equal activity gives zero age, and the age grows logarithmically. Minor wording only: the step-5 why-text calls the living activity 'the activity at the moment of death', which relies on the stated assumption. The assumption is in the plan, so this is acceptable.",
+   "Instance 2 (about 2.7 half-lives, 15.7 kyr) is within the practical range of radiocarbon dating, so there is no unphysical value. The distractor templates (an unrelated fossil B age, an unrelated lamp rating) are clearly marked irrelevant and do not change the answer."
+  ],
+  "repair_changed": [
+   "/home/pabitra/PhysMons/src/physmon/benchmark/v2/lib_modern.py: S84 s84_radiocarbon_age relevant edit changed from (\"A\", 0.8) to (\"A\", 0.9). Nothing else was touched."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold checked for all 4 instances as t = Thalf*log2(A0/A). The values are 3885.35, 7912.11, 15682.8 and 4200.7 yr. All match the gold and the blind solver. The year definition cancels because lam is computed in 1/s and t is converted back.",
+   "The base problem is well-posed and the physics is right. The assumption that living carbon always had the same activity per unit mass is stated. The plan is correct (A = lambda*N, lambda = ln2/Thalf, A = A0 exp(-lambda t)) and consistent with the graph. The check statements are correct.",
+   "DEFECT in the relevant_edit cell: ('A', 0.8) on instance 0 gives A = 120 Bq = A0/2, so the edited gold is exactly one half-life, 5730.0 yr. That equals the numeral 5730 stated in the prompt. A model that merely echoes the half-life, or that notices the 1/2 ratio, is right for the wrong reason. This makes the edit cell non-diagnostic for sensitivity measurement. No other instance has this coincidence (checked all four edited golds against the prompt numerals)."
+  ],
+  "round1_required_changes": [
+   "In lib_modern.py s84_radiocarbon_age, change the relevant edit from ('A', 0.8) to a factor that gives no special ratio on any instance, for example ('A', 0.9). That gives A0/A = 1.778, 2.89, 7.41 and 1.85 for the four instances. Then re-run the check tool and confirm no edited gold equals a prompt numeral. Nothing else in S84 needs to change."
+  ],
+  "round1_verdict": "fix",
+  "status": "accepted_after_repair"
+ },
+ "S85": {
+  "blind_match": true,
+  "domain": "modern",
+  "issues": [
+   "Gold checked for all 4 instances. Q = Dp - Dd - Da and Ka = Q*Ad/(Ad+4). The values are Q 4.875 -> 4.7887 MeV, 4.083 -> 4.0146, 4.275 -> 4.2032 and 5.245 -> 5.1572. All match the gold and the blind solver. The data are the real Ra-226, Th-232, U-238 and Pu-239 mass excesses, with real Q values of about 4.87, 4.08, 4.27 and 5.24 MeV.",
+   "Q from atomic mass excesses is valid because the electron count balances: the parent has Z electrons and the daughter plus He atoms have (Z-2)+2. The plan states this correctly.",
+   "Momentum conservation gives Ka/Kd = md/ma, so Ka = Q*Ad/(Ad+Aa). This is correct in the stated non-relativistic, mass-number-ratio approximation. The prompt states this treatment explicitly, so the answer is unique.",
+   "The parent mass number is not given in the prompt. It is not needed, because it equals Ad + 4 by conservation and Q uses the excesses directly. A strong solver infers this, as the blind solver did, so I do not treat it as an ambiguity.",
+   "The plan principles, why-statements, the check ('alpha carries almost all of Q, below Q') and the approach are correct and consistent with the graph."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold checked for all 4 instances. Q = Dp - Dd - Da and Ka = Q*Ad/(Ad+4). The values are Q 4.875 -> 4.7887 MeV, 4.083 -> 4.0146, 4.275 -> 4.2032 and 5.245 -> 5.1572. All match the gold and the blind solver. The data are the real Ra-226, Th-232, U-238 and Pu-239 mass excesses, with real Q values of about 4.87, 4.08, 4.27 and 5.24 MeV.",
+   "Q from atomic mass excesses is valid because the electron count balances: the parent has Z electrons and the daughter plus He atoms have (Z-2)+2. The plan states this correctly.",
+   "Momentum conservation gives Ka/Kd = md/ma, so Ka = Q*Ad/(Ad+Aa). This is correct in the stated non-relativistic, mass-number-ratio approximation. The prompt states this treatment explicitly, so the answer is unique.",
+   "The parent mass number is not given in the prompt. It is not needed, because it equals Ad + 4 by conservation and Q uses the excesses directly. A strong solver infers this, as the blind solver did, so I do not treat it as an ambiguity.",
+   "The plan principles, why-statements, the check ('alpha carries almost all of Q, below Q') and the approach are correct and consistent with the graph."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S86": {
+  "blind_match": true,
+  "domain": "modern",
+  "issues": [
+   "Gold checked for all 4 instances. gamma = 1 + K/E0 and beta = sqrt(1 - 1/gamma^2). The values are 227219 km/s (gamma 1.5329, beta 0.7579), 169733 (gamma 1.2132), 276898 (c = 300000, gamma 2.5988) and 284110 (E0 = 938.0, K 2000, gamma 3.1322). All match the gold and the blind solver.",
+   "Well-posed: rest energy, kinetic energy, c and the 'relativistic mechanics' instruction are all stated, and the answer is unique.",
+   "The plan is correct, and the check is correct (I verified algebraically that v_rel < v_Newtonian = c*sqrt(2K/E0) for all gamma > 1, and that the two agree for K << E0). The approach is a good strategy.",
+   "Minor: instance 3 states a rest energy of 938 MeV, slightly off 938.3, but it is stated and unambiguous."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold checked for all 4 instances. gamma = 1 + K/E0 and beta = sqrt(1 - 1/gamma^2). The values are 227219 km/s (gamma 1.5329, beta 0.7579), 169733 (gamma 1.2132), 276898 (c = 300000, gamma 2.5988) and 284110 (E0 = 938.0, K 2000, gamma 3.1322). All match the gold and the blind solver.",
+   "Well-posed: rest energy, kinetic energy, c and the 'relativistic mechanics' instruction are all stated, and the answer is unique.",
+   "The plan is correct, and the check is correct (I verified algebraically that v_rel < v_Newtonian = c*sqrt(2K/E0) for all gamma > 1, and that the two agree for K << E0). The approach is a good strategy.",
+   "Minor: instance 3 states a rest energy of 938 MeV, slightly off 938.3, but it is stated and unambiguous."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S91": {
+  "blind_match": true,
+  "domain": "fluids",
+  "issues": [
+   "Compare tool: all 4 instantiations match (q001-q004, rel err below 7e-6). Note: the command as given in the task with a trailing '.' fails with an argparse error. I ran it without the '.', and it printed the table above.",
+   "Independent hand derivation of all 4 gold values (dp = (rho_m - rho) g dh, v1 = sqrt(2 dp / (rho ((d1/d2)^4 - 1))), Q = pi d1^2 v1 / 4): 11.04, 12.98, 8.326 and 7.620 L/s. All are correct.",
+   "Well-posed. The data are complete and the problem states ideal, steady, frictionless flow with a uniform section speed, a horizontal pipe and manometer leads filled with the flowing liquid. The answer is unique. The manometer reads the piezometric difference, which equals the horizontal-pipe pressure difference, so tap height and arm orientation do not matter.",
+   "Plan principles are correctly named. The hydrostatic manometer law, continuity plus Bernoulli at constant height, and Q = A v are consistent with the graph expressions. The identity dp = 1/2 rho v1^2 ((d1/d2)^4 - 1) is right and v2 = v1 (d1/d2)^2 is right.",
+   "The approach sentence (pressure difference from the manometer, then continuity and Bernoulli for v1, then multiply by the area) is a good strategy.",
+   "Check text: the limiting case ('narrower throat gives a smaller flow for a given reading') is correct. The order-of-magnitude check (about 1.4 m/s in a 10 cm pipe is about 11 L/s) is correct.",
+   "Minor, no change needed: the problem does not say the taps lie on the axis or at the same height. The piezometric argument in the plan makes this irrelevant for the horizontal pipe and uniform section speed, so there is no ambiguity.",
+   "Blind solver reported no concern. It used the same formula."
+  ],
+  "repair_changed": [
+   "/home/pabitra/PhysMons/src/physmon/benchmark/v2/lib_fluids.py: PLANS['S91'] dp step why-text: replaced the invalid sentence 'The pipe is horizontal, so the two tappings are at the same height' with the piezometric argument (manometer leads filled with the flowing liquid, so the U-tube measures the difference of p + rho g z; the pipe axis is horizontal, so this is the p1 - p2 that enters Bernoulli). The rest of the step is unchanged.",
+   "/home/pabitra/PhysMons/src/physmon/benchmark/v2/lib_fluids.py: PLANS['S95'] F step: replaced the Pascal's-principle principle with Newton's first law for the light small piston plus the definition of pressure, with the atmosphere cancelling, F = pS A1. Added a clause to the why-text saying the pressure at this face is pS from the hydrostatic step, not pL. No graph, solver or number was changed."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold is correct for all 4 instantiations. I re-derived dp=(rho_m-rho) g dh, v1=sqrt(2 dp/(rho((d1/d2)^4-1))) and Q=pi d1^2 v1/4 by hand and got 11.0395, 12.9797, 8.32649 and 7.62045 L/s. The blind solver matched all four (rel err below 3e-6) and raised no concern.",
+   "The problem is well-posed with one answer. The leads are filled with the flowing liquid, so the U-tube reads the difference of p + rho g z. Bernoulli on a streamline needs the same piezometric difference, so the answer does not depend on where the tappings sit vertically (wall or axis).",
+   "Plan flaw (minor, wording): the dp step's why-text says 'The pipe is horizontal, so the two tappings are at the same height.' That does not follow. A horizontal pipe with a diameter change can have wall tappings at different heights, and the problem never says the tappings are level. The numeric result is unaffected, but the deduction is invalid and the plan hides the piezometric argument that makes the formula right.",
+   "The principles and why-statements for v1 and Q are correct, and v2 = v1 (d1/d2)^2 and dp = (1/2) rho v1^2 ((d1/d2)^4 - 1) match the graph expression. The check text is correct: the reading grows as the throat narrows, so a given reading means a smaller flow, and 1 m/s in a 10 cm pipe is about 8 to 10 L/s. The Q principle writes 'A = pi d^2/4' without naming d1, which is harmless because the why-text says 'the wide section'.",
+   "The approach sentence is a good backwards strategy: manometer to dp, then continuity and Bernoulli to v1, then Q.",
+   "Input ranges keep d1 > d2, and the distractor units are fine."
+  ],
+  "round1_required_changes": [
+   "In PLANS['S91'], dp step, replace the sentence 'The pipe is horizontal, so the two tappings are at the same height.' with a valid one, for example: 'The leads of the manometer are filled with the flowing liquid, so the U-tube measures the difference of p + rho g z between the two tappings. The pipe axis is horizontal, so this is the pressure difference p1 - p2 that enters Bernoulli's equation.' Or add 'the two tappings are at the same height' to the problem text and the A-level assumption. The first option is cheaper because it needs no re-solve.",
+   "No change to the graph, the solver or the numbers."
+  ],
+  "round1_verdict": "fix",
+  "status": "accepted_after_repair"
+ },
+ "S92": {
+  "blind_match": true,
+  "domain": "fluids",
+  "issues": [
+   "Gold is correct: T = (rho_l - rho_s) a^3 g gives 3.92, 21.4988, 2.5088 and 6.77376 N, which I checked by hand. The blind solver matched all four. The solver's use of top and bottom face pressures at an arbitrary depth agrees, since the atmosphere and the depth cancel.",
+   "The problem is well-posed: the cube is fully submerged, the string is light, vertical and tied to the bottom, and the answer is unique. The input ranges (rho_s 300-800, rho_l 900-1300) keep T > 0.",
+   "The plan is correct and complete: V, then Fb (Archimedes), then m (density), then T from Fb = m g + T. The why-statements are right, and the check (T = 0 at equal densities, scaling with volume and density difference) is correct. The approach is good.",
+   "Minor, not blocking: the 'taut' wording appears only in the assumption, not the prompt, but 'held at rest by a string' implies it."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold is correct: T = (rho_l - rho_s) a^3 g gives 3.92, 21.4988, 2.5088 and 6.77376 N, which I checked by hand. The blind solver matched all four. The solver's use of top and bottom face pressures at an arbitrary depth agrees, since the atmosphere and the depth cancel.",
+   "The problem is well-posed: the cube is fully submerged, the string is light, vertical and tied to the bottom, and the answer is unique. The input ranges (rho_s 300-800, rho_l 900-1300) keep T > 0.",
+   "The plan is correct and complete: V, then Fb (Archimedes), then m (density), then T from Fb = m g + T. The why-statements are right, and the check (T = 0 at equal densities, scaling with volume and density difference) is correct. The approach is good.",
+   "Minor, not blocking: the 'taut' wording appears only in the assumption, not the prompt, but 'held at rest by a string' implies it."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S93": {
+  "blind_match": true,
+  "domain": "fluids",
+  "issues": [
+   "Gold is correct: t = (A/a) sqrt(2/g) (sqrt(h0) - sqrt(h1)) follows from A dh/dt = -a sqrt(2 g h), because 2/sqrt(2g) = sqrt(2/g). I got 323.25, 392.15, 254.72 and 334.65 s by hand. The blind solver matched all four, and the ODE-with-event solver is independent of the closed form.",
+   "The problem is well-posed. The surface speed is negligible and the jet area equals the hole area, both stated, so there is one answer. The exact Bernoulli correction is of order (a/A)^2 = 4e-7, far below the tolerance. Heights are measured above the hole, which is at the bottom, so they are unambiguous.",
+   "The plan is correct. The Torricelli and volume-conservation principle, the separable integral 2(sqrt h0 - sqrt h1) and the area steps are right. The check bounds are correct, the claim that emptying fully (h1 = 0) takes twice the time at the initial outflow rate is verified algebraically, and 'narrower holes take longer' is right. Minor: the approach says 'mass conservation' while the step says 'conservation of volume'. These are equivalent for incompressible water, so nothing needs changing."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold is correct: t = (A/a) sqrt(2/g) (sqrt(h0) - sqrt(h1)) follows from A dh/dt = -a sqrt(2 g h), because 2/sqrt(2g) = sqrt(2/g). I got 323.25, 392.15, 254.72 and 334.65 s by hand. The blind solver matched all four, and the ODE-with-event solver is independent of the closed form.",
+   "The problem is well-posed. The surface speed is negligible and the jet area equals the hole area, both stated, so there is one answer. The exact Bernoulli correction is of order (a/A)^2 = 4e-7, far below the tolerance. Heights are measured above the hole, which is at the bottom, so they are unambiguous.",
+   "The plan is correct. The Torricelli and volume-conservation principle, the separable integral 2(sqrt h0 - sqrt h1) and the area steps are right. The check bounds are correct, the claim that emptying fully (h1 = 0) takes twice the time at the initial outflow rate is verified algebraically, and 'narrower holes take longer' is right. Minor: the approach says 'mass conservation' while the step says 'conservation of volume'. These are equivalent for incompressible water, so nothing needs changing."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S94": {
+  "blind_match": true,
+  "domain": "fluids",
+  "issues": [
+   "Gold is correct: P = dp Q with dp = 32 eta L v/D^2. I got 8.042, 1.885, 47.12 and 2.714 mW by hand. The blind solver matched all four. The root-finder over the integrated parabolic profile agrees with the closed form.",
+   "The problem is well-posed. The question defines the power as the pressure drop times the volume flow rate, and the average speed is given explicitly. Laminar flow is stated, and for a liquid of density about 1000 kg/m^3 the Reynolds numbers are 60-200, with entrance lengths far smaller than the pipe, so the stated assumptions are self-consistent.",
+   "The plan is correct. Q = A v and Hagen-Poiseuille in both forms (8/(pi R^4) = 128/(pi d^4)) are right, and P = dp Q is right. The remark that this equals the viscous dissipation holds for steady horizontal flow in a constant cross-section. The check is correct: the 1/d^4 scaling gives a factor of 16, and at fixed pipe P goes as v^2, so doubling v gives a factor of 4. The approach is good."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold is correct: P = dp Q with dp = 32 eta L v/D^2. I got 8.042, 1.885, 47.12 and 2.714 mW by hand. The blind solver matched all four. The root-finder over the integrated parabolic profile agrees with the closed form.",
+   "The problem is well-posed. The question defines the power as the pressure drop times the volume flow rate, and the average speed is given explicitly. Laminar flow is stated, and for a liquid of density about 1000 kg/m^3 the Reynolds numbers are 60-200, with entrance lengths far smaller than the pipe, so the stated assumptions are self-consistent.",
+   "The plan is correct. Q = A v and Hagen-Poiseuille in both forms (8/(pi R^4) = 128/(pi d^4)) are right, and P = dp Q is right. The remark that this equals the viscous dissipation holds for steady horizontal flow in a constant cross-section. The check is correct: the 1/d^4 scaling gives a factor of 16, and at fixed pipe P goes as v^2, so doubling v gives a factor of 4. The approach is good."
+  ],
+  "round1_required_changes": [],
+  "round1_verdict": "accept",
+  "status": "accepted"
+ },
+ "S95": {
+  "blind_match": true,
+  "domain": "fluids",
+  "issues": [
+   "Compare tool: all 4 instantiations match (q005-q008, rel err at most 5e-7).",
+   "Independent hand derivation (pL = m g / A2, pS = pL + rho g h, F = pS A1): 318.99, 387.10, 246.96 and 670.385 N. All are correct.",
+   "Well-posed. The data are complete. The pistons are light and frictionless and the system is in equilibrium. The atmosphere acts on the outer face of each piston, so only gauge pressure matters. The oil is at rest and uniform. The answer is unique, because the small piston face is lower than the large one by h, so the gauge pressure there is pL + rho g h. The problem asks only for the force magnitude, so the push direction does not matter.",
+   "Blind solver concern for q008 (the height is the vertical oil-column height between the piston faces, and the pistons are massless): this is not a real problem. The problem text states the face height difference and that the pistons are light, so the assumption is already given.",
+   "Minor wording looseness in the plan, not a physics error. Step 7 says the oil 'pushes up' on the small piston and 'the atmosphere on both sides cancels'. The atmosphere acts on the outer face and the oil acts on the inner face, so the exact statement is that working in gauge pressure removes the atmosphere. The direction of the oil force (up) also assumes the oil lies under the small piston, which the problem does not state. The magnitude F = pS A1 is the same either way.",
+   "Approach, principle names and why-statements are otherwise correct. The check text is correct: the h = 0 limit gives m g A1/A2, and the applied force is far below the weight for all four instances."
+  ],
+  "repair_changed": [
+   "/home/pabitra/PhysMons/src/physmon/benchmark/v2/lib_fluids.py: PLANS['S91'] dp step why-text: replaced the invalid sentence 'The pipe is horizontal, so the two tappings are at the same height' with the piezometric argument (manometer leads filled with the flowing liquid, so the U-tube measures the difference of p + rho g z; the pipe axis is horizontal, so this is the p1 - p2 that enters Bernoulli). The rest of the step is unchanged.",
+   "/home/pabitra/PhysMons/src/physmon/benchmark/v2/lib_fluids.py: PLANS['S95'] F step: replaced the Pascal's-principle principle with Newton's first law for the light small piston plus the definition of pressure, with the atmosphere cancelling, F = pS A1. Added a clause to the why-text saying the pressure at this face is pS from the hydrostatic step, not pL. No graph, solver or number was changed."
+  ],
+  "round1_blind_match": true,
+  "round1_issues": [
+   "Gold is correct: F = (m g/A2 + rho g h) A1 gives 318.99, 387.1, 246.96 and 670.385 N, which I checked by hand. The blind solver matched all four. It correctly took the small piston to be lower by h and noted that the atmosphere cancels.",
+   "The problem is well-posed. The pistons are light, the atmosphere acts on the outer faces, the large piston is stated to be above the small one, and the answer is the unique downward applied force.",
+   "Plan flaw (naming, and misleading for this structure): the F step cites 'Pascal's principle (pressure is transmitted through the enclosed liquid)' with F = pS A1. The pressure at the small piston was already fixed in the previous step by the hydrostatic law, pS = pL + rho g h. Naive use of Pascal's principle would give pS = pL, which is exactly the trap this structure tests. The F step itself uses only equilibrium of the light small piston and the definition of pressure, with the atmosphere cancelling. The law is mislabelled and invites the wrong answer.",
+   "The pL and pS steps, the approach sentence and the check are correct. At h = 0 the result reduces to m g A1/A2, the force is slightly larger here because the oil column must be supported, and the force is far below the load weight, which holds for all four instances."
+  ],
+  "round1_required_changes": [
+   "In PLANS['S95'], F step, replace the principle with: 'Newton's first law for the light small piston together with the definition of pressure: the oil pushes up on the small piston with the gauge pressure at its face times A1, and the applied force balances this once the atmosphere on both sides cancels, F = pS A1'.",
+   "Keep the existing why-text, which already says the small piston is in equilibrium. Optionally add a clause saying that the pressure at this face is pS from the hydrostatic step, not pL.",
+   "No change to the graph, the solver or the numbers."
+  ],
+  "round1_verdict": "fix",
+  "status": "accepted_after_repair"
+ }
+}

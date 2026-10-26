@@ -137,7 +137,7 @@ def trace_text(steps: list[dict[str, Any]]) -> str:
         elif s["kind"] == "approach":
             lines.append(head + "Approach: " + s["text"])
         elif s["kind"] == "derive":
-            lines.append(head + f"{s['principle']}. {s['why']} {s['relation']}. {s['substitution']} = {_number(s['value_si'])} (SI) = "
+            lines.append(head + f"{s['principle'].rstrip('. ')}. {s['why'].rstrip(' ')} {s['relation']}. {s['substitution']} = {_number(s['value_si'])} (SI) = "
                          f"{_with_unit(s['value'], s['unit'])}.")
         elif s["kind"] == "check":
             lines.append(head + "Check: " + s["text"])
