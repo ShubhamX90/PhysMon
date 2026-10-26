@@ -1,0 +1,52 @@
+{
+  "admission": "every sample UNREVIEWED: no human expert review; agent-verified only",
+  "command": "scripts/v2/s163_build_dataset.py --status data/v2/dataset/verification_status.json --version v1",
+  "excluded": [],
+  "file_sha256": {
+    "dataset.jsonl": "27a41bf2ddf60cd2a1b2e02266b1b3249feca4ebebb4515a6a54216b7fed1c63",
+    "factor_cell_manifest.jsonl": "4fae8b7c71cb6159371b469d0c40fd9d82041665432025b729f7edeb0f70c170"
+  },
+  "inputs": {
+    "status_file_sha256": "5ad9007bf917075135cedfe3c3b944b2f06e910a5352e522176e146080430a9c"
+  },
+  "instances_per_structure": {
+    "2": 30,
+    "4": 50
+  },
+  "n_samples": 260,
+  "n_structures": 80,
+  "samples_by_domain": {
+    "acoustics": 8,
+    "circuits": 12,
+    "electromagnetism": 32,
+    "fluids": 22,
+    "mechanics": 58,
+    "modern physics": 4,
+    "nuclear physics": 12,
+    "optics": 28,
+    "quantum": 36,
+    "special relativity": 8,
+    "thermodynamics": 40
+  },
+  "samples_by_level": {
+    "high_school": 104,
+    "intro_university": 124,
+    "upper_university": 32
+  },
+  "samples_by_topic_count": 80,
+  "stage": "14.19",
+  "structures_by_domain": {
+    "acoustics": 3,
+    "circuits": 6,
+    "electromagnetism": 8,
+    "fluids": 6,
+    "mechanics": 21,
+    "modern physics": 1,
+    "nuclear physics": 3,
+    "optics": 8,
+    "quantum": 9,
+    "special relativity": 2,
+    "thermodynamics": 13
+  },
+  "version": "v1"
+}

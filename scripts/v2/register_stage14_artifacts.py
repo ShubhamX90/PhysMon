@@ -52,6 +52,7 @@ ARTIFACT_GLOBS = (
     ("14.16", "legacy_x03_run", "results/stage14/s156_legacy_x03_run/attempt_*"),
     ("14.16", "legacy_x03_analysis", "results/stage14/s157_legacy_x03_analysis/attempt_*"),
     ("14.15", "pilot_run_batch_b", "results/stage14/s147_pilot_run_batch_b/attempt_*"),
+    ("14.19", "gold_dataset", "data/v2/dataset/v*"),
     ("14.17", "matched_distance_plan", "results/stage14/s159_matched_distance_plan/attempt_*"),
     ("14.17", "matched_distance_run", "results/stage14/s159_matched_distance_run/attempt_*"),
     ("14.17", "matched_distance_analysis", "results/stage14/s160_matched_distance_analysis/attempt_*"),

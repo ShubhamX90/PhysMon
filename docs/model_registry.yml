@@ -76,6 +76,18 @@ models:
     num_layers: null
     notes: "REASONING_TUNED [PI CONFIRMED 2026-06-14]. HF logprob/generation validation completed on 2026-06-14 via H200 job 242382 (finite logprob, input-sensitive logprob, deterministic greedy generation, peak VRAM ~30.4/32.2 GB across 2xH200). Caveat: the tested prompt did not emit <think>...</think> tags."
 
+  qwen3_thinking:
+    name: "Qwen/Qwen3-32B"
+    path: "${PHYSMON_MODEL_ROOT}/Qwen3-32B"
+    role: "REASONING_TUNED"
+    family: "qwen"
+    hook_backend: "baukit"
+    hook_validated: false
+    logprob_validated: false
+    hidden_dim: null
+    num_layers: 64
+    notes: "Stage 14.20 (2026-10-26): hybrid thinking model already present on /scratch/pabitra/models (62 GB, 17 safetensors shards, bfloat16); registered for the gold-dataset thinking runs. Revision not recorded (no manifest); the run records model_commit NOT_RECORDED. Never used in any recorded result before Stage 14.20."
+
   large_judge_pilot:
     name: "Qwen/Qwen2.5-32B-Instruct"
     path: "${PHYSMON_MODEL_ROOT}/Qwen2.5-32B-Instruct"

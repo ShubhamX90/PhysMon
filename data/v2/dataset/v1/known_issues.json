@@ -1,0 +1,84 @@
+{
+ "stage": "14.19",
+ "purpose": "known limits of the gold dataset recorded at build time; analyses must read them",
+ "numeral_in_problem_equals_gold": [
+  {
+   "sample_id": "S03-i0",
+   "note": "a velocity in the problem equals the answer by physics (elastic collision); a cue numeral near the gold is indistinguishable from a given number here"
+  },
+  {
+   "sample_id": "S28-i0",
+   "note": "the truck speed 15 m/s and the answer 15 s coincide numerically (different units)"
+  }
+ ],
+ "blind_solver_concerns": [
+  {
+   "agent": "blind:fluids",
+   "items": "q017-q020",
+   "concern": "I assumed the oil column connects the two piston faces, so the small piston sits lower by h and the force includes a rho*g*h term. I took the pistons as light and the atmosphere as cancelling on both outer faces."
+  },
+  {
+   "agent": "blind:fluids",
+   "items": "q001-q004",
+   "concern": "The problem doesn't say whether the manometer height difference is measured with the flowing liquid filling the tubing above the mercury. I assumed it is, so dp=(rho_m-rho)*g*h. The pipe is horizontal, so there is no elevation term."
+  },
+  {
+   "agent": "blind:thermodynamics",
+   "items": "q001-q004",
+   "concern": "Compression assumed reversible (quasi-static) adiabatic for an ideal gas."
+  },
+  {
+   "agent": "blind:thermodynamics",
+   "items": "q005-q008",
+   "concern": "Heat given up by the original warm water taken as m_w c (T0 - Tf); the ice fully melts as stated, and I checked that it does."
+  },
+  {
+   "agent": "blind:thermodynamics",
+   "items": "q013-q016",
+   "concern": "Emissivity assumed equal; scaling P ~ R^2 T^4 used."
+  },
+  {
+   "agent": "blind:thermodynamics",
+   "items": "q028",
+   "concern": "Specific heat given as 4180 here versus 4186 in the sibling items; used as stated."
+  },
+  {
+   "agent": "blind:thermodynamics",
+   "items": "q029-q030",
+   "concern": "No phase change or boiling assumed; the water stays below 373 K."
+  },
+  {
+   "agent": "blind2:fluids",
+   "items": "q008",
+   "concern": "Height taken as vertical oil-column difference between piston faces, pistons massless; otherwise no ambiguity. Other items had no concerns."
+  },
+  {
+   "agent": "blind:quantum",
+   "items": "q013-q016",
+   "concern": "Conversion of u to energy or kg is not given; used 1 u = 931.494 MeV/c^2. Recoil taken non-relativistically with the full Bohr transition energy as the photon energy."
+  },
+  {
+   "agent": "blind:quantum",
+   "items": "q029-q032",
+   "concern": "Conversion of u to kg is not given; used 1.66054e-27 kg."
+  },
+  {
+   "agent": "blind:quantum",
+   "items": "q021-q024",
+   "concern": "Uncertainty-principle estimate only, not an exact result for Z other than 1."
+  },
+  {
+   "agent": "blind:electromagnetism",
+   "items": "q021-q024",
+   "concern": "The magnetic field is vertical on an inclined rail, so the emf is B L v cos(theta) and the force along the incline is B I L cos(theta). The terminal speed therefore has a cos^2(theta) in the denominator. I assumed the rod stays horizontal and the rails are the only incline. Other items had no ambiguity."
+  },
+  {
+   "agent": "blind2:quantum",
+   "items": "q001",
+   "concern": "Non-relativistic well energies assumed; the rest energy is only used via mc^2 in E_n. No other ambiguity in q001-q004."
+  }
+ ],
+ "difficulty_levels": "judged by the author agents (no physicist); 'upper_university' items are mostly intro-level in the number of steps",
+ "review": "agent-verified only: author, blind solver and plan reviewer are agents; no human expert reviewed any item",
+ "independence": "80 structures are the clusters; 260 samples are not independent beyond that (2 or 4 instantiations per structure)"
+}

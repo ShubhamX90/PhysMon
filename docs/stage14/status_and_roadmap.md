@@ -21,6 +21,7 @@ Plan of record: `docs/proposals/PhysMon_Research_v2.pdf`. Journal index: `docs/j
 | 14.16 | Legacy-family X03 plan (60 stratified families, 4 wrappers, candidate matrix; 8,448 jobs) and frozen analysis; run done (job 401608): a presence effect exists in about 35 template clusters for both models, and no wrapper dominates by the frozen rule |
 | 14.17 | Plausibility-matched numeral-presence control: plan (8,339 jobs per model) and frozen analysis with a reading rule fixed before any score; run (job 407836) and analysis done: matching removes about half of the same-unit cue effect and nearly all of the incompatible-unit and metadata effects; the remainder depends on unit compatibility |
 | 14.18 | Third structure batch S21 to S30 (acoustics, gas, heat engine, inductor, refraction, fluids, pursuit, power, heating): certified, UNREVIEWED; 30 of 40 to 60 structures; pilot plan (428 jobs) committed, not run; the user's walkthrough review is pending |
+| 14.19 | Gold dataset v1: 260 samples from 80 structures (50 new from seven domain agents), gold solving traces rendered from the typed graph, agent verification (blind solver and plan reviewer) in place of the physicist review; thinking-model runner (`s164`) and Qwen3-32B registered; no GPU run yet |
 
 Integrity check: `python3 scripts/v2/register_stage14_artifacts.py --verify` (non-zero exit on any change); `python3 scripts/v2/validate_claim_ledger.py`.
 
@@ -37,7 +38,7 @@ A same-unit numeral that appears in the prompt becomes a far more likely continu
 | Relevant-edit assay | Inconclusive under the no-reasoning answer; the reasoning run gives new data for it. |
 | Legacy-family X03 | Run and analysed (J14.16-005); no further GPU step planned. The Llama irrelevant-variable group (11 clusters) meets the dominance arithmetic for json and plain outside the frozen test; no follow-up is frozen. |
 | P0 gate (regenerate Phase-I values through the model; hook check) | Not started; large; changes what earlier results mean; needs a decision. |
-| 40 to 60 independent structures | 30 exist (S01 to S30); S01 to S20 have one-reviewer open walkthrough approval only and S21 to S30 none yet. 10 to 30 more, and a certified review by someone other than the author and the walkthrough reviewer. |
+| 40 to 60 independent structures | 80 exist (S01 to S30, S31 to S95); S01 to S20 have the user's walkthrough approval, the rest only agent verification (by the user's decision of 2026-10-26). More is not the need; independent human review still is, if the claims are to be paper-eligible, and a certified review by someone other than the author and the walkthrough reviewer. |
 | Independent expert review, physicist confirmation of the planted bank, validator recruitment | People outside this session; the user reviewed as one non-blinded reviewer whose physics expertise was not stated. |
 | Phase-I manuscript | Not in the repository; its numbers stay SUBMITTED claims. |
 

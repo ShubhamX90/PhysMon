@@ -77,15 +77,19 @@ def split_thinking(text: str) -> tuple[str, str, bool]:
 
 
 def parse_thinking_output(text: str, hit_limit: bool) -> tuple[rc.ReasoningParse, str, str, bool]:
+    """(parse of the answer part, thinking, answer, thinking closed).
+
+    Thinking that never closes and hit the token limit is TRUNCATED: the model never reached an answer, and a final-line phrase inside its
+    thinking is not an answer. Text without any thinking tag that stopped by itself is parsed as a whole (a model that answered directly).
+    """
+
     thinking, answer, closed = split_thinking(text)
-    if not closed:
-        # No closed thinking: the answer cannot be separated from the thinking. A limit hit is TRUNCATED; otherwise a model that
-        # answered without thinking tags is parsed as a whole.
-        parsed = rc.parse_final(text, hit_token_limit=True) if hit_limit else rc.parse_final(text, hit_token_limit=False)
-        if hit_limit and parsed.parsed.status != "PARSED":
-            return rc.parse_final("", hit_token_limit=True) if not text.strip() else rc.ReasoningParse(rc.ParsedOutput("TRUNCATED"), 0), thinking, answer, closed
-        return parsed, thinking, answer, closed
-    return rc.parse_final(answer, hit_token_limit=hit_limit), thinking, answer, closed
+    if closed:
+        return rc.parse_final(answer, hit_token_limit=hit_limit), thinking, answer, True
+    if hit_limit:
+        empty = not text.strip()
+        return rc.ReasoningParse(rc.ParsedOutput("EMPTY" if empty else "TRUNCATED"), 0), thinking, answer, False
+    return rc.parse_final(text, hit_token_limit=False), thinking, answer, False
 
 
 def jobs_from_dataset(rows: list[dict]) -> list[dict[str, Any]]:
@@ -131,7 +135,9 @@ def generate_batch(model, tokenizer, prompts: list[str], max_new_tokens: int, sa
     import torch
 
     tokenizer.padding_side = "left"
-    pad = tokenizer.pad_token_id if tokenizer.pad_token_id is not None else tokenizer.eos_token_id
+    if tokenizer.pad_token_id is None:  # Llama-3 tokenizers have no padding token
+        tokenizer.pad_token = tokenizer.eos_token
+    pad = tokenizer.pad_token_id
     encoded = tokenizer(prompts, return_tensors="pt", padding=True, add_special_tokens=False).to(model.device)
     torch.manual_seed(seed)
     kwargs: dict[str, Any] = {"max_new_tokens": max_new_tokens, "pad_token_id": pad}
