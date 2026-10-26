@@ -49,6 +49,7 @@ def test_jobs_from_the_dataset_and_from_the_cell_manifest_carry_the_fields_the_r
            "symbolic_program_hash": "h", "problem": "A car...", "gold_answer": {"value": 40.8, "unit": "m"}, "answer_unit": "m"}
     job = run_mod.jobs_from_dataset([row])[0]
     assert job["job_id"] == "S11-i0:no_cue" and job["cell_id"] == "no_cue" and job["cue_numeric_value"] is None and job["gold_unit"] == "m"
+    assert run_mod.jobs_from_dataset([row], {"S11:1"}) == [] and len(run_mod.jobs_from_dataset([row], {"S11:0"})) == 1
     cell = {"structure_id": "S11", "instance": 1, "cell_id": "numeric_metadata", "feasible": True, "structure_uuid": "u",
             "template_cluster_id": "V2C-S11", "symbolic_program_hash": "h", "prompt": "p", "gold_value": 16.4, "gold_unit": "m",
             "cue_numeric_value": 21.0, "cue_semantic_role": "irrelevant", "expected_effect": "x"}

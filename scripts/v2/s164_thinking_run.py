@@ -92,9 +92,11 @@ def parse_thinking_output(text: str, hit_limit: bool) -> tuple[rc.ReasoningParse
     return rc.parse_final(text, hit_token_limit=False), thinking, answer, False
 
 
-def jobs_from_dataset(rows: list[dict]) -> list[dict[str, Any]]:
+def jobs_from_dataset(rows: list[dict], keep: set[str] | None = None) -> list[dict[str, Any]]:
     jobs = []
     for r in rows:
+        if keep is not None and f"{r['structure_id']}:{r['instance']}" not in keep:
+            continue
         jobs.append({"job_id": f"{r['sample_id']}:no_cue", "structure_id": r["structure_id"], "instance": r["instance"], "cell_id": "no_cue",
                      "structure_uuid": r["structure_uuid"], "template_cluster_id": r["template_cluster_id"],
                      "symbolic_program_hash": r["symbolic_program_hash"], "prompt": r["problem"], "gold_value": r["gold_answer"]["value"],
@@ -235,12 +237,12 @@ def main() -> int:
         print("Refusing to run: a CUDA device was requested but none is available.", file=sys.stderr)
         return 3
     dataset_dir = REPO_ROOT / args.dataset_dir
+    keep = set(json.loads(Path(args.ids_file).read_text(encoding="utf-8"))) if args.ids_file else None
     if args.source == "base":
         rows = [json.loads(line) for line in (dataset_dir / "dataset.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
-        jobs = jobs_from_dataset(rows)
+        jobs = jobs_from_dataset(rows, keep)
     else:
         rows = [json.loads(line) for line in (dataset_dir / "factor_cell_manifest.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
-        keep = set(json.loads(Path(args.ids_file).read_text(encoding="utf-8"))) if args.ids_file else None
         jobs = jobs_from_manifest(rows, args.cells, keep)
     jobs = jobs[: args.max_jobs]
     sha = base.git("rev-parse", "HEAD")
