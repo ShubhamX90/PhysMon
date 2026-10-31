@@ -1,0 +1,415 @@
+{
+  "command": "scripts/v2/s165_thinking_analysis.py --records results/stage14/s164_thinking_run/attempt_417416_qwen3_thinking_base/raw_records.jsonl --min-samples 1 --attempt-id attempt_20261031_job417416",
+  "evidence_class": "exploratory; not paper-eligible",
+  "inputs": {
+    "data/v2/dataset/v1/dataset.jsonl": "27a41bf2ddf60cd2a1b2e02266b1b3249feca4ebebb4515a6a54216b7fed1c63",
+    "results/stage14/s164_thinking_run/attempt_417416_qwen3_thinking_base/raw_records.jsonl": {
+      "n_records": 20,
+      "sha256": "650b6ea908db2366336c3dc5e32f7315719e8470543d33eaec7a95820e51cc62"
+    }
+  },
+  "kind": "thinking-model run analysis",
+  "min_samples": 1,
+  "models": {
+    "Qwen/Qwen3-32B": {
+      "anchors": {
+        "distractor_endpoint": "NOT_EVALUATED: 11 anchor structures, at least 20 needed",
+        "gate_min_structures": 20,
+        "keys": [
+          "S01:0",
+          "S05:0",
+          "S09:0",
+          "S17:0",
+          "S21:0",
+          "S29:0",
+          "S33:0",
+          "S47:0",
+          "S53:0",
+          "S64:0",
+          "S92:0"
+        ],
+        "n": 11,
+        "n_structures": 11
+      },
+      "by_domain": {
+        "acoustics": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 1
+          },
+          "correct_rate_by_structure": {
+            "ci95": null,
+            "mean": 1.0,
+            "n_structures": 1,
+            "status": "NOT_EVALUATED"
+          },
+          "n_problems": 1
+        },
+        "circuits": {
+          "classes": {
+            "FAILED": 1
+          },
+          "correct_rate_by_structure": {
+            "ci95": null,
+            "mean": 0.0,
+            "n_structures": 1,
+            "status": "NOT_EVALUATED"
+          },
+          "n_problems": 1
+        },
+        "electromagnetism": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 1,
+            "FAILED": 1
+          },
+          "correct_rate_by_structure": {
+            "ci95": [
+              0.0,
+              1.0
+            ],
+            "mean": 0.5,
+            "n_structures": 2
+          },
+          "n_problems": 2
+        },
+        "fluids": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 1
+          },
+          "correct_rate_by_structure": {
+            "ci95": null,
+            "mean": 1.0,
+            "n_structures": 1,
+            "status": "NOT_EVALUATED"
+          },
+          "n_problems": 1
+        },
+        "mechanics": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 4,
+            "INCOMPLETE": 2
+          },
+          "correct_rate_by_structure": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "mean": 1.0,
+            "n_structures": 4
+          },
+          "n_problems": 6
+        },
+        "nuclear physics": {
+          "classes": {
+            "FAILED": 1
+          },
+          "correct_rate_by_structure": {
+            "ci95": null,
+            "mean": 0.0,
+            "n_structures": 1,
+            "status": "NOT_EVALUATED"
+          },
+          "n_problems": 1
+        },
+        "optics": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 1
+          },
+          "correct_rate_by_structure": {
+            "ci95": null,
+            "mean": 1.0,
+            "n_structures": 1,
+            "status": "NOT_EVALUATED"
+          },
+          "n_problems": 1
+        },
+        "quantum": {
+          "classes": {
+            "FAILED": 1,
+            "INCOMPLETE": 2
+          },
+          "correct_rate_by_structure": {
+            "ci95": null,
+            "mean": 0.0,
+            "n_structures": 1,
+            "status": "NOT_EVALUATED"
+          },
+          "n_problems": 3
+        },
+        "thermodynamics": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 3,
+            "INCOMPLETE": 1
+          },
+          "correct_rate_by_structure": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "mean": 1.0,
+            "n_structures": 3
+          },
+          "n_problems": 4
+        }
+      },
+      "by_level": {
+        "high_school": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 5,
+            "FAILED": 2,
+            "INCOMPLETE": 2
+          },
+          "correct_rate_by_structure": {
+            "ci95": [
+              0.2857142857142857,
+              1.0
+            ],
+            "mean": 0.7142857142857143,
+            "n_structures": 7
+          },
+          "n_problems": 9
+        },
+        "intro_university": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 6,
+            "FAILED": 2,
+            "INCOMPLETE": 2
+          },
+          "correct_rate_by_structure": {
+            "ci95": [
+              0.375,
+              1.0
+            ],
+            "mean": 0.75,
+            "n_structures": 8
+          },
+          "n_problems": 10
+        },
+        "upper_university": {
+          "classes": {
+            "INCOMPLETE": 1
+          },
+          "correct_rate_by_structure": {
+            "ci95": null,
+            "mean": null,
+            "n_structures": 0,
+            "status": "NOT_EVALUATED"
+          },
+          "n_problems": 1
+        }
+      },
+      "outcomes": {
+        "correct_share_of_all": 0.55,
+        "correct_share_of_graded": 0.7333333333333333,
+        "correctness": {
+          "TRUNCATED": 5,
+          "correct": 11,
+          "wrong": 4
+        },
+        "n_correct": 11,
+        "n_graded": 15,
+        "n_records": 20,
+        "parse_status": {
+          "PARSED": 15,
+          "TRUNCATED": 5
+        },
+        "thinking_closed_share": 0.75,
+        "truncated_share": 0.25
+      },
+      "overall_correct_rate_by_structure": {
+        "ci95": [
+          0.4666666666666667,
+          0.9333333333333333
+        ],
+        "mean": 0.7333333333333333,
+        "n_structures": 15
+      },
+      "problems": {
+        "classes": {
+          "CONSISTENT_ANCHOR": 11,
+          "FAILED": 4,
+          "INCOMPLETE": 5
+        },
+        "n": 20
+      },
+      "problems_detail": {
+        "S01:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 4994.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S01"
+        },
+        "S05:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 1473.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S05"
+        },
+        "S09:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 6336.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S09"
+        },
+        "S13:0": {
+          "class": "INCOMPLETE",
+          "mean_tokens": 8192.0,
+          "n_correct": 0,
+          "n_graded": 0,
+          "n_samples": 1,
+          "structure_id": "S13"
+        },
+        "S17:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 399.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S17"
+        },
+        "S21:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 6270.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S21"
+        },
+        "S25:0": {
+          "class": "FAILED",
+          "mean_tokens": 714.0,
+          "n_correct": 0,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S25"
+        },
+        "S29:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 2169.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S29"
+        },
+        "S33:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 1873.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S33"
+        },
+        "S37:0": {
+          "class": "INCOMPLETE",
+          "mean_tokens": 8192.0,
+          "n_correct": 0,
+          "n_graded": 0,
+          "n_samples": 1,
+          "structure_id": "S37"
+        },
+        "S43:0": {
+          "class": "FAILED",
+          "mean_tokens": 4972.0,
+          "n_correct": 0,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S43"
+        },
+        "S47:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 2267.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S47"
+        },
+        "S53:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 2969.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S53"
+        },
+        "S57:0": {
+          "class": "INCOMPLETE",
+          "mean_tokens": 8192.0,
+          "n_correct": 0,
+          "n_graded": 0,
+          "n_samples": 1,
+          "structure_id": "S57"
+        },
+        "S64:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 2080.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S64"
+        },
+        "S71:0": {
+          "class": "INCOMPLETE",
+          "mean_tokens": 8192.0,
+          "n_correct": 0,
+          "n_graded": 0,
+          "n_samples": 1,
+          "structure_id": "S71"
+        },
+        "S75:0": {
+          "class": "INCOMPLETE",
+          "mean_tokens": 8192.0,
+          "n_correct": 0,
+          "n_graded": 0,
+          "n_samples": 1,
+          "structure_id": "S75"
+        },
+        "S79:0": {
+          "class": "FAILED",
+          "mean_tokens": 7008.0,
+          "n_correct": 0,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S79"
+        },
+        "S84:0": {
+          "class": "FAILED",
+          "mean_tokens": 8092.0,
+          "n_correct": 0,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S84"
+        },
+        "S92:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 1062.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S92"
+        }
+      },
+      "throughput": {
+        "aggregate_tokens_per_s": 20.83,
+        "batch_size": [
+          2
+        ],
+        "generated_tokens_total": 93638,
+        "generation_wall_time_s": 4496.32,
+        "max_sampling": [
+          "{\"do_sample\": true, \"temperature\": 0.6, \"top_k\": 20, \"top_p\": 0.95}"
+        ],
+        "n_records": 20,
+        "tokens_max": 8192,
+        "tokens_median": 4983.0,
+        "tokens_p90": 8192.0
+      }
+    }
+  },
+  "source_commit": "b4e5f9e7b48b9eed93b5e96feba24f7f2e1446ae",
+  "stage": "14.20"
+}

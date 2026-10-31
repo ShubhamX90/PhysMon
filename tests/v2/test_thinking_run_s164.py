@@ -126,3 +126,35 @@ def test_greedy_mode_the_time_budget_and_the_used_directory_rule(dataset_dir, ti
     (used / "keep.txt").write_text("existing evidence", encoding="utf-8")
     assert _run(dataset_dir, tiny_model_dir, tmp_path, "r4", ("--authorization-ref", "x")) == 2
     assert (used / "keep.txt").read_text(encoding="utf-8") == "existing evidence"
+
+
+def test_the_requested_unit_is_stated_in_the_user_turn_when_asked_and_superscripts_are_used():
+    stated = run_mod.user_turn("A body accelerates.", "m/s^2")
+    assert stated.endswith("Give the final answer in m/s\u00b2.") and stated.startswith(rc.INSTRUCTION) and "A body accelerates." in stated
+    assert run_mod.user_turn("A body accelerates.") == f"{rc.INSTRUCTION}\n\nA body accelerates."
+
+
+def test_records_carry_the_unit_convertible_label_the_unit_flag_and_the_oom_flag(dataset_dir, tiny_model_dir, tmp_path):
+    assert _run(dataset_dir, tiny_model_dir, tmp_path, "r5", ("--authorization-ref", "TEST-ONLY", "--max-jobs", "1")) == 0
+    first = [json.loads(line) for line in (tmp_path / "r5" / "raw_records.jsonl").read_text(encoding="utf-8").splitlines()]
+    assert all(r["unit_stated_in_prompt"] is True and r["oom_fallback"] is False and r["correct_if_units_convertible"] == "TRUNCATED" for r in first)
+    assert _run(dataset_dir, tiny_model_dir, tmp_path, "r6", ("--authorization-ref", "TEST-ONLY", "--max-jobs", "1", "--no-state-unit")) == 0
+    second = [json.loads(line) for line in (tmp_path / "r6" / "raw_records.jsonl").read_text(encoding="utf-8").splitlines()]
+    assert all(r["unit_stated_in_prompt"] is False for r in second)
+
+
+def test_an_out_of_memory_batch_is_redone_one_sequence_at_a_time_and_flagged(monkeypatch):
+    torch = pytest.importorskip("torch")
+    calls = []
+
+    def fake(model, tokenizer, prompts, max_new_tokens, sampling, seed):
+        calls.append(len(prompts))
+        if len(prompts) > 1:
+            raise torch.cuda.OutOfMemoryError("simulated")
+        return [(f"text for {prompts[0]}", 3, False)]
+
+    monkeypatch.setattr(run_mod, "generate_batch", fake)
+    outputs, fell_back = run_mod.generate_with_fallback(None, None, ["a", "b", "c"], 5, {"do_sample": False}, 1)
+    assert fell_back is True and calls == [3, 1, 1, 1] and [o[0] for o in outputs] == ["text for a", "text for b", "text for c"]
+    outputs, fell_back = run_mod.generate_with_fallback(None, None, ["a"], 5, {"do_sample": False}, 1)
+    assert fell_back is False and len(outputs) == 1

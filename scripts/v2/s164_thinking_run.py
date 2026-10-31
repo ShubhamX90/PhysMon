@@ -41,6 +41,7 @@ sys.path.insert(0, str(REPO_ROOT / "src"))
 from physmon.benchmark import reasoning_contract as rc  # noqa: E402
 from physmon.benchmark import scoring_contract as sc  # noqa: E402
 from physmon.governance.v2_contract import missing_record_fields  # noqa: E402
+from physmon.scoring import unit_convertible as uc  # noqa: E402
 from physmon.scoring import v2_scorer as vs  # noqa: E402
 from physmon.utils.paths import expand_model_path  # noqa: E402
 
@@ -61,10 +62,19 @@ def _load_pilot_runner():
 base = _load_pilot_runner()
 
 
-def user_turn(problem: str) -> str:
-    """The instruction and the problem in one user message (thinking models are prompted without a system message)."""
+def display_unit(unit: str) -> str:
+    return unit.replace("^2", "\u00b2").replace("^3", "\u00b3")
 
-    return f"{rc.INSTRUCTION}\n\n{problem}"
+
+def user_turn(problem: str, unit: str | None = None) -> str:
+    """The instruction and the problem in one user message (thinking models are prompted without a system message).
+
+    With `unit`, the requested answer unit is stated, as it was to the blind solvers that verified the dataset (Stage 14.19); the Stage 14.20
+    speed test, which did not state it, had four correct answers graded wrong only for a different unit or spelling.
+    """
+
+    stated = f"\n\nGive the final answer in {display_unit(unit)}." if unit else ""
+    return f"{rc.INSTRUCTION}\n\n{problem}{stated}"
 
 
 def split_thinking(text: str) -> tuple[str, str, bool]:
@@ -163,7 +173,21 @@ def generate_batch(model, tokenizer, prompts: list[str], max_new_tokens: int, sa
     return results
 
 
-def make_record(job: dict, sample_index: int, text: str, n_new: int, hit_limit: bool, ctx: dict, tokenizer, wall: float) -> dict[str, Any]:
+def generate_with_fallback(model, tokenizer, prompts: list[str], max_new_tokens: int, sampling: dict[str, Any], seed: int) -> tuple[list[tuple[str, int, bool]], bool]:
+    """Batched generation; on a CUDA out-of-memory error the batch is redone one sequence at a time (and flagged), never skipped."""
+
+    import torch
+
+    try:
+        return generate_batch(model, tokenizer, prompts, max_new_tokens, sampling, seed), False
+    except torch.cuda.OutOfMemoryError:
+        torch.cuda.empty_cache()
+        singles = [generate_batch(model, tokenizer, [prompt], max_new_tokens, sampling, seed + i + 1)[0] for i, prompt in enumerate(prompts)]
+        return singles, True
+
+
+def make_record(job: dict, sample_index: int, text: str, n_new: int, hit_limit: bool, ctx: dict, tokenizer, wall: float,
+                oom_fallback: bool = False) -> dict[str, Any]:
     result, thinking, answer, closed = parse_thinking_output(text, hit_limit)
     parsed = result.parsed
     gold_value = float(job["gold_value"])
@@ -184,6 +208,8 @@ def make_record(job: dict, sample_index: int, text: str, n_new: int, hit_limit: 
         "parsed_answer": {"value": parsed.value, "unit": parsed.unit} if parsed.status == "PARSED" else None,
         "parse_status": parsed.status, "gold_logprob_raw": None, "gold_logprob_per_token": None, "alternative_scores": None,
         "correctness": correctness, "correctness_rule": vs.CORRECTNESS_RULE, "relative_error": vs.relative_error(parsed, gold_value),
+        "correct_if_units_convertible": uc.classify_convertible(parsed, gold_value, job["gold_unit"]),
+        "unit_stated_in_prompt": ctx["state_unit"], "oom_fallback": oom_fallback,
         "correctness_strict_1e-3": vs.classify_answer(parsed, gold_value, job["gold_unit"], rel_tol=vs.STRICT_REL_TOL),
         "copied_cue_numeral": bool(copied) if cue is not None and parsed.status == "PARSED" else None,
         "n_final_lines": result.n_final_lines, "n_generated_tokens": n_new, "hit_token_limit": hit_limit,
@@ -216,13 +242,14 @@ def main() -> int:
     parser.add_argument("--dtype", default=None)
     parser.add_argument("--model-path", default=None, help="Override the registry path (tests only).")
     parser.add_argument("--max-jobs", type=int, default=None)
-    parser.add_argument("--max-new-tokens", type=int, default=8192)
+    parser.add_argument("--max-new-tokens", type=int, default=12288)
     parser.add_argument("--n-samples", type=int, default=1)
     parser.add_argument("--batch-size", type=int, default=2)
     parser.add_argument("--temperature", type=float, default=0.6)
     parser.add_argument("--top-p", type=float, default=0.95)
     parser.add_argument("--top-k", type=int, default=0, help="0 = off (the DeepSeek-R1 recommendation); Qwen3 recommends 20")
     parser.add_argument("--greedy", action="store_true")
+    parser.add_argument("--no-state-unit", dest="state_unit", action="store_false", help="do not state the requested answer unit in the prompt (the speed-test variant)")
     parser.add_argument("--time-budget-s", type=float, default=None)
     parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
@@ -272,21 +299,21 @@ def main() -> int:
     revision = base.model_manifest_revision(args.model_key)
     ctx = {"run_id": attempt, "model_name": registry["name"], "model_revision": revision or "NOT_RECORDED",
            "tokenizer_sha256": base.sha256_file(path / "tokenizer.json"), "dtype": dtype_name, "seed": args.seed, "source_commit": sha,
-           "authorization_ref": args.authorization_ref, "sampling": sampling, "batch_size": args.batch_size}
+           "authorization_ref": args.authorization_ref, "sampling": sampling, "batch_size": args.batch_size, "state_unit": args.state_unit}
     header = {"source_commit": sha, "source_commit_from": "git" if git_available else "PHYSMON_SOURCE_COMMIT (git unavailable)",
               "git_status_short": base.git("status", "--short").splitlines() if git_available else "NOT AVAILABLE",
               "host": socket.gethostname(), "device": args.device, "python": platform.python_version(), "torch": torch.__version__,
               "transformers": transformers.__version__, "contract_fingerprint": sc.contract_fingerprint(),
               "reasoning_contract_fingerprint": rc.contract_fingerprint(), "model_key": args.model_key, "model_path": str(path),
               "source": args.source, "n_jobs_planned": len(jobs), "n_samples": args.n_samples, "max_new_tokens": args.max_new_tokens,
-              "sampling": sampling, "batch_size": args.batch_size, "time_budget_s": args.time_budget_s,
+              "sampling": sampling, "batch_size": args.batch_size, "state_unit": args.state_unit, "time_budget_s": args.time_budget_s,
               "authorization_ref": args.authorization_ref, "model_revision": ctx["model_revision"]}
     print(json.dumps(header, indent=2), flush=True)
     out_dir.mkdir(parents=True, exist_ok=True)
 
     # One (job, sample) pair per sequence; sequences ordered by prompt length so a batch pads little.
-    prompts = {j["job_id"]: tokenizer.apply_chat_template([{"role": "user", "content": user_turn(j["prompt"])}], tokenize=False,
-                                                          add_generation_prompt=True, enable_thinking=True) for j in jobs}
+    prompts = {j["job_id"]: tokenizer.apply_chat_template([{"role": "user", "content": user_turn(j["prompt"], j["gold_unit"] if args.state_unit else None)}],
+                                                          tokenize=False, add_generation_prompt=True, enable_thinking=True) for j in jobs}
     pairs = sorted(((j, k) for j in jobs for k in range(args.n_samples)), key=lambda p: (len(prompts[p[0]["job_id"]]), p[0]["job_id"], p[1]))
     counts: dict[str, int] = {}
     correctness: dict[str, int] = {}
@@ -298,11 +325,13 @@ def main() -> int:
                 break
             batch = pairs[start: start + args.batch_size]
             t0 = time.time()
-            outputs = generate_batch(model, tokenizer, [prompts[j["job_id"]] for j, _ in batch], args.max_new_tokens, sampling,
-                                     args.seed * 1_000_003 + start)
+            outputs, fell_back = generate_with_fallback(model, tokenizer, [prompts[j["job_id"]] for j, _ in batch], args.max_new_tokens, sampling,
+                                                        args.seed * 1_000_003 + start)
             wall = (time.time() - t0) / len(batch)
+            print(json.dumps({"batch_start": start, "n_pairs": len(pairs), "tokens": sum(o[1] for o in outputs), "wall_s": round(wall * len(batch), 1),
+                              "oom_fallback": fell_back}), flush=True)
             for (job, k), (text, n_new, hit) in zip(batch, outputs, strict=True):
-                record = make_record(job, k, text, n_new, hit, ctx, tokenizer, wall)
+                record = make_record(job, k, text, n_new, hit, ctx, tokenizer, wall, fell_back)
                 handle.write(json.dumps(record, sort_keys=True, ensure_ascii=False, default=str) + "\n")
                 n_run += 1
                 counts[record["parse_status"]] = counts.get(record["parse_status"], 0) + 1

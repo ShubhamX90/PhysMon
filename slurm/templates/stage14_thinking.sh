@@ -11,7 +11,7 @@
 # Optional: DATASET_DIR (default data/v2/dataset/v1), SOURCE (base = the no-cue problems, cells = the distractor cells; default base),
 # CELLS (space-separated cell ids for SOURCE=cells), IDS_FILE (JSON list of "structure:instance" keys), OUT_ROOT (default
 # results/stage14/s164_thinking_run), MODELS (registry keys, default "qwen3_thinking", run in sequence inside this one job: the per-user
-# cap is one H100), MAX_NEW_TOKENS (default 8192), N_SAMPLES (default 1), BATCH_SIZE (default 2), TOP_K (default 0 = off; Qwen3 recommends 20),
+# cap is one H100), MAX_NEW_TOKENS (default 12288), N_SAMPLES (default 1), BATCH_SIZE (default 2), TOP_K (default 0 = off; Qwen3 recommends 20),
 # TIME_BUDGET_S (per model; the runner stops cleanly and counts the jobs it did not run), MAX_JOBS (a short test first, for example 20).
 # A 32B model in bfloat16 is about 65 GB of weights: it fits one 80 GB H100 only with a small batch and a bounded context.
 # ===========================================================================================================
@@ -39,6 +39,7 @@ export PHYSMON_ROOT="$HOME/PhysMons"
 export PYTHONPATH="$PHYSMON_ROOT/src:${PYTHONPATH:-}"
 export HF_HOME="$SCRATCH/physmon/hf_cache"
 export TRANSFORMERS_CACHE="$SCRATCH/physmon/hf_cache"
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 cd "$PHYSMON_ROOT"
 
@@ -47,7 +48,7 @@ DATASET_DIR="${DATASET_DIR:-data/v2/dataset/v1}"
 SOURCE="${SOURCE:-base}"
 MODELS="${MODELS:-qwen3_thinking}"
 OUT_ROOT="${OUT_ROOT:-results/stage14/s164_thinking_run}"
-MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-8192}"
+MAX_NEW_TOKENS="${MAX_NEW_TOKENS:-12288}"
 N_SAMPLES="${N_SAMPLES:-1}"
 BATCH_SIZE="${BATCH_SIZE:-2}"
 TOP_K="${TOP_K:-0}"

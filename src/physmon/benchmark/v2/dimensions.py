@@ -120,7 +120,7 @@ def _units() -> dict[str, Unit]:
         ("T", _MASS / (_TIME ** 2 * dim(I=1)), 1.0), ("mT", _MASS / (_TIME ** 2 * dim(I=1)), 1e-3),
         ("Wb", _VOLT * _TIME, 1.0), ("mWb", _VOLT * _TIME, 1e-3),
         ("V/m", _VOLT / _LENGTH, 1.0), ("N/C", _FORCE / _COULOMB, 1.0), ("kV/m", _VOLT / _LENGTH, 1e3),
-        ("MΩ", _OHM, 1e6), ("μA", dim(I=1), 1e-6), ("nC", _COULOMB, 1e-9), ("pF", _FARAD, 1e-12), ("nF", _FARAD, 1e-9),
+        ("MΩ", _OHM, 1e6), ("μA", dim(I=1), 1e-6), ("nC", _COULOMB, 1e-9), ("pC", _COULOMB, 1e-12), ("nA", dim(I=1), 1e-9), ("μV", _VOLT, 1e-6), ("mΩ", _OHM, 1e-3), ("GeV", _ENERGY, 1.602176634e-10), ("pF", _FARAD, 1e-12), ("nF", _FARAD, 1e-9),
         ("F/m", _FARAD / _LENGTH, 1.0), ("T*m/A", _MASS * _LENGTH / (_TIME ** 2 * dim(I=1) ** 2), 1.0),
         ("N*m^2/C^2", _FORCE * _LENGTH ** 2 / _COULOMB ** 2, 1.0), ("A/m^2", dim(I=1) / _LENGTH ** 2, 1.0),
         ("Ω*m", _OHM * _LENGTH, 1.0), ("m^-1*K^-1", _LENGTH ** -1 / dim(Th=1), 1.0), ("1/K", dim(Th=1) ** -1, 1.0),
