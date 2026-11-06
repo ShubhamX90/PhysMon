@@ -1,0 +1,976 @@
+{
+  "command": "scripts/v2/s165_thinking_analysis.py --records results/stage14/s164_thinking_run/attempt_425243_qwen3_thinking_base/raw_records.jsonl --min-samples 1 --attempt-id 20261106_job425243",
+  "evidence_class": "exploratory; not paper-eligible",
+  "inputs": {
+    "data/v2/dataset/v1/dataset.jsonl": "27a41bf2ddf60cd2a1b2e02266b1b3249feca4ebebb4515a6a54216b7fed1c63",
+    "results/stage14/s164_thinking_run/attempt_425243_qwen3_thinking_base/raw_records.jsonl": {
+      "n_records": 78,
+      "sha256": "459eaec0dbb9a9eaf12fa47125e59b2b34fc38c56accd24963844d5339645f6f"
+    }
+  },
+  "kind": "thinking-model run analysis",
+  "min_samples": 1,
+  "models": {
+    "Qwen/Qwen3-32B": {
+      "anchors": {
+        "distractor_endpoint": "estimable",
+        "gate_min_structures": 20,
+        "keys": [
+          "S01:0",
+          "S02:0",
+          "S03:0",
+          "S04:0",
+          "S05:0",
+          "S06:0",
+          "S07:0",
+          "S08:0",
+          "S09:0",
+          "S11:0",
+          "S12:0",
+          "S13:0",
+          "S14:0",
+          "S15:0",
+          "S16:0",
+          "S17:0",
+          "S18:0",
+          "S19:0",
+          "S20:0",
+          "S21:0",
+          "S22:0",
+          "S23:0",
+          "S24:0",
+          "S25:0",
+          "S26:0",
+          "S27:0",
+          "S28:0",
+          "S29:0",
+          "S31:0",
+          "S32:0",
+          "S33:0",
+          "S34:0",
+          "S35:0",
+          "S41:0",
+          "S42:0",
+          "S43:0",
+          "S44:0",
+          "S45:0",
+          "S47:0",
+          "S48:0",
+          "S51:0",
+          "S52:0",
+          "S53:0",
+          "S54:0",
+          "S55:0",
+          "S56:0",
+          "S61:0",
+          "S62:0",
+          "S63:0",
+          "S64:0",
+          "S65:0",
+          "S66:0",
+          "S72:0",
+          "S74:0",
+          "S78:0",
+          "S79:0",
+          "S81:0",
+          "S82:0",
+          "S83:0",
+          "S84:0",
+          "S92:0",
+          "S94:0",
+          "S95:0"
+        ],
+        "n": 63,
+        "n_structures": 63
+      },
+      "by_domain": {
+        "acoustics": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 3
+          },
+          "correct_rate_by_structure": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "mean": 1.0,
+            "n_structures": 3
+          },
+          "n_problems": 3
+        },
+        "circuits": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 6
+          },
+          "correct_rate_by_structure": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "mean": 1.0,
+            "n_structures": 6
+          },
+          "n_problems": 6
+        },
+        "electromagnetism": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 7,
+            "INCOMPLETE": 1
+          },
+          "correct_rate_by_structure": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "mean": 1.0,
+            "n_structures": 7
+          },
+          "n_problems": 8
+        },
+        "fluids": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 4,
+            "INCOMPLETE": 1
+          },
+          "correct_rate_by_structure": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "mean": 1.0,
+            "n_structures": 4
+          },
+          "n_problems": 5
+        },
+        "mechanics": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 17,
+            "INCOMPLETE": 4
+          },
+          "correct_rate_by_structure": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "mean": 1.0,
+            "n_structures": 17
+          },
+          "n_problems": 21
+        },
+        "modern physics": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 1
+          },
+          "correct_rate_by_structure": {
+            "ci95": null,
+            "mean": 1.0,
+            "n_structures": 1,
+            "status": "NOT_EVALUATED"
+          },
+          "n_problems": 1
+        },
+        "nuclear physics": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 2,
+            "INCOMPLETE": 1
+          },
+          "correct_rate_by_structure": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "mean": 1.0,
+            "n_structures": 2
+          },
+          "n_problems": 3
+        },
+        "optics": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 7,
+            "INCOMPLETE": 1
+          },
+          "correct_rate_by_structure": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "mean": 1.0,
+            "n_structures": 7
+          },
+          "n_problems": 8
+        },
+        "quantum": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 4,
+            "FAILED": 1,
+            "INCOMPLETE": 3
+          },
+          "correct_rate_by_structure": {
+            "ci95": [
+              0.4,
+              1.0
+            ],
+            "mean": 0.8,
+            "n_structures": 5
+          },
+          "n_problems": 8
+        },
+        "special relativity": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 1,
+            "INCOMPLETE": 1
+          },
+          "correct_rate_by_structure": {
+            "ci95": null,
+            "mean": 1.0,
+            "n_structures": 1,
+            "status": "NOT_EVALUATED"
+          },
+          "n_problems": 2
+        },
+        "thermodynamics": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 11,
+            "INCOMPLETE": 2
+          },
+          "correct_rate_by_structure": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "mean": 1.0,
+            "n_structures": 11
+          },
+          "n_problems": 13
+        }
+      },
+      "by_level": {
+        "high_school": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 32,
+            "FAILED": 1,
+            "INCOMPLETE": 2
+          },
+          "correct_rate_by_structure": {
+            "ci95": [
+              0.9090909090909091,
+              1.0
+            ],
+            "mean": 0.9696969696969697,
+            "n_structures": 33
+          },
+          "n_problems": 35
+        },
+        "intro_university": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 29,
+            "INCOMPLETE": 7
+          },
+          "correct_rate_by_structure": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "mean": 1.0,
+            "n_structures": 29
+          },
+          "n_problems": 36
+        },
+        "upper_university": {
+          "classes": {
+            "CONSISTENT_ANCHOR": 2,
+            "INCOMPLETE": 5
+          },
+          "correct_rate_by_structure": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "mean": 1.0,
+            "n_structures": 2
+          },
+          "n_problems": 7
+        }
+      },
+      "outcomes": {
+        "correct_share_of_all": 0.8076923076923077,
+        "correct_share_of_graded": 0.984375,
+        "correctness": {
+          "TRUNCATED": 9,
+          "UNPARSEABLE": 5,
+          "correct": 63,
+          "wrong": 1
+        },
+        "n_correct": 63,
+        "n_graded": 64,
+        "n_records": 78,
+        "parse_status": {
+          "PARSED": 64,
+          "TRUNCATED": 9,
+          "UNPARSEABLE": 5
+        },
+        "thinking_closed_share": 0.9230769230769231,
+        "truncated_share": 0.11538461538461539
+      },
+      "overall_correct_rate_by_structure": {
+        "ci95": [
+          0.953125,
+          1.0
+        ],
+        "mean": 0.984375,
+        "n_structures": 64
+      },
+      "problems": {
+        "classes": {
+          "CONSISTENT_ANCHOR": 63,
+          "FAILED": 1,
+          "INCOMPLETE": 14
+        },
+        "n": 78
+      },
+      "problems_detail": {
+        "S01:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 3609.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S01"
+        },
+        "S02:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 9249.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S02"
+        },
+        "S03:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 2683.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S03"
+        },
+        "S04:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 1445.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S04"
+        },
+        "S05:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 797.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S05"
+        },
+        "S06:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 1412.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S06"
+        },
+        "S07:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 4875.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S07"
+        },
+        "S08:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 1920.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S08"
+        },
+        "S09:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 6662.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S09"
+        },
+        "S10:0": {
+          "class": "INCOMPLETE",
+          "mean_tokens": 9765.0,
+          "n_correct": 0,
+          "n_graded": 0,
+          "n_samples": 1,
+          "structure_id": "S10"
+        },
+        "S11:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 5582.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S11"
+        },
+        "S12:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 6787.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S12"
+        },
+        "S13:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 5527.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S13"
+        },
+        "S14:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 848.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S14"
+        },
+        "S15:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 876.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S15"
+        },
+        "S16:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 4086.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S16"
+        },
+        "S17:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 499.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S17"
+        },
+        "S18:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 2490.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S18"
+        },
+        "S19:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 10081.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S19"
+        },
+        "S20:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 1686.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S20"
+        },
+        "S21:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 3690.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S21"
+        },
+        "S22:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 5864.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S22"
+        },
+        "S23:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 637.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S23"
+        },
+        "S24:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 780.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S24"
+        },
+        "S25:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 534.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S25"
+        },
+        "S26:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 3132.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S26"
+        },
+        "S27:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 1492.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S27"
+        },
+        "S28:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 1333.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S28"
+        },
+        "S29:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 1635.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S29"
+        },
+        "S30:0": {
+          "class": "INCOMPLETE",
+          "mean_tokens": 6524.0,
+          "n_correct": 0,
+          "n_graded": 0,
+          "n_samples": 1,
+          "structure_id": "S30"
+        },
+        "S31:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 6297.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S31"
+        },
+        "S32:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 9307.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S32"
+        },
+        "S33:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 2118.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S33"
+        },
+        "S34:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 7405.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S34"
+        },
+        "S35:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 11812.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S35"
+        },
+        "S36:0": {
+          "class": "INCOMPLETE",
+          "mean_tokens": 9696.0,
+          "n_correct": 0,
+          "n_graded": 0,
+          "n_samples": 1,
+          "structure_id": "S36"
+        },
+        "S37:0": {
+          "class": "INCOMPLETE",
+          "mean_tokens": 12288.0,
+          "n_correct": 0,
+          "n_graded": 0,
+          "n_samples": 1,
+          "structure_id": "S37"
+        },
+        "S38:0": {
+          "class": "INCOMPLETE",
+          "mean_tokens": 12288.0,
+          "n_correct": 0,
+          "n_graded": 0,
+          "n_samples": 1,
+          "structure_id": "S38"
+        },
+        "S41:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 2942.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S41"
+        },
+        "S42:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 961.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S42"
+        },
+        "S43:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 3900.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S43"
+        },
+        "S44:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 1548.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S44"
+        },
+        "S45:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 2467.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S45"
+        },
+        "S46:0": {
+          "class": "INCOMPLETE",
+          "mean_tokens": 12288.0,
+          "n_correct": 0,
+          "n_graded": 0,
+          "n_samples": 1,
+          "structure_id": "S46"
+        },
+        "S47:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 1185.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S47"
+        },
+        "S48:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 4375.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S48"
+        },
+        "S51:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 9705.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S51"
+        },
+        "S52:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 11034.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S52"
+        },
+        "S53:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 1443.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S53"
+        },
+        "S54:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 4958.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S54"
+        },
+        "S55:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 7860.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S55"
+        },
+        "S56:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 1356.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S56"
+        },
+        "S57:0": {
+          "class": "INCOMPLETE",
+          "mean_tokens": 12288.0,
+          "n_correct": 0,
+          "n_graded": 0,
+          "n_samples": 1,
+          "structure_id": "S57"
+        },
+        "S61:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 996.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S61"
+        },
+        "S62:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 4106.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S62"
+        },
+        "S63:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 8676.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S63"
+        },
+        "S64:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 1124.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S64"
+        },
+        "S65:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 6201.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S65"
+        },
+        "S66:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 9608.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S66"
+        },
+        "S67:0": {
+          "class": "INCOMPLETE",
+          "mean_tokens": 12288.0,
+          "n_correct": 0,
+          "n_graded": 0,
+          "n_samples": 1,
+          "structure_id": "S67"
+        },
+        "S71:0": {
+          "class": "FAILED",
+          "mean_tokens": 11260.0,
+          "n_correct": 0,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S71"
+        },
+        "S72:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 10639.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S72"
+        },
+        "S73:0": {
+          "class": "INCOMPLETE",
+          "mean_tokens": 12288.0,
+          "n_correct": 0,
+          "n_graded": 0,
+          "n_samples": 1,
+          "structure_id": "S73"
+        },
+        "S74:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 9532.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S74"
+        },
+        "S75:0": {
+          "class": "INCOMPLETE",
+          "mean_tokens": 12288.0,
+          "n_correct": 0,
+          "n_graded": 0,
+          "n_samples": 1,
+          "structure_id": "S75"
+        },
+        "S77:0": {
+          "class": "INCOMPLETE",
+          "mean_tokens": 8473.0,
+          "n_correct": 0,
+          "n_graded": 0,
+          "n_samples": 1,
+          "structure_id": "S77"
+        },
+        "S78:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 11758.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S78"
+        },
+        "S79:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 9166.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S79"
+        },
+        "S81:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 8795.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S81"
+        },
+        "S82:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 779.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S82"
+        },
+        "S83:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 3265.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S83"
+        },
+        "S84:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 9529.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S84"
+        },
+        "S85:0": {
+          "class": "INCOMPLETE",
+          "mean_tokens": 10101.0,
+          "n_correct": 0,
+          "n_graded": 0,
+          "n_samples": 1,
+          "structure_id": "S85"
+        },
+        "S86:0": {
+          "class": "INCOMPLETE",
+          "mean_tokens": 12288.0,
+          "n_correct": 0,
+          "n_graded": 0,
+          "n_samples": 1,
+          "structure_id": "S86"
+        },
+        "S92:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 1701.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S92"
+        },
+        "S93:0": {
+          "class": "INCOMPLETE",
+          "mean_tokens": 12288.0,
+          "n_correct": 0,
+          "n_graded": 0,
+          "n_samples": 1,
+          "structure_id": "S93"
+        },
+        "S94:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 6747.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S94"
+        },
+        "S95:0": {
+          "class": "CONSISTENT_ANCHOR",
+          "mean_tokens": 3699.0,
+          "n_correct": 1,
+          "n_graded": 1,
+          "n_samples": 1,
+          "structure_id": "S95"
+        }
+      },
+      "throughput": {
+        "aggregate_tokens_per_s": 20.17,
+        "batch_size": [
+          3
+        ],
+        "generated_tokens_total": 453616,
+        "generation_wall_time_s": 22488.58,
+        "max_sampling": [
+          "{\"do_sample\": true, \"temperature\": 0.6, \"top_k\": 20, \"top_p\": 0.95}"
+        ],
+        "n_records": 78,
+        "tokens_max": 12288,
+        "tokens_median": 5242.5,
+        "tokens_p90": 12288.0
+      }
+    }
+  },
+  "source_commit": "50a26584070b69cbc0e604b09b99676216fe6aae",
+  "stage": "14.20"
+}
