@@ -59,6 +59,7 @@ ARTIFACT_GLOBS = (
     ("14.20", "thinking_run", "results/stage14/s164_thinking_run/attempt_*"),
     ("14.20", "thinking_analysis", "results/stage14/s165_thinking_analysis/attempt_*"),
     ("14.20", "thinking_regrade_units", "results/stage14/s166_regrade_units/attempt_*"),
+    ("14.20", "cue_cells_analysis", "results/stage14/s167_cue_cells_analysis/attempt_*"),
     ("14.12", "copying_vs_relevance", "results/stage14/s151_copying_vs_relevance/attempt_*"),
     ("14.10", "x03_plan", "results/stage14/x03_format_tokenization/plan/attempt_*"),
     ("14.10", "x03_run", "results/stage14/x03_format_tokenization/run/attempt_*"),
