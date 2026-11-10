@@ -1,0 +1,335 @@
+{
+  "command": "scripts/v2/s167_cue_cells_analysis.py --base-records results/stage14/s164_thinking_run/attempt_425243_qwen3_thinking_base/raw_records.jsonl --cell-records results/stage14/s164_thinking_run/attempt_435605_qwen3_thinking_cells/raw_records.jsonl --anchors data/v2/dataset/stageB_ids.json --attempt-id attempt_20261110_job435605_preliminary_no_resample",
+  "evidence_class": "exploratory; not paper-eligible",
+  "inputs": {
+    "data/v2/dataset/stageB_ids.json": "3a6374e0bb21af4337d31c9215db0b0752dd505cb30f6c03a31ac900f21ae2f5",
+    "results/stage14/s164_thinking_run/attempt_425243_qwen3_thinking_base/raw_records.jsonl": "459eaec0dbb9a9eaf12fa47125e59b2b34fc38c56accd24963844d5339645f6f",
+    "results/stage14/s164_thinking_run/attempt_435605_qwen3_thinking_cells/raw_records.jsonl": "113fd095b93b6f338de21597bf6aaa279a59482a09597d2d6385c7c50417c2f9"
+  },
+  "kind": "cue cells on anchors",
+  "results": {
+    "declared_grade": {
+      "baseline_correct_share_by_structure": {
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "mean": 1.0,
+        "n_structures": 32
+      },
+      "baseline_outcomes": {
+        "correctness": {
+          "correct": 32
+        },
+        "n_not_evaluated": 0,
+        "n_records": 32,
+        "share_truncated": 0.0,
+        "tokens_median": 3437.0
+      },
+      "n_anchors": 32,
+      "n_base_records": 32,
+      "n_cell_records": 128,
+      "roles": {
+        "irrelevant_metadata": {
+          "contrast_vs_baseline": {
+            "ci95": [
+              -0.1,
+              0.0
+            ],
+            "mean": -0.03333333333333333,
+            "n_structures": 30
+          },
+          "cue_correct_share_by_structure": {
+            "ci95": [
+              0.9,
+              1.0
+            ],
+            "mean": 0.9666666666666667,
+            "n_structures": 30
+          },
+          "expected_effect": [
+            "invariant"
+          ],
+          "n_paired_structures": 30,
+          "outcomes": {
+            "correctness": {
+              "TRUNCATED": 2,
+              "correct": 29,
+              "wrong": 1
+            },
+            "n_not_evaluated": 2,
+            "n_records": 32,
+            "share_truncated": 0.0625,
+            "tokens_median": 4960.5
+          },
+          "reading": "not distinguishable from sampling noise"
+        },
+        "irrelevant_text": {
+          "contrast_vs_baseline": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "mean": 0.0,
+            "n_structures": 27
+          },
+          "cue_correct_share_by_structure": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "mean": 1.0,
+            "n_structures": 27
+          },
+          "expected_effect": [
+            "invariant"
+          ],
+          "n_paired_structures": 27,
+          "outcomes": {
+            "correctness": {
+              "TRUNCATED": 3,
+              "UNPARSEABLE": 2,
+              "correct": 27
+            },
+            "n_not_evaluated": 5,
+            "n_records": 32,
+            "share_truncated": 0.09375,
+            "tokens_median": 3849.0
+          },
+          "reading": "not distinguishable from sampling noise"
+        },
+        "relevant_edit": {
+          "contrast_vs_baseline": {
+            "ci95": [
+              -0.1111111111111111,
+              0.0
+            ],
+            "mean": -0.037037037037037035,
+            "n_structures": 27
+          },
+          "cue_correct_share_by_structure": {
+            "ci95": [
+              0.8888888888888888,
+              1.0
+            ],
+            "mean": 0.9629629629629629,
+            "n_structures": 27
+          },
+          "expected_effect": [
+            "changed"
+          ],
+          "n_paired_structures": 27,
+          "outcomes": {
+            "correctness": {
+              "TRUNCATED": 3,
+              "UNPARSEABLE": 2,
+              "correct": 26,
+              "wrong": 1
+            },
+            "n_not_evaluated": 5,
+            "n_records": 32,
+            "share_truncated": 0.09375,
+            "tokens_median": 5300.0
+          },
+          "reading": "not distinguishable from sampling noise"
+        },
+        "role_reversed": {
+          "contrast_vs_baseline": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "mean": 0.0,
+            "n_structures": 27
+          },
+          "cue_correct_share_by_structure": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "mean": 1.0,
+            "n_structures": 27
+          },
+          "expected_effect": [
+            "changed"
+          ],
+          "n_paired_structures": 27,
+          "outcomes": {
+            "correctness": {
+              "TRUNCATED": 4,
+              "UNPARSEABLE": 1,
+              "correct": 27
+            },
+            "n_not_evaluated": 5,
+            "n_records": 32,
+            "share_truncated": 0.125,
+            "tokens_median": 6537.5
+          },
+          "reading": "not distinguishable from sampling noise"
+        }
+      }
+    },
+    "unit_convertible_sensitivity": {
+      "baseline_correct_share_by_structure": {
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "mean": 1.0,
+        "n_structures": 32
+      },
+      "baseline_outcomes": {
+        "correctness": {
+          "correct": 32
+        },
+        "n_not_evaluated": 0,
+        "n_records": 32,
+        "share_truncated": 0.0,
+        "tokens_median": 3437.0
+      },
+      "n_anchors": 32,
+      "n_base_records": 32,
+      "n_cell_records": 128,
+      "roles": {
+        "irrelevant_metadata": {
+          "contrast_vs_baseline": {
+            "ci95": [
+              -0.1,
+              0.0
+            ],
+            "mean": -0.03333333333333333,
+            "n_structures": 30
+          },
+          "cue_correct_share_by_structure": {
+            "ci95": [
+              0.9,
+              1.0
+            ],
+            "mean": 0.9666666666666667,
+            "n_structures": 30
+          },
+          "expected_effect": [
+            "invariant"
+          ],
+          "n_paired_structures": 30,
+          "outcomes": {
+            "correctness": {
+              "TRUNCATED": 2,
+              "correct": 29,
+              "wrong": 1
+            },
+            "n_not_evaluated": 2,
+            "n_records": 32,
+            "share_truncated": 0.0625,
+            "tokens_median": 4960.5
+          },
+          "reading": "not distinguishable from sampling noise"
+        },
+        "irrelevant_text": {
+          "contrast_vs_baseline": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "mean": 0.0,
+            "n_structures": 27
+          },
+          "cue_correct_share_by_structure": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "mean": 1.0,
+            "n_structures": 27
+          },
+          "expected_effect": [
+            "invariant"
+          ],
+          "n_paired_structures": 27,
+          "outcomes": {
+            "correctness": {
+              "TRUNCATED": 3,
+              "UNPARSEABLE": 2,
+              "correct": 27
+            },
+            "n_not_evaluated": 5,
+            "n_records": 32,
+            "share_truncated": 0.09375,
+            "tokens_median": 3849.0
+          },
+          "reading": "not distinguishable from sampling noise"
+        },
+        "relevant_edit": {
+          "contrast_vs_baseline": {
+            "ci95": [
+              -0.1111111111111111,
+              0.0
+            ],
+            "mean": -0.037037037037037035,
+            "n_structures": 27
+          },
+          "cue_correct_share_by_structure": {
+            "ci95": [
+              0.8888888888888888,
+              1.0
+            ],
+            "mean": 0.9629629629629629,
+            "n_structures": 27
+          },
+          "expected_effect": [
+            "changed"
+          ],
+          "n_paired_structures": 27,
+          "outcomes": {
+            "correctness": {
+              "TRUNCATED": 3,
+              "UNPARSEABLE": 2,
+              "correct": 26,
+              "wrong": 1
+            },
+            "n_not_evaluated": 5,
+            "n_records": 32,
+            "share_truncated": 0.09375,
+            "tokens_median": 5300.0
+          },
+          "reading": "not distinguishable from sampling noise"
+        },
+        "role_reversed": {
+          "contrast_vs_baseline": {
+            "ci95": [
+              0.0,
+              0.0
+            ],
+            "mean": 0.0,
+            "n_structures": 27
+          },
+          "cue_correct_share_by_structure": {
+            "ci95": [
+              1.0,
+              1.0
+            ],
+            "mean": 1.0,
+            "n_structures": 27
+          },
+          "expected_effect": [
+            "changed"
+          ],
+          "n_paired_structures": 27,
+          "outcomes": {
+            "correctness": {
+              "TRUNCATED": 4,
+              "UNPARSEABLE": 1,
+              "correct": 27
+            },
+            "n_not_evaluated": 5,
+            "n_records": 32,
+            "share_truncated": 0.125,
+            "tokens_median": 6537.5
+          },
+          "reading": "not distinguishable from sampling noise"
+        }
+      }
+    }
+  },
+  "stage": "14.20"
+}
