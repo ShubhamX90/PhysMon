@@ -1,13 +1,13 @@
 # Working digest: PhysMon Research Redesign v2 (revised edition, 11 November 2026)
 
-**Source of truth:** `docs/proposals/PhysMon_Research_v2.tex` (canonical LaTeX source, 73 pages when built).
+**Source of truth:** `docs/proposals/PhysMon_Research_v2.tex` (canonical LaTeX source, 74 pages when built).
 Built output: `PhysMon_Research_v2.pdf`; searchable text: `PhysMon_Research_v2.extracted.txt` (page markers
 `######## PAGE n ########`). Rebuild both with `scripts/build_plan_pdf.sh` (tectonic and pypdf in the separate
 conda environment `texbuild`; see the script header). Edit the `.tex`, never the PDF; rebuild and commit all three
 together.
 
 This digest is a navigation aid regenerated from the revised source. It does not replace it; when they disagree,
-the `.tex` wins. Page numbers below are PDF pages of the 11 November build (73 pages).
+the `.tex` wins. Page numbers below are PDF pages of the 11 November build (74 pages).
 
 ## 1. What the document is
 
@@ -73,7 +73,7 @@ the `.tex` wins. Page numbers below are PDF pages of the 11 November build (73 p
 - **Claim levels (4.9):** CL1 benchmark, CL2 behavioural, CL3 monitor, CL4 causal localisation, CL5 mechanism,
   CL6 repair; promotion one level at a time (the October C1-C6).
 
-## 4. Critical path (Section 5, pp. 25-39)
+## 4. Critical path (Section 5, pp. 25-40)
 
 | Gate | Deliverable | Passes when |
 |---|---|---|
@@ -86,23 +86,40 @@ the `.tex` wins. Page numbers below are PDF pages of the 11 November build (73 p
 | G6 external and functional confirmation | Re-certified external physics, non-physics transfer, second model | Required for broad claims |
 | G7 practical use | Monitoring, repair | Optional |
 
-Section 5.2 keeps P0-P11 as the requirement catalogue, each with a status line and its gate.
+Section 5.3 keeps P0-P11 as the requirement catalogue, each with a status line and its gate.
+
+### Dataset plan (Section 5.2, p. 28; user decision 2026-11-11)
+
+- **Target:** DECOY-v2 dataset v2 of **250 independent structures** first, expanded to **500 structures** after G3
+  and before G4. Counted in structures (the unit of inference: each its own template cluster and symbolic
+  program), not instances; 250 structures mean roughly a thousand or more problem instances.
+- **Today:** dataset v1 (`data/v2/dataset/v1`) has 80 structures and 260 instances (50 x 4, 30 x 2), 11 domains,
+  agent-verified, UNREVIEWED, no role-by-value cells. Models have run on it, so it can only be EXPLORATION.
+- **Admission standard:** solver certificate for every cell (R and D required, C and K where feasible), two or more
+  validated phrasings, mutation tests, acceptance by the qualified LLM panel, blind naturalness check, grading dry
+  run, no overlap with any other structure. Failed structures are replaced, never edited after model output.
+- **Composition targets:** at least 10 domains, none above 25%; at least 20% upper-university or multi-step; C
+  feasible in at least 30% and K in at least 20% of structures.
+- **Milestones and roles:** M0 (8-12, G2 design pilot); **M250** after the design pilot and before calibration:
+  130 EXPLORATION (80 upgraded v1 + 50 new) and 120 new sealed INTERNAL_CONFIRMATION; **M500** after G3: 150 more
+  INTERNAL_CONFIRMATION (G4 pool 270), 50 shadow set, 50 ADVERSARIAL_CHALLENGE / G6 reserve. G4 opens only what its
+  power simulation requires; the rest stays sealed. EPC external items are extra.
 
 ## 5. Other sections
 
 - Section 2 (p. 5): tracks M/E/R; the final Phase-I ledger after the reviews; what Stage 14 established.
 - Section 3 (pp. 7-18): Phase B (B0-B7) with status lines; benchmark architecture (V1-R, V2-A, V2-B, EPC, MATH-X).
-- Section 6 (pp. 39-47): all 104 inventory items with gate and status; contrasts added by the revision.
-- Section 7 (pp. 48-52): cards X01-X12 with status and revision (X07 retired as stated; X04 becomes the
+- Section 6 (pp. 40-48): all 104 inventory items with gate and status; contrasts added by the revision.
+- Section 7 (pp. 49-53): cards X01-X12 with status and revision (X07 retired as stated; X04 becomes the
   role-by-value factorial).
-- Section 8 (p. 53): statistics (structure-level paired analysis, SESOI with reasons, four-way result language,
+- Section 8 (p. 54): statistics (structure-level paired analysis, SESOI with reasons, four-way result language,
   rare categories, power by simulation including null data).
-- Section 9 (p. 55): environment, models, measured rates, staged budget, human effort, data contracts, preflight.
+- Section 9 (p. 56): environment, models, measured rates, staged budget, human effort, data contracts, preflight.
 - Sections 10-15: contingencies, literature and novelty, next sprint, paper architectures, bibliography,
   completion.
 - Appendices: A Stage 14 evidence; B review issues and answers; C disposition and open decisions; D revision log.
 
-## 6. Open decisions (Appendix C, p. 71)
+## 6. Open decisions (Appendix C, p. 72)
 
 D1 keep the full P0 regeneration off the critical path (default: not run); D2 which 2-3 judge models form the LLM
 review panel (the user decided on 2026-11-11 to use a qualified LLM panel now and human review later; until the

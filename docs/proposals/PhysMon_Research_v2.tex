@@ -573,7 +573,8 @@ stays in force without change.
 
 \textbf{Status (11 Nov 2026):} REVISED (extended with the role strata and the role-by-value cells). The typed
 generator and 80 structures exist (DONE-EXPLORATORY: J14.6, J14.15, J14.18, J14.19); strata C and K, role-by-value
-cells, validated phrasings and misuse functions are OPEN and belong to G1.
+cells, validated phrasings and misuse functions are OPEN and belong to G1. Target size: 250 structures, then 500
+(Section~\ref{sec:datasetplan}).
 
 \textbf{B3.1 Five problem-structure strata} (kept). (i) Single governing equation with a natural nuisance
 (calibration and causal simplicity); (ii) multistep dependency graph with the distractor attached to a
@@ -875,8 +876,8 @@ declared evaluation contract (Section~\ref{sec:outcomes}); preselection on disco
 \textbf{B6.2 Precision at the independent unit.} Simulations and blinded design checks with random effects for
 structure, source or author, instantiation and model; target intervals for paired differences and the core
 interaction, for causal rescue (G5) and for out-of-cluster AUROC margins (now G7, monitoring); a power target and
-minimum effect with a scientific interpretation. The earlier 300--600 structures are a tentative upper planning
-band, not a quota; independent dependency programs are worth more than paraphrases (v1 had only 31 distinct
+minimum effect with a scientific interpretation. The October 300--600 band is replaced by the dataset plan of
+Section~\ref{sec:datasetplan} (250 structures, then 500); independent dependency programs are worth more than paraphrases (v1 had only 31 distinct
 equation programs in 155 families, J14.6-003). \emph{Now:} the interaction targeted is the role-by-value interaction
 and the per-stratum tracking-loss, misuse-share and neglect-share estimands (Section~\ref{sec:rolevalue}); the power simulation
 uses the variance of those estimands measured in G2, not only no-cue variance.
@@ -1373,10 +1374,13 @@ and tolerance-separated cues are distinct conditions; the outcome definitions, g
 categories (Section~\ref{sec:outcomes}); a sampled, batched reasoning-contract version (prospective only; the
 greedy Stage~14 records are never pooled with it); analysis and power-simulation scripts tested on synthetic
 records; the scorecard criteria of G3 with numeric thresholds; the minimum R-tracking criterion checked in G2;
-the T1 foreign-trace NLL threshold; equivalence margins with their scientific
-justification (Section~\ref{sec:statistics}); experiment cards.
-\gate{\textbf{Gate G1.} Passes when certificates, mutation tests and analysis tests pass and the cards are
-committed. Nothing is run before.}
+the T1 prefix type per experiment and its compatibility strata; equivalence margins with their scientific
+justification (Section~\ref{sec:statistics}); experiment cards; the LLM review panel (models chosen under D2, prompts
+frozen, qualified on the extended planted-defect bank, Section~\ref{sec:llmpanel}); the M0 pilot structures; and
+the dataset admission standard and data-role allocation of Section~\ref{sec:datasetplan}.
+\gate{\textbf{Gate G1.} Passes when certificates, mutation tests and analysis tests pass, the LLM panel is
+qualified and the cards are committed. Nothing is run before. The M250 build (Section~\ref{sec:datasetplan}) follows
+the G2 design-validation pilot and precedes G2 calibration.}
 
 \subsubsection*{G2. Measurement and calibration (GPU, small)}
 \begin{enumerate}
@@ -1408,7 +1412,7 @@ is not run. The band and the R criterion are not changed after seeing G2 results
 
 \subsubsection*{G3. Behavioural discovery (GPU, staged)}
 \begin{enumerate}
-\item \textbf{Core run.} 24--40 complete calibrated structures; core conditions: no cue; R and D roles at three
+\item \textbf{Core run.} 24--40 complete calibrated structures from the 130-structure EXPLORATION pool of M250 (Section~\ref{sec:datasetplan}); core conditions: no cue; R and D roles at three
 values each in two phrasings; the non-numeric sentence; plus the small non-physics dependency control set. Sampling
 may be adaptive only by a rule fixed in G1. Results are reported on the calibrated population and, for the same
 cells where run, on all validated structures.
@@ -1432,7 +1436,7 @@ G3 falls below the G1 criterion, the G3 role result is reported as uninterpretab
 items and band are not changed on the same data. A formula hint that does not help is a diagnostic, not a gate.}
 
 \subsubsection*{G4. Independent behavioural confirmation (GPU, medium)}
-New structures in template clusters no earlier run has touched (INTERNAL\_CONFIRMATION; shadow subset held back),
+Structures from the sealed INTERNAL\_CONFIRMATION pool of M250 and M500 (270 structures, Section~\ref{sec:datasetplan}), in template clusters no earlier run has touched, opened in the number the power simulation requires (shadow set held back),
 validated by the qualified LLM panel (Section~\ref{sec:llmpanel}; human B4 review where available) or, failing that,
 labelled EXPLORATORY-REPLICATION. Preregistered: the role-by-value family with its
 estimands, decision rules and sample size from the power simulation; the primary and second models fixed by the
@@ -1469,6 +1473,70 @@ Monitoring (the Phase-I monitor under cluster-held-out folds is a side track, D6
 cheap ladder (relevance instruction, self-consistency, longer budget), with strength-versus-damage curves.
 
 % ===== s05b_blocks =====
+\subsection{Dataset plan: 250 structures, then 500}
+\label{sec:datasetplan}
+
+\textbf{Target (user decision, 11 November 2026).} DECOY-v2 dataset~v2 is built to \textbf{250 independent
+structures} first and expanded to \textbf{500 structures} after G3 and before G4. The count is in independent
+structures, the unit of inference (Section~\ref{sec:statistics}): each structure is its own template cluster and
+its own symbolic program, and yields several numeric values, role-by-value cells and phrasings, so 250 structures
+mean roughly a thousand or more problem instances. This replaces the open-ended ``only what the gates need'' sizing
+of the earlier revision and the October edition's tentative 300--600 band.
+
+\textbf{Starting point} \tg{V}. Dataset~v1 (Stage~14.19, \texttt{data/v2/dataset/v1}) has 80 structures and 260
+instances (50 structures with four instances, 30 with two; 80 distinct template clusters and programs; 11 domains;
+levels 104 high-school, 124 introductory-university, 32 upper-university instances). All are agent-verified and
+\texttt{UNREVIEWED}, carry the eleven Stage~14 distractor cells (2,764 of 2,860 feasible) and no role-by-value
+cells. Models have already been run on them, so they can only ever be EXPLORATION data.
+
+\textbf{Admission standard (``extreme high quality'').} A structure counts towards 250 or 500 only when all of
+these hold, and each is recorded in its provenance:
+\begin{enumerate}
+\item typed dependency graph with a solver certificate for every cell (strata R and D required; C and K where
+feasible, Section~\ref{sec:strata}), certified responses $y^*_r(z)$ at three or more values, separation of
+$y^*_R$ from $y^*_D$ and of every misuse curve and placebo value beyond the loosest tolerance;
+\item two or more independently validated phrasings per role relation, one without marker words;
+\item mutation tests passed (P3.3), including broken cancellation and out-of-regime mutations for C and K;
+\item acceptance by the qualified LLM panel (Section~\ref{sec:llmpanel}) on every phrasing, with no unresolved
+high-severity flag;
+\item a blind naturalness check and a grading dry run (the gold answers parse and grade as \texttt{CORRECT} under
+every grading view);
+\item no overlap with any other structure of dataset~v1, v2 or DECOY-v1 under the P3.5 detectors; a new template
+cluster and a new symbolic program.
+\end{enumerate}
+A structure that fails is replaced, never edited after any model output on it exists. Planning assumes about 1.3 to
+1.5 generated structures per admitted one.
+
+\textbf{Composition targets} \tg{PROPOSAL}, checked at each milestone and reported, not forced by editing items:
+at least 10 domains with no domain above 25\% of structures; at least 20\% upper-university structures and
+multi-step variants (B3.1 strata), so that models are not at ceiling; stratum C feasible in at least 30\% and K in
+at least 20\% of structures, so that H6-extended and the C/K forms of H3 can be powered; difficulty spread recorded
+before any model run.
+
+\textbf{Milestones and data roles} (assigned by lineage, before any outcome is seen; Section~\ref{sec:status},
+rule 1):
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}P{2.3cm}P{3.0cm}P{2.6cm}L@{}}
+\toprule
+Milestone & When & Structures & Role and use \\
+\midrule
+M0 & G1 & 8--12 & EXPLORATION: design-validation pilot of G2 (may include upgraded v1 structures) \\
+M250 & After the G2 design-validation pilot has confirmed the generator and grading, before G2 calibration & 250 in total & 130 EXPLORATION (the 80 v1 structures upgraded with role-by-value cells and re-validated, plus 50 new) for the G2 pilot, calibration and G3 discovery; 120 new INTERNAL\_CONFIRMATION, sealed until G4 \\
+M500 & After G3, before G4 opens & 500 in total & 250 more new structures: 150 INTERNAL\_CONFIRMATION (G4 pool 270 in total), 50 shadow set (inaccessible to all tuning scripts and agents), 50 ADVERSARIAL\_CHALLENGE and G6 reserve \\
+\bottomrule
+\end{tabularx}
+\end{center}
+G4 opens only as many sealed structures as its power simulation requires (planning at least 50 complete and
+in-band per model, Section~\ref{sec:statistics}), chosen by a rule fixed before opening; the rest stay sealed for
+G6. Because calibration bands differ by model, a large sealed pool is what lets two models and the C/K strata reach
+their targets. External (EPC) items are additional and are not counted in the 500. If generation or validation
+falls short at a milestone, the shortfall is reported and the gate proceeds only if its own power target is met;
+admission standards are never relaxed to reach a count.
+
+\textbf{Effort.} Generation and certification are agent and CPU work. LLM-panel validation costs about 2--3 judges
+$\times$ 2 passes per structure and phrasing (about 3,000--6,000 judge runs for 500 structures; local GPU-hours or
+an API budget, decided with D2). The later human accuracy study samples the panel's verdicts, not all 500.
+
 \subsection{The original critical-path blocks P0--P11 under the revised gates}
 \label{sec:blocks}
 
@@ -1496,7 +1564,7 @@ Block & October title (short) & Gate(s) & Disposition at this revision \\
 \midrule
 P0 & Evidence reproduction, provenance, code audit & G0 & Narrowed (open decision D1): full regeneration of Phase-I values off the critical path; parity, registers and a conditional spot check kept \\
 P1 & Measurement validity of the sensitivity construct & G0, G2 & Largely done in Stage~14; likelihood findings are diagnostics; open sub-items optional \\
-P2 & Scale the DECOY-v2 design & G1 (feeds G3, G4) & Demoted: only the structures G3 and G4 need; the 300--600 range is withdrawn as a target \\
+P2 & Scale the DECOY-v2 design & G1 (M250), after G3 (M500) & Revised: 250 structures, then 500 before G4 (Section~\ref{sec:datasetplan}) \\
 P3 & Expert validation, parser, leakage firewall & G1, G2, G4 & Kept; parser audit extended to LaTeX final lines and the O3 status categories \\
 P4 & Behavioural mechanism discrimination and power & G3, G4 & Central; recast as the role-by-value design \\
 P5 & Monitoring study & G7 & Demoted to an optional side track; comparators carry oracle/deployable tags \\
@@ -1628,9 +1696,10 @@ check of any label on the pilot families is a G0 item (Section~\ref{sec:gates}).
 \textbf{Question (October).} Can the proposed mechanism's causal ingredients be manipulated independently while
 preserving physics, with genuinely new structures held out?
 
-\textbf{Revised scope (G1, feeding G3 and G4).} Scale-up is demoted: P2 builds only the structures G3 and G4 need,
-in the counts the gates fix (Section~\ref{sec:gates}). The October range of 300--600 new canonical structures
-\tg{PROPOSAL} is withdrawn as a target. The generator requirements stay, re-expressed in the role-by-value design.
+\textbf{Revised scope (G1 for M250; after G3 for M500).} P2 builds DECOY-v2 dataset~v2 to 250 independent
+structures in G1 and to 500 before G4, under the admission standard and data-role allocation of
+Section~\ref{sec:datasetplan} (user decision, 11 November 2026); the October range of 300--600 is replaced. The
+generator requirements stay, re-expressed in the role-by-value design.
 
 \begin{description}[leftmargin=1.2em,style=nextline]
 \item[P2.1 Explicit generative grammar.] Typed quantities, dimensions, roles and assumptions; the equation as a
@@ -3021,8 +3090,9 @@ with $\omega=0.25$, $\delta=0.10$ needs about 49 (two-sided) or 39 (one-sided) s
 or 17. More samples per item cannot
 substitute for more independent structures. If errors are genuinely rare, the legitimate choices are a harder,
 independently justified regime or the study of correct selection (H6); a continuous diagnostic (O6) is never
-promoted to proof of an error because the categorical endpoint lacks power. The October planning allocation of
-300--600 structures is withdrawn: the number is whatever the simulation requires for the decisions actually made.
+promoted to proof of an error because the categorical endpoint lacks power. The dataset is built to 250 and then 500
+structures (Section~\ref{sec:datasetplan}); the simulation decides how many of them each gate opens, and the sealed
+remainder is kept for later gates.
 
 \subsection{Negative and missing result policy}
 A zero-row job, failed hook, timeout, budget-exhausted or format-invalid response, infeasible cell, ineligible item
@@ -3147,8 +3217,8 @@ generations), not a measurement, and is replaced by the on-cluster parity and ti
 \toprule
 Gate step & Planning size & Generations per model & 7--8B HF (measured rate) & 7--8B vLLM (estimate) & Qwen3-32B \\
 \midrule
-G2 calibration (difficulty band) & 80 structures $\times$ $k_{sel}$ 4, then about 40 $\times$ $k_{est}$ 4, then about 20
-structures $\times$ 7 cells (R and D at three values in one phrasing, non-numeric sentence) $\times$ 4 & about 1{,}040 & about 3.6--4.2~h & under 0.5~h & not planned \\
+G2 calibration (difficulty band) & 130 EXPLORATION structures $\times$ $k_{sel}$ 4, then about 60 $\times$ $k_{est}$ 4, then about 20
+structures $\times$ 7 cells (R and D at three values in one phrasing, non-numeric sentence) $\times$ 4 & about 1{,}320 & about 4.6--5.4~h & under 0.5~h & not planned \\
 G2 design-validation pilot & 8--12 structures $\times$ 14 cells $\times$ $k$ 4--8 & 448--1{,}344 &
 about 1.6--5.5~h & under 0.5~h & not planned \\
 G3 behavioural discovery (core) & 24--40 complete structures $\times$ 14 cells $\times$ $k$ 3--8; plus a small
@@ -3194,8 +3264,9 @@ Step & Structures & Review effort per reviewer per pass (planning) \\
 G2 design-validation pilot & 8--12 & about 2--4~h; the measured time per structure replaces the planning figure
 (this replaces the October edition's 20-family adjudication-time pilot) \\
 G3 behavioural discovery & 24--40 & about 6--13~h if reviewed; without review G3 is exploratory by design \\
-G4 confirmation & about 50 (from power) & about 12--17~h for two-pass human review of 50, plus adjudication; for now
+G4 confirmation & about 50 opened (from power) & about 12--17~h for two-pass human review of 50, plus adjudication; for now
 replaced by the qualified LLM panel (below), human hours deferred to the later accuracy study \\
+Dataset admission (M250, M500) & 250, then 500 & LLM panel on every structure and phrasing (Section~\ref{sec:datasetplan}); human review only in the later accuracy study \\
 \bottomrule
 \end{tabularx}
 \end{center}
@@ -3207,8 +3278,9 @@ budget, plus recorded adjudication of split verdicts (adjudicated items reported
 validation are disclosed. The October edition's staffing roles are kept (hypotheses and claim ledger; generator and symbolic
 verifier; instrumentation and reproducibility; validator coordination; an independent reviewer who attacks
 leakage and causal interpretation); roles can be combined, but independence checks cannot all be done by the
-agent that wrote the data. Its 400-structure, 800-judgment validation budget is withdrawn with the demotion of
-large-scale DECOY-v2 scaling: only the structures G3 and G4 need are generated and reviewed.
+agent that wrote the data. Its 400-structure, 800-judgment human validation budget is replaced by the dataset plan of
+Section~\ref{sec:datasetplan}: 250 and then 500 structures, each validated by the qualified LLM panel, with human
+review limited to the later accuracy study of the panel.
 
 \subsection{Storage}
 \label{sec:compute-storage}
@@ -3491,7 +3563,8 @@ The October sprint (tag and reproduce Phase~I; base-rotation attack; scoring int
 validator qualification; typed generator; pilot) was executed as Stages 14.0--14.19 (Appendix~\ref{app:stage14}),
 except that validator qualification stopped at materials and the user's review of the planted-defect bank, and the
 physicist review was replaced by agent verification at the user's instruction of 26 October 2026. The next sprint
-is ordered by which uncertainty would make later work meaningless. Items 1--5 need no GPU; nothing is submitted
+is ordered by which uncertainty would make later work meaningless. Only the parity, pilot and calibration items
+need a GPU; nothing is submitted
 without the user's acceptance of the exact command.
 
 \begin{enumerate}
@@ -3505,11 +3578,17 @@ more phrasings, misuse curves, feasibility records) with mutation tests; regener
 sampled and batched reasoning contract with the O3 status categories and the LaTeX final-line recovery rule for
 O2 (prospective only); frozen analysis, scorecard and power-simulation scripts tested on synthetic records; SESOI
 and equivalence margins with reasons; experiment cards.
+\item \textbf{LLM review panel}: choose the judge models (D2), freeze prompts, extend the planted-defect bank with
+fresh valid items and new planted defects plus a held-out portion, and qualify the judges (Section~\ref{sec:llmpanel}).
+\item \textbf{M0 pilot structures} (8--12) with role-by-value cells, admitted under Section~\ref{sec:datasetplan}.
 \item \textbf{A small non-physics dependency control set} (GSM-DC-style) built with the same role-by-value logic.
 \item \textbf{G0 extended parity} at the planned hook sites and trace lengths for Qwen2.5-7B-Instruct and
 Llama-3.1-8B-Instruct (one short GPU job).
-\item \textbf{G2 design-validation pilot} (8--12 structures) and calibration on the two 7--8B models (one GPU job
-each).
+\item \textbf{G2 design-validation pilot} on the M0 structures (one GPU job).
+\item \textbf{M250 build} (CPU and LLM panel): upgrade the 80 v1 structures with role-by-value cells and re-validate
+them (EXPLORATION), add 50 new EXPLORATION and 120 new sealed INTERNAL\_CONFIRMATION structures; composition
+reported against the targets of Section~\ref{sec:datasetplan}.
+\item \textbf{G2 calibration} on the two 7--8B models (one GPU job each).
 \end{enumerate}
 
 Decisions that change this sprint are listed in Appendix~\ref{app:disposition} (open decisions D1--D6).
@@ -3905,7 +3984,7 @@ B6 pilot, power, roles & Restructured & G2 and G3, staged \\
 B7 Phase-B go/no-go & Replaced & G3 scorecard and the fixed G4 family \\
 P0 full reproduction & Narrowed & Parity kept; full regeneration off the critical path (D1) \\
 P1 measurement validity & Largely done & Findings kept as diagnostics; P1.4 and P1.8 remain optional \\
-P2 scale to 300--600 & Withdrawn & Size from the power simulation \\
+P2 scale to 300--600 & Replaced & 250 structures, then 500 before G4 (Section~\ref{sec:datasetplan}) \\
 P3 validation, parser, leakage & Kept & O3 status categories; parser audit \\
 P4 behavioural discrimination & Central & G3/G4 \\
 P5 monitoring & Demoted & G7 \\
@@ -3920,8 +3999,8 @@ X05 & Side track & G7 \\
 X06 & Split & Internal part in G4, external part in G6 \\
 X07 H11 lesion & Retired as stated & Cue-independent effect (C8b) \\
 X08--X12 & Kept, gated & \\
-Statistics (Section 8) & Revised & Structure-level paired analysis; SESOI with reasons; three-way null language \\
-300--600 structure allocation & Withdrawn & Simulation-based \\
+Statistics (Section 8) & Revised & Structure-level paired analysis; SESOI with reasons; four-way result language \\
+300--600 structure allocation & Replaced & 250 then 500 structures; gates open what their power simulation requires \\
 \bottomrule
 \end{longtable}
 \end{center}
@@ -3985,7 +4064,12 @@ claim; T1 scores the certified answer against a predeclared alternative on one e
 excludes no prefix; H6 is split into H6-RD and H6-extended; the primary model is fixed by a prespecified rule at the
 end of G2; and a qualified panel of 2--3 independent LLM reviewers from other model families, qualified on the
 user-labelled planted-defect bank, is the interim validation tier for G4, with human review as a later accuracy
-study. At the user's choice of 11 November 2026 the plan was consolidated into this single LaTeX source and
+study.
+\item[11 November 2026, dataset size.] At the user's direction, DECOY-v2 dataset~v2 is built to 250 independent
+structures (M250, after the G2 design pilot and before calibration) and expanded to 500 after G3 and before G4
+(M500), with an admission standard, composition targets and a data-role allocation fixed in advance
+(Section~\ref{sec:datasetplan}); this replaces the October 300--600 band and the earlier revision's ``only what the
+gates need''. Dataset~v1 (80 structures, 260 instances) is upgraded and counted only as EXPLORATION. At the user's choice of 11 November 2026 the plan was consolidated into this single LaTeX source and
 PDF; the Markdown revision layer was removed (preserved in Git history).
 \end{description}
 

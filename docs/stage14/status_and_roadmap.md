@@ -39,6 +39,7 @@ A same-unit numeral that appears in the prompt becomes a far more likely continu
 | Legacy-family X03 | Run and analysed (J14.16-005); no further GPU step planned. The Llama irrelevant-variable group (11 clusters) meets the dominance arithmetic for json and plain outside the frozen test; no follow-up is frozen. |
 | P0 gate (regenerate Phase-I values through the model; hook check) | Not started; large; changes what earlier results mean; needs a decision. |
 | 40 to 60 independent structures | 80 exist (S01 to S30, S31 to S95); S01 to S20 have the user's walkthrough approval, the rest only agent verification (by the user's decision of 2026-10-26). More is not the need; independent human review still is, if the claims are to be paper-eligible, and a certified review by someone other than the author and the walkthrough reviewer. |
+| Dataset target (superseded the row above, 2026-11-11) | The user set the target to 250 independent structures, then 500 before G4, each with role-by-value cells and validated by a qualified panel of independent LLM reviewers (human review later as an accuracy study); the 80 existing structures are upgraded and counted as EXPLORATION only. See the plan of record, Section 5.2 (`sec:datasetplan`). |
 | Independent expert review, physicist confirmation of the planted bank, validator recruitment | People outside this session; the user reviewed as one non-blinded reviewer whose physics expertise was not stated. |
 | Phase-I manuscript | Not in the repository; its numbers stay SUBMITTED claims. |
 
