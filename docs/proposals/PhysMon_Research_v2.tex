@@ -131,8 +131,9 @@ retroactive relabelling; new metrics are not called preregistered after the fact
 \item Every comparator is tagged \texttt{oracle} (needs the gold or the label's inputs at inference) or
 \texttt{deployable}; no oracle comparator is called ``non-activation'', ``one forward pass'' or ``cheap''.
 \item Every intervention is read as an interaction against a control prompt (Section~\ref{sec:causal}).
-\item Each GPU job needs the user's acceptance of its exact command; no job is resubmitted, cancelled or held
-without it (repository \texttt{AGENTS.md} and the Sharanga skill).
+\item GPU jobs follow the standing Slurm authority of 12 November 2026 (repository \texttt{AGENTS.md} and the
+Sharanga skill): live preflight, a clean pushed commit run through an immutable snapshot, the script, command and
+inputs checked at least twice before submission, and every submission or cancellation recorded.
 \end{enumerate}
 
 % ===== s02_judgment =====
@@ -690,10 +691,15 @@ Recruiting independent physicists takes time the project does not want to spend 
 panel of independent LLM reviewers as the interim validation tier, and human expert review is a later study that
 measures the panel and can upgrade items.
 \begin{enumerate}
-\item \emph{Panel.} Two to three judge models from model families other than the authoring model (Claude), and
-where possible from different families from each other, at least one a strong reasoning model; the panel
-composition, versions and prompts are frozen in G1 (open decision D2 now asks which models). The authoring agent
-is never on the panel, and neither are models from the families under test (Qwen, Llama); a judge never sees
+\item \emph{Panel} (user decision, 12 November 2026). Three frontier judges: Claude, a GPT model and a Gemini model,
+each with frozen versions and prompts. Until API credits for GPT and Gemini exist, Claude is the sole judge: it runs
+as separate, fresh instances that never see the authoring context, the generator code or another instance's
+verdict. Because Claude also authors the items, its verdicts form a provisional tier,
+\texttt{CLAUDE\_JUDGE\_PROVISIONAL}, disclosed as same-family as the author; it may admit items for EXPLORATION work
+(the G2 pilot, calibration, G3 discovery and the M250 build), but an item is \texttt{LLM\_PANEL\_VALIDATED}, and G4
+can be called confirmatory, only after the GPT and Gemini judges have also accepted it. Every sealed confirmation
+item is therefore re-judged by GPT and Gemini before G4 opens. No judge comes from the families under test (Qwen,
+Llama); a judge never sees
 another judge's verdict, any model-under-test output or score, or the study hypotheses, in either pass, and does
 not see the gold trace in its first pass.
 \item \emph{Protocol.} The B4.2 two-pass rubric, run per judge: pass 1 solves the problem and states each
@@ -707,7 +713,7 @@ Because six valid controls estimate false rejection very imprecisely, G1 adds fr
 new planted defects to the bank before qualification, and holds a portion out unseen; a judge or prompt changed
 after seeing bank results is requalified only on that held-out portion or on a fresh planted set. The bank is not
 used to tune prompts.
-\item \emph{Admission rule.} An item is \texttt{LLM\_PANEL\_VALIDATED} when every qualified judge accepts it with
+\item \emph{Admission rule.} An item is \texttt{LLM\_PANEL\_VALIDATED} when every qualified judge of the full panel (Claude, GPT, Gemini) accepts it with
 no high-severity defect; split verdicts go to a recorded adjudication whose adjudicator and tier are stated (the user, who
 labelled the bank, is not an independent adjudicator), and adjudicated items are reported separately; items with any
 unresolved high-severity flag are excluded and counted. Agreement statistics (raw agreement, Cohen's $\kappa$,
@@ -1810,7 +1816,7 @@ replaced the physicist review by the user's decision of 26~October~2026 (the rev
 objection applies to these items). Structure-overlap clusters rebuilt (Stage~14.4: 34 clusters from 147 family
 edges; human review of the 2,352 rendering pairs not attempted). Parser evidence: LaTeX-wrapped final lines made 5
 of 78 Stage~A records unparseable (J14.19-009); the LaTeX final-line parse enters the next contract version
-prospectively, never applied to old records. Validation for G4: the qualified LLM panel (Section~\ref{sec:llmpanel}); the panel models are open decision D2.
+prospectively, never applied to old records. Validation for G4: the qualified LLM panel (Section~\ref{sec:llmpanel}): Claude, GPT and Gemini, with Claude alone as a provisional tier until GPT and Gemini access exists (D2).
 
 %----------------------------------------------------------------------
 \subsubsection{P4. Definitive behavioural discrimination and power planning}
@@ -3135,8 +3141,9 @@ compatibility checks) are in \texttt{docs/model\_manifests/}; the registry is \t
 Job templates set \texttt{PYTHONNOUSERSITE=1} so that no user-site package leaks into the pinned environment
 (\texttt{docs/environment\_lock.yml}; TransformerLens 3.4.0). \texttt{gpunode6} has no usable \texttt{git}, so
 every job carries \texttt{SUBMIT\_COMMIT} (the full SHA from the submission node) and refuses to run without a
-commit; all jobs of one study step run from one frozen commit. Every accepted job carries an
-\texttt{AUTHORIZATION\_REF}; each job still needs the user's acceptance of its exact command.
+commit; all jobs of one study step run from one frozen commit. Every job carries an
+\texttt{AUTHORIZATION\_REF} naming the standing Slurm authority of 12 November 2026 and is recorded in the job
+register.
 
 \subsection{Models}
 \label{sec:compute-models}
@@ -3253,7 +3260,7 @@ models $\times$ (scored forwards $+$ generated samples), with the output-format 
 \label{sec:compute-human}
 
 Independent physics review (block B4) is the binding non-GPU cost; until human reviewers are available, the
-qualified LLM panel of Section~\ref{sec:llmpanel} provides the interim tier (its models are open decision D2). Generating and certifying
+qualified LLM panel of Section~\ref{sec:llmpanel} provides the interim tier (Claude, GPT and Gemini; Claude alone, provisionally, until GPT and Gemini access exists). Generating and certifying
 structures is agent and CPU work; review is not. Planning figure: 15--20 minutes per structure per reviewer.
 
 \begin{center}\small
@@ -3564,8 +3571,8 @@ validator qualification; typed generator; pilot) was executed as Stages 14.0--14
 except that validator qualification stopped at materials and the user's review of the planted-defect bank, and the
 physicist review was replaced by agent verification at the user's instruction of 26 October 2026. The next sprint
 is ordered by which uncertainty would make later work meaningless. Only the parity, pilot and calibration items
-need a GPU; nothing is submitted
-without the user's acceptance of the exact command.
+need a GPU; jobs are submitted under the
+standing Slurm authority of 12 November 2026, after two independent checks of each script and command.
 
 \begin{enumerate}
 \item \textbf{G0 status sync.} Stage~14 status and roadmap through 14.20; ledger rows for jobs 435605 and 435606;
@@ -4014,9 +4021,9 @@ Each default withholds an action; none is irreversible.
 Id & Decision & Default until decided \\
 \midrule
 D1 & Keep the full P0 regeneration of Phase-I values off the critical path & Not run; possible later as a side track \\
-D2 & Which 2--3 judge models form the LLM review panel (other families than the authoring model; local or via external APIs) & Decided in principle by the user (2026-11-11): LLM panel now, human study later. Until the models are chosen and qualified, G4 would be EXPLORATORY-REPLICATION \\
-D3 & Download Qwen3-8B (optionally Qwen3-14B) with pinned revisions & Not downloaded \\
-D4 & Install vLLM in a separate environment with parity and timing checks & Not installed; 7--8B models on Hugging Face \\
+D2 & GPT and Gemini judge access (API credits) & Decided by the user (2026-11-12): Claude, GPT and Gemini as the panel; Claude alone for now (provisional tier, EXPLORATION use only); G4 waits for GPT and Gemini \\
+D3 & Download Qwen3-8B (optionally Qwen3-14B) with pinned revisions & Approved by the user (2026-11-12); Qwen3-8B to be downloaded \\
+D4 & Install vLLM in a separate environment with parity and timing checks & Approved by the user (2026-11-12); separate pinned environment, validated against Hugging Face before use \\
 D5 & Resubmit the 32-anchor no-cue resample (job 435606 design) & Not resubmitted; lower priority than calibration; no ceiling is assumed, since that is what it would measure \\
 D6 & Run the Phase-I monitor under cluster-held-out folds & Not scheduled \\
 \bottomrule
@@ -4069,7 +4076,12 @@ study.
 structures (M250, after the G2 design pilot and before calibration) and expanded to 500 after G3 and before G4
 (M500), with an admission standard, composition targets and a data-role allocation fixed in advance
 (Section~\ref{sec:datasetplan}); this replaces the October 300--600 band and the earlier revision's ``only what the
-gates need''. Dataset~v1 (80 structures, 260 instances) is upgraded and counted only as EXPLORATION. At the user's choice of 11 November 2026 the plan was consolidated into this single LaTeX source and
+gates need''. Dataset~v1 (80 structures, 260 instances) is upgraded and counted only as EXPLORATION.
+\item[12 November 2026, judges and execution authority.] The user set the LLM panel to Claude, GPT and Gemini, with
+Claude as the sole, provisional judge (separate blind instances; EXPLORATION use only) until GPT and Gemini access
+exists, and G4 waiting for the full panel. The user also gave the agent standing authority to submit PhysMon jobs
+without per-job approval and to cancel pending non-PhysMon jobs on the shared account (recorded in
+\texttt{AGENTS.md}), and approved a separate vLLM environment and a Qwen3-8B download (D3, D4). At the user's choice of 11 November 2026 the plan was consolidated into this single LaTeX source and
 PDF; the Markdown revision layer was removed (preserved in Git history).
 \end{description}
 

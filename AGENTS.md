@@ -75,10 +75,24 @@ current scientific brief or user request prohibits it.
    `make lint`), no one else's uncommitted work is swept in, no pending or
    running job reads the files it touches, and the push is a plain
    fast-forward. Never force-push, rewrite shared history, or delete remote
-   branches. This does not cover Slurm submission, hold, release, or cancel,
-   or deleting or moving scratch or result data; those still need explicit
-   authorization in the current task. Report every push in the handoff.
-5. Do not edit files that a pending or running job reads.
+   branches. Report every push in the handoff.
+5. Standing Slurm authority (granted explicitly by the user, 2026-11-12): an agent
+   may decide, submit, and monitor PhysMon jobs without asking, provided that
+   it runs the live preflight first (`squeue` whole queue and `-u pabitra`,
+   `sinfo`, QoS caps, `sbatch --test-only`), submits only from a clean, pushed
+   commit through an immutable code snapshot, and has checked the job script,
+   command, environment and inputs at least twice (a CPU dry run of the exact
+   command plus an independent review) before submission, because a mistake
+   costs days of queue. It may submit the same work-queue job to several
+   partitions or GPU types to raise the chance of starting. It may cancel
+   PENDING jobs on the shared `pabitra` account that are not PhysMon's, after
+   saving `scontrol show job -dd` and `scontrol write batch_script` output to
+   `docs/registry/v2/cancelled_foreign_jobs/` and logging the cancellation so
+   the owner can resubmit; RUNNING jobs of other projects are never touched.
+   Every submission and cancellation is recorded in
+   `docs/registry/v2/slurm_jobs.jsonl` and the journal. Deleting or moving
+   scratch or result data still needs explicit authorization.
+6. Do not edit files that a pending or running job reads.
 
 ## Project conventions
 

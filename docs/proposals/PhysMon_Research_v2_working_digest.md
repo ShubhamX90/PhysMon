@@ -41,7 +41,8 @@ the `.tex` wins. Page numbers below are PDF pages of the 11 November build (74 p
 8. Thresholds record when they were fixed; no retroactive relabelling; no "preregistered" after the fact.
 9. Every comparator is tagged `oracle` or `deployable`.
 10. Every intervention is read as an interaction against a control prompt.
-11. Every GPU job needs the user's acceptance of its exact command.
+11. GPU jobs follow the standing Slurm authority of 2026-11-12 (AGENTS.md): preflight, snapshot, double checks,
+    everything recorded; no per-job approval.
 
 ## 3. The construct (Section 4, pp. 19-25)
 
@@ -121,10 +122,9 @@ Section 5.3 keeps P0-P11 as the requirement catalogue, each with a status line a
 
 ## 6. Open decisions (Appendix C, p. 72)
 
-D1 keep the full P0 regeneration off the critical path (default: not run); D2 which 2-3 judge models form the LLM
-review panel (the user decided on 2026-11-11 to use a qualified LLM panel now and human review later; until the
-models are chosen and qualified on the planted-defect bank, G4 would be EXPLORATORY-REPLICATION); D3 download Qwen3-8B (default: no); D4 install vLLM in a separate
-environment (default: no); D5 resubmit the 32-anchor resample (default: no); D6 Phase-I monitor side track
+D1 keep the full P0 regeneration off the critical path (default: not run); D2 judge panel decided (2026-11-12): Claude, GPT and Gemini; Claude alone
+as a provisional judge until GPT/Gemini access exists (EXPLORATION use only; G4 waits for the full panel); D3 download Qwen3-8B (approved 2026-11-12); D4 separate vLLM environment
+(approved 2026-11-12); D5 resubmit the 32-anchor resample (default: no); D6 Phase-I monitor side track
 (default: not scheduled). Defaults only withhold actions.
 
 ## 7. Environment facts that constrain the plan
