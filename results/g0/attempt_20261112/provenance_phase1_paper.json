@@ -1,0 +1,124 @@
+{
+  "facts": {
+    "templates": {
+      "n": 155,
+      "created_by": {
+        "agent": 155
+      },
+      "pi_validated": {
+        "True": 140,
+        "False": 15
+      },
+      "v2_validated": {
+        "False": 155
+      },
+      "verifier_certified": {
+        "True": 155
+      }
+    },
+    "dataset": {
+      "n": 260,
+      "admission_category": {
+        "UNREVIEWED": 260
+      },
+      "agent_verification_status": {
+        "accepted": 236,
+        "accepted_after_repair": 24
+      },
+      "level_judged_by": {
+        "author agent": 260
+      }
+    },
+    "supports": {
+      "HUMAN_AUTHORSHIP": false,
+      "HUMAN_VALIDATION": true,
+      "EXPERT_REVIEW": false,
+      "INDEPENDENT_VALIDATION": false,
+      "MODEL_AUTHORSHIP_DENIED": false
+    },
+    "ambiguous": {
+      "HUMAN_VALIDATION": "pi_validated does not record who validated; the decision log (2026-06-15) shows PI self-validation for some families and a review delegated by the PI to an agent for others, and every v2 dataset item is UNREVIEWED"
+    }
+  },
+  "files": {
+    "docs/reviews/iclr2027_submission50608/paper_extracted_text.txt": [
+      {
+        "line": 523,
+        "kind": "HUMAN_VALIDATION",
+        "status": "PLANNED_MENTION",
+        "match": "human validation",
+        "mentions_items": false,
+        "sentence": "A planned human validation will check whether each cue also reads as irrelevant to a physicist."
+      },
+      {
+        "line": 539,
+        "kind": "HUMAN_VALIDATION",
+        "status": "UNSUPPORTED_BY_FIELDS",
+        "match": "human review",
+        "mentions_items": true,
+        "sentence": "Benchmark data : within the benchmark pipeline, language models contributed to synthetic data generation by paraphrasing renderings, varying variable names and proposing candidate failure cases for human review, and could not write physics, determine ground truth or define correct an- swers."
+      },
+      {
+        "line": 539,
+        "kind": "MODEL_AUTHORSHIP_DENIED",
+        "status": "CONFLICT",
+        "match": "language models contributed to synthetic data generation by paraphrasing renderings, varying variable names and proposing candidate failure cases for human review, and could not write",
+        "mentions_items": true,
+        "sentence": "Benchmark data : within the benchmark pipeline, language models contributed to synthetic data generation by paraphrasing renderings, varying variable names and proposing candidate failure cases for human review, and could not write physics, determine ground truth or define correct an- swers."
+      },
+      {
+        "line": 547,
+        "kind": "HUMAN_VALIDATION",
+        "status": "PLANNED_MENTION",
+        "match": "human validation",
+        "mentions_items": false,
+        "sentence": "The planned human validation will compensate annotators and supply the qualification and calibration materials already committed."
+      },
+      {
+        "line": 1062,
+        "kind": "HUMAN_VALIDATION",
+        "status": "PLANNED_MENTION",
+        "match": "human validation",
+        "mentions_items": false,
+        "sentence": "(h) Specify dual human validation as the final protocol step."
+      },
+      {
+        "line": 1063,
+        "kind": "HUMAN_VALIDATION",
+        "status": "UNSUPPORTED_BY_FIELDS",
+        "match": "human review",
+        "mentions_items": false,
+        "sentence": "Language models are permitted to paraphrase, diversify vari- able names, discover adversarial artefacts, and propose candidate failure cases for human review."
+      },
+      {
+        "line": 1860,
+        "kind": "HUMAN_VALIDATION",
+        "status": "UNSUPPORTED_BY_FIELDS",
+        "match": "Human validation",
+        "mentions_items": false,
+        "sentence": "Human validation status."
+      },
+      {
+        "line": 1860,
+        "kind": "INDEPENDENT_VALIDATION",
+        "status": "PLANNED_MENTION",
+        "match": "independent validation",
+        "mentions_items": false,
+        "sentence": "Dual independent validation of cue irrelevance is specified, with an an- notation schema, qualification test, calibration bank, validator handbook and stratified pilot selection all committed."
+      },
+      {
+        "line": 1864,
+        "kind": "HUMAN_VALIDATION",
+        "status": "UNSUPPORTED_BY_FIELDS",
+        "match": "Human validation",
+        "mentions_items": true,
+        "sentence": "Human validation addresses the separate question of whether a cue is plausibly irrelevant to a physicist reading the prompt, which certification does not establish."
+      }
+    ]
+  },
+  "status_counts": {
+    "PLANNED_MENTION": 4,
+    "UNSUPPORTED_BY_FIELDS": 4,
+    "CONFLICT": 1
+  }
+}

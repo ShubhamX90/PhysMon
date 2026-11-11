@@ -1,0 +1,173 @@
+{
+  "grading_rule": "first number within relative tolerance of the certified value and unit equal after removing spaces, '*', '·', '⋅'; chosen after seeing the answers (descriptive)",
+  "identical_run_files": [
+    [
+      "results/appendix/formula_leakage/behavioural/llama_primary_formula_stub.jsonl",
+      "results/appendix/formula_leakage/behavioural/qwen_primary_20260620T063936Z.jsonl",
+      "results/appendix/formula_leakage/behavioural/qwen_primary_20260620T074602Z.jsonl",
+      "results/appendix/formula_leakage/behavioural/qwen_primary_20260620T084819Z.jsonl"
+    ]
+  ],
+  "models": {
+    "Qwen/Qwen2.5-7B-Instruct": {
+      "S_lp_shift_range": [
+        3.6875,
+        5.53125
+      ],
+      "families": {
+        "CM_A_STD_009_FORMULA": {
+          "S_lp_shift_base_minus_hint": 3.6875,
+          "answer_base": "12.0 Nm",
+          "answer_hint": "12.0 Nm",
+          "baseline_source_S_lp": 0.0,
+          "correct_base@0.001": true,
+          "correct_base@0.01": true,
+          "correct_hint@0.001": true,
+          "correct_hint@0.01": true,
+          "gold": "12.0 N*m",
+          "hint_text": "Use the governing relation τ = rF for a perpendicular force.",
+          "logprob_gold_base": -29.6875,
+          "logprob_gold_hint": -33.375,
+          "n_duplicate_records_per_cell": 3,
+          "source_family": "CM_A_STD_009",
+          "status": "EVALUATED",
+          "summary_formula_leakage_slp": 3.6875,
+          "transition@0.001": "stays_correct",
+          "transition@0.01": "stays_correct"
+        },
+        "CM_B_010_FORMULA": {
+          "S_lp_shift_base_minus_hint": 3.859375,
+          "answer_base": "15.0 N*m",
+          "answer_hint": "15.0 N*m",
+          "baseline_source_S_lp": 0.0,
+          "correct_base@0.001": true,
+          "correct_base@0.01": true,
+          "correct_hint@0.001": true,
+          "correct_hint@0.01": true,
+          "gold": "15.0 N*m",
+          "hint_text": "Use the governing relation τ = rF for a perpendicular force.",
+          "logprob_gold_base": -26.765625,
+          "logprob_gold_hint": -30.625,
+          "n_duplicate_records_per_cell": 3,
+          "source_family": "CM_B_010",
+          "status": "EVALUATED",
+          "summary_formula_leakage_slp": 3.859375,
+          "transition@0.001": "stays_correct",
+          "transition@0.01": "stays_correct"
+        },
+        "CM_B_UM_028_FORMULA": {
+          "S_lp_shift_base_minus_hint": 4.203125,
+          "answer_base": "15.0 N*m",
+          "answer_hint": "15.0 N*m",
+          "baseline_source_S_lp": 0.0,
+          "correct_base@0.001": true,
+          "correct_base@0.01": true,
+          "correct_hint@0.001": true,
+          "correct_hint@0.01": true,
+          "gold": "15.0 N*m",
+          "hint_text": "Use the governing relation τ = rF for a perpendicular force.",
+          "logprob_gold_base": -26.8125,
+          "logprob_gold_hint": -31.015625,
+          "n_duplicate_records_per_cell": 3,
+          "source_family": "CM_B_UM_028",
+          "status": "EVALUATED",
+          "summary_formula_leakage_slp": 4.203125,
+          "transition@0.001": "stays_correct",
+          "transition@0.01": "stays_correct"
+        },
+        "TH_B_UM_001_FORMULA": {
+          "S_lp_shift_base_minus_hint": 3.84375,
+          "answer_base": "41860.0 J",
+          "answer_hint": "41860.0 J",
+          "baseline_source_S_lp": 0.0,
+          "correct_base@0.001": true,
+          "correct_base@0.01": true,
+          "correct_hint@0.001": true,
+          "correct_hint@0.01": true,
+          "gold": "41860 J",
+          "hint_text": "Use the governing relation Q = m c ΔT.",
+          "logprob_gold_base": -23.71875,
+          "logprob_gold_hint": -27.5625,
+          "n_duplicate_records_per_cell": 3,
+          "source_family": "TH_B_UM_001",
+          "status": "EVALUATED",
+          "summary_formula_leakage_slp": 3.84375,
+          "transition@0.001": "stays_correct",
+          "transition@0.01": "stays_correct"
+        },
+        "TH_B_UM_003_FORMULA": {
+          "S_lp_shift_base_minus_hint": 5.53125,
+          "answer_base": "10460 J",
+          "answer_hint": "41860.0 J",
+          "baseline_source_S_lp": 0.0,
+          "correct_base@0.001": false,
+          "correct_base@0.01": false,
+          "correct_hint@0.001": true,
+          "correct_hint@0.01": true,
+          "gold": "41860 J",
+          "hint_text": "Use the governing relation Q = m c ΔT.",
+          "logprob_gold_base": -23.359375,
+          "logprob_gold_hint": -28.890625,
+          "n_duplicate_records_per_cell": 3,
+          "source_family": "TH_B_UM_003",
+          "status": "EVALUATED",
+          "summary_formula_leakage_slp": 5.53125,
+          "transition@0.001": "becomes_correct",
+          "transition@0.01": "becomes_correct"
+        }
+      },
+      "label_fires_at_0.5": 5,
+      "n_families_evaluated": 5,
+      "transition_counts": {
+        "transition@0.001": {
+          "NOT_EVALUATED": 0,
+          "becomes_correct": 1,
+          "becomes_wrong": 0,
+          "stays_correct": 4,
+          "stays_wrong": 0
+        },
+        "transition@0.01": {
+          "NOT_EVALUATED": 0,
+          "becomes_correct": 1,
+          "becomes_wrong": 0,
+          "stays_correct": 4,
+          "stays_wrong": 0
+        }
+      }
+    }
+  },
+  "models_NOT_EVALUATED": {
+    "meta-llama/Llama-3.1-8B-Instruct": "no records with this model_name in prompt_records.jsonl; results/appendix/formula_leakage/behavioural/llama_primary_formula_stub.jsonl holds only ['Qwen/Qwen2.5-7B-Instruct'] and is byte-identical to ['results/appendix/formula_leakage/behavioural/qwen_primary_20260620T063936Z.jsonl', 'results/appendix/formula_leakage/behavioural/qwen_primary_20260620T074602Z.jsonl', 'results/appendix/formula_leakage/behavioural/qwen_primary_20260620T084819Z.jsonl']"
+  },
+  "run_files": [
+    {
+      "file": "results/appendix/formula_leakage/behavioural/llama_primary_formula_stub.jsonl",
+      "model_names_inside": [
+        "Qwen/Qwen2.5-7B-Instruct"
+      ],
+      "sha256": "37b9d200cb104018bcb5c738bf28196e0fcdc53ed884ec1a722e4f91e087e2b5"
+    },
+    {
+      "file": "results/appendix/formula_leakage/behavioural/qwen_primary_20260620T063936Z.jsonl",
+      "model_names_inside": [
+        "Qwen/Qwen2.5-7B-Instruct"
+      ],
+      "sha256": "37b9d200cb104018bcb5c738bf28196e0fcdc53ed884ec1a722e4f91e087e2b5"
+    },
+    {
+      "file": "results/appendix/formula_leakage/behavioural/qwen_primary_20260620T074602Z.jsonl",
+      "model_names_inside": [
+        "Qwen/Qwen2.5-7B-Instruct"
+      ],
+      "sha256": "37b9d200cb104018bcb5c738bf28196e0fcdc53ed884ec1a722e4f91e087e2b5"
+    },
+    {
+      "file": "results/appendix/formula_leakage/behavioural/qwen_primary_20260620T084819Z.jsonl",
+      "model_names_inside": [
+        "Qwen/Qwen2.5-7B-Instruct"
+      ],
+      "sha256": "37b9d200cb104018bcb5c738bf28196e0fcdc53ed884ec1a722e4f91e087e2b5"
+    }
+  ],
+  "source": "results/appendix/formula_leakage"
+}

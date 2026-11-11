@@ -33,6 +33,9 @@ were run, what each change touched, and what is still open.
 
 - `INDEX.md`: stage table with status and links.
 - `stage14/<stage-id>_<slug>.md`: one journal file per stage (for example `14.0_governance_ingest.md`).
+- `stage15/<stage-id>_<slug>.md`: Stage 15 onward, the execution of the revised plan of record
+  (`docs/proposals/PhysMon_Research_v2.tex`, gates G0-G7); same conventions (for example
+  `15.0_g0_closure.md`, entries `J15.0-001`...).
 
 ## Entry template
 
