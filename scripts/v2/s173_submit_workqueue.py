@@ -171,10 +171,13 @@ def account_queue() -> list[dict[str, str]]:
     return rows
 
 
-def cancel_foreign_pending(dry_run: bool) -> list[dict[str, Any]]:
+def cancel_foreign_pending(dry_run: bool, partitions: set[str]) -> list[dict[str, Any]]:
+    """Cancel PENDING non-PhysMon jobs of the account, but only in `partitions` (the GPU partitions being submitted to):
+    jobs elsewhere, such as CPU jobs on `compute`, do not compete with ours and are never touched."""
+
     cancelled = []
     for job in account_queue():
-        if job["state"] != "PENDING" or job["name"].startswith("physmon"):
+        if job["state"] != "PENDING" or job["name"].startswith("physmon") or job["partition"] not in partitions:
             continue
         record = {**job, "cancelled_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"), "dry_run": dry_run,
                   "authority": "standing Slurm authority of 2026-11-12 (AGENTS.md item 5)"}
@@ -231,7 +234,8 @@ def submit(partitions: list[str], args: argparse.Namespace, *, job_name: str, ex
     if args.dry_run or not any(tested.values()):
         return 0 if args.dry_run else 1
     if args.cancel_foreign_pending:
-        print(json.dumps({"cancelled_foreign_pending": cancel_foreign_pending(False)}, indent=2))
+        targets = {PARTITIONS[k]["partition"] for k in partitions if tested.get(k)}
+        print(json.dumps({"cancelled_foreign_pending": cancel_foreign_pending(False, targets)}, indent=2))
     submitted = []
     SUBMISSIONS.parent.mkdir(parents=True, exist_ok=True)
     for key in partitions:

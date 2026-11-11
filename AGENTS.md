@@ -85,7 +85,9 @@ current scientific brief or user request prohibits it.
    command plus an independent review) before submission, because a mistake
    costs days of queue. It may submit the same work-queue job to several
    partitions or GPU types to raise the chance of starting. It may cancel
-   PENDING jobs on the shared `pabitra` account that are not PhysMon's, after
+   PENDING jobs on the shared `pabitra` account that are not PhysMon's and sit
+   in the GPU partitions it is submitting to (never jobs on other partitions,
+   such as CPU jobs on `compute`, which do not compete), after
    saving `scontrol show job -dd` and `scontrol write batch_script` output to
    `docs/registry/v2/cancelled_foreign_jobs/` and logging the cancellation so
    the owner can resubmit; RUNNING jobs of other projects are never touched.

@@ -81,7 +81,8 @@ def test_only_pending_non_physmon_jobs_are_cancelled_after_saving(tmp_path, monk
     monkeypatch.setattr(s173, "CANCELLED_DIR", tmp_path / "cancelled")
     monkeypatch.setattr(s173, "CANCELLED_LOG", tmp_path / "cancelled" / "cancelled.jsonl")
     queue = "1|g4a|PENDING|gpu_a100_8|JobHeldUser|0:00\n2|ap_w_h200c|RUNNING|gpu_h200_8|None|7:54\n" \
-            "3|physmon_s15_x|PENDING|gpu_h100_4|Priority|0:00\n4|ap_w_a100|PENDING|gpu_a100_8|Priority|0:00\n"
+            "3|physmon_s15_x|PENDING|gpu_h100_4|Priority|0:00\n4|ap_w_a100|PENDING|gpu_a100_8|Priority|0:00\n" \
+            "5|g2_m111|PENDING|compute|Priority|0:00\n"
     calls: list[list[str]] = []
 
     def fake_run(cmd, *, check=True, cwd=None):
@@ -95,8 +96,8 @@ def test_only_pending_non_physmon_jobs_are_cancelled_after_saving(tmp_path, monk
         return subprocess.CompletedProcess(cmd, 0, "details", "")
 
     monkeypatch.setattr(s173, "run", fake_run)
-    done = s173.cancel_foreign_pending(dry_run=False)
-    assert [d["job_id"] for d in done] == ["1", "4"]  # never the RUNNING job 2, never the PhysMon job 3
+    done = s173.cancel_foreign_pending(dry_run=False, partitions={"gpu_a100_8", "gpu_h100_4", "gpu_h200_8"})
+    assert [d["job_id"] for d in done] == ["1", "4"]  # never RUNNING job 2, PhysMon job 3, or CPU job 5 on another partition
     scancels = [c for c in calls if c[0] == "scancel"]
     assert scancels == [["scancel", "--state=PENDING", "1"]]  # job 4 started between listing and cancelling: skipped
     log = [json.loads(line) for line in (tmp_path / "cancelled" / "cancelled.jsonl").read_text().splitlines()]
@@ -114,7 +115,8 @@ def test_dry_run_cancels_nothing(tmp_path, monkeypatch):
         return subprocess.CompletedProcess(cmd, 0, "1|g4a|PENDING|gpu_a100_8|JobHeldUser|0:00\n", "")
 
     monkeypatch.setattr(s173, "run", fake_run)
-    assert [d["job_id"] for d in s173.cancel_foreign_pending(dry_run=True)] == ["1"]
+    assert [d["job_id"] for d in s173.cancel_foreign_pending(dry_run=True, partitions={"gpu_a100_8"})] == ["1"]
+    assert s173.cancel_foreign_pending(dry_run=True, partitions={"gpu_h100_4"}) == []
     assert not any(c[0] in ("scancel", "scontrol") for c in calls) and not (tmp_path / "c").exists()
 
 
