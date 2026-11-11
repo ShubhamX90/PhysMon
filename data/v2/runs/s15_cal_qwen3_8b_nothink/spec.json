@@ -1,0 +1,138 @@
+{
+  "backend": "vllm",
+  "batch_size": 8,
+  "contract_version": "reasoning-v2",
+  "created_utc": "2026-11-11T21:55:09Z",
+  "data_role": "EXPLORATION",
+  "dataset_dir": "data/v2/dataset/v1",
+  "dataset_files_sha256": {
+    "dataset.jsonl": "27a41bf2ddf60cd2a1b2e02266b1b3249feca4ebebb4515a6a54216b7fed1c63"
+  },
+  "dtype": "bfloat16",
+  "env": "physmon-vllm",
+  "env_expected": {
+    "python": "3.12.16",
+    "tokenizers": "0.23.3",
+    "torch": "2.14.0+cu130",
+    "transformers": "5.20.2",
+    "vllm": "0.33.0"
+  },
+  "env_prefix": "/scratch/pabitra/physmon/envs/physmon-vllm",
+  "est_shard_s": 900.0,
+  "family": "qwen3",
+  "ids_file": null,
+  "max_model_len": 8192,
+  "max_new_tokens": 4096,
+  "max_prompt_tokens": 262,
+  "model_files": {
+    ".gitattributes": {
+      "sha256": "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930",
+      "size": 1570
+    },
+    "LICENSE": {
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "size": 11343
+    },
+    "README.md": {
+      "sha256": "0f36caaff9c2516411a7738db384606263ba653c1e63e61d72f511606164d5a6",
+      "size": 16660
+    },
+    "config.json": {
+      "sha256": "f7c4eadfbbf522470667b797a3c89be2524832d2d599797248dc304fff447c30",
+      "size": 728
+    },
+    "generation_config.json": {
+      "sha256": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2",
+      "size": 239
+    },
+    "merges.txt": {
+      "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+      "size": 1671853
+    },
+    "model-00001-of-00005.safetensors": {
+      "sha256": "31d6a825ae35f11fb85b195b4c42c146c051e446433125a215336abdf95cbf5f",
+      "size": 3996250744
+    },
+    "model-00002-of-00005.safetensors": {
+      "sha256": "5991236cea6fe21f3d43cab0f0e84448734fbbe0789816202989f2ddc9d18282",
+      "size": 3993160032
+    },
+    "model-00003-of-00005.safetensors": {
+      "sha256": "c5185c4794be2d8a9784d5753c9922db38df478ce11f9ed0b415b7304d896836",
+      "size": 3959604768
+    },
+    "model-00004-of-00005.safetensors": {
+      "sha256": "b5ee7de71fbf17db3d5704e0c8f2bc7d005ca9e1d7ca2aeb19827b0cfcaa917a",
+      "size": 3187841392
+    },
+    "model-00005-of-00005.safetensors": {
+      "sha256": "20c2d6366ab85c90786ccdd829cd2b9e7d30ef3b2ebbb998280e7e4014b542ff",
+      "size": 1244659840
+    },
+    "model.safetensors.index.json": {
+      "sha256": "f9fdbcb91c23971c13ec5d5f2573d2349e8f61f2f049371ec699281748fdb1bc",
+      "size": 32878
+    },
+    "tokenizer.json": {
+      "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "size": 11422654
+    },
+    "tokenizer_config.json": {
+      "sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+      "size": 9732
+    },
+    "vocab.json": {
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+      "size": 2776833
+    }
+  },
+  "model_key": "qwen3_8b",
+  "model_name": "Qwen/Qwen3-8B",
+  "model_path": "${PHYSMON_MODEL_ROOT}/Qwen3-8B",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "n_jobs": 260,
+  "n_pairs": 2080,
+  "n_samples": 8,
+  "phase_id": "stage15",
+  "purpose": "G2 calibration: no-cue difficulty on dataset v1, k=8, Qwen3-8B thinking off",
+  "reasoning_contract_fingerprint": "3cab848f55d3f044af9cdc858fb0265cc41ce908f77a91bcb6bd89ad0e068b9c",
+  "run_id": "s15_cal_qwen3_8b_nothink",
+  "sample_offset": 0,
+  "sampling": {
+    "do_sample": true,
+    "min_p": 0.0,
+    "repetition_penalty": 1.0,
+    "source": "qwen3-model-card:non-thinking",
+    "temperature": 0.7,
+    "top_k": 20,
+    "top_p": 0.8
+  },
+  "scoring_contract_fingerprint": "bb6bbec489ef185850a40c2d83955b4371a22b2343196135f2db885e6dabca81",
+  "seed_base": 20261112,
+  "shard_size": 104,
+  "shards": {
+    "shard_0000": "c3d28382b335f030fbb8ab6f57ac1d40b1fbcefcda15441042709e3797a1453f",
+    "shard_0001": "4d337e156d2235c4e1f31cfcb930c17dd0f96de4f6823628c6dd9e18c1f83567",
+    "shard_0002": "000a27d5597cb49b78ce5340770f2933265a02a4516562eeb1f93f89e03dbcab",
+    "shard_0003": "246d4bf5dc37f5aaa6b272d0281dedd3a8c74b00e0615f93734f6072b5e9e43a",
+    "shard_0004": "9571c2fa04ef94e3a49ac5e13a68665cb4da187a0aefba3c5c28a014ee20823e",
+    "shard_0005": "b24cea1cb8d8b20b4fca74a554ab764796f6c1fa49b8326b544f17eb3fec42a9",
+    "shard_0006": "c0157448f8dee9ed3e689949016448ee3f02322b13964ad93e09fa5a31f21999",
+    "shard_0007": "a0c48138553e30c036786c5dd6b44bce86ae9cc351e4369e0c5395f231e6566f",
+    "shard_0008": "c998355c41e050c3778e7ac5e112e1b23bd644bc415977f6a721fd084a6d4149",
+    "shard_0009": "71ff08d2423c046822c1b079baa8ed00e710009223ee6071185e5a0a733e7415",
+    "shard_0010": "1621881be52e3ae437313d771da61bc25b12423c7ec3f3a8ba6a9d93df554eca",
+    "shard_0011": "4b29707e87624181570b38661856af3a251d856ebfd27070dbc38f0967018dd8",
+    "shard_0012": "1500920715b1cc8b6b50751454f5fd37a22da318953b575843cf3c3c70a9a97e",
+    "shard_0013": "5f9c08a7bedfdce460a7206841d28686b1002bcc568718f7f29ff70b9b6514ed",
+    "shard_0014": "7b70a0020c4b552eecbc64adaa305048fdf358100f47389814e659c1d451569e",
+    "shard_0015": "f889120cb9ba532ee4d0e153a98d4c549ec9e1cd842b567b1b6ddb02a3238c62",
+    "shard_0016": "3f91d7524508d61d2566c0779c43c182039c3fe06b0804f82a5c964d9d063009",
+    "shard_0017": "54c93a909526348cd0fe8a740640f1cf9ff0a74f7f7c56ebfed0c06ddba57e60",
+    "shard_0018": "edbb733c55ebb74ed5206c2ef1cbf3e0060e6fffabcfc90d7a99ff73f75d4ec1",
+    "shard_0019": "91a86ab33fc3994ea23079297b50989ce80636be3479076eb2a2c93a38cb4f3d"
+  },
+  "source": "dataset_base",
+  "state_unit": true,
+  "thinking": "off"
+}

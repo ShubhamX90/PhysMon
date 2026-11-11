@@ -356,7 +356,7 @@ def gpu_name() -> str:
 def cmd_work(args: argparse.Namespace) -> int:
     spec, run_dir = load_spec(args.run_id, args.runs_dir)
     queue = WorkQueue(queue_root(args.run_id, args.queue_root), list(spec["shards"]), stale_after_s=args.stale_after_s)
-    if not queue.unclaimed() and not args.self_test_only:
+    if not queue.unclaimed() and not (args.self_test_only or args.check_only):
         print(json.dumps({"event": "nothing_to_do", "status": queue.status()}), flush=True)
         return EXIT_NOTHING_TO_DO
     started = time.time()
@@ -369,7 +369,7 @@ def cmd_work(args: argparse.Namespace) -> int:
     if not source_commit:
         print("Refusing to run: PHYSMON_SOURCE_COMMIT is not set (jobs run from a snapshot of a pushed commit).", file=sys.stderr)
         return EXIT_SPEC
-    if args.device.startswith("cuda"):
+    if args.device.startswith("cuda") and not args.check_only:
         import torch
 
         if not torch.cuda.is_available():
@@ -382,7 +382,7 @@ def cmd_work(args: argparse.Namespace) -> int:
               "slurm_job_id": os.environ.get("SLURM_JOB_ID", ""), "partition": os.environ.get("SLURM_JOB_PARTITION", ""),
               "source_commit": source_commit, "elapsed_s": round(time.time() - started, 1)}
     print(json.dumps(header, default=str), flush=True)
-    if code:
+    if code or args.check_only:
         return code
     tokenizer, backend = build_backend(spec, model_dir, args.device)
     ctx = {"tokenizer_sha256": sha256_file(model_dir / "tokenizer.json") if (model_dir / "tokenizer.json").exists() else None,
@@ -552,6 +552,8 @@ def main(argv: list[str] | None = None) -> int:
     w.add_argument("--model-path", default=None, help="override the registry path (tests only)")
     w.add_argument("--skip-model-hash", action="store_true", help="tests only")
     w.add_argument("--self-test-only", action="store_true")
+    w.add_argument("--check-only", action="store_true",
+                   help="versions, spec, shard and model-file hashes only; no model is loaded (login-node pre-flight)")
     c = sub.add_parser("collect")
     c.add_argument("--run-id", required=True)
     c.add_argument("--runs-dir", default=RUNS_DIR)
