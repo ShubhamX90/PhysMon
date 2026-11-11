@@ -84,9 +84,21 @@ models:
     hook_backend: "baukit"
     hook_validated: false
     logprob_validated: false
-    hidden_dim: null
+    hidden_dim: 5120
     num_layers: 64
-    notes: "Stage 14.20 (2026-10-26): hybrid thinking model already present on /scratch/pabitra/models (62 GB, 17 safetensors shards, bfloat16); registered for the gold-dataset thinking runs. Revision not recorded (no manifest); the run records model_commit NOT_RECORDED. Never used in any recorded result before Stage 14.20."
+    notes: "Stage 14.20 (2026-10-26): hybrid thinking model already present on /scratch/pabitra/models (17 safetensors shards, bfloat16); registered for the gold-dataset thinking runs. Stage 15 G0 (2026-11-12): all 27 files identified after the fact as Hugging Face revision 9216db5781bf21249d130ec9da846c4624c16137 (SHA-256 / git blob SHA-1 match; manifest docs/model_manifests/qwen3_thinking.json with identified_after_the_fact: true). Runs 417416, 425243 and 435605 recorded model_commit NOT_RECORDED; that they read these bytes is an inference from path and file dates."
+
+  qwen3_8b:
+    name: "Qwen/Qwen3-8B"
+    path: "${PHYSMON_MODEL_ROOT}/Qwen3-8B"
+    role: "REASONING_TUNED"
+    family: "qwen"
+    hook_backend: "transformer_lens"
+    hook_validated: false
+    logprob_validated: false
+    hidden_dim: 4096
+    num_layers: 36
+    notes: "Stage 15 (2026-11-12): hybrid thinking model downloaded at a pinned revision (see docs/model_manifests/qwen3_8b.json) for the thinking-on versus thinking-off comparison within one set of weights (plan of record D3, approved by the user 2026-11-12). TransformerLens 3.4 lists Qwen3-8B as core-verified; local parity not yet run."
 
   large_judge_pilot:
     name: "Qwen/Qwen2.5-32B-Instruct"
