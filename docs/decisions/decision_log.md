@@ -3313,3 +3313,17 @@ Verification: the LaTeX was written in parallel by the agent and four section ag
 Also: the forbidden-phrase checker now scans `.tex` files (test added); the Sharanga skill's QoS table is corrected from live `sacctmgr` (H200: 2 GPU, 12 CPU, 300G, 2 jobs per user; H100: 2 jobs per user).
 
 Open decisions unchanged (D1-D6, Appendix C). Nothing was run; no job was submitted.
+
+## Plan of record: estimand, causal and validation refinements after a second external review — 2026-11-11
+
+Context: the user supplied a further review of the canonical v2 source by the same external language model, and directed that physics validation rely for now on LLM reviewers ("maybe 2-3 independent LLMs, LLM as judge kind of stuff, later human review study can verify/strengthen even more").
+
+Decision (edits to `docs/proposals/PhysMon_Research_v2.tex`, rebuilt PDF of 73 pages; revision log in its Appendix D):
+- Primary role-by-value estimands are per-sample tracking and the D tracking loss against the token-aligned non-numeric sentence (which detects a departure of either sign), misuse shares for prespecified signed misuse curves across values, and an R neglect share against a placebo match rate in the same cell. The response fractions and the role-discrimination index are descriptive only, with a multimodality guard (the reviewer showed that gating on Lambda < 1 misses a model that subtracts the irrelevant quantity, and that a Hodges-Lehmann location can describe a response no answer has).
+- G4 tests three co-primary contrasts with Holm correction (F1 D tracking loss, F2 R neglect, F3 role-by-value interaction on tracking), each with a stated SESOI; misuse attribution is a secondary family.
+- Mechanism work uses two interactions: I_presence (against the non-numeric sentence) and I_role (against the relevant twin with the same numeral, on a behaviourally comparable outcome); only I_role supports a role-routing claim. T1 readout scores the certified answer against a predeclared alternative on one declared prefix and excludes no prefix.
+- H6 is split into H6-RD and H6-extended; G5 scope follows what G4 confirmed. The primary model is fixed by a prespecified rule at the end of G2.
+- Validation tiers: a qualified panel of 2-3 independent LLM reviewers (families other than the authoring model and the models under test; blinded; qualified on the user-labelled planted-defect bank, extended with fresh items and a held-out portion; recorded adjudication) is the interim tier for G4, reported as "confirmatory under LLM-panel validation"; human expert review is a later accuracy study. D2 now asks which judge models to use.
+- Housekeeping: the Stage 14 status file's plan-of-record pointer names the `.tex` source.
+
+Checked by a narrow independent agent review of the changed passages; its 17 findings (among them a neglect comparator that could not detect neglect, a tracking-loss comparator that counted generic distraction, and leftover wording) are corrected. Nothing was run; no job was submitted.

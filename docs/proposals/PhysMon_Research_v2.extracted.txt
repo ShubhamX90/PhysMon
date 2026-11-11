@@ -36,98 +36,98 @@ Contents
 3.3 B0. Benchmark threat model, estimand map and external novelty audit. . . . . . . . . . . . . 9
 3.4 B1. Reproduce and deliberately break the original benchmark. . . . . . . . . . . . . . . . . . . 10
 3.5 B2. Decide the construct before choosing how many examples to generate. . . . . . . . . . . . 11
-3.6 B3. A modular v2 benchmark with mutually discriminating controls. . . . . . . . . . . . . . . 12
-3.7 B4. Human validation as an independent scientific experiment . . . . . . . . . . . . . . . . . . 13
-3.8 B5. External datasets as source material, not borrowed certificates. . . . . . . . . . . . . . . . 14
-3.9 B6. Pilot, power, confirmation and anti-cherry-picking rules. . . . . . . . . . . . . . . . . . . . 16
-3.10 B7. Benchmark deliverables and acceptance rules for the later mechanism study. . . . . . . . 17
-4 The falsifiable theoretical framework 18
-4.1 Research question and scoped claim . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
-4.2 What “irrelevant” means: four role strata . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 18
-4.3 The role-by-value design (scientific centrepiece) . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
-4.4 Supporting conditions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+3.6 B3. A modular v2 benchmark with mutually discriminating controls. . . . . . . . . . . . . . . 13
+3.7 B4. Human validation as an independent scientific experiment . . . . . . . . . . . . . . . . . . 14
+3.8 B5. External datasets as source material, not borrowed certificates. . . . . . . . . . . . . . . . 15
+3.9 B6. Pilot, power, confirmation and anti-cherry-picking rules. . . . . . . . . . . . . . . . . . . . 17
+3.10 B7. Benchmark deliverables and acceptance rules for the later mechanism study. . . . . . . . 18
+4 The falsifiable theoretical framework 19
+4.1 Research question and scoped claim . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+4.2 What “irrelevant” means: four role strata . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19
+4.3 The role-by-value design (scientific centrepiece) . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+4.4 Supporting conditions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
 Working research protocol – not completed results
 
 ######## PAGE 2 ########
 PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 2
-4.5 Outcomes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
-4.6 Populations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20
-4.7 Hypotheses and their distinguishing predictions . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
-4.8 Causal identification standard . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
-4.9 Claim hierarchy and evidence gates. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
-5 Ordered execution: the critical path 23
-5.1 Gates G0–G7 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
-5.2 The original critical-path blocks P0–P11 under the revised gates. . . . . . . . . . . . . . . . . 26
-5.2.1 P0. Independent evidence reproduction, release provenance and code audit . . . . . . . 27
-5.2.2 P1. Measurement validity: challenge the entire sensitivity construct . . . . . . . . . . . 28
-5.2.3 P2. Scale the approved DECOY-v2 design (not the old benchmark). . . . . . . . . . . 29
-5.2.4 P3. Independent expert validation, parser reliability and leakage firewall. . . . . . . . . 30
-5.2.5 P4. Definitive behavioural discrimination and power planning. . . . . . . . . . . . . . . 31
-5.2.6 P5. A definitive monitoring study: does access to hidden states help?. . . . . . . . . . 32
-5.2.7 P6. Re-localise the phenomenon under valid causal metrics and selection rules. . . . . 32
-5.2.8 P7. Identify what the causal components compute . . . . . . . . . . . . . . . . . . . . . 33
-5.2.9 P8. Recover and validate upstream and downstream computation, not one head. . . . 34
-5.2.10 P9. Cross-model, cross-domain and post-training generalisation. . . . . . . . . . . . . . 35
-5.2.11 P10. Mechanism-guided repair and comparative eﬀicacy. . . . . . . . . . . . . . . . . . 36
-5.2.12 P11. Confirmatory closure, adversarial review and claim freeze. . . . . . . . . . . . . . 37
-6 Complete downstream experimental and ablation inventory 37
-6.1 A. Input and task semantics (A01–A18) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 38
-6.2 B. Dataset integrity, ground truth and representation of physics (B01–B14). . . . . . . . . . . 39
-6.3 C. Scoring, calibration and behavioural endpoints (C01–C18) . . . . . . . . . . . . . . . . . . . 40
-6.4 D. Monitoring, statistical selectivity and model comparison (D01–D16). . . . . . . . . . . . . . 42
-6.5 E. Direct causal localisation, intervention semantics and specificity (E01–E18). . . . . . . . . . 43
-6.6 F. Functional mechanism, circuits, synthetic controls and mitigation (F01–F20). . . . . . . . . 44
-6.7 Status summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 45
-6.8 Contrasts added by the revision. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 45
-7 T welve decisive experiment cards 46
-7.1 Card X01 — Authoritative reproduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 46
-7.2 Card X02 — Base-variant invariance challenge . . . . . . . . . . . . . . . . . . . . . . . . . . . 47
-7.3 Card X03 — Format/tokenization falsification. . . . . . . . . . . . . . . . . . . . . . . . . . . . 47
-7.4 Card X04 — Physics-semantic factorial (becomes the role-by-value factorial). . . . . . . . . . 47
-7.5 Card X05 — Structural leakage and real OOD monitoring. . . . . . . . . . . . . . . . . . . . . 48
-7.6 Card X06 — Frozen external behavioural replication. . . . . . . . . . . . . . . . . . . . . . . . 48
-7.7 Card X07 — H11 lesion/patch specificity (retired as stated). . . . . . . . . . . . . . . . . . . . 49
-7.8 Card X08 — Mechanistic function discrimination. . . . . . . . . . . . . . . . . . . . . . . . . . 49
-7.9 Card X09 — Source-to-sink circuit and rescue. . . . . . . . . . . . . . . . . . . . . . . . . . . . 49
-7.10 Card X10 — Architecture functional replication. . . . . . . . . . . . . . . . . . . . . . . . . . . 50
-7.11 Card X11 — Selective mitigation challenge. . . . . . . . . . . . . . . . . . . . . . . . . . . . . 50
-7.12 Card X12 — External audit and claim freeze. . . . . . . . . . . . . . . . . . . . . . . . . . . . 50
-8 Statistical design: standards for inference, not decoration 51
-8.1 Independent unit, estimands and non-independence. . . . . . . . . . . . . . . . . . . . . . . . . 51
+4.5 Outcomes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+4.6 Populations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+4.7 Hypotheses and their distinguishing predictions . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+4.8 Causal identification standard . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23
+4.9 Claim hierarchy and evidence gates. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+5 Ordered execution: the critical path 25
+5.1 Gates G0–G7 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+5.2 The original critical-path blocks P0–P11 under the revised gates. . . . . . . . . . . . . . . . . 28
+5.2.1 P0. Independent evidence reproduction, release provenance and code audit . . . . . . . 29
+5.2.2 P1. Measurement validity: challenge the entire sensitivity construct . . . . . . . . . . . 30
+5.2.3 P2. Scale the approved DECOY-v2 design (not the old benchmark). . . . . . . . . . . 31
+5.2.4 P3. Independent expert validation, parser reliability and leakage firewall. . . . . . . . . 32
+5.2.5 P4. Definitive behavioural discrimination and power planning. . . . . . . . . . . . . . . 33
+5.2.6 P5. A definitive monitoring study: does access to hidden states help?. . . . . . . . . . 34
+5.2.7 P6. Re-localise the phenomenon under valid causal metrics and selection rules. . . . . 34
+5.2.8 P7. Identify what the causal components compute . . . . . . . . . . . . . . . . . . . . . 36
+5.2.9 P8. Recover and validate upstream and downstream computation, not one head. . . . 37
+5.2.10 P9. Cross-model, cross-domain and post-training generalisation. . . . . . . . . . . . . . 37
+5.2.11 P10. Mechanism-guided repair and comparative eﬀicacy. . . . . . . . . . . . . . . . . . 38
+5.2.12 P11. Confirmatory closure, adversarial review and claim freeze. . . . . . . . . . . . . . 39
+6 Complete downstream experimental and ablation inventory 39
+6.1 A. Input and task semantics (A01–A18) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40
+6.2 B. Dataset integrity, ground truth and representation of physics (B01–B14). . . . . . . . . . . 41
+6.3 C. Scoring, calibration and behavioural endpoints (C01–C18) . . . . . . . . . . . . . . . . . . . 42
+6.4 D. Monitoring, statistical selectivity and model comparison (D01–D16). . . . . . . . . . . . . . 44
+6.5 E. Direct causal localisation, intervention semantics and specificity (E01–E18). . . . . . . . . . 45
+6.6 F. Functional mechanism, circuits, synthetic controls and mitigation (F01–F20). . . . . . . . . 46
+6.7 Status summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 47
+6.8 Contrasts added by the revision. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 47
+7 T welve decisive experiment cards 48
+7.1 Card X01 — Authoritative reproduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 48
+7.2 Card X02 — Base-variant invariance challenge . . . . . . . . . . . . . . . . . . . . . . . . . . . 49
+7.3 Card X03 — Format/tokenization falsification. . . . . . . . . . . . . . . . . . . . . . . . . . . . 49
+7.4 Card X04 — Physics-semantic factorial (becomes the role-by-value factorial). . . . . . . . . . 50
+7.5 Card X05 — Structural leakage and real OOD monitoring. . . . . . . . . . . . . . . . . . . . . 50
+7.6 Card X06 — Frozen external behavioural replication. . . . . . . . . . . . . . . . . . . . . . . . 50
+7.7 Card X07 — H11 lesion/patch specificity (retired as stated). . . . . . . . . . . . . . . . . . . . 51
+7.8 Card X08 — Mechanistic function discrimination. . . . . . . . . . . . . . . . . . . . . . . . . . 51
+7.9 Card X09 — Source-to-sink circuit and rescue. . . . . . . . . . . . . . . . . . . . . . . . . . . . 52
+7.10 Card X10 — Architecture functional replication. . . . . . . . . . . . . . . . . . . . . . . . . . . 52
+7.11 Card X11 — Selective mitigation challenge. . . . . . . . . . . . . . . . . . . . . . . . . . . . . 52
+7.12 Card X12 — External audit and claim freeze. . . . . . . . . . . . . . . . . . . . . . . . . . . . 53
+8 Statistical design: standards for inference, not decoration 53
+8.1 Independent unit, estimands and non-independence. . . . . . . . . . . . . . . . . . . . . . . . . 53
 Working research protocol – not completed results
 
 ######## PAGE 3 ########
 PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 3
-8.2 Intervals, tests and their assumptions. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51
-8.3 Effect sizes, equivalence and the language of null results. . . . . . . . . . . . . . . . . . . . . . 52
-8.4 Multiple comparisons and research degrees of freedom . . . . . . . . . . . . . . . . . . . . . . . 52
-8.5 Power and precision protocol . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 52
-8.6 Negative and missing result policy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 52
-9 Compute, human effort, storage and reproducibility architecture 53
-9.1 Environment as it stands (11 November 2026). . . . . . . . . . . . . . . . . . . . . . . . . . . . 53
-9.2 Models . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 53
-9.3 Measured rates . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 54
-9.4 Staged budget for the revised gates. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 54
-9.5 Human effort . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 55
-9.6 Storage . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 56
-9.7 Machine-readable data contracts . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 56
-9.8 Preflight skeleton . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 56
-10 Conditional decisions: how to react if the evidence is unfavourable 57
-10.1 Decision rules kept from the October edition. . . . . . . . . . . . . . . . . . . . . . . . . . . . 57
-10.2 Contingencies added by the revision. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 58
-11 Literature-grounded positioning and novelty test 59
-11.1 Closest work and what PhysMon must add. . . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
-11.2 What could actually be novel (conditional claims). . . . . . . . . . . . . . . . . . . . . . . . . 61
-12 The first execution sprint 61
-13 Proposed paper architectures depending on the evidence 62
-14 Bibliography and primary-source links 64
-15 Definition of scientific completion 67
-A Stage 14 evidence (exploratory) 67
-B ICLR 2027 review issues and where this plan answers them 68
-C Disposition of the October edition and open decisions 69
-C.1 Disposition . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 69
-C.2 Open decisions for the user . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 70
-D Revision log 70
+8.2 Intervals, tests and their assumptions. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 54
+8.3 Effect sizes, equivalence and the language of null results. . . . . . . . . . . . . . . . . . . . . . 54
+8.4 Multiple comparisons and research degrees of freedom . . . . . . . . . . . . . . . . . . . . . . . 54
+8.5 Power and precision protocol . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 55
+8.6 Negative and missing result policy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 55
+9 Compute, human effort, storage and reproducibility architecture 55
+9.1 Environment as it stands (11 November 2026). . . . . . . . . . . . . . . . . . . . . . . . . . . . 55
+9.2 Models . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 56
+9.3 Measured rates . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 56
+9.4 Staged budget for the revised gates. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 57
+9.5 Human effort . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 57
+9.6 Storage . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 58
+9.7 Machine-readable data contracts . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 58
+9.8 Preflight skeleton . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
+10 Conditional decisions: how to react if the evidence is unfavourable 59
+10.1 Decision rules kept from the October edition. . . . . . . . . . . . . . . . . . . . . . . . . . . . 59
+10.2 Contingencies added by the revision. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 61
+11 Literature-grounded positioning and novelty test 62
+11.1 Closest work and what PhysMon must add. . . . . . . . . . . . . . . . . . . . . . . . . . . . . 62
+11.2 What could actually be novel (conditional claims). . . . . . . . . . . . . . . . . . . . . . . . . 63
+12 The first execution sprint 63
+13 Proposed paper architectures depending on the evidence 64
+14 Bibliography and primary-source links 66
+15 Definition of scientific completion 69
+A Stage 14 evidence (exploratory) 69
+B ICLR 2027 review issues and where this plan answers them 70
+C Disposition of the October edition and open decisions 71
+C.1 Disposition . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71
+C.2 Open decisions for the user . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 72
+D Revision log 72
 Working research protocol – not completed results
 
 ######## PAGE 4 ########
@@ -187,12 +187,14 @@ confirmation role.
 paraphrase, numeric instantiation or decoder sample.
 3. NOT_EVALUATED is not a null and notWRONG. Zero evaluable rows are not a measured zero effect. A record
 that did not complete is never relabelled wrong.
-4. An agent’s self-review is not independent expert validation; a symbolic certificate is not a certificate of
-natural-language correctness.
+4. Validation has tiers and every item states its tier: the authoring agent’s self-review is not validation;
+a qualified panel of independent LLM reviewers (Section3.7) is the interim tier used for confirmation,
 Working research protocol – not completed results
 
 ######## PAGE 5 ########
 PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 5
+disclosed as such; independent human expert review is the strongest tier and is never claimed when only
+the panel has run. A symbolic certificate is not a certificate of natural-language correctness.
 5. Every threshold records when it was fixed relative to the data it is applied to; outcomes do not license
 retroactive relabelling; new metrics are not called preregistered after the fact.
 6. Every comparator is taggedoracle (needs the gold or the label’s inputs at inference) ordeployable; no
@@ -247,9 +249,6 @@ labels across two answer instructions, Spearman
 0.04 (C2b); a correct formula hint gives 3.7–5.5 nats
 (C3); 40–49% (Qwen) and 41–56% (Llama) of
 base-0 positives flip with the base (X02, J14.2-006)
-Threshold 0.5 nats, described as registered Chosen after the Stage 4 results on a 30-family pilot
-whose labels do not transfer across the instruction
-(C2b); the registration date is not a justification
 Working research protocol – not completed results
 
 ######## PAGE 6 ########
@@ -257,6 +256,9 @@ PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 6
 Item [SUBMITTED] value (reproduced
 [V])
 Status after the reviews
+Threshold 0.5 nats, described as registered Chosen after the Stage 4 results on a 30-family pilot
+whose labels do not transfer across the instruction
+(C2b); the registration date is not a justification
 Mean-state monitor L18 AUROC 0.7596 (four renderings
 averaged)
 Reproduces (C5a); 0.649 [0.46, 0.82] on the 37
@@ -323,13 +325,13 @@ support Track E’s methodological point and nothing stronger.
 All Stage 14 results have data role EXPLORATION and are not paper-eligible; details and identifiers are
 in Appendix A. In brief: [S14] a same-unit numeral in the prompt becomes a far more probable answer
 continuation (about 10–13 nats for Qwen2.5-7B, 3.5–5 for Llama-3.1-8B), with no detectable dependence on
-proximity at the available precision; matching comparison numerals for plausibility removes about 40% (Qwen)
-and 53% (Llama) of it, leaves incompatible-unit and metadata effects not distinguishable from plausibility, and
-leaves a remainder that depends on unit compatibility (J14.9, J14.14, J14.17). Without reasoning both 7–8B
 Working research protocol – not completed results
 
 ######## PAGE 7 ########
 PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 7
+proximity at the available precision; matching comparison numerals for plausibility removes about 40% (Qwen)
+and 53% (Llama) of it, leaves incompatible-unit and metadata effects not distinguishable from plausibility, and
+leaves a remainder that depends on unit compatibility (J14.9, J14.14, J14.17). Without reasoning both 7–8B
 models are almost never correct (3/211, 6/211); with greedy 2,048-token reasoning Qwen is correct on 96/211
 and Llama on 50/211, but a sentence with no number changes answers about as often as numeric cues (J14.7,
 J14.13). Qwen3-32B with thinking answered 63 of 64 graded problems on one sample each; four cue kinds
@@ -369,9 +371,8 @@ reused)
 G0 integrity closure
 B2 Construct choice REVISED (decided) Section 4; B2.3, B2.4 binding
 B3 Modular v2 generator REVISED (extended) G1 physics construct
-B4 Independent human
-validation
-OPEN Required before G4 can be confirmatory (D2)
+B4 Independent validation OPEN Interim tier: qualified LLM panel (Section 3.7);
+human study later (D2)
 B5 External sets as source
 material
 DEMOTED (split) Non-physics control in G3; EPC in G6
@@ -388,12 +389,12 @@ unchanged as the sole scientific foundation of a future PhysMon mechanism claim.
 evidence, and do not substitute a pre-existing public physics benchmark wholesale. Maintain an immutable
 DECOY-v1 (historical reproduction and failure diagnosis); conditionally build a DECOY-v2 experimental suite
 for controlled causal discovery; establish a separately sourced, separately certified External Physics Counter-
-factuals (EPC) collection for confirmation; and use GSM-DC and GSM-Symbolic as non-physics controls.
-Treat unit and re-expression invariance as a distinct task, not interchangeable with irrelevant numerical cues.
 Working research protocol – not completed results
 
 ######## PAGE 8 ########
 PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 8
+factuals (EPC) collection for confirmation; and use GSM-DC and GSM-Symbolic as non-physics controls.
+Treat unit and re-expression invariance as a distinct task, not interchangeable with irrelevant numerical cues.
 Neither a large newly generated dataset nor an improved AUROC makes the work valuable unless these tests
 establish a precise, nontrivial model behaviour and an independently validated causal explanation.
 Three questions that precede expensive mechanism work. (1) Does the claimed behaviour survive
@@ -419,6 +420,10 @@ clusters were rebuilt from the committed leakage table (J14.4-002). REVISED: the
 an “irrelevant” cue is replaced by the four role strata R, D, C, K of Section4.2.
 3.2 Benchmark architecture
 Defined before collecting new outcomes. The track names are kept; their status is new.
+Working research protocol – not completed results
+
+######## PAGE 9 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 9
 Track Target and contents (v2.0) Allowed inference
 (v2.0)
 Status (11 Nov 2026)
@@ -510,10 +515,6 @@ Split: a small GSM-DC-style
 dependency control with the same
 role manipulation in G3; full
 cross-domain falsification in G6
-Working research protocol – not completed results
-
-######## PAGE 9 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 9
 Strict version policy (unchanged). Any semantic revision of a governing equation, assumption, target
 variable, accepted answer or cue role increments the family’s (now: the structure’s) version; nothing is edited
 silently in place. Source dataset revisions and hashes are frozen. Once a confirmatory panel is opened it is not
@@ -539,6 +540,10 @@ t, physical answery∗(s, a, t), candidate cuez, semantic roleR(z), perturbation
 nuisance intervention satisfiesy∗(Iz(s), a, t) = y∗(s, a, t) within a declared domainD; a relevant intervention is
 a positive control whose transformed target is computed, including cases where the numerical answer happens
 to coincide despite true dependence. Role is never established by answer-value coincidence alone: a variable
+Working research protocol – not completed results
+
+######## PAGE 10 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 10
 can be causally relevant at a parameter setting with zero local effect.Now: the four strata make this precise:
 D by graph disconnection, C by an identically zero derivative, K by a regime predicate with a documented
 counter-regime value, R by a certified response curve over a declared range ofm ≥ 3 values (Sections4.2, 4.3).
@@ -570,10 +575,6 @@ and Liu (“The Readout Shortcut”). The absence of a matching benchmark in our
 Deliverable B0: aversioned benchmark_claims_and_threats.md, aclosest-worktablewithaccessibleURLs,
 an estimand glossary and an independent red-team protocol.Status: the glossary is Sections4.5 and 4.8; the
 table is Section11; the threat file (owner and action per threat) and the independent red-team protocol are
-Working research protocol – not completed results
-
-######## PAGE 10 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 10
 OPEN and belong with G0[PROPOSAL].
 F ailure branch (kept). If physical relevance cannot be distinguished from GSM-DC-style dependency se-
 lection, the research is framed as generic numerical interference or dependency selection, with physics as a
@@ -599,6 +600,10 @@ count, flipfraction, rankinversionsacrossmodels; bycuetype, law, answerlength, s
 ter; compared with the symmetric range and robust dispersion and with anchored no-cue contrasts; threshold
 history preserved; new metrics never described as preregistered in June.Status: DONE-EXPLORATORY
 (J14.2-006): positives by base 0/1/2/3 are 70/77/82/85 (Qwen) and 32/45/69/53 (Llama); within-model
+Working research protocol – not completed results
+
+######## PAGE 11 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 11
 Spearman between the base-0 score and other bases is about zero. The legacy label is retired for v2 analyses
 (J14.2-008, confirmed by the user, J14.2-011). Anchored no-cue contrasts are superseded by the role-by-value
 design and the sampling baseline of G2.
@@ -630,10 +635,6 @@ B1.6 Structural overlap and authorship. Reconstruct the 34 clusters, 147 family 
 resolved rendering pairs; review edges; re-evaluate held-out results under cluster, law-class and source splits;
 test whether template id, law metadata or crude features predict the label.Status: DONE-EXPLORATORY
 (J14.4-002 to J14.4-012): 147 edges, 34 clusters covering 110 of 155 families (a lower bound: no semantic
-Working research protocol – not completed results
-
-######## PAGE 11 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 11
 detector); 71% = 110/155, 70.4% in the monitoring cohort; template-only predictors lose their family-held-
 out signal under cluster-held-out folds while the fitted-entropy features do not (J14.4-009); the 155 families
 contain only 31 distinct renaming-invariant equation programs (J14.6-003). The monitor scores 0.649 on the
@@ -658,6 +659,10 @@ B2.1 Hypothesis families. v2.0 defined H-P (physical relevance selection), H-N (
 H-T (text and interface effects on a single reference string) and H-U (unit and representation transformations),
 and forbade pooling H-U with the others.Now (Section 4.7): H-N becomes H1 and H2; H-P becomes H3, H4
 and H6; H-T is the retired string construct plus the position and format controls; H-U is the convertible-unit
+Working research protocol – not completed results
+
+######## PAGE 12 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 12
 family (V2-B). The pooling ban is generalised: results are never pooled across role strata (Section4.2, rule 3).
 B2.2 Primary behaviour as an interpretable contrast. v2.0 conditions: (i) no cue, (ii) irrelevant cue
 of varying magnitude, (iii) style-matched non-numerical text, (iv) generic numerical metadata, (v) relevant
@@ -690,10 +695,6 @@ parseable records (only for metrics that truly need parsing), base-correct items
 A result conditional on base correctness is not a general result about all questions; the original signed ef-
 fect never substitutes for the question whether the model outputs an incorrect answer.Connection to the
 populations (Section 4.6): all valid problems is the population “all validated tasks” and is always reported;
-Working research protocol – not completed results
-
-######## PAGE 12 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 12
 format-parseability is no longer a population but the status outcome O3, and a record that is notCOMPLETE
 is never relabelled wrong; base-correct is “tasks solved reliably without a cue”, which needs repeated samples
 (one correct sample makes a candidate anchor only, J14.19-009); model-positive items are a sub-population
@@ -716,6 +717,10 @@ Status: REPLACED as a decision rule by the G3 hypothesis scorecard over H0–H6 
 correspond: H-P or H-N reliable→ H1–H4 readings; only H-T→ readout and interface claims of type T1 only;
 only H-U → the separate equivariance study; everything absent→ H0 reported as a null with its equivalence
 bounds and power. Its last sentence stays in force without change.
+Working research protocol – not completed results
+
+######## PAGE 13 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 13
 3.6 B3. A modular v2 benchmark with mutually discriminating controls
 Status (11 Nov 2026): REVISED (extended with the role strata and the role-by-value cells). The typed
 generator and 80 structures exist (DONE-EXPLORATORY: J14.6, J14.15, J14.18, J14.19); strata C and K,
@@ -750,10 +755,6 @@ a certified responsey∗ R(z) over the declared range, separated fromy∗ D(z) b
 every D, C and K cell also needs its frozen misuse functionsfh(z) (Sections 4.2, 4.3). This is G1 work.
 B3.3 Core interaction. v2.0 crossed physical relevance (governing versus non-governing), numerical proxim-
 ity (near-match versus a predeclared far band) and unit relationship (same or equivalent versus incompatible),
-Working research protocol – not completed results
-
-######## PAGE 13 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 13
 with diagnostic cells separating digit overlap from magnitude (close magnitudes with little lexical overlap; far
 magnitudes with shared leading digits; equal numerals with incompatible units; unit-compatible far distrac-
 tor; unit-incompatible but lexically overlapping distractor), cluster-level inference, and empty or impossible
@@ -778,6 +779,10 @@ B3.5 No-op robustness versus valid sensitivity . Each structure has at least one
 an invariant target and, where feasible, a matched relevant edit with a known changed solution; a coupled-
 system counterexample makes the formerly irrelevant quantity governing, so a model that ignores every extra
 number cannot pass both; relevant positive controls are scored on the new target, not on invariance; ill-posed
+Working research protocol – not completed results
+
+######## PAGE 14 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 14
 or under-specified prompts appear only in a labelled rejection task.Status: kept and built into each complete
 role-by-value structure: the D, C, K cells are the no-op edits, the R cell is the matched relevant edit scored
 by tracking ofy∗ R(z) (O4), and the R twin of a D quantity is the coupled-system counterexample.
@@ -810,26 +815,57 @@ G1 freeze.
 Status (11 Nov 2026): OPEN; requirements unchanged. No independent validator exists and none has
 been qualified. Validator-qualification materials (v2) and a 33-item planted-defect bank exist (J14.5); the user
 reviewed the bank (27 items defective as declared, 6 valid controls; J14.5-013) as one non-blinded reviewer
-Working research protocol – not completed results
-
-######## PAGE 14 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 14
 who did not state physics expertise, so physicist confirmation of the bank is open. S01–S20 had the user’s
 open walkthrough. On 2026-10-26 the user directed agent verification (author, blind-solver and plan-reviewer
 agents) in place of the physicist review (J14.19-001): all 80 v2 structures carry admission categoryUNREVIEWED
 with an agent-verification record, and no text may call them expert-reviewed. Agent checks share the authors’
-model family and can share their blind spots (J14.19-001). For v1, all 155 templates were created by an
-agent and 140 were marked validated through a delegated agent review[REVIEW]; the reviewers’ objection
-to this (issue 10) applies equally to the v2 set. Consequence: no structure has passed Gate B4. G4
-confirmation requires new structures validated under B4; without an independent reviewer G4 is run but
-labelled EXPLORATORY-REPLICATION, and no text calls it confirmatory (open decision D2).
+model family and can share their blind spots (J14.19-001). For v1, all 155 templates were created by an agent
+and 140 were marked validated through a delegated agent review[REVIEW]; the reviewers’ objection to this
+(issue 10) applies equally to the v2 set.Consequence: no structure has passed Gate B4.
+Interim validation tier: a qualified LLM review panel (user direction, 11 November 2026). Recruiting
+independent physicists takes time the project does not want to spend now, so confirmation (G4) uses a panel
+of independent LLM reviewers as the interim validation tier, and human expert review is a later study that
+measures the panel and can upgrade items.
+1. Panel. Two to three judge models from model families other than the authoring model (Claude), and
+where possible from different families from each other, at least one a strong reasoning model; the panel
+composition, versions and prompts are frozen in G1 (open decision D2 now asks which models). The
+authoring agent is never on the panel, and neither are models from the families under test (Qwen, Llama);
+a judge never sees another judge’s verdict, any model-under-test output or score, or the study hypotheses,
+in either pass, and does not see the gold trace in its first pass.
+2. Protocol. The B4.2 two-pass rubric, run per judge: pass 1 solves the problem and states each quantity’s role
+stratum from the text alone; pass 2 checks the certificate claims (stratum, invariance or certified response,
+units, assumptions, naturalness, whether the renderings differ only as intended) and returns a structured
+verdict with severity and reasons.
+3. Qualification before use. Each judge, with its frozen prompt, is run on the 33-item planted-defect bank
+(27 defective and 6 valid controls, labelled by the user, J14.5-013) and must meet thresholds fixed in G1
+(planning: detect at least 85% of the defective items for the declared reason and accept at least 5 of the 6
+Working research protocol – not completed results
+
+######## PAGE 15 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 15
+valid ones). Because six valid controls estimate false rejection very imprecisely, G1 adds freshly generated
+valid items and new planted defects to the bank before qualification, and holds a portion out unseen; a
+judge or prompt changed after seeing bank results is requalified only on that held-out portion or on a fresh
+planted set. The bank is not used to tune prompts.
+4. Admission rule. An item is LLM_PANEL_VALIDATED when every qualified judge accepts it with no high-
+severity defect; split verdicts go to a recorded adjudication whose adjudicator and tier are stated (the user,
+who labelled the bank, is not an independent adjudicator), and adjudicated items are reported separately;
+itemswithanyunresolvedhigh-severityflagareexcludedandcounted. Agreementstatistics(rawagreement,
+Cohen’s κ, Gwet’s AC1) are reported as for human validators.
+5. Claim language. G4 results on panel-validated items are “confirmatory under LLM-panel validation”; no
+text calls them expert-validated; agent authorship and LLM validation are disclosed.
+6. Human study later. A stratified sample of panel verdicts (accepted, rejected, split) is later reviewed by
+independent humans (G6 or P11) to estimate the panel’s error rates; items that pass are upgraded to the
+expert tier.
+Without a qualified panel, G4 is run but labelled EXPLORATORY-REPLICATION, and no text calls it
+confirmatory.
 B4.1 Audit before claiming certified English. Every v1 family gets at least one qualified blinded se-
 mantics review, and every family used in a publishable confirmatory claim gets two independent reviews with
 third-party adjudication where needed; the validation pilot samples across cue types, physics domains, largest
 likelihood shifts, negative scores, presumed easy cases, ambiguous coupled systems and high-overlap clusters;
-authors never self-certify the semantic naturalness of their own families.Now: the v1 part applies only if v1
-is reused; the two-review rule applies to every G4 structure and every adapted EPC item, and sampling for
-the pilot also spans the role strata.
+authors never self-certify the semantic naturalness of their own families.Now: the v1 part applies only if v1 is
+reused; the two-review rule applies to every G4 structure and every adapted EPC item (interim: the qualified
+LLM panel of Section3.7), and sampling for the pilot also spans the role strata.
 B4.2 T wo-pass review instrument. Pass 1, without the authors’ equation: solve or outline the physics,
 state assumptions and target, whether the cue could affect the target, and whether the wording permits another
 physical reading. Pass 2, with the encoded graph and certificate: check graph, units, domain, numerical
@@ -862,6 +898,10 @@ validation cycle, not optimistic averaging.
 3.8 B5. External datasets as source material, not borrowed certificates
 Status (11 Nov 2026): DEMOTED and split; nothing has been sampled or adapted. (1) A small non-physics
 dependency control (GSM-DC-style problems with the same role manipulation) enters G3 as a supporting
+Working research protocol – not completed results
+
+######## PAGE 16 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 16
 condition (Section 4.4), so that a general numeric or dependency phenomenon is recognised before G4. (2)
 The external physics sets EPC-D, EPC-C and EPC-N (B5.1–B5.5) and the full cross-domain falsification
 (B5.6) belong to G6, with the second model. Rule (Section4.3): a counterfactual built on an external problem
@@ -869,10 +909,6 @@ is a new item; it needs its own certificate, including its stratum certificate, 
 inherits the source’s certificate or answer check.
 Why the hybrid design matters. Public benchmarks supply diversity and independent authorship but not
 DECOY-specific nuisance and relevance interventions or proofs of a modified problem’s target. Once a source
-Working research protocol – not completed results
-
-######## PAGE 15 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 15
 problem is rewritten, the adaptation is new benchmark data that needs independent verification. Synthetic
 v2 and adapted public questions serve different causal and generalisation purposes.
 Source Public properties
@@ -968,16 +1004,16 @@ available physically meaningful wrong-answer alternatives; if small models fail 
 and the shifted population instead of keeping only successes; use relevant-edit responsiveness (now the R-cell
 response, O4) even without baseline correctness; verify native unit and answer scoring for each model before
 comparing them.
+Working research protocol – not completed results
+
+######## PAGE 17 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 17
 B5.6 Cross-domain falsification. Select abstractly matched GSM-DC and GSM-Symbolic structures, mea-
 sure interference under their own validated protocols, then evaluate a carefully translated subset under Phys-
 Mon’s controlled relevance conditions. If a supposed physics relevance gate responds identically to graph-
 equivalent grade-school arithmetic, read the mechanism as general dependency filtering or numerical copying
 unless a truly physics-specific manipulation separates them. Split: the small control in G3 gives the early
 behavioural reading; the full version, including mechanism transfer, is G6.
-Working research protocol – not completed results
-
-######## PAGE 16 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 16
 Gate B5 (kept; now applied in G6). If adaptations are rare or ambiguous, preserve source rejection rates and either
 restrict the external question types or commission independent expert-authored tasks; never downgrade certification
 to inflate numbers. If only synthetic tasks show effects, make that limitation central and do not claim broad physics
@@ -1008,8 +1044,8 @@ interaction, for causal rescue (G5) and for out-of-cluster AUROC margins (now G7
 target and minimum effect with a scientific interpretation. The earlier 300–600 structures are a tentative
 upper planning band, not a quota; independent dependency programs are worth more than paraphrases (v1
 had only 31 distinct equation programs in 155 families, J14.6-003).Now: the interaction targeted is the role-
-by-value interaction and the per-stratum¯T, λ and Λ estimands (Section4.3); the power simulation uses the
-variance of those estimands measured in G2, not only no-cue variance.
+by-value interaction and the per-stratum tracking-loss, misuse-share and neglect-share estimands (Section4.3);
+the power simulation uses the variance of those estimands measured in G2, not only no-cue variance.
 B6.3 Five disjoint data roles (kept unchanged). EXPLORATION (pilot and unrestricted scans); GENERA-
 TOR_TUNING (naturalness and control debugging, non-confirmatory);INTERNAL_CONFIRMATION (never used for
 choosing labels, models, heads or thresholds);EPC_CONFIRMATION (independent external source); ADVERSAR-
@@ -1028,16 +1064,16 @@ H0–H6 (Sections 4.3, 4.7); log-odds are O6 and live inside a causal claim type
 interaction and candidate set are frozen with the model and prompting regime; lexical copying is a declared
 alternative (now H1); a predeclared no-practical-effect interval (the equivalence margin); structure- clustered
 paired tests, hierarchical regression and within-cluster permutation tests must agree qualitatively before a
+Working research protocol – not completed results
+
+######## PAGE 18 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 18
 finding is called stable.
 B6.5 Reliability and adversarial budget. Reuse cue seeds across models; repeat scoring; check numerical
 precision and GPU backend variation (Stage 14: bfloat16 reproducible, dtype noise SD 0.09–0.19 nats, while
 the greedy answer differed between float32 and bfloat16 in 42 of 211 Llama and 13 of 209 Qwen records,
 though the correctness label changed in only one or two; J14.9-003, J14.9-004); sample free generation and
 report median and tail outcomes (now required: repeated samples at each model’s published defaults, never
-Working research protocol – not completed results
-
-######## PAGE 17 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 17
 pooled with greedy records; Section4.5). Adaptive cue search has a fixed edit space and per-structure query
 budget; attack success is reported apart from fixed-distribution robustness; no monitor is trained and no causal
 site is selected on adversarially targeted test items.
@@ -1047,9 +1083,10 @@ meaningful interventions. If the effect is absent on two independent sources, st
 conditions. If model output shifts only within teacher-forced string probabilities, restrict the target to a calibrated
 likelihood or interface mechanism rather than physical shortcut reliance.
 Status: kept in substance and enforced by the critical path: G4 confirms the role-by-value family fixed in
-advance and the G3 scorecard may add at most one secondary family; G4 supplies the held-out structural units
-and the format-robustness check; G5 starts only after G4 (for H3, H4 or H6). A shift confined to teacher-forced
-string probabilities supports at most a T1 readout claim (Section4.8).
+advance and the G3 scorecard may add at most one secondary family; G4 supplies the held-out structural
+units and the format-robustness check; G5 starts only after G4 (for H3, H4, or H6-RD; H6-extended only if
+G4 covered C and K). A shift confined to teacher-forced string probabilities supports at most a T1 readout
+claim (Section4.8).
 3.10 B7. Benchmark deliverables and acceptance rules for the later mechanism
 study
 Status (11 Nov 2026): the release package, quality-gate checklist and benchmark-only value test are kept
@@ -1081,10 +1118,15 @@ rectness and relevance claims do not; PIVOT–GENERAL NUMERIC if analogous GSM-D
 stripped tasks explain the effect; REDESIGN–BENCHMARK if natural-language semantics or scoring cannot
 be trusted; STOP BROAD CLAIM if no meaningful effect survives held-out validation.
 Correspondence for old citations [PROPOSAL] (the binding rules are in Section5.1):
-• GO–MECHANISM → G4 establishes H3, H4 or H6 on the role-by-value family (Section4.7); G5 follows.
+• GO–MECHANISM → G4 establishes H3, H4 or H6-RD (or H6-extended) on the role-by-value family
+(Section 4.7); G5 follows.
 • GO–MEASUREMENT → only presence, readout, format or invariance effects survive (H1, H2, or the
 convertible-unit family); behavioural report and T1-type readout claims only.
 • PIVOT–GENERAL NUMERIC → the non-physics dependency control (G3, then G6) shows the same
+Working research protocol – not completed results
+
+######## PAGE 19 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 19
 behaviour; the result is reported as a general numeric or dependency phenomenon.
 • REDESIGN–BENCHMARK → G1 certificates or B4 validation fail; return to G1.
 • STOP BROAD CLAIM→ H0 shown by equivalence (on the calibrated and the all-validated populations),
@@ -1092,10 +1134,6 @@ H5 (cost only), or a G3 effect that G4 does not replicate; reported as a null wi
 or “not replicated”, never rescued by new endpoints.
 Kept rule. Gate outcomes do not license retroactive relabelling of confirmatory data. A structure never moves from
 EXPLORATION into a confirmation role, and a cell with zero evaluable records is NOT_EVALUATED, never a zero effect.
-Working research protocol – not completed results
-
-######## PAGE 18 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 18
 4 The falsifiable theoretical framework
 This section is the construct specification for all work from Stage 15 onward. It replaces the construct choice
 left open by the October edition (B2, Section3) with a decision, and it is the reference that every later section
@@ -1121,6 +1159,10 @@ result that one of these already explains is reported as such, not as a new phen
 Physical irrelevance is not one property. A quantity’s role is one of four strata, each with its own certificate and
 its own correct behaviour. The October edition’s single “non-governing cue” and the first revision’s “in-system
 inert quantity” both conflated the last three.
+Working research protocol – not completed results
+
+######## PAGE 20 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 20
 Stratum Meaning Certificate Correct behaviour
 R relevant The quantity is in the target’s
 dependency structure with
@@ -1184,10 +1226,6 @@ answer is invariant inside the
 regime
 Rules. (1) A model’s internal representation of a quantity, attention to it, or its use in an intermediate step
 is never classified as an error merely because the final answer is invariant to that quantity; for strata C and K
-Working research protocol – not completed results
-
-######## PAGE 19 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 19
 such use can be correct physics. (2) Error claims are made only about outputs (the final answer’s behaviour
 across values, Section4.3) or about intermediate steps whose wrongness is certified against the graph. (3)
 Each stratum is a separate benchmark stratum with its own hypotheses (Section4.7); results are never pooled
@@ -1208,21 +1246,46 @@ Estimands defined on sampled answers. Answers are a mixture of correct values, w
 non-complete records, so no single “answer” per cell exists; the estimands are built to survive that.
 1. Tracking (primary, per sample): T = 1 if the sample is COMPLETE and its value lies within the declared
 tolerance of the certifiedy∗ r (z) of its own cell, elseT = 0, over all attempted samples; the complete-case
-version is a sensitivity analysis. Per structure,¯Tr averages over values, phrasings and samples. Invariance
-is ¯TD (and ¯TC, ¯TK) against the same structure’s no-cue tracking; responsiveness is¯TR.
-2. Normalised response fraction (secondary): λr = [ mr(zb) − mr(za)]/[y∗ R(zb) − y∗ R(za)] for each value pair,
-with mr the Hodges–Lehmann location of theCOMPLETE answers of the cell (robust to isolated unit slips)
-and the denominator always taken from the R twin, so every role is scaled by the physically correct response.
-Targets: λR = 1; λD = λC = λK = 0. The certificate requires|y∗ R(zb) − y∗ R(za)| above the loosest tolerance,
-so the denominator is never near zero; signs and zero golds need no logarithms.
-3. Role-discrimination index Λ = λR − λD (target 1), sign-aligned in every structure because both terms are
-scaled by the same certified response.Λ is reported together withλR and λD as co-primaries, because a
-model that ignores the quantity everywhere (λR = λD = 0) and one that uses it everywhere (λR = λD = 1)
-have the sameΛ = 0 for different reasons.
+versionisasensitivityanalysis. Perstructure, ¯Tr averagesovervalues, phrasingsandsamples. Inappropriate
+dependence in D (and C, K) is the tracking loss¯TN − ¯TD against the token-aligned non-numeric sentence
+N at the same position, so that generic distraction by an added sentence is not counted as role failure (the
+loss against the no-cue prompt is reported beside it): a departure ineither direction (adding, subtracting,
+copying or any other use of the quantity) that moves the answer outside the tolerance lowers tracking, so
+this measure has no blind sign.Responsivenessis ¯TR.
+2. Answer-mode shares (primary for attribution, per sample): the share of samples whose value matches each
+prespecified misuse curvefh(z) in D, C and K cells (misuse shares), and the share of R samples whose value
+Working research protocol – not completed results
+
+######## PAGE 21 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 21
+matches the irrelevant-role answery∗ D(z), i.e. that ignore a quantity that matters (neglect share). A misuse
+share in a D, C or K cell is compared with the rate at which the non-numeric controlN at the same z
+produces the same value; a misuse curve is supported only when its share exceeds that rate at two or more
+of at least three values. The neglect share cannot useN or the no-cue prompt as comparator (their correct
+answer is y∗ D(z)); it is compared with a placebo match rate in the same R cell, the share of R samples equal
+to a prespecified placebo value2y∗ R(z) − y∗ D(z) (as far from the correct answer as the neglect value, on the
+other side), certified to be separated from the gold and every foil; where that value is physically impossible
+(for example negative for a positive-definite quantity), the generator uses a prespecified multiplicative offset
+of the same size instead, so that the placebo is as plausible as the neglect value. The misuse set contains
+signed variants (add and subtract the quantity; substitute it; copy it; for C and K the wrong law or wrong
+regime), each with the direction of its prediction stated in advance.
+3. Normalised response fraction (descriptive only): λr = [ mr(zb) − mr(za)]/[y∗ R(zb) − y∗ R(za)] for each value
+pair, with mr the Hodges–Lehmann location of theCOMPLETE answers of the cell (robust to isolated unit
+slips) and the denominator always taken from the R twin, so every role is scaled by the physically correct
+response. Targets: λR = 1; λD = λC = λK = 0. The certificate requires|y∗ R(zb) − y∗ R(za)| above the loosest
+tolerance, so the denominator is never near zero; signs and zero golds need no logarithms.
+4. Role-discrimination index Λ = λR − λD (target 1), a descriptive summary only: it is blind to some failures
+(a model that answers correctly in R and subtracts the quantity in D hasλD = −1 and Λ = 2) and conflates
+others (ignoring the quantity everywhere and using it everywhere both giveΛ = 0).
+Multimodality guard. A location summary of a two-mode answer distribution can describe a smooth
+response the model never produces (answers at 0 and 100 give a location near 50). Everyλr is therefore
+reported with the cell’s answer-mode composition (shares of correct, each misuse mode, other and non-complete
+answers); when two or more modes each hold at least 20% of the cell’s complete answers, λr is flagged
+MULTIMODAL and not interpreted. Neither λ nor Λ is ever the sole basis of a claim about physical reasoning.
 A cell with noCOMPLETE answers has nomr; the structure isNOT_EVALUATED for λ and Λ (it still counts for
-T), and the share of such cells is reported by role. The earlier log-elasticity formulation is withdrawn: it is
-undefined for zero or sign-changing golds and for mixed answer sets, and its interaction is not sign-aligned
-across structures.
+tracking and answer-mode shares), and the share of such cells is reported by role. The earlier log-elasticity
+formulation is withdrawn: it is undefined for zero or sign-changing golds and for mixed answer sets, and its
+interaction is not sign-aligned across structures.
 Misuse hypotheses as response curves. For each D, C or K cell the generator emits a prespecified set
 of misuse functions fh(z) (copy the quantity; substitute it for the input of the same dimension; add it to a
 sum of same-dimension terms; for C and K the most plausible wrong law or wrong regime that keeps it). A
@@ -1234,18 +1297,14 @@ and not distinguished. Answer matching keepsall hypotheses an answer matches:UNI
 MATCH({h}), NO_MATCH; a reporting taxonomy may collapse these, but the overlap is always shown.
 Diﬀiculty and wording controls. Value effects are estimated within role (diﬀiculty is roughly constant
 across z inside a role); the relevant role’s no-cue diﬀiculty is recorded as a covariate. Every estimand is
-estimated per phrasing. Agreement across phrasings, required before a role claim, means: the phrasing-by-
-role interaction on Λ is inside the SESOI by two one-sided tests, or, where that test is underpowered, each
-phrasing’s estimate exceeds the SESOI in the same direction; otherwise the result is reported per phrasing and
-called wording-dependent.
+estimated per phrasing.Agreement across phrasings, required before a role claim, means: the phrasing-by-role
+interaction on each of the G4 contrasts F1–F3 (Section8) is inside its SESOI by two one-sided tests, or, where
+that test is underpowered, each phrasing’s estimate exceeds the SESOI in the same direction; otherwise the
+result is reported per phrasing and called wording-dependent.
 F easibility .Not every structure admits every stratum. Infeasibility is recorded by the generator and never
 imputed. A structure iscomplete for the primary contrast only if it has R and D cells at three values in two
 phrasings, with |y∗ R(z) − y∗ D(z)| above the loosest tolerance and differing answer-token spans at every value.
 Calibration gates countcomplete role-by-value structures, not structures in general (Section5.1).
-Working research protocol – not completed results
-
-######## PAGE 20 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 20
 Adapted problems. A counterfactual built on an external problem (PHYSICS, UGPhysics, PRISM-Physics
 or any other source) is a new item: it needs its own certificate and validation; it does not inherit the source’s.
 4.4 Supporting conditions
@@ -1255,6 +1314,10 @@ match, nearwithinthegradingtolerance, tolerance-separated); incompatibleunitwith
 metadata; convertible unit (the invariance/equivariance family, old Cue C); relevant edit of an existing input;
 role reversal (use on request); formula hint (a positive diagnostic: expected to help or to do nothing, never
 a gate); an explicit relevance instruction (“identify and ignore irrelevant information”); cue position (before
+Working research protocol – not completed results
+
+######## PAGE 22 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 22
 or after the relevant inputs); and a smallnon-physics dependency control (GSM-DC-style problems with the
 same role manipulation) to tell a general numeric or dependency phenomenon from one that needs physical
 semantics.
@@ -1282,9 +1345,10 @@ Failure diagnosis; an
 outcome in its own right
 O4 role-by-value
 response
-Tracking T , normalised response fractions λr,
-role-discrimination index Λ, misuse-curve tracking with all
-matches kept (Section 4.3)
+Tracking T and tracking loss; misuse and neglect shares
+across values with all matches kept; descriptive response
+fractions λr and index Λ under the multimodality guard
+(Section 4.3)
 Primary scientific
 endpoint
 O5 cost Generated tokens (mean and median, never compared across
@@ -1312,10 +1376,6 @@ at each model’s published defaults (recorded per record) and batches; Qwen3 th
 top-p 0.95, top-k 20 as its model card requires. Greedy Stage 14 records are never pooled with sampled ones.
 4.6 Populations
 Every result names its population; none is silently replaced by another.
-Working research protocol – not completed results
-
-######## PAGE 21 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 21
 Population Purpose
 All validated tasks General behavioural and robustness conclusions; always reported
 Calibrated
@@ -1328,6 +1388,10 @@ a cue
 Induced errors, repair, and the mechanism of correct selection
 Comparisons between models, or between thinking on and off, use one common item set inside every compared
 configuration’s band.
+Working research protocol – not completed results
+
+######## PAGE 23 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 23
 4.7 Hypotheses and their distinguishing predictions
 All are legitimate outcomes; more than one can hold at once (numeric copying and a selection failure are not
 exclusive). They refine the October families: H-N becomes H1 and H2, H-P becomes H3, H4 and H6, H-T is
@@ -1336,9 +1400,11 @@ Id Hypothesis Predicts (in O4 unless stated) Evidence against
 H0 No role or presence effect
 beyond generic
 perturbation
-λD ≈ 0, λR ≈ 1; D tracking equal to
-no-cue tracking; numeric cells equal the
-non-numeric sentence
+D tracking equal to tracking under the
+non-numeric sentence; no misuse share
+above its rate under N and no neglect
+share above its placebo rate; numeric
+cells equal the non-numeric sentence
 Any reliable departure; equivalence
 must be shown, not assumed
 H1 Numeral presence
@@ -1356,9 +1422,11 @@ Departures with incompatible units or
 implausible values
 H3 Relevance-selection
 failure (F-role)
-D: λD > 0 following a substitution or
-add-term curve. C: final answer follows
-the wrong-law curve that keeps the
+D: tracking loss with answers following
+a prespecified misuse curve (substitute,
+add or subtract, in its predicted
+direction). C: final answer follows the
+wrong-law curve that keeps the
 quantity. K: final answer follows the
 out-of-regime law. Moderators
 (marking, stratum, position) are
@@ -1374,11 +1442,24 @@ H5 Computational diversion O5 rises (length, budget exhaustion)
 while O1 and O4 are equivalent to
 no-cue
 O1 or O4 departures
-H6 Correct selection λD, λC , λK equivalent to 0 and λR
-equivalent to 1 within the SESOI (two
-one-sided tests), across values and
-phrasings; intermediate use in C and K
-allowed
+H6 Correct selection, in two
+scopes. H6-RD: the
+three G4 contrasts F1 (D
+tracking loss against N ),
+F2 (R neglect share
+against its placebo rate)
+and F3 (role × value
+interaction on tracking)
+each shown equivalent to
+zero within its SESOI
+(two one-sided tests),
+with R tracking at or
+above the G1 criterion,
+across values and
+phrasings. H6-extended:
+H6-RD plus the same for
+C and K (intermediate
+use in C and K allowed)
 Departures in any stratum; an
 underpowered null is INCONCLUSIVE,
 not H6
@@ -1388,24 +1469,32 @@ knockout that raised the gold string on base and sensitive renderings alike was 
 mechanism experiment therefore declares which of three claims it tests, and uses the metric of that claim.
 Working research protocol – not completed results
 
-######## PAGE 22 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 22
+######## PAGE 24 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 24
 Claim type What is held fixed Metric
 T1 readout given a
 fixed reasoning state
 Only between prompts that share a gold: a
 D, C or K cell and its token-aligned
-non-numeric control at the same z. A 2 × 2
-of trace source (own, other prompt) ×
-prompt; intervention only at answer
+non-numeric control at the same z. One
+explicitly identified prefix, the same under
+both prompts, its type declared in G1 per
+experiment: (i) the gold trace rendered from
+the typed graph, or (ii) the model’s own
+trace under the control prompt, taken for
+every sampled trace regardless of its answer
+(never selected on the behaviour being
+explained); intervention only at answer
 positions
-log p(trace’s final value ) − log p(fh(z)) for a
-prespecified misuse fh, each candidate’s full
-value span scored; foreign traces whose
-per-token NLL under the other prompt
-exceeds their own-prompt NLL by a
-threshold fixed in G1 are excluded and
-counted
+log p(y∗(z)) − log p(fh(z)): the certified
+answer against a predeclared misuse
+alternative, both scored over their full value
+spans under the declared answer-format
+contract. The prefix’s per-token NLL under
+the recipient prompt is recorded as a
+declared compatibility stratum; results are
+reported for all prefixes and by stratum, and
+no prefix is excluded
 T2 intermediate
 computation
 A teacher-forced prefix up to the step where
@@ -1420,27 +1509,25 @@ T3 total effect Nothing downstream: intervene upstream
 component) and let the model generate
 O1, O2 and O4 over N on-policy resampled
 traces per condition
-Only T2 or T3, with the controls below, can support a claim about a physical-relevance computation; T1
-supports a claim about answer readout only. Comparisons between an R twin and a D twin, whose golds
-differ, are made only under T2 or T3, never by teacher-forcing one role’s trace under the other role’s prompt
-(that trace would carry a physically wrong value). Candidate foils are fixed by a prespecified physical error
-hypothesis, never chosen as the foil the model scores highest; a candidate pair whose values lie within tolerance
-or share their answer-token span is T1-infeasible and recorded.
-Interaction estimand. For metric m of the declared type, cue promptS (stratum D, C or K) and control
-prompt B, the token-aligned non-numeric sentence (so that the intervened positions exist in both prompts;
-the no-cue prompt cannot serve, since it has no tokens at the quantity’s position; the R twin serves only under
-T2 or T3):
-Ih =
-[
-m(S,intervened) − m(S,clean)
-]
-−
-[
-m(B,intervened) − m(B,clean)
-]
-.
-The clean cue effectm(S,clean) − m(B,clean) is reported beside it. A component matters for role processing
-only if Ih ̸= 0; a large equal effect on both prompts marks a general answer component.
+Only T2 or T3, with the controls below and the role interaction defined next, can support a claim about a
+physical-relevance computation; T1 supports a claim about answer readout only. Comparisons between an R
+twin and a D twin, whose golds differ, are made only under T2 or T3, never by teacher-forcing one role’s trace
+under the other role’s prompt (that trace would carry a physically wrong value). Candidate foils are fixed by
+a prespecified physical error hypothesis, never chosen as the foil the model scores highest; a candidate pair
+whose values lie within tolerance or share their answer-token span is T1-infeasible and recorded.
+T wo interaction estimands. With ∆hmX = m(X,intervened) − m(X,clean) the effect of interventionh on
+prompt X:
+Ipresence = ∆ hmD − ∆hmN , I role = ∆ hmD − ∆hmR.
+N is the token-aligned non-numeric sentence (so the intervened positions exist in both prompts; the no-cue
+prompt cannot serve, since it has no tokens at the quantity’s position);R is the relevant-role twin with the
+same numeral, unit and position at the same z. Ipresence can use any declared metric, sinceD and N share
+a gold. Irole must use a behaviourally comparable outcome, because the two worlds have different certified
+answers: tracking against each world’s own certified answer, or the answer-mode shares, under T3 (or T2 with
+each world’s certified intermediate values); raw gold-string log-odds are never subtracted across worlds. The
+clean effects beside each (m(D) − m(N ), m(D) − m(R)) are always reported. A component withIpresence ̸= 0
+but Irole ≈ 0 is a numeral-cue component; a claim of physical-role routing requiresIrole ̸= 0, holding across
+values and phrasings, with the controls below. A large equal effect on all prompts marks a general answer
+component (the head-11 lesson).Ih elsewhere in this document meansIpresence or Irole as declared.
 Protocol checklist (each item cites the source of the practice):
 1. Noising (necessity) and denoising (suﬀiciency) both, reported separately; they are not complements
 (Heimersheim and Nanda).
@@ -1460,6 +1547,10 @@ al.).
 8. Selectionstabilityunderbootstrapsubsampling; discoveryandtestondisjointstructures(CertifiedCircuits;
 review issue 6).
 9. Matched random components as nulls; family-wise correction over the components tested.
+Working research protocol – not completed results
+
+######## PAGE 25 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 25
 10. Rescue begins within structure, value-matched (under T2 or T3): transfer the candidate state between
 the R and D twins of one structure at the samez, where the principal difference is the role relation;
 cross-structure donors with independent matching are a later, stronger generalisation test. A transfer must
@@ -1470,10 +1561,6 @@ subspace-illusion check (Makelov et al.). A subspace from which role can be deco
 subspace whose interchange changes behaviour as predicted iscausally suﬀicient; only the second supports
 a computation claim. Binding work shows several mechanisms can combine (Gur-Arieh, Geva and Geiger),
 so a single isolated role feature is not assumed.
-Working research protocol – not completed results
-
-######## PAGE 23 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 23
 12. Reasoning models: T1 on a fixed trace, T3 with on-policy resampling (Thought Branches); never a hand-
 edited trace as primary evidence; no conclusion from one sample.
 13. Probes are diagnostic only (Hidden Error Awareness).
@@ -1508,8 +1595,8 @@ Each gate names its deliverable, its passing condition and what happens otherwis
 mitted gate report, never by declaration. Section5.2 maps the October blocks P0–P11 onto these gates.
 Working research protocol – not completed results
 
-######## PAGE 24 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 24
+######## PAGE 26 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 26
 Gate Key deliverable Decision
 G0 integrity closure Scoring, provenance, comparator inventory with
 oracle/deployable tags, claim registry, review-derived
@@ -1588,22 +1675,27 @@ Gate G1. Passes when certificates, mutation tests and analysis tests pass and th
 run before.
 Working research protocol – not completed results
 
-######## PAGE 25 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 25
+######## PAGE 27 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 27
 G2. Measurement and calibration (GPU, small)
 1. Design-validation pilot (8–12 structures, core role-by-value cells, a few samples): are the contrasts
 unambiguous, feasible, correctly certified and correctly graded? Structures are checked by the best available
-reviewer (independent expert if D2 is resolved; otherwise the user’s walkthrough, labelled as such). Defects
+reviewer (the qualified LLM panel once it exists, plus the user’s walkthrough; each labelled as such). Defects
 found here change the generator, never the analysis of later data.
 2. Calibration per candidate model and budget:ksel no-cue samples to select items, thenkest fresh samples
 on the selected items to estimate the baseline and the self-flip floor (never the selection samples: the 14.20
 preliminary contrast had a baseline of 1.000 by construction, J14.19-014); on a subset of the selected items,
 a few samples of the R and D cells at three values in one phrasing and of the non-numeric sentence, so that
-the variance of the actual primary estimands (¯T, λ, Λ) is estimated, not only a no-cue variance; tokens,
-budget exhaustion and format failures.
+the variance of the actual primary estimands (tracking loss, misuse and neglect shares) is estimated, not
+only a no-cue variance; tokens, budget exhaustion and format failures.
 3. R-tracking check. A minimum tracking share on R cells, fixed numerically in G1, is checked here: a
 model or budget below it does not use added relevant quantities reliably enough for any role reading, and
 is changed or dropped at this gate, never after G3.
+4. Primary-model rule, frozen at the end of G2 and before any G3 output: the primary model is the first
+in the prespecified order Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct, Qwen3-8B (if downloaded, D3) that
+meets the G2 criteria (complete structures in band, R-tracking criterion, extended parity in the study dtype
+for G5 instrumentation); the next model that meets them is the second model. The choice never depends
+on observed cue effects.
 Gate G2. Passes when enough complete role-by-value structures (Section 4.3: R and D cells at three values in two
 phrasings) fall in the band to meet the power target of Section 8 (planning: at least 24), the R-tracking check passes,
 and the cost fits Section 9. Otherwise: add harder or easier variants or change the budget, and repeat G2; a model
@@ -1633,30 +1725,34 @@ the G3 role result is reported as uninterpretable for role (itself a finding); i
 same data. A formula hint that does not help is a diagnostic, not a gate.
 G4. Independent behavioural confirmation (GPU, medium)
 New structures in template clusters no earlier run has touched (INTERNAL_CONFIRMATION; shadow
-subset held back), validated under B4 or labelled EXPLORATORY-REPLICATION (D2). Preregistered: the
-role-by-value family with its estimands, decision rules and sample size from the power simulation; primary
-model Qwen2.5-7B-Instruct, second model by fixed sequence; two declared final-answer formats on a random
-half of items, each with its effect estimate and interval, and a stated rule for how much format dependence
-changes the interpretation (planning: the reading changes if the format-specific effects differ by more than a
-factor of two or have opposite signs with both intervals excluding zero). Opened once.
-Gate G4. Passes when the primary family meets its rule on the primary model. If not, the G3 pattern is reported
-as not replicated.
+subset held back), validated by the qualified LLM panel (Section3.7; human B4 review where available)
+or, failing that, labelled EXPLORATORY-REPLICATION. Preregistered: the role-by-value family with its
+estimands, decision rules and sample size from the power simulation; the primary and second models fixed by
+the G2 primary-model rule, the second by fixed sequence; two declared final-answer formats on a random half
+of items, each with its effect estimate and interval, and a stated rule for how much format dependence changes
+the interpretation (planning: the reading changes if the format-specific effects differ by more than a factor of
+two or have opposite signs with both intervals excluding zero). Opened once.
 Working research protocol – not completed results
 
-######## PAGE 26 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 26
+######## PAGE 28 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 28
+Gate G4. Passes when the primary family meets its rule on the primary model. If not, the G3 pattern is reported
+as not replicated.
 G5. Mechanism (GPU)
-Gated on G4 establishing H3 or H4, or H6 (the mechanism of correct selection, when the model selects
-correctly and errors are rare; H6 needs the equivalence tests that only G4’s size can power); under H1/H2 only
-a narrow study of unit or number handling, framed against Liu and Owusu et al. The exploratory mechanism
-pilot of G3 is the only mechanism work before G4. Every experiment declares claim type T1, T2 or T3 and
-follows Section 4.8. Starts on Qwen2.5-7B-Instruct and Llama-3.1-8B-Instruct (both listed as fully verified
-by TransformerLens 3.4; locally, HF-versus-TL parity has passed only on one smoke prompt in float16 with
-parameters on CPU, job 399217, so the G0 extended parity in the study dtype is required first); Qwen3-8B
-with thinking afterwards (if downloaded, D3); Qwen3-32B only for a frozen-function transfer test.
-Gate G5. A computation claim needs T2 or T3 evidence with the interaction estimand, both directions, rescue
-within structure, causal abstraction for any variable claim, and a correct held-out prediction. Otherwise the result is
-reported at the level it reached (Section 4.9).
+Gated on G4 establishing H3 or H4, or H6-RD (the mechanism of correct selection between relevant and struc-
+turally disconnected quantities, when the model selects correctly and errors are rare; it needs the equivalence
+tests that only G4’s size can power). A mechanism-of-correctness claim covers only the strata G4 confirmed:
+H6-extended (C and K as well) needs those strata in G4’s preregistered family; under H1/H2 only a narrow
+study of unit or number handling, framed against Liu and Owusu et al. The exploratory mechanism pilot of
+G3 is the only mechanism work before G4. Every experiment declares claim type T1, T2 or T3 and follows Sec-
+tion 4.8. Starts on the primary and second models fixed by the G2 rule (planning order Qwen2.5-7B-Instruct,
+Llama-3.1-8B-Instruct; both listed as fully verified by TransformerLens 3.4; locally, HF-versus-TL parity has
+passed only on one smoke prompt in float16 with parameters on CPU, job 399217, so the G0 extended parity
+in the study dtype is required first); Qwen3-8B with thinking afterwards (if downloaded, D3); Qwen3-32B only
+for a frozen-function transfer test.
+Gate G5. A role-computation claim needs T2 or T3 evidence with Irole ̸= 0 (not only Ipresence), both directions,
+rescue within structure, causal abstraction for any variable claim, and a correct held-out prediction. Otherwise the
+result is reported at the level it reached (Section 4.9).
 G6. External and functional confirmation
 Independently sourced physics problems (EPC; adaptations of PHYSICS, UGPhysics or PRISM-Physics where
 feasible, each re-certified and re-validated as a new item); non-physics transfer (GSM-DC or GSM-Symbolic
@@ -1677,14 +1773,14 @@ R/D/C/K, the role-by-value design and the outcomes O1–O6 wherever the requirem
 Three rules of the October dependency paragraph stay in force. (1) Each gate is about correctness, not
 dates; the plan is not calendar-driven. (2) A claim ledger is updated continuously (P11) but final claims are
 frozen only when the branches they need have closed. (3) Mechanism work does not start before trustworthy
-partitions and a frozen behavioural contrast exist; in the revised plan that means after G4, for H3, H4 or H6
-(Section 5.1). The October allowance for “exploratory H11 checks” is replaced by a narrower one: a small
-exploratory mechanistic pilot may run during G3, marked exploratory and never confirmatory, and no claim
-may rest on it.
+partitions and a frozen behavioural contrast exist; in the revised plan that means after G4, for H3, H4 or
+H6-RD (Section5.1). The October allowance for “exploratory H11 checks” is replaced by a narrower one: a
+small exploratory mechanistic pilot may run during G3, marked exploratory and never confirmatory, and no
+claim may rest on it.
 Working research protocol – not completed results
 
-######## PAGE 27 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 27
+######## PAGE 29 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 29
 Block October title (short) Gate(s) Disposition at this revision
 P0 Evidence reproduction,
 provenance, code audit
@@ -1760,8 +1856,8 @@ P0.4 Leakage and cohort-selection code inspection (rules carried forward).
 The Phase-I code audit belongs to the side track. Its rules apply to all new work: scalers, features,
 Working research protocol – not completed results
 
-######## PAGE 28 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 28
+######## PAGE 30 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 30
 hyperparameters, thresholds, layers, calibrators, stacking and residualisation inside the nested training loop;
 no candidate selected on future confirmation data; no model-generated parse used as an inclusion filter; no
 structurally related template across a split; one observation traced by hand by a second investigator before
@@ -1820,8 +1916,8 @@ P1.8 Selective prediction.
 Open, optional: confidence bins for final-answer correctness, ECE/Brier with cluster intervals, stable versus
 Working research protocol – not completed results
 
-######## PAGE 29 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 29
+######## PAGE 31 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 31
 unstable structures at matched diﬀiculty.
 Gate P1 (October), resolved. The October branches have been taken: the legacy Slp is not called a shortcut
 construct; Cue C is separated as the convertible-unit (invariance/equivariance) family; and the thesis moved from
@@ -1880,8 +1976,8 @@ Dimension conversions, significant-figure conventions, sign and frame convention
 nominators and degenerate limits are checked; any tacit real-world assumption gets a stated-assumption
 Working research protocol – not completed results
 
-######## PAGE 30 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 30
+######## PAGE 32 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 32
 audit and may exclude the structure from the core.
 Gate P2. Admission requires a verifier pass, an independent human semantic pass, no open leakage collision and a
 declared structural parent or cluster; a structure contributes to the primary contrast only if it is complete: R and D
@@ -1901,11 +1997,12 @@ is no confirmation structure related to anything used in discovery? A positive m
 requirements. Kept in full; mapped to G1 (rules and mutation tests frozen), G2 (parser audit on the new
 contract) and G4 (validation of confirmation structures, cohort freeze).
 P3.1 Personnel and blinding.
-Two independent physics-qualified validators per confirmatory structure and a third adjudicator, calibrated
-on easy, adversarial and ambiguous cases, blind to model outputs, scores and the hypothesis. Each prop-
-erty asked separately: equation correctness, suﬀicient assumptions, the role certificate of each quantity
-(Section 4.2), answer invariance or certified response, naturalness, missing interactions, units, rounding,
-and whether paired renderings differ only as intended. Confidence and reasons are recorded.
+Two independent physics-qualified validators per confirmatory structure and a third adjudicator (interim:
+the qualified LLM panel of Section3.7, under the same blinding), calibrated on easy, adversarial and am-
+biguous cases, blind to model outputs, scores and the hypothesis. Each property asked separately: equation
+correctness, suﬀicient assumptions, the role certificate of each quantity (Section4.2), answer invariance or
+certified response, naturalness, missing interactions, units, rounding, and whether paired renderings differ
+only as intended. Confidence and reasons are recorded.
 P3.2 Disagreement.
 Predefined exclusion and adjudication rules; raw agreement, Cohen’sκ and a prevalence-aware alterna-
 tive under imbalance, structure-level bootstrap intervals, domain failure rates and adjudication edits and
@@ -1938,24 +2035,26 @@ Always required: a report of overlap between v1 and v2 structures and every new 
 P3.7 Cohort freeze.
 Discovery, internal confirmation, EPC confirmation, adversarial challenge, the human-written source set and
 the shadow set are manifested, and every structure and variant gets an immutable split before any outcome
-is seen; a removed structure keeps a tombstone with its reason; intent-to-evaluate is reported beside eligible
 Working research protocol – not completed results
 
-######## PAGE 31 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 31
+######## PAGE 33 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 33
+is seen; a removed structure keeps a tombstone with its reason; intent-to-evaluate is reported beside eligible
 results. A structure never moves from EXPLORATION into a confirmation role.
 Gate P3. No confirmatory behavioural, hidden-state or causal generalisation claim until each confirmatory structure’s
 natural language has passed independent validation and its leakage risk is audited. If the certificate proves the
 equations but validators reject a sizeable share of the prompts’ semantics, revise the benchmark and restart the
-affected measurements; this is not a statistical nuisance covariate. Without an independent reviewer (open decision
-D2), G4 runs as EXPLORATORY-REPLICATION and no text may call it confirmatory.
+affected measurements; this is not a statistical nuisance covariate. Until human review exists, independent validation
+for G4 is provided by the qualified LLM panel of Section 3.7, disclosed as such; without a qualified panel, G4 runs as
+EXPLORATORY-REPLICATION and no text may call it confirmatory.
 Status (11 Nov 2026): validator-qualification materials and a 33-item planted-defect bank exist (Stage 14.5),
 reviewed by the user as one non-blinded reviewer; no validator is qualified, and agent verification replaced the
 physicist review by the user’s decision of 26 October 2026 (the reviewers’ authorship and validation objection
 applies to these items). Structure-overlap clusters rebuilt (Stage 14.4: 34 clusters from 147 family edges;
 human review of the 2,352 rendering pairs not attempted). Parser evidence: LaTeX-wrapped final lines made
 5 of 78 Stage A records unparseable (J14.19-009); the LaTeX final-line parse enters the next contract version
-prospectively, never applied to old records. D2 is open.
+prospectively, never applied to old records. Validation for G4: the qualified LLM panel (Section3.7); the panel
+models are open decision D2.
 5.2.5 P4. Definitive behavioural discrimination and power planning
 Question. Which of H0–H6 (Section4.7) describes the model’s behaviour on certified role-by-value structures,
 and with what precision? P4 is now the scientific centre of the plan: its exploratory half is G3 and its
@@ -1993,17 +2092,17 @@ P4.7 Core negative tests (kept, restated).
 If the departure is reproduced by an irrelevant bibliographic numeral, is unchanged by unit incompatibility,
 does not differ between role twins, vanishes under equivalent output formats, or tracks only token overlap,
 the evidence counts against H3 and for H1 or H2 in the scorecard (hypotheses are not exclusive, Section5.1);
-H6 is supported only when invariance in D, C and K and correct response in R are shown by equivalence
-tests. These are results, not failures to hide; a certified null is reported with its power.
+H6-RD is supported only when F1–F3 (D and R) are each shown equivalent to zero; H6-extended adds C
+and K. These are results, not failures to hide; a certified null is reported with its power.
+Working research protocol – not completed results
+
+######## PAGE 34 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 34
 Gate P4 (now G3 then G4). Mechanism work proceeds only after the role-by-value family has passed G4
 (Section 5.1); the contrast fixes the claim type and metric of Section 4.8, and the legacy normalised recovery is never
 reused. If the only effect is format-sensitive confidence drift or cost (H5), report it as such. If strata or conditions
 behave differently, choose one primary contrast for mechanism and treat the others as explicit scope tests. A cell with
 zero evaluable records is NOT_EVALUATED, never a zero effect.
-Working research protocol – not completed results
-
-######## PAGE 32 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 32
 Status (11 Nov 2026): G3 and G4 not started; G1 (construct freeze) comes first. The Stage 14 pilots
 predate the role-by-value design and contain no matched role twins. The Stage 14.20 cue cells on 32 Qwen3-
 32B candidate anchors (job 435605, one sample per cell) gave 2 wrong and 17 not evaluated of 128 cells; the
@@ -2053,15 +2152,15 @@ tag and its propagation to the Wave 2 record and the claim ledger are G0 items.
 5.2.7 P6. Re-localise the phenomenon under valid causal metrics and selection rules
 Question (revised). Which components, if any, have an effect on the role-by-value contrast that passed G4
 — an interactionIh ̸= 0 under the declared claim type (T1, T2 or T3; Section4.8) — rather than a general
+Working research protocol – not completed results
+
+######## PAGE 35 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 35
 effect on the answer?
 Retired as stated: the H11 lesion (card X07). The October question asked whether Qwen layer-16
 head 11 is a causal component. The Phase-I evidence does not support starting there: the four-head L16
 knockout inverted the signed drop (normalised recovery above one) in 17 of 20 families, mean recovery 1.87,
 and removing head 11 alone raised the certified answer’s first-token logit by 3.76 on base and 3.77 on sensitive
-Working research protocol – not completed results
-
-######## PAGE 33 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 33
 renderings, in 20 of 20 families each[SUBMITTED], verified from the released files. An effect equal on both
 prompts marks a general answer component. Components are found anew under the interaction estimand; the
 legacy L16 sites, and the Llama L21 H2 candidate, have no privileged status.
@@ -2072,11 +2171,11 @@ stratified by correctness and by O3 status. Where alignment is impossible, only 
 positions are patched, with position controls. Selection on a discovery split; tests on disjoint held-out
 structures.
 P6.2 F rozen response variable.
-The metric of the declared claim type (Section4.8): T1 the log-odds of the trace’s final value against a
-prespecified misuse value, between prompts that share a gold, each candidate’s logit shown; T2 the certified
-intermediate against the prespecified misuse value; T3 O1, O2 and O4 over on-policy resampled traces.
-Original score, intervened score and absolute difference are always reported, forS and forB, with the clean
-cue effect besideIh; never a normalised recovery and never a ratio over near-zero denominators.
+The metric of the declared claim type (Section4.8): T1 logp(y∗(z)) −log p(fh(z)) on the declared prefix,
+between prompts that share a gold, each candidate’s logit shown; T2 the certified intermediate against the
+prespecified misuse value; T3 O1, O2 and O4 over on-policy resampled traces. Original score, intervened
+score and absolute difference are always reported, forD, N and (under T2/T3) R, with the clean effects
+beside Ipresence and Irole; never a normalised recovery and never a ratio over near-zero denominators.
 P6.3 A new experiment, not a reproduction.
 Candidates come from a discovery screen on EXPLORATION structures, with flanking layers, norm- and
 entropy-matched heads and random sites as controls; per-structure before/after values reported.
@@ -2105,23 +2204,23 @@ sweep on exploratory data, never repeated scans of confirmation structures. Reas
 T1/T3 split of Section 4.8. October’s DeepSeek requirement (confirm the prompt boundary, reasoning
 trace and final-answer scoring, and match denominators, before concluding that a reasoning model lacks a
 pathway) applies to any reasoning model studied; DeepSeek-R1-Distill itself is not planned (AppendixC).
-Gate P6 (part of G5). A component advances to P7 only if Ih ̸= 0 under T2 or T3 with the controls of Section 4.8,
-robust across ablation semantics, on held-out structures. An effect equal on S and B marks a general answer
-component and is reported as such. An effect shown only under T1 supports a readout claim, not a role-computation
-claim. An effect on log-odds but not on O1, O2 or O4 is a cause of answer-competition change, not of success or
-failure in physics.
+Gate P6 (part of G5). A component advances to P7 as a role component only if Irole ̸= 0 under T2 or T3 with
+the controls of Section 4.8, robust across ablation semantics, on held-out structures; with Ipresence ̸= 0 alone it is a
+numeral-cue component. An effect equal on D, N and R marks a general answer component and is reported as such.
+An effect shown only under T1 supports a readout claim, not a role-computation claim. An effect on log-odds but
+not on O1, O2 or O4 is a cause of answer-competition change, not of success or failure in physics.
 Status (11 Nov 2026): not started; gated on G4. No activations exist for the v2 items. Parity for the two
 7–8B models is in hand (P0); extended parity is not.
+Working research protocol – not completed results
+
+######## PAGE 36 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 36
 5.2.8 P7. Identify what the causal components compute
 Question. What function connects the quantity’s tokens to the model’s dependence, or independence, of its
 answer on that quantity? Localisation without function is not a mechanism claim.
 P7.1 Anatomy of each surviving component.
 (Was: head 11 at L16.) For every relevant position (inputs, the quantity’s value and unit, the role phrasing,
 the question, the last prompt position, answer positions): attention logits and patterns, output norm, OV
-Working research protocol – not completed results
-
-######## PAGE 34 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 34
 contribution and direct attribution across the role-by-value pairs. Attention maps are not causal evidence;
 attention probabilities and value vectors are patched separately.
 P7.2 Candidate functions tested head-to-head (kept), mapped to the revised hypotheses. •
@@ -2170,6 +2269,10 @@ and measurement result). No activation feature is called “physics-relevance”
 related.
 Status (11 Nov 2026): not started; gated on P6. Under H1 or H2 after G3, only the optional unit-matching
 study is in scope, framed against the closest prior accounts (Section4.1).
+Working research protocol – not completed results
+
+######## PAGE 37 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 37
 5.2.9 P8. Recover and validate upstream and downstream computation, not one head
 Question. Which source-to-mediator-to-sink path carries the role information, and does an explicit high-level
 algorithm agree with the network under interchange? Kept; gated on G4 and on P6/P7.
@@ -2179,10 +2282,6 @@ instruction. Sinks: mediators that passed P6/P7 and the metric of the declared c
 R/D twins at the samez (primary) and two values within a role; proximity contrasts as moderators.
 P8.2 T wo discovery procedures.
 Attribution patching (with integrated-gradient refinement where it saturates) as a ranking screen, plus
-Working research protocol – not completed results
-
-######## PAGE 35 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 35
 targeted activation patching; optional mask optimisation. Every reported component is confirmed by exact
 patching.
 P8.3 Path patching.
@@ -2229,6 +2328,10 @@ P9.1 Cross-architecture confirmation.
 Freeze the function, not the head index. Fresh discovery samples localise functional analogues in the second
 architecture; the hypothesis is evaluated on untouched clusters with the same claim type and metric. A
 functional analogue in a different head is replication; a failed matched-layer knockout is not a complete null.
+Working research protocol – not completed results
+
+######## PAGE 38 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 38
 P9.2 Scaling ladder.
 Conditional on compute, small to large within one family; behaviour across scale before expensive causal
 cases; only models with parity-tested hooks and answer scoring. In this plan Qwen3-32B enters only for a
@@ -2240,10 +2343,6 @@ P9.4 F amiliar-to-novel-law transfer.
 Valid symbolic worlds or dimensionally coherent toy laws with explicit rules and diﬀiculty matched by
 solver-assistedpilots; togetherwiththenon-physicsdependencycontrol(Section 4.4)thisseparatesageneral
 numeric or dependency phenomenon from one that needs physical semantics.
-Working research protocol – not completed results
-
-######## PAGE 36 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 36
 P9.5 Source and language transfer.
 Human-written problems, new formats, terse equations, narratives and validated bilingual renderings;
 English-only results do not imply cross-lingual generality.
@@ -2290,6 +2389,10 @@ transfer.
 P10.7 Causal linkage.
 Targeted edit against equal-norm random, nearby-layer, alternative-component and prompt-only baselines
 and no edit; a repair that works without the mechanism explaining why is an empirical intervention, not a
+Working research protocol – not completed results
+
+######## PAGE 39 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 39
 causal account.
 Gate P10 (G7). A positive result needs held-out paired improvement in a practically meaningful outcome (prefer-
 ably O1, O2 or O4), statistically resolved harm bounds, and an advantage or distinctive trade-off against the non-
@@ -2297,10 +2400,6 @@ mechanistic ladder. If cue removal or the relevance instruction works better wit
 called operationally superior; it may still be a mechanistic test.
 Status (11 Nov 2026): not started. A Phase-I reviewer asked for exactly this downstream use; the first
 rung (relevance instruction) is measured in G3 at no extra cost.
-Working research protocol – not completed results
-
-######## PAGE 37 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 37
 5.2.12 P11. Confirmatory closure, adversarial review and claim freeze
 Question. Can an independent reader reproduce the primary result and state the causal account and the
 best attempt to falsify it? Kept; it closes every gate and owns the external confirmation of G6.
@@ -2331,8 +2430,8 @@ mark framing; a mitigation result a robustness framing. The narratives are not k
 the evidence forms one non-inflated chain.
 Gate P11. No submission until an independent reader can reproduce the primary figures and state, in one paragraph,
 the causal explanation and the best attempt to falsify it. Disconfirming evidence enters the headline scope, not future
-work. Without an independent reviewer, results stay exploratory and any manuscript says so, disclosing agent
-authorship and agent verification.
+work. Each claim states its validation tier (LLM panel or human expert); without either, results stay exploratory;
+any manuscript discloses agent authorship and LLM validation.
 Status (11 Nov 2026): the Phase-I paper was withdrawn on 11 November 2026; its reviews and a verification
 of the reviewers’ claims are recorded, and no Phase-I claim survives as stated. The claim ledger exists. The
 EPC external cohort is not built (October B5, demoted to G6). No venue is chosen.
@@ -2347,6 +2446,10 @@ value branches are stopped early. A negative result removes the branch’s suppo
 Columns. ID carries the October tier under the identifier: R = required on the critical path, C = conditional
 on earlier evidence, X = exploratory or high-upside.Contrast is a condensed but faithful restatement of the
 October item (what is manipulated and what is read out).Gate is the gate at which the contrast would run
+Working research protocol – not completed results
+
+######## PAGE 40 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 40
 (G0 integrity closure, G1 physics construct, G2 measurement and calibration, G3 behavioural discovery, G4
 independent behavioural confirmation, G5 mechanism, G6 external and functional confirmation, G7 optional
 practical use). Status is one of:
@@ -2356,10 +2459,6 @@ role EXPLORATION), never confirmation; “in part” says which part was not run
 • REVISED — kept, but its target, outcome or object is changed by the revised core (Section4); the
 replacement is stated;
 • RETIRED — not run as specified; the reason is stated;
-Working research protocol – not completed results
-
-######## PAGE 38 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 38
 • SUPERSEDED by a named core element that answers the same question more directly.
 Every item that rests on the retired legacy label (Slp, base 0, 0.5 nats; retired for v2 analyses in J14.2-011) or
 on normalised recovery is marked REVISED (with its replacement outcome among O1–O6) or RETIRED. A
@@ -2448,7 +2547,13 @@ SUPERSEDED by the role-by-value
 design (Section 4.3): R vs D (and C,
 K) cells at ≥ 3 values in ≥ 2 validated
 phrasings, one without marker words;
-O4 ( ¯T , λ, Λ).
+O4 (tracking loss, misuse and neglect
+shares; λ, Λ descriptive).
+Working research protocol – not completed results
+
+######## PAGE 41 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 41
+ID Contrast (manipulated / read out) Gate Status
 A09
 R
 Cue irrelevant to the original target but relevant
@@ -2470,11 +2575,6 @@ G3 OPEN. Kept as cue position
 (before/after the relevant inputs,
 Section 4.4); position was fixed in all
 Stage 14 cells (J14.6-006).
-Working research protocol – not completed results
-
-######## PAGE 39 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 39
-ID Contrast (manipulated / read out) Gate Status
 A11
 R
 One vs two vs three distractor appearances, total
@@ -2570,6 +2670,11 @@ J14.6-005); human (planted bank
 reviewed by the user, J14.5-010;
 physicist confirmation open). Central
 to K-stratum regime predicates.
+Working research protocol – not completed results
+
+######## PAGE 42 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 42
+ID Contrast (manipulated / read out) Gate Status
 B04
 R
 Same target with a dimensionally incorrect unit;
@@ -2590,18 +2695,14 @@ probe is NOT_EVALUATED (no
 activations), a G7 item. New
 structures: program-hash overlap
 checks (J14.6-002; J14.19-002).
-Working research protocol – not completed results
-
-######## PAGE 40 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 40
-ID Contrast (manipulated / read out) Gate Status
 B06
 R
 Dual expert human validation blinded to
 generated outputs vs single expert or agent audit;
 disagreement and exclusions.
-G1, G4 OPEN. Required for G4 to be
-confirmatory; Stage 14 items are
+G1, G4 OPEN. Human tier; for G4 the
+interim tier is the qualified LLM panel
+(Section 3.7); Stage 14 items are
 agent-verified and UNREVIEWED
 (J14.19-002).
 B07
@@ -2684,6 +2785,11 @@ Stored-value part done (J14.2-006).
 Teacher-forced single-string scores are
 diagnostics only; replaced by O1, O2
 and O4.
+Working research protocol – not completed results
+
+######## PAGE 43 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 43
+ID Contrast (manipulated / read out) Gate Status
 C03
 R
 Raw summed log-probability vs per-token average,
@@ -2706,11 +2812,6 @@ G4: two declared final-answer formats,
 each with its estimate and interval,
 and the format-dependence rule of
 Section 5.1.
-Working research protocol – not completed results
-
-######## PAGE 41 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 41
-ID Contrast (manipulated / read out) Gate Status
 C05
 R
 Chat template, prefix, assistant headers and exact
@@ -2814,6 +2915,11 @@ G2 DONE-EXPLORA TOR Yin part
 run-to-run identity; J14.17-006).
 Batching untested; needed for the
 batched sampling contract.
+Working research protocol – not completed results
+
+######## PAGE 44 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 44
+ID Contrast (manipulated / read out) Gate Status
 C16
 C
 Different no-cue anchors matched for length/style;
@@ -2841,10 +2947,6 @@ G5 REVISED: diagnostic inside O6 only;
 candidate sets fixed by prespecified
 misuse hypotheses, never by the
 model’s scores.
-Working research protocol – not completed results
-
-######## PAGE 42 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 42
 6.4 D. Monitoring, statistical selectivity and model comparison (D01–D16)
 All sixteen D contrasts were written for a monitor of the legacy sensitivity label. That label is retired (J14.2-
 011) and monitoring is a side track (G7). Each D contrast therefore survives only asREVISED: its target is
@@ -2943,6 +3045,11 @@ thinking-mode comparison of
 behavioural endpoints on one common
 item set (Section 4.6); further families
 in G6.
+Working research protocol – not completed results
+
+######## PAGE 45 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 45
+ID Contrast (manipulated / read out) Gate Status
 D13
 C
 Prompt-site cue-token vs last-prompt vs
@@ -2974,17 +3081,13 @@ repeated paraphrases.
 G7 REVISED: O1/O4 target on
 role-by-value cells, comparators tagged
 oracle or deployable; G7.
-Working research protocol – not completed results
-
-######## PAGE 43 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 43
 6.5 E. Direct causal localisation, intervention semantics and specificity (E01–
 E18)
 The October E and F groups were written around the Phase-I layer-16 head 11 (H11) and its four-head set,
 which were selected on the panel they were tested on and read through normalised recovery ofSlp. In the
-revision every E and F contrast runs at G5, after G4 establishes H3, H4 or H6, on components found anew.
-Each declares its claim type (T1/T2/T3) and reports the interaction estimandIh with the clean cue effect
-beside it (Section4.8).
+revision every E and F contrast runs at G5, after G4 establishes H3, H4 or H6-RD, on components found
+anew. Each declares its claim type (T1/T2/T3) and reports the interaction estimandIh with the clean cue
+effect beside it (Section4.8).
 ID Contrast (manipulated / read out) Gate Status
 E01
 R
@@ -3068,9 +3171,13 @@ R
 Edit the irrelevant cue vs a relevant numeric input
 that changes y∗; does the lesion destroy legitimate
 computation.
-G5 SUPERSEDED by Ih with the R
-twin at the same z as control prompt
-(Section 4.8).
+G5 SUPERSEDED by Irole with the R
+twin at the same z (Section 4.8).
+Working research protocol – not completed results
+
+######## PAGE 46 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 46
+ID Contrast (manipulated / read out) Gate Status
 E12
 R
 Original 20 high- S families vs new unbiased and
@@ -3107,11 +3214,6 @@ physical role, source output and tokenizer
 position.
 G5, G6 OPEN: the later cross-structure
 generalisation test of checklist item 10.
-Working research protocol – not completed results
-
-######## PAGE 44 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 44
-ID Contrast (manipulated / read out) Gate Status
 E17
 C
 Causal ablations during teacher-forced
@@ -3198,6 +3300,11 @@ Held-out-law prediction of effect direction from
 the discovered function; no refitting.
 G5, G6 OPEN (checklist item 14, extended to
 size and the second model).
+Working research protocol – not completed results
+
+######## PAGE 47 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 47
+ID Contrast (manipulated / read out) Gate Status
 F11
 C
 Functionally aligned candidate pathway in a
@@ -3227,11 +3334,6 @@ Mechanism-guided patch or head gate vs plain cue
 removal and prompt editing; accuracy and
 compute matched.
 G7 OPEN (card X11).
-Working research protocol – not completed results
-
-######## PAGE 45 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 45
-ID Contrast (manipulated / read out) Gate Status
 F16
 C
 Mechanism-guided training vs random distractor
@@ -3284,6 +3386,10 @@ such as “unrelated” or “separate”); effects must agree across phrasings.
 (UNIQUE_MATCH, MULTI_MATCH, NO_MATCH). Frozen with the item at G1; read at G3/G4.
 4. F ormula hintas a positive diagnostic (expected to help or to do nothing; never a gate). G3; also a G0
 review-derived addition.
+Working research protocol – not completed results
+
+######## PAGE 48 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 48
 5. Relevance instruction (“identify and ignore irrelevant information”), with and without a cue: G3; also
 the cheapest mitigation baseline at G7.
 6. Non-physics dependency control (GSM-DC-style problems with the same role manipulation), to tell
@@ -3296,12 +3402,8 @@ G2 on.
 relative error ≤ 1% with dimension-checked conversion). Frozen at G1; audit at G2.
 9. Thinking on versus off and reasoning budget within the same weights (secondary question, H5 cost
 via O5). G2 calibration, G3 discovery.
-10. Interaction estimand Ih on every intervention, with the clean cue effect beside it and the R twin as
-a second control prompt. G5.
-Working research protocol – not completed results
-
-######## PAGE 46 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 46
+10. T wo interaction estimands on every intervention : Ipresence against the non-numeric sentence and
+Irole against the R twin, with the clean effects beside them. G5.
 7 Twelve decisive experiment cards
 The October edition specified twelve cards in priority order, as minimal specifications for an engineer or
 research agent. Each has a purpose, a primary outcome, the competing comparators, a no-go response and
@@ -3349,6 +3451,10 @@ model/tokenizer checksums, of labels, panels, out-of-fold probe scores, bootstra
 effects; validation of 10+ hand-selected families directly against model forward passes.
 Primary outcome. Equality to the reported panel denominators, checksums and endpoint values within a
 declared numerical precision.
+Working research protocol – not completed results
+
+######## PAGE 49 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 49
 Comparators and controls. Independent implementation; data and label lineage; no circular calculations
 from summary tables.
 No-go response. Block every dependent experiment; localise the fault and rerun upstream.
@@ -3364,10 +3470,6 @@ Revision. Full regeneration of Phase-I values is off the critical path, because 
 new claim rests on its numbers. G0 keeps the extended parity check, plus a forward-pass spot check of 10
 legacy families if a Phase-I number is ever cited again. Full regeneration is a side track if the user keeps it
 (decision D1). If the parity check fails for a model or backend, no mechanism work runs on it.
-Working research protocol – not completed results
-
-######## PAGE 47 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 47
 7.2 Card X02 — Base-variant invariance challenge
 Purpose. Usingallstoredfour-valuelog-probabilityarraysandnonewGPUwork, rotatethebaselinethrough
 all four renderings. Compare the legacy classification with the base-free range and with a no-cue anchor in
@@ -3408,6 +3510,10 @@ O6 scoring. Format robustness of the behavioural endpoints moves into G4: the fi
 in two declared formats on a random half of the items, each with its estimate and interval, under the
 format-dependence rule of Section5.1. Format failures are O3 categories (FORMAT_INVALID, UNPARSEABLE),
 never WRONG.
+Working research protocol – not completed results
+
+######## PAGE 50 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 50
 7.4 Card X04 — Physics-semantic factorial (becomes the role-by-value factorial)
 Purpose. Novel certified structures in2 × 2 × 2× position blocks: physical relevance × unit compatibility
 × digit overlap, with proximity manipulated independently where possible. Randomised cells blocked by
@@ -3422,23 +3528,20 @@ template clusters).
 Status. OPEN. The Stage 14 records contain no matched relevant-role control (J14.12-002); the Stage 14
 cue cells are not this factorial.
 Revision. Becomes the role-by-value factorial of Section4.3:
-Working research protocol – not completed results
-
-######## PAGE 48 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 48
 • Design. Role r ∈ {R, D, C, K} where feasible, crossed with valuez (m ≥ 3; m ≥ 5 with held-out values
 for the curve) and with≥ 2 validated phrasings per role relation, at least one without marker words.
 Unit compatibility, the three proximity levels, digit overlap and position become supporting conditions,
 as do the formula hint, the relevance instruction and the non-physics dependency control (Section4.4).
 A structure enters the primary contrast only with R and D cells at three values in two phrasings.
-• Primary outcome. O4: tracking ¯T, the normalised response fractionsλR, λD and the role-discrimination
-index Λ, with misuse-curve tracking and all matches kept. O1–O3 and O5 are always reported. Strata
-are never pooled.
+• Primary outcome. O4: the G4 family F1 (D tracking loss with misuse attribution), F2 (R neglect share)
+and F3 (role× value interaction on tracking), with all matches kept;λ and Λ are descriptive. O1–O3
+and O5 are always reported. Strata are never pooled.
 • No-go, restated in the hypotheses of Section 4.7. Hypotheses are scored, not exclusive. Copy tracking
-in every role supports H1. Departures confined to same-unit plausible values support H2. H6 (cor-
-rect selection) needs invariance in D, C and K and a correct R response shown by equivalence tests.
-Relevance-selection language (H3) is used only ifλD > 0 follows a substitution or add-term misuse curve
-(or, for C and K, a wrong-law curve).
+in every role supports H1. Departures confined to same-unit plausible values support H2. H6-RD
+(correct selection between R and D) needs F1, F2 and F3 each shown equivalent to zero (Section8);
+H6-extended adds the same for C and K. Relevance-selection language (H3) is used only if a D tracking
+loss is attributed to a prespecified misuse curve (substitute, add or subtract, in its predicted direction;
+for C and K a wrong-law curve) across values.
 • Selection. G4 confirms the role-by-value family fixed in advance; the G3 scorecard may add at most one
 secondary family (Section5.1).
 7.5 Card X05 — Structural leakage and real OOD monitoring
@@ -3466,6 +3569,10 @@ on two dense models. The output format is locked; reference-free and free-genera
 Primary outcome. Interval for the cue-specific effect and the model interaction, tested before any mecha-
 nistic selection.
 Comparators. No-cue and matched control conditions; the second model.
+Working research protocol – not completed results
+
+######## PAGE 51 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 51
 No-go response. If there is no effect, narrow the main thesis to the historic panel and investigate the
 distribution mismatch rather than cherry-picking rare positives.
 Artifact. Blind external results and a null-inclusive effect distribution.
@@ -3473,15 +3580,12 @@ Gate. G4 (internal part) and G6 (external part).
 Status. OPEN.
 Revision. The internal part is folded into G4. The role-by-value family is preregistered with its estimands,
 decision rule and simulation-based sample size, on new template clusters no earlier run has touched (IN-
-TERNAL_CONFIRMATION). Qwen2.5-7B-Instruct is primary; Llama-3.1-8B-Instruct is tested only if
-the primary passes (fixed sequence). Two final-answer formats are used, and the cohort is opened once.
-Without independent review (B06) the run is labelled EXPLORATORY-REPLICATION. The external
-part (independently authored items, e.g. adapted from EPC sources, each with its own certificate) stays in
-G6. The endpoint is O4 with O1–O3, not a reference-free likelihood.
-Working research protocol – not completed results
-
-######## PAGE 49 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 49
+TERNAL_CONFIRMATION). The primary and second models are those fixed by the G2 primary-model
+rule (planning order Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct); the second is tested only if the pri-
+mary passes (fixed sequence). Two final-answer formats are used, and the cohort is opened once. Items
+are validated by the qualified LLM panel (Section3.7); without it the run is labelled EXPLORATORY-
+REPLICATION. The external part (independently authored items, e.g. adapted from EPC sources, each
+with its own certificate) stays in G6. The endpoint is O4 with O1–O3, not a reference-free likelihood.
 7.7 Card X07 — H11 lesion/patch specificity (retired as stated)
 Purpose. On an untouched Cue-B panel including near and far cues plus role-reversal positive controls: H11
 zero, mean, clean/corrupt donor and norm-matched controls, recording all logits and free outputs.
@@ -3503,13 +3607,14 @@ behaves as a general answer component, not as cue processing.
 The record points the way the card’s no-go anticipated. It is not a fresh test, because the panel was not
 untouched. The retirement rests on construct grounds: a single-head target chosen on its own test panel
 and read through a ratio of a retired label.
-Revision (replacement). Components are found anew at G5, after G4 establishes H3, H4 or H6, on un-
-touched structures and under the interaction estimandIh of Section4.8. Each experiment declares its claim
-type (T1/T2/T3) and reports the clean cue effect besideIh. Noising and denoising are reported separately.
-Resample/interchange ablation is primary. Matched random components serve as nulls. The sign and size
-on held-out structures are committed before the test. H11 has no special status. Two parts of X07 survive:
-the role-reversal and relevant-edit positive controls become the R-twin control prompt ofIh, and “record
-all logits and free outputs” becomes O6 with each candidate shown plus T3 on-policy outcomes.
+Revision (replacement). Components are found anew at G5, after G4 establishes H3, H4 or H6-RD, on
+untouched structures and under the interaction estimandIh of Section4.8. Each experiment declares its
+claim type (T1/T2/T3) and reports the clean cue effect besideIh. Noising and denoising are reported
+separately. Resample/interchange ablation is primary. Matched random components serve as nulls. The
+sign and size on held-out structures are committed before the test. H11 has no special status. Two parts
+of X07 survive: the role-reversal and relevant-edit positive controls become the R-twin control prompt of
+Irole, and “record all logits and free outputs” becomes O6 with each candidate shown plus T3 on-policy
+outcomes.
 7.8 Card X08 — Mechanistic function discrimination
 Purpose. Held-out factorial cells of numeric proximity, digits, units, isolation, target and placement.
 QK/V/OV patching at source tokens with a fixed H11 receiver; preregistered opposite-sign predictions of
@@ -3523,6 +3628,10 @@ Artifact. Function-by-test prediction scorecard.
 Gate. G5.
 Status. OPEN; kept, gated on G4.
 Revision. • The function hypotheses map onto Section4.7: F-copy onto H1, F-match and F-unit onto H2,
+Working research protocol – not completed results
+
+######## PAGE 52 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 52
 F-role onto H3.
 • The receiver is a component found anew (X07 replacement), not H11. Cells are role-by-value minimal
 pairs that change only the role relation or only the value, token-aligned.
@@ -3537,10 +3646,6 @@ Source-to-H11-to-downstream edits, knockout and rescue; a faithfulness–sparsit
 ablation baselines.
 Primary outcome. Significant selective mediated recovery and causal-abstraction agreement, against ran-
 dom and shortcut circuits.
-Working research protocol – not completed results
-
-######## PAGE 50 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 50
 Comparators. Random circuits; alternative ablation baselines.
 No-go response. If the source path cannot be validated, the local effect remains real at best, but the circuit
 claim is removed.
@@ -3580,6 +3685,10 @@ No-go response. If a simpler filter wins, frame the neural intervention as a cau
 able superiority.
 Artifact. Attack/repair matrix with generated-output examples.
 Gate. G7.
+Working research protocol – not completed results
+
+######## PAGE 53 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 53
 Status. OPEN; kept, gated on G4 (and on G5 for a mechanism-guided edit).
 Revision. The comparators add the cheap ladder: the relevance instruction, self-consistency and a longer
 reasoning budget. The primary outcome is O1 (with O2). Harm is measured on R cells as O4, since an
@@ -3593,10 +3702,6 @@ final cohort.
 Primary outcome. A precisely scoped CL1–CL6 claim matrix (Section4.9) with raw reproducible artifacts
 and uncertainty.
 Comparators. Each claim’s predeclared falsifier.
-Working research protocol – not completed results
-
-######## PAGE 51 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 51
 No-go response. If the claims fail, contract them transparently or keep the result as a later experiment;
 never tune on the external test and call it confirmation.
 Artifact. Frozen manuscript evidence matrix and reproducibility bundle.
@@ -3607,8 +3712,8 @@ adapted items, each with its own certificate.
 • The review-derived checks are added: a mechanical claim-wording check against the claim registry, a
 provenance-consistency check (authorship and validation fields against the text), and the forbidden-
 phrase check.
-• Agent authorship and agent verification are disclosed. Without an independent reviewer, results stay
-exploratory.
+• Agent authorship and the validation tier (LLM panel or human expert) are disclosed. Without either,
+results stay exploratory.
 8 Statistical design: standards for inference, not decoration
 8.1 Independent unit, estimands and non-independence
 The independent unit for a primary claim is the independently authored symbolic structure or template clus-
@@ -3618,12 +3723,15 @@ cation. For generalisation to new laws or domains, the law or domain cluster is 
 population is declared fixed and inference conditional on it; with only a few domains, no asymptoticp-values
 are reported as if there were many.
 Primary behavioural estimands (Section 4.3), per model and structure, averaged over structures:
-• Invariance in stratum D (separately C, K), co-primary: structure-level tracking¯TD minus the same struc-
-ture’s no-cue tracking (all attempted samples), andλD against 0; plus the share of samples that follow a
-prespecified misuse curvefh(z) against the no-cue rate of answers equal to the same values.
-• Responsivenessin stratum R, co-primary: ¯TR and λR against 1.
-• Role discrimination, co-primary: Λ = λR − λD against 1, always read together with the two above (Sec-
-tion 4.3).
+• Inappropriate dependence in stratum D (separately C, K), co-primary (F1): the tracking loss ¯TN − ¯TD
+against the non-numeric sentence over all attempted samples (the loss against the no-cue prompt beside
+it), which any departure outside tolerance lowers whatever its sign; the misuse shares against their rates
+under N attribute it (secondary family).
+• Inadequate responsiveness in stratum R, co-primary (F2): the neglect share (R samples answering the
+irrelevant-role value) against the placebo match rate in the same cell, beside¯TR.
+• Role-by-value interaction, co-primary (F3): the role × value term of a mixed-effects logistic model of
+tracking; physics predicts no dependence of tracking onz in either role.
+• Descriptive: λR, λD and Λ with the multimodality guard of Section4.3; they gate nothing.
 • Presence: O1 difference between the non-numeric sentence and a D cell, for comparison with the numeric-
 salience literature.
 Each estimand is reported per phrasing and pooled over phrasings; a role claim needs agreement across
@@ -3634,6 +3742,10 @@ scored, and no-cue and relevant-role (R) performance is always measured beside t
 estimands are the interactionIh of Section4.8 under a declared claim type; an activation intervention is not
 the natural indirect effect of the quantity.Monitoring (G7 only): out-of-sample paired difference in a proper
 score at a fixed information budget, AUROC as a ranking metric.
+Working research protocol – not completed results
+
+######## PAGE 54 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 54
 8.2 Intervals, tests and their assumptions
 Samples and values are first reduced to structure-level estimates; the primary analysis is then a paired analysis
 of the J structure-level differences: a t-interval with J − 1 degrees of freedom, and a sign-flip randomisation
@@ -3648,66 +3760,71 @@ claims (G7) follow the October rules: reliability curves with bin support, ECE w
 an adaptive variant, never “best calibrated” from one metric.
 Cue-induced changes are read against the self-flip floor measured in G2 (two independent draws under the
 same condition), never against zero.
-Working research protocol – not completed results
-
-######## PAGE 52 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 52
 8.3 Effect sizes, equivalence and the language of null results
 Every contrast has a smallest effect of scientific interest (SESOI) stated in G1with its reason, not chosen for
-a convenient sample size, and in the units of the estimand it applies to. ForλD the reason is physical: the
-share of the certified response that may leak into an irrelevant role before it matters (planning value 0.10, i.e.
-a tenth of the relevant-role response); for tracking shares and O1 differences the reason states which use the
-result serves (a reliability claim may care about a few percentage points; a costly mechanism study needs an
-effect large enough to localise). Equivalence is claimed only by two one-sided tests within the SESOI, with
-adequate power: with ω the standard deviation of the per-structure difference, about8.6 ω2/∆2 structures
-give 80% power when the true effect is zero; atω = 0 .2, ∆ = 0 .10 needs about 34 structures and∆ = 0 .05
-about 137. If the sample cannot support the margin, the outcome is INCONCLUSIVE, and the sample size,
-not the margin, is what G1 revises before confirmation. Four outcomes are kept distinct in all text: an effect
-(interval excludes zero and extends beyond the margin), a trivial effect (interval excludes zero but lies inside
-the margin), equivalence (interval inside the margin and including zero), and inconclusive (none of these). “No
-effect” is never written for an inconclusive result.
+a convenient sample size, and in the units of the estimand it applies to. For the D tracking loss and misuse
+shares the reason is behavioural: the share of answers that may be lost to an irrelevant quantity before it
+matters (planning value 0.10 in tracking); for the R neglect share above its placebo rate the same 0.10 (a
+tenth of R answers ignoring a quantity that matters); for the F3 role× value interaction an odds ratio of
+1.5 per value step on tracking (planning), because a smaller value dependence would not change a reading of
+any single item; for descriptiveλD a leak of a tenth of the relevant-role response; for tracking shares and O1
+differences the reason states which use the result serves (a reliability claim may care about a few percentage
+points; a costly mechanism study needs an effect large enough to localise). Equivalence is claimed only by two
+one-sided tests within the SESOI, with adequate power: withω the standard deviation of the per-structure
+difference, about 8.6 ω2/∆2 structures give 80% power when the true effect is zero; atω = 0 .2, ∆ = 0 .10
+needs about 34 structures and∆ = 0 .05 about 137. If the sample cannot support the margin, the outcome is
+INCONCLUSIVE, and the sample size, not the margin, is what G1 revises before confirmation. Four outcomes
+are kept distinct in all text: an effect (interval excludes zero and extends beyond the margin), a trivial effect
+(interval excludes zero but lies inside the margin), equivalence (interval inside the margin and including zero),
+and inconclusive (none of these). “No effect” is never written for an inconclusive result.
 Rare categories. Misuse-curve and copy matches may be rare (Stage 14.20 had 2 wrong answers in 128
 cells). Their rates are estimated per structure with a Jeffreys Beta prior (zero counts give a finite rate with
 a proper interval), combined across structures with a Beta-Binomial hierarchical model, and reported with
 denominators; a contrast between rare rates is never read from a structure-pooled count.
 8.4 Multiple comparisons and research degrees of freedom
 • G3 is estimation; its scorecard is not a test.
-• G4 tests the role-by-value family by gatekeeping: the role-discrimination index first (Λ < 1, one-sided,
-α = 0.05, i.e. the model discriminates roles less than the physics requires; or, for H6, equivalence ofΛ to 1),
-then invariance (λD > 0) and responsiveness (λR < 1) by Holm; the second model by fixed sequence after
-the first. At most one secondary family chosen in G3 is tested after the primary family, Holm-corrected,
-and labelled as chosen on EXPLORATION data.
+• G4 tests the role-by-value family as three co-primary contrasts, Holm-corrected at family-wiseα = 0 .05:
+(F1) inappropriate dependence in D, the tracking loss ¯TN − ¯TD against the non-numeric sentence (one-
+sided, since a departure in any direction lowers tracking); (F2)inadequate responsiveness in R, the neglect
+share against its placebo rate (one-sided); (F3) therole-by-value interaction, the role × value term of a
+mixed-effects logistic model of tracking (two-sided: physics predicts tracking that does not depend onz
+in either role). For H6-RD each of F1–F3 is instead tested for equivalence within its SESOI.Λ and λ
+are reported as descriptive summaries and gate nothing. The misuse shares that attribute an F1 loss to
+particular misuse curves are a secondary family, Holm-corrected across curves and tested in each curve’s
+predicted direction, only after F1 passes. The second model follows by fixed sequence after the first. At
+most one secondary family chosen in G3 is tested after the primary family, Holm-corrected, and labelled
+as chosen on EXPLORATION data.
 • Prespecified secondary scans use Benjamini–Hochberg and stay exploratory.
 • Selection over layers, heads, sites, positions, phrasings, metrics and thresholds is handled by discovery on
 one set and a single evaluation on an independent set, never by reporting the best of many tests.
 • If queue delays force G4 into batches, one interim analysis at half the sample with Lan–DeMets O’Brien–
 Fleming spending may be preregistered.
+Working research protocol – not completed results
+
+######## PAGE 55 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 55
 8.5 Power and precision protocol
 Before G3 and again before G4, simulate from the G2 estimates (structure, value and phrasing variance
 components, ω of the cue difference, within-item Bernoulli variance, which more samples reduce and between-
 structure variance does not; Wang 2026), forJ ∈ { 24, 40, 60, 80} complete role-by-value structures andk ∈
-{3, 5, 8}, at least 1,000 simulated datasets each analysed exactly as planned, on simulated null data as well as
-effect data so that the type-I error of the chosen analysis and resampling unit is shown to be calibrated, for
-¯T, λ and Λ and for the misuse-tracking and copy rates, which may be rare (Stage 14.20 had 2 wrong answers
-in 128 cells). The simulation includes a scenario with 20–40% loss to infeasible cells, validation failures, parse
-failures and budget exhaustion. Analytic bracket:J ≈ 7.85 ω2/δ2 for 80% power at two-sidedα = 0.05 (Miller
-2024), about 6.2 ω2/δ2 for the one-sided G4 tests, withω the standard deviation of the per-structure valueof
-the estimand being tested (estimated in G2, not borrowed from a no-cue difference); withω = 0 .25, δ = 0 .10
-needs about 49 (two-sided) or 39 (one-sided) structures andδ = 0.15 about 22 or 17. More samples per item
-cannot substitute for more independent structures. If errors are genuinely rare, the legitimate choices are a
-harder, independently justified regime or the study of correct selection (H6); a continuous diagnostic (O6)
-is never promoted to proof of an error because the categorical endpoint lacks power. The October planning
-allocation of 300–600 structures is withdrawn: the number is whatever the simulation requires for the decisions
-actually made.
+{3, 5, 8}, at least 1,000 simulated datasets each analysed exactly as planned, on simulated null data as well
+as effect data so that the type-I error of the chosen analysis and resampling unit is shown to be calibrated,
+for the tracking loss, the role-by-value interaction and the misuse, neglect and copy shares, which may be
+rare (Stage 14.20 had 2 wrong answers in 128 cells). The simulation includes a scenario with 20–40% loss to
+infeasible cells, validation failures, parse failures and budget exhaustion. Analytic bracket:J ≈ 7.85 ω2/δ2
+for 80% power at two-sidedα = 0 .05 (Miller 2024), about 6.2 ω2/δ2 for the one-sided G4 tests, withω the
+standard deviation of the per-structure valueof the estimand being tested (estimated in G2, not borrowed
+from a no-cue difference); withω = 0.25, δ = 0.10 needs about 49 (two-sided) or 39 (one-sided) structures and
+δ = 0.15 about 22 or 17. More samples per item cannot substitute for more independent structures. If errors
+are genuinely rare, the legitimate choices are a harder, independently justified regime or the study of correct
+selection (H6); a continuous diagnostic (O6) is never promoted to proof of an error because the categorical
+endpoint lacks power. The October planning allocation of 300–600 structures is withdrawn: the number is
+whatever the simulation requires for the decisions actually made.
 8.6 Negative and missing result policy
 A zero-row job, failed hook, timeout, budget-exhausted or format-invalid response, infeasible cell, ineligible
 item or untested control isNOT_EVALUATED, not a null effect. A missingness codebook records reason, first seen,
 planned run, attempts, eligible population and intended analysis. Exclusions and completeness are reported
 by condition, role, value, phrasing and model. Every primary contrast is reported three ways: all attempted
-Working research protocol – not completed results
-
-######## PAGE 53 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 53
 samples with non-complete records as “not correct” (O1), complete-case, and with budget-exhausted records
 counted as wrong (a bound; answers at the length limit are almost always wrong in published reasoning
 evaluations, Hochlehnert et al.). Data-dependent missing values are never replaced by zero or negative labels.
@@ -3736,12 +3853,20 @@ ity checks) are in docs/model_manifests/; the registry is docs/model_registry.ym
 PYTHONNOUSERSITE=1 so that no user-site package leaks into the pinned environment (docs/environment_-
 lock.yml; TransformerLens 3.4.0).gpunode6 has no usablegit, so every job carriesSUBMIT_COMMIT (the full
 SHA from the submission node) and refuses to run without a commit; all jobs of one study step run from one
+Working research protocol – not completed results
+
+######## PAGE 56 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 56
 frozen commit. Every accepted job carries anAUTHORIZATION_REF; each job still needs the user’s acceptance
 of its exact command.
 9.2 Models
 Model Role Status [V]
-Qwen2.5-7B-Instruct Primary behaviour and
-mechanism
+Qwen2.5-7B-Instruct First in the planning
+order for primary
+behaviour and
+mechanism (the primary
+model is fixed by the G2
+rule)
 Restored after the wipe, revision pinned, manifest
 (qwen_primary.json); HF-versus-TransformerLens parity
 passed on the smoke prompt (job 399217)
@@ -3768,10 +3893,6 @@ Before any further Qwen3-32B run its revision is identified and a manifest writt
 match a published revision, that is recorded as an after-the-fact identification, not as a pin at run time. Qwen3-
 32B is used only in bf16 (TransformerLens 3.4boot() defaults to float32), through plain forward hooks or the
 TransformerBridge, with exact patching only, after a parity test.
-Working research protocol – not completed results
-
-######## PAGE 54 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 54
 Generation engine (open decision D4). Plain Hugging Facegenerate gave Qwen3-32B about 20 tokens/s
 aggregate with no gain from batch 2 to batch 3, far below the memory-bandwidth bound. KV memory does not
 explain this: at about 256 KiB per token, the 10–18 GB left after the bf16 weights hold roughly 40,000–70,000
@@ -3805,6 +3926,10 @@ The 7–8B rates were measured with greedy, unbatched decoding; the revised cont
 and batches (Section4.5), so these rates are an upper bracket for planning, to be replaced by the G2 timing.
 Qwen3-32B runs at about 14 records per hour; harder items truncate more (5 of the 7 upper-university Stage A
 problems).
+Working research protocol – not completed results
+
+######## PAGE 57 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 57
 9.4 Staged budget for the revised gates
 Generations per model= structures × cells per structure× k samples. A “core cell” below is one role-by-value
 cell (role× value × phrasing); the minimum complete structure has R and D at three values in two phrasings,
@@ -3814,10 +3939,6 @@ measured 12.6–14.7 s per record; the vLLM column isan estimate scaled from pub
 benchmarks (thousands of output tokens/s for 7–8B models, hundreds for 32B in bf16; the first revision
 estimated about 1 hour for 5,120 7–8B generations), not a measurement, and is replaced by the on-cluster
 parity and timing job.
-Working research protocol – not completed results
-
-######## PAGE 55 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 55
 Gate step Planning size Generations
 per model
 7–8B HF
@@ -3912,9 +4033,14 @@ run, if at all, on that small subset. (4) The thinking budget is part of the con
 October edition’s behavioural cost model remains the template: structures× values × phrasings × cells ×
 models × (scored forwards + generated samples), with the output-format wrappers recorded separately.
 9.5 Human effort
-Independent physics review (block B4, open decision D2) is the binding non-GPU cost. Generating and
-certifying structures is agent and CPU work; review is not. Planning figure: 15–20 minutes per structure per
-reviewer.
+Independent physics review (block B4) is the binding non-GPU cost; until human reviewers are available, the
+qualified LLM panel of Section3.7 provides the interim tier (its models are open decision D2). Generating
+and certifying structures is agent and CPU work; review is not. Planning figure: 15–20 minutes per structure
+per reviewer.
+Working research protocol – not completed results
+
+######## PAGE 58 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 58
 Step Structures Review effort per reviewer per pass (planning)
 G2 design-validation
 pilot
@@ -3924,19 +4050,19 @@ pilot)
 G3 behavioural discovery 24–40 about 6–13 h if reviewed; without review G3 is exploratory by design
 G4 confirmation about 50 (from
 power)
-about 12–17 h for two-pass review of 50, plus adjudication; required
-for G4 to be confirmatory
-Without an independent reviewer, G4 is reported asEXPLORATORY-REPLICATION. A self-authored or agent-
-authored review is not independent expert validation, and agent authorship and agent verification are disclosed.
-The October edition’s staﬀing roles are kept (hypotheses and claim ledger; generator and symbolic verifier;
-instrumentation and reproducibility; validator coordination; an independent reviewer who attacks leakage
-and causal interpretation); roles can be combined, but independence checks cannot all be done by the agent
-Working research protocol – not completed results
-
-######## PAGE 56 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 56
-that wrote the data. Its 400-structure, 800-judgment validation budget is withdrawn with the demotion of
-large-scale DECOY-v2 scaling: only the structures G3 and G4 need are generated and reviewed.
+about 12–17 h for two-pass human review of 50, plus adjudication; for
+now replaced by the qualified LLM panel (below), human hours
+deferred to the later accuracy study
+Until human reviewers are available, G4 items are validated by the qualified LLM panel (Section3.7): roughly
+2–3 judge runs of two passes per structure, a few GPU-hours locally or an API budget, plus recorded adju-
+dication of split verdicts (adjudicated items reported separately). Without a qualified panel, G4 is reported
+as EXPLORATORY-REPLICATION. The authoring agent’s own review is not validation, and agent authorship and
+LLM validation are disclosed. The October edition’s staﬀing roles are kept (hypotheses and claim ledger;
+generator and symbolic verifier; instrumentation and reproducibility; validator coordination; an independent
+reviewer who attacks leakage and causal interpretation); roles can be combined, but independence checks
+cannot all be done by the agent that wrote the data. Its 400-structure, 800-judgment validation budget is
+withdrawn with the demotion of large-scale DECOY-v2 scaling: only the structures G3 and G4 need are
+generated and reviewed.
 9.6 Storage
 Kept from the October edition: persist normalised per-structure, per-cell raw records and complete model
 provenance in the repository; store activation caches transiently on scratch with an object index and hashes;
@@ -3971,6 +4097,10 @@ age, model_positive_eligibility, recipient generation outcomes) plus claim_type 
 tion 4.8), the declared metric, the clean cue effect beside the interactionIh, the ablation kind (resample,
 interchange, mean), noising or denoising, and the matched-random-component null. Every derived table
 names its source manifest and calculation commit.
+Working research protocol – not completed results
+
+######## PAGE 59 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 59
 Continuous-integration checks (October list, kept): invariant answer across nuisance edits; correct an-
 swer change under certified relevant edits; only the declared spans mutated; exact-duplicate and cluster-split
 integrity; no train/test structure or cluster collisions; leakage-free preprocessing; out-of-fold scores; identi-
@@ -3986,10 +4116,6 @@ manifest, engine-parity and feasibility steps.
 # Conceptual validation contract (revised); not runnable code.
 manifest = freeze_structural_splits(certified_role_by_value_structures)
 assert no_cluster_overlap(manifest.discovery, manifest.confirmation)
-Working research protocol – not completed results
-
-######## PAGE 57 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 57
 assert no_cluster_overlap(manifest.confirmation, manifest.external)
 record_feasibility(manifest) # R, D, C, K per structure; never imputed
 for model in selected_models:
@@ -4022,6 +4148,10 @@ tion 5.1); rows that named the retired head-11 starting point or the retired sig
 alised to any component or likelihood metric. The revision’s contingencies follow in a second table. Every row
 is decided before the data it applies to are seen.
 10.1 Decision rules kept from the October edition
+Working research protocol – not completed results
+
+######## PAGE 60 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 60
 Gate and observed
 outcome
 Scientific interpretation Required action Prohibited reaction
@@ -4071,13 +4201,6 @@ corruption
 Claim answers are
 corrupted or repaired by a
 likelihood change
-Working research protocol – not completed results
-
-######## PAGE 58 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 58
-Gate and observed
-outcome
-Scientific interpretation Required action Prohibited reaction
 G1/G4: independent
 review rejects the
 semantics of items
@@ -4198,6 +4321,13 @@ Read non-significance as
 superiority or as
 equivalence without a
 proper test
+Working research protocol – not completed results
+
+######## PAGE 61 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 61
+Gate and observed
+outcome
+Scientific interpretation Required action Prohibited reaction
 G7: a cheap filter or
 the relevance
 instruction dominates
@@ -4227,20 +4357,20 @@ harder or easier variants
 Report the model as uninformative at
 that budget
 Change the band after seeing results
-Working research protocol – not completed results
-
-######## PAGE 59 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 59
-Situation Required action Prohibited reaction
-No independent reviewer
-(D2 unresolved)
+No qualified LLM panel
+and no human reviewer
 Results stay exploratory; G4 is
 EXPLORATORY-REPLICATION; any
 manuscript says so, with the
-agent-authorship and
-agent-verification disclosure
+agent-authorship disclosure
 Call agent verification independent
 validation
+LLM panel qualified, no
+human review yet
+G4 is “confirmatory under LLM-panel
+validation”; disclosed; human study
+of panel accuracy planned (G6/P11)
+Call panel validation expert validation
 vLLM not approved (D4) Run on the 7–8B models with
 Hugging Face; Qwen3-32B only for a
 small hard-subset check, if at all
@@ -4302,6 +4432,10 @@ Stop–pivot hierarchy (October edition, kept): credibility of the measured effe
 causal interpretation outranks component count; reproducible out-of-cluster prediction outranks peak discrim-
 ination scores; selective correctness improvement outranks ratio recovery. The plan is adaptive about which
 branch is investigated, not about rewriting confirmatory statistics after outcomes.
+Working research protocol – not completed results
+
+######## PAGE 62 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 62
 11 Literature-grounded positioning and novelty test
 The October map of sources to design (its entries L01–L25 remain in the bibliography, Section14) is kept.
 This edition adds the work that appeared or was found by the searches of 11 November 2026 and restates the
@@ -4310,10 +4444,6 @@ every source must be read in full before it is used to claim novelty; “first t
 verified against the full adjacent literature. Venue status was established by opening the venue or arXiv page;
 “per arXiv” means only the arXiv comment claims the venue.
 11.1 Closest work and what PhysMon must add
-Working research protocol – not completed results
-
-######## PAGE 60 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 60
 Work What it already contributes What PhysMon must add to be distinct
 PRISM-Physics (Zhao et
 al., ICLR 2026)
@@ -4422,6 +4552,11 @@ Probes show synthetic-trained models
 know which parameters are necessary
 Pretrained models, physical roles, causal
 (not probing) evidence
+Working research protocol – not completed results
+
+######## PAGE 63 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 63
+Work What it already contributes What PhysMon must add to be distinct
 Premise removal (Meadows
 et al., Findings of EMNLP
 2024 per arXiv)
@@ -4441,11 +4576,6 @@ reflexive mechanisms combine;
 variable dereferencing
 Role binding is likely distributed; the causal
 standard does not assume one feature
-Working research protocol – not completed results
-
-######## PAGE 61 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 61
-Work What it already contributes What PhysMon must add to be distinct
 Copy suppression
 (McDougall et al.);
 competition of mechanisms
@@ -4492,6 +4622,10 @@ is ordered by which uncertainty would make later work meaningless. Items 1–5 n
 submitted without the user’s acceptance of the exact command.
 1. G0 status sync. Stage 14 status and roadmap through 14.20; ledger rows for jobs 435605 and 435606;
 journal index.
+Working research protocol – not completed results
+
+######## PAGE 64 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 64
 2. G0 review additions (a)–(g) of Section5.1, as scripts with tests where code is involved.
 3. Qwen3-32B provenance: revision identification and manifest (read-only on scratch).
 4. G1 construct : the strata taxonomy with certificates; the role-by-value generator (values, two or more
@@ -4500,10 +4634,6 @@ and batched reasoning contract with the O3 status categories and the LaTeX final
 O2 (prospective only); frozen analysis, scorecard and power-simulation scripts tested on synthetic records;
 SESOI and equivalence margins with reasons; experiment cards.
 5. A small non-physics dependency control set (GSM-DC-style) built with the same role-by-value logic.
-Working research protocol – not completed results
-
-######## PAGE 62 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 62
 6. G0 extended parity at the planned hook sites and trace lengths for Qwen2.5-7B-Instruct and Llama-3.1-
 8B-Instruct (one short GPU job).
 7. G2 design-validation pilot (8–12 structures) and calibration on the two 7–8B models (one GPU job
@@ -4517,8 +4647,8 @@ written is decided by the evidence; the venue is chosen after the result, not be
 is a plan to obtain a particular outcome.
 Working research protocol – not completed results
 
-######## PAGE 63 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 63
+######## PAGE 65 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 65
 Architecture (outcome) Core chain Required evidence (gate) Cannot be claimed from
 P-H0 Certified null:
 physical dependency
@@ -4608,13 +4738,13 @@ records relabelled wrong;
 single-sample runs
 P-H6 Mechanism of
 correct selection
-Invariance in D, C, K and
-correct R response → T2 or
-T3 localisation of the
-computation that excludes
-the quantity (or uses it
-correctly in C and K) →
-held-out prediction
+H6-RD (D and R;
+H6-extended adds C and K)
+→ T2 or T3 localisation of
+the computation that
+excludes the quantity (or
+uses it correctly in C and
+K) → held-out prediction
 G4 behaviourally, then G5;
 on the population of tasks
 solved reliably without a cue
@@ -4664,8 +4794,8 @@ it; a programme may yield several publishable projects, and forcing them into on
 withdrawn Phase-I paper’s reviews (Appendix) are the reference for what a reviewer will check first: whether
 Working research protocol – not completed results
 
-######## PAGE 64 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 64
+######## PAGE 66 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 66
 the metric isolates the claimed function. This plan promises a scientifically credible process, not an acceptance
 probability.
 14 Bibliography and primary-source links
@@ -4721,8 +4851,8 @@ of Heuristics. ICLR. https://proceedings.iclr.cc/paper_files/paper/2025/hash/8c5
 Mechanistic Analysis of Symbols, Text, and Code in LLMs. arXiv preprint.https://arxiv.org/abs/2607
 Working research protocol – not completed results
 
-######## PAGE 65 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 65
+######## PAGE 67 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 67
 .16693
 Physics benchmarks and grading
 [N12] W. Zhao, Q. Ma, J. Shi, S. Wu, J. Han, Y. Xiao, S.-Y. Chen, X. Luo, L. Schmidt, J. Y. Zou (2026).
@@ -4781,8 +4911,8 @@ Org/TransformerLens/blob/main/transformer_lens/patching.py
 n-source-circuit-tracing
 Working research protocol – not completed results
 
-######## PAGE 66 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 66
+######## PAGE 68 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 68
 [N15] Added 11 Nov 2026 (revision’s methodology list, unmarked): Kramár et al., AtP* (arXiv 2403.00745);
 Rushing and Nanda (ICML 2024); Li and Janson (NeurIPS 2024); Grant et al., divergent representations
 (ICLR 2026); Anani et al., Certified Circuits (ICML 2026); Geiger et al., DAS (CLeaR 2024); Makelov et al.
@@ -4833,8 +4963,8 @@ artifacts motivate the evidence ledger and critiques; this document is a propose
 that suggested studies have been run.
 Working research protocol – not completed results
 
-######## PAGE 67 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 67
+######## PAGE 69 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 69
 15 Definition of scientific completion
 Amanuscriptisscientificallyreadyonlyafterthegatethatitscentralclaimneedshasbeenpassed(Section 5.1),
 and only at the level of the claim hierarchy (Section4.9) that the evidence reaches: a behavioural role effect
@@ -4849,9 +4979,10 @@ match to the encoded graph, and was that validation independent (G1; B4 review a
 2. Alternatives. Which weaker account was strongest — generic perturbation (H0), numeral presence or
 plausibility and unit (H1, H2), length or diversion (H5), string-scoring, format or diﬀiculty artifacts — and
 where was it falsified, including by the non-physics control?
-3. Role by value. Do the model’s normalised response fractions (λR, λD, Λ) differ between roles as the
-physics requires, across values and across phrasings with and without marker words; are misuse hypotheses
-supported only by curves across several values, with all matches kept?
+3. Role by value. Does the model keep its answers fixed where a quantity is irrelevant (no tracking loss, no
+misuse) and follow the certified response where it is relevant (no neglect), as the physics requires, across
+values and across phrasings with and without marker words; are misuse hypotheses supported only by
+curves across several values, with all matches kept?
 4. Computation. If a mechanism is claimed: which computation was identified under a declared claim type
 (T1, T2, T3), beyond the effect of removing a component, with the interaction estimandIh and the clean
 cue effect reported side by side?
@@ -4876,11 +5007,15 @@ not presented as a mechanistic explanation. If (1) fails, the work returns to th
 definition, however strong other results look. A certified null (H0 with equivalence shown against a margin
 fixed before the data and an adequately powered design) and a cost finding (H5) are complete results; an
 inconclusive interval, an underpowered contrast or zero evaluable rows are not, and are reported as what they
-are. Results without independent review are complete only as exploratory results.
+are. Results without LLM-panel or human validation are complete only as exploratory results.
 A Stage 14 evidence (exploratory)
 All rows have data role EXPLORATION; nothing here is paper-eligible. Journal:docs/journal/stage14/
 (the Stage 14.20 entries are in14.19_gold_dataset.md); status: docs/stage14/status_and_roadmap.md;
 integrity check: scripts/v2/register_stage14_artifacts.py --verify .
+Working research protocol – not completed results
+
+######## PAGE 70 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 70
 Stage Result [V] Bearing on this plan
 14.0–14.1 Claim ledger and contract; X01 recomputed 51 Phase-I
 components from committed records; all reproduce except
@@ -4889,11 +5024,6 @@ three: “25 shared positives” is the ˆS overlap (0.5-nat overlap
 committed predictions, and the 71% had no committed
 source (later 110/155)
 Section 2.1
-Working research protocol – not completed results
-
-######## PAGE 68 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 68
-Stage Result [V] Bearing on this plan
 14.2 X02 base rotation: 40–49% (Qwen) and 41–56% (Llama) of
 base-0 positives flip; legacy label retired by the user
 (J14.2-011)
@@ -4962,16 +5092,15 @@ constraint
 B ICLR 2027 review issues and where this plan answers them
 Issue numbers follow the consolidated register indocs/reviews/iclr2027_submission50608/analysis.md
 (section 4). “Checked” gives the reproduced check identifier.
+Working research protocol – not completed results
+
+######## PAGE 71 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 71
 # Issue Checked Answer in this plan
 1 Label scores the bare string, not the
 instructed format
 C1 Legacy label retired; O1–O3 on the model’s own
 answers; grading contract (Section 4.5)
-Working research protocol – not completed results
-
-######## PAGE 69 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 69
-# Issue Checked Answer in this plan
 2 Label unstable across base and
 instruction
 C2 Retired; G0(a) cross-instruction stability record;
@@ -4995,9 +5124,10 @@ forbidden-phrase check
 8 Template-cluster leakage C5c, C5d Structure as unit; disjoint data roles; G4 on
 untouched clusters
 9 Cue C pooled with irrelevant cues C6 Convertible-unit family kept separate
-10 No human validation; agent authorship C9 B4; D2; G0(f) provenance consistency;
-EXPLORATORY-REPLICATION label without
-independent review
+10 No human validation; agent authorship C9 Validation tiers (Section 1, rule 4); a qualified LLM
+panel from other model families (Section 3.7); later
+human study; G0(f) provenance consistency;
+disclosure
 11 Near-match claim overstated C7 Proximity as distinct conditions; role-by-value design
 12 Verifier scope and tolerance C10 Strata certificates; B1.5 audit if v1 is reused
 13 Scope: short plug-in calculations – Problem-structure strata (B3.1); strata C and K
@@ -5027,18 +5157,20 @@ Section 11
 B1 reproduce and break v1 Closed Stage 14 and the reproduced reviews; B1.5 only if v1 is reused
 B2 construct choice Decided Section 4
 B3 typed generator Extended Strata, role-by-value, phrasings, misuse curves
-B4 human validation Kept, unresolved D2
+B4 human validation Kept; interim
+LLM-panel tier
+Section 3.7; human study later; D2
 B5 external sets Split Non-physics control in G3; external physics in G6
 B6 pilot, power, roles Restructured G2 and G3, staged
+Working research protocol – not completed results
+
+######## PAGE 72 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 72
+October element Disposition Note
 B7 Phase-B go/no-go Replaced G3 scorecard and the fixed G4 family
 P0 full reproduction Narrowed Parity kept; full regeneration off the critical path (D1)
 P1 measurement validity Largely done Findings kept as diagnostics; P1.4 and P1.8 remain optional
 P2 scale to 300–600 Withdrawn Size from the power simulation
-Working research protocol – not completed results
-
-######## PAGE 70 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 70
-October element Disposition Note
 P3 validation, parser,
 leakage
 Kept O3 status categories; parser audit
@@ -5074,10 +5206,12 @@ Id Decision Default until decided
 D1 Keep the full P0 regeneration of Phase-I
 values off the critical path
 Not run; possible later as a side track
-D2 Who performs independent physics review
-(B4)
-Nobody yet; G4 would be
-EXPLORATORY-REPLICATION
+D2 Which 2–3 judge models form the LLM
+review panel (other families than the
+authoring model; local or via external APIs)
+Decided in principle by the user (2026-11-11): LLM panel
+now, human study later. Until the models are chosen and
+qualified, G4 would be EXPLORATORY-REPLICATION
 D3 Download Qwen3-8B (optionally Qwen3-14B)
 with pinned revisions
 Not downloaded
@@ -5096,14 +5230,14 @@ D Revision log
 as plan of record by the user on 15 October 2026.
 11 November 2026, first draft of the revision. Written as a separate Markdown revision layer
 (PhysMon_Research_v2.1.md, commit 2cf08e2) from the reviews, Stage 14 and three literature searches.
+Working research protocol – not completed results
+
+######## PAGE 73 ########
+PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 73
 An independent agent review against the repository found ten factual errors (among them: hook parity
 had already passed in job 399217; the Stage 14 reasoning runner is greedy, so sampling needs a new
 contract; a wrong KV-memory explanation of the Qwen3-32B throughput) and twelve design flaws (no cell
 varied role alone; the in-system contrast was confounded with unit; correctness conditioned on evaluability;
-Working research protocol – not completed results
-
-######## PAGE 71 ########
-PHYSMON | RESEARCH REDESIGN v2 (REVISED 11 NOV 2026) 71
 near cues inside the grading tolerance; a data-dependent equivalence margin; undefined gate thresholds),
 all corrected before commit.
 11 November 2026, this edition. A second review by an external language model, supplied by the user
@@ -5120,8 +5254,20 @@ assembled LaTeX draft then found that the first role-by-value estimand (a log-el
 undefined for mixed sampled answers and zero golds and not sign-aligned across structures, that a shared
 trace across roles is physically incoherent, that two values cannot separate misuse curves, and that several
 sections still carried superseded rules; it was replaced by per-sample tracking, response fractions scaled by
-the certified relevant-role response and a role-discrimination index, T1 restricted to prompts that share
-a gold, three values per role, and consistent gate rules throughout. At the user’s choice of 11 November
-2026 the plan was consolidated into this single LaTeX source and PDF; the Markdown revision layer was
-removed (preserved in Git history).
+the certified relevant-role response and a role-discrimination index, T1 restricted to prompts that share a
+gold, three values per role, and consistent gate rules throughout.
+11 November 2026, refinements after a second external review. The user supplied a further review
+by the same external model and asked to rely on LLM reviewers for physics validation for now. Changes:
+the primary estimands are per-sample tracking (whose loss catches a departure in either direction), misuse
+shares with signed, direction-predicting misuse curves and an R neglect share; the response fractionsλ
+and the indexΛ are descriptive only, with a multimodality guard; G4 tests three co-primary contrasts (D
+tracking loss, R neglect, role× value interaction on tracking) instead of gatekeeping onΛ; mechanism work
+uses two interactions,Ipresence (against the non-numeric sentence) andIrole (against the relevant twin with
+the same numeral, on a behaviourally comparable outcome), and only the second supports a role-routing
+claim; T1 scores the certified answer against a predeclared alternative on one explicitly identified prefix and
+excludes no prefix; H6 is split into H6-RD and H6-extended; the primary model is fixed by a prespecified
+rule at the end of G2; and a qualified panel of 2–3 independent LLM reviewers from other model families,
+qualified on the user-labelled planted-defect bank, is the interim validation tier for G4, with human review
+as a later accuracy study. At the user’s choice of 11 November 2026 the plan was consolidated into this
+single LaTeX source and PDF; the Markdown revision layer was removed (preserved in Git history).
 Working research protocol – not completed results

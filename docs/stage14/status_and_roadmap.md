@@ -1,6 +1,6 @@
 # Stage 14 status and roadmap (updated 2026-10-21, after Stages 14.17 and 14.18)
 
-Plan of record: `docs/proposals/PhysMon_Research_v2.pdf`. Journal index: `docs/journal/INDEX.md`. Decisions: `docs/decisions/decision_log.md`.
+Plan of record: `docs/proposals/PhysMon_Research_v2.tex` (canonical source, revised 2026-11-11; built PDF `PhysMon_Research_v2.pdf`; digest `PhysMon_Research_v2_working_digest.md`). Journal index: `docs/journal/INDEX.md`. Decisions: `docs/decisions/decision_log.md`.
 **Nothing in Stage 14 is a confirmation, a validated item set, or paper-eligible.** Every result below is exploratory (data role EXPLORATION).
 
 ## Done (and what it is)

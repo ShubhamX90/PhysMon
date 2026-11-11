@@ -122,8 +122,10 @@ tuning scripts and agents; a structure never moves from EXPLORATION into a confi
 paraphrase, numeric instantiation or decoder sample.
 \item \NE{} is not a null and not \texttt{WRONG}. Zero evaluable rows are not a measured zero effect. A record
 that did not complete is never relabelled wrong.
-\item An agent's self-review is not independent expert validation; a symbolic certificate is not a certificate of
-natural-language correctness.
+\item Validation has tiers and every item states its tier: the authoring agent's self-review is not validation;
+a qualified panel of independent LLM reviewers (Section~\ref{sec:llmpanel}) is the interim tier used for
+confirmation, disclosed as such; independent human expert review is the strongest tier and is never claimed when
+only the panel has run. A symbolic certificate is not a certificate of natural-language correctness.
 \item Every threshold records when it was fixed relative to the data it is applied to; outcomes do not license
 retroactive relabelling; new metrics are not called preregistered after the fact.
 \item Every comparator is tagged \texttt{oracle} (needs the gold or the label's inputs at inference) or
@@ -257,7 +259,7 @@ B0 & Threat model, estimands, novelty audit & REVISED; PARTIAL & Sections~\ref{s
 B1 & Reproduce and break DECOY-v1 & DONE-EXPLORATORY (B1.5 OPEN only if v1 is reused) & G0 integrity closure \\
 B2 & Construct choice & REVISED (decided) & Section~\ref{sec:framework}; B2.3, B2.4 binding \\
 B3 & Modular v2 generator & REVISED (extended) & G1 physics construct \\
-B4 & Independent human validation & OPEN & Required before G4 can be confirmatory (D2) \\
+B4 & Independent validation & OPEN & Interim tier: qualified LLM panel (Section~\ref{sec:llmpanel}); human study later (D2) \\
 B5 & External sets as source material & DEMOTED (split) & Non-physics control in G3; EPC in G6 \\
 B6 & Pilot, power, data roles & REVISED (staged) & G2 and G3; data roles unchanged \\
 B7 & Deliverables; Phase-B go/no-go & Deliverables kept (OPEN); go/no-go REPLACED & G3 hypothesis scorecard and G4 \\
@@ -681,15 +683,49 @@ in place of the physicist review (J14.19-001): all 80 v2 structures carry admiss
 share the authors' model family and can share their blind spots (J14.19-001). For v1, all 155 templates were
 created by an agent and 140 were marked validated through a delegated agent review \tg{REVIEW}; the reviewers'
 objection to this (issue~10) applies equally to the v2 set. \textbf{Consequence:} no structure has passed Gate~B4.
-G4 confirmation requires new structures validated under B4; without an independent reviewer G4 is run but
-labelled EXPLORATORY-REPLICATION, and no text calls it confirmatory (open decision D2).
+
+\textbf{Interim validation tier: a qualified LLM review panel} (user direction, 11 November 2026)\label{sec:llmpanel}.
+Recruiting independent physicists takes time the project does not want to spend now, so confirmation (G4) uses a
+panel of independent LLM reviewers as the interim validation tier, and human expert review is a later study that
+measures the panel and can upgrade items.
+\begin{enumerate}
+\item \emph{Panel.} Two to three judge models from model families other than the authoring model (Claude), and
+where possible from different families from each other, at least one a strong reasoning model; the panel
+composition, versions and prompts are frozen in G1 (open decision D2 now asks which models). The authoring agent
+is never on the panel, and neither are models from the families under test (Qwen, Llama); a judge never sees
+another judge's verdict, any model-under-test output or score, or the study hypotheses, in either pass, and does
+not see the gold trace in its first pass.
+\item \emph{Protocol.} The B4.2 two-pass rubric, run per judge: pass 1 solves the problem and states each
+quantity's role stratum from the text alone; pass 2 checks the certificate claims (stratum, invariance or certified
+response, units, assumptions, naturalness, whether the renderings differ only as intended) and returns a structured
+verdict with severity and reasons.
+\item \emph{Qualification before use.} Each judge, with its frozen prompt, is run on the 33-item planted-defect bank
+(27 defective and 6 valid controls, labelled by the user, J14.5-013) and must meet thresholds fixed in G1 (planning:
+detect at least 85\% of the defective items for the declared reason and accept at least 5 of the 6 valid ones).
+Because six valid controls estimate false rejection very imprecisely, G1 adds freshly generated valid items and
+new planted defects to the bank before qualification, and holds a portion out unseen; a judge or prompt changed
+after seeing bank results is requalified only on that held-out portion or on a fresh planted set. The bank is not
+used to tune prompts.
+\item \emph{Admission rule.} An item is \texttt{LLM\_PANEL\_VALIDATED} when every qualified judge accepts it with
+no high-severity defect; split verdicts go to a recorded adjudication whose adjudicator and tier are stated (the user, who
+labelled the bank, is not an independent adjudicator), and adjudicated items are reported separately; items with any
+unresolved high-severity flag are excluded and counted. Agreement statistics (raw agreement, Cohen's $\kappa$,
+Gwet's AC1) are reported as for human validators.
+\item \emph{Claim language.} G4 results on panel-validated items are ``confirmatory under LLM-panel validation'';
+no text calls them expert-validated; agent authorship and LLM validation are disclosed.
+\item \emph{Human study later.} A stratified sample of panel verdicts (accepted, rejected, split) is later reviewed
+by independent humans (G6 or P11) to estimate the panel's error rates; items that pass are upgraded to the
+expert tier.
+\end{enumerate}
+Without a qualified panel, G4 is run but labelled EXPLORATORY-REPLICATION, and no text calls it confirmatory.
 
 \textbf{B4.1 Audit before claiming certified English.} Every v1 family gets at least one qualified blinded
 semantics review, and every family used in a publishable confirmatory claim gets two independent reviews with
 third-party adjudication where needed; the validation pilot samples across cue types, physics domains, largest
 likelihood shifts, negative scores, presumed easy cases, ambiguous coupled systems and high-overlap clusters;
 authors never self-certify the semantic naturalness of their own families. \emph{Now:} the v1 part applies only if
-v1 is reused; the two-review rule applies to every G4 structure and every adapted EPC item, and sampling for the
+v1 is reused; the two-review rule applies to every G4 structure and every adapted EPC item (interim: the qualified
+LLM panel of Section~\ref{sec:llmpanel}), and sampling for the
 pilot also spans the role strata.
 
 \textbf{B4.2 Two-pass review instrument.} Pass~1, without the authors' equation: solve or outline the physics,
@@ -842,7 +878,7 @@ interaction, for causal rescue (G5) and for out-of-cluster AUROC margins (now G7
 minimum effect with a scientific interpretation. The earlier 300--600 structures are a tentative upper planning
 band, not a quota; independent dependency programs are worth more than paraphrases (v1 had only 31 distinct
 equation programs in 155 families, J14.6-003). \emph{Now:} the interaction targeted is the role-by-value interaction
-and the per-stratum $\bar T$, $\lambda$ and $\Lambda$ estimands (Section~\ref{sec:rolevalue}); the power simulation
+and the per-stratum tracking-loss, misuse-share and neglect-share estimands (Section~\ref{sec:rolevalue}); the power simulation
 uses the variance of those estimands measured in G2, not only no-cue variance.
 
 \textbf{B6.3 Five disjoint data roles} (kept unchanged). \texttt{EXPLORATION} (pilot and unrestricted scans);
@@ -882,8 +918,8 @@ target to a calibrated likelihood or interface mechanism rather than physical sh
 
 \textbf{Status:} kept in substance and enforced by the critical path: G4 confirms the role-by-value family fixed
 in advance and the G3 scorecard may add at most one secondary family;
-G4 supplies the held-out structural units and the format-robustness check; G5 starts only after G4 (for H3, H4 or
-H6). A shift
+G4 supplies the held-out structural units and the format-robustness check; G5 starts only after G4 (for H3, H4, or
+H6-RD; H6-extended only if G4 covered C and K). A shift
 confined to teacher-forced string probabilities supports at most a T1 readout claim (Section~\ref{sec:causal}).
 
 %-------------------------------------------------------------------------------------------------
@@ -924,7 +960,7 @@ effect survives held-out validation.
 
 \textbf{Correspondence for old citations} \tg{PROPOSAL} (the binding rules are in Section~\ref{sec:gates}):
 \begin{itemize}
-\item GO--MECHANISM $\rightarrow$ G4 establishes H3, H4 or H6 on the role-by-value family
+\item GO--MECHANISM $\rightarrow$ G4 establishes H3, H4 or H6-RD (or H6-extended) on the role-by-value family
 (Section~\ref{sec:hypotheses}); G5 follows.
 \item GO--MEASUREMENT $\rightarrow$ only presence, readout, format or invariance effects survive (H1, H2, or the
 convertible-unit family); behavioural report and T1-type readout claims only.
@@ -1031,21 +1067,41 @@ non-complete records, so no single ``answer'' per cell exists; the estimands are
 \item \emph{Tracking} (primary, per sample): $T=1$ if the sample is \texttt{COMPLETE} and its value lies within the
 declared tolerance of the certified $y^*_r(z)$ of its own cell, else $T=0$, over all attempted samples; the
 complete-case version is a sensitivity analysis. Per structure, $\bar T_r$ averages over values, phrasings and
-samples. Invariance is $\bar T_D$ (and $\bar T_C$, $\bar T_K$) against the same structure's no-cue tracking;
-responsiveness is $\bar T_R$.
-\item \emph{Normalised response fraction} (secondary): $\lambda_r=[m_r(z_b)-m_r(z_a)]/[y^*_R(z_b)-y^*_R(z_a)]$ for
+samples. \emph{Inappropriate dependence} in D (and C, K) is the tracking loss $\bar T_N-\bar T_D$ against the
+token-aligned non-numeric sentence $N$ at the same position, so that generic distraction by an added sentence is
+not counted as role failure (the loss against the no-cue prompt is reported beside it): a departure in
+\emph{either} direction (adding, subtracting, copying or any other use of the quantity) that moves the answer
+outside the tolerance lowers tracking, so this measure has no blind sign. \emph{Responsiveness} is $\bar T_R$.
+\item \emph{Answer-mode shares} (primary for attribution, per sample): the share of samples whose value matches
+each prespecified misuse curve $f_h(z)$ in D, C and K cells (\emph{misuse shares}), and the share of R samples whose
+value matches the irrelevant-role answer $y^*_D(z)$, i.e.\ that ignore a quantity that matters (\emph{neglect
+share}). A misuse share in a D, C or K cell is compared with the rate at which the non-numeric control $N$ at the
+same $z$ produces the same value; a misuse curve is supported only when its share exceeds that rate at two or more
+of at least three values. The neglect share cannot use $N$ or the no-cue prompt as comparator (their correct answer
+\emph{is} $y^*_D(z)$); it is compared with a placebo match rate in the same R cell, the share of R samples equal to a
+prespecified placebo value $2y^*_R(z)-y^*_D(z)$ (as far from the correct answer as the neglect value, on the other
+side), certified to be separated from the gold and every foil; where that value is physically impossible (for
+example negative for a positive-definite quantity), the generator uses a prespecified multiplicative offset of the
+same size instead, so that the placebo is as plausible as the neglect value. The misuse set contains signed variants (add and
+subtract the quantity; substitute it; copy it; for C and K the wrong law or wrong regime), each with the direction
+of its prediction stated in advance.
+\item \emph{Normalised response fraction} (descriptive only): $\lambda_r=[m_r(z_b)-m_r(z_a)]/[y^*_R(z_b)-y^*_R(z_a)]$ for
 each value pair, with $m_r$ the Hodges--Lehmann location of the \texttt{COMPLETE} answers of the cell (robust to
 isolated unit slips) and the denominator always taken from the R twin, so every role is scaled by the physically
 correct response. Targets: $\lambda_R=1$; $\lambda_D=\lambda_C=\lambda_K=0$. The certificate requires
 $|y^*_R(z_b)-y^*_R(z_a)|$ above the loosest tolerance, so the denominator is never near zero; signs and zero golds
 need no logarithms.
-\item \emph{Role-discrimination index} $\Lambda=\lambda_R-\lambda_D$ (target 1), sign-aligned in every structure
-because both terms are scaled by the same certified response. $\Lambda$ is reported together with $\lambda_R$ and
-$\lambda_D$ as co-primaries, because a model that ignores the quantity everywhere ($\lambda_R=\lambda_D=0$) and one
-that uses it everywhere ($\lambda_R=\lambda_D=1$) have the same $\Lambda=0$ for different reasons.
+\item \emph{Role-discrimination index} $\Lambda=\lambda_R-\lambda_D$ (target 1), a descriptive summary only: it
+is blind to some failures (a model that answers correctly in R and subtracts the quantity in D has $\lambda_D=-1$ and
+$\Lambda=2$) and conflates others (ignoring the quantity everywhere and using it everywhere both give $\Lambda=0$).
 \end{enumerate}
+\textbf{Multimodality guard.} A location summary of a two-mode answer distribution can describe a smooth response
+the model never produces (answers at 0 and 100 give a location near 50). Every $\lambda_r$ is therefore reported
+with the cell's answer-mode composition (shares of correct, each misuse mode, other and non-complete answers); when
+two or more modes each hold at least 20\% of the cell's complete answers, $\lambda_r$ is flagged \texttt{MULTIMODAL}
+and not interpreted. Neither $\lambda$ nor $\Lambda$ is ever the sole basis of a claim about physical reasoning.
 A cell with no \texttt{COMPLETE} answers has no $m_r$; the structure is \NE{} for $\lambda$ and $\Lambda$ (it still
-counts for $T$), and the share of such cells is reported by role. The earlier log-elasticity formulation is
+counts for tracking and answer-mode shares), and the share of such cells is reported by role. The earlier log-elasticity formulation is
 withdrawn: it is undefined for zero or sign-changing golds and for mixed answer sets, and its interaction is not
 sign-aligned across structures.
 
@@ -1063,7 +1119,7 @@ taxonomy may collapse these, but the overlap is always shown.
 \textbf{Difficulty and wording controls.} Value effects are estimated within role (difficulty is roughly constant
 across $z$ inside a role); the relevant role's no-cue difficulty is recorded as a covariate. Every estimand is
 estimated per phrasing. \emph{Agreement across phrasings}, required before a role claim, means: the
-phrasing-by-role interaction on $\Lambda$ is inside the SESOI by two one-sided tests, or, where that test is
+phrasing-by-role interaction on each of the G4 contrasts F1--F3 (Section~\ref{sec:statistics}) is inside its SESOI by two one-sided tests, or, where that test is
 underpowered, each phrasing's estimate exceeds the SESOI in the same direction; otherwise the result is reported
 per phrasing and called wording-dependent.
 
@@ -1100,7 +1156,7 @@ Outcome & Definition & Use \\
 O1 usable-answer success & Share of all attempted samples graded \texttt{CORRECT} under the declared evaluation contract & Operational reliability; no conditioning on evaluability \\
 O2 semantic physics correctness & Whether the produced answer is physically correct, where ascertainable: includes answers the contract could not parse but a frozen recovery rule or blinded adjudication can read (e.g.\ a LaTeX-wrapped final line); otherwise \texttt{UNKNOWN} & Reasoning performance \\
 O3 completion and grading status & \texttt{COMPLETE}, \texttt{BUDGET\_EXHAUSTED} (generation stopped at the token limit), \texttt{FORMAT\_INVALID} (no end-of-thinking marker or no final-answer line while the budget was \emph{not} exhausted), \texttt{UNPARSEABLE}, \texttt{MULTIPLE\_CANDIDATES}, \texttt{EMPTY} & Failure diagnosis; an outcome in its own right \\
-O4 role-by-value response & Tracking $T$, normalised response fractions $\lambda_r$, role-discrimination index $\Lambda$, misuse-curve tracking with all matches kept (Section~\ref{sec:rolevalue}) & Primary scientific endpoint \\
+O4 role-by-value response & Tracking $T$ and tracking loss; misuse and neglect shares across values with all matches kept; descriptive response fractions $\lambda_r$ and index $\Lambda$ under the multimodality guard (Section~\ref{sec:rolevalue}) & Primary scientific endpoint \\
 O5 cost & Generated tokens (mean and median, never compared across the two), budget exhaustion, thinking-closed share & Length and diversion (H5) \\
 O6 candidate log-odds & Defined only within a causal claim type of Section~\ref{sec:causal} & Mechanism metric; secondary behavioural diagnostic \\
 \bottomrule
@@ -1159,13 +1215,13 @@ retired string construct plus the position and format controls, H-U is the conve
 \toprule
 Id & Hypothesis & Predicts (in O4 unless stated) & Evidence against \\
 \midrule
-H0 & No role or presence effect beyond generic perturbation & $\lambda_D\approx0$, $\lambda_R\approx1$; D tracking equal to no-cue tracking; numeric cells equal the non-numeric sentence & Any reliable departure; equivalence must be shown, not assumed \\
+H0 & No role or presence effect beyond generic perturbation & D tracking equal to tracking under the non-numeric sentence; no misuse share above its rate under $N$ and no neglect share above its placebo rate; numeric cells equal the non-numeric sentence & Any reliable departure; equivalence must be shown, not assumed \\
 H1 & Numeral presence (F-copy, F-answer prior) & Answers follow the copy curve in every role, stratum and unit & Copy tracking absent in D or confined to same-unit cells \\
 H2 & Plausibility and unit (F-match, F-unit) & Departures only for same-unit or convertible plausible values; vanish under plausibility matching & Departures with incompatible units or implausible values \\
-H3 & Relevance-selection failure (F-role) & D: $\lambda_D>0$ following a substitution or add-term curve. C: final answer follows the wrong-law curve that keeps the quantity. K: final answer follows the out-of-regime law. Moderators (marking, stratum, position) are secondary & Invariance in D, C and K while R responds correctly \\
+H3 & Relevance-selection failure (F-role) & D: tracking loss with answers following a prespecified misuse curve (substitute, add or subtract, in its predicted direction). C: final answer follows the wrong-law curve that keeps the quantity. K: final answer follows the out-of-regime law. Moderators (marking, stratum, position) are secondary & Invariance in D, C and K while R responds correctly \\
 H4 & Readout contamination & Correct value in the trace, final answer moved toward the quantity; little change under the relevance instruction & Departures already present in the trace's computation \\
 H5 & Computational diversion & O5 rises (length, budget exhaustion) while O1 and O4 are equivalent to no-cue & O1 or O4 departures \\
-H6 & Correct selection & $\lambda_D,\lambda_C,\lambda_K$ equivalent to 0 and $\lambda_R$ equivalent to 1 within the SESOI (two one-sided tests), across values and phrasings; intermediate use in C and K allowed & Departures in any stratum; an underpowered null is INCONCLUSIVE, not H6 \\
+H6 & Correct selection, in two scopes. \emph{H6-RD}: the three G4 contrasts F1 (D tracking loss against $N$), F2 (R neglect share against its placebo rate) and F3 (role $\times$ value interaction on tracking) each shown equivalent to zero within its SESOI (two one-sided tests), with R tracking at or above the G1 criterion, across values and phrasings. \emph{H6-extended}: H6-RD plus the same for C and K (intermediate use in C and K allowed) & Departures in any stratum; an underpowered null is INCONCLUSIVE, not H6 \\
 \bottomrule
 \end{tabularx}
 \end{center}
@@ -1182,29 +1238,36 @@ mechanism experiment therefore declares which of three claims it tests, and uses
 \toprule
 Claim type & What is held fixed & Metric \\
 \midrule
-T1 readout given a fixed reasoning state & Only between prompts that share a gold: a D, C or K cell and its token-aligned non-numeric control at the same $z$. A $2\times2$ of trace source (own, other prompt) $\times$ prompt; intervention only at answer positions & $\log p(\text{trace's final value})-\log p(f_h(z))$ for a prespecified misuse $f_h$, each candidate's full value span scored; foreign traces whose per-token NLL under the other prompt exceeds their own-prompt NLL by a threshold fixed in G1 are excluded and counted \\
+T1 readout given a fixed reasoning state & Only between prompts that share a gold: a D, C or K cell and its token-aligned non-numeric control at the same $z$. One explicitly identified prefix, the same under both prompts, its type declared in G1 per experiment: (i) the gold trace rendered from the typed graph, or (ii) the model's own trace under the control prompt, taken for every sampled trace regardless of its answer (never selected on the behaviour being explained); intervention only at answer positions & $\log p(y^*(z))-\log p(f_h(z))$: the certified answer against a predeclared misuse alternative, both scored over their full value spans under the declared answer-format contract. The prefix's per-token NLL under the recipient prompt is recorded as a declared compatibility stratum; results are reported for all prefixes and by stratum, and no prefix is excluded \\
 T2 intermediate computation & A teacher-forced prefix up to the step where the quantity enters; certified intermediate values from the graph & Log-odds or decoding of the certified intermediate value against the prespecified misuse value; for strata C and K intermediate use is expected, not penalised \\
 T3 total effect & Nothing downstream: intervene upstream (at the quantity's tokens or a candidate component) and let the model generate & O1, O2 and O4 over $N$ on-policy resampled traces per condition \\
 \bottomrule
 \end{tabularx}
 \end{center}
 
-Only T2 or T3, with the controls below, can support a claim about a physical-relevance computation; T1 supports
-a claim about answer readout only. Comparisons between an R twin and a D twin, whose golds differ, are made only
+Only T2 or T3, with the controls below and the role interaction defined next, can support a claim about a
+physical-relevance computation; T1 supports a claim about answer readout only. Comparisons between an R twin and a D twin, whose golds differ, are made only
 under T2 or T3, never by teacher-forcing one role's trace under the other role's prompt (that trace would carry a
 physically wrong value). Candidate foils are fixed by a prespecified physical error hypothesis, never chosen as the
 foil the model scores highest; a candidate pair whose values lie within tolerance or share their answer-token span
 is T1-infeasible and recorded.
 
-\textbf{Interaction estimand.} For metric $m$ of the declared type, cue prompt $S$ (stratum D, C or K) and control
-prompt $B$, the token-aligned non-numeric sentence (so that the intervened positions exist in both prompts; the
-no-cue prompt cannot serve, since it has no tokens at the quantity's position; the R twin serves only under T2 or
-T3):
+\textbf{Two interaction estimands.} With $\Delta_h m_X=m(X,\text{intervened})-m(X,\text{clean})$ the effect of
+intervention $h$ on prompt $X$:
 \[
-I_h=\big[m(S,\text{intervened})-m(S,\text{clean})\big]-\big[m(B,\text{intervened})-m(B,\text{clean})\big].
+I_{\text{presence}}=\Delta_h m_D-\Delta_h m_N,\qquad I_{\text{role}}=\Delta_h m_D-\Delta_h m_R .
 \]
-The clean cue effect $m(S,\text{clean})-m(B,\text{clean})$ is reported beside it. A component matters for role
-processing only if $I_h\neq0$; a large equal effect on both prompts marks a general answer component.
+$N$ is the token-aligned non-numeric sentence (so the intervened positions exist in both prompts; the no-cue prompt
+cannot serve, since it has no tokens at the quantity's position); $R$ is the relevant-role twin with the
+\emph{same numeral, unit and position} at the same $z$. $I_{\text{presence}}$ can use any declared metric, since
+$D$ and $N$ share a gold. $I_{\text{role}}$ must use a behaviourally comparable outcome, because the two worlds
+have different certified answers: tracking against each world's own certified answer, or the answer-mode shares,
+under T3 (or T2 with each world's certified intermediate values); raw gold-string log-odds are never subtracted
+across worlds. The clean effects beside each ($m(D)-m(N)$, $m(D)-m(R)$) are always reported. A component with
+$I_{\text{presence}}\neq0$ but $I_{\text{role}}\approx0$ is a numeral-cue component; a claim of physical-role
+routing requires $I_{\text{role}}\neq0$, holding across values and phrasings, with the controls below. A large equal
+effect on all prompts marks a general answer component (the head-11 lesson). $I_h$ elsewhere in this document
+means $I_{\text{presence}}$ or $I_{\text{role}}$ as declared.
 
 \textbf{Protocol checklist} (each item cites the source of the practice):
 \begin{enumerate}
@@ -1319,17 +1382,22 @@ committed. Nothing is run before.}
 \begin{enumerate}
 \item \textbf{Design-validation pilot} (8--12 structures, core role-by-value cells, a few samples): are the
 contrasts unambiguous, feasible, correctly certified and correctly graded? Structures are checked by the best
-available reviewer (independent expert if D2 is resolved; otherwise the user's walkthrough, labelled as such).
+available reviewer (the qualified LLM panel once it exists, plus the user's walkthrough; each labelled as such).
 Defects found here change the generator, never the analysis of later data.
 \item \textbf{Calibration} per candidate model and budget: $k_{sel}$ no-cue samples to select items, then $k_{est}$
 fresh samples on the selected items to estimate the baseline and the self-flip floor (never the selection
 samples: the 14.20 preliminary contrast had a baseline of 1.000 by construction, J14.19-014); on a subset of the
 selected items, a few samples of the R and D cells at three values in one phrasing and of the non-numeric sentence,
-so that the variance of the actual primary estimands ($\bar T$, $\lambda$, $\Lambda$) is estimated, not only a
+so that the variance of the actual primary estimands (tracking loss, misuse and neglect shares) is estimated, not only a
 no-cue variance; tokens, budget exhaustion and format failures.
 \item \textbf{R-tracking check.} A minimum tracking share on R cells, fixed numerically in G1, is checked here: a
 model or budget below it does not use added relevant quantities reliably enough for any role reading, and is
 changed or dropped at this gate, never after G3.
+\item \textbf{Primary-model rule}, frozen at the end of G2 and before any G3 output: the primary model is the first
+in the prespecified order Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct, Qwen3-8B (if downloaded, D3) that meets the
+G2 criteria (complete structures in band, R-tracking criterion, extended parity in the study dtype for G5
+instrumentation); the next model that meets them is the second model. The choice never depends on observed cue
+effects.
 \end{enumerate}
 \gate{\textbf{Gate G2.} Passes when enough \emph{complete} role-by-value structures (Section~\ref{sec:rolevalue}:
 R and D cells at three values in two phrasings) fall in the band to meet the power target of
@@ -1365,9 +1433,10 @@ items and band are not changed on the same data. A formula hint that does not he
 
 \subsubsection*{G4. Independent behavioural confirmation (GPU, medium)}
 New structures in template clusters no earlier run has touched (INTERNAL\_CONFIRMATION; shadow subset held back),
-validated under B4 or labelled EXPLORATORY-REPLICATION (D2). Preregistered: the role-by-value family with its
-estimands, decision rules and sample size from the power simulation; primary model Qwen2.5-7B-Instruct, second model
-by fixed sequence; two declared final-answer formats on a random half of items, each with its effect estimate and
+validated by the qualified LLM panel (Section~\ref{sec:llmpanel}; human B4 review where available) or, failing that,
+labelled EXPLORATORY-REPLICATION. Preregistered: the role-by-value family with its
+estimands, decision rules and sample size from the power simulation; the primary and second models fixed by the
+G2 primary-model rule, the second by fixed sequence; two declared final-answer formats on a random half of items, each with its effect estimate and
 interval, and a stated rule for how much format dependence changes the interpretation (planning: the reading
 changes if the format-specific effects differ by more than a factor of two or have opposite signs with both
 intervals excluding zero). Opened once.
@@ -1375,16 +1444,18 @@ intervals excluding zero). Opened once.
 is reported as not replicated.}
 
 \subsubsection*{G5. Mechanism (GPU)}
-Gated on G4 establishing H3 or H4, or H6 (the mechanism of correct selection, when the model selects correctly and
-errors are rare; H6 needs the equivalence tests that only G4's size can power); under H1/H2 only a narrow study of
+Gated on G4 establishing H3 or H4, or H6-RD (the mechanism of correct selection between relevant and structurally
+disconnected quantities, when the model selects correctly and errors are rare; it needs the equivalence tests that
+only G4's size can power). A mechanism-of-correctness claim covers only the strata G4 confirmed: H6-extended (C and K
+as well) needs those strata in G4's preregistered family; under H1/H2 only a narrow study of
 unit or number handling, framed against Liu and Owusu et al. The exploratory mechanism pilot of G3 is the only
 mechanism work before G4. Every experiment declares claim type T1, T2 or T3 and
-follows Section~\ref{sec:causal}. Starts on Qwen2.5-7B-Instruct and Llama-3.1-8B-Instruct (both listed as fully verified by TransformerLens~3.4;
+follows Section~\ref{sec:causal}. Starts on the primary and second models fixed by the G2 rule (planning order Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct; both listed as fully verified by TransformerLens~3.4;
 locally, HF-versus-TL parity has passed only on one smoke prompt in float16 with parameters on CPU, job 399217, so
 the G0 extended parity in the study dtype is required first); Qwen3-8B with thinking afterwards (if downloaded, D3); Qwen3-32B only for a frozen-function
 transfer test.
-\gate{\textbf{Gate G5.} A computation claim needs T2 or T3 evidence with the interaction estimand, both
-directions, rescue within structure, causal abstraction for any variable claim, and a correct held-out
+\gate{\textbf{Gate G5.} A role-computation claim needs T2 or T3 evidence with $I_{\text{role}}\neq0$ (not only
+$I_{\text{presence}}$), both directions, rescue within structure, causal abstraction for any variable claim, and a correct held-out
 prediction. Otherwise the result is reported at the level it reached (Section~\ref{sec:claims}).}
 
 \subsubsection*{G6. External and functional confirmation}
@@ -1414,7 +1485,7 @@ O1--O6 wherever the requirement survives.
 Three rules of the October dependency paragraph stay in force. (1) Each gate is about correctness, not dates; the
 plan is not calendar-driven. (2) A claim ledger is updated continuously (P11) but final claims are frozen only when
 the branches they need have closed. (3) Mechanism work does not start before trustworthy partitions and a frozen
-behavioural contrast exist; in the revised plan that means after G4, for H3, H4 or H6 (Section~\ref{sec:gates}). The October
+behavioural contrast exist; in the revised plan that means after G4, for H3, H4 or H6-RD (Section~\ref{sec:gates}). The October
 allowance for ``exploratory H11 checks'' is replaced by a narrower one: a small exploratory mechanistic pilot may
 run during G3, marked exploratory and never confirmatory, and no claim may rest on it.
 
@@ -1621,7 +1692,7 @@ and G4 (validation of confirmation structures, cohort freeze).
 
 \begin{description}[leftmargin=1.2em,style=nextline]
 \item[P3.1 Personnel and blinding.] Two independent physics-qualified validators per confirmatory structure and a
-third adjudicator, calibrated on easy, adversarial and ambiguous cases, blind to model outputs, scores and the
+third adjudicator (interim: the qualified LLM panel of Section~\ref{sec:llmpanel}, under the same blinding), calibrated on easy, adversarial and ambiguous cases, blind to model outputs, scores and the
 hypothesis. Each property asked separately: equation correctness, sufficient assumptions, the role certificate of
 each quantity (Section~\ref{sec:strata}), answer invariance or certified response, naturalness, missing
 interactions, units, rounding, and whether paired renderings differ only as intended. Confidence and reasons are
@@ -1659,9 +1730,10 @@ never moves from EXPLORATION into a confirmation role.
 \gate{\textbf{Gate P3.} No confirmatory behavioural, hidden-state or causal generalisation claim until each
 confirmatory structure's natural language has passed independent validation and its leakage risk is audited. If
 the certificate proves the equations but validators reject a sizeable share of the prompts' semantics, revise the
-benchmark and restart the affected measurements; this is not a statistical nuisance covariate. Without an
-independent reviewer (open decision D2), G4 runs as EXPLORATORY-REPLICATION and no text may call it
-confirmatory.}
+benchmark and restart the affected measurements; this is not a statistical nuisance covariate. Until human
+review exists, independent validation for G4 is provided by the qualified LLM panel of
+Section~\ref{sec:llmpanel}, disclosed as such; without a qualified panel, G4 runs as EXPLORATORY-REPLICATION and no
+text may call it confirmatory.}
 
 \textbf{Status (11 Nov 2026):} validator-qualification materials and a 33-item planted-defect bank exist
 (Stage~14.5), reviewed by the user as one non-blinded reviewer; no validator is qualified, and agent verification
@@ -1669,7 +1741,7 @@ replaced the physicist review by the user's decision of 26~October~2026 (the rev
 objection applies to these items). Structure-overlap clusters rebuilt (Stage~14.4: 34 clusters from 147 family
 edges; human review of the 2,352 rendering pairs not attempted). Parser evidence: LaTeX-wrapped final lines made 5
 of 78 Stage~A records unparseable (J14.19-009); the LaTeX final-line parse enters the next contract version
-prospectively, never applied to old records. D2 is open.
+prospectively, never applied to old records. Validation for G4: the qualified LLM panel (Section~\ref{sec:llmpanel}); the panel models are open decision D2.
 
 %----------------------------------------------------------------------
 \subsubsection{P4. Definitive behavioural discrimination and power planning}
@@ -1707,8 +1779,8 @@ survive dropping the one to three most extreme structures; means and robust quan
 \item[P4.7 Core negative tests (kept, restated).] If the departure is reproduced by an irrelevant bibliographic
 numeral, is unchanged by unit incompatibility, does not differ between role twins, vanishes under equivalent output
 formats, or tracks only token overlap, the evidence counts against H3 and for H1 or H2 in the scorecard (hypotheses are
-not exclusive, Section~\ref{sec:gates}); H6 is supported only when invariance in D, C and K and correct response in
-R are shown by equivalence tests. These are results, not
+not exclusive, Section~\ref{sec:gates}); H6-RD is supported only when F1--F3 (D and R) are each shown equivalent to zero;
+H6-extended adds C and K. These are results, not
 failures to hide; a certified null is reported with its power.
 \end{description}
 
@@ -1794,10 +1866,11 @@ not by observed sensitivity; stratified by correctness and by O3 status. Where a
 semantically matched positions are patched, with position controls. Selection on a discovery split; tests on
 disjoint held-out structures.
 \item[P6.2 Frozen response variable.] The metric of the declared claim type (Section~\ref{sec:causal}): T1
-the log-odds of the trace's final value against a prespecified misuse value, between prompts that share a gold, each
-candidate's logit shown; T2 the certified intermediate against the prespecified
+$\log p(y^*(z))-\log p(f_h(z))$ on the declared prefix, between prompts that share a gold, each candidate's logit
+shown; T2 the certified intermediate against the prespecified
 misuse value; T3 O1, O2 and O4 over on-policy resampled traces. Original score, intervened score and absolute
-difference are always reported, for $S$ and for $B$, with the clean cue effect beside $I_h$; never a normalised
+difference are always reported, for $D$, $N$ and (under T2/T3) $R$, with the clean effects beside
+$I_{\text{presence}}$ and $I_{\text{role}}$; never a normalised
 recovery and never a ratio over near-zero denominators.
 \item[P6.3 A new experiment, not a reproduction.] Candidates come from a discovery screen on EXPLORATION
 structures, with flanking layers, norm- and entropy-matched heads and random sites as controls; per-structure
@@ -1825,9 +1898,10 @@ reasoning trace and final-answer scoring, and match denominators, before conclud
 pathway) applies to any reasoning model studied; DeepSeek-R1-Distill itself is not planned (Appendix~\ref{app:disposition}).
 \end{description}
 
-\gate{\textbf{Gate P6 (part of G5).} A component advances to P7 only if $I_h\neq0$ under T2 or T3 with the controls
-of Section~\ref{sec:causal}, robust across ablation semantics, on held-out structures. An effect equal on $S$ and $B$
-marks a general answer component and is reported as such. An effect shown only under T1 supports a readout claim,
+\gate{\textbf{Gate P6 (part of G5).} A component advances to P7 as a role component only if $I_{\text{role}}\neq0$ under T2 or
+T3 with the controls of Section~\ref{sec:causal}, robust across ablation semantics, on held-out structures; with
+$I_{\text{presence}}\neq0$ alone it is a numeral-cue component. An effect equal on $D$, $N$ and $R$ marks a general
+answer component and is reported as such. An effect shown only under T1 supports a readout claim,
 not a role-computation claim. An effect on log-odds but not on O1, O2 or O4 is a cause of answer-competition change,
 not of success or failure in physics.}
 
@@ -2060,8 +2134,8 @@ kept at equal weight unless the evidence forms one non-inflated chain.
 
 \gate{\textbf{Gate P11.} No submission until an independent reader can reproduce the primary figures and state, in
 one paragraph, the causal explanation and the best attempt to falsify it. Disconfirming evidence enters the headline
-scope, not future work. Without an independent reviewer, results stay exploratory and any manuscript says so,
-disclosing agent authorship and agent verification.}
+scope, not future work. Each claim states its validation tier (LLM panel or human expert); without either, results stay exploratory;
+any manuscript discloses agent authorship and LLM validation.}
 
 \textbf{Status (11 Nov 2026):} the Phase-I paper was withdrawn on 11~November~2026; its reviews and a verification of
 the reviewers' claims are recorded, and no Phase-I claim survives as stated. The claim ledger exists. The EPC
@@ -2130,7 +2204,7 @@ A06 \newline R & Same-unit vs dimensionally incompatible distractor with identic
 A07 \newline R & Same-unit vs exactly convertible-unit distractor of identical physical magnitude; text-unit vs physical-unit coding. & G3 &
 \textbf{OPEN}. Convertible-unit cell exists (J14.6-006), copy counts only (J14.12-002). Kept as the invariance/equivariance family (old Cue~C); never pooled with D cells. \\
 A08 \newline R & Explicitly mechanically isolated vs implicitly separate vs now coupled system, the coupled case re-certified for relevance; semantic causal boundary. & G1, G3, G4 &
-\textbf{SUPERSEDED} by the role-by-value design (Section~\ref{sec:rolevalue}): R vs D (and C, K) cells at $\geq3$ values in $\geq2$ validated phrasings, one without marker words; O4 ($\bar T$, $\lambda$, $\Lambda$). \\
+\textbf{SUPERSEDED} by the role-by-value design (Section~\ref{sec:rolevalue}): R vs D (and C, K) cells at $\geq3$ values in $\geq2$ validated phrasings, one without marker words; O4 (tracking loss, misuse and neglect shares; $\lambda$, $\Lambda$ descriptive). \\
 A09 \newline R & Cue irrelevant to the original target but relevant to a counterfactual target question; selective relevance vs global numerical suppression. & G3 &
 \textbf{SUPERSEDED} by the R stratum of the role-by-value design (question fixed, role changed). Role reversal (question changed) stays as the use-on-request supporting condition; exploratory cells J14.12-002, J14.19-014. \\
 A10 \newline R & Cue before relevant variables, after them, and adjacent to the target question; recency/position effect. & G3 &
@@ -2181,7 +2255,7 @@ B04 \newline R & Same target with a dimensionally incorrect unit; validator and 
 B05 \newline R & Exact prompt hashes vs AST/graph-normalised structural duplicates; re-estimate the main probe on a cluster-held-out split. & G0, G1 &
 \textbf{DONE-EXPLORATORY} in part (J14.4-002; J14.4-009): clusters rebuilt, non-activation predictors refit. The probe is \NE{} (no activations), a G7 item. New structures: program-hash overlap checks (J14.6-002; J14.19-002). \\
 B06 \newline R & Dual expert human validation blinded to generated outputs vs single expert or agent audit; disagreement and exclusions. & G1, G4 &
-\textbf{OPEN}. Required for G4 to be confirmatory; Stage~14 items are agent-verified and UNREVIEWED (J14.19-002). \\
+\textbf{OPEN}. Human tier; for G4 the interim tier is the qualified LLM panel (Section~\ref{sec:llmpanel}); Stage~14 items are agent-verified and UNREVIEWED (J14.19-002). \\
 B07 \newline R & Native answer parser vs blinded human consensus; failure modes and impact on sample admission. & G2 &
 \textbf{OPEN}. Becomes the stratified parser audit (false-negative rate); LaTeX-wrapped final lines already observed (J14.19-009). \\
 B08 \newline R & Family selected for scoring before vs after parseability; selective attrition of the five historically removed stable families. & G0 &
@@ -2318,7 +2392,7 @@ D16 \newline X & Learning curve and label efficiency over growing numbers of dis
 
 The October E and F groups were written around the Phase-I layer-16 head~11 (H11) and its four-head set, which
 were selected on the panel they were tested on and read through normalised recovery of $S_{lp}$. In the revision
-every E and F contrast runs at G5, after G4 establishes H3, H4 or H6, on components found anew. Each declares its claim type
+every E and F contrast runs at G5, after G4 establishes H3, H4 or H6-RD, on components found anew. Each declares its claim type
 (T1/T2/T3) and reports the interaction estimand $I_h$ with the clean cue effect beside it
 (Section~\ref{sec:causal}).
 
@@ -2355,7 +2429,7 @@ E09 \newline R & Full-head output vs QK pattern vs V/OV path and source-specific
 E10 \newline R & Accuracy and decoy log-odds vs unrelated-task loss/KL; constrain off-target damage. & G5 &
 \textbf{OPEN} (checklist item~6). Decoy log-odds become O6 (certified value against a prespecified misuse value). \\
 E11 \newline R & Edit the irrelevant cue vs a relevant numeric input that changes $y^*$; does the lesion destroy legitimate computation. & G5 &
-\textbf{SUPERSEDED} by $I_h$ with the R twin at the same $z$ as control prompt (Section~\ref{sec:causal}). \\
+\textbf{SUPERSEDED} by $I_{\text{role}}$ with the R twin at the same $z$ (Section~\ref{sec:causal}). \\
 E12 \newline R & Original 20 high-$S$ families vs new unbiased and near-threshold causal panels; selection effect. & G5 &
 \textbf{REVISED}: the $S_{lp}$-selected panel is retired; discovery and test on disjoint structures, selected by G4 behaviour (checklist item~8). \\
 E13 \newline C & Model self-repair: ablate and measure downstream compensation in MLPs and alternate heads. & G5 &
@@ -2481,8 +2555,8 @@ own right. Frozen at G1; measured from G2 on.
 relative error $\leq1\%$ with dimension-checked conversion). Frozen at G1; audit at G2.
 \item \textbf{Thinking on versus off and reasoning budget} within the same weights (secondary question, H5 cost via
 O5). G2 calibration, G3 discovery.
-\item \textbf{Interaction estimand $I_h$ on every intervention}, with the clean cue effect beside it and the R twin
-as a second control prompt. G5.
+\item \textbf{Two interaction estimands on every intervention}: $I_{\text{presence}}$ against the non-numeric
+sentence and $I_{\text{role}}$ against the R twin, with the clean effects beside them. G5.
 \end{enumerate}
 
 % ===== s07_cards =====
@@ -2620,12 +2694,13 @@ words. Unit compatibility, the three proximity levels, digit overlap and positio
 do the formula hint, the relevance instruction and the non-physics dependency control
 (Section~\ref{sec:conditions}). A structure enters the primary contrast only with R and D cells at three values in
 two phrasings.
-\item \emph{Primary outcome.} O4: tracking $\bar T$, the normalised response fractions $\lambda_R$, $\lambda_D$ and
-the role-discrimination index $\Lambda$, with misuse-curve tracking and all matches kept. O1--O3 and O5 are always reported. Strata are never pooled.
+\item \emph{Primary outcome.} O4: the G4 family F1 (D tracking loss with misuse attribution), F2 (R neglect share)
+and F3 (role $\times$ value interaction on tracking), with all matches kept; $\lambda$ and $\Lambda$ are descriptive. O1--O3 and O5 are always reported. Strata are never pooled.
 \item \emph{No-go, restated in the hypotheses of Section~\ref{sec:hypotheses}.} Hypotheses are scored, not exclusive. Copy tracking in every role
-supports H1. Departures confined to same-unit plausible values support H2. H6 (correct selection) needs invariance
-in D, C and K and a correct R response shown by equivalence tests. Relevance-selection language (H3) is used only if
-$\lambda_D>0$ follows a substitution or add-term misuse curve (or, for C and K, a wrong-law curve).
+supports H1. Departures confined to same-unit plausible values support H2. H6-RD (correct selection between R and D) needs F1, F2 and F3 each shown
+equivalent to zero (Section~\ref{sec:statistics}); H6-extended adds the same for C and K. Relevance-selection language (H3) is
+used only if a D tracking loss is attributed to a prespecified misuse curve (substitute, add or subtract, in its
+predicted direction; for C and K a wrong-law curve) across values.
 \item \emph{Selection.} G4 confirms the role-by-value family fixed in advance; the G3 scorecard may add at most one
 secondary family (Section~\ref{sec:gates}).
 \end{itemize}
@@ -2670,9 +2745,9 @@ distribution mismatch rather than cherry-picking rare positives.
 \item[Status.] \textbf{OPEN}.
 \item[Revision.] The internal part is folded into G4. The role-by-value family is preregistered with its
 estimands, decision rule and simulation-based sample size, on new template clusters no earlier run has touched
-(INTERNAL\_CONFIRMATION). Qwen2.5-7B-Instruct is primary; Llama-3.1-8B-Instruct is tested only if the primary
-passes (fixed sequence). Two final-answer formats are used, and the cohort is opened once. Without independent
-review (B06) the run is labelled EXPLORATORY-REPLICATION. The external part (independently authored items, e.g.
+(INTERNAL\_CONFIRMATION). The primary and second models are those fixed by the G2 primary-model rule (planning
+order Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct); the second is tested only if the primary passes (fixed sequence). Two final-answer formats are used, and the cohort is opened once. Items are validated by the
+qualified LLM panel (Section~\ref{sec:llmpanel}); without it the run is labelled EXPLORATORY-REPLICATION. The external part (independently authored items, e.g.
 adapted from EPC sources, each with its own certificate) stays in G6. The endpoint is O4 with O1--O3, not a
 reference-free likelihood.
 \end{description}
@@ -2703,12 +2778,12 @@ as a general answer component, not as cue processing.
 The record points the way the card's no-go anticipated. It is not a fresh test, because the panel was not
 untouched. The retirement rests on construct grounds: a single-head target chosen on its own test panel and read
 through a ratio of a retired label.
-\item[Revision (replacement).] Components are found anew at G5, after G4 establishes H3, H4 or H6, on untouched
+\item[Revision (replacement).] Components are found anew at G5, after G4 establishes H3, H4 or H6-RD, on untouched
 structures and under the interaction estimand $I_h$ of Section~\ref{sec:causal}. Each experiment declares its
 claim type (T1/T2/T3) and reports the clean cue effect beside $I_h$. Noising and denoising are reported
 separately. Resample/interchange ablation is primary. Matched random components serve as nulls. The sign and size
 on held-out structures are committed before the test. H11 has no special status. Two parts of X07 survive: the
-role-reversal and relevant-edit positive controls become the R-twin control prompt of $I_h$, and ``record all
+role-reversal and relevant-edit positive controls become the R-twin control prompt of $I_{\text{role}}$, and ``record all
 logits and free outputs'' becomes O6 with each candidate shown plus T3 on-policy outcomes.
 \end{description}
 
@@ -2829,8 +2904,8 @@ never tune on the external test and call it confirmation.
 adapted items, each with its own certificate.
 \item The review-derived checks are added: a mechanical claim-wording check against the claim registry, a
 provenance-consistency check (authorship and validation fields against the text), and the forbidden-phrase check.
-\item Agent authorship and agent verification are disclosed. Without an independent reviewer, results stay
-exploratory.
+\item Agent authorship and the validation tier (LLM panel or human expert) are disclosed. Without either, results
+stay exploratory.
 \end{itemize}
 \end{description}
 
@@ -2849,12 +2924,16 @@ if there were many.
 \textbf{Primary behavioural estimands} (Section~\ref{sec:rolevalue}), per model and structure, averaged over
 structures:
 \begin{itemize}
-\item \emph{Invariance} in stratum D (separately C, K), co-primary: structure-level tracking $\bar T_D$ minus the
-same structure's no-cue tracking (all attempted samples), and $\lambda_D$ against 0; plus the share of samples that
-follow a prespecified misuse curve $f_h(z)$ against the no-cue rate of answers equal to the same values.
-\item \emph{Responsiveness} in stratum R, co-primary: $\bar T_R$ and $\lambda_R$ against 1.
-\item \emph{Role discrimination}, co-primary: $\Lambda=\lambda_R-\lambda_D$ against 1, always read together with
-the two above (Section~\ref{sec:rolevalue}).
+\item \emph{Inappropriate dependence} in stratum D (separately C, K), co-primary (F1): the tracking loss
+$\bar T_N-\bar T_D$ against the non-numeric sentence over all attempted samples (the loss against the no-cue prompt
+beside it), which any departure outside tolerance lowers whatever its sign; the misuse shares against their rates
+under $N$ attribute it (secondary family).
+\item \emph{Inadequate responsiveness} in stratum R, co-primary (F2): the neglect share (R samples answering the
+irrelevant-role value) against the placebo match rate in the same cell, beside $\bar T_R$.
+\item \emph{Role-by-value interaction}, co-primary (F3): the role $\times$ value term of a mixed-effects logistic
+model of tracking; physics predicts no dependence of tracking on $z$ in either role.
+\item \emph{Descriptive}: $\lambda_R$, $\lambda_D$ and $\Lambda$ with the multimodality guard of
+Section~\ref{sec:rolevalue}; they gate nothing.
 \item \emph{Presence}: O1 difference between the non-numeric sentence and a D cell, for comparison with the
 numeric-salience literature.
 \end{itemize}
@@ -2885,9 +2964,12 @@ same condition), never against zero.
 
 \subsection{Effect sizes, equivalence and the language of null results}
 Every contrast has a smallest effect of scientific interest (SESOI) stated in G1 \emph{with its reason}, not chosen
-for a convenient sample size, and in the units of the estimand it applies to. For $\lambda_D$ the reason is
-physical: the share of the certified response that may leak into an irrelevant role before it matters (planning
-value 0.10, i.e.\ a tenth of the relevant-role response); for tracking shares and O1 differences the reason states which
+for a convenient sample size, and in the units of the estimand it applies to. For the D tracking loss and misuse shares the
+reason is behavioural: the share of answers that may be lost to an irrelevant quantity before it matters (planning
+value 0.10 in tracking); for the R neglect share above its placebo rate the same 0.10 (a tenth of R answers ignoring a quantity that
+matters); for the F3 role $\times$ value interaction an odds ratio of 1.5 per value step on tracking (planning),
+because a smaller value dependence would not change a reading of any single item; for descriptive $\lambda_D$ a leak
+of a tenth of the relevant-role response; for tracking shares and O1 differences the reason states which
 use the result serves (a reliability claim may care about a few percentage points; a costly mechanism study needs an
 effect large enough to localise). Equivalence is claimed only by two one-sided tests within the SESOI, with
 adequate power: with $\omega$ the standard deviation of the per-structure difference, about
@@ -2906,9 +2988,15 @@ denominators; a contrast between rare rates is never read from a structure-poole
 \subsection{Multiple comparisons and research degrees of freedom}
 \begin{itemize}
 \item G3 is estimation; its scorecard is not a test.
-\item G4 tests the role-by-value family by gatekeeping: the role-discrimination index first ($\Lambda<1$, one-sided,
-$\alpha=0.05$, i.e.\ the model discriminates roles less than the physics requires; or, for H6, equivalence of
-$\Lambda$ to 1), then invariance ($\lambda_D>0$) and responsiveness ($\lambda_R<1$) by Holm; the second model by fixed sequence after the first. At most one
+\item G4 tests the role-by-value family as three co-primary contrasts, Holm-corrected at family-wise
+$\alpha=0.05$: (F1) \emph{inappropriate dependence} in D, the tracking loss $\bar T_N-\bar T_D$ against the
+non-numeric sentence (one-sided, since a departure in any direction lowers tracking); (F2) \emph{inadequate
+responsiveness} in R, the neglect share against its placebo rate (one-sided); (F3) the \emph{role-by-value interaction}, the role $\times$ value term of a
+mixed-effects logistic model of tracking (two-sided: physics predicts tracking that does not depend on $z$ in either
+role). For H6-RD each of F1--F3 is instead tested for equivalence within its SESOI. $\Lambda$ and $\lambda$ are
+reported as descriptive summaries and gate nothing. The misuse shares that attribute an F1 loss to particular
+misuse curves are a secondary family, Holm-corrected across curves and tested in each curve's predicted direction,
+only after F1 passes. The second model follows by fixed sequence after the first. At most one
 secondary family chosen in G3 is tested after the primary family, Holm-corrected, and labelled as chosen on
 EXPLORATION data.
 \item Prespecified secondary scans use Benjamini--Hochberg and stay exploratory.
@@ -2923,8 +3011,8 @@ Before G3 and again before G4, simulate from the G2 estimates (structure, value 
 $\omega$ of the cue difference, within-item Bernoulli variance, which more samples reduce and between-structure
 variance does not; Wang 2026), for $J\in\{24,40,60,80\}$ complete role-by-value structures and
 $k\in\{3,5,8\}$, at least 1,000 simulated datasets each analysed exactly as planned, on simulated null data as well as effect data so
-that the type-I error of the chosen analysis and resampling unit is shown to be calibrated, for $\bar T$, $\lambda$ and
-$\Lambda$ and for the misuse-tracking and copy rates, which may be rare (Stage~14.20 had 2 wrong answers in 128 cells). The
+that the type-I error of the chosen analysis and resampling unit is shown to be calibrated, for the tracking loss, the role-by-value interaction
+and the misuse, neglect and copy shares, which may be rare (Stage~14.20 had 2 wrong answers in 128 cells). The
 simulation includes a scenario with 20--40\% loss to infeasible cells, validation failures, parse failures and
 budget exhaustion. Analytic bracket: $J\approx7.85\,\omega^2/\delta^2$ for 80\% power at two-sided $\alpha=0.05$
 (Miller 2024), about $6.2\,\omega^2/\delta^2$ for the one-sided G4 tests, with $\omega$ the standard deviation of the
@@ -2988,7 +3076,7 @@ commit; all jobs of one study step run from one frozen commit. Every accepted jo
 \toprule
 Model & Role & Status \tg{V} \\
 \midrule
-Qwen2.5-7B-Instruct & Primary behaviour and mechanism & Restored after the wipe, revision pinned, manifest
+Qwen2.5-7B-Instruct & First in the planning order for primary behaviour and mechanism (the primary model is fixed by the G2 rule) & Restored after the wipe, revision pinned, manifest
 (\texttt{qwen\_primary.json}); HF-versus-TransformerLens parity passed on the smoke prompt (job 399217) \\
 Llama-3.1-8B-Instruct & Second family & Restored, pinned, manifest (\texttt{llama\_primary.json}); parity passed
 (399217) \\
@@ -3094,7 +3182,8 @@ models $\times$ (scored forwards $+$ generated samples), with the output-format 
 \subsection{Human effort}
 \label{sec:compute-human}
 
-Independent physics review (block B4, open decision D2) is the binding non-GPU cost. Generating and certifying
+Independent physics review (block B4) is the binding non-GPU cost; until human reviewers are available, the
+qualified LLM panel of Section~\ref{sec:llmpanel} provides the interim tier (its models are open decision D2). Generating and certifying
 structures is agent and CPU work; review is not. Planning figure: 15--20 minutes per structure per reviewer.
 
 \begin{center}\small
@@ -3105,15 +3194,17 @@ Step & Structures & Review effort per reviewer per pass (planning) \\
 G2 design-validation pilot & 8--12 & about 2--4~h; the measured time per structure replaces the planning figure
 (this replaces the October edition's 20-family adjudication-time pilot) \\
 G3 behavioural discovery & 24--40 & about 6--13~h if reviewed; without review G3 is exploratory by design \\
-G4 confirmation & about 50 (from power) & about 12--17~h for two-pass review of 50, plus adjudication; required for
-G4 to be confirmatory \\
+G4 confirmation & about 50 (from power) & about 12--17~h for two-pass human review of 50, plus adjudication; for now
+replaced by the qualified LLM panel (below), human hours deferred to the later accuracy study \\
 \bottomrule
 \end{tabularx}
 \end{center}
 
-Without an independent reviewer, G4 is reported as \texttt{EXPLORATORY-REPLICATION}. A self-authored or
-agent-authored review is not independent expert validation, and agent authorship and agent verification are
-disclosed. The October edition's staffing roles are kept (hypotheses and claim ledger; generator and symbolic
+Until human reviewers are available, G4 items are validated by the qualified LLM panel
+(Section~\ref{sec:llmpanel}): roughly 2--3 judge runs of two passes per structure, a few GPU-hours locally or an API
+budget, plus recorded adjudication of split verdicts (adjudicated items reported separately). Without a qualified panel, G4 is reported as
+\texttt{EXPLORATORY-REPLICATION}. The authoring agent's own review is not validation, and agent authorship and LLM
+validation are disclosed. The October edition's staffing roles are kept (hypotheses and claim ledger; generator and symbolic
 verifier; instrumentation and reproducibility; validator coordination; an independent reviewer who attacks
 leakage and causal interpretation); roles can be combined, but independence checks cannot all be done by the
 agent that wrote the data. Its 400-structure, 800-judgment validation budget is withdrawn with the demotion of
@@ -3296,9 +3387,10 @@ Situation & Required action & Prohibited reaction \\
 \endfoot
 A model is outside the difficulty band after harder or easier variants & Report the model as uninformative at
 that budget & Change the band after seeing results \\
-No independent reviewer (D2 unresolved) & Results stay exploratory; G4 is \texttt{EXPLORATORY-REPLICATION};
-any manuscript says so, with the agent-authorship and agent-verification disclosure & Call agent verification
-independent validation \\
+No qualified LLM panel and no human reviewer & Results stay exploratory; G4 is \texttt{EXPLORATORY-REPLICATION};
+any manuscript says so, with the agent-authorship disclosure & Call agent verification independent validation \\
+LLM panel qualified, no human review yet & G4 is ``confirmatory under LLM-panel validation''; disclosed; human study
+of panel accuracy planned (G6/P11) & Call panel validation expert validation \\
 vLLM not approved (D4) & Run on the 7--8B models with Hugging Face; Qwen3-32B only for a small hard-subset
 check, if at all & Extrapolate Qwen3-32B behaviour from single-sample Stage~14 runs \\
 Role-by-value design infeasible for many structures & Run the role contrast on the feasible subset with its
@@ -3461,7 +3553,7 @@ versus off and budget sweep within one set of weights &
 G4 with equivalence on O1 and O4; the D3 model if the within-weights contrast is claimed &
 Mean versus median comparisons; truncated records relabelled wrong; single-sample runs \\
 \textbf{P-H6} Mechanism of correct selection &
-Invariance in D, C, K and correct R response $\to$ T2 or T3 localisation of the computation that excludes the
+H6-RD (D and R; H6-extended adds C and K) $\to$ T2 or T3 localisation of the computation that excludes the
 quantity (or uses it correctly in C and K) $\to$ held-out prediction &
 G4 behaviourally, then G5; on the population of tasks solved reliably without a cue &
 Decoding a role from a subspace (diagnostic only); intermediate use in C or K called an error \\
@@ -3691,7 +3783,7 @@ graph, and was that validation independent (G1; B4 review at G4)?
 \item \textbf{Alternatives.} Which weaker account was strongest --- generic perturbation (H0), numeral presence or
 plausibility and unit (H1, H2), length or diversion (H5), string-scoring, format or difficulty artifacts --- and
 where was it falsified, including by the non-physics control?
-\item \textbf{Role by value.} Do the model's normalised response fractions ($\lambda_R$, $\lambda_D$, $\Lambda$) differ between roles as the physics requires,
+\item \textbf{Role by value.} Does the model keep its answers fixed where a quantity is irrelevant (no tracking loss, no misuse) and follow the certified response where it is relevant (no neglect), as the physics requires,
 across values and across phrasings with and without marker words; are misuse hypotheses supported only by curves
 across several values, with all matches kept?
 \item \textbf{Computation.} If a mechanism is claimed: which computation was identified under a declared claim
@@ -3721,7 +3813,7 @@ Section~\ref{sec:papers}), but it is not presented as a mechanistic explanation.
 the construct and measurement definition, however strong other results look. A certified null (H0 with
 equivalence shown against a margin fixed before the data and an adequately powered design) and a cost finding (H5)
 are complete results; an inconclusive interval, an underpowered contrast or zero evaluable rows are not, and are
-reported as what they are. Results without independent review are complete only as exploratory results.
+reported as what they are. Results without LLM-panel or human validation are complete only as exploratory results.
 
 \appendix
 % ===== a1_stage14 =====
@@ -3776,7 +3868,7 @@ Issue numbers follow the consolidated register in \texttt{docs/reviews/iclr2027\
 7 & Wording exceeds evidence & -- & Claim hierarchy; G0(e) wording check; forbidden-phrase check \\
 8 & Template-cluster leakage & C5c, C5d & Structure as unit; disjoint data roles; G4 on untouched clusters \\
 9 & Cue C pooled with irrelevant cues & C6 & Convertible-unit family kept separate \\
-10 & No human validation; agent authorship & C9 & B4; D2; G0(f) provenance consistency; EXPLORATORY-REPLICATION label without independent review \\
+10 & No human validation; agent authorship & C9 & Validation tiers (Section~\ref{sec:status}, rule 4); a qualified LLM panel from other model families (Section~\ref{sec:llmpanel}); later human study; G0(f) provenance consistency; disclosure \\
 11 & Near-match claim overstated & C7 & Proximity as distinct conditions; role-by-value design \\
 12 & Verifier scope and tolerance & C10 & Strata certificates; B1.5 audit if v1 is reused \\
 13 & Scope: short plug-in calculations & -- & Problem-structure strata (B3.1); strata C and K require more than plug-in \\
@@ -3807,7 +3899,7 @@ B0 threat model, novelty audit & Kept, partly done & Section~\ref{sec:literature
 B1 reproduce and break v1 & Closed & Stage~14 and the reproduced reviews; B1.5 only if v1 is reused \\
 B2 construct choice & Decided & Section~\ref{sec:framework} \\
 B3 typed generator & Extended & Strata, role-by-value, phrasings, misuse curves \\
-B4 human validation & Kept, unresolved & D2 \\
+B4 human validation & Kept; interim LLM-panel tier & Section~\ref{sec:llmpanel}; human study later; D2 \\
 B5 external sets & Split & Non-physics control in G3; external physics in G6 \\
 B6 pilot, power, roles & Restructured & G2 and G3, staged \\
 B7 Phase-B go/no-go & Replaced & G3 scorecard and the fixed G4 family \\
@@ -3843,7 +3935,7 @@ Each default withholds an action; none is irreversible.
 Id & Decision & Default until decided \\
 \midrule
 D1 & Keep the full P0 regeneration of Phase-I values off the critical path & Not run; possible later as a side track \\
-D2 & Who performs independent physics review (B4) & Nobody yet; G4 would be EXPLORATORY-REPLICATION \\
+D2 & Which 2--3 judge models form the LLM review panel (other families than the authoring model; local or via external APIs) & Decided in principle by the user (2026-11-11): LLM panel now, human study later. Until the models are chosen and qualified, G4 would be EXPLORATORY-REPLICATION \\
 D3 & Download Qwen3-8B (optionally Qwen3-14B) with pinned revisions & Not downloaded \\
 D4 & Install vLLM in a separate environment with parity and timing checks & Not installed; 7--8B models on Hugging Face \\
 D5 & Resubmit the 32-anchor no-cue resample (job 435606 design) & Not resubmitted; lower priority than calibration; no ceiling is assumed, since that is what it would measure \\
@@ -3880,7 +3972,20 @@ log-elasticity interaction) was undefined for mixed sampled answers and zero gol
 structures, that a shared trace across roles is physically incoherent, that two values cannot separate misuse
 curves, and that several sections still carried superseded rules; it was replaced by per-sample tracking, response
 fractions scaled by the certified relevant-role response and a role-discrimination index, T1 restricted to
-prompts that share a gold, three values per role, and consistent gate rules throughout. At the user's choice of 11 November 2026 the plan was consolidated into this single LaTeX source and
+prompts that share a gold, three values per role, and consistent gate rules throughout.
+\item[11 November 2026, refinements after a second external review.] The user supplied a further review by the same
+external model and asked to rely on LLM reviewers for physics validation for now. Changes: the primary estimands
+are per-sample tracking (whose loss catches a departure in either direction), misuse shares with signed,
+direction-predicting misuse curves and an R neglect share; the response fractions $\lambda$ and the index $\Lambda$
+are descriptive only, with a multimodality guard; G4 tests three co-primary contrasts (D tracking loss, R neglect,
+role $\times$ value interaction on tracking) instead of gatekeeping on $\Lambda$; mechanism work uses two
+interactions, $I_{\text{presence}}$ (against the non-numeric sentence) and $I_{\text{role}}$ (against the relevant
+twin with the same numeral, on a behaviourally comparable outcome), and only the second supports a role-routing
+claim; T1 scores the certified answer against a predeclared alternative on one explicitly identified prefix and
+excludes no prefix; H6 is split into H6-RD and H6-extended; the primary model is fixed by a prespecified rule at the
+end of G2; and a qualified panel of 2--3 independent LLM reviewers from other model families, qualified on the
+user-labelled planted-defect bank, is the interim validation tier for G4, with human review as a later accuracy
+study. At the user's choice of 11 November 2026 the plan was consolidated into this single LaTeX source and
 PDF; the Markdown revision layer was removed (preserved in Git history).
 \end{description}
 
