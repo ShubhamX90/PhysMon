@@ -1,0 +1,168 @@
+# Oracle / deployable tags for every comparator used in Phase I (Stages 9-10) and Wave 2.
+#
+# G0 item (d) of the plan of record (docs/proposals/PhysMon_Research_v2.tex, "G0. Integrity
+# closure"; docs/reviews/iclr2027_submission50608/analysis.md section 5 point 2(d); review check C4).
+# Written 2026-11-12, Stage 15.0 (journal J15.0-004). Existing result files are not modified; this
+# file is the tag record, and tests/v2/test_comparator_tags_g0.py checks every value against its
+# source.
+#
+# tag:
+#   oracle      - computing the score at inference needs the certified answer y* (its string, value
+#                 or the model's log-probability of it), i.e. the inputs the sensitivity label is
+#                 built from. Such a comparator is never called "non-activation", "one forward pass"
+#                 or "deployable", and never reported as a monitor baseline without this tag.
+#   deployable  - computable at inference without y*. `access` says what it needs instead
+#                 (prompt text, generated text, sampled generations, output distribution over
+#                 several renderings, hidden states). Training on labels is allowed for either tag.
+# role: comparator (default) | subject (the monitor being compared) | diagnostic (known-leaky)
+# target: the label the stated AUROC is computed against.
+#
+# Values: AUROC as stored in `artifact` at `field` (rounded to 4 places). Nothing here is
+# paper-eligible; all are discovery-tier values on the 135-family panel selected in earlier stages.
+
+schema_version: 1
+date: "2026-11-12"
+journal_ref: J15.0-004
+comparators:
+  - id: entropy_fitted_logprob
+    names_in_record: ["entropy proxy", "fitted entropy baseline", "fitted token-entropy (paper)", "entropy_fitted_baseline (Wave 2)"]
+    stage: "Stage 9; reused in Wave 2"
+    artifact: results/stage9/baselines/entropy/entropy_baseline_summary.json
+    field: auroc
+    value: 0.727
+    target: sensitivity label (S_lp >= 0.5)
+    tag: oracle
+    access: "log p(y*) on all four renderings"
+    reason: "scripts/run_entropy_baseline.py builds its two features from logprob_correct_answer (std and mean across the 4 renderings), the quantity S_lp is computed from (review check C4)."
+  - id: token_entropy_std
+    names_in_record: ["oracle-free token entropy"]
+    stage: "Stage 10"
+    artifact: results/stage10/baselines/token_entropy/token_entropy_summary.json
+    field: auroc
+    value: 0.5204
+    target: sensitivity label (S_lp >= 0.5)
+    tag: deployable
+    access: "top-1000 next-token entropy on each of the four renderings (four forward passes, no y*)"
+    reason: "Feature token_entropy_topk_1000_std_across_4_variants uses the output distribution only; this is the oracle-free entropy baseline of review check C4."
+  - id: token_entropy_mean
+    names_in_record: ["mean token entropy"]
+    stage: "Stage 10"
+    artifact: results/stage10/baselines/token_entropy/token_entropy_summary.json
+    field: mean_entropy_auroc
+    value: 0.4156
+    target: sensitivity label (S_lp >= 0.5)
+    tag: deployable
+    access: "next-token entropy on the four renderings"
+    reason: "Output distribution only. The stored mean_entropy_flipped_auroc (0.5844) reverses the sign after seeing the labels and is not a pre-specified comparator."
+  - id: correctness_probe
+    names_in_record: ["correctness probe", "generic correctness probe (C04)"]
+    stage: "Stage 9"
+    artifact: results/stage9/baselines/correctness_probe/summary_variance.json
+    field: best_auroc
+    value: 0.7657
+    target: "answer correctness (its own target), NOT the sensitivity label; scored against the sensitivity label it gives 0.380 (review check C5b)"
+    tag: deployable
+    access: "hidden states (layer 24, residual stream at the last prompt token); activation-based, so excluded from any non-activation comparator (Wave 2 decision, 2026-08-27)"
+    reason: "Inference reads activations only; y* is used for training labels. The 0.7657 is not a sensitivity-prediction value and must not be quoted beside the monitor as if it were."
+  - id: blackbox_counterfactual_margin
+    names_in_record: ["black-box two-query check (C06)"]
+    stage: "Stage 9"
+    artifact: results/stage9/baselines/blackbox_counterfactual/blackbox_counterfactual_summary.json
+    field: family_level_auroc_margin
+    value: 0.6684
+    target: sensitivity label (S_lp >= 0.5)
+    tag: deployable
+    access: "prompt-surface differences between renderings (cue value, length, numeric-token count, TF-IDF distance)"
+    reason: "Inference features are prompt-only; the pairwise training target uses gold log-probabilities, which is supervision, not an inference input."
+  - id: blackbox_counterfactual_directional
+    names_in_record: ["black-box directional score"]
+    stage: "Stage 9"
+    artifact: results/stage9/baselines/blackbox_counterfactual/blackbox_counterfactual_summary.json
+    field: family_level_auroc_directional
+    value: 0.438
+    target: sensitivity label (S_lp >= 0.5)
+    tag: deployable
+    access: "as blackbox_counterfactual_margin"
+    reason: "Same features; directional family score."
+  - id: answer_rationale_classifier_qwen
+    names_in_record: ["answer-rationale classifier"]
+    stage: "Stage 9"
+    artifact: results/stage9/baselines/answer_rationale/surface_answer_rationale_classifier_slp_binary.json
+    field: results_by_model.qwen.auroc
+    value: 0.6464
+    target: sensitivity label (S_lp >= 0.5)
+    tag: deployable
+    access: "TF-IDF of the model's generated answer text"
+    reason: "Generated text only."
+  - id: cot_text_classifier_qwen
+    names_in_record: ["CoT-text classifier"]
+    stage: "Stage 9"
+    artifact: results/stage9/baselines/cot_text/surface_cot_text_classifier_slp_binary.json
+    field: results_by_model.qwen.auroc
+    value: 0.599
+    target: sensitivity label (S_lp >= 0.5)
+    tag: deployable
+    access: "TF-IDF of generated text"
+    reason: "Generated text only."
+  - id: llm_judge_zero_shot
+    names_in_record: ["LLM judge (DeepSeek, Llama settings A and B)"]
+    stage: "Stage 9"
+    artifact: results/stage9/baselines/llm_judge/judge_ensemble_summary.json
+    field: zero_shot_auroc_mean
+    value: 0.4797
+    target: sensitivity label (S_lp >= 0.5)
+    tag: oracle
+    access: "judge model reads the prompt(s) and the certified answer"
+    reason: "scripts/run_llm_judge_baseline.py puts 'The correct answer ... is: {correct_answer}' into both judge prompts, so the judge needs y*. (Its loo_probe_auroc of 1.0 for llama_setting_b is a fitted value on a constant judge output and is not a comparator.)"
+  - id: self_consistency
+    names_in_record: ["self-consistency"]
+    stage: "Stage 9"
+    artifact: results/stage9/stage9_final_summary.json
+    field: baselines.self_consistency_auroc
+    value: 0.5369
+    target: sensitivity label (S_lp >= 0.5)
+    tag: deployable
+    access: "several sampled generations per rendering (modal-answer consistency and cross-rendering diversity)"
+    reason: "scripts/run_self_consistency_baseline.py uses parsed sampled answers only; no y*."
+  - id: hidden_state_monitor
+    names_in_record: ["L18 mean-state probe", "hidden-state monitor (C02)"]
+    stage: "Stage 10; Wave 2"
+    artifact: results/wave2/incremental_information/incremental_information_summary.json
+    field: model_metrics.hidden_state_monitor.auroc
+    value: 0.7596
+    target: sensitivity label (S_lp >= 0.5)
+    role: subject
+    tag: deployable
+    access: "hidden states over the four renderings (mean-state variance probe, layer 18)"
+    reason: "The monitor itself, listed so every comparison names both sides' access."
+  - id: wave2_combined_non_activation
+    names_in_record: ["combined non-activation baseline", "strongest non-activation combination (decision log, Wave 2)"]
+    stage: "Wave 2 (2026-08-27, job 332409)"
+    artifact: results/wave2/combined_baseline/combined_baseline_summary.json
+    field: metrics.auroc
+    value: 0.7048
+    target: sensitivity label (S_lp >= 0.5)
+    tag: oracle
+    access: "log p(y*) on four renderings; the certified answer's magnitude; template surface statistics"
+    reason: "scripts/run_combined_baseline.py takes entropy_proxy and mean_logprob_correct from the entropy_fitted_logprob features (logprob_correct_answer) and answer_log10_magnitude from the certified answer. It is not evidence available at deployment; see results/wave2/ORACLE_COMPARATOR_NOTE.md."
+  - id: wave2_combined_plus_hidden_state
+    names_in_record: ["combined + hidden state"]
+    stage: "Wave 2"
+    artifact: results/wave2/incremental_information/incremental_information_summary.json
+    field: model_metrics.combined_plus_hidden_state.auroc
+    value: 0.7719
+    target: sensitivity label (S_lp >= 0.5)
+    tag: oracle
+    access: "as wave2_combined_non_activation plus hidden states"
+    reason: "Contains the oracle combined features."
+  - id: wave2_combined_leaky_diagnostic
+    names_in_record: ["leaky stacked combined baseline"]
+    stage: "Wave 2"
+    artifact: results/wave2/combined_baseline_leaky_diagnostic/combined_baseline_summary.json
+    field: metrics.auroc
+    value: 0.9301
+    target: sensitivity label (S_lp >= 0.5)
+    role: diagnostic
+    tag: oracle
+    access: "oracle features plus fitted outputs trained on labels of other folds"
+    reason: "Label leakage across folds (its own leakage_warning) on top of oracle inputs; diagnostic only, never a result."

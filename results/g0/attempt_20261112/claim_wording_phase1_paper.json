@@ -1,0 +1,56 @@
+{
+  "registry_claims": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07",
+    "C08",
+    "C09",
+    "C10"
+  ],
+  "files": {
+    "docs/reviews/iclr2027_submission50608/paper_extracted_text.txt": [
+      {
+        "line": 37,
+        "claim": "C08",
+        "pattern": "\\bcancel(?:s|led|ling)? (?:the |its )?(?:\\w+ )?sensitivity\\b",
+        "rule_source": "review",
+        "match": "cancels the sensitivity",
+        "kind": "VIOLATION",
+        "sentence": "Knock- ing out four attention heads at layer 16 cancels the sensitivity, localising it to a narrow, targetable mechanism."
+      },
+      {
+        "line": 90,
+        "claim": "C08",
+        "pattern": "\\bcancel(?:s|led|ling)? (?:the |its )?(?:\\w+ )?sensitivity\\b",
+        "rule_source": "review",
+        "match": "cancels the sensitivity",
+        "kind": "VIOLATION",
+        "sentence": "Finally, knocking out four attention heads at layer 16 of Qwen cancels the sensitivity on a 20-family panel."
+      },
+      {
+        "line": 460,
+        "claim": "C08",
+        "pattern": "\\bnecessary\\b",
+        "rule_source": "registry",
+        "match": "necessary",
+        "kind": "VIOLATION",
+        "sentence": "The heads, in other words, are necessary for the behaviour."
+      },
+      {
+        "line": 489,
+        "claim": "C08",
+        "pattern": "\\bnecessary\\b",
+        "rule_source": "registry",
+        "match": "necessary",
+        "kind": "VIOLATION",
+        "sentence": "The two sufficiency tests (Appendix H) sharpen it, showing the heads are necessary for the behaviour while the probe direction alone accounts for only part of it."
+      }
+    ]
+  },
+  "n_violations": 4,
+  "n_negated_mentions": 0
+}

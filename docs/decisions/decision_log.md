@@ -3344,3 +3344,16 @@ Decisions (user, 2026-11-12, answering the agent's questions before Stage 15 imp
 - **Setup (D3, D4):** a separate pinned vLLM environment (validated against Hugging Face before use) and a pinned Qwen3-8B download are approved ("all approvals are approved").
 
 Implementation plan for Stage 15 onward: `/home/pabitra/.claude/plans/typed-waddling-hamming.md` (agent-side), summarised in the Stage 15 journal.
+
+## Stage 14.20: cue-cell job 435605 completed; resample job 435606 cancelled — recorded 2026-11-12
+
+Facts (journal `docs/journal/stage14/14.19_gold_dataset.md`, J14.19-011 to J14.19-015; register `docs/registry/v2/slurm_jobs.jsonl`):
+- Job 435605 (Qwen3-32B thinking, 128 cue cells on 32 candidate anchors, `gpu_h100_4`, source commit `a9a2292`): COMPLETED, exit 0:0, 10 h 13 min on gpunode6 (2026-11-10). 128 records, `n_jobs_planned` 128; 109 correct, 2 wrong, 17 not evaluated (12 TRUNCATED, 5 UNPARSEABLE). Recorded as exploratory and descriptive (ledger row S1420-R2); the preliminary s167 analysis uses the selection sample as baseline and is biased by construction.
+- Job 435606 (2-sample no-cue resample of the same anchors): cancelled at the user's instruction on 2026-11-11 while PENDING; never started, no output. The cue-cell contrast against the model's own sampling noise is therefore NOT_EVALUATED (ledger row S1420-R3), not a null. Resubmission is open decision D5 (default: not resubmitted).
+Plan of record: `G0. Integrity closure`, item 1.
+
+## Stage 15.0: G0 integrity closure (CPU) — 2026-11-12
+
+Decision: record the CPU items of G0 (`docs/proposals/PhysMon_Research_v2.tex`, `G0. Integrity closure`) as done. G0 does not pass yet: its item 3 (HF-versus-TransformerLens parity at the hook sites and trace lengths G5 will use) needs a GPU job and was not part of this CPU stage. Done: status sync (Stage 14 status file, journal index, ledger rows S1420-R2, S1420-R3, S150-R1); the seven review-derived additions (a) label stability across instructions for both models, (b) formula-hint record, (c) `src/physmon/causal/interaction.py` (I_presence, I_role; I_role refuses world-specific raw scores), (d) oracle/deployable tags in `docs/registry/v2/comparator_tags.yml` with `results/wave2/ORACLE_COMPARATOR_NOTE.md`, (e) `scripts/check_claim_wording.py`, (f) `scripts/check_provenance_consistency.py`, (g) `docs/registry/v2/threshold_history.md`; the Qwen3-32B files identified after the fact as `Qwen/Qwen3-32B` at commit `9216db5781bf21249d130ec9da846c4624c16137` (`docs/model_manifests/qwen3_thinking.json`; earlier records keep `model_commit NOT_RECORDED`); the Phase-I closure note (`docs/reviews/iclr2027_submission50608/phase1_closure_note.md`).
+Rules adopted from these items: no comparator that needs the certified answer at inference is called non-activation or deployable; the 0.5-nat threshold is not called pre-registered; interventions are reported as interactions with the clean effects beside them; manuscripts and summaries pass the wording and provenance checks before release.
+Journal: `docs/journal/stage15/15.0_g0_closure.md`. Nothing was run on a GPU; no job was submitted.
