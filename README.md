@@ -8,13 +8,12 @@ The governing scientific specification is stored in `docs/proposal/`:
 - `physmon_proposal.pdf`
 - `physmon_supplementary.pdf`
 
-**Stage 14 onwards:** the plan of record is `docs/proposals/PhysMon_Research_v2.pdf`
-(PhysMon Research Redesign v2.0, 14 October 2026; navigation digest in
-`docs/proposals/PhysMon_Research_v2_working_digest.md`). It adds a mandatory benchmark
-red-team phase (Phase B) before any new mechanistic claim and replaces the June Part II plan as
-guidance. Since 2026-11-11 the revision layer `docs/proposals/PhysMon_Research_v2.1.md` (after the
-ICLR 2027 reviews of the withdrawn Phase-I paper, Stage 14 results and a literature update) governs
-Stage 15 onward; where it is silent, v2.0 applies. The older documents below remain the historical record.
+**Stage 14 onwards:** the plan of record is PhysMon Research Redesign v2 (revised edition of
+11 November 2026, after the ICLR 2027 reviews of the withdrawn Phase-I paper). Canonical source:
+`docs/proposals/PhysMon_Research_v2.tex`; built `PhysMon_Research_v2.pdf` and searchable text via
+`scripts/build_plan_pdf.sh`; navigation digest `docs/proposals/PhysMon_Research_v2_working_digest.md`.
+It keeps the mandatory benchmark red-team (Phase B), organises the work as gates G0-G7 and replaces the
+June Part II plan as guidance. The older documents below remain the historical record.
 
 Implementation must preserve the proposal's core distinction between prompt condition,
 observed model behaviour, and internal representation (§3.1). The primary monitoring

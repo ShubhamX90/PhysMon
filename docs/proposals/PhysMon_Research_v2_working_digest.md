@@ -1,190 +1,116 @@
-# Working digest: PhysMon Research Redesign v2.0 (14 October 2026)
+# Working digest: PhysMon Research Redesign v2 (revised edition, 11 November 2026)
 
-**Source of truth:** `docs/proposals/PhysMon_Research_v2.pdf` (53 pages, "Physics-Counterfactual
-Mechanisms: Benchmark Red-Team, DECOY-v2 Reconstruction, and a Gated Mechanistic Research
-Programme"). Searchable text extraction: `docs/proposals/PhysMon_Research_v2.extracted.txt`
-(page markers `######## PAGE n ########`; page numbers below are PDF pages).
+**Source of truth:** `docs/proposals/PhysMon_Research_v2.tex` (canonical LaTeX source, 71 pages when built).
+Built output: `PhysMon_Research_v2.pdf`; searchable text: `PhysMon_Research_v2.extracted.txt` (page markers
+`######## PAGE n ########`). Rebuild both with `scripts/build_plan_pdf.sh` (tectonic and pypdf in the separate
+conda environment `texbuild`; see the script header). Edit the `.tex`, never the PDF; rebuild and commit all three
+together.
 
-**Revision of 2026-11-11:** `docs/proposals/PhysMon_Research_v2.1.md` revises this plan after the ICLR 2027
-reviews, the Stage 14 results and a literature update. It keeps the B/P/X identifiers and its section 12
-states, for every v2.0 block, whether it is kept, changed, demoted or retired; read it before any Stage 15+
-work. This digest still describes v2.0 as written.
+This digest is a navigation aid regenerated from the revised source. It does not replace it; when they disagree,
+the `.tex` wins. Page numbers below are PDF pages of the 11 November build.
 
-This digest is a navigation aid written by the agent after reading every page. It does not replace
-the PDF. When the two disagree, the PDF wins; when a task touches a gate, re-read the PDF section.
+## 1. What the document is
 
-Status of the guidance (user direction, 2026-10-15): this document is the guidance for Stage 14
-onwards. It replaces the June Part II plan as the plan of record (PDF p.3, "Replace, rather than
-lightly revise, the June 2026 Phase-II plan"). On the same day the user directed that all
-instances of the June Part II plan be deleted: the plan PDF, the July erratum, the v1.2
-correction notice, its revision and supersession notes, and the governing-rule file were removed
-(recoverable from Git history, e.g. `git show eebca5c:docs/proposal/PhysMon_Part_II_Next_Phase_Scientific_and_Experimental_Plan.pdf`).
-Historical Stage 13 reports, briefs and the decision log still cite those paths as records.
-`scripts/stage13/write_stage13_gates_v7.py` reads the deleted governing-rule file, so re-running
-that v7 gate script would report a missing rule file; its committed outputs are unaffected, and a
-successor gate under the new plan is future work.
+- The single plan of record for PhysMon from Stage 14 onward (user direction 2026-10-15; revised edition at the
+  user's direction of 2026-11-11, consolidated into one LaTeX source at the user's choice the same day).
+- The revised edition replaces the edition of 14 October 2026 (preserved in Git history, e.g. commit `2cf08e2`)
+  and the short-lived Markdown revision layer `PhysMon_Research_v2.1.md` (commit `2cf08e2`, removed).
+- It keeps the October identifiers (B0-B7, P0-P11, A01-F20, X01-X12) so the Stage 14 journal, ledger and decision
+  log still resolve; Appendix C gives the disposition of every October element.
+- Inputs: the four ICLR 2027 reviews of the withdrawn Phase-I paper (verified, `docs/reviews/iclr2027_submission50608/`),
+  Stages 14.0-14.20, a literature update of 2026-11-11, and four independent reviews of the drafts (Appendix D).
+- A proposed, falsifiable protocol, not a record of results. Agent-written; not reviewed by a person outside the
+  project.
 
-## 1. What the document is, and is not
+## 2. Rules that apply at all times (Section 1, p. 4)
 
-- A proposed, falsifiable protocol, **not** a record of experiments performed (p.1).
-- Phase-I = the submitted 25-page ICLR 2027 paper *Confidence Without Cause* (submission 50608).
-  Its numbers are SUBMITTED claims "requiring reproduction", not verified facts (p.3).
-  The 29-page *Proved, Not Annotated* file must not be confused with it (p.3).
-- Source tags: SUBMITTED, REVIEW, LITERATURE, PROPOSAL. Numeric targets other than SUBMITTED
-  values are planning choices, not results (p.3).
-- The doc could not see the repository: it cannot verify raw data, jobs, code, or history (p.3).
+1. Separate estimands: probabilities, representations, correct answers and faithful computation are different
+   things. `S` is observational only; "mechanism" needs controlled, specific, predictive intervention evidence;
+   "shortcut reliance" needs evidence that the computation improperly uses a quantity.
+2. A quantity that cancels algebraically or is irrelevant only within a regime may legitimately enter intermediate
+   reasoning; that use is never an error (Section 4.2).
+3. All alternative theses (string/format effects, difficulty, copying, context sensitivity, several mechanisms,
+   correct selection) are legitimate outcomes.
+4. Disjoint data roles (EXPLORATION, GENERATOR_TUNING, INTERNAL_CONFIRMATION, EPC_CONFIRMATION,
+   ADVERSARIAL_CHALLENGE) by graph lineage; a shadow set; a structure never moves from EXPLORATION into confirmation.
+5. The independent unit is the structure or template cluster, never a rendering, value, phrasing or sample.
+6. `NOT_EVALUATED` is neither a null nor `WRONG`; zero evaluable rows are not a zero effect.
+7. An agent's self-review is not independent expert validation.
+8. Thresholds record when they were fixed; no retroactive relabelling; no "preregistered" after the fact.
+9. Every comparator is tagged `oracle` or `deployable`.
+10. Every intervention is read as an interaction against a control prompt.
+11. Every GPU job needs the user's acceptance of its exact command.
 
-## 2. Rules that apply at all times (from the text)
+## 3. The construct (Section 4, pp. 18-23)
 
-1. Separate estimands: physical-answer invariance (certificate) is not equal conditional LM
-   probability; cue effects on probabilities, representations, correctness and faithful
-   computation are different things (p.3). `S` = observational sensitivity only; "mechanism"
-   needs controlled, specific, predictive intervention evidence; "shortcut reliance" is reserved
-   for evidence that computation improperly uses the cue (p.3).
-2. Do not design analyses that only accept the preferred hypothesis; all five alternative
-   theses are legitimate outcomes (p.3).
-3. No new unvalidated experiments smuggled into a headline claim after seeing outcomes (p.3).
-4. Never silently fill missing records; a zero-row job, failed hook, timeout, parse failure,
-   ineligible family or untested control is NOT_EVALUATED, not a null (p.16, p.42).
-5. Semantic revision of a governing equation, assumptions, target, accepted answer or cue role
-   increments the family version; no silent in-place edits. Freeze source revisions and hashes.
-   Once a confirmatory panel is opened, never use it to tune generation, architecture, scoring,
-   parsers, thresholds, site selection or eligibility (p.5).
-6. Do not describe new metrics as preregistered in June; preserve the threshold-registration
-   history; no retroactive relabeling (p.7, p.44).
-7. The independent unit is the independently authored symbolic structure / template cluster,
-   not a rendering, paraphrase, numeric instantiation or decoder sample (p.41).
-8. Five disjoint data roles: EXPLORATION, GENERATOR_TUNING, INTERNAL_CONFIRMATION,
-   EPC_CONFIRMATION, ADVERSARIAL_CHALLENGE; group by graph lineage before splitting (p.12).
-   Keep a shadow test set inaccessible to all tuning scripts and agents (p.20).
-9. An agent's self-review is not independent expert validation (p.42). A symbolic free-symbol
-   certificate must never be called a certificate of natural-language correctness (p.13).
-10. Gates are about correctness, not dates. A credible early negative result must be allowed to
-    change the project (p.17, p.48).
-11. Stop-pivot hierarchy: credibility of the measured effect > benchmark size; causal
-    interpretation > component count; out-of-cluster prediction > peak AUROC; selective
-    correctness improvement > ratio recovery (p.45).
-12. Primary family of confirmatory hypotheses is small: H-B behavioral factorial, H-M single-prompt
-    incremental monitoring, H-C causal head/path, optional H-R selective repair. Holm or
-    hierarchical testing within; BH-FDR for prespecified secondary scans (p.41).
+- **Question (4.1):** does the answer depend on a quantity the way its certified physical role requires, beyond
+  presence, value, plausibility, unit, position, marker wording and generic perturbation; and what computation
+  produces or prevents departures? Novelty is scoped against PRISM-Physics, GSM-DC, Qu and Gomes, Owusu et al. and
+  Liu (Section 11).
+- **Role strata (4.2):** R relevant; D structurally disconnected; C algebraically cancelling; K conditionally
+  irrelevant. Each has its own certificate and correct behaviour; never pooled.
+- **Role-by-value design (4.3):** R and D (C, K where feasible) at three or more values in two or more validated
+  phrasings (one without marker words). Estimands: per-sample tracking `T`; response fractions
+  `lambda_r = [m_r(z_b) - m_r(z_a)] / [y*_R(z_b) - y*_R(z_a)]` (Hodges-Lehmann location, scaled by the R response;
+  targets `lambda_R = 1`, `lambda_D = 0`); role-discrimination index `Lambda = lambda_R - lambda_D`. Misuse
+  hypotheses are response curves over values, with all matches kept. A structure is complete only with R and D at
+  three values in two phrasings.
+- **Outcomes (4.5):** O1 usable-answer success (all attempts), O2 semantic physics correctness (adjudicated), O3
+  completion and grading status (`BUDGET_EXHAUSTED` only when the token limit was hit; a missing end-of-thinking
+  marker otherwise is `FORMAT_INVALID`), O4 role-by-value response, O5 cost, O6 candidate log-odds (only inside a
+  causal claim type). Sampling is required; Stage 14 greedy records are never pooled with sampled ones.
+- **Populations (4.6):** all validated tasks (always reported), calibrated band, reliably solved tasks.
+- **Hypotheses (4.7):** H0 none; H1 presence; H2 plausibility and unit; H3 relevance-selection failure (with C and
+  K wrong-law curves); H4 readout contamination; H5 diversion (cost only); H6 correct selection (needs
+  equivalence). Scored, not exclusive.
+- **Causal standard (4.8):** claim types T1 readout (only between prompts sharing a gold, 2x2 trace source x
+  prompt), T2 intermediate computation, T3 total effect; interaction estimand `I_h` with the token-aligned
+  non-numeric sentence as control; a 14-item protocol checklist.
+- **Claim levels (4.9):** CL1 benchmark, CL2 behavioural, CL3 monitor, CL4 causal localisation, CL5 mechanism,
+  CL6 repair; promotion one level at a time (the October C1-C6).
 
-## 3. Map of the document
+## 4. Critical path (Section 5, pp. 23-37)
 
-| Section | Pages | Content |
+| Gate | Deliverable | Passes when |
 |---|---|---|
-| 1 Status, scope, rules of evidence | 3 | Purpose, epistemic constraint, thesis and alternatives, source tags |
-| 2 Executive judgment; 2.1 Phase-I ledger | 3-5 | Tracks M/E/R; three decisions before expensive work; ledger; audit alerts A/B/C |
-| 3 Phase B (B0-B7) | 5-14 | Board decision; benchmark architecture V1-R / V2-A / V2-B / EPC / MATH-X; red-team, construct, generator, validation, external sources, pilot/power, deliverables |
-| 4 Framework | 14-16 | Endpoints C_gen ... I_select; hypotheses H0-F ... H3-S; claim hierarchy C1-C6 |
-| 5 Critical path P0-P11 | 16-30 | Twelve gated blocks |
-| 6 Inventory A-F | 30-40 | 104 contrasts (18 A, 14 B, 18 C, 16 D, 18 E, 20 F), each R/C/X |
-| 7 Cards X01-X12 | 40-42 | Minimal specs with no-go responses |
-| 8 Statistics | 42-43 | Unit, estimands, multiplicity, power, missing-result policy |
-| 9 Compute and data contracts | 43-45 | Escalation ladder, storage, record schema, CI checks, preflight pseudocode |
-| 10 Conditional decisions | 45-46 | Gate outcome -> action -> prohibited reaction |
-| 11 Literature | 46-49 | L01-L25 and four conditional novelty claims N1-N4 |
-| 12 First sprint | 49-50 | Eleven ordered actions |
-| 13 Paper architectures | 50-51 | A mechanism, B measurement, C repair |
-| 14 Bibliography | 51-52 | Links (not independently re-verified by the agent) |
-| 15 Definition of completion | 53 | Ten questions that must be answerable |
+| G0 integrity closure | Status sync, seven review-derived checks, narrowed P0 (extended parity), Phase-I closure note, Qwen3-32B manifest | Items committed; failed parity blocks mechanism work on that model only |
+| G1 physics construct | Strata certificates, role-by-value generator, outcomes, sampled contract, analysis and power scripts, thresholds, SESOI | Tests pass; cards committed; nothing run before |
+| G2 measurement and calibration | 8-12-structure design-validation pilot; calibration with fresh baseline samples; R-tracking check | Enough complete structures in band (planning 24+), R criterion met, cost fits |
+| G3 behavioural discovery | Core run (24-40 structures, 14 cells each), staged ablations, non-physics control, hypothesis scorecard | Estimation only; G4 family is fixed in advance |
+| G4 confirmation | Role-by-value family on untouched validated clusters, two formats | Primary model meets the gatekeeping rule |
+| G5 mechanism | T1/T2/T3 experiments | After G4 establishes H3, H4 or H6 |
+| G6 external and functional confirmation | Re-certified external physics, non-physics transfer, second model | Required for broad claims |
+| G7 practical use | Monitoring, repair | Optional |
 
-## 4. Phase B (benchmark red-team) gates
+Section 5.2 keeps P0-P11 as the requirement catalogue, each with a status line and its gate.
 
-| Gate | Passes when | If it fails |
-|---|---|---|
-| B1 (p.8) | Phase-I labels/denominators regenerate from raw records; metric/base/wrapper robustness table published | If only a teacher-forced string effect: keep it as such; if artifacts do not reproduce, stop all dependent causal claims |
-| B2 (p.9) | H-P or H-N shows reliable behavior beyond generic text/answer-string effects | Only H-T: measurement project. Only H-U: formal equivariance study. Nothing: archive as documented negative result |
-| B4 (p.11) | Independent expert semantic validation + version-correct solver checks + parser criterion pass | New validation cycle, not optimistic averaging |
-| B5 (p.13) | External adaptations feasible, rejection rates preserved | Restrict question types or commission expert-authored tasks; never lower certification |
-| B6 (p.13) | Validated causal contrast on held-out structural units, not dominated by format/tokenization or one cue subtype | Absent on two independent sources: stop broad claim. String-only drift: calibrated likelihood/interface mechanism, no physical-reliance claim |
-| Phase-B go/no-go (p.14) | GO-MECHANISM / GO-MEASUREMENT / PIVOT-GENERAL NUMERIC / REDESIGN-BENCHMARK / STOP BROAD CLAIM | Outcomes do not license retroactive relabeling |
+## 5. Other sections
 
-Benchmark decision (p.5): keep DECOY-v1 immutable (V1-R, 155 families, original signed labels);
-build DECOY-v2 (V2-A relevance and numeric interference; V2-B invariance/equivariance, which is
-where old Cue C moves); EPC external set (EPC-D development, EPC-C locked confirmation, EPC-N
-expert-authored); MATH-X non-physics controls (GSM-DC, GSM-Symbolic). Do not substitute a public
-benchmark wholesale and do not call v2 novel because it is larger than v1.
+- Section 2 (p. 5): tracks M/E/R; the final Phase-I ledger after the reviews; what Stage 14 established.
+- Section 3 (pp. 7-17): Phase B (B0-B7) with status lines; benchmark architecture (V1-R, V2-A, V2-B, EPC, MATH-X).
+- Section 6 (pp. 37-45): all 104 inventory items with gate and status; contrasts added by the revision.
+- Section 7 (pp. 46-50): cards X01-X12 with status and revision (X07 retired as stated; X04 becomes the
+  role-by-value factorial).
+- Section 8 (p. 51): statistics (structure-level paired analysis, SESOI with reasons, four-way result language,
+  rare categories, power by simulation including null data).
+- Section 9 (p. 53): environment, models, measured rates, staged budget, human effort, data contracts, preflight.
+- Sections 10-15: contingencies, literature and novelty, next sprint, paper architectures, bibliography,
+  completion.
+- Appendices: A Stage 14 evidence; B review issues and answers; C disposition and open decisions; D revision log.
 
-## 5. Critical-path gates P0-P11
+## 6. Open decisions (Appendix C)
 
-| Block | Core question | Hard gate / key rule |
-|---|---|---|
-| P0 reproduction and provenance (p.16) | Which Phase-I numbers follow from exact data, weights, code? | Hard stop: labels and likelihoods must regenerate independently and hooks must demonstrably affect the claimed tensors; if a headline changes, publish an erratum and rerun upstream |
-| P1 measurement validity (p.17) | Is the signal the model's, or the string/scoring interface's? | Anchor-free rescoring, no-cue/nonnumeric controls, wrapper multiverse, length/tokenization, restricted-choice R_alt, free generation, reliability. If it collapses: study string scoring as the finding |
-| P2 scale DECOY-v2 (p.18) | Can mechanism ingredients be varied independently on new structures? | Only after Phase B approves; 300-600 structures is a ceiling, not a quota; deconfounding cells; role-reversal controls |
-| P3 validation, parser, leakage (p.20) | Are language, parser and splits trustworthy? | No confirmatory hidden-state or causal claim until every confirmatory family passes independent validation and leakage audit |
-| P4 behavioral discrimination (p.21) | Which behavioral contrast is real? | Preregistered proximity x unit x relevance interaction on held-out clusters; contrast chosen here sets the mechanistic metric |
-| P5 monitoring (p.21) | Does hidden-state access help? | Tasks S (single prompt), F (four-input), V (variant-local), never pooled; comparator ladder; promote only with frozen single-input spec and supported incremental gain on held-out structural cohort |
-| P6 re-localize (p.23) | Is L16 H11 causal for a physical computation? | Absolute metrics before normalized recovery; multiple ablation semantics; specificity and role reversal; off-target damage and self-repair |
-| P7 function (p.24) | What does the component compute? | Test F-copy / F-match / F-unit / F-role / F-position / F-answer-prior with opposing predictions |
-| P8 circuit (p.26) | Upstream/downstream path? | Attribution plus true patching, path patching, knockout-rescue, faithfulness, causal abstraction, synthetic planted-shortcut check |
-| P9 generalization (p.27) | Does the function recur? | Freeze function, not head index; scaling ladder; post-training; novel laws; cue composition; cross-backend |
-| P10 repair (p.28) | Does a mechanism-guided edit beat cheap baselines? | Nonmechanistic baseline ladder first; strength-vs-damage curves |
-| P11 closure (p.30) | Can an independent reader reproduce and attack the claim? | External cohort opened once; venue chosen after the result |
+D1 keep the full P0 regeneration off the critical path (default: not run); D2 independent physics review (default:
+none, so G4 would be EXPLORATORY-REPLICATION); D3 download Qwen3-8B (default: no); D4 install vLLM in a separate
+environment (default: no); D5 resubmit the 32-anchor resample (default: no); D6 Phase-I monitor side track
+(default: not scheduled). Defaults only withhold actions.
 
-## 6. Experiment cards (p.39-42)
+## 7. Environment facts that constrain the plan
 
-X01 authoritative reproduction; X02 base-variant invariance challenge (no GPU first); X03
-format/tokenization falsification (60-100 families, 4-6 wrappers, both dense models); X04
-physics-semantic factorial; X05 structural leakage and real OOD monitoring; X06 frozen external
-behavioral replication; X07 H11 lesion/patch specificity; X08 mechanistic function
-discrimination; X09 source-to-sink circuit and rescue; X10 architecture functional replication;
-X11 selective mitigation challenge; X12 external audit and claim freeze. Each card fixes primary
-outcome, comparators, no-go response and artifact; the agent must not invent a different
-estimand or panel mid-run (p.39).
-
-## 7. Phase-I ledger versus what the repo supports (agent verification, 2026-10-15)
-
-Verified directly from committed data: Qwen 70/140 and Llama 32/140 at 0.5 nat; Qwen mean `S_lp`
-1.4006; the exact CM_B_UM_059 numbers quoted on p.8 (gold log-probs -45.531, -55.563 [doc: -55.562],
--45.000, -46.469; legacy S at base 0 = +10.031, at base 1 = -9.094; symmetric range 10.562) from
-`results/stage6/behavioural_full_rerun/prompt_records.jsonl` (1,120 prompt records = 140 x 4 x 2
-models, all 140 Qwen families have 4 variants). Wave 2 numbers (0.7596, 0.727, 0.7048, paired CIs
-including zero), the 147 family pairs / 34 clusters / 2,352 rendering pairs, 182 science runs with
-0.703 / 0.451 coverage, and the zero-row renamed-donor control match this repo's records.
-
-Not verifiable here (no manuscript in repo): single-rendering monitor L16 0.7465; entropy Brier
-0.2140 and ECE 0.0907; FNR@FPR=0.10 0.643 vs 0.714; frozen-expansion 0.820/0.667/0.6875; clipped
-four-head recovery 0.969; "71% of family-held-out tests share a cluster with training". These
-need the submitted PDF (task X01).
-
-**Correction (2026-10-16, Stage 14.1, journal J14.1-002 and J14.1-008):** the paragraph above was too
-pessimistic. Recomputing from committed artifacts (`results/stage14/x01_reproduction/attempt_20261016_919c177/`),
-every value in it reproduces to the printed precision except the 71% figure, which has no committed
-source. The sources are: single-rendering L16 0.7465 in `results/stage10/per_variant_probe_sweep/`;
-entropy and monitor Brier/ECE/FNR from the committed out-of-fold prediction files; frozen expansion
-0.820/0.667/0.6875 in `results/stage12/expansion_probe_inference/`; clipped four-head recovery 0.969 from
-`results/stage8/multi_head_knockout/patching_results.csv` when each family's recovery is clipped to [0, 1]
-(17 of 20 families exceed 1.0 before clipping). Also: "25 shared positives" equals the answer-flip overlap;
-the 0.5-nat overlap is 22. The original paragraph is left in place as a record.
-
-## 8. Environment facts that constrain the plan
-
-- Activations, checkpoints and Slurm logs from earlier runs were wiped (2026-10 scratch wipe);
-  committed per-prompt JSONL records and summaries survive. Anything needing hidden states
-  (X05, P5, P6, P7) first needs regenerated activations.
-- Per-user GPU caps (observed 2026-10-14): H100 one GPU, 12 CPU, 300G; A100 two GPUs; H200 two
-  GPUs. The doc itself says to verify GPU allocation rather than assume it (p.42) and to avoid
-  committing to a 397B-class model (p.42).
-- TransformerLens models keep the Hugging Face copy on CPU after `load_model`, so HF-side
-  generation and log-probabilities run on CPU (observed in the model smoke test). This matters for
-  P1 free-generation and tokenizer/hook parity checks (p.17, p.43).
-- Eight registry models are restored under `/scratch/pabitra/models` with pinned revisions and
-  hashes (`docs/model_manifests/`).
-
-## 9. Proposed Stage 14 ordering (agent proposal for user approval)
-
-Follows the document's first sprint (p.48-50) and its compute ladder (p.42-43). Nothing below is
-started without the user's go-ahead.
-
-14.0 Governance ingest: decision-log entry; claim-to-artifact ledger skeleton; v2 evidence
-     registry schema (p.16, p.43); experiment cards X01-X03 from `docs/experiment_cards/TEMPLATE.md`.
-14.1 X01 reproduction from raw per-prompt records (CPU only). Needs the submitted manuscript.
-14.2 X02 base-rotation attack with an executable unit test for the CM_B_UM_059 example (CPU only).
-14.3 Scoring-interface contract: prompt bytes, answer spans, chat templates, wrapper multiverse
-     design for X03 (small GPU later).
-14.4 Structure overlap and the five excluded stable families: adjudicate the 34 clusters, rerun
-     cluster-held-out baselines that need no activations (CPU).
-14.5 Validator qualification materials (human task): two-pass rubric and planted-defect bank.
-14.6 Typed generator and first 10 certified v2 structures (CPU + human review).
-14.7 Pilot (GPU, two dense models) only after 14.2-14.4 gates and the user's approval.
+- Activations, checkpoints and earlier Slurm logs were wiped in the 2026-10 scratch wipe; committed records survive.
+- Per-user QoS limits (live `sacctmgr`, 2026-11-11): H100 12 CPU, 2 GPUs of which 1 named H100, 300G, 2 jobs;
+  H200 12 CPU, 2 GPUs, 300G, 2 jobs; A100 2 GPUs, 2 jobs. Shared with other projects on the account.
+- HF-versus-TransformerLens parity passed for Qwen2.5-7B-Instruct and Llama-3.1-8B-Instruct on one smoke prompt in
+  float16 (job 399217); extended parity in the study dtype is a G0 item.
+- Qwen3-32B: about 20 tokens/s on plain Hugging Face; revision not pinned, no manifest.
+- Eight registry models are restored under `/scratch/pabitra/models` with pinned revisions (`docs/model_manifests/`).

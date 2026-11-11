@@ -30,3 +30,8 @@ def test_exemptions_are_limited_to_the_checker_and_one_verbatim_extraction():
         Path("scripts/check_forbidden_phrases.py"),
         Path("docs/proposals/PhysMon_Research_v2.extracted.txt"),
     }
+
+
+def test_latex_sources_are_scanned():
+    # The canonical plan of record is a LaTeX source (docs/proposals/PhysMon_Research_v2.tex).
+    assert ".tex" in checker.TEXT_SUFFIXES

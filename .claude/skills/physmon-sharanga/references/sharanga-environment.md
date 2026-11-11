@@ -109,8 +109,8 @@ These are association/QoS snapshot values, not requests to copy blindly.
 | `big_compute` | 5 nodes per job, 8 jobs per user | reserve for justified high-CPU/high-memory work |
 | `big_compute_amd_9655` | 2 nodes per job, 2 jobs per user | limited shared resource |
 | `gpu_a100_8` | 2 GPU per user; 16 CPU, 400G per job; 2 jobs per user | at most two typical one-GPU jobs, subject to queue |
-| `gpu_h100_4` | 2 generic GPU / 1 named H100; 12 CPU, 300G; 3 jobs per user | two 8-CPU one-GPU jobs exceed CPU allowance |
-| `gpu_h200_8` | 3 GPU, 8 CPU, 300G; 2 jobs per user | GPU count alone can be misleading; 1-day walltime |
+| `gpu_h100_4` | 2 generic GPU / 1 named H100; 12 CPU, 300G; 2 jobs per user (`qos_gpu_h100`, live `sacctmgr` 2026-11-11) | two 8-CPU one-GPU jobs exceed CPU allowance |
+| `gpu_h200_8` | 2 GPU, 12 CPU, 300G; 2 jobs per user (`qos_gpu_h200`, live `sacctmgr` 2026-11-11; an earlier audit recorded 3 GPU, 8 CPU) | GPU count alone can be misleading; 1-day walltime |
 | `gpu_v100_2` | generic GPU group limit 4 | legacy path; verify runtime support first |
 
 The audit also saw `gpu_v100_1` requiring a special QoS and no explicit

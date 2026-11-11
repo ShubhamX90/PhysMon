@@ -18,7 +18,7 @@ SKIP_PATHS = {
     # prohibition ("should not claim ..."), not a claim made by this repository.
     Path("docs/proposals/PhysMon_Research_v2.extracted.txt"),
 }
-TEXT_SUFFIXES = {".py", ".md", ".txt", ".yml", ".yaml", ".json", ".jsonl", ".sh"}
+TEXT_SUFFIXES = {".py", ".md", ".txt", ".tex", ".yml", ".yaml", ".json", ".jsonl", ".sh"}
 FORBIDDEN_PHRASES = (
     "reasoning" + " circuit",
     "identified the shortcut" + " mechanism",

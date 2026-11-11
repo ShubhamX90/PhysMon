@@ -18,21 +18,21 @@ using the cluster.
 
 ## Governing guidance for Stage 14 onwards
 
-The plan of record for all work from Stage 14 is
-`docs/proposals/PhysMon_Research_v2.pdf` (PhysMon Research Redesign v2.0, 14 October 2026),
-selected by the user on 2026-10-15. It replaces the June Part II plan as guidance. Before any
-Stage 14+ work, read its relevant section and the navigation digest
-`docs/proposals/PhysMon_Research_v2_working_digest.md` (searchable text:
-`docs/proposals/PhysMon_Research_v2.extracted.txt`), follow its gates (Phase B and P0-P11), its
-data roles, and its negative-result and missing-data policy, and cite the section you rely on in
+The plan of record for all work from Stage 14 is PhysMon Research Redesign v2, selected by the
+user on 2026-10-15 and revised on 2026-11-11 (after the ICLR 2027 reviews of the withdrawn
+Phase-I paper). Its canonical source is `docs/proposals/PhysMon_Research_v2.tex`; the built
+`PhysMon_Research_v2.pdf` and searchable `PhysMon_Research_v2.extracted.txt` are regenerated from
+it with `scripts/build_plan_pdf.sh` (edit the `.tex`, never the PDF, and commit all three
+together). It replaces the June Part II plan as guidance. Before any Stage 14+ work, read its
+relevant section and the navigation digest
+`docs/proposals/PhysMon_Research_v2_working_digest.md`, follow its gates (G0-G7, with the October
+Phase B and P0-P11 blocks kept as the requirement catalogue), its data roles, and its
+negative-result and missing-data policy, and cite the section you rely on in
 decision-log entries and experiment cards. If a task would contradict it, stop and ask. The
 rules in the core scientific section above still apply.
 
-From 2026-11-11 the revision layer `docs/proposals/PhysMon_Research_v2.1.md` (written at the user's
-direction after the ICLR 2027 reviews of the withdrawn Phase-I paper) governs Stage 15 onward: its
-endpoints, gates G0-G6, causal protocol and governance additions take precedence where it addresses a
-point explicitly; v2.0 applies everywhere else. Its section 15 lists the open decisions and the
-defaults in force until the user decides them.
+Its Appendix C lists the open decisions (D1-D6) and the defaults in force until the user decides
+them; the defaults only withhold actions.
 
 ## Working model
 
