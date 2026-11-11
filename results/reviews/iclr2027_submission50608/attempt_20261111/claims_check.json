@@ -1,0 +1,414 @@
+[
+  {
+    "id": "C1a",
+    "reviewer": "Y9cR",
+    "claim": "all 560 Qwen generations start with 'Answer:'",
+    "computed": {
+      "starts_with_Answer": 560,
+      "n": 560
+    },
+    "reviewer_value": "560 of 560",
+    "verdict": "CONFIRMED",
+    "note": ""
+  },
+  {
+    "id": "C1b",
+    "reviewer": "Y9cR",
+    "claim": "median Qwen gold-string log-probability (nats)",
+    "computed": -29.45,
+    "reviewer_value": -29.45,
+    "verdict": "CONFIRMED",
+    "note": ""
+  },
+  {
+    "id": "C1c",
+    "reviewer": "Y9cR",
+    "claim": "renderings answered exactly 'Answer: <certified string>' still score a median of -27.0",
+    "computed": {
+      "n": 209,
+      "median_logprob": -27.03
+    },
+    "reviewer_value": {
+      "n": 209,
+      "median_logprob": -27.0
+    },
+    "verdict": "CONFIRMED",
+    "note": ""
+  },
+  {
+    "id": "C1d",
+    "reviewer": "Y9cR",
+    "claim": "scorer is given the bare certified string, not the instructed 'Answer: <value> <unit>' format",
+    "computed": {
+      "bare_correct_answer_passed_to_scorer": true,
+      "logprob.py_scores_answer_tokens_after_chat_prompt": true
+    },
+    "reviewer_value": "stated, with line references",
+    "verdict": "CONFIRMED",
+    "note": "read from scripts/run_behavioural.py and src/physmon/models/logprob.py"
+  },
+  {
+    "id": "C2a",
+    "reviewer": "Y9cR",
+    "claim": "stable Qwen families whose gold log-probability varies by >= 0.5 nats across renderings",
+    "computed": {
+      "wide": 55,
+      "stable": 70
+    },
+    "reviewer_value": "55 of 70",
+    "verdict": "CONFIRMED",
+    "note": ""
+  },
+  {
+    "id": "C2b",
+    "reviewer": "Y9cR",
+    "claim": "30 pilot families: S_lp under the threshold-registration run vs the panel run (Spearman; label agreement)",
+    "computed": {
+      "n": 30,
+      "spearman": 0.043,
+      "label_agreement": "17 of 30"
+    },
+    "reviewer_value": {
+      "spearman": 0.04,
+      "label_agreement": "17 of 30"
+    },
+    "verdict": "CONFIRMED",
+    "note": "different answer instructions, same problem text; panel run is results/stage6/behavioural_full_rerun"
+  },
+  {
+    "id": "C2c",
+    "reviewer": "Y9cR",
+    "claim": "same-instruction rerun of the 40 phase-D1 families reproduces exactly",
+    "computed": {
+      "records_compared": 320,
+      "identical": 320
+    },
+    "reviewer_value": "reproduces exactly",
+    "verdict": "CONFIRMED",
+    "note": ""
+  },
+  {
+    "id": "C3",
+    "reviewer": "Y9cR",
+    "claim": "a correct formula hint gives 3.7 to 5.5 nats on five stable (baseline S_lp = 0) families",
+    "computed": {
+      "n_families": 5,
+      "formula_hint_S_lp": [
+        3.69,
+        3.84,
+        3.86,
+        4.2,
+        5.53
+      ],
+      "baseline_S_lp": [
+        0.0
+      ],
+      "passes_low_sensitivity_check": 0,
+      "recorded_verdict": "MIXED"
+    },
+    "reviewer_value": "3.7 to 5.5 nats",
+    "verdict": "CONFIRMED",
+    "note": "the reviewer's further claim that answers stay or become correct is NOT checked here"
+  },
+  {
+    "id": "C4",
+    "reviewer": "Y9cR",
+    "claim": "paper's 'fitted token-entropy' (0.727) is built from the certified answer's own log-probabilities; the genuine oracle-free token-entropy baseline scores 0.520",
+    "computed": {
+      "fitted_baseline_auroc": 0.727,
+      "fitted_feature_fields": [
+        "entropy_proxy_score",
+        "mean_logprob_correct_answer",
+        "prediction",
+        "template_id",
+        "true_label"
+      ],
+      "run_entropy_baseline_uses_logprob_correct_answer": true,
+      "oracle_free_token_entropy_auroc": 0.5204,
+      "oracle_free_feature": "token_entropy_topk_1000_std_across_4_variants"
+    },
+    "reviewer_value": {
+      "fitted": 0.727,
+      "oracle_free": 0.52
+    },
+    "verdict": "CONFIRMED",
+    "note": ""
+  },
+  {
+    "id": "C5a",
+    "reviewer": "(all)",
+    "claim": "monitor L18 leave-one-family-out AUROC on the 135 panel",
+    "computed": 0.7596,
+    "reviewer_value": 0.7596,
+    "verdict": "CONFIRMED",
+    "note": ""
+  },
+  {
+    "id": "C5b",
+    "reviewer": "Y9cR",
+    "claim": "correctness probe scored against the sensitivity label (its own target gives 0.7657)",
+    "computed": 0.38,
+    "reviewer_value": 0.38,
+    "verdict": "CONFIRMED",
+    "note": "orientation as stored; <0.5 means it ranks sensitive families as MORE likely correct"
+  },
+  {
+    "id": "C5c",
+    "reviewer": "BWJ6/Y9cR",
+    "claim": "unresolved leakage structure: families touched, clusters, share of the 155",
+    "computed": {
+      "touched_families": 110,
+      "clusters": 34,
+      "touched_share_of_155": 0.71,
+      "touched_in_135_panel": 98
+    },
+    "reviewer_value": {
+      "touched": 110,
+      "clusters": 34,
+      "share": 0.71
+    },
+    "verdict": "CONFIRMED",
+    "note": ""
+  },
+  {
+    "id": "C5d[no unresolved sibling]",
+    "reviewer": "Y9cR",
+    "claim": "monitor AUROC on panel families with no unresolved sibling",
+    "computed": {
+      "n": 37,
+      "positives": 21,
+      "auroc": 0.649,
+      "ci95_family_bootstrap": [
+        0.46,
+        0.82
+      ]
+    },
+    "reviewer_value": {
+      "n": 37,
+      "auroc": 0.649,
+      "ci": [
+        0.45,
+        0.83
+      ]
+    },
+    "verdict": "CONFIRMED",
+    "note": ""
+  },
+  {
+    "id": "C5d[clustered]",
+    "reviewer": "Y9cR",
+    "claim": "monitor AUROC on panel families with clustered",
+    "computed": {
+      "n": 98,
+      "positives": 49,
+      "auroc": 0.789,
+      "ci95_family_bootstrap": [
+        0.696,
+        0.873
+      ]
+    },
+    "reviewer_value": {
+      "n": 98,
+      "auroc": 0.789
+    },
+    "verdict": "CONFIRMED",
+    "note": ""
+  },
+  {
+    "id": "C6a",
+    "reviewer": "Bsyk",
+    "claim": "sensitivity rates and mean drops by cue type (140 labelled families)",
+    "computed": {
+      "frame_rendering": {
+        "families": 5,
+        "qwen_sensitive": 5,
+        "qwen_mean_S_lp": 9.022,
+        "llama_sensitive": 3,
+        "llama_mean_S_lp": 2.138
+      },
+      "irrelevant_variable": {
+        "families": 35,
+        "qwen_sensitive": 12,
+        "qwen_mean_S_lp": 0.515,
+        "llama_sensitive": 6,
+        "llama_mean_S_lp": 0.429
+      },
+      "nongoverning_distractor": {
+        "families": 100,
+        "qwen_sensitive": 53,
+        "qwen_mean_S_lp": 1.33,
+        "llama_sensitive": 23,
+        "llama_mean_S_lp": 0.404
+      }
+    },
+    "reviewer_value": "Table 1: A 12/35 (0.515), B 53/100 (1.330), C 5/5 (9.022)",
+    "verdict": "CONFIRMED",
+    "note": "also gives the Llama rates by cue type that the paper does not tabulate"
+  },
+  {
+    "id": "C6b",
+    "reviewer": "Bsyk",
+    "claim": "monitor AUROC by cue type and without Cue C (reviewer asked for it)",
+    "computed": {
+      "all 135": {
+        "n": 135,
+        "positives": 70,
+        "auroc": 0.76
+      },
+      "without Cue C": {
+        "n": 130,
+        "positives": 65,
+        "auroc": 0.743
+      },
+      "Cue A only": {
+        "n": 34,
+        "positives": 12,
+        "auroc": 0.761
+      },
+      "Cue B only": {
+        "n": 96,
+        "positives": 53,
+        "auroc": 0.721
+      },
+      "Cue C only": {
+        "n": 5,
+        "positives": 5,
+        "auroc": null
+      }
+    },
+    "reviewer_value": "requested, not stated",
+    "verdict": "COMPUTED",
+    "note": ""
+  },
+  {
+    "id": "C7a",
+    "reviewer": "Y9cR",
+    "claim": "exact-match Cue B families are LESS often sensitive (20/52 vs 33/48)",
+    "computed": {
+      "exact_match": "20/52",
+      "not_exact_match": "33/48"
+    },
+    "reviewer_value": {
+      "exact_match": "20/52",
+      "not_exact_match": "33/48"
+    },
+    "verdict": "CONFIRMED",
+    "note": ""
+  },
+  {
+    "id": "C7b",
+    "reviewer": "Y9cR",
+    "claim": "non-unit-matched Cue B families (20 of 100) are more often sensitive (17/20 vs 36/80)",
+    "computed": {
+      "distractor_units_equal_target_units": "36/80",
+      "distractor_units_differ": "17/20",
+      "by_unit_matched_cue_b_tag": "tagged 33/70, untagged 20/30"
+    },
+    "reviewer_value": {
+      "not_unit_matched": "17/20",
+      "unit_matched": "36/80"
+    },
+    "verdict": "CONFIRMED",
+    "note": "definition: distractor_units equal target_units, treating N*s and kg*m/s as the same dimension (CM_B_006); the tag-based split is shown for comparison"
+  },
+  {
+    "id": "C8a",
+    "reviewer": "Y9cR",
+    "claim": "four-head knockout at L16 (20 Cue B families): families inverted, mean S_lp before/after, mean nats added, correlation with the original drop",
+    "computed": {
+      "families": 20,
+      "inverted_patched_below_0": 17,
+      "mean_original": 4.16,
+      "mean_patched": -3.08,
+      "mean_nats_removed": 7.24,
+      "corr_with_original": 0.3,
+      "mean_recovery": 1.87
+    },
+    "reviewer_value": {
+      "families": 20,
+      "inverted": 17,
+      "before_after": "+4.16 -> -3.08",
+      "added": 7.2,
+      "corr": 0.3,
+      "recovery": 1.87
+    },
+    "verdict": "CONFIRMED",
+    "note": ""
+  },
+  {
+    "id": "C8b",
+    "reviewer": "Y9cR",
+    "claim": "removing head 11 raises the certified answer's first-token logit by ~3.76 (base) and ~3.77 (sensitive), 20/20 families each",
+    "computed": {
+      "base": {
+        "n": 20,
+        "mean_logit_increase": 3.76,
+        "positive": 20
+      },
+      "sensitive": {
+        "n": 20,
+        "mean_logit_increase": 3.77,
+        "positive": 20
+      }
+    },
+    "reviewer_value": {
+      "base": 3.76,
+      "sensitive": 3.77,
+      "positive": "20 of 20 each"
+    },
+    "verdict": "CONFIRMED",
+    "note": ""
+  },
+  {
+    "id": "C8c",
+    "reviewer": "Y9cR",
+    "claim": "all five held-out Cue A families invert (patched S_lp < 0) under the knockout",
+    "computed": {
+      "A": {
+        "n": 5,
+        "inverted": 5
+      },
+      "C": {
+        "n": 5,
+        "inverted": 1
+      }
+    },
+    "reviewer_value": "5 of 5 Cue A invert",
+    "verdict": "CONFIRMED",
+    "note": ""
+  },
+  {
+    "id": "C9",
+    "reviewer": "Y9cR",
+    "claim": "all 155 templates carry created_by: agent; the delegated agent pass marks families pi_validated: true",
+    "computed": {
+      "templates": 155,
+      "created_by": {
+        "agent": 155
+      },
+      "pi_validated_true": 140,
+      "agent_review_doc_present": true
+    },
+    "reviewer_value": {
+      "templates": 155,
+      "created_by": {
+        "agent": 155
+      }
+    },
+    "verdict": "CONFIRMED",
+    "note": ""
+  },
+  {
+    "id": "C10",
+    "reviewer": "Y9cR",
+    "claim": "Coulomb templates pass under an absolute 1e-3 tolerance; no Cue C identity/dimension check in the admission verifier",
+    "computed": [
+      "L22: COULOMB_ABSOLUTE_TOLERANCE = 1e-3",
+      "L241: if \"coulomb_law\" in topic_tags or \"electric_field\" in topic_tags:",
+      "L242: return COULOMB_ABSOLUTE_TOLERANCE"
+    ],
+    "reviewer_value": "stated",
+    "verdict": "SEE_NOTE",
+    "note": "read from src/physmon/benchmark/verifier.py"
+  }
+]
