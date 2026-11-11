@@ -5,6 +5,11 @@ Mechanisms: Benchmark Red-Team, DECOY-v2 Reconstruction, and a Gated Mechanistic
 Programme"). Searchable text extraction: `docs/proposals/PhysMon_Research_v2.extracted.txt`
 (page markers `######## PAGE n ########`; page numbers below are PDF pages).
 
+**Revision of 2026-11-11:** `docs/proposals/PhysMon_Research_v2.1.md` revises this plan after the ICLR 2027
+reviews, the Stage 14 results and a literature update. It keeps the B/P/X identifiers and its section 12
+states, for every v2.0 block, whether it is kept, changed, demoted or retired; read it before any Stage 15+
+work. This digest still describes v2.0 as written.
+
 This digest is a navigation aid written by the agent after reading every page. It does not replace
 the PDF. When the two disagree, the PDF wins; when a task touches a gate, re-read the PDF section.
 

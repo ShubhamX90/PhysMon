@@ -28,6 +28,12 @@ data roles, and its negative-result and missing-data policy, and cite the sectio
 decision-log entries and experiment cards. If a task would contradict it, stop and ask. The
 rules in the core scientific section above still apply.
 
+From 2026-11-11 the revision layer `docs/proposals/PhysMon_Research_v2.1.md` (written at the user's
+direction after the ICLR 2027 reviews of the withdrawn Phase-I paper) governs Stage 15 onward: its
+endpoints, gates G0-G6, causal protocol and governance additions take precedence where it addresses a
+point explicitly; v2.0 applies everywhere else. Its section 15 lists the open decisions and the
+defaults in force until the user decides them.
+
 ## Working model
 
 Work normally happens directly on Sharanga (Claude Code via Remote SSH) in

@@ -12,7 +12,9 @@ The governing scientific specification is stored in `docs/proposal/`:
 (PhysMon Research Redesign v2.0, 14 October 2026; navigation digest in
 `docs/proposals/PhysMon_Research_v2_working_digest.md`). It adds a mandatory benchmark
 red-team phase (Phase B) before any new mechanistic claim and replaces the June Part II plan as
-guidance. The older documents below remain the historical record.
+guidance. Since 2026-11-11 the revision layer `docs/proposals/PhysMon_Research_v2.1.md` (after the
+ICLR 2027 reviews of the withdrawn Phase-I paper, Stage 14 results and a literature update) governs
+Stage 15 onward; where it is silent, v2.0 applies. The older documents below remain the historical record.
 
 Implementation must preserve the proposal's core distinction between prompt condition,
 observed model behaviour, and internal representation (§3.1). The primary monitoring
