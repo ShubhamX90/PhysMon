@@ -1,0 +1,118 @@
+{
+  "backend": "vllm",
+  "batch_size": 8,
+  "contract_version": "reasoning-v2",
+  "created_utc": "2026-11-12T04:39:29Z",
+  "data_role": "EXPLORATION",
+  "dataset_dir": "data/v2/dataset/m0_pilot/cells.jsonl",
+  "dataset_files_sha256": {
+    "cells.jsonl": "01031c8dd44a9df89768496393c00c6ec8fed943568f4f80cb9e895f1c6093a4"
+  },
+  "dtype": "bfloat16",
+  "env": "physmon-vllm",
+  "env_expected": {
+    "python": "3.12.16",
+    "tokenizers": "0.23.3",
+    "torch": "2.14.0+cu130",
+    "transformers": "5.20.2",
+    "vllm": "0.33.0"
+  },
+  "env_prefix": "/scratch/pabitra/physmon/envs/physmon-vllm",
+  "est_shard_s": 900.0,
+  "family": "qwen",
+  "ids_file": null,
+  "max_model_len": 8192,
+  "max_new_tokens": 4096,
+  "max_prompt_tokens": 211,
+  "model_files": {
+    ".gitattributes": {
+      "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+      "size": 1519
+    },
+    "LICENSE": {
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "size": 11343
+    },
+    "README.md": {
+      "sha256": "f366f33bbf6bcadbb7d87f0a21a7b65584a56b8d58b0743c77c88bee625b93a6",
+      "size": 6240
+    },
+    "config.json": {
+      "sha256": "7463bb0ea78315365e6c6b74de4e73bbcc8359dfb0c5a737584e077d42c0b03c",
+      "size": 663
+    },
+    "generation_config.json": {
+      "sha256": "3a8f9087e486054c8a4a08dae2e5a3ba62e23da212b5b8c08bc42cb983c3459f",
+      "size": 243
+    },
+    "merges.txt": {
+      "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3",
+      "size": 1671839
+    },
+    "model-00001-of-00004.safetensors": {
+      "sha256": "a1333e6293854747c481288ea83b348226af178dd565c49b6f9495ba1966aba7",
+      "size": 3945441440
+    },
+    "model-00002-of-00004.safetensors": {
+      "sha256": "f5d25a2772cb825164a2a2c0fb6d51a87e282abf21e4dd75bc5cfb3cd0ea6185",
+      "size": 3864726352
+    },
+    "model-00003-of-00004.safetensors": {
+      "sha256": "8efdec4c1bc12317ae1a38dc42b595ce777738a64deea3fcb8a0a91381bcdfd5",
+      "size": 3864726424
+    },
+    "model-00004-of-00004.safetensors": {
+      "sha256": "1a72d403cdf0c1ec3cb7f289f17b394a01e64394c2e9b3c0f94dbce3faf879bd",
+      "size": 3556377672
+    },
+    "model.safetensors.index.json": {
+      "sha256": "624bf7c47cd12468fdc16e38a47cf4f19e0415b859a223ba3c027eed2f0e1028",
+      "size": 27752
+    },
+    "tokenizer.json": {
+      "sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539",
+      "size": 7031645
+    },
+    "tokenizer_config.json": {
+      "sha256": "5b5d4f65d0acd3b2d56a35b56d374a36cbc1c8fa5cf3b3febbbfabf22f359583",
+      "size": 7305
+    },
+    "vocab.json": {
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+      "size": 2776833
+    }
+  },
+  "model_key": "qwen_primary",
+  "model_name": "Qwen/Qwen2.5-7B-Instruct",
+  "model_path": "${PHYSMON_MODEL_ROOT}/Qwen2.5-7B-Instruct",
+  "model_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "n_jobs": 246,
+  "n_pairs": 984,
+  "n_samples": 4,
+  "phase_id": "stage15",
+  "purpose": "G2 design-validation pilot: 12 M0 structures, role-by-value cells, k=4 (Qwen2.5-7B-Instruct)",
+  "reasoning_contract_fingerprint": "3cab848f55d3f044af9cdc858fb0265cc41ce908f77a91bcb6bd89ad0e068b9c",
+  "run_id": "s15_m0pilot_qwen25_7b",
+  "sample_offset": 0,
+  "sampling": {
+    "do_sample": true,
+    "min_p": 0.0,
+    "repetition_penalty": 1.05,
+    "source": "generation_config.json",
+    "temperature": 0.7,
+    "top_k": 20,
+    "top_p": 0.8
+  },
+  "scoring_contract_fingerprint": "bb6bbec489ef185850a40c2d83955b4371a22b2343196135f2db885e6dabca81",
+  "seed_base": 20261112,
+  "shard_size": 246,
+  "shards": {
+    "shard_0000": "b652b52514e40d7d7ae23228e0fd55305cb441e1679618d982d48bd60542f700",
+    "shard_0001": "94ce659d5c4b6b65da3d78305c9994fee31265bd7eeed18b33c6f53afd6353fc",
+    "shard_0002": "3871991ad052dc722a1090c6c0f738c0aa5a74386d27fa52ce853172df825ea3",
+    "shard_0003": "09243a8e3f01980c1f54359d3ffb662aa2d19ee6bbbd64a6e9a7ac1b109f8e16"
+  },
+  "source": "role_cells",
+  "state_unit": true,
+  "thinking": "none"
+}

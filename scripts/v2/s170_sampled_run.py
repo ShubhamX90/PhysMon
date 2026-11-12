@@ -70,6 +70,12 @@ def queue_root(run_id: str, override: str | None = None) -> Path:
 
 # --- plan -------------------------------------------------------------------------------------------------------------------
 
+JOB_FIELDS = ("job_id", "structure_id", "instance", "cell_id", "structure_uuid", "template_cluster_id",
+              "symbolic_program_hash", "prompt", "gold_value", "gold_unit", "domain", "level", "cue_semantic_role",
+              "cue_numeric_value", "unit_type", "numeric_proximity", "digit_overlap", "cue_position", "isolation_condition",
+              "expected_effect", "foils")
+
+
 def jobs_from_dataset(dataset_dir: Path, keep: set[str] | None) -> list[dict[str, Any]]:
     rows = [json.loads(line) for line in (dataset_dir / "dataset.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
     jobs = []
@@ -142,7 +148,17 @@ def cmd_plan(args: argparse.Namespace) -> int:
                 else gen.sampling_from_generation_config(model_dir, thinking=thinking, family=family))
     keep = set(json.loads(Path(args.ids_file).read_text(encoding="utf-8"))) if args.ids_file else None
     dataset_dir = resolve(args.dataset_dir)
-    jobs = jobs_from_dataset(dataset_dir, keep)
+    if args.cells:
+        cells_path = resolve(args.cells)
+        jobs = [json.loads(line) for line in cells_path.read_text(encoding="utf-8").splitlines() if line.strip()]
+        if keep is not None:
+            jobs = [j for j in jobs if f"{j['structure_id']}:{j['instance']}" in keep]
+        missing = [k for k in JOB_FIELDS if any(k not in j for j in jobs)]
+        if missing:
+            print(f"Refusing: cell rows lack the job fields {missing}", file=sys.stderr)
+            return 2
+    else:
+        jobs = jobs_from_dataset(dataset_dir, keep)
     if args.max_jobs:
         jobs = jobs[: args.max_jobs]
     import transformers
@@ -175,8 +191,11 @@ def cmd_plan(args: argparse.Namespace) -> int:
         return 2
     spec = {
         "run_id": args.run_id, "created_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "purpose": args.purpose,
-        "data_role": args.data_role, "phase_id": args.phase_id, "source": "dataset_base", "dataset_dir": args.dataset_dir,
-        "dataset_files_sha256": {f: sha256_file(dataset_dir / f) for f in ("dataset.jsonl",)},
+        "data_role": args.data_role, "phase_id": args.phase_id,
+        "source": "role_cells" if args.cells else "dataset_base",
+        "dataset_dir": args.cells if args.cells else args.dataset_dir,
+        "dataset_files_sha256": ({Path(args.cells).name: sha256_file(resolve(args.cells))} if args.cells
+                                 else {f: sha256_file(dataset_dir / f) for f in ("dataset.jsonl",)}),
         "ids_file": args.ids_file, "n_jobs": len(jobs), "n_samples": args.n_samples, "sample_offset": args.sample_offset,
         "n_pairs": len(pairs), "seed_base": args.seed, "model_key": args.model_key, "model_name": registry["name"],
         "model_path": registry["path"], "model_revision": manifest.get("revision"),
@@ -286,7 +305,7 @@ def make_record(pair: dict[str, Any], result: gen.GenResult, spec: dict[str, Any
         "artifact_checksum": None, "job_id": f"{pair['job_id']}:s{pair['sample_index']}", "structure_id": pair["structure_id"],
         "instance": pair["instance"], "cell_id": pair["cell_id"], "expected_effect": pair["expected_effect"],
         "domain": pair.get("domain"), "level": pair.get("level"), "gold_value": gold_value, "gold_unit": gold_unit,
-        "unit_stated_in_prompt": spec["state_unit"], "status": "OK",
+        "unit_stated_in_prompt": spec["state_unit"], "status": "OK", "role": pair.get("role"),
         "contract_fingerprint": spec["scoring_contract_fingerprint"],
         "reasoning_contract_fingerprint": spec["reasoning_contract_fingerprint"], "source_commit": ctx["source_commit"],
         "authorization_ref": ctx["authorization_ref"], "shard": ctx["shard"], "worker_id": ctx["worker_id"],
@@ -520,6 +539,8 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--data-role", default="EXPLORATION")
     p.add_argument("--phase-id", default="stage15")
     p.add_argument("--dataset-dir", default="data/v2/dataset/v1")
+    p.add_argument("--cells", default=None, help="a JSONL of runner-format job rows (role-by-value cells) instead of the "
+                                                  "dataset's no-cue problems")
     p.add_argument("--ids-file", default=None)
     p.add_argument("--max-jobs", type=int, default=None)
     p.add_argument("--model-key", required=True)

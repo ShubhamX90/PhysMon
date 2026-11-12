@@ -353,11 +353,18 @@ def _fmt(value: float) -> str:
     return f"{value:.4g}"
 
 
+GLUED_UNITS = {"deg": "\u00b0"}  # written directly after the number, as in "10°"
+UNITLESS = {"1", ""}  # dimensionless quantities are written as a bare number
+
+
 def _sentence(frame: str, value: float | None, unit: str | None, relation: str, fill: str) -> str:
     if value is None:
         text = frame.replace("{value} {unit}", fill)
         return text.format(relation=relation)
-    return frame.format(value=_fmt(value), unit=dg.display_unit(unit or ""), relation=relation)
+    unit = unit or ""
+    if "{value} {unit}" in frame and (unit in GLUED_UNITS or unit in UNITLESS):
+        frame = frame.replace("{value} {unit}", "{value}" + GLUED_UNITS.get(unit, ""))
+    return frame.format(value=_fmt(value), unit=dg.display_unit(unit), relation=relation)
 
 
 def _assemble(structure: gr.Structure, instance: int, sentence: str, position: str) -> str:
