@@ -397,7 +397,9 @@ def role_cells(structure: gr.Structure, spec: RoleSpec, instance: int, *, positi
                 for phrasing in phrasings:
                     sentence = _sentence(spec.frame, value, spec.unit, phrasing.relation, spec.nonnumeric_fill)
                     gold = y_r if role == "R" else y_d
-                    cell_foils = dict(foils)
+                    # the misuse foil that equals the relevant wiring is not a misuse in the R world (it is the gold) and in
+                    # the D world it duplicates `relevant_twin`; it is dropped from both so matches stay unambiguous
+                    cell_foils = {k: v for k, v in foils.items() if k != f"{spec.relevant.op}:{spec.relevant.input_name}"}
                     if role == "D":
                         cell_foils["relevant_twin"] = y_r
                     else:

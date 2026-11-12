@@ -67,7 +67,8 @@ def test_cells_are_minimal_pairs_with_foils_neglect_and_placebo(s01):
     assert d.gold_value == pytest.approx(y_d) and r.gold_value == pytest.approx(1.2 * 9.8 / 9.8)
     assert d.foils["relevant_twin"] == pytest.approx(r.gold_value) and r.foils["neglect"] == pytest.approx(y_d)
     assert r.placebo == pytest.approx(2 * r.gold_value - y_d)
-    assert "add:m1" in d.foils and "replace:M" in d.foils and "copy" not in d.foils  # mass is not an acceleration
+    assert "add:m1" not in d.foils and "add:m2" in d.foils and "replace:M" in d.foils and "copy" not in d.foils
+    assert "add:m1" not in r.foils and not r.confounded  # the wiring itself is not a misuse foil
     # minimal pair: identical prompts apart from the relational phrase
     assert r.prompt.replace("tied firmly beneath the left block", "X") == d.prompt.replace(
         "resting on a shelf beside the apparatus", "X")
