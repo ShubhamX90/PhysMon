@@ -84,7 +84,7 @@ def check_clean_pushed() -> str:
 
     own_logs = ("docs/registry/v2/stage15_submissions.jsonl", "docs/registry/v2/cancelled_foreign_jobs/")  # this tool's
     dirty = [line for line in git("status", "--porcelain").splitlines()  # append-only registers, not job inputs
-             if not line.startswith("??") and not line[3:].startswith(own_logs)]
+             if not line.startswith("??") and not line.split(None, 1)[-1].startswith(own_logs)]  # git() strips line 1
     if dirty:
         raise SystemExit(f"Refusing: uncommitted tracked changes: {dirty[:5]}")
     head = git("rev-parse", "HEAD")

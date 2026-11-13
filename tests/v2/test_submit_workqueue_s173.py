@@ -161,8 +161,10 @@ def test_snapshot_of_the_real_repository_extracts_without_links_and_is_read_only
 
 
 def test_the_helpers_own_registers_do_not_block_the_clean_tree_check(monkeypatch):
-    status = " M docs/registry/v2/stage15_submissions.jsonl\n?? scratch.txt\n"
-    monkeypatch.setattr(s173, "git", lambda *a: status if a[0] == "status" else "abc" if a[0] == "rev-parse" else "origin/main")
+    status = " M docs/registry/v2/stage15_submissions.jsonl\n M docs/registry/v2/cancelled_foreign_jobs/x/show_job.txt\n?? s.txt\n"
+    # git() returns stripped output, so the first line loses its leading space, as in the real helper
+    monkeypatch.setattr(s173, "git", lambda *a: status.strip() if a[0] == "status" else "abc" if a[0] == "rev-parse"
+                        else "origin/main")
     monkeypatch.setattr(s173, "run", lambda *a, **k: subprocess.CompletedProcess(a, 0, "", ""))
     assert s173.check_clean_pushed() == "abc"
     status = " M scripts/v2/s170_sampled_run.py\n"
