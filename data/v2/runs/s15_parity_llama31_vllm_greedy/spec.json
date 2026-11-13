@@ -1,0 +1,127 @@
+{
+  "backend": "vllm",
+  "batch_size": 8,
+  "contract_version": "reasoning-v2",
+  "created_utc": "2026-11-13T14:54:56Z",
+  "data_role": "EXPLORATION",
+  "dataset_dir": "data/v2/dataset/v1",
+  "dataset_files_sha256": {
+    "dataset.jsonl": "27a41bf2ddf60cd2a1b2e02266b1b3249feca4ebebb4515a6a54216b7fed1c63"
+  },
+  "dtype": "bfloat16",
+  "env": "physmon-vllm",
+  "env_expected": {
+    "python": "3.12.16",
+    "tokenizers": "0.23.3",
+    "torch": "2.14.0+cu130",
+    "transformers": "5.20.2",
+    "vllm": "0.33.0"
+  },
+  "env_prefix": "/scratch/pabitra/physmon/envs/physmon-vllm",
+  "est_shard_s": 600.0,
+  "family": "llama",
+  "ids_file": null,
+  "max_model_len": 4096,
+  "max_new_tokens": 1024,
+  "max_prompt_tokens": 210,
+  "model_files": {
+    ".gitattributes": {
+      "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+      "size": 1519
+    },
+    "LICENSE": {
+      "sha256": "64e1b2889b7892e6bbe7a7ed5bfe6ff793c61f9d584345f8f41cf9f5cb30a369",
+      "size": 7627
+    },
+    "README.md": {
+      "sha256": "ed0e2e86f7a40c38b793b0a04dfd993b2c1dfb34906804f96b999f0bbd8d70e6",
+      "size": 44044
+    },
+    "USE_POLICY.md": {
+      "sha256": "a568f2ebc73cec3fd74ba2afd992d4e945a8c7a9d851f9b66163aac834b7b859",
+      "size": 4691
+    },
+    "config.json": {
+      "sha256": "29e4c210b0d6ac178b16b2a255a568bdb23b581e50ca1ef6a6d071dd85704e6e",
+      "size": 855
+    },
+    "generation_config.json": {
+      "sha256": "189fb0c0d7fd8a527db217c0a60a0e013f0394cd8800f9697a666a9e75e5f7fd",
+      "size": 184
+    },
+    "model-00001-of-00004.safetensors": {
+      "sha256": "2b1879f356aed350030bb40eb45ad362c89d9891096f79a3ab323d3ba5607668",
+      "size": 4976698672
+    },
+    "model-00002-of-00004.safetensors": {
+      "sha256": "09d433f650646834a83c580877bd60c6d1f88f7755305c12576b5c7058f9af15",
+      "size": 4999802720
+    },
+    "model-00003-of-00004.safetensors": {
+      "sha256": "fc1cdddd6bfa91128d6e94ee73d0ce62bfcdb7af29e978ddcab30c66ae9ea7fa",
+      "size": 4915916176
+    },
+    "model-00004-of-00004.safetensors": {
+      "sha256": "92ecfe1a2414458b4821ac8c13cf8cb70aed66b5eea8dc5ad9eeb4ff309d6d7b",
+      "size": 1168138808
+    },
+    "model.safetensors.index.json": {
+      "sha256": "146776fce3f6db1103aa6f249e65ee5544c5923ce6f971b092eee79aa6e5d37b",
+      "size": 23950
+    },
+    "original/consolidated.00.pth": {
+      "sha256": "ab33d910f405204e5d388bc3521503584800461dc96808e287821dd451c1edac",
+      "size": 16060617592
+    },
+    "original/params.json": {
+      "sha256": "b15b6b31b2043c0400b028ecc25c8946e21d76ac260e9ac6a357ed8727c8865f",
+      "size": 199
+    },
+    "original/tokenizer.model": {
+      "sha256": "82e9d31979e92ab929cd544440f129d9ecd797b69e327f80f17e1c50d5551b55",
+      "size": 2183982
+    },
+    "special_tokens_map.json": {
+      "sha256": "6f38c73729248f6c127296386e3cdde96e254636cc58b4169d3fd32328d9a8ec",
+      "size": 296
+    },
+    "tokenizer.json": {
+      "sha256": "79e3e522635f3171300913bb421464a87de6222182a0570b9b2ccba2a964b2b4",
+      "size": 9085657
+    },
+    "tokenizer_config.json": {
+      "sha256": "177c7b61e616fecb84c17ce0591acb92c6c4d60e9ac5ababfb940ff23bbcd424",
+      "size": 55351
+    }
+  },
+  "model_key": "llama_primary",
+  "model_name": "meta-llama/Llama-3.1-8B-Instruct",
+  "model_path": "${PHYSMON_MODEL_ROOT}/Llama-3.1-8B-Instruct",
+  "model_revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+  "n_jobs": 80,
+  "n_pairs": 80,
+  "n_samples": 1,
+  "phase_id": "stage15",
+  "purpose": "backend parity (decision 31): vLLM greedy vs HF greedy on the 80 problems of the Qwen2.5 parity (Llama-3.1-8B)",
+  "reasoning_contract_fingerprint": "3cab848f55d3f044af9cdc858fb0265cc41ce908f77a91bcb6bd89ad0e068b9c",
+  "run_id": "s15_parity_llama31_vllm_greedy",
+  "sample_offset": 0,
+  "sampling": {
+    "do_sample": false,
+    "min_p": 0.0,
+    "repetition_penalty": 1.0,
+    "source": "greedy",
+    "temperature": 1.0,
+    "top_k": 0,
+    "top_p": 1.0
+  },
+  "scoring_contract_fingerprint": "bb6bbec489ef185850a40c2d83955b4371a22b2343196135f2db885e6dabca81",
+  "seed_base": 20261112,
+  "shard_size": 80,
+  "shards": {
+    "shard_0000": "46267fc3374994fd7a52d7717f605da270677dba02b580f13580ff3fdac43853"
+  },
+  "source": "dataset_base",
+  "state_unit": true,
+  "thinking": "none"
+}

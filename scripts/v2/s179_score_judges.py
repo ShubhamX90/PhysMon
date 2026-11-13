@@ -119,6 +119,21 @@ def score(reviews: dict[tuple[str, int], dict], key: dict[str, dict], packets2: 
               "Q3_all_valid_accepted": {"value": q3, "accepted": valid["accepted"], "n": valid["n"], "min": Q3_MIN,
                                         "pass": q3 >= Q3_MIN},
               "Q4_no_type_missed": {"missed_types": zero_types, "pass": not zero_types}}
+    if split == "requal":  # qualification_protocol_v2.md (bank v4, judge prompt v2)
+        retargeted = ("missing_assumption", "insufficient_boundary_condition", "contradictory_distractor_statement",
+                      "invalid_numerical_precision")
+        r1 = n_det / n_def if n_def else 0.0
+        checks = {"R1_detected_for_declared_reason": {"value": r1, "detected": n_det, "n": n_def, "min": 0.85,
+                                                      "pass": r1 >= 0.85},
+                  "R2_valid_accepted": {"value": q3, "accepted": valid["accepted"], "n": valid["n"], "min": 0.85,
+                                        "pass": q3 >= 0.85},
+                  "R3_failed_types_recovered": {
+                      "per_type": {t: per_type[t]["detected"] for t in retargeted if t in per_type},
+                      "pass": all(per_type[t]["detected"] >= 2 for t in retargeted if t in per_type)
+                      and all(t in per_type for t in retargeted)},
+                  "R4_no_type_with_3_or_more_items_missed": {
+                      "missed_types": sorted(d for d, t in per_type.items() if t["n"] >= 3 and t["detected"] == 0),
+                      "pass": not any(t["n"] >= 3 and t["detected"] == 0 for t in per_type.values())}}
     if split == "heldout":  # requalification thresholds of the protocol
         checks = {"H1_heldout_defects": {"detected": n_det, "n": n_def, "pass": n_det >= 5},
                   "H2_heldout_valid": {"accepted": valid["accepted"], "n": valid["n"], "pass": valid["accepted"] >= 3}}
@@ -133,7 +148,7 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--reviews", required=True)
     parser.add_argument("--bank", default="docs/validation/v2/llm_panel/bank_v3")
-    parser.add_argument("--split", default="qualification", choices=("qualification", "heldout"))
+    parser.add_argument("--split", default="qualification", choices=("qualification", "heldout", "requal"))
     parser.add_argument("--out", required=True)
     args = parser.parse_args(argv)
     bank = REPO_ROOT / args.bank if not Path(args.bank).is_absolute() else Path(args.bank)

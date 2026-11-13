@@ -92,7 +92,7 @@ def build(out: Path, bank: Path, split: str, prompt: Path, model: str, run_id: s
 def main(argv: list | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--bank", default="docs/validation/v2/llm_panel/bank_v3")
-    parser.add_argument("--split", default="qualification", choices=("qualification", "heldout"))
+    parser.add_argument("--split", default="qualification", choices=("qualification", "heldout", "requal"))
     parser.add_argument("--prompt", default="docs/validation/v2/llm_panel/judge_prompt_v1.md")
     parser.add_argument("--model", default="gpt-6.1-sol")
     parser.add_argument("--run-id", default="gpt_q1")

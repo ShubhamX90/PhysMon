@@ -92,8 +92,13 @@ def base_item(structure_id: str, item_id: str) -> dict[str, Any]:
                 claim["cancellation"] = {"relations": list(sub.intermediate_relations),
                                          "expression_with_q": sub.expr_with_q}
             else:
-                claim["regime"] = {"irrelevant_while": sub.predicate,
-                                   "outside_the_regime_the_answer_is": sub.out_of_regime_law}
+                # bank v4 wording (after the GPT judge's objections in gpt_q1): only the in-regime answer is certified;
+                # the out-of-regime expression is context, and no listed value is at or beyond the boundary
+                claim["regime"] = {"the_quantity_is_irrelevant_while": sub.predicate,
+                                   "every_listed_value_lies_inside_this_regime": True,
+                                   "for_reference_only_outside_the_regime": (
+                                       "the physics would change (reference expression: %s); this is not part of the "
+                                       "certified claim" % sub.out_of_regime_law)}
             claims.append(claim)
     relations = [f"{n.name} = {n.expr}" for n in structure.computed]
     item = {"item_id": item_id, "structure_id": structure_id, "problem": problem, "sentences": sentences,

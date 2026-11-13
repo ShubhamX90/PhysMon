@@ -16,6 +16,15 @@ freeze), DEFERRED (frozen later at a stated point, as the plan allows).
 | J2 | A contradiction inside a distractor statement that cannot affect the target | The item is **invalid** (`contradictory_distractor_statement`, high) | The distractor's number is the manipulated variable of this benchmark; a self-contradicting distractor makes the cue ill-defined |
 | J3 | Severity | `high` only when a certified answer or a physics claim is wrong, or the item fails J1/J2; wording, boundary-convention and unit-display nitpicks are `medium` or `low` and do not make an item invalid | GPT rejected 5 of 14 valid items on edge cases; Claude accepted every valid item; both directions miss the intended standard |
 
+**J1 refined before any use (2026-11-13).** Read literally ("every unstated assumption"), J1 would make every physics
+item invalid, including all twelve certified M0 items (none states light strings, ohmic resistors, paraxial rays or a
+frictionless axle; audit of the M0 texts against their declared assumptions). Prompt v2 therefore draws the line the
+bank labels draw: a condition that selects between materially different answers (initial and boundary conditions; the
+governing model where standard models compete, such as ideal gas or frictionless motion of the body itself) must be
+stated; standard idealisations of the apparatus that do not change the answer at the stated precision need not be.
+Every legacy item the user labelled `missing_assumption` or `insufficient_boundary_condition` (deleted "ideal",
+"frictionless" ramp, "at rest") falls under the first kind, so the labels stand.
+
 These go into judge prompt v2; both judges are requalified on a fresh planted set (protocol: a changed prompt is
 requalified only on unseen items).
 

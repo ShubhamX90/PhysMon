@@ -39,7 +39,7 @@ def make_batches(items: list[str], group_of: dict[str, str], seed: int = SEED, s
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--bank", default="docs/validation/v2/llm_panel/bank_v3")
-    parser.add_argument("--split", default="qualification", choices=("qualification", "heldout"))
+    parser.add_argument("--split", default="qualification", choices=("qualification", "heldout", "requal"))
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--root", default="/scratch/pabitra/physmon/judge")
     parser.add_argument("--assignment", required=True)
