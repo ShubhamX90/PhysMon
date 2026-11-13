@@ -82,7 +82,9 @@ def seconds(walltime: str) -> int:
 def check_clean_pushed() -> str:
     """HEAD's sha after refusing on any uncommitted tracked change or an unpushed HEAD."""
 
-    dirty = [line for line in git("status", "--porcelain").splitlines() if not line.startswith("??")]
+    own_logs = ("docs/registry/v2/stage15_submissions.jsonl", "docs/registry/v2/cancelled_foreign_jobs/")  # this tool's
+    dirty = [line for line in git("status", "--porcelain").splitlines()  # append-only registers, not job inputs
+             if not line.startswith("??") and not line[3:].startswith(own_logs)]
     if dirty:
         raise SystemExit(f"Refusing: uncommitted tracked changes: {dirty[:5]}")
     head = git("rev-parse", "HEAD")

@@ -158,3 +158,16 @@ def test_snapshot_of_the_real_repository_extracts_without_links_and_is_read_only
     assert not (snap / "src/physmon/benchmark/v2/graph.py").stat().st_mode & 0o222
     assert s173.make_snapshot(head) == snap  # idempotent
     assert not list((tmp_path / "snapshots").glob(".*tmp*"))
+
+
+def test_the_helpers_own_registers_do_not_block_the_clean_tree_check(monkeypatch):
+    status = " M docs/registry/v2/stage15_submissions.jsonl\n?? scratch.txt\n"
+    monkeypatch.setattr(s173, "git", lambda *a: status if a[0] == "status" else "abc" if a[0] == "rev-parse" else "origin/main")
+    monkeypatch.setattr(s173, "run", lambda *a, **k: subprocess.CompletedProcess(a, 0, "", ""))
+    assert s173.check_clean_pushed() == "abc"
+    status = " M scripts/v2/s170_sampled_run.py\n"
+    try:
+        s173.check_clean_pushed()
+        raise AssertionError("a modified job input must be refused")
+    except SystemExit:
+        pass
