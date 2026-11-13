@@ -217,6 +217,51 @@ def cmd_plan(args: argparse.Namespace) -> int:
 
 # --- work -------------------------------------------------------------------------------------------------------------------
 
+GATE_FILE = "gate.json"  # in a run's queue directory: {"requires": [run ids]}, written by s173 register --requires
+SEAL_FILE = "SEALED.json"  # in a run's committed directory: collect refuses without --unseal-ref
+
+
+def canary_verdict(run_id: str, root: Path, runs_dir: str = RUNS_DIR) -> tuple[bool, dict[str, Any]]:
+    """Whether a (canary) run finished on a GPU with valid records: every shard done with matching checksums, no
+    RECORD_ERROR, every record OK with tokens and finish_reason stop/length, and at least one COMPLETE answer."""
+
+    try:
+        spec, _ = load_spec(run_id, runs_dir)
+    except (OSError, ValueError) as exc:
+        return False, {"run_id": run_id, "reason": f"spec unreadable: {exc!r}"}
+    n_records = n_complete = 0
+    for shard in sorted(spec["shards"]):
+        done, result = root / "done" / f"{shard}.json", root / "results" / f"{shard}.jsonl"
+        if not done.exists() or not result.exists():
+            return False, {"run_id": run_id, "reason": f"{shard} not done"}
+        meta = json.loads(done.read_text(encoding="utf-8"))
+        if sha256_file(result) != meta.get("records_sha256"):
+            return False, {"run_id": run_id, "reason": f"{shard} checksum mismatch"}
+        if (meta.get("stats") or meta).get("n_record_errors", 0):
+            return False, {"run_id": run_id, "reason": f"{shard} has record errors"}
+        for line in result.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            r = json.loads(line)
+            n_records += 1
+            if r.get("status") != "OK" or not r.get("n_generated_tokens") or r.get("finish_reason") not in ("stop", "length"):
+                return False, {"run_id": run_id, "reason": f"bad record {r.get('job_id')}: status={r.get('status')} "
+                                                          f"tokens={r.get('n_generated_tokens')} finish={r.get('finish_reason')}"}
+            n_complete += r.get("completion_status") == "COMPLETE"
+    if n_records == 0 or n_complete == 0:
+        return False, {"run_id": run_id, "reason": f"{n_records} records, {n_complete} complete"}
+    return True, {"run_id": run_id, "n_records": n_records, "n_complete": n_complete}
+
+
+def gate_status(root: Path, runs_dir: str = RUNS_DIR) -> tuple[bool, list[dict[str, Any]]]:
+    gate = root / GATE_FILE
+    if not gate.exists():
+        return True, []
+    requires = json.loads(gate.read_text(encoding="utf-8")).get("requires", [])
+    verdicts = [canary_verdict(r, root.parent / r, runs_dir) for r in requires]
+    return all(ok for ok, _ in verdicts), [d for _, d in verdicts]
+
+
 def load_spec(run_id: str, runs_dir: str = RUNS_DIR) -> tuple[dict[str, Any], Path]:
     run_dir = resolve(runs_dir) / run_id
     return json.loads((run_dir / "spec.json").read_text(encoding="utf-8")), run_dir
@@ -264,6 +309,8 @@ def self_test(spec: dict[str, Any], run_dir: Path, model_dir: Path, *, expected_
 
 
 def make_record(pair: dict[str, Any], result: gen.GenResult, spec: dict[str, Any], ctx: dict[str, Any]) -> dict[str, Any]:
+    if result.finish_reason not in ("stop", "length"):  # vLLM abort/error/repetition: not a real outcome; safe_record keeps it
+        raise RuntimeError(f"abnormal finish_reason {result.finish_reason!r}")
     thinking_expected = spec["thinking"] == "on"
     completion = rc2.assess(result.text, hit_token_limit=result.hit_limit, thinking_expected=thinking_expected)
     gold_value, gold_unit = float(pair["gold_value"]), pair["gold_unit"]
@@ -301,6 +348,7 @@ def make_record(pair: dict[str, Any], result: gen.GenResult, spec: dict[str, Any
         "n_thinking_chars": len(completion.thinking_text), "n_answer_chars": len(completion.answer_text),
         "sample_index": pair["sample_index"], "seed": pair["seed"], "seed_scope": result.extra.get("seed_scope"),
         "sampling": spec["sampling"], "max_new_tokens": spec["max_new_tokens"], "backend": ctx["backend"],
+        "backend_config": ctx.get("backend_config"),
         "dtype": spec["dtype"], "oom_fallback": result.oom_fallback, "wall_time": ctx["wall_per_record"],
         "artifact_checksum": None, "job_id": f"{pair['job_id']}:s{pair['sample_index']}", "structure_id": pair["structure_id"],
         "instance": pair["instance"], "cell_id": pair["cell_id"], "expected_effect": pair["expected_effect"],
@@ -363,7 +411,66 @@ def build_backend(spec: dict[str, Any], model_dir: Path, device: str):
     return tokenizer, backend
 
 
-def gpu_name() -> str:
+def nvidia_smi_gpu() -> str | None:
+    """The first GPU's name from nvidia-smi, or None. Never touches CUDA in this process (vLLM forks after this)."""
+
+    try:
+        out = subprocess.run(["nvidia-smi", "--query-gpu=name", "--format=csv,noheader"], capture_output=True, text=True,
+                             timeout=60)
+        names = [line.strip() for line in out.stdout.splitlines() if line.strip()]
+        return names[0] if out.returncode == 0 and names else None
+    except (OSError, subprocess.SubprocessError):
+        return None
+
+
+TOOLCHAIN_GCC = Path("/scratch/pabitra/physmon/envs/toolchain/bin/gcc")
+
+
+def _compiles(compiler: str) -> bool:
+    """Whether `compiler` builds a trivial C program here (a present but broken compiler counts as missing)."""
+
+    import tempfile
+
+    try:
+        with tempfile.TemporaryDirectory() as tmp:
+            src = Path(tmp) / "t.c"
+            src.write_text("int main(void) { return 0; }\n")
+            out = subprocess.run([compiler, str(src), "-o", str(Path(tmp) / "t")], capture_output=True, timeout=120)
+            return out.returncode == 0
+    except (OSError, subprocess.SubprocessError):
+        return False
+
+
+def ensure_c_compiler() -> dict[str, Any]:
+    """Pick a working C compiler for Triton: $CC, then the node's gcc/cc, then the shared scratch toolchain; sets CC."""
+
+    import shutil
+
+    candidates = [os.environ.get("CC"), shutil.which("gcc"), shutil.which("cc"),
+                  str(TOOLCHAIN_GCC) if TOOLCHAIN_GCC.exists() else None]
+    for candidate in [c for c in candidates if c]:
+        if _compiles(candidate):
+            os.environ["CC"] = candidate
+            return {"ok": True, "cc": candidate}
+    return {"ok": False, "cc": None, "tried": [c for c in candidates if c]}
+
+
+def libcuda_dirs() -> list[str]:
+    """Directories holding libcuda.so.1, found the way Triton finds them (ldconfig cache, then LD_LIBRARY_PATH)."""
+
+    try:
+        out = subprocess.run(["/sbin/ldconfig", "-p"], capture_output=True, text=True, timeout=60).stdout
+    except (OSError, subprocess.SubprocessError):
+        out = ""
+    dirs = [os.path.dirname(line.split()[-1]) for line in out.splitlines() if "libcuda.so.1" in line]
+    if not dirs:
+        dirs = [d for d in os.environ.get("LD_LIBRARY_PATH", "").split(":") if d and Path(d, "libcuda.so.1").exists()]
+    return [d for d in dirs if Path(d, "libcuda.so.1").exists()]
+
+
+def gpu_name(backend: str = "hf") -> str:
+    if backend == "vllm":
+        return nvidia_smi_gpu() or "unknown"
     try:
         import torch
 
@@ -378,6 +485,10 @@ def cmd_work(args: argparse.Namespace) -> int:
     if not queue.unclaimed() and not (args.self_test_only or args.check_only):
         print(json.dumps({"event": "nothing_to_do", "status": queue.status()}), flush=True)
         return EXIT_NOTHING_TO_DO
+    gate_open, gate_detail = gate_status(queue.root, args.runs_dir)
+    if not gate_open and not args.check_only:
+        print(json.dumps({"event": "gate_closed", "requires": gate_detail}), flush=True)
+        return EXIT_NOTHING_TO_DO  # a dependent run never starts before its canary has produced valid GPU records
     started = time.time()
     if (args.time_budget_s is not None and not args.self_test_only
             and args.time_budget_s < 1.25 * spec["est_shard_s"] + args.startup_allowance_s):
@@ -388,7 +499,24 @@ def cmd_work(args: argparse.Namespace) -> int:
     if not source_commit:
         print("Refusing to run: PHYSMON_SOURCE_COMMIT is not set (jobs run from a snapshot of a pushed commit).", file=sys.stderr)
         return EXIT_SPEC
-    if args.device.startswith("cuda") and not args.check_only:
+    if spec["backend"] == "vllm":
+        # vLLM starts its engine in a child process; CUDA must not be initialised here first (jobs 444874-444879 failed
+        # with "Cannot re-initialize CUDA in forked subprocess"). Check the GPU with nvidia-smi and ask vLLM to spawn.
+        os.environ["VLLM_WORKER_MULTIPROC_METHOD"] = "spawn"
+        if args.device.startswith("cuda") and not args.check_only and nvidia_smi_gpu() is None:
+            print("Refusing to run: a CUDA device was requested but nvidia-smi reports none.", file=sys.stderr)
+            return EXIT_NO_GPU
+        compiler = ensure_c_compiler()  # Triton (vLLM's compiled kernels) builds a C launcher on first use
+        print(json.dumps({"event": "c_compiler", **compiler}), flush=True)
+        if not compiler["ok"]:
+            print("Refusing to run: no working C compiler for Triton on this node.", file=sys.stderr)
+            return EXIT_ENV
+        libcuda = libcuda_dirs()  # Triton links -l:libcuda.so.1 from these (triton/backends/nvidia/driver.py)
+        print(json.dumps({"event": "libcuda", "dirs": libcuda}), flush=True)
+        if not libcuda and not args.check_only:
+            print("Refusing to run: libcuda.so.1 is not in the linker cache or LD_LIBRARY_PATH.", file=sys.stderr)
+            return EXIT_ENV
+    elif args.device.startswith("cuda") and not args.check_only:
         import torch
 
         if not torch.cuda.is_available():
@@ -405,9 +533,10 @@ def cmd_work(args: argparse.Namespace) -> int:
         return code
     tokenizer, backend = build_backend(spec, model_dir, args.device)
     ctx = {"tokenizer_sha256": sha256_file(model_dir / "tokenizer.json") if (model_dir / "tokenizer.json").exists() else None,
-           "chat_template_sha256": sha256_text(str(getattr(tokenizer, "chat_template", "") or "")), "backend": backend.name,
+           "chat_template_sha256": sha256_text(str(getattr(tokenizer, "chat_template", "") or "")), "backend": backend.name, "backend_config": getattr(backend, "config", None), "cc": os.environ.get("CC"),
            "source_commit": source_commit, "authorization_ref": args.authorization_ref, "worker_id": queue.worker_id,
-           "slurm_job_id": queue.slurm_job_id, "partition": os.environ.get("SLURM_JOB_PARTITION", ""), "gpu_name": gpu_name()}
+           "slurm_job_id": queue.slurm_job_id, "partition": os.environ.get("SLURM_JOB_PARTITION", ""),
+           "gpu_name": gpu_name(spec["backend"])}
     enable_thinking = {"on": True, "off": False, "none": None}[spec["thinking"]]
     sampling = gen.SamplingSpec(**spec["sampling"])
 
@@ -469,6 +598,11 @@ def cmd_work(args: argparse.Namespace) -> int:
 
 def cmd_collect(args: argparse.Namespace) -> int:
     spec, run_dir = load_spec(args.run_id, args.runs_dir)
+    if (run_dir / SEAL_FILE).exists() and not args.unseal_ref:
+        seal = json.loads((run_dir / SEAL_FILE).read_text(encoding="utf-8"))
+        print(f"Refusing: {args.run_id} is sealed until {seal.get('until')} ({seal.get('reason')}). Pass --unseal-ref "
+              "<decision-log entry> once that condition holds.", file=sys.stderr)
+        return 2
     root = queue_root(args.run_id, args.queue_root)
     out_dir = resolve(args.results_dir) / args.run_id
     if out_dir.exists() and any(out_dir.iterdir()):
@@ -581,6 +715,7 @@ def main(argv: list[str] | None = None) -> int:
     c.add_argument("--queue-root", default=None)
     c.add_argument("--allow-partial", action="store_true")
     c.add_argument("--results-dir", default=RESULTS_DIR)
+    c.add_argument("--unseal-ref", default=None, help="decision-log entry that lifts a run's seal")
     s = sub.add_parser("status")
     s.add_argument("--run-id", required=True)
     s.add_argument("--runs-dir", default=RUNS_DIR)

@@ -291,6 +291,22 @@ def cmd_register(args: argparse.Namespace) -> int:
                            env={**os.environ, "PYTHONPATH": str(snapshot / "src"), "PYTHONNOUSERSITE": "1"})
     if probe.returncode != 0:
         raise SystemExit(f"Refusing: the run's environment cannot run the snapshot's code:\n{probe.stderr[-2000:]}")
+    # the worker's own pre-flight from the snapshot in the run's environment: versions, spec and shard hashes, every
+    # model file's SHA-256 (everything a GPU job checks before loading the model)
+    check = subprocess.run([str(env_prefix / "bin" / "python"), str(snapshot / "scripts/v2/s170_sampled_run.py"), "work",
+                            "--run-id", args.run_id, "--authorization-ref", "register-preflight", "--check-only",
+                            "--expect-spec-sha256", spec_sha, "--queue-root",
+                            str(SNAPSHOT_ROOT.parent / "cache" / "tmp" / f"preflight_{args.run_id}_{os.getpid()}")],
+                           capture_output=True, text=True, cwd=snapshot, timeout=3600,
+                           env={**os.environ, "PYTHONPATH": str(snapshot / "src"), "PYTHONNOUSERSITE": "1",
+                                "PHYSMON_SOURCE_COMMIT": head})
+    shutil.rmtree(SNAPSHOT_ROOT.parent / "cache" / "tmp" / f"preflight_{args.run_id}_{os.getpid()}", ignore_errors=True)
+    if check.returncode != 0 or '"code": 0' not in check.stdout:
+        raise SystemExit(f"Refusing: the worker pre-flight failed:\n{check.stdout[-1500:]}\n{check.stderr[-1500:]}")
+    active_now = json.loads(Path(args.active).read_text(encoding="utf-8")) if Path(args.active).exists() else {"entries": []}
+    for req in args.requires:
+        if not any(e["run_id"] == req and e.get("active", True) for e in active_now["entries"]):
+            raise SystemExit(f"Refusing: required canary {req} is not registered and active")
     exclude = list(args.exclude_gpu)
     if spec["backend"] != "vllm" and "RTX PRO 6000" not in exclude:
         exclude.append("RTX PRO 6000")  # the physmon torch has no Blackwell kernels
@@ -300,16 +316,30 @@ def cmd_register(args: argparse.Namespace) -> int:
              "registered_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"), "active": True, "model_key": spec["model_key"],
              "min_driver_major": args.min_driver_major if args.min_driver_major is not None else
              (580 if spec["backend"] == "vllm" else 0),
-             "backend": spec["backend"], "purpose": spec.get("purpose")}
+             "backend": spec["backend"], "purpose": spec.get("purpose"), "requires": list(args.requires)}
+    queue_dir = Path(args.active).parent / args.run_id
 
     def update(data: dict[str, Any]) -> dict[str, Any]:
-        if any(e["run_id"] == args.run_id for e in data["entries"]):
-            raise SystemExit(f"Refusing: {args.run_id} is already registered")
+        old = [e for e in data["entries"] if e["run_id"] == args.run_id]
+        if old and not args.replace:
+            raise SystemExit(f"Refusing: {args.run_id} is already registered (use --replace for a run with no records)")
+        if old:
+            if any(e.get("active", True) for e in old):
+                raise SystemExit(f"Refusing: deactivate {args.run_id} before replacing it")
+            if any((queue_dir / "done").glob("*.json")) or any(p.is_dir() for p in (queue_dir / "claims").glob("shard_*")):
+                raise SystemExit(f"Refusing: {args.run_id} already has done or claimed shards; plan a new run id")
+            entry["replaces"] = [{k: e.get(k) for k in ("commit", "registered_at")} for e in old]
+            data["entries"] = [e for e in data["entries"] if e["run_id"] != args.run_id]
         data["entries"].append(entry)
         return data
 
     _locked_update(Path(args.active), update)
-    (Path(args.active).parent / args.run_id).mkdir(parents=True, exist_ok=True)
+    queue_dir.mkdir(parents=True, exist_ok=True)
+    gate = queue_dir / "gate.json"
+    if args.requires:
+        gate.write_text(json.dumps({"requires": list(args.requires)}, indent=2) + "\n", encoding="utf-8")
+    elif gate.exists():
+        gate.unlink()
     print(json.dumps({"registered": entry}, indent=2))
     with SUBMISSIONS.open("a", encoding="utf-8") as handle:
         handle.write(json.dumps({"event": "register", **entry}, sort_keys=True) + "\n")
@@ -368,6 +398,8 @@ def main(argv: list[str] | None = None) -> int:
     reg.add_argument("--exclude-gpu", nargs="*", default=["V100"])
     reg.add_argument("--alloc-conf", default="")
     reg.add_argument("--min-driver-major", type=int, default=None, help="default 580 for vLLM (CUDA 13 wheels), else 0")
+    reg.add_argument("--requires", nargs="*", default=[], help="canary runs that must pass before this run starts")
+    reg.add_argument("--replace", action="store_true", help="re-register an inactive run that has no records")
     reg.add_argument("--active", default=str(ACTIVE_RUNS))
     de = sub.add_parser("deactivate")
     de.add_argument("--run-id", required=True)

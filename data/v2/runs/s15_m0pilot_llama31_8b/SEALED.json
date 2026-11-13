@@ -1,0 +1,6 @@
+{
+  "until": "G1 freeze: frozen analysis and scorecard scripts, SESOI and equivalence margins, and experiment cards committed",
+  "reason": "The design-validation pilot runs on idle GPU time before gate G1 (user instruction 2026-11-13: speed without compromise). Its records must not shape any G1 choice, so collect refuses them until the freeze is recorded in the decision log.",
+  "sealed_at": "2026-11-13",
+  "lift_with": "s170_sampled_run.py collect --unseal-ref '<decision-log entry recording the G1 freeze>'"
+}

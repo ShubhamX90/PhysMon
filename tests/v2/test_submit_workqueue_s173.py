@@ -58,6 +58,8 @@ def test_register_writes_one_entry_and_refuses_a_duplicate(tmp_path, monkeypatch
     def fake_subprocess_run(cmd, *a, **k):
         if "status" in cmd:  # the import probe of the run's environment
             return s173.subprocess.CompletedProcess(cmd, 0, "{}", "")
+        if "work" in cmd and "--check-only" in cmd:  # the worker pre-flight
+            return s173.subprocess.CompletedProcess(cmd, 0, '{"event": "self_test", "code": 0}', "")
         return real_run(cmd, *a, **k)
 
     monkeypatch.setattr(s173.subprocess, "run", fake_subprocess_run)
@@ -73,8 +75,30 @@ def test_register_writes_one_entry_and_refuses_a_duplicate(tmp_path, monkeypatch
         raise AssertionError("duplicate registration must be refused")
     except SystemExit:
         pass
+    try:
+        s173.main(["register", "--run-id", "r1", "--replace", "--active", str(active)])
+        raise AssertionError("replacing an active entry must be refused")
+    except SystemExit:
+        pass
     assert s173.main(["deactivate", "--run-id", "r1", "--active", str(active)]) == 0
     assert json.loads(active.read_text())["entries"][0]["active"] is False
+    try:
+        s173.main(["register", "--run-id", "r1", "--replace", "--requires", "nope", "--active", str(active)])
+        raise AssertionError("an unregistered canary must be refused")
+    except SystemExit:
+        pass
+    monkeypatch.setattr(s173, "check_repo", lambda run_id: ("beef", "s" * 64))
+    assert s173.main(["register", "--run-id", "r1", "--replace", "--active", str(active)]) == 0
+    entries = json.loads(active.read_text())["entries"]
+    assert len(entries) == 1 and entries[0]["commit"] == "beef" and entries[0]["replaces"][0]["commit"] == "c0ffee"
+    (active.parent / "r1" / "done").mkdir(parents=True)
+    (active.parent / "r1" / "done" / "shard_0000.json").write_text("{}")
+    s173.main(["deactivate", "--run-id", "r1", "--active", str(active)])
+    try:
+        s173.main(["register", "--run-id", "r1", "--replace", "--active", str(active)])
+        raise AssertionError("a run with records must never be re-pointed at another commit")
+    except SystemExit:
+        pass
 
 
 def test_only_pending_non_physmon_jobs_are_cancelled_after_saving(tmp_path, monkeypatch):

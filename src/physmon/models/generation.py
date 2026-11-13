@@ -6,8 +6,9 @@ memory fallback) so runners stop loading each other by file path. Both backends 
 finding), and both report, per request, the decoded text, the number of new tokens and whether the token limit was hit.
 
 Sampling defaults come from each model's published `generation_config.json`; Qwen3 in non-thinking mode uses the model card's
-non-thinking values. The vLLM backend sets a per-request seed, so its samples do not depend on batch composition; the Hugging
-Face backend seeds per batch (recorded as `seed_scope`).
+non-thinking values. The vLLM backend sets a per-request seed, but its samples are not bit-reproducible: batch-invariant kernels
+are off and prefix caching is on, so logits can change with batch composition (recorded as `seed_scope`
+"request_not_batch_invariant"); the Hugging Face backend seeds per batch (`seed_scope` "batch").
 """
 
 from __future__ import annotations
@@ -169,6 +170,9 @@ class VLLMBackend:
 
     def __init__(self, model_dir: str | Path, *, dtype: str = "bfloat16", max_model_len: int = 16384,
                  gpu_memory_utilization: float = 0.88, seed: int = 0, enforce_eager: bool = False):
+        import os
+
+        os.environ["VLLM_WORKER_MULTIPROC_METHOD"] = "spawn"  # never fork the engine (jobs 444874-444879); hard-set
         from vllm import LLM
 
         self.llm = LLM(model=str(model_dir), tokenizer=str(model_dir), dtype=dtype, max_model_len=max_model_len,
@@ -198,5 +202,5 @@ class VLLMBackend:
             completion = out.outputs[0]
             hit = completion.finish_reason == "length"
             results.append(GenResult(r.request_id, completion.text, len(completion.token_ids), hit,
-                                     str(completion.finish_reason), extra={"seed_scope": "request"}))
+                                     str(completion.finish_reason), extra={"seed_scope": "request_not_batch_invariant"}))
         return results

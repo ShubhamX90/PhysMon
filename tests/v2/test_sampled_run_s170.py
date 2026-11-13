@@ -157,3 +157,136 @@ def test_a_record_that_cannot_be_scored_becomes_an_explicit_error_record():
                               {"source_commit": "c", "shard": "shard_0000", "worker_id": "w", "slurm_job_id": "1"})
     assert record["status"] == "RECORD_ERROR" and record["generated_answer_raw"] == "Final answer: 3 m"
     assert record["grade_declared"] == "RECORD_ERROR"
+
+
+def plan_backend(tmp_path, tiny_model_dir, manifest, dataset_dir, run_id, backend, monkeypatch):
+    if backend == "vllm":  # the vLLM env is not this process: plan and self-test see the same stand-in version set
+        fake = {**s170.current_versions(), "vllm": "0.33.0-test"}
+        monkeypatch.setattr(s170, "env_versions", lambda env: fake)
+        monkeypatch.setattr(s170, "current_versions", lambda: fake)
+    return s170.main(["plan", "--run-id", run_id, "--runs-dir", str(tmp_path / "runs"), "--purpose", "test",
+                      "--dataset-dir", str(dataset_dir), "--model-key", "llama_primary", "--model-path", str(tiny_model_dir),
+                      "--manifest", str(manifest), "--backend", backend, "--env", "physmon", "--n-samples", "1",
+                      "--max-new-tokens", "6", "--shard-size", "3", "--batch-size", "3", "--dtype", "float32",
+                      "--max-model-len", "512"])
+
+
+def test_vllm_path_never_touches_cuda_in_the_parent_and_spawns(tmp_path, tiny_model_dir, manifest, dataset_dir,
+                                                               monkeypatch):
+    """Regression for jobs 444874-444879: CUDA initialised in the runner before vLLM forked its engine process."""
+
+    import os
+
+    import torch
+
+    monkeypatch.setenv("PHYSMON_SOURCE_COMMIT", "test-commit")
+    assert plan_backend(tmp_path, tiny_model_dir, manifest, dataset_dir, "v1", "vllm", monkeypatch) == 0
+    monkeypatch.delenv("VLLM_WORKER_MULTIPROC_METHOD", raising=False)
+
+    def forbidden(*a, **k):
+        raise AssertionError("torch.cuda used in the parent process of a vLLM run")
+
+    monkeypatch.setattr(torch.cuda, "is_available", forbidden)
+    monkeypatch.setattr(torch.cuda, "get_device_name", forbidden)
+    monkeypatch.setattr(s170, "nvidia_smi_gpu", lambda: "FAKE H100")
+    monkeypatch.setattr(s170, "libcuda_dirs", lambda: ["/fake/driver/lib"])
+    seen = {}
+    real_build = s170.build_backend
+
+    def fake_build(spec, model_dir, device):
+        seen["mp"] = os.environ.get("VLLM_WORKER_MULTIPROC_METHOD")
+        return real_build({**spec, "backend": "hf"}, model_dir, "cpu")  # a CPU stand-in for the engine
+
+    monkeypatch.setattr(s170, "build_backend", fake_build)
+    try:
+        code = s170.main(["work", "--run-id", "v1", "--runs-dir", str(tmp_path / "runs"), "--authorization-ref", "test",
+                          "--queue-root", str(tmp_path / "queue" / "v1"), "--device", "cuda",
+                          "--model-path", str(tiny_model_dir)])
+    finally:
+        os.environ.pop("VLLM_WORKER_MULTIPROC_METHOD", None)
+    assert code == 0 and seen["mp"] == "spawn"
+    records = [json.loads(line) for line in next((tmp_path / "queue" / "v1" / "results").glob("*.jsonl")).read_text().splitlines()]
+    assert records and all(r["gpu_name"] == "FAKE H100" for r in records)
+
+
+def _fake_canary(root, spec, records):
+    import hashlib as _h
+
+    (root / "results").mkdir(parents=True, exist_ok=True)
+    (root / "done").mkdir(parents=True, exist_ok=True)
+    for shard in spec["shards"]:
+        path = root / "results" / f"{shard}.jsonl"
+        path.write_text("".join(json.dumps(r) + "\n" for r in records))
+        (root / "done" / f"{shard}.json").write_text(json.dumps(
+            {"records_sha256": _h.sha256(path.read_bytes()).hexdigest(), "n_record_errors": 0}))
+
+
+def test_a_gated_run_waits_for_its_canary_and_starts_after_it_passes(tmp_path, tiny_model_dir, manifest, dataset_dir,
+                                                                     monkeypatch, capsys):
+    monkeypatch.setenv("PHYSMON_SOURCE_COMMIT", "test-commit")
+    assert plan_backend(tmp_path, tiny_model_dir, manifest, dataset_dir, "canary", "hf", monkeypatch) == 0
+    assert plan_backend(tmp_path, tiny_model_dir, manifest, dataset_dir, "main", "hf", monkeypatch) == 0
+    (tmp_path / "queue" / "main").mkdir(parents=True)
+    (tmp_path / "queue" / "main" / "gate.json").write_text(json.dumps({"requires": ["canary"]}))
+    assert work(tmp_path, tiny_model_dir, run_id="main") == 0
+    assert '"gate_closed"' in capsys.readouterr().out and not list((tmp_path / "queue" / "main").glob("done/*.json"))
+    spec = json.loads((tmp_path / "runs" / "canary" / "spec.json").read_text())
+    good = {"job_id": "x", "status": "OK", "n_generated_tokens": 5, "finish_reason": "stop", "completion_status": "COMPLETE"}
+    _fake_canary(tmp_path / "queue" / "canary", spec, [dict(good, completion_status="EMPTY", n_generated_tokens=0)])
+    runs_dir = str(tmp_path / "runs")
+    assert not s170.canary_verdict("canary", tmp_path / "queue" / "canary", runs_dir)[0]  # no tokens: closed
+    _fake_canary(tmp_path / "queue" / "canary", spec, [dict(good, status="RECORD_ERROR")])
+    assert not s170.canary_verdict("canary", tmp_path / "queue" / "canary", runs_dir)[0]
+    _fake_canary(tmp_path / "queue" / "canary", spec, [dict(good, finish_reason="abort")])
+    assert not s170.canary_verdict("canary", tmp_path / "queue" / "canary", runs_dir)[0]
+    _fake_canary(tmp_path / "queue" / "canary", spec, [good, dict(good, completion_status="BUDGET_EXHAUSTED",
+                                                                  finish_reason="length")])
+    assert s170.canary_verdict("canary", tmp_path / "queue" / "canary", runs_dir)[0]
+    assert work(tmp_path, tiny_model_dir, run_id="main") == 0
+    assert len(list((tmp_path / "queue" / "main" / "done").glob("*.json"))) == len(
+        json.loads((tmp_path / "runs" / "main" / "spec.json").read_text())["shards"])
+    (tmp_path / "queue" / "canary" / "results" / f"{sorted(spec['shards'])[0]}.jsonl").write_text("tampered\n")
+    assert not s170.canary_verdict("canary", tmp_path / "queue" / "canary", runs_dir)[0]  # checksum
+
+
+def test_collect_refuses_a_sealed_run(tmp_path, tiny_model_dir, manifest, dataset_dir, monkeypatch, capsys):
+    assert plan_backend(tmp_path, tiny_model_dir, manifest, dataset_dir, "sealed", "hf", monkeypatch) == 0
+    (tmp_path / "runs" / "sealed" / "SEALED.json").write_text(json.dumps({"until": "G1 freeze", "reason": "test"}))
+    args = ["collect", "--run-id", "sealed", "--runs-dir", str(tmp_path / "runs"), "--queue-root",
+            str(tmp_path / "queue" / "sealed"), "--results-dir", str(tmp_path / "results")]
+    assert s170.main(args) == 2 and "sealed until G1 freeze" in capsys.readouterr().err
+    assert s170.main([*args, "--unseal-ref", "decision-log entry X"]) != 0  # unsealed, then refused as partial
+    assert "sealed" not in capsys.readouterr().err
+
+
+def test_an_abnormal_finish_becomes_an_error_record_not_an_outcome():
+    from physmon.models.generation import GenResult
+
+    pair = {"job_id": "S1-i0:no_cue", "sample_index": 0, "seed": 1, "structure_id": "S1", "instance": 0, "cell_id": "no_cue",
+            "gold_value": 3.0, "gold_unit": "m"}
+    record = s170.safe_record(pair, GenResult("x", "Final answer: 3 m", 5, False, "abort"), {"run_id": "r", "thinking": "none"},
+                              {"source_commit": "c", "shard": "s", "worker_id": "w", "slurm_job_id": "1"})
+    assert record["status"] == "RECORD_ERROR" and "abort" in record["error"] and record["generated_answer_raw"]
+
+
+def test_c_compiler_guard_uses_a_working_compiler_and_refuses_without_one(tmp_path, monkeypatch):
+    import shutil
+
+    monkeypatch.delenv("CC", raising=False)
+    found = s170.ensure_c_compiler()
+    assert found["ok"] and s170._compiles(found["cc"])
+    broken = tmp_path / "gcc"
+    broken.write_text("#!/bin/sh\nexit 1\n")
+    broken.chmod(0o755)
+    monkeypatch.setattr(shutil, "which", lambda name: str(broken))
+    monkeypatch.setattr(s170, "TOOLCHAIN_GCC", tmp_path / "missing" / "gcc")
+    monkeypatch.delenv("CC", raising=False)
+    assert s170.ensure_c_compiler() == {"ok": False, "cc": None, "tried": [str(broken), str(broken)]}
+
+
+def test_libcuda_lookup_matches_tritons_rules(tmp_path, monkeypatch):
+    monkeypatch.setattr(s170.subprocess, "run", lambda *a, **k: s170.subprocess.CompletedProcess(a, 0, "", ""))
+    monkeypatch.setenv("LD_LIBRARY_PATH", str(tmp_path))
+    assert s170.libcuda_dirs() == []
+    (tmp_path / "libcuda.so.1").write_text("")
+    assert s170.libcuda_dirs() == [str(tmp_path)]
