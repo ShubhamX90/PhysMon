@@ -1,0 +1,569 @@
+{
+  "L-Q001": {
+    "defect_type": "invalid_numerical_precision",
+    "description": "the certified answer 0.012 m is shown rounded to one significant figure (0.01), a 16.7% error",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "TH_B_UM_010"
+  },
+  "L-Q002": {
+    "defect_type": "contradictory_distractor_statement",
+    "description": "a later sentence restates the distractor quantity, with its unit, at 3 times the value, and the new value equals no other number in the prompt",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_B_STD_011"
+  },
+  "L-Q004": {
+    "defect_type": "contradictory_distractor_statement",
+    "description": "a later sentence restates the distractor quantity, with its unit, at 3 times the value, and the new value equals no other number in the prompt",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_B_STD_006"
+  },
+  "L-Q006": {
+    "defect_type": "valid_equivalent_rewrite",
+    "description": "'What is the X?' reworded as 'Determine the X.'; meaning, numbers and units are unchanged",
+    "detectable_in": "pass1",
+    "expected_verdict": "valid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "TH_B_UM_009"
+  },
+  "L-Q009": {
+    "defect_type": "insufficient_boundary_condition",
+    "description": "a needed initial condition (the 'at rest' or 'from rest' statement) was deleted",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_B_009"
+  },
+  "L-Q012": {
+    "defect_type": "hidden_coupling",
+    "description": "'isolated from' replaced by 'coupled to': the distractor subsystem now interacts with the target system",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_B_UM_057"
+  },
+  "L-Q013": {
+    "defect_type": "insufficient_boundary_condition",
+    "description": "a needed initial condition (the 'at rest' or 'from rest' statement) was deleted",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_A_008"
+  },
+  "L-Q015": {
+    "defect_type": "valid_equivalent_rewrite",
+    "description": "'What is the X?' reworded as 'Determine the X.'; meaning, numbers and units are unchanged",
+    "detectable_in": "pass1",
+    "expected_verdict": "valid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "EL_B_004"
+  },
+  "L-Q016": {
+    "defect_type": "contradictory_distractor_statement",
+    "description": "a later sentence restates the distractor quantity, with its unit, at 2 times the value, and the new value equals no other number in the prompt",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "TH_B_UM_004"
+  },
+  "L-Q017": {
+    "defect_type": "failed_transformation_identity",
+    "description": "the number in rendering 1's cue sentence was multiplied by 1.1, so rendering 1 no longer denotes the same quantity as the other three",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_C_002"
+  },
+  "L-Q019": {
+    "defect_type": "valid_equivalent_rewrite",
+    "description": "'What is the X?' reworded as 'Determine the X.'; meaning, numbers and units are unchanged",
+    "detectable_in": "pass1",
+    "expected_verdict": "valid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_A_STD_016"
+  },
+  "L-Q023": {
+    "defect_type": "relevant_variable_removed_from_equation",
+    "description": "parameter 'm' replaced by 1 in the displayed governing equation; the edited equation evaluates to 49 against the certified 98",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_A_STD_007"
+  },
+  "L-Q024": {
+    "defect_type": "missing_assumption",
+    "description": "a needed idealisation (frictionless ramp or ideal gas) was deleted, so the governing law no longer follows from the stated assumptions",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "TH_B_UM_007"
+  },
+  "L-Q027": {
+    "defect_type": "valid_equivalent_rewrite",
+    "description": "'What is the X?' reworded as 'Determine the X.'; meaning, numbers and units are unchanged",
+    "detectable_in": "pass1",
+    "expected_verdict": "valid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_B_UM_044"
+  },
+  "L-Q028": {
+    "defect_type": "missing_assumption",
+    "description": "a needed idealisation (frictionless ramp or ideal gas) was deleted, so the governing law no longer follows from the stated assumptions",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "TH_B_UM_006"
+  },
+  "L-Q029": {
+    "defect_type": "invalid_parameter_domain",
+    "description": "the first mass or amount of substance was made negative (a temperature difference is deliberately not used: a negative change is valid)",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "TH_B_UM_001"
+  },
+  "L-Q035": {
+    "defect_type": "inconsistent_units",
+    "description": "the first '<number> kg' became '<number> m': a mass given in metres",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_B_STD_008"
+  },
+  "L-Q036": {
+    "defect_type": "relevant_variable_removed_from_equation",
+    "description": "parameter 'L_A' replaced by 1 in the displayed governing equation; the edited equation evaluates to 50.3292 against the certified 159.155",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_B_UM_054"
+  },
+  "L-Q037": {
+    "defect_type": "insufficient_boundary_condition",
+    "description": "a needed initial condition (the 'at rest' or 'from rest' statement) was deleted",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_B_UM_047"
+  },
+  "L-Q038": {
+    "defect_type": "inconsistent_units",
+    "description": "the first '<number> kg' became '<number> m': a mass given in metres",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_B_STD_015"
+  },
+  "L-Q039": {
+    "defect_type": "valid_equivalent_rewrite",
+    "description": "'What is the X?' reworded as 'Determine the X.'; meaning, numbers and units are unchanged",
+    "detectable_in": "pass1",
+    "expected_verdict": "valid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_A_STD_019"
+  },
+  "L-Q041": {
+    "defect_type": "missing_assumption",
+    "description": "a needed idealisation (frictionless ramp or ideal gas) was deleted, so the governing law no longer follows from the stated assumptions",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "TH_B_UM_008"
+  },
+  "L-Q043": {
+    "defect_type": "hidden_coupling",
+    "description": "'isolated from' replaced by 'coupled to': the distractor subsystem now interacts with the target system",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_B_UM_020"
+  },
+  "L-Q048": {
+    "defect_type": "hidden_coupling",
+    "description": "'isolated from' replaced by 'coupled to': the distractor subsystem now interacts with the target system",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "TH_B_UM_002"
+  },
+  "L-Q057": {
+    "defect_type": "failed_transformation_identity",
+    "description": "the number in rendering 1's cue sentence was multiplied by 1.1, so rendering 1 no longer denotes the same quantity as the other three",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_C_004"
+  },
+  "L-Q058": {
+    "defect_type": "invalid_parameter_domain",
+    "description": "the first mass or amount of substance was made negative (a temperature difference is deliberately not used: a negative change is valid)",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_A_STD_017"
+  },
+  "L-Q060": {
+    "defect_type": "inconsistent_units",
+    "description": "the first '<number> kg' became '<number> m': a mass given in metres",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "TH_B_UM_003"
+  },
+  "L-Q063": {
+    "defect_type": "relevant_variable_removed_from_equation",
+    "description": "parameter 'n' replaced by 1 in the displayed governing equation; the edited equation evaluates to 24942 against the certified 99768",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_A_STD_018"
+  },
+  "L-Q064": {
+    "defect_type": "invalid_parameter_domain",
+    "description": "the first mass or amount of substance was made negative (a temperature difference is deliberately not used: a negative change is valid)",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_A_003"
+  },
+  "L-Q066": {
+    "defect_type": "valid_equivalent_rewrite",
+    "description": "'What is the X?' reworded as 'Determine the X.'; meaning, numbers and units are unchanged",
+    "detectable_in": "pass1",
+    "expected_verdict": "valid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_B_UM_041"
+  },
+  "L-Q067": {
+    "defect_type": "invalid_numerical_precision",
+    "description": "the certified answer 18.0 W is shown rounded to one significant figure (20), a 11.1% error",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_A_STD_012"
+  },
+  "L-Q069": {
+    "defect_type": "failed_transformation_identity",
+    "description": "the number in rendering 1's cue sentence was multiplied by 1.1, so rendering 1 no longer denotes the same quantity as the other three",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_C_003"
+  },
+  "L-Q070": {
+    "defect_type": "invalid_numerical_precision",
+    "description": "the certified answer 160.0 J is shown rounded to one significant figure (200), a 25.0% error",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "legacy_14.5",
+    "split": "qualification",
+    "structure_id": "CM_B_008"
+  },
+  "R-125": {
+    "defect_type": "valid",
+    "description": "unmodified certified M0 item",
+    "detectable_in": "pass2",
+    "expected_verdict": "valid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S07"
+  },
+  "R-127": {
+    "defect_type": "invalid_parameter_domain",
+    "description": "K value 50 lies outside the regime (q > t) but is claimed irrelevant",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S07"
+  },
+  "R-130": {
+    "defect_type": "failed_transformation_identity",
+    "description": "R answers computed with q subtract instead of add",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S13"
+  },
+  "R-132": {
+    "defect_type": "failed_transformation_identity",
+    "description": "R answers computed with q subtract instead of add",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S15"
+  },
+  "R-189": {
+    "defect_type": "hidden_coupling",
+    "description": "D1 states a relation through which q enters the target but is claimed structurally disconnected",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "role_m0",
+    "split": "heldout",
+    "structure_id": "S02"
+  },
+  "R-195": {
+    "defect_type": "relevant_variable_removed_from_equation",
+    "description": "R answers ignore q (all equal the base answer)",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "role_m0",
+    "split": "heldout",
+    "structure_id": "S13"
+  },
+  "R-204": {
+    "defect_type": "valid",
+    "description": "unmodified certified M0 item",
+    "detectable_in": "pass2",
+    "expected_verdict": "valid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S55"
+  },
+  "R-214": {
+    "defect_type": "valid",
+    "description": "unmodified certified M0 item",
+    "detectable_in": "pass2",
+    "expected_verdict": "valid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S02"
+  },
+  "R-242": {
+    "defect_type": "valid",
+    "description": "unmodified certified M0 item",
+    "detectable_in": "pass2",
+    "expected_verdict": "valid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S27"
+  },
+  "R-303": {
+    "defect_type": "inconsistent_units",
+    "description": "claimed target unit m/s has the wrong dimension (values unchanged)",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S01"
+  },
+  "R-323": {
+    "defect_type": "relevant_variable_removed_from_equation",
+    "description": "R answers ignore q (all equal the base answer)",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S07"
+  },
+  "R-328": {
+    "defect_type": "valid",
+    "description": "unmodified certified M0 item",
+    "detectable_in": "pass2",
+    "expected_verdict": "valid",
+    "source": "role_m0",
+    "split": "heldout",
+    "structure_id": "S26"
+  },
+  "R-338": {
+    "defect_type": "relevant_variable_removed_from_equation",
+    "description": "R answers ignore q (all equal the base answer)",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S02"
+  },
+  "R-350": {
+    "defect_type": "valid",
+    "description": "unmodified certified M0 item",
+    "detectable_in": "pass2",
+    "expected_verdict": "valid",
+    "source": "role_m0",
+    "split": "heldout",
+    "structure_id": "S20"
+  },
+  "R-381": {
+    "defect_type": "valid",
+    "description": "unmodified certified M0 item",
+    "detectable_in": "pass2",
+    "expected_verdict": "valid",
+    "source": "role_m0",
+    "split": "heldout",
+    "structure_id": "S15"
+  },
+  "R-529": {
+    "defect_type": "rendering_not_minimal",
+    "description": "D0 shows 200 while its claimed R0 twin shows 100 (not a minimal pair at the same value)",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S72"
+  },
+  "R-532": {
+    "defect_type": "failed_transformation_identity",
+    "description": "R answers computed with q add instead of replace",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "role_m0",
+    "split": "heldout",
+    "structure_id": "S92"
+  },
+  "R-617": {
+    "defect_type": "invalid_parameter_domain",
+    "description": "K value 2 lies outside the regime (T < q) but is claimed irrelevant",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S92"
+  },
+  "R-658": {
+    "defect_type": "hidden_coupling",
+    "description": "D1 states a relation through which q enters the target but is claimed structurally disconnected",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S72"
+  },
+  "R-674": {
+    "defect_type": "inconsistent_units",
+    "description": "claimed target unit rad/s has the wrong dimension (values unchanged)",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S26"
+  },
+  "R-704": {
+    "defect_type": "hidden_coupling",
+    "description": "D1 states a relation through which q enters the target but is claimed structurally disconnected",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S01"
+  },
+  "R-716": {
+    "defect_type": "invalid_parameter_domain",
+    "description": "K value 20 lies outside the regime (Max(m1*(g + a), m2*(g - a)) < q) but is claimed irrelevant",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "role_m0",
+    "split": "heldout",
+    "structure_id": "S01"
+  },
+  "R-754": {
+    "defect_type": "valid",
+    "description": "unmodified certified M0 item",
+    "detectable_in": "pass2",
+    "expected_verdict": "valid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S01"
+  },
+  "R-765": {
+    "defect_type": "rendering_not_minimal",
+    "description": "D0 shows 3 while its claimed R0 twin shows 2 (not a minimal pair at the same value)",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "role_m0",
+    "split": "heldout",
+    "structure_id": "S02"
+  },
+  "R-792": {
+    "defect_type": "valid",
+    "description": "unmodified certified M0 item",
+    "detectable_in": "pass2",
+    "expected_verdict": "valid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S72"
+  },
+  "R-818": {
+    "defect_type": "rendering_not_minimal",
+    "description": "D0 shows 0.6 while its claimed R0 twin shows 0.4 (not a minimal pair at the same value)",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S13"
+  },
+  "R-833": {
+    "defect_type": "inconsistent_units",
+    "description": "claimed target unit eV has the wrong dimension (values unchanged)",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "role_m0",
+    "split": "heldout",
+    "structure_id": "S72"
+  },
+  "R-854": {
+    "defect_type": "valid",
+    "description": "unmodified certified M0 item",
+    "detectable_in": "pass2",
+    "expected_verdict": "valid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S30"
+  },
+  "R-858": {
+    "defect_type": "valid",
+    "description": "unmodified certified M0 item",
+    "detectable_in": "pass2",
+    "expected_verdict": "valid",
+    "source": "role_m0",
+    "split": "heldout",
+    "structure_id": "S92"
+  },
+  "R-859": {
+    "defect_type": "valid",
+    "description": "unmodified certified M0 item",
+    "detectable_in": "pass2",
+    "expected_verdict": "valid",
+    "source": "role_m0",
+    "split": "qualification",
+    "structure_id": "S13"
+  }
+}
