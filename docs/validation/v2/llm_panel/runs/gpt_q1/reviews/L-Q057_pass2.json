@@ -1,0 +1,61 @@
+{
+  "item_id": "L-Q057",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Power is energy per unit time; 1 W = 1 J/s, 1 kW = 1000 W, and 1 mW = 0.001 W.",
+    "assumptions": [
+      "Each reported reading is converted using its stated unit."
+    ],
+    "answer": 200,
+    "unit": "W"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal",
+    "failed_transformation_identity"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The second rendering changes the physical power to 220 W, whereas the other renderings denote 200 W.",
+    "failed_transformation_identity": "The authors' claim that every rendering preserves P_base = 200 W fails because 0.22 kW equals 220 W."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high",
+    "failed_transformation_identity": "high"
+  },
+  "counterexamples": [
+    "For the second rendering, P = 0.22 kW × 1000 W/kW = 220 W, contradicting the certified answer of 200 W."
+  ],
+  "notes": "Pass 1 is confirmed. Answers in packet order are 200 W, 220 W, 200 W, and 200 W. The equation P = P_base is dimensionally correct but does not represent the second rendering when P_base is fixed at 200 W. Each rendering individually has a unique answer. The discrepancy is a changed value, not inadequate numerical precision.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T13:06:29+00:00",
+  "completed_at": "2026-11-13T13:06:48+00:00",
+  "minutes_spent": 0.33,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "2f50a2b96da30015ce1bb9cb75cc48dd7e44d13bc3a69f2ebd8e31ccb494fcfa",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

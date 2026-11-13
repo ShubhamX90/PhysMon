@@ -1,0 +1,53 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "L-Q029",
+  "pass_number": 1,
+  "started_at": "2026-11-13T13:09:07+00:00",
+  "completed_at": "2026-11-13T13:09:28+00:00",
+  "minutes_spent": 0.35,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Q = mcΔT. Formal substitution gives (-2.0)(4186.0)(5.0) = -41860 J, but negative water mass is physically inadmissible, so this is not a physical heat answer.",
+    "assumptions": [
+      "Specific heat is constant and no phase change occurs.",
+      "Heat added accounts for the water's temperature change, with other energy transfers and container heat capacity neglected.",
+      "Ordinary water must have positive mass; the stated mass violates this requirement."
+    ],
+    "answer": -41860.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "invalid_parameter_domain"
+  ],
+  "defect_reasons": {
+    "invalid_parameter_domain": "Every variant assigns ordinary water a mass of -2.0 kg, outside the physical domain of the calorimetry model."
+  },
+  "defect_severity": {
+    "invalid_parameter_domain": "high"
+  },
+  "counterexamples": [],
+  "notes": "All four variants have the same invalid base problem. Container B's absorbed energy is structurally disconnected from the target under the stated thermal isolation, so changing it does not affect the formal calculation. The reported numerical answer is algebraic only; the item has no physically realizable solution as written.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "4991fa4f77704b41dd896b84f71c4835b820f0839d3c8476c2e97f0844ce6eda",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

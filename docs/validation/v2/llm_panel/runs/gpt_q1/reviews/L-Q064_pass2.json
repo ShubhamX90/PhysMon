@@ -1,0 +1,62 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "L-Q064",
+  "pass_number": 2,
+  "started_at": "2026-11-13T12:58:36+00:00",
+  "completed_at": "2026-11-13T12:59:02+00:00",
+  "minutes_spent": 0.44,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "KE = (1/2)mv^2. Substituting the rendered values gives (1/2)(-3.0)(4.0)^2 = -24 J, a formal algebraic result outside the physical domain of an ordinary ball.",
+    "assumptions": [
+      "Classical, nonrelativistic mechanics applies.",
+      "An ordinary ball has positive inertial mass."
+    ],
+    "answer": -24.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "invalid_parameter_domain",
+    "other"
+  ],
+  "defect_reasons": {
+    "invalid_parameter_domain": "Every rendered variant assigns an ordinary ball a physically inadmissible mass of -3.0 kg.",
+    "other": "The parameter record uses +3.0 kg and yields the certified +24.0 J, whereas every rendered problem specifies -3.0 kg and formally yields -24.0 J."
+  },
+  "defect_severity": {
+    "invalid_parameter_domain": "high",
+    "other": "high"
+  },
+  "counterexamples": [
+    "For the red-ball variant, the stated mass and speed give KE = 0.5 × (-3.0 kg) × (4.0 m/s)^2 = -24 J, contradicting the certified +24.0 J."
+  ],
+  "notes": "The pass-1 assessment stands. The governing equation and dimensions are correct; equation_consistent refers to that equation itself. The parameter record does not match the rendered input. The certified answer is correct only for the positive mass in that record. Color is structurally disconnected under the stated mechanical model, and the four variants differ only in color. Numerical rounding is not the defect.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "ed6d9299b3b12a66092a7974f2be6ca9d8f62f5d2d64f1c636959d84e53b9a9a",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

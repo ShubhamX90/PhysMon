@@ -1,0 +1,52 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "L-Q035",
+  "pass_number": 1,
+  "started_at": "2026-11-13T12:56:50+00:00",
+  "completed_at": "2026-11-13T12:57:15+00:00",
+  "minutes_spent": 0.42,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Q = m_A c_A ΔT = m_A × 18000 J/kg.",
+    "assumptions": [
+      "The specific heat capacity is constant over the temperature interval.",
+      "Block A undergoes no phase transition, and added heat produces its stated temperature increase."
+    ],
+    "answer": null,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "unclear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "inconsistent_units"
+  ],
+  "defect_reasons": {
+    "inconsistent_units": "Every rendering gives block A's mass as '1.5 m', using a length unit instead of a mass unit, so the requested numerical heat cannot be determined."
+  },
+  "defect_severity": {
+    "inconsistent_units": "high"
+  },
+  "counterexamples": [],
+  "notes": "In all four variants, block B's mass is structurally disconnected (D) because B never exchanges heat with A. Changing B's mass therefore leaves A's required heat unchanged, but that heat cannot be evaluated numerically from the malformed mass of A. If '1.5 m' was intended to mean '1.5 kg', the answer would be 27000 J in every variant. If m instead denotes an unspecified mass parameter, the answer remains symbolic, Q = (1.5m)(18000 J/kg). Neither interpretation supplies a justified numerical answer as written.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "2a0c0c242aac1ec1b653d05b56d6624da47a033ba867a35da826318f42bc130b",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

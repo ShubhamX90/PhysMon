@@ -1,0 +1,111 @@
+{
+  "item_id": "R-338",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Newton's second law gives a = g(sin(theta) - mu_k cos(theta)) = 3.62694266 m/s². Starting from rest, v = sqrt(2as). The base distance is 4 m. For either continuous prior-slide sentence, the total distance from release is 4 m + q.",
+    "assumptions": [
+      "The stipulated sliding occurs.",
+      "The incline angle and kinetic friction coefficient remain constant.",
+      "Air resistance is negligible.",
+      "The block slides without rolling."
+    ],
+    "answer": 5.38661,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T9630": {
+      "stratum": "C",
+      "answer_with_sentence": 5.38661,
+      "regime": null
+    },
+    "T4340": {
+      "stratum": "K",
+      "answer_with_sentence": 5.38661,
+      "regime": "For spontaneous sliding from rest, mu_s < tan(30 degrees) = 0.57735; all three certified parameter values satisfy this inequality."
+    },
+    "TD05D": {
+      "stratum": "R",
+      "answer_with_sentence": 6.59722,
+      "regime": null
+    },
+    "T908A": {
+      "stratum": "D",
+      "answer_with_sentence": 5.38661,
+      "regime": null
+    },
+    "T1BB6": {
+      "stratum": "K",
+      "answer_with_sentence": 5.38661,
+      "regime": "For spontaneous sliding from rest, mu_s < tan(30 degrees) = 0.57735; all three certified parameter values satisfy this inequality."
+    },
+    "T8540": {
+      "stratum": "C",
+      "answer_with_sentence": 5.38661,
+      "regime": null
+    },
+    "T4D96": {
+      "stratum": "D",
+      "answer_with_sentence": 5.38661,
+      "regime": null
+    },
+    "T1D64": {
+      "stratum": "R",
+      "answer_with_sentence": 6.59722,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "failed_transformation_identity",
+    "relevant_variable_removed_from_equation",
+    "other"
+  ],
+  "defect_reasons": {
+    "failed_transformation_identity": "For TD05D and T1D64, the certified answers do not follow from the correctly stated transformation d -> d + q.",
+    "relevant_variable_removed_from_equation": "The certified answers for both relevant sentences ignore the additional sliding distance q and incorrectly repeat the base answer at every value.",
+    "other": "Outside the spontaneous-sliding regime, a block remaining at rest never reaches the requested 4 m endpoint, so its speed after traversing that distance is undefined rather than zero."
+  },
+  "defect_severity": {
+    "failed_transformation_identity": "high",
+    "relevant_variable_removed_from_equation": "high",
+    "other": "medium"
+  },
+  "counterexamples": [
+    "For either TD05D or T1D64 with q = 1 m, total travel is 5 m and the final speed is 6.02241 m/s, not 5.38661 m/s.",
+    "For either TD05D or T1D64 with q = 2 m, total travel is 6 m and the final speed is 6.59722 m/s, not 5.38661 m/s.",
+    "For either TD05D or T1D64 with q = 3 m, total travel is 7 m and the final speed is 7.12581 m/s, not 5.38661 m/s.",
+    "With mu_s = 0.7 and no initiating disturbance, static friction can hold the block at release; there is no event at which it has slid 4 m."
+  ],
+  "notes": "The pass-1 solution and assignments remain unchanged. The base answer, mass-cancellation relations, disconnected-history claims, and all sampled static-friction answers are correct. The relevant-sentence wiring correctly includes the additional distance, but its certified answers contradict that wiring. Units and numerical rounding are adequate; the incorrect relevant answers result from omitted distance dependence, not insufficient precision. Paired sentences preserve the shown numbers and units and change the attachment as intended.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T12:52:43+00:00",
+  "completed_at": "2026-11-13T12:53:47+00:00",
+  "minutes_spent": 1.05,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a94cc2117d1878a739880125e8f6307bc71a1e71834cca6d1fa26812dfc4b8bf",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

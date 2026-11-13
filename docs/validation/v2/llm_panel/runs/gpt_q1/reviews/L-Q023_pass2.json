@@ -1,0 +1,62 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "L-Q023",
+  "pass_number": 2,
+  "started_at": "2026-11-13T13:00:19+00:00",
+  "completed_at": "2026-11-13T13:00:44+00:00",
+  "minutes_spent": 0.42,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "U = mgh = (2.0 kg)(9.8 m/s²)(5.0 m) = 98 J.",
+    "assumptions": [
+      "The stated height is measured above the reference level.",
+      "The gravitational field is uniform over the stated height."
+    ],
+    "answer": 98,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "relevant_variable_removed_from_equation",
+    "inconsistent_units"
+  ],
+  "defect_reasons": {
+    "relevant_variable_removed_from_equation": "The supplied SymPy expression is 1 * g * h, omitting the physically relevant mass m and yielding 49 rather than the certified numerical value 98.",
+    "inconsistent_units": "With dimensionless 1, the supplied SymPy expression has units m²/s² rather than the target energy unit J."
+  },
+  "defect_severity": {
+    "relevant_variable_removed_from_equation": "high",
+    "inconsistent_units": "high"
+  },
+  "counterexamples": [
+    "For the supplied parameters m = 2.0 kg, g = 9.8 m/s² and h = 5.0 m, the supplied SymPy expression evaluates to 49 m²/s², whereas gravitational potential energy is 98 J."
+  ],
+  "notes": "The pass-1 solution remains correct: all four variants yield 98 J, and the unrelated trial's fall time is structurally disconnected (D). The variants change only that time and consistently use seconds. The authors' proof text and LaTeX equation are correct, and the certified answer 98.0 J is numerically correct with adequate precision. The pass-2 verdict changes because the newly supplied SymPy equation contradicts those claims by replacing m with 1.",
+  "equation_consistent": false,
+  "units_consistent": false,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "4c664eefcec2cca3925beb52f80fe819abe49109d3fc8cbe0178378d75af4ee7",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "item_id": "R-127",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "RC charging gives VC(t) = V0[1 - exp(-t/(RC))]. The base time constant is 100 ms. Adding a series resistance q changes it to (R + q)C. Interrupting charging at time q gives VC(t) = V0[1 - exp(-min(t,q)/(RC))], with the capacitor retaining its voltage afterward.",
+    "assumptions": [
+      "The battery, wires, resistor and capacitor are ideal, and the capacitor is initially uncharged and does not leak.",
+      "An added series resistor is present from the initial connection.",
+      "Opening the circuit interrupts charging without introducing a discharge path."
+    ],
+    "answer": 6.60805243,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "T68B9": {
+      "stratum": "D",
+      "answer_with_sentence": 6.60805243,
+      "regime": null
+    },
+    "TC787": {
+      "stratum": "D",
+      "answer_with_sentence": 6.60805243,
+      "regime": null
+    },
+    "TD8AD": {
+      "stratum": "R",
+      "answer_with_sentence": 5.22338254,
+      "regime": null
+    },
+    "T1DF2": {
+      "stratum": "R",
+      "answer_with_sentence": 4.72163208,
+      "regime": null
+    },
+    "T67B8": {
+      "stratum": "R",
+      "answer_with_sentence": 4.72163208,
+      "regime": null
+    },
+    "T5388": {
+      "stratum": "R",
+      "answer_with_sentence": 5.22338254,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "hidden_coupling",
+    "invalid_parameter_domain",
+    "relevant_variable_removed_from_equation"
+  ],
+  "defect_reasons": {
+    "hidden_coupling": "T1DF2 and T67B8 stop charging before the observation time, so their interruption time affects the target despite the claimed conditional irrelevance.",
+    "invalid_parameter_domain": "The displayed interruption time of 50 ms violates the authors' stated irrelevance condition q > t because t is 80 ms.",
+    "relevant_variable_removed_from_equation": "The governing relations and certified interruption answers omit the necessary dependence on min(t,q)."
+  },
+  "defect_severity": {
+    "hidden_coupling": "high",
+    "invalid_parameter_domain": "high",
+    "relevant_variable_removed_from_equation": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_ids": [
+        "T1DF2",
+        "T67B8"
+      ],
+      "case": "Charging stops at 50 ms and the voltage is measured at 80 ms.",
+      "claimed_answer": 6.60805,
+      "correct_answer": 4.72163208,
+      "unit": "V",
+      "calculation": "VC = 12[1 - exp(-50/100)] V."
+    }
+  ],
+  "notes": "The pass-1 solution and assignments remain correct. The base answer and all certified answers for both series-resistor sentences and both disconnected-resistor sentences check out at every supplied value. The resistor wiring claims and disconnected invariances hold. Both named minimal pairs preserve the number and unit while changing the resistor's attachment as intended; the interruption sentences also both specify 50 ms. The authors correctly state the interruption formula outside their irrelevance regime, but fail to apply it to the displayed value. Units are consistent: kΩ multiplied by μF gives ms. Numerical rounding is adequate; the interruption errors are physical rather than rounding errors.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T12:59:31+00:00",
+  "completed_at": "2026-11-13T13:00:01+00:00",
+  "minutes_spent": 0.5,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "afd8bb1e28d5fa900c2afd9b0b2d3cbd52ec645421ed9565d5b8fef1aa8c841e",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

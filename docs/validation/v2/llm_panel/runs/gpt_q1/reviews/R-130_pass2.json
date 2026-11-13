@@ -1,0 +1,93 @@
+{
+  "item_id": "R-130",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "The small-angle equation mL²θ̈ = −mgLθ gives T = 2π√(L/g). An inserted cord of length q makes the effective length L + q, giving T(q) = 2π√((L + q)/g).",
+    "assumptions": [
+      "The bob is approximated as a point mass.",
+      "The string and inserted cord are light, taut and inextensible.",
+      "The support is fixed, the amplitude is small and damping is negligible."
+    ],
+    "answer": 1.7952,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TC874": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T9BC6": {
+      "stratum": "R",
+      "answer_with_sentence": 2.19866,
+      "regime": null
+    },
+    "TC4D9": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T88E8": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "TC403": {
+      "stratum": "R",
+      "answer_with_sentence": 2.19866,
+      "regime": null
+    },
+    "TF69B": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "failed_transformation_identity"
+  ],
+  "defect_reasons": {
+    "failed_transformation_identity": "For both inserted-cord sentences, the certified answers use L − q despite the stated physical attachment and wiring requiring L + q."
+  },
+  "defect_severity": {
+    "failed_transformation_identity": "high"
+  },
+  "counterexamples": [
+    "For T9BC6 and TC403, q = 0.2 m gives an effective length of 1.0 m and T = 2.00709 s, rather than 1.55469 s.",
+    "For T9BC6 and TC403, q = 0.4 m gives an effective length of 1.2 m and T = 2.19866 s, rather than 1.2694 s.",
+    "For T9BC6 and TC403, q = 0.6 m gives an effective length of 1.4 m and T = 2.37482 s, rather than 0.897598 s."
+  ],
+  "notes": "My pass-1 solution and classifications stand. The governing equation, stated additive wiring, units, base answer, mass cancellation and disconnected-cord invariances are correct. All supplied values are within the assumed pendulum regime. The paired cord sentences consistently use 0.4 m and change the attachment as intended; both mass sentences use 0.5 kg. The erroneous certified answers are consistent with shortening the pendulum, rather than extending it. Their error is not a rounding issue.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T12:56:49+00:00",
+  "completed_at": "2026-11-13T12:57:18+00:00",
+  "minutes_spent": 0.49,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "c6cf789561f667a4da1f5730972910ec5f01104ad00c4ff3bdf0ee7018c2a48c",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

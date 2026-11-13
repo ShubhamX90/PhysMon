@@ -1,0 +1,89 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "R-754",
+  "pass_number": 1,
+  "started_at": "2026-11-13T13:05:56+00:00",
+  "completed_at": "2026-11-13T13:06:38+00:00",
+  "minutes_spent": 0.71,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law gives T_L-m_L*g=m_L*a and m_R*g-T_R=m_R*a. The pulley obeys (T_R-T_L)*R=I*a/R, with I=M*R^2/2. Thus a=(m_R-m_L)*g/(m_L+m_R+M/2)=19.6/9.",
+    "assumptions": [
+      "The pulley rotates about a fixed, frictionless axle.",
+      "The light string is taut and inextensible.",
+      "Air resistance is negligible.",
+      "An attached additional block moves rigidly with the left block."
+    ],
+    "answer": 2.1777777778,
+    "unit": "m/s²"
+  },
+  "stratum_assignments": {
+    "T1B5C": {
+      "stratum": "D",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "TA9DB": {
+      "stratum": "C",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "T48BE": {
+      "stratum": "R",
+      "answer_with_sentence": 1.2,
+      "regime": null
+    },
+    "TB8E8": {
+      "stratum": "K",
+      "answer_with_sentence": 2.1777777778,
+      "regime": "The string remains intact because both operating tensions are below 200 N; the larger tension is approximately 38.11 N."
+    },
+    "T89F4": {
+      "stratum": "R",
+      "answer_with_sentence": 1.2,
+      "regime": null
+    },
+    "T4B03": {
+      "stratum": "K",
+      "answer_with_sentence": 2.1777777778,
+      "regime": "The string remains intact because both operating tensions are below 200 N; the larger tension is approximately 38.11 N."
+    },
+    "TDEAD": {
+      "stratum": "C",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "TC42A": {
+      "stratum": "D",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Reviewed using the conventional ideal Atwood-machine assumptions listed above. Attaching 0.8 kg makes the left moving mass 3.8 kg, giving a=(5-3.8)*9.8/(5+3.8+1)=1.2 m/s². The radius enters the torque and moment of inertia but cancels through I/R²=M/2. Base string tensions are approximately 35.93 N and 38.11 N. All variants preserve the corresponding number and unit: 0.8 kg, 12 cm, or 200 N. The two attachment descriptions are equivalent under the stated rigid-motion assumption.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "5f731afb9968de8390d1a1b331e22b440b1ffb078fc7b91945c0a41e6b86c500",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

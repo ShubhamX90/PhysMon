@@ -1,0 +1,59 @@
+{
+  "item_id": "L-Q067",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Ohm's law and electrical power give P = VI = V^2/R = (12.0 V)^2/(8.0 ohm) = 18 W.",
+    "assumptions": [
+      "The stated resistance is the resistor's operating resistance.",
+      "The stated voltage is steady, or is an RMS voltage if alternating."
+    ],
+    "answer": 18,
+    "unit": "W"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "invalid_numerical_precision"
+  ],
+  "defect_reasons": {
+    "invalid_numerical_precision": "The certified answer of 20 W rounds the correct result, 18 W, to one significant figure despite inputs supporting two significant figures."
+  },
+  "defect_severity": {
+    "invalid_numerical_precision": "high"
+  },
+  "counterexamples": [
+    "For every supplied pressure value, V = 12.0 V and R = 8.0 ohm give P = 144/8 = 18 W, rather than the certified 20 W."
+  ],
+  "notes": "The governing equation and the authors' pressure-independence argument are correct. Specifying the operating resistance removes any need to model pressure-dependent cooling. The legacy variants consistently use kPa and differ only in ambient pressure. My pass-1 solution remains unchanged; the pass-2 defect is the certified answer.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": false,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T13:02:38+00:00",
+  "completed_at": "2026-11-13T13:03:03+00:00",
+  "minutes_spent": 0.42,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "8afd2d89606725c16aab613db53b272552a11036d6b0b743655c458b80c179e0",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

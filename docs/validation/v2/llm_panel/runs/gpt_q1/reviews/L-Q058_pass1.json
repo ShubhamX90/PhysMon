@@ -1,0 +1,53 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "L-Q058",
+  "pass_number": 1,
+  "started_at": "2026-11-13T13:05:14+00:00",
+  "completed_at": "2026-11-13T13:05:33+00:00",
+  "minutes_spent": 0.33,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For sensible heating, Q = mcΔT. Formal substitution gives (-2.0)(4186.0)(5.0) = -41860 J, but the negative mass makes this physically inadmissible for a water sample.",
+    "assumptions": [
+      "Specific heat is constant over the temperature interval.",
+      "There is no phase change or other energy transfer affecting the heat calculation.",
+      "An ordinary water sample must have positive mass; the stated mass violates this requirement."
+    ],
+    "answer": -41860.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "invalid_parameter_domain"
+  ],
+  "defect_reasons": {
+    "invalid_parameter_domain": "A water sample cannot have mass -2.0 kg, so the stated parameters do not describe a physically admissible heating problem."
+  },
+  "defect_severity": {
+    "invalid_parameter_domain": "high"
+  },
+  "counterexamples": [],
+  "notes": "The numerical answer records formal algebra only; there is no physically valid heat-added answer for the stated sample. In every rendering, the later observation duration is structurally disconnected from the heat calculation. The renderings change only that duration, with the unit consistently seconds.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "093d1a824b0bd1ba5b48e68cd417189b22086fd65616d0ceb7e850c1f13b3f0d",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

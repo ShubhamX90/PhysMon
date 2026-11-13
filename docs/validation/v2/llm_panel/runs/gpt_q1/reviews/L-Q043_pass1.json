@@ -1,0 +1,47 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "L-Q043",
+  "pass_number": 1,
+  "started_at": "2026-11-13T13:00:16+00:00",
+  "completed_at": "2026-11-13T13:00:38+00:00",
+  "minutes_spent": 0.37,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Kirchhoff's current law: total current entering a junction equals total current leaving. Thus 10.0 A = 4.0 A + I, giving I = 6.0 A outward.",
+    "assumptions": [
+      "The junction obeys the usual lumped-circuit approximation with negligible charge accumulation.",
+      "The stated total entering current and known outgoing current apply simultaneously.",
+      "The remaining branch is the only unspecified current path at the junction."
+    ],
+    "answer": 6.0,
+    "unit": "A"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All four variants give 6.0 A leaving the junction. Electrical coupling can affect how circuit currents are established, but it cannot change the remaining branch current while the specified total entering current and known outgoing current remain fixed. The other circuit's main-branch current therefore supplies no additional information needed for this target. The variants retain the same wording and unit while sweeping that current through 2.0, 4.0, 6.0 and 8.0 A; this is appropriate for legacy parameter variants.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "e77a1b318aeebec4a4dbfb6b2deb1a3463b2a2dd4d37e9e2ef4abd73ef717916",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

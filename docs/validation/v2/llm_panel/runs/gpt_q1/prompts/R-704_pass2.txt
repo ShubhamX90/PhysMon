@@ -1,0 +1,392 @@
+# Physics item review: instructions for an independent reviewer (frozen prompt v1, 2026-11-13)
+
+You are an independent reviewer of physics problems written for a benchmark. You judge whether each item is correct,
+well-posed and natural physics. You work alone: you have not seen how the items were written, you will not see anyone
+else's review, and you must not look for any other information about the items.
+
+**Independence rules (binding).** Read only the packet files named in your assignment, in the order stated there.
+Do not open, list or search any other file or directory; do not run code that reads other files; do not use the web.
+Write your reviews only to the output paths named in your assignment. If anything else becomes visible to you by
+accident, say so in `notes`.
+
+## Two passes per item
+
+**Pass 1 (blind).** Open only the item's pass-1 packet. Then, before opening anything else:
+1. Solve the base problem (`problem`) yourself: the governing law(s), the assumptions you needed, the target and its
+   numerical answer with its unit.
+2. Each entry of `sentences` is a sentence that would be added, on its own, to the end of the problem's description
+   (before the question). For each sentence, decide its role for the asked quantity and, where it changes the answer,
+   compute the new answer:
+   * `R` relevant: the quantity in the sentence physically changes the answer;
+   * `D` structurally disconnected: it belongs to something with no physical path to the target;
+   * `C` cancelling: it belongs to the system and appears in the governing relations, but cancels from the answer;
+   * `K` conditionally irrelevant: it would matter only outside a regime, and the stated value is inside it (state the
+     regime).
+   Sentences about the same quantity are written as variants of one another: they should state the same number and
+   unit and differ only in wording and in what the quantity is attached to. Check that they do.
+3. Write the pass-1 review (schema below) and save it. Pass 1 is then locked: never edit it.
+
+**Pass 2 (with the authors' claims).** Only after saving pass 1, open the pass-2 packet. It repeats the item and adds
+the authors' claims: each sentence's stratum, the certified answers at every value of the quantity, the wiring or
+relations behind them, the regime for K, the governing relations, assumptions, inputs and the target unit. Check every
+claim against the physics, the units and your own pass-1 work: graph and relations, units and dimensions, domain and
+regime, numerical answers, whether paired sentences differ only as intended, and any omitted dependency. A claim's
+`minimal_pair_with` names the sentence it is meant to be a variant of (same number and unit, different attachment). Where you
+disagree with your own pass 1 now, say why in `notes`; do not change pass 1. Write the pass-2 review and save it.
+
+**Legacy items.** Some items have `variants` (several renderings of one problem with an added statement) instead of
+`sentences`; review them the same way: pass 1 from the renderings alone; pass 2 with the equation, parameters,
+certified answer and the authors' argument.
+
+## Judgements (kept separate)
+
+* `validity`: `valid` (correct and well-posed as claimed), `invalid` (at least one defect), `uncertain` (you cannot
+  decide; name what in `uncertain_fields`). In pass 2 this is your verdict on the item including the authors' claims.
+* `clarity`: `clear`, `ambiguous`, `unclear` (wording only).
+* `difficulty`: 1-5 (separate from validity). `naturalness`: `natural`, `slightly_artificial`, `artificial`.
+* `confidence`: 1-5.
+* `defect_flags`: every defect you find, each from this vocabulary:
+  `hidden_coupling` (a quantity claimed disconnected or invariant actually affects the target),
+  `missing_assumption` (an assumption needed for the answer is not stated),
+  `relevant_variable_removed_from_equation` (a quantity that affects the answer is left out of the relation or answers),
+  `failed_transformation_identity` (claimed answers do not follow from the stated relation and change),
+  `inconsistent_units` (a unit or dimension is wrong or inconsistent),
+  `invalid_parameter_domain` (a value lies outside the range where the claimed physics holds),
+  `insufficient_boundary_condition` (the problem lacks a condition needed for a unique answer),
+  `invalid_numerical_precision` (a stated value or answer is rounded so far that it is wrong),
+  `contradictory_distractor_statement` (an added statement contradicts the problem),
+  `rendering_not_minimal` (sentences claimed to be variants of each other differ in more than intended, for example in
+  the number or unit), or `other` (explain in `notes`).
+  Write `defect_flags` as a list of these exact terms, for example `["hidden_coupling"]`. For each flag give a
+  severity in `defect_severity` (for example `{"hidden_coupling": "high"}`; `high`: the item is wrong; `medium`;
+  `low`) and a one-sentence reason in `defect_reasons` (for example `{"hidden_coupling": "..."}`). An item you judge
+  `valid` has no `high` flag.
+* `counterexamples`: concrete cases where a claimed invariance or answer fails.
+
+## Output (one JSON object per pass; nothing else in the file)
+
+```json
+{
+  "reviewer_id": "<given in your assignment>",
+  "item_id": "<from the packet>",
+  "pass_number": 1,
+  "started_at": "<ISO time>", "completed_at": "<ISO time>", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "...", "assumptions": ["..."], "answer": 0.0, "unit": "..."},
+  "stratum_assignments": {"<sentence_id>": {"stratum": "R|D|C|K", "answer_with_sentence": 0.0, "regime": null}},
+  "validity": "valid|invalid|uncertain",
+  "clarity": "clear|ambiguous|unclear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [], "notes": ""
+}
+```
+In pass 2 also give `equation_consistent`, `units_consistent`, `answer_correct`, `precision_adequate` (each true or
+false) and `admission_category`, one of: `CERTIFIED_AND_VALIDATED` (correct, well-posed, claims hold),
+`SOLVER_VALID_LANGUAGE_AMBIGUOUS` (the physics and claims hold but the wording admits another reading),
+`SOLVER_INVALID` (a claim or the physics is wrong), `ANSWER_AMBIGUOUS` (no unique answer), `NATURALNESS_FLAG` (valid
+but unnatural), `EXCLUDED` (cannot be reviewed as given). `blinding_attestation` true means: you saw no model outputs, scores or labels and no information about
+the items other than the packets. For legacy items `stratum_assignments` may be `{}`.
+
+---
+## Transport instructions for this run (these replace the file-handling lines above)
+
+You review one item in a single step. Everything you need is in this message. Do not read any files, run any commands,
+use any tools or the web. Do not look for other information about the item.
+Your final message must be exactly one JSON object, the review for this pass in the schema above, with nothing before or
+after it and no code fences. Leave `reviewer_id`, `started_at`, `completed_at`, `minutes_spent` and `blinding_attestation`
+to the harness (any values you give are replaced).
+
+Reviewer id: codex:gpt-6.1-sol:gpt_q1
+Item id: R-704
+This is PASS 2.
+
+Your locked pass-1 review follows, then the pass-2 packet. Review pass 2 now.
+
+### Your locked pass-1 review
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "R-704",
+  "pass_number": 1,
+  "started_at": "2026-11-13T13:03:05+00:00",
+  "completed_at": "2026-11-13T13:03:49+00:00",
+  "minutes_spent": 0.73,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law gives T_L - m_L g = m_L a and m_R g - T_R = m_R a. Pulley rotation gives (T_R - T_L)r = I a/r, with I = Mr²/2. Thus a = (m_R - m_L)g/(m_L + m_R + M/2) = 19.6/9.",
+    "assumptions": [
+      "The pulley rotates about a fixed, frictionless axle.",
+      "The string is taut and inextensible, and its mass is negligible.",
+      "The blocks hang freely without contacting other objects.",
+      "Air resistance is negligible."
+    ],
+    "answer": 2.1777777778,
+    "unit": "m/s²"
+  },
+  "stratum_assignments": {
+    "TB39A": {
+      "stratum": "R",
+      "answer_with_sentence": 1.2,
+      "regime": null
+    },
+    "TA3B0": {
+      "stratum": "R",
+      "answer_with_sentence": 1.2,
+      "regime": null
+    },
+    "TFE1B": {
+      "stratum": "K",
+      "answer_with_sentence": 2.1777777778,
+      "regime": "The string remains intact: the two side tensions are approximately 35.93 N and 38.11 N, both below 200 N."
+    },
+    "TDDE2": {
+      "stratum": "C",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "TFF18": {
+      "stratum": "C",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "TE857": {
+      "stratum": "K",
+      "answer_with_sentence": 2.1777777778,
+      "regime": "The string remains intact: the two side tensions are approximately 35.93 N and 38.11 N, both below 200 N."
+    },
+    "TA3AE": {
+      "stratum": "D",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Using conventional ideal Atwood-machine assumptions, the problem has a unique answer. Either attached block increases the left moving mass to 3.8 kg, giving a = (5 - 3.8)9.8/(3.8 + 5 + 1) = 1.2 m/s². The shelf-supported block has no mechanical connection to the moving system. Pulley radius enters both the moment of inertia and the torque/kinematic relations, then cancels through I/r² = M/2. All mass variants consistently specify 0.8 kg, both radius variants specify 12 cm, and both strength variants specify 200 N; the attachment changes and wording variants introduce no unintended numerical differences."
+}
+
+### Pass-2 packet
+{
+  "assumptions": [
+    "g is a uniform constant of the stated value.",
+    "The string is light and inextensible and does not slip on the pulley.",
+    "The pulley is a uniform solid disc turning without axle friction."
+  ],
+  "authors_claims": [
+    {
+      "certified_answers": {
+        "0.4": 2.17778,
+        "0.8": 2.17778,
+        "1.2": 2.17778
+      },
+      "invariance": "the answer does not depend on q (no causal path from q to the target)",
+      "minimal_pair_with": "TA3B0",
+      "quantity": "a small block",
+      "sentence_id": "TA3AE",
+      "stratum": "D",
+      "unit": "kg",
+      "value_shown": "0.8",
+      "values": [
+        "0.4",
+        "0.8",
+        "1.2"
+      ]
+    },
+    {
+      "certified_answers": {
+        "0.4": 1.66809,
+        "0.8": 1.2,
+        "1.2": 0.768627
+      },
+      "quantity": "a small block",
+      "sentence_id": "TA3B0",
+      "stratum": "R",
+      "unit": "kg",
+      "value_shown": "0.8",
+      "values": [
+        "0.4",
+        "0.8",
+        "1.2"
+      ],
+      "wiring": "q add -> input m1: a block tied beneath the left block moves with it, adding to its mass"
+    },
+    {
+      "certified_answers": {
+        "0.4": 2.17778,
+        "0.8": 2.17778,
+        "1.2": 2.17778
+      },
+      "invariance": "the answer does not depend on q (no causal path from q to the target)",
+      "minimal_pair_with": "TA3B0",
+      "quantity": "a small block",
+      "sentence_id": "TB39A",
+      "stratum": "D",
+      "unit": "kg",
+      "value_shown": "0.8",
+      "values": [
+        "0.4",
+        "0.8",
+        "1.2"
+      ]
+    },
+    {
+      "cancellation": {
+        "expression_with_q": "(m2 - m1)*g/(m1 + m2 + (M*q**2/2)/q**2)",
+        "relations": [
+          "I = M r^2 / 2",
+          "a = (m2 - m1) g / (m1 + m2 + I / r^2)"
+        ]
+      },
+      "certified_answers": {
+        "12": 2.17778,
+        "16": 2.17778,
+        "8": 2.17778
+      },
+      "quantity": "the pulley radius",
+      "sentence_id": "TDDE2",
+      "stratum": "C",
+      "unit": "cm",
+      "value_shown": "12",
+      "values": [
+        "8",
+        "12",
+        "16"
+      ]
+    },
+    {
+      "certified_answers": {
+        "120": 2.17778,
+        "200": 2.17778,
+        "300": 2.17778
+      },
+      "quantity": "the string's breaking strength",
+      "regime": {
+        "irrelevant_while": "Max(m1*(g + a), m2*(g - a)) < q",
+        "outside_the_regime_the_answer_is": "g"
+      },
+      "sentence_id": "TE857",
+      "stratum": "K",
+      "unit": "N",
+      "value_shown": "200",
+      "values": [
+        "120",
+        "200",
+        "300"
+      ]
+    },
+    {
+      "certified_answers": {
+        "120": 2.17778,
+        "200": 2.17778,
+        "300": 2.17778
+      },
+      "quantity": "the string's breaking strength",
+      "regime": {
+        "irrelevant_while": "Max(m1*(g + a), m2*(g - a)) < q",
+        "outside_the_regime_the_answer_is": "g"
+      },
+      "sentence_id": "TFE1B",
+      "stratum": "K",
+      "unit": "N",
+      "value_shown": "200",
+      "values": [
+        "120",
+        "200",
+        "300"
+      ]
+    },
+    {
+      "cancellation": {
+        "expression_with_q": "(m2 - m1)*g/(m1 + m2 + (M*q**2/2)/q**2)",
+        "relations": [
+          "I = M r^2 / 2",
+          "a = (m2 - m1) g / (m1 + m2 + I / r^2)"
+        ]
+      },
+      "certified_answers": {
+        "12": 2.17778,
+        "16": 2.17778,
+        "8": 2.17778
+      },
+      "quantity": "the pulley radius",
+      "sentence_id": "TFF18",
+      "stratum": "C",
+      "unit": "cm",
+      "value_shown": "12",
+      "values": [
+        "8",
+        "12",
+        "16"
+      ]
+    }
+  ],
+  "base_answer": 2.17778,
+  "inputs": [
+    {
+      "description": "mass of the left block",
+      "name": "m1",
+      "unit": "kg"
+    },
+    {
+      "description": "mass of the right block",
+      "name": "m2",
+      "unit": "kg"
+    },
+    {
+      "description": "mass of the uniform disc pulley",
+      "name": "M",
+      "unit": "kg"
+    },
+    {
+      "description": "gravitational acceleration, a stated constant",
+      "name": "g",
+      "unit": "m/s^2"
+    }
+  ],
+  "instructions": "Each sentence is added, on its own, to the end of the problem's description, before the question.",
+  "item_id": "R-704",
+  "kind": "role",
+  "problem": "Two blocks hang from a light string that passes over a pulley, which is a uniform solid disc of mass 2 kg. The string does not slip on the pulley. The left block has mass 3 kg and the right block has mass 5 kg. Take g = 9.8 m/s².\n\nWhat is the magnitude of the acceleration of the blocks?",
+  "relations": [
+    "m_eff = m1 + m2 + M/2",
+    "a = (m2 - m1)*g/m_eff"
+  ],
+  "sentences": [
+    {
+      "sentence_id": "TB39A",
+      "text": "A 0.8 kg block is glued to the bottom of the left block so that it moves with it."
+    },
+    {
+      "sentence_id": "TA3B0",
+      "text": "A 0.8 kg block is tied firmly beneath the left block."
+    },
+    {
+      "sentence_id": "TFE1B",
+      "text": "The string is rated to break only above 200 N."
+    },
+    {
+      "sentence_id": "TDDE2",
+      "text": "The pulley has a radius of 12 cm."
+    },
+    {
+      "sentence_id": "TFF18",
+      "text": "The pulley measures, from its axle to its rim, 12 cm."
+    },
+    {
+      "sentence_id": "TE857",
+      "text": "The string can withstand a tension of up to 200 N."
+    },
+    {
+      "sentence_id": "TA3AE",
+      "text": "A 0.8 kg block is resting on a shelf beside the apparatus."
+    }
+  ],
+  "target_unit": "m/s^2"
+}

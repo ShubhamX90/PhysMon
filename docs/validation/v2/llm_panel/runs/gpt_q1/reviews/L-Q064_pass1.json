@@ -1,0 +1,52 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "L-Q064",
+  "pass_number": 1,
+  "started_at": "2026-11-13T12:58:18+00:00",
+  "completed_at": "2026-11-13T12:58:36+00:00",
+  "minutes_spent": 0.29,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newtonian kinetic energy is K = (1/2)mv^2. Formal substitution gives (1/2)(-3.0)(4.0)^2 = -24 J, but the negative mass is outside the physical domain for an ordinary ball.",
+    "assumptions": [
+      "Classical, nonrelativistic mechanics applies.",
+      "An ordinary physical ball has positive inertial mass; the stated mass violates this requirement."
+    ],
+    "answer": -24.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "invalid_parameter_domain"
+  ],
+  "defect_reasons": {
+    "invalid_parameter_domain": "The stated mass of -3.0 kg is outside the physical domain of an ordinary ball in classical mechanics."
+  },
+  "defect_severity": {
+    "invalid_parameter_domain": "high"
+  },
+  "counterexamples": [],
+  "notes": "The numerical answer is only a formal algebraic result, not a physically valid kinetic energy for the described ball. All four variants preserve the same mass and speed and differ only in color, which is structurally disconnected from the target under the stated mechanics.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "3d67780bf957f09764783df0cbcae4e0cf29358e3d9374e42c974a1881746b1b",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

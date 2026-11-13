@@ -1,0 +1,79 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "R-854",
+  "pass_number": 1,
+  "started_at": "2026-11-13T13:07:52+00:00",
+  "completed_at": "2026-11-13T13:08:39+00:00",
+  "minutes_spent": 0.79,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Q = mcΔT and Q = Pt, hence t = mcΔT/P = (2)(4186)(40)/1500 = 223.2533 s.",
+    "assumptions": [
+      "The stated power is constant net power delivered to the water.",
+      "The water remains liquid throughout the temperature rise.",
+      "The specific heat capacity is constant at the stated value.",
+      "Heating the container requires negligible additional energy."
+    ],
+    "answer": 223.2533333333,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T47A8": {
+      "stratum": "K",
+      "answer_with_sentence": 223.2533333333,
+      "regime": "Single-phase liquid heating with constant specific heat; at ordinary atmospheric pressure, heating from 293 K to 333 K stays within this regime."
+    },
+    "TA8AC": {
+      "stratum": "R",
+      "answer_with_sentence": 334.88,
+      "regime": null
+    },
+    "T3E04": {
+      "stratum": "R",
+      "answer_with_sentence": 334.88,
+      "regime": null
+    },
+    "T7E28": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "T17E2": {
+      "stratum": "K",
+      "answer_with_sentence": 223.2533333333,
+      "regime": "Single-phase liquid heating with constant specific heat; at ordinary atmospheric pressure, heating from 293 K to 333 K stays within this regime."
+    },
+    "TD9B0": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "The base problem uses the standard sensible-heating idealization. Adding water at the same starting temperature increases the heated mass to 3 kg without changing its initial temperature, giving t = (3)(4186)(40)/1500 = 334.88 s. The separate jugs have no physical connection to the heating process. Initial temperature is classified K because it can affect whether phase change occurs, although it does not affect the answer within the stated sensible-heating regime. Both temperature variants specify 293 K, and all jug variants specify 1 kg at the same starting temperature; their wording and attachment changes preserve those quantities.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "cf15570f0cdcbfaa4f518e18a86a85c54c963fb4452de2c14791a001f9766726",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

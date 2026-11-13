@@ -1,0 +1,58 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "L-Q035",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Q = m_A c_A ΔT_A = m_A × 18000 J/kg.",
+    "assumptions": [
+      "Specific heat capacity is constant over the temperature interval.",
+      "Block A undergoes no phase transition.",
+      "Added heat accounts for block A's temperature increase."
+    ],
+    "answer": null,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "unclear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "inconsistent_units"
+  ],
+  "defect_reasons": {
+    "inconsistent_units": "All four renderings specify block A's mass as '1.5 m', a length rather than a mass, contradicting the parameter table's 1.5 kg and preventing determination of the certified numerical heat from the problem text."
+  },
+  "defect_severity": {
+    "inconsistent_units": "high"
+  },
+  "counterexamples": [],
+  "notes": "The pass-1 conclusion stands. The governing equation and the authors' argument that block B's mass is structurally disconnected are correct under the stated thermal assumptions. All four variants preserve that disconnection and change only B's mass. Using the parameter table's intended mass gives Q = 1.5 × 900.0 × 20.0 = 27000 J, with adequate numerical precision, but the table does not repair the malformed mass in the rendered problems. Replacing '1.5 m' with '1.5 kg' in every rendering would resolve the identified defect.",
+  "equation_consistent": true,
+  "units_consistent": false,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "started_at": "2026-11-13T12:57:15+00:00",
+  "completed_at": "2026-11-13T12:57:31+00:00",
+  "minutes_spent": 0.27,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "2a01df8e21d02106a6a5ad6cea1d4d019e5ebb7c47169315abca2789a27edfdd",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

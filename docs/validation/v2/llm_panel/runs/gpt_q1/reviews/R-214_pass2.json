@@ -1,0 +1,102 @@
+{
+  "item_id": "R-214",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Newton's second law gives a = g(sin(theta) - mu_k cos(theta)) = 3.62694266 m/s². Starting from rest, v = sqrt(2as). For s = 4 m, v = 5.38661 m/s; with an uninterrupted earlier distance q, s = 4 m + q.",
+    "assumptions": [
+      "The incline is fixed and uniform.",
+      "The block slides without rolling.",
+      "Kinetic friction is constant and air resistance is negligible.",
+      "The earlier incline motion continues uninterrupted into the stated distance."
+    ],
+    "answer": 5.38661,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T513A": {
+      "stratum": "C",
+      "answer_with_sentence": 5.38661,
+      "regime": null
+    },
+    "T8A07": {
+      "stratum": "K",
+      "answer_with_sentence": 5.38661,
+      "regime": "For spontaneous sliding from rest, mu_s < tan(30°) = 0.57735027. The stated value 0.35 satisfies this condition."
+    },
+    "T3451": {
+      "stratum": "R",
+      "answer_with_sentence": 6.59722,
+      "regime": null
+    },
+    "T529A": {
+      "stratum": "C",
+      "answer_with_sentence": 5.38661,
+      "regime": null
+    },
+    "T0B87": {
+      "stratum": "K",
+      "answer_with_sentence": 5.38661,
+      "regime": "For spontaneous sliding from rest, mu_s < tan(30°) = 0.57735027. The stated value 0.35 satisfies this condition."
+    },
+    "T386C": {
+      "stratum": "R",
+      "answer_with_sentence": 6.59722,
+      "regime": null
+    },
+    "T1816": {
+      "stratum": "D",
+      "answer_with_sentence": 5.38661,
+      "regime": null
+    },
+    "T8B65": {
+      "stratum": "D",
+      "answer_with_sentence": 5.38661,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "other"
+  ],
+  "defect_reasons": {
+    "other": "Both static-friction claims incorrectly assign an answer of zero outside the sliding regime: a block that remains at rest never completes the specified distance, so its speed after completing that distance is undefined."
+  },
+  "defect_severity": {
+    "other": "high"
+  },
+  "counterexamples": [
+    "For either static-friction sentence, set mu_s = 0.70. Since 0.70 > tan(30°), static friction can balance gravity and the released block remains at rest. It never slides 4 m, so the requested speed after that displacement does not exist; zero is only its speed while stationary."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "All stratum assignments, displayed-value answers, and certified answers at the listed sample values agree with pass 1. For earlier incline distances of 1, 2 and 3 m, the respective speeds are 6.02241, 6.59722 and 7.12581 m/s. Mass cancels as claimed, and historical bench or floor motion has no dependency on the target after release from rest. The stated minimal pairs preserve the same numerical distance and unit while changing its physical attachment. The cancellation relations, dimensions and numerical precision are correct. The pass-2 invalid verdict concerns only the newly supplied outside-regime answer claim; it does not change the locked pass-1 conclusions for the supplied sentences.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T13:08:34+00:00",
+  "completed_at": "2026-11-13T13:09:16+00:00",
+  "minutes_spent": 0.7,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "b09995715e5cda75712eee7c097b10527e680da1d038a5c8e1780b650c2936a1",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

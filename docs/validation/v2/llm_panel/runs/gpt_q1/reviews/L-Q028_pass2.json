@@ -1,0 +1,59 @@
+{
+  "item_id": "L-Q028",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For an ideal gas, P_A = n_A R T_A / V_A. Using the packet's R = 8.314 J/(mol*K) gives P_A = 100008.0 Pa, which rounds to 100000 Pa at two significant figures. Without an equation of state, pressure is not uniquely determined.",
+    "assumptions": [
+      "Gas A obeys the ideal-gas equation of state.",
+      "The specified temperature and volume describe its equilibrium state."
+    ],
+    "answer": 100000,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "None of the problem renderings states that gas A is ideal or supplies another equation of state, so the claimed pressure is not uniquely determined."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    "At the specified amount, temperature and volume, a nonideal gas with compressibility factor Z = 0.95 has P_A = Z n_A R T_A / V_A = 95007.6 Pa using the packet's R, whereas an ideal gas has P_A = 100008.0 Pa."
+  ],
+  "notes": "The pass-1 verdict stands. Container B's pressure is structurally disconnected in all four variants, and the authors' free-symbol argument correctly establishes invariance within their chosen model. It does not establish that the ideal-gas model applies. The variants preserve all wording and units except the intentionally varied pressure of B. The equation is dimensionally correct, and the certified number is correctly rounded under the ideal-gas assumption. equation_consistent and answer_correct are false for the unconditional claims about the rendered problem because that necessary assumption is absent. No information beyond the supplied packets and locked review was consulted.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T13:06:44+00:00",
+  "completed_at": "2026-11-13T13:07:12+00:00",
+  "minutes_spent": 0.46,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "5f7ac5dcd02f14bb077c57e81fe01c2a4a7a197d9eb89b66cececad3de62f655",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

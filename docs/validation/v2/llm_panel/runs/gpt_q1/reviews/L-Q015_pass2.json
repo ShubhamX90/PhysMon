@@ -1,0 +1,60 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "L-Q015",
+  "pass_number": 2,
+  "started_at": "2026-11-13T12:53:50+00:00",
+  "completed_at": "2026-11-13T12:54:18+00:00",
+  "minutes_spent": 0.47,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Coulomb's law gives F = k|q1 q2|/r² = (8.99 × 10⁹)(1.0 × 10⁻⁶)(4.0 × 10⁻⁶)/(0.2)² = 0.899 N.",
+    "assumptions": [
+      "Classical electrostatics applies to the stated point charges.",
+      "The supplied Coulomb constant describes the interaction in air.",
+      "The requested quantity is the mutual force between q1 and q2."
+    ],
+    "answer": 0.899,
+    "unit": "N"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "failed_transformation_identity"
+  ],
+  "defect_reasons": {
+    "failed_transformation_identity": "The certified answer 0.8991 N does not follow from the supplied equation and parameters, which give 0.899 N in every variant."
+  },
+  "defect_severity": {
+    "failed_transformation_identity": "medium"
+  },
+  "counterexamples": [
+    "For the variant with q3 = 0.5 μC, direct substitution gives F = 0.03596/0.04 = 0.899 N, rather than the certified 0.8991 N."
+  ],
+  "notes": "The governing equation, dimensions and claimed independence from q3 are correct. Superposition leaves the mutual q1–q2 force unchanged; the explicit negligible-force condition also removes any intended contribution from the third particle. All four legacy variants differ only in the intended third-charge value and use μC consistently. The certified answer differs by 0.0001 N and reports unsupported precision. My pass-1 solution remains unchanged; the pass-2 invalid verdict concerns the newly revealed certified numerical answer. No outside information was consulted.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": false,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "0c6a4082b294349672aa4868edd21e0a3a308d3b61b7d54682235761c6fc1075",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

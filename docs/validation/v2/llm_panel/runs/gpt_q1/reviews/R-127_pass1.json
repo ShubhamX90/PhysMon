@@ -1,0 +1,78 @@
+{
+  "item_id": "R-127",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For capacitor charging, V_C(t) = E[1 - exp(-t/(RC))]. Here RC = 0.100 s, so V_C(0.080 s) = 12[1 - exp(-0.8)].",
+    "assumptions": [
+      "The battery, resistor and capacitor are ideal, with negligible capacitor leakage and battery internal resistance.",
+      "Each added series resistor is present from the initial connection.",
+      "Disconnecting the battery or opening the switch interrupts the charging loop without introducing a discharge path; the capacitor subsequently retains its voltage."
+    ],
+    "answer": 6.60805243,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "T68B9": {
+      "stratum": "D",
+      "answer_with_sentence": 6.60805243,
+      "regime": null
+    },
+    "TC787": {
+      "stratum": "D",
+      "answer_with_sentence": 6.60805243,
+      "regime": null
+    },
+    "TD8AD": {
+      "stratum": "R",
+      "answer_with_sentence": 5.22338254,
+      "regime": null
+    },
+    "T1DF2": {
+      "stratum": "R",
+      "answer_with_sentence": 4.72163208,
+      "regime": null
+    },
+    "T67B8": {
+      "stratum": "R",
+      "answer_with_sentence": 4.72163208,
+      "regime": null
+    },
+    "T5388": {
+      "stratum": "R",
+      "answer_with_sentence": 5.22338254,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "The four resistor sentences consistently specify 2 kΩ. Disconnected resistors have no physical path to the target. Either added series-resistor sentence gives total resistance 7 kΩ and time constant 0.140 s. Both interruption sentences consistently specify 50 ms: charging stops at that time, giving V_C = 12[1 - exp(-0.5)] V, which persists until 80 ms under the ideal-capacitor assumption. T5388 is naturally read as adding a resistor to the already specified circuit.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T12:59:02+00:00",
+  "completed_at": "2026-11-13T12:59:31+00:00",
+  "minutes_spent": 0.49,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "e144b41233f15f2b723544f8ee8deb622f0bf0b6145c05d4a98ef9272a2ca831",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

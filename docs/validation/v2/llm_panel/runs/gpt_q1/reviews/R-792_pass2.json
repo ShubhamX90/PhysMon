@@ -1,0 +1,73 @@
+{
+  "item_id": "R-792",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "The de Broglie relation and non-relativistic kinetic energy give lambda = h/p = hc/sqrt(2(mc²)K). Converting mc² to 511000 eV gives lambda = 1240/sqrt(2 × 511000 × 150) nm = 100.15 pm.",
+    "assumptions": [
+      "The electron is treated non-relativistically as instructed.",
+      "Any additional energy given to the target electron is included in its kinetic energy before determining its wavelength.",
+      "The separate ion beam and remote proton do not interact with the target electron."
+    ],
+    "answer": 100.15,
+    "unit": "pm"
+  },
+  "stratum_assignments": {
+    "TBF27": {
+      "stratum": "R",
+      "answer_with_sentence": 77.5758,
+      "regime": null
+    },
+    "TFD00": {
+      "stratum": "R",
+      "answer_with_sentence": 77.5758,
+      "regime": null
+    },
+    "T178C": {
+      "stratum": "D",
+      "answer_with_sentence": 100.15,
+      "regime": null
+    },
+    "TDD95": {
+      "stratum": "D",
+      "answer_with_sentence": 100.15,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All certified answers agree with the governing relations after converting the rest energy from keV to eV and the wavelength from nm to pm. For either relevant sentence, extra energies of 50, 100 and 200 eV give wavelengths of 86.7324, 77.5758 and 65.5635 pm, respectively. Both disconnected sentences preserve 100.15 pm at every listed value. Each declared pair preserves the number, unit and timing while changing the recipient and acceleration context consistently with the intended attachment. The largest listed final kinetic energy is 350 eV, comfortably within the prescribed non-relativistic regime; the authors' 500 eV bound is conservative. There is no disagreement with pass 1: its answers in nm are equivalent to these answers in the packet's target unit of pm.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T13:04:46+00:00",
+  "completed_at": "2026-11-13T13:05:14+00:00",
+  "minutes_spent": 0.45,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "2e8ce657acdffcb30b6760e7772f685c96108590b1d8fd1422f605986cdaab58",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

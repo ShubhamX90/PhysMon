@@ -1,0 +1,59 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "L-Q013",
+  "pass_number": 1,
+  "started_at": "2026-11-13T12:51:09+00:00",
+  "completed_at": "2026-11-13T12:51:38+00:00",
+  "minutes_spent": 0.47,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of linear momentum: v_f = (m_1 v_1 + m_2 v_2)/(m_1 + m_2). Taking object 1's initial direction as positive gives v_f = 2.4 m/s + 0.6 v_2. The initial velocity v_2 is unspecified, so no unique numerical answer follows.",
+    "assumptions": [
+      "The net external impulse during the collision is negligible.",
+      "Motion is along the collision axis.",
+      "If object 2 is additionally assumed initially stationary, the final velocity is +2.4 m/s."
+    ],
+    "answer": null,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption",
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "A numerical answer of 2.4 m/s requires the unstated assumption that object 2 is initially stationary.",
+    "insufficient_boundary_condition": "Object 2's initial velocity is needed to determine the initial total momentum and hence the common final velocity."
+  },
+  "defect_severity": {
+    "missing_assumption": "high",
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "With object 2 initially moving at -1.0 m/s, the head-on sticking collision gives v_f = +1.8 m/s.",
+    "With object 2 initially moving at -4.0 m/s, the head-on sticking collision gives v_f = 0 m/s."
+  ],
+  "notes": "All four renderings share the same missing initial condition. Their only wording change is the objects' shape. Shape does not affect the final center-of-mass velocity under the stated sticking condition and negligible external impulse; it cannot resolve the unspecified initial momentum.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f0166092af032a2a156c3ff951b3e9933e80a6f1c2c644a1a8b8cfb311166527",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

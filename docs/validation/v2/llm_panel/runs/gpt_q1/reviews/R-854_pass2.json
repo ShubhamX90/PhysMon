@@ -1,0 +1,83 @@
+{
+  "item_id": "R-854",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Q = mc(T_final - T_initial) = mcΔT and t = Q/P. Thus t = 2 × 4186 × 40 / 1500 = 223.2533333333 s. Adding q kilograms at the same initial temperature gives t = (2 + q) × 4186 × 40 / 1500.",
+    "assumptions": [
+      "All heater power heats the water, with no heat losses or additional thermal load.",
+      "Specific heat capacity remains constant at the stated value.",
+      "The water remains liquid throughout heating."
+    ],
+    "answer": 223.2533333333,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T47A8": {
+      "stratum": "C",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "TA8AC": {
+      "stratum": "R",
+      "answer_with_sentence": 334.88,
+      "regime": null
+    },
+    "T3E04": {
+      "stratum": "R",
+      "answer_with_sentence": 334.88,
+      "regime": null
+    },
+    "T7E28": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "T17E2": {
+      "stratum": "C",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "TD9B0": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "I revise my pass-1 temperature classifications from K to C: initial temperature explicitly cancels through T_final - T_initial = (q + ΔT) - q under the stated constant-specific-heat model. Phase-change boundaries limit that model's applicability but do not invalidate the cancellation or the supplied temperature values, which remain in the liquid regime at ordinary atmospheric pressure. For added masses of 0.5, 1 and 2 kg, the times are respectively 279.066667, 334.88 and 446.506667 s; all certified answers are correctly rounded. Separate jugs have no physical connection to the target. All variants preserve the stated numbers and units, and the designated minimal pairs change the intended attachment. The relations and wiring correctly represent the dependencies; mcΔT/P has units J/W = s.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T13:08:39+00:00",
+  "completed_at": "2026-11-13T13:09:07+00:00",
+  "minutes_spent": 0.46,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "14690e6240feeb599d4030359d11ef41bf23f81366b8e7f560ddbbbc90a7387c",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

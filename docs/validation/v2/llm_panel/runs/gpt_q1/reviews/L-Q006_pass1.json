@@ -1,0 +1,55 @@
+{
+  "item_id": "L-Q006",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Linear thermal expansion: ΔL_A = α_A L_A ΔT = (2×10^-5 K^-1)(5.0 m)(100.0 K) = 0.010 m.",
+    "assumptions": [
+      "The stated expansion coefficient is a linear expansion coefficient measured in K^-1.",
+      "The coefficient is constant over the temperature interval.",
+      "Rod A can expand freely."
+    ],
+    "answer": 0.01,
+    "unit": "m"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "inconsistent_units"
+  ],
+  "defect_reasons": {
+    "inconsistent_units": "The expansion coefficient is supplied without its required inverse-temperature unit, so the numerical answer requires an unstated unit convention."
+  },
+  "defect_severity": {
+    "inconsistent_units": "medium"
+  },
+  "counterexamples": [
+    "If the unspecified coefficient is 2×10^-5 °F^-1, the temperature increase of 100 K equals 180 °F and rod A expands by 0.018 m instead of 0.010 m."
+  ],
+  "notes": "Under the conventional interpretation α_A = 2×10^-5 K^-1, all four variants give 0.010 m. Rod B's expansion is structurally disconnected (D) in every variant because thermal and mechanical interactions are explicitly excluded. The renderings otherwise retain the same wording and units while varying rod B's expansion.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T12:57:18+00:00",
+  "completed_at": "2026-11-13T12:57:50+00:00",
+  "minutes_spent": 0.53,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "147de2d52053d1f65874e798d27a109ff48508976b2e460e94dcea8ad894d326",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

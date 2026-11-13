@@ -1,0 +1,59 @@
+{
+  "item_id": "L-Q024",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For an ideal gas, P_A = n_A R T_A / V_A = (2.0)(8.314)(300.0)/0.049884 = 100000 Pa. Without an equation of state, the pressure is not uniquely determined.",
+    "assumptions": [
+      "Gas A obeys the ideal-gas equation of state.",
+      "The supplied temperature and volume describe an equilibrium state."
+    ],
+    "answer": 100000,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The rendered problems omit ideal-gas behavior or another equation of state, which is necessary to determine pressure uniquely from amount, temperature and volume."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    "A gas with compressibility factor Z = 0.98 at the specified state would satisfy P_A = Z n_A R T_A / V_A = 98000 Pa, rather than the certified 100000 Pa."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "The pass-2 packet confirms the pass-1 assessment. The governing expression is the correct ideal-gas relation, and its numerical evaluation gives exactly 100000 Pa using the supplied parameters. Its dimensions are J/m^3 = Pa. However, neither the rendered problems nor the parameter description 'ideal gas constant' establishes that gas A is ideal; answer_correct is false because the certified answer is not guaranteed by the problem as written. Container B's pressure is structurally disconnected in all four variants under the explicit statement that the containers are completely unconnected. Its absence from the governing expression is appropriate, although checking free symbols alone cannot establish physical independence or justify the equation of state. The legacy variants consistently change only B's pressure, retain Pa, and introduce no additional defect. The displayed answer has adequate precision.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T12:54:53+00:00",
+  "completed_at": "2026-11-13T12:55:16+00:00",
+  "minutes_spent": 0.38,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "c3fdf9219b7a043b807282ba5f0467f11cc4a7d280e71eb4cdc11852e9b28827",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

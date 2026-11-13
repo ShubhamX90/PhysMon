@@ -1,0 +1,79 @@
+{
+  "item_id": "R-130",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For a simple pendulum, mL²θ̈ = −mgL sinθ. With sinθ ≈ θ, T = 2π√(L/g). Thus T = 2π√(0.8/9.8) = 1.7952 s.",
+    "assumptions": [
+      "The bob is treated as a point mass.",
+      "The string and any added cord are massless, taut and effectively inextensible.",
+      "The support is fixed, damping is negligible, and the amplitude is small.",
+      "An inserted cord extends the pendulum length by its full stated length."
+    ],
+    "answer": 1.7952,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TC874": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T9BC6": {
+      "stratum": "R",
+      "answer_with_sentence": 2.1987,
+      "regime": null
+    },
+    "TC4D9": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T88E8": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "TC403": {
+      "stratum": "R",
+      "answer_with_sentence": 2.1987,
+      "regime": null
+    },
+    "TF69B": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Both inserted-cord sentences give an effective length of 1.2 m. The drawer and wall cords have no physical connection to the pendulum. Bob mass appears in both inertia and gravitational torque and cancels. All cord variants consistently specify 0.4 m, and both mass variants specify 0.5 kg. The brass-sphere description does not change the answer under the small-bob approximation. Answers may reasonably be reported as approximately 1.8 s and 2.2 s.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T12:56:25+00:00",
+  "completed_at": "2026-11-13T12:56:49+00:00",
+  "minutes_spent": 0.39,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "37adcf4f73a00199ff6e750d242432d248d3db8f7d0bab4be5d1b5d66bc2ad02",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "L-Q013",
+  "pass_number": 2,
+  "started_at": "2026-11-13T12:51:38+00:00",
+  "completed_at": "2026-11-13T12:52:06+00:00",
+  "minutes_spent": 0.47,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of linear momentum gives v_f = (m_1 v_1 + m_2 v_2)/(m_1 + m_2) = 2.4 m/s + 0.6 v_2, taking object 1's initial direction as positive. The rendered problems do not specify v_2, so the final velocity is undetermined. Setting v_2 = 0 gives +2.4 m/s.",
+    "assumptions": [
+      "The external impulse during the collision is negligible.",
+      "Motion is along the collision axis.",
+      "The certified numerical answer additionally requires object 2 to be initially stationary."
+    ],
+    "answer": null,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption",
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The authors set v_2 = 0 in the parameters, but none of the rendered problems states that object 2 is initially stationary.",
+    "insufficient_boundary_condition": "The unspecified initial velocity of object 2 prevents determination of the initial total momentum and a unique final velocity."
+  },
+  "defect_severity": {
+    "missing_assumption": "high",
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "With v_2 = -1.0 m/s, the stated head-on sticking collision gives v_f = +1.8 m/s.",
+    "With v_2 = -4.0 m/s, the stated head-on sticking collision gives v_f = 0 m/s."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "The pass-1 conclusion stands. The governing equation is correct, and the certified 2.4 m/s follows from the authors' parameter values with adequate precision. However, the essential parameter v_2 = 0 is absent from every rendering, so that answer is not established by the problem. The shape variants differ only as intended, and shape does not affect the final translational velocity under the assumed collision model. The authors' shape-invariance argument is sound but does not resolve the missing initial condition.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "19cc61d43e858c21b9099cf7ded80180253abc9fa4cfdd513a7bb852ec092f8c",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

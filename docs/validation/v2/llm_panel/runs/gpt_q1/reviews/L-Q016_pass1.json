@@ -1,0 +1,47 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "L-Q016",
+  "pass_number": 1,
+  "started_at": "2026-11-13T13:01:00+00:00",
+  "completed_at": "2026-11-13T13:01:40+00:00",
+  "minutes_spent": 0.66,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Work by a constant force is W = F d cos(theta). For force parallel to displacement, W = 600.0 × 70.0 = 42000 J.",
+    "assumptions": [
+      "The applied force acts parallel to the displacement.",
+      "The question asks for work by the stated force.",
+      "B is thermally isolated from A; it can receive the stated heat from a separate source."
+    ],
+    "answer": 42000,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All four renderings give 4.20 × 10^4 J, including after each reported heat revision. B's absorbed heat is structurally disconnected (D) from the requested work. Each parenthetical doubles its rendering's original heat value and preserves the unit. The numerical differences between renderings are parameter changes rather than failed wording-only pairs. 'Thermally isolated' is ambiguous: isolation from A permits heat absorption from another source, whereas isolation from all surroundings would contradict the stated absorption. The validity verdict uses the former reading and the conventional interpretation that the push follows the displacement.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "742f8e1f6d4f3b1e17a42f44bc01bc1694a7f896bf3bdeabc2130762651d9ddd",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,351 @@
+# Physics item review: instructions for an independent reviewer (frozen prompt v1, 2026-11-13)
+
+You are an independent reviewer of physics problems written for a benchmark. You judge whether each item is correct,
+well-posed and natural physics. You work alone: you have not seen how the items were written, you will not see anyone
+else's review, and you must not look for any other information about the items.
+
+**Independence rules (binding).** Read only the packet files named in your assignment, in the order stated there.
+Do not open, list or search any other file or directory; do not run code that reads other files; do not use the web.
+Write your reviews only to the output paths named in your assignment. If anything else becomes visible to you by
+accident, say so in `notes`.
+
+## Two passes per item
+
+**Pass 1 (blind).** Open only the item's pass-1 packet. Then, before opening anything else:
+1. Solve the base problem (`problem`) yourself: the governing law(s), the assumptions you needed, the target and its
+   numerical answer with its unit.
+2. Each entry of `sentences` is a sentence that would be added, on its own, to the end of the problem's description
+   (before the question). For each sentence, decide its role for the asked quantity and, where it changes the answer,
+   compute the new answer:
+   * `R` relevant: the quantity in the sentence physically changes the answer;
+   * `D` structurally disconnected: it belongs to something with no physical path to the target;
+   * `C` cancelling: it belongs to the system and appears in the governing relations, but cancels from the answer;
+   * `K` conditionally irrelevant: it would matter only outside a regime, and the stated value is inside it (state the
+     regime).
+   Sentences about the same quantity are written as variants of one another: they should state the same number and
+   unit and differ only in wording and in what the quantity is attached to. Check that they do.
+3. Write the pass-1 review (schema below) and save it. Pass 1 is then locked: never edit it.
+
+**Pass 2 (with the authors' claims).** Only after saving pass 1, open the pass-2 packet. It repeats the item and adds
+the authors' claims: each sentence's stratum, the certified answers at every value of the quantity, the wiring or
+relations behind them, the regime for K, the governing relations, assumptions, inputs and the target unit. Check every
+claim against the physics, the units and your own pass-1 work: graph and relations, units and dimensions, domain and
+regime, numerical answers, whether paired sentences differ only as intended, and any omitted dependency. A claim's
+`minimal_pair_with` names the sentence it is meant to be a variant of (same number and unit, different attachment). Where you
+disagree with your own pass 1 now, say why in `notes`; do not change pass 1. Write the pass-2 review and save it.
+
+**Legacy items.** Some items have `variants` (several renderings of one problem with an added statement) instead of
+`sentences`; review them the same way: pass 1 from the renderings alone; pass 2 with the equation, parameters,
+certified answer and the authors' argument.
+
+## Judgements (kept separate)
+
+* `validity`: `valid` (correct and well-posed as claimed), `invalid` (at least one defect), `uncertain` (you cannot
+  decide; name what in `uncertain_fields`). In pass 2 this is your verdict on the item including the authors' claims.
+* `clarity`: `clear`, `ambiguous`, `unclear` (wording only).
+* `difficulty`: 1-5 (separate from validity). `naturalness`: `natural`, `slightly_artificial`, `artificial`.
+* `confidence`: 1-5.
+* `defect_flags`: every defect you find, each from this vocabulary:
+  `hidden_coupling` (a quantity claimed disconnected or invariant actually affects the target),
+  `missing_assumption` (an assumption needed for the answer is not stated),
+  `relevant_variable_removed_from_equation` (a quantity that affects the answer is left out of the relation or answers),
+  `failed_transformation_identity` (claimed answers do not follow from the stated relation and change),
+  `inconsistent_units` (a unit or dimension is wrong or inconsistent),
+  `invalid_parameter_domain` (a value lies outside the range where the claimed physics holds),
+  `insufficient_boundary_condition` (the problem lacks a condition needed for a unique answer),
+  `invalid_numerical_precision` (a stated value or answer is rounded so far that it is wrong),
+  `contradictory_distractor_statement` (an added statement contradicts the problem),
+  `rendering_not_minimal` (sentences claimed to be variants of each other differ in more than intended, for example in
+  the number or unit), or `other` (explain in `notes`).
+  Write `defect_flags` as a list of these exact terms, for example `["hidden_coupling"]`. For each flag give a
+  severity in `defect_severity` (for example `{"hidden_coupling": "high"}`; `high`: the item is wrong; `medium`;
+  `low`) and a one-sentence reason in `defect_reasons` (for example `{"hidden_coupling": "..."}`). An item you judge
+  `valid` has no `high` flag.
+* `counterexamples`: concrete cases where a claimed invariance or answer fails.
+
+## Output (one JSON object per pass; nothing else in the file)
+
+```json
+{
+  "reviewer_id": "<given in your assignment>",
+  "item_id": "<from the packet>",
+  "pass_number": 1,
+  "started_at": "<ISO time>", "completed_at": "<ISO time>", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "...", "assumptions": ["..."], "answer": 0.0, "unit": "..."},
+  "stratum_assignments": {"<sentence_id>": {"stratum": "R|D|C|K", "answer_with_sentence": 0.0, "regime": null}},
+  "validity": "valid|invalid|uncertain",
+  "clarity": "clear|ambiguous|unclear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [], "notes": ""
+}
+```
+In pass 2 also give `equation_consistent`, `units_consistent`, `answer_correct`, `precision_adequate` (each true or
+false) and `admission_category`, one of: `CERTIFIED_AND_VALIDATED` (correct, well-posed, claims hold),
+`SOLVER_VALID_LANGUAGE_AMBIGUOUS` (the physics and claims hold but the wording admits another reading),
+`SOLVER_INVALID` (a claim or the physics is wrong), `ANSWER_AMBIGUOUS` (no unique answer), `NATURALNESS_FLAG` (valid
+but unnatural), `EXCLUDED` (cannot be reviewed as given). `blinding_attestation` true means: you saw no model outputs, scores or labels and no information about
+the items other than the packets. For legacy items `stratum_assignments` may be `{}`.
+
+---
+## Transport instructions for this run (these replace the file-handling lines above)
+
+You review one item in a single step. Everything you need is in this message. Do not read any files, run any commands,
+use any tools or the web. Do not look for other information about the item.
+Your final message must be exactly one JSON object, the review for this pass in the schema above, with nothing before or
+after it and no code fences. Leave `reviewer_id`, `started_at`, `completed_at`, `minutes_spent` and `blinding_attestation`
+to the harness (any values you give are replaced).
+
+Reviewer id: codex:gpt-6.1-sol:gpt_q1
+Item id: R-859
+This is PASS 2.
+
+Your locked pass-1 review follows, then the pass-2 packet. Review pass 2 now.
+
+### Your locked pass-1 review
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "R-859",
+  "pass_number": 1,
+  "started_at": "2026-11-13T13:00:44+00:00",
+  "completed_at": "2026-11-13T13:01:19+00:00",
+  "minutes_spent": 0.58,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For a simple pendulum, mLθ̈ = −mg sinθ. At small amplitude, θ̈ + (g/L)θ = 0, so T = 2π√(L/g). With L = 0.8 m, T = 4π/7 s ≈ 1.7952 s.",
+    "assumptions": [
+      "The support is fixed.",
+      "The light string is treated as massless and inextensible.",
+      "The bob is treated as a point mass.",
+      "Damping and air resistance are negligible.",
+      "The small-angle approximation applies.",
+      "An added cord between the string and bob remains taut and extends the effective pendulum length."
+    ],
+    "answer": 1.7952,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T4EBD": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "TB560": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "TDAE7": {
+      "stratum": "R",
+      "answer_with_sentence": 2.19866,
+      "regime": null
+    },
+    "T5EF9": {
+      "stratum": "R",
+      "answer_with_sentence": 2.19866,
+      "regime": null
+    },
+    "TAE16": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "TF2E1": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Both attached-cord sentences give an effective length of 1.2 m and hence T = 2π√(1.2/9.8) ≈ 2.19866 s. The wall and drawer cords have no physical connection to the pendulum. Bob mass appears in the equation of motion but cancels. All cord variants consistently specify 0.4 m, and both mass variants specify 0.5 kg. Describing the small bob as a brass sphere does not change the answer under the standard point-mass approximation."
+}
+
+### Pass-2 packet
+{
+  "assumptions": [
+    "g is a uniform constant of the stated value.",
+    "The amplitude is small, the string is light and inextensible and air resistance is neglected."
+  ],
+  "authors_claims": [
+    {
+      "certified_answers": {
+        "0.2": 1.7952,
+        "0.4": 1.7952,
+        "0.6": 1.7952
+      },
+      "invariance": "the answer does not depend on q (no causal path from q to the target)",
+      "minimal_pair_with": "TDAE7",
+      "quantity": "a light cord",
+      "sentence_id": "T4EBD",
+      "stratum": "D",
+      "unit": "m",
+      "value_shown": "0.4",
+      "values": [
+        "0.2",
+        "0.4",
+        "0.6"
+      ]
+    },
+    {
+      "certified_answers": {
+        "0.2": 2.00709,
+        "0.4": 2.19866,
+        "0.6": 2.37482
+      },
+      "quantity": "a light cord",
+      "sentence_id": "T5EF9",
+      "stratum": "R",
+      "unit": "m",
+      "value_shown": "0.4",
+      "values": [
+        "0.2",
+        "0.4",
+        "0.6"
+      ],
+      "wiring": "q add -> input L: a light cord tied between the string and the bob puts the bob q further from the pivot, so the pendulum length becomes L + q"
+    },
+    {
+      "cancellation": {
+        "expression_with_q": "2*pi*sqrt((q*L**2)/(q*g*L))",
+        "relations": [
+          "I = m L^2",
+          "restoring torque = m g L theta",
+          "omega^2 = m g L / I"
+        ]
+      },
+      "certified_answers": {
+        "0.2": 1.7952,
+        "0.5": 1.7952,
+        "2": 1.7952
+      },
+      "quantity": "the bob's mass",
+      "sentence_id": "TAE16",
+      "stratum": "C",
+      "unit": "kg",
+      "value_shown": "0.5",
+      "values": [
+        "0.2",
+        "0.5",
+        "2"
+      ]
+    },
+    {
+      "cancellation": {
+        "expression_with_q": "2*pi*sqrt((q*L**2)/(q*g*L))",
+        "relations": [
+          "I = m L^2",
+          "restoring torque = m g L theta",
+          "omega^2 = m g L / I"
+        ]
+      },
+      "certified_answers": {
+        "0.2": 1.7952,
+        "0.5": 1.7952,
+        "2": 1.7952
+      },
+      "quantity": "the bob's mass",
+      "sentence_id": "TB560",
+      "stratum": "C",
+      "unit": "kg",
+      "value_shown": "0.5",
+      "values": [
+        "0.2",
+        "0.5",
+        "2"
+      ]
+    },
+    {
+      "certified_answers": {
+        "0.2": 2.00709,
+        "0.4": 2.19866,
+        "0.6": 2.37482
+      },
+      "quantity": "a light cord",
+      "sentence_id": "TDAE7",
+      "stratum": "R",
+      "unit": "m",
+      "value_shown": "0.4",
+      "values": [
+        "0.2",
+        "0.4",
+        "0.6"
+      ],
+      "wiring": "q add -> input L: a light cord tied between the string and the bob puts the bob q further from the pivot, so the pendulum length becomes L + q"
+    },
+    {
+      "certified_answers": {
+        "0.2": 1.7952,
+        "0.4": 1.7952,
+        "0.6": 1.7952
+      },
+      "invariance": "the answer does not depend on q (no causal path from q to the target)",
+      "minimal_pair_with": "T5EF9",
+      "quantity": "a light cord",
+      "sentence_id": "TF2E1",
+      "stratum": "D",
+      "unit": "m",
+      "value_shown": "0.4",
+      "values": [
+        "0.2",
+        "0.4",
+        "0.6"
+      ]
+    }
+  ],
+  "base_answer": 1.7952,
+  "inputs": [
+    {
+      "description": "length of the string",
+      "name": "L",
+      "unit": "m"
+    },
+    {
+      "description": "gravitational acceleration, a stated constant",
+      "name": "g",
+      "unit": "m/s^2"
+    }
+  ],
+  "instructions": "Each sentence is added, on its own, to the end of the problem's description, before the question.",
+  "item_id": "R-859",
+  "kind": "role",
+  "problem": "A small bob hangs from a light string of length 0.8 m and swings with a small amplitude. Take g = 9.8 m/s².\n\nWhat is the period of one full oscillation?",
+  "relations": [
+    "T = 2*pi*sqrt(L/g)"
+  ],
+  "sentences": [
+    {
+      "sentence_id": "T4EBD",
+      "text": "A 0.4 m light cord is hanging from a hook on the far wall of the lab."
+    },
+    {
+      "sentence_id": "TB560",
+      "text": "The bob has a mass of 0.5 kg."
+    },
+    {
+      "sentence_id": "TDAE7",
+      "text": "A 0.4 m light cord is knotted onto the bottom of the string, and the bob is now tied to the end of that cord."
+    },
+    {
+      "sentence_id": "T5EF9",
+      "text": "A 0.4 m light cord is tied between the lower end of the string and the bob, so the bob now hangs lower."
+    },
+    {
+      "sentence_id": "TAE16",
+      "text": "The bob is a small brass sphere with a mass of 0.5 kg."
+    },
+    {
+      "sentence_id": "TF2E1",
+      "text": "A 0.4 m light cord is coiled up in a drawer beside the stand."
+    }
+  ],
+  "target_unit": "s"
+}

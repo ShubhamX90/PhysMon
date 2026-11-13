@@ -1,0 +1,54 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "L-Q041",
+  "pass_number": 1,
+  "started_at": "2026-11-13T12:54:56+00:00",
+  "completed_at": "2026-11-13T12:55:41+00:00",
+  "minutes_spent": 0.74,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Assuming an ideal gas, p_A V_A = n_A R T_A. Thus p_A = (0.5)(8.314)(500.0)/0.020785 = 100000 Pa.",
+    "assumptions": [
+      "Gas A obeys the ideal-gas equation of state; this is not stated.",
+      "The stated temperature describes gas A in thermodynamic equilibrium."
+    ],
+    "answer": 100000,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "A unique pressure requires an equation of state, but the problem does not specify an ideal gas or provide another gas model."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    "A nonideal gas with compressibility factor Z = 0.99 at the stated conditions would have p_A = Z n_A R T_A/V_A ≈ 99000 Pa, which the supplied information does not exclude."
+  ],
+  "notes": "Container B's pressure is structurally disconnected (D) in all four variants. Assuming ideal-gas behavior, every variant gives approximately 100000 Pa regardless of B's pressure. Using R = 8.314462618 J/(mol K) gives approximately 100005.6 Pa, consistent with that rounded answer. The different B pressures are intentional legacy parameter variants.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "7d78957c4ea07c6bd653bb334fd2d06cb949c8e72d1c332d43adaf8a4cb5c819",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

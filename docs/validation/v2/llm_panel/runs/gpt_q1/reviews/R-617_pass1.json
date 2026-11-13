@@ -1,0 +1,99 @@
+{
+  "item_id": "R-617",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Archimedes' principle and vertical equilibrium: T = buoyancy - weight = (rho_liquid - rho_cube)gV. V = (0.10 m)^3 = 0.001 m³, so T = (1000 - 600)(9.8)(0.001) = 3.92 N.",
+    "assumptions": [
+      "The liquid is homogeneous and effectively incompressible.",
+      "The cube is rigid and completely submerged.",
+      "The string is taut, can sustain the required tension, and pulls vertically downward.",
+      "The cube is in static equilibrium and gravity is uniform."
+    ],
+    "answer": 3.92,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T4FA4": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TDB71": {
+      "stratum": "D",
+      "answer_with_sentence": 3.92,
+      "regime": null
+    },
+    "T5A82": {
+      "stratum": "R",
+      "answer_with_sentence": 6.37,
+      "regime": null
+    },
+    "T0CF0": {
+      "stratum": "D",
+      "answer_with_sentence": 3.92,
+      "regime": null
+    },
+    "T25E6": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T1C91": {
+      "stratum": "C",
+      "answer_with_sentence": 3.92,
+      "regime": null
+    },
+    "TBDC5": {
+      "stratum": "R",
+      "answer_with_sentence": 6.37,
+      "regime": null
+    },
+    "T1946": {
+      "stratum": "C",
+      "answer_with_sentence": 3.92,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [
+    "Whether T25E6 intends a maximum sustainable tension of 2 N or merely guarantees no breakage at or below 2 N."
+  ],
+  "defect_flags": [
+    "contradictory_distractor_statement"
+  ],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "T4FA4 gives a maximum sustainable tension of 2 N, below the 3.92 N required to hold the cube at rest, contradicting the described equilibrium."
+  },
+  "defect_severity": {
+    "contradictory_distractor_statement": "high"
+  },
+  "counterexamples": [
+    "With the original liquid and a string limited to 2 N, buoyancy is 9.8 N while weight plus maximum string force is only 7.88 N; at least 1.92 N upward remains, so static equilibrium is impossible."
+  ],
+  "notes": "The base problem is valid. Replacing the tank liquid gives T = (1250 - 600)(9.8)(0.001) = 6.37 N. The bottle and beaker have no physical connection to the target. For depth h, the vertical pressure force is [p0 + rho*g*(h + a) - (p0 + rho*g*h)]a², so h cancels. All apparent variant groups preserve their numbers and units: 1250 kg/m³, 2 N, and 50 cm. The strength sentences cannot qualify as K at an intended maximum of 2 N because the required tension exceeds that maximum. They are marked R for feasibility relevance; null indicates no realizable static answer under that interpretation. T25E6 is additionally ambiguous: literally, 'break only above 2 N' does not require breaking at 3.92 N. Under that literal reading, a sufficiently strong string remains possible and its equilibrium tension is 3.92 N.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T13:07:30+00:00",
+  "completed_at": "2026-11-13T13:08:40+00:00",
+  "minutes_spent": 1.17,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "15f6de2f0741b057d02531914fe4613a9894233e44ea732f524fb0be4ead222f",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

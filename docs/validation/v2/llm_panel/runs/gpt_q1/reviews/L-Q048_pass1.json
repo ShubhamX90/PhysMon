@@ -1,0 +1,58 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "L-Q048",
+  "pass_number": 1,
+  "started_at": "2026-11-13T12:59:02+00:00",
+  "completed_at": "2026-11-13T12:59:43+00:00",
+  "minutes_spent": 0.68,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation: with negligible work, the net heat entering A is Q_net,A = m c ΔT = 1.0 × 4186.0 × 10.0 = 41860 J. If heat is supplied to A and A transfers Q_B to B, the supplied heat is Q_in,A = 41860 J + Q_B.",
+    "assumptions": [
+      "The heat capacity of A is represented entirely by its water, with constant specific heat and no phase change.",
+      "No mechanical work or other energy changes occur.",
+      "The reported numerical answer interprets 'heat added' as net heat entering A."
+    ],
+    "answer": 41860,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The question does not distinguish net heat entering A from heat supplied to A before its transfer to B, which yield different answers."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    {
+      "case": "Heat is supplied to A, and B receives its stated absorbed heat from A through their thermal coupling.",
+      "result": "The supplied heat is respectively 63860, 82860, 83860 and 106860 J for the four variants, whereas the net heat entering A is 41860 J in every variant."
+    }
+  ],
+  "notes": "B's absorbed heat is relevant to gross heat supplied through A, but the measured temperature rise fixes A's net heat independently of that transfer. These alternatives prevent a unique interpretation of the requested quantity. 'Insulated' can consistently mean insulated from the surroundings while retaining the stated thermal connection to A; it need not be treated as a contradiction. The legacy renderings vary B's absorbed energy without providing same-value attachment pairs. No information outside this packet was used.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "5a1cf053993e7581b7872c733ebe850b357741b9185ee255625ea858f164a05b",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

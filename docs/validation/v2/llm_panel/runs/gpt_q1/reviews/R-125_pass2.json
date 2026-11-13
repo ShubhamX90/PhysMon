@@ -1,0 +1,84 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "R-125",
+  "pass_number": 2,
+  "started_at": "2026-11-13T12:54:13+00:00",
+  "completed_at": "2026-11-13T12:54:43+00:00",
+  "minutes_spent": 0.5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Kirchhoff's voltage law gives RC dV_C/dt + V_C = V0. With V_C(0)=0, V_C(t)=V0[1-exp(-t/(RC))]. The base time constant is 100 ms, giving V_C(80 ms)=12[1-exp(-0.8)]=6.60805243 V. An extra series resistance q changes the time constant to (R+q)C.",
+    "assumptions": [
+      "The capacitor is initially uncharged.",
+      "The battery and wires are ideal, the resistors have constant resistance, and the capacitor does not leak.",
+      "An added series resistor is present throughout charging.",
+      "Opening the charging loop leaves the ideal capacitor holding its accumulated charge."
+    ],
+    "answer": 6.60805243,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "TD847": {
+      "stratum": "R",
+      "answer_with_sentence": 5.22338254,
+      "regime": null
+    },
+    "T97FD": {
+      "stratum": "D",
+      "answer_with_sentence": 6.60805243,
+      "regime": null
+    },
+    "T01DF": {
+      "stratum": "R",
+      "answer_with_sentence": 5.22338254,
+      "regime": null
+    },
+    "TC3C7": {
+      "stratum": "K",
+      "answer_with_sentence": 6.60805243,
+      "regime": "The switch opens after the observation time: q > 80 ms."
+    },
+    "T3BFD": {
+      "stratum": "D",
+      "answer_with_sentence": 6.60805243,
+      "regime": null
+    },
+    "T821E": {
+      "stratum": "K",
+      "answer_with_sentence": 6.60805243,
+      "regime": "Battery disconnection occurs after the observation time: q > 80 ms."
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All authors' claims agree with the locked pass-1 review. Extra series resistances of 1, 2 and 5 kΩ give time constants of 120, 140 and 200 ms, respectively, and voltages of 5.83899457, 5.22338254 and 3.95615945 V; all certified values are correctly rounded. The disconnected resistors have no electrical path to the capacitor. Every certified interruption time (300, 500 and 1000 ms) exceeds 80 ms. For an earlier interruption at q, the open loop and nonleaking capacitor give the claimed retained voltage V0[1-exp(-q/tau)]. The product kΩ·μF has units of ms, so the supplied input units are compatible with the relations. Both declared minimal pairs preserve the numerical value and unit and change the resistor's attachment as intended. No pass-1 conclusions require revision.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "efc5956a1552d5aa816fa058e7aba78b4fc011bfa1c95f75283e93bfee0e7674",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

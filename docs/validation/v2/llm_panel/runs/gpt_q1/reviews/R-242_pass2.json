@@ -1,0 +1,92 @@
+{
+  "item_id": "R-242",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Hydrostatic equilibrium gives p = p_surface + rho*g*h. The hydrostatic increment is 117600 Pa = 117.6 kPa, so the base answer is 218.6 kPa. An additional surface pressure q gives p = 218.6 kPa + q.",
+    "assumptions": [
+      "The liquid is at rest with uniform density and uniform gravitational acceleration.",
+      "Depth is measured vertically below the free surface.",
+      "The stated surface pressure is absolute.",
+      "For the surface-pressure additions, the liquid reaches equilibrium with the specified pressure rise maintained."
+    ],
+    "answer": 218.6,
+    "unit": "kPa"
+  },
+  "stratum_assignments": {
+    "T581F": {
+      "stratum": "D",
+      "answer_with_sentence": 218.6,
+      "regime": null
+    },
+    "TBF2E": {
+      "stratum": "C",
+      "answer_with_sentence": 218.6,
+      "regime": null
+    },
+    "T4352": {
+      "stratum": "C",
+      "answer_with_sentence": 218.6,
+      "regime": null
+    },
+    "TCA3B": {
+      "stratum": "D",
+      "answer_with_sentence": 218.6,
+      "regime": null
+    },
+    "T998E": {
+      "stratum": "R",
+      "answer_with_sentence": 238.6,
+      "regime": null
+    },
+    "T64A1": {
+      "stratum": "R",
+      "answer_with_sentence": 238.6,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The cancellation derivation supplied for T4352 treats the tank's base area as a uniform column cross-section and omits possible vertical wall forces, although a flat base does not establish that geometry."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    "Consider a permitted tank with a horizontal flat base of area 2 m², liquid depth 12 m, and horizontal cross-sectional area increasing linearly with height from 2 m² at the base to 6 m² at the surface. Its liquid volume is 48 m³ and mass is 48000 kg. Using the authors' base-area force relation with that mass gives 101 + 48000*9.8/(2*1000) = 336.2 kPa, whereas hydrostatic equilibrium gives 218.6 kPa. The walls supply an upward force; the claimed mass rho*A*h would incorrectly be 24000 kg."
+  ],
+  "notes": "All certified numerical answers are correct: the disconnected and area variants remain at 218.6 kPa, and surface-pressure rises of 10, 20 and 40 kPa give 228.6, 238.6 and 258.6 kPa. The main hydrostatic relation is correct, with rho*g*h converted from Pa to kPa. Both specified pressure minimal pairs preserve their number and unit, and both area sentences specify 2 m². The defect concerns the supporting relations for T4352: its quantity is base area, although the claim calls it tank cross-sectional area. A flat base alone does not justify m = rho*A*h or balancing the entire liquid weight against the base pressure increment. The pressure remains independent of base area, and a complete force balance can support the C classification, but the supplied cancellation argument requires an additional geometric assumption. My pass-1 numerical answers and classifications remain unchanged; the newly visible unsupported derivation changes the verdict on the item including its claims.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T13:03:21+00:00",
+  "completed_at": "2026-11-13T13:04:28+00:00",
+  "minutes_spent": 1.12,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "28e60d1feac5513fa1e7551e4f7fb653ff21371c0d09e8f58895023191a9f91d",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

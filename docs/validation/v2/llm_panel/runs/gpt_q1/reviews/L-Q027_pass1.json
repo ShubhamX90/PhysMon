@@ -1,0 +1,46 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "L-Q027",
+  "pass_number": 1,
+  "started_at": "2026-11-13T12:54:18+00:00",
+  "completed_at": "2026-11-13T12:54:39+00:00",
+  "minutes_spent": 0.35,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Resolve the initial velocity into Cartesian components: v_Ay = v_A sin(theta) = 20.0 sin(30.0 degrees) = 10.0 m/s, upward.",
+    "assumptions": [
+      "The vertical axis points upward, perpendicular to the stated horizontal.",
+      "The launch speed and angle describe the same velocity in the same reference frame."
+    ],
+    "answer": 10.0,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All four variants give an initial vertical velocity of 10.0 m/s upward. Projectile B's speed is structurally disconnected (D): B is in another test range and explicitly never interacts with A. The variants change only B's speed, retaining the same unit and attachment. The explicit unrelated-projectile statement makes the presentation slightly artificial.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "c6ba681b6bc94598beb91c1c7ae8e8909f24e85b8d9888bb500b9a25a9fd1cdf",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

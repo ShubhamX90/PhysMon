@@ -1,0 +1,62 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "R-658",
+  "pass_number": 1,
+  "started_at": "2026-11-13T13:03:03+00:00",
+  "completed_at": "2026-11-13T13:03:30+00:00",
+  "minutes_spent": 0.45,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The de Broglie relation is lambda = h/p. Non-relativistically, K = p²/(2m), so lambda = hc/sqrt(2(mc²)K). With K = 150 eV, lambda = 1240/sqrt(2 × 511000 × 150) nm.",
+    "assumptions": [
+      "Use the stipulated non-relativistic kinetic-energy relation.",
+      "Evaluate the wavelength after all stated acceleration, with no subsequent energy change."
+    ],
+    "answer": 0.10015,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "T6A32": {
+      "stratum": "R",
+      "answer_with_sentence": 0.0775758,
+      "regime": null
+    },
+    "TC659": {
+      "stratum": "R",
+      "answer_with_sentence": 0.0775758,
+      "regime": null
+    },
+    "T0B7A": {
+      "stratum": "D",
+      "answer_with_sentence": 0.10015,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Both relevant sentences increase the electron's kinetic energy to 250 eV, giving lambda = 1240/sqrt(2 × 511000 × 250) = 0.0775758 nm. The proton in another building has no specified physical coupling to the electron. All three sentences specify the same added kinetic energy, 100 eV; the first two are equivalent paraphrases, while the third attaches that energy to a separate particle.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "5d2e503594cb7332a749e513947dd236f8a5c323a97cebe62dba75fd6430f9c6",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

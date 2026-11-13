@@ -1,0 +1,78 @@
+{
+  "item_id": "R-323",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For charging from an initially uncharged state, V_C(t) = E[1 - exp(-t/(R_total C))]. The base time constant is (5000 Ω)(20 × 10^-6 F) = 0.100 s, so V_C(0.080 s) = 12[1 - exp(-0.8)] = 6.60805243 V.",
+    "assumptions": [
+      "The battery is an ideal constant-voltage source, and the capacitor and resistors are ideal.",
+      "Any added series resistor is present from the initial connection.",
+      "Wires and closed switches have negligible resistance."
+    ],
+    "answer": 6.60805243,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "TD742": {
+      "stratum": "R",
+      "answer_with_sentence": 5.22338254,
+      "regime": null
+    },
+    "T6A26": {
+      "stratum": "D",
+      "answer_with_sentence": 6.60805243,
+      "regime": null
+    },
+    "T5A17": {
+      "stratum": "R",
+      "answer_with_sentence": 5.22338254,
+      "regime": null
+    },
+    "TABC4": {
+      "stratum": "K",
+      "answer_with_sentence": 6.60805243,
+      "regime": "The observation occurs before the circuit opens: 80 ms < 500 ms."
+    },
+    "TD46C": {
+      "stratum": "D",
+      "answer_with_sentence": 6.60805243,
+      "regime": null
+    },
+    "T2215": {
+      "stratum": "K",
+      "answer_with_sentence": 6.60805243,
+      "regime": "The observation occurs before battery disconnection: 80 ms < 500 ms."
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Each relevant resistor sentence adds 2 kΩ to the existing 5 kΩ, giving a time constant of 0.140 s and voltage 12[1 - exp(-4/7)] V. The disconnected resistors have no physical path to the target. The switching events occur after the requested measurement. All resistor variants consistently specify 2 kΩ, and both switching variants consistently specify 500 ms; their wording and attachments introduce no unintended numerical differences.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T13:01:43+00:00",
+  "completed_at": "2026-11-13T13:02:19+00:00",
+  "minutes_spent": 0.6,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "2428ffa86935cef8e4f61d1cca1b28efee9d9b65a61dcf6082dc2cae9a02b1cf",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "item_id": "L-Q048",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "The first law with negligible work gives ΔU_A = Q_net,A = m_A c_A ΔT_A = 41860 J. If external heat is supplied through A and A transfers Q_B to B, then Q_supplied,A = 41860 J + Q_B.",
+    "assumptions": [
+      "A's heat capacity is represented entirely by its water.",
+      "The specific heat is constant, with no phase change.",
+      "Mechanical work and other energy changes are negligible.",
+      "The numerical answer below denotes net heat entering A."
+    ],
+    "answer": 41860,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "hidden_coupling",
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "hidden_coupling": "The authors assert that B is thermally isolated despite the explicit thermal coupling to A, which permits B's absorbed heat to affect the external heat supplied through A.",
+    "insufficient_boundary_condition": "The question does not specify whether the requested heat is net heat entering A or external heat supplied before transfer to B, and does not specify the source of B's absorbed heat."
+  },
+  "defect_severity": {
+    "hidden_coupling": "high",
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    {
+      "case": "An external heater supplies heat to A, and B absorbs its stated energy entirely from A through their thermal connection; both systems are otherwise insulated.",
+      "result": "Energy conservation requires external heat inputs of 63860, 82860, 83860 and 106860 J for the four variants. A's net heat input remains 41860 J."
+    }
+  ],
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "The pass-1 assessment stands. The stated equation and certified answer are correct for net heat entering A under the listed assumptions, but they do not establish an unqualified answer for externally supplied heat. The false equation_consistent and answer_correct judgments concern that unqualified certification; the product itself is dimensionally and arithmetically correct. Absence of Q_B from the selected expression does not prove physical disconnection. The authors' assertion that B is thermally isolated conflicts with the explicit thermal connection. Insulation can consistently refer to the surroundings, so the rendering itself need not be internally contradictory. No temperature-dependent regime or phase boundary is specified; constant specific heat and no phase change are conventional assumptions here. These legacy variants change B's absorbed energy and provide no minimal_pair_with claims, so no minimal-pair defect is assigned. No information outside the supplied message was used.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T12:59:43+00:00",
+  "completed_at": "2026-11-13T13:00:16+00:00",
+  "minutes_spent": 0.54,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "b214f6206fbfd7dfc2ddb909479959d3a8cc207ca768e12c52605477261175aa",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "L-Q037",
+  "pass_number": 1,
+  "started_at": "2026-11-13T12:55:29+00:00",
+  "completed_at": "2026-11-13T12:55:55+00:00",
+  "minutes_spent": 0.43,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of mechanical energy gives v_bottom^2 = v_initial^2 + 2gh. With h = 5.0 m and g = 9.8 m/s^2, v_bottom = sqrt(v_initial^2 + 98 m^2/s^2). The numerical answer below is conditional on starting from rest.",
+    "assumptions": [
+      "Cart A starts from rest; this necessary condition is not stated.",
+      "Use g = 9.8 m/s^2.",
+      "Treat the cart as a particle with no energy transferred into internal motion or rotation."
+    ],
+    "answer": 9.9,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "Every rendering omits cart A's initial speed, so its speed at the bottom is not uniquely determined."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "Starting from rest gives 9.9 m/s, whereas starting downhill at 5.0 m/s gives sqrt(123) m/s, approximately 11.1 m/s; both satisfy the stated description."
+  ],
+  "notes": "Cart B's speed is structurally disconnected (D) in all four variants because B never interacts with A. Its stated speeds do not change A's answer. These legacy renderings vary only B's speed. The conditional 9.9 m/s answer has appropriate precision, but the problem must specify A's initial speed to admit a unique numerical answer.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "71e7b6b0dbc5a0cdbe7de778c870348b7391c31397aa644dea220221c339d97e",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

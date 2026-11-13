@@ -1,0 +1,46 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "L-Q067",
+  "pass_number": 1,
+  "started_at": "2026-11-13T13:02:16+00:00",
+  "completed_at": "2026-11-13T13:02:38+00:00",
+  "minutes_spent": 0.37,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Ohm's law and electrical power: P = VI = V^2/R = (12.0 V)^2/(8.0 ohm) = 18 W.",
+    "assumptions": [
+      "The stated resistance is the resistor's operating resistance.",
+      "The stated voltage is steady, or is an RMS voltage if alternating."
+    ],
+    "answer": 18,
+    "unit": "W"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All four variants give 18 W. Ambient pressure is disconnected from the requested electrical power when voltage and operating resistance are specified. Pressure could affect cooling and thus an otherwise unspecified operating resistance, but that introduces no missing dependency here. The legacy variants consistently use kPa and intentionally vary the pressure value; their wording is otherwise identical.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a0295c2e20a720b0c64fed1d06bf8ab0985f581f40cf4ae50430069674512387",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

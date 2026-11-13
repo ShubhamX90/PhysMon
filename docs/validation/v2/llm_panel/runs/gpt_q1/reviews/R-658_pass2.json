@@ -1,0 +1,92 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "R-658",
+  "pass_number": 2,
+  "started_at": "2026-11-13T13:03:30+00:00",
+  "completed_at": "2026-11-13T13:04:10+00:00",
+  "minutes_spent": 0.67,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The de Broglie relation and non-relativistic kinetic energy give lambda = hc/sqrt(2(mc²)K). Convert mc² to 511000 eV. At K = 150 eV, lambda = 0.10015 nm = 100.15 pm. An additional energy q given to the same electron replaces K by 150 eV + q.",
+    "assumptions": [
+      "Use the stipulated non-relativistic approximation.",
+      "Evaluate the wavelength after the acceleration described in each sentence.",
+      "The separately described proton has no specified coupling to the electron."
+    ],
+    "answer": 100.15,
+    "unit": "pm"
+  },
+  "stratum_assignments": {
+    "T6A32": {
+      "stratum": "R",
+      "answer_with_sentence": 77.5758,
+      "regime": null
+    },
+    "TC659": {
+      "stratum": "R",
+      "answer_with_sentence": 77.5758,
+      "regime": null
+    },
+    "T0B7A": {
+      "stratum": "D",
+      "answer_with_sentence": 100.15,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "hidden_coupling",
+    "relevant_variable_removed_from_equation"
+  ],
+  "defect_reasons": {
+    "hidden_coupling": "T6A32 explicitly adds kinetic energy to the measured electron, so its claimed disconnected classification and invariance are false.",
+    "relevant_variable_removed_from_equation": "The certified answers for T6A32 omit q from the electron's total kinetic energy, which must be 150 eV + q."
+  },
+  "defect_severity": {
+    "hidden_coupling": "high",
+    "relevant_variable_removed_from_equation": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "T6A32",
+      "extra_energy_eV": 100,
+      "claimed_wavelength_pm": 100.15,
+      "correct_wavelength_pm": 77.5758,
+      "explanation": "The additional accelerating gap raises the measured electron's kinetic energy to 250 eV."
+    },
+    {
+      "sentence_id": "T6A32",
+      "extra_energy_eV": 200,
+      "claimed_wavelength_pm": 100.15,
+      "correct_wavelength_pm": 65.5635,
+      "explanation": "The electron reaches 350 eV, further decreasing its wavelength."
+    }
+  ],
+  "notes": "The generic governing relations are correct with consistent energy units, but the claimed absence of a causal path for T6A32 contradicts those relations. T6A32 and TC659 are equivalent paraphrases acting on the same electron; their different claimed strata have no physical basis. For both, q = 50, 100 and 200 eV gives 86.7324, 77.5758 and 65.5635 pm, respectively. T0B7A's classification and all its certified answers are correct. The base answer, TC659's answers and their precision are correct. My pass-1 results were expressed in nm; conversion to the packet's target unit pm yields the values here without changing my physical conclusions.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "884400be7367c0c08debdec910b9a8c18290b75a431c3293b1be7955d39ff3c2",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

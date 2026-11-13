@@ -1,0 +1,84 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "R-204",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Equipartition gives the molar translational kinetic energy Ek = 3RT/2, so v_rms = sqrt(3RT/M). Converting M = 4 g/mol to 0.004 kg/mol gives sqrt(1870650) m/s at 300 K.",
+    "assumptions": [
+      "The gas is ideal, classical and in thermal equilibrium at the measurement temperature.",
+      "Speeds describe thermal motion in the gas rest frame.",
+      "Heating the sample by q kelvin establishes its measurement temperature as 300 + q kelvin.",
+      "The unrelated heated objects have no specified physical coupling to the gas."
+    ],
+    "answer": 1367.717,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TB113": {
+      "stratum": "R",
+      "answer_with_sentence": 1579.304,
+      "regime": null
+    },
+    "T69F0": {
+      "stratum": "R",
+      "answer_with_sentence": 1579.304,
+      "regime": null
+    },
+    "TDC0B": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.717,
+      "regime": null
+    },
+    "T76FA": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.717,
+      "regime": null
+    },
+    "T90D1": {
+      "stratum": "C",
+      "answer_with_sentence": 1367.717,
+      "regime": null
+    },
+    "T0565": {
+      "stratum": "C",
+      "answer_with_sentence": 1367.717,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All claims agree with the locked pass-1 review. In the main relations, Ek is energy per mole, and M must be converted to kg/mol when using the stated SI gas constant. Temperature rises of 50, 100 and 200 K give speeds of 1477.30, 1579.30 and 1765.72 m/s, respectively, matching the certified answers. Heating the unrelated objects leaves the answer unchanged. For each positive stated amount, n cancels between total translational kinetic energy and total mass, giving 1367.72 m/s. All parameter values are admissible under the stated ideal classical gas assumptions. The named minimal pairs preserve 100 K and change the attachment of the heating; the amount variants both state 2 mol. The closed rigid container introduces no additional dependency when the final temperature is specified. No K claims require checking.",
+  "started_at": "2026-11-13T13:00:34+00:00",
+  "completed_at": "2026-11-13T13:01:00+00:00",
+  "minutes_spent": 0.43,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f7e0ea7021205de5dd3a5a8accd07b328c5da5620aa30ef022ddb61b3e225a02",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

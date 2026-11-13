@@ -1,0 +1,344 @@
+# Physics item review: instructions for an independent reviewer (frozen prompt v1, 2026-11-13)
+
+You are an independent reviewer of physics problems written for a benchmark. You judge whether each item is correct,
+well-posed and natural physics. You work alone: you have not seen how the items were written, you will not see anyone
+else's review, and you must not look for any other information about the items.
+
+**Independence rules (binding).** Read only the packet files named in your assignment, in the order stated there.
+Do not open, list or search any other file or directory; do not run code that reads other files; do not use the web.
+Write your reviews only to the output paths named in your assignment. If anything else becomes visible to you by
+accident, say so in `notes`.
+
+## Two passes per item
+
+**Pass 1 (blind).** Open only the item's pass-1 packet. Then, before opening anything else:
+1. Solve the base problem (`problem`) yourself: the governing law(s), the assumptions you needed, the target and its
+   numerical answer with its unit.
+2. Each entry of `sentences` is a sentence that would be added, on its own, to the end of the problem's description
+   (before the question). For each sentence, decide its role for the asked quantity and, where it changes the answer,
+   compute the new answer:
+   * `R` relevant: the quantity in the sentence physically changes the answer;
+   * `D` structurally disconnected: it belongs to something with no physical path to the target;
+   * `C` cancelling: it belongs to the system and appears in the governing relations, but cancels from the answer;
+   * `K` conditionally irrelevant: it would matter only outside a regime, and the stated value is inside it (state the
+     regime).
+   Sentences about the same quantity are written as variants of one another: they should state the same number and
+   unit and differ only in wording and in what the quantity is attached to. Check that they do.
+3. Write the pass-1 review (schema below) and save it. Pass 1 is then locked: never edit it.
+
+**Pass 2 (with the authors' claims).** Only after saving pass 1, open the pass-2 packet. It repeats the item and adds
+the authors' claims: each sentence's stratum, the certified answers at every value of the quantity, the wiring or
+relations behind them, the regime for K, the governing relations, assumptions, inputs and the target unit. Check every
+claim against the physics, the units and your own pass-1 work: graph and relations, units and dimensions, domain and
+regime, numerical answers, whether paired sentences differ only as intended, and any omitted dependency. A claim's
+`minimal_pair_with` names the sentence it is meant to be a variant of (same number and unit, different attachment). Where you
+disagree with your own pass 1 now, say why in `notes`; do not change pass 1. Write the pass-2 review and save it.
+
+**Legacy items.** Some items have `variants` (several renderings of one problem with an added statement) instead of
+`sentences`; review them the same way: pass 1 from the renderings alone; pass 2 with the equation, parameters,
+certified answer and the authors' argument.
+
+## Judgements (kept separate)
+
+* `validity`: `valid` (correct and well-posed as claimed), `invalid` (at least one defect), `uncertain` (you cannot
+  decide; name what in `uncertain_fields`). In pass 2 this is your verdict on the item including the authors' claims.
+* `clarity`: `clear`, `ambiguous`, `unclear` (wording only).
+* `difficulty`: 1-5 (separate from validity). `naturalness`: `natural`, `slightly_artificial`, `artificial`.
+* `confidence`: 1-5.
+* `defect_flags`: every defect you find, each from this vocabulary:
+  `hidden_coupling` (a quantity claimed disconnected or invariant actually affects the target),
+  `missing_assumption` (an assumption needed for the answer is not stated),
+  `relevant_variable_removed_from_equation` (a quantity that affects the answer is left out of the relation or answers),
+  `failed_transformation_identity` (claimed answers do not follow from the stated relation and change),
+  `inconsistent_units` (a unit or dimension is wrong or inconsistent),
+  `invalid_parameter_domain` (a value lies outside the range where the claimed physics holds),
+  `insufficient_boundary_condition` (the problem lacks a condition needed for a unique answer),
+  `invalid_numerical_precision` (a stated value or answer is rounded so far that it is wrong),
+  `contradictory_distractor_statement` (an added statement contradicts the problem),
+  `rendering_not_minimal` (sentences claimed to be variants of each other differ in more than intended, for example in
+  the number or unit), or `other` (explain in `notes`).
+  Write `defect_flags` as a list of these exact terms, for example `["hidden_coupling"]`. For each flag give a
+  severity in `defect_severity` (for example `{"hidden_coupling": "high"}`; `high`: the item is wrong; `medium`;
+  `low`) and a one-sentence reason in `defect_reasons` (for example `{"hidden_coupling": "..."}`). An item you judge
+  `valid` has no `high` flag.
+* `counterexamples`: concrete cases where a claimed invariance or answer fails.
+
+## Output (one JSON object per pass; nothing else in the file)
+
+```json
+{
+  "reviewer_id": "<given in your assignment>",
+  "item_id": "<from the packet>",
+  "pass_number": 1,
+  "started_at": "<ISO time>", "completed_at": "<ISO time>", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "...", "assumptions": ["..."], "answer": 0.0, "unit": "..."},
+  "stratum_assignments": {"<sentence_id>": {"stratum": "R|D|C|K", "answer_with_sentence": 0.0, "regime": null}},
+  "validity": "valid|invalid|uncertain",
+  "clarity": "clear|ambiguous|unclear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [], "notes": ""
+}
+```
+In pass 2 also give `equation_consistent`, `units_consistent`, `answer_correct`, `precision_adequate` (each true or
+false) and `admission_category`, one of: `CERTIFIED_AND_VALIDATED` (correct, well-posed, claims hold),
+`SOLVER_VALID_LANGUAGE_AMBIGUOUS` (the physics and claims hold but the wording admits another reading),
+`SOLVER_INVALID` (a claim or the physics is wrong), `ANSWER_AMBIGUOUS` (no unique answer), `NATURALNESS_FLAG` (valid
+but unnatural), `EXCLUDED` (cannot be reviewed as given). `blinding_attestation` true means: you saw no model outputs, scores or labels and no information about
+the items other than the packets. For legacy items `stratum_assignments` may be `{}`.
+
+---
+## Transport instructions for this run (these replace the file-handling lines above)
+
+You review one item in a single step. Everything you need is in this message. Do not read any files, run any commands,
+use any tools or the web. Do not look for other information about the item.
+Your final message must be exactly one JSON object, the review for this pass in the schema above, with nothing before or
+after it and no code fences. Leave `reviewer_id`, `started_at`, `completed_at`, `minutes_spent` and `blinding_attestation`
+to the harness (any values you give are replaced).
+
+Reviewer id: codex:gpt-6.1-sol:gpt_q1
+Item id: R-132
+This is PASS 2.
+
+Your locked pass-1 review follows, then the pass-2 packet. Review pass 2 now.
+
+### Your locked pass-1 review
+{
+  "item_id": "R-132",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Parallel resistors each have the supply voltage across them. Total power is P = V²(1/R1 + 1/R2) = 12²(1/6 + 1/12) = 36 W.",
+    "assumptions": [
+      "Steady direct current and fixed, ohmic resistor values.",
+      "Connecting wires have negligible resistance."
+    ],
+    "answer": 36,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T17CA": {
+      "stratum": "D",
+      "answer_with_sentence": 36,
+      "regime": null
+    },
+    "TA2CD": {
+      "stratum": "D",
+      "answer_with_sentence": 36,
+      "regime": null
+    },
+    "T546D": {
+      "stratum": "K",
+      "answer_with_sentence": 36,
+      "regime": "The fuse remains intact with negligible resistance when the first branch current is at or below 5 A. Here that current is 12/6 = 2 A."
+    },
+    "T8370": {
+      "stratum": "K",
+      "answer_with_sentence": 36,
+      "regime": "Under the usual interpretation of an intact fuse operating within its rating, the first branch current of 2 A is below the 5 A rating."
+    },
+    "T92FB": {
+      "stratum": "R",
+      "answer_with_sentence": 56.25,
+      "regime": null
+    },
+    "T8C6B": {
+      "stratum": "R",
+      "answer_with_sentence": 56.25,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "The aiding series cell raises the supply voltage to 15 V, giving P = 15²(1/6 + 1/12) = 56.25 W. All cell sentences specify the same 3 V value and negligible internal resistance; both fuse sentences specify 5 A and negligible resistance. The fuse variants differ in how explicitly they describe operation, but this does not affect the answer at 2 A.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T12:51:09+00:00",
+  "completed_at": "2026-11-13T12:51:45+00:00",
+  "minutes_spent": 0.59,
+  "blinding_attestation": true
+}
+
+### Pass-2 packet
+{
+  "assumptions": [
+    "The battery has negligible internal resistance and the wires have negligible resistance.",
+    "Both resistors are ohmic."
+  ],
+  "authors_claims": [
+    {
+      "certified_answers": {
+        "1.5": 36.0,
+        "3": 36.0,
+        "6": 36.0
+      },
+      "invariance": "the answer does not depend on q (no causal path from q to the target)",
+      "minimal_pair_with": "T92FB",
+      "quantity": "an extra cell",
+      "sentence_id": "T17CA",
+      "stratum": "D",
+      "unit": "V",
+      "value_shown": "3",
+      "values": [
+        "1.5",
+        "3",
+        "6"
+      ]
+    },
+    {
+      "certified_answers": {
+        "10": 36.0,
+        "3": 36.0,
+        "5": 36.0
+      },
+      "quantity": "the current rating of a fuse in the first resistor's branch",
+      "regime": {
+        "irrelevant_while": "V/R1 < q",
+        "outside_the_regime_the_answer_is": "V**2/R2"
+      },
+      "sentence_id": "T546D",
+      "stratum": "K",
+      "unit": "A",
+      "value_shown": "5",
+      "values": [
+        "3",
+        "5",
+        "10"
+      ]
+    },
+    {
+      "certified_answers": {
+        "10": 36.0,
+        "3": 36.0,
+        "5": 36.0
+      },
+      "quantity": "the current rating of a fuse in the first resistor's branch",
+      "regime": {
+        "irrelevant_while": "V/R1 < q",
+        "outside_the_regime_the_answer_is": "V**2/R2"
+      },
+      "sentence_id": "T8370",
+      "stratum": "K",
+      "unit": "A",
+      "value_shown": "5",
+      "values": [
+        "3",
+        "5",
+        "10"
+      ]
+    },
+    {
+      "certified_answers": {
+        "1.5": 27.5625,
+        "3": 20.25,
+        "6": 9.0
+      },
+      "quantity": "an extra cell",
+      "sentence_id": "T8C6B",
+      "stratum": "R",
+      "unit": "V",
+      "value_shown": "3",
+      "values": [
+        "1.5",
+        "3",
+        "6"
+      ],
+      "wiring": "q add -> input V: an ideal cell in series with the battery, aiding it, raises the emf across the parallel pair to V + q; the two resistors remain the only dissipating elements"
+    },
+    {
+      "certified_answers": {
+        "1.5": 27.5625,
+        "3": 20.25,
+        "6": 9.0
+      },
+      "quantity": "an extra cell",
+      "sentence_id": "T92FB",
+      "stratum": "R",
+      "unit": "V",
+      "value_shown": "3",
+      "values": [
+        "1.5",
+        "3",
+        "6"
+      ],
+      "wiring": "q add -> input V: an ideal cell in series with the battery, aiding it, raises the emf across the parallel pair to V + q; the two resistors remain the only dissipating elements"
+    },
+    {
+      "certified_answers": {
+        "1.5": 36.0,
+        "3": 36.0,
+        "6": 36.0
+      },
+      "invariance": "the answer does not depend on q (no causal path from q to the target)",
+      "minimal_pair_with": "T8C6B",
+      "quantity": "an extra cell",
+      "sentence_id": "TA2CD",
+      "stratum": "D",
+      "unit": "V",
+      "value_shown": "3",
+      "values": [
+        "1.5",
+        "3",
+        "6"
+      ]
+    }
+  ],
+  "base_answer": 36.0,
+  "inputs": [
+    {
+      "description": "battery emf",
+      "name": "V",
+      "unit": "V"
+    },
+    {
+      "description": "first resistor",
+      "name": "R1",
+      "unit": "Ω"
+    },
+    {
+      "description": "second resistor",
+      "name": "R2",
+      "unit": "Ω"
+    }
+  ],
+  "instructions": "Each sentence is added, on its own, to the end of the problem's description, before the question.",
+  "item_id": "R-132",
+  "kind": "role",
+  "problem": "A battery of emf 12 V and negligible internal resistance is connected across two resistors in parallel, of 6 Ω and 12 Ω.\n\nWhat total power do the two resistors dissipate?",
+  "relations": [
+    "P = V**2*(1/R1 + 1/R2)"
+  ],
+  "sentences": [
+    {
+      "sentence_id": "T17CA",
+      "text": "A 3 V cell of negligible internal resistance is lying unused in a drawer."
+    },
+    {
+      "sentence_id": "TA2CD",
+      "text": "A 3 V cell of negligible internal resistance is powering a wall clock that has no connection with this circuit."
+    },
+    {
+      "sentence_id": "T546D",
+      "text": "The first resistor's branch contains a fuse of negligible resistance that blows only at currents above 5 A."
+    },
+    {
+      "sentence_id": "T8370",
+      "text": "The first resistor's branch contains a fuse of negligible resistance that is rated at 5 A."
+    },
+    {
+      "sentence_id": "T92FB",
+      "text": "A 3 V cell of negligible internal resistance is connected in series with the battery, aiding its emf."
+    },
+    {
+      "sentence_id": "T8C6B",
+      "text": "A 3 V cell of negligible internal resistance is added in series with the battery, oriented so that the two emfs add."
+    }
+  ],
+  "target_unit": "W"
+}

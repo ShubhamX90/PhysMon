@@ -1,0 +1,78 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "R-204",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For an ideal gas, v_rms = sqrt(3RT/M). With M = 0.004 kg/mol and T = 300 K, v_rms = sqrt(1870650) m/s.",
+    "assumptions": [
+      "The molecular speeds refer to thermal motion in the gas rest frame.",
+      "The gas has the stated molar mass and is in thermal equilibrium at the temperature used.",
+      "For the heating sentences, measurement occurs after the gas reaches its final temperature."
+    ],
+    "answer": 1367.717,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TB113": {
+      "stratum": "R",
+      "answer_with_sentence": 1579.304,
+      "regime": null
+    },
+    "T69F0": {
+      "stratum": "R",
+      "answer_with_sentence": 1579.304,
+      "regime": null
+    },
+    "TDC0B": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.717,
+      "regime": null
+    },
+    "T76FA": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.717,
+      "regime": null
+    },
+    "T90D1": {
+      "stratum": "C",
+      "answer_with_sentence": 1367.717,
+      "regime": null
+    },
+    "T0565": {
+      "stratum": "C",
+      "answer_with_sentence": 1367.717,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Heating the sample raises its temperature to 400 K. The closed rigid container condition does not affect the speed once the final temperature is specified. Heating the unrelated block or oven has no specified physical connection to the sample. The amount cancels in (1/2)nM<v²> = (3/2)nRT. All temperature-change variants use 100 K, and both amount variants use 2 mol. Numerical answers retain calculation digits; approximately 1.37×10^3 m/s and 1.58×10^3 m/s are suitable reported values. The unrelated heating statements make the presentation slightly artificial.",
+  "started_at": "2026-11-13T13:00:01+00:00",
+  "completed_at": "2026-11-13T13:00:34+00:00",
+  "minutes_spent": 0.55,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "09723561534419e06d9068012121ea30b91d635025b4d0191ed84e9d4244e35f",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

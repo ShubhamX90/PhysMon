@@ -1,0 +1,104 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "R-704",
+  "pass_number": 2,
+  "started_at": "2026-11-13T13:03:49+00:00",
+  "completed_at": "2026-11-13T13:04:54+00:00",
+  "minutes_spent": 1.08,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's laws give T_L - m1*g = m1*a, m2*g - T_R = m2*a, and (T_R - T_L)*r = I*a/r. With I = M*r^2/2, a = (m2 - m1)*g/(m1 + m2 + M/2) = 19.6/9.",
+    "assumptions": [
+      "The pulley rotates about a fixed, frictionless axle.",
+      "The string is light, taut, inextensible, intact, and does not slip.",
+      "The blocks hang freely and air resistance is negligible."
+    ],
+    "answer": 2.1777777778,
+    "unit": "m/s^2"
+  },
+  "stratum_assignments": {
+    "TB39A": {
+      "stratum": "R",
+      "answer_with_sentence": 1.2,
+      "regime": null
+    },
+    "TA3B0": {
+      "stratum": "R",
+      "answer_with_sentence": 1.2,
+      "regime": null
+    },
+    "TFE1B": {
+      "stratum": "K",
+      "answer_with_sentence": 2.1777777778,
+      "regime": "The string remains intact when its breaking threshold is at least the maximum tension, approximately 38.1111 N; all listed strengths satisfy this condition."
+    },
+    "TDDE2": {
+      "stratum": "C",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "TFF18": {
+      "stratum": "C",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "TE857": {
+      "stratum": "K",
+      "answer_with_sentence": 2.1777777778,
+      "regime": "The string remains intact when its breaking threshold is at least the maximum tension, approximately 38.1111 N; all listed strengths satisfy this condition."
+    },
+    "TA3AE": {
+      "stratum": "D",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "hidden_coupling",
+    "relevant_variable_removed_from_equation",
+    "other"
+  ],
+  "defect_reasons": {
+    "hidden_coupling": "TB39A's glued block moves with the left block and changes its effective mass, contradicting the claimed disconnected classification.",
+    "relevant_variable_removed_from_equation": "The TB39A certification omits the added mass q, whereas its acceleration must be (m2 - m1 - q)*g/(m1 + q + m2 + M/2).",
+    "other": "The K claims use a strict intact-regime inequality and assign acceleration g everywhere outside it, incorrectly including equality even though the sentences allow the string to withstand its stated threshold."
+  },
+  "defect_severity": {
+    "hidden_coupling": "high",
+    "relevant_variable_removed_from_equation": "high",
+    "other": "low"
+  },
+  "counterexamples": [
+    "For TB39A at q = 0.8 kg, a = (5 - 3.8)*9.8/(3.8 + 5 + 1) = 1.2 m/s^2, rather than the certified 2.17778 m/s^2.",
+    "For TB39A at q = 0.4 kg and 1.2 kg, the accelerations are respectively 1.6680851 m/s^2 and 0.76862745 m/s^2, so the claimed invariance fails.",
+    "At a string threshold q = 343/9 N, the maximum intact tension equals q and the wording permits the string to remain intact, giving 2.1777778 m/s^2; the authors' strict regime test instead places this boundary in the branch assigned g."
+  ],
+  "notes": "My pass-1 assignments and numerical answers remain unchanged. TB39A and TA3B0 are physically equivalent added-mass cases. TA3AE is disconnected under the stated uniform-g model. The base equations are correct, but their application to TB39A omits its required mass change. All certified answers for the other sentences and all listed values are correct to the displayed precision. Radius cancels through I/r^2 = M/2. The intact tensions are approximately 35.9333 N and 38.1111 N. All mass variants specify 0.8 kg, radius variants 12 cm, and strength variants 200 N; there is no numerical or unit mismatch between paired renderings.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "b68afa751fdae914bab6de7fd8e885cae5cfab8a7a78537627dbc05de2926cc6",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

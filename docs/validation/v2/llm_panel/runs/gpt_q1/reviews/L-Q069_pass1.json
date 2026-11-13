@@ -1,0 +1,54 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "L-Q069",
+  "pass_number": 1,
+  "started_at": "2026-11-13T12:53:18+00:00",
+  "completed_at": "2026-11-13T12:53:48+00:00",
+  "minutes_spent": 0.5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Unit conversion: 1 kJ = 1000 J, 1 mJ = 0.001 J, and 1 N*m = 1 J.",
+    "assumptions": [
+      "The stated quantities represent energy changes.",
+      "Each rendering is interpreted literally."
+    ],
+    "answer": 1000,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The second rendering specifies 1100 J, whereas the other three specify 1000 J, so the variants change the physical quantity as well as its representation."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "The second rendering gives 1.1 kJ = 1100 J, which differs from the first rendering's 1000 J by 100 J."
+  ],
+  "notes": "Answers in packet order are 1000 J, 1100 J, 1000 J, and 1000 J. Each rendering individually has a unique, correct unit-conversion answer; the defect concerns their equivalence as variants. No dynamical law or boundary condition is needed. The first rendering merely asks for the unit already supplied.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "1305950c7801edc5b08a9c98e92132ebafe63e5779394c37926d4802c90e1622",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

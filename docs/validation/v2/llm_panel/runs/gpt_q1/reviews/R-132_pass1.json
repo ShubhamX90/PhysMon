@@ -1,0 +1,77 @@
+{
+  "item_id": "R-132",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Parallel resistors each have the supply voltage across them. Total power is P = V²(1/R1 + 1/R2) = 12²(1/6 + 1/12) = 36 W.",
+    "assumptions": [
+      "Steady direct current and fixed, ohmic resistor values.",
+      "Connecting wires have negligible resistance."
+    ],
+    "answer": 36,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T17CA": {
+      "stratum": "D",
+      "answer_with_sentence": 36,
+      "regime": null
+    },
+    "TA2CD": {
+      "stratum": "D",
+      "answer_with_sentence": 36,
+      "regime": null
+    },
+    "T546D": {
+      "stratum": "K",
+      "answer_with_sentence": 36,
+      "regime": "The fuse remains intact with negligible resistance when the first branch current is at or below 5 A. Here that current is 12/6 = 2 A."
+    },
+    "T8370": {
+      "stratum": "K",
+      "answer_with_sentence": 36,
+      "regime": "Under the usual interpretation of an intact fuse operating within its rating, the first branch current of 2 A is below the 5 A rating."
+    },
+    "T92FB": {
+      "stratum": "R",
+      "answer_with_sentence": 56.25,
+      "regime": null
+    },
+    "T8C6B": {
+      "stratum": "R",
+      "answer_with_sentence": 56.25,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "The aiding series cell raises the supply voltage to 15 V, giving P = 15²(1/6 + 1/12) = 56.25 W. All cell sentences specify the same 3 V value and negligible internal resistance; both fuse sentences specify 5 A and negligible resistance. The fuse variants differ in how explicitly they describe operation, but this does not affect the answer at 2 A.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T12:51:09+00:00",
+  "completed_at": "2026-11-13T12:51:45+00:00",
+  "minutes_spent": 0.59,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "986a058809956c9f0cfb83bcfaa410f869d0082bae916955efed8ed80fd2d951",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

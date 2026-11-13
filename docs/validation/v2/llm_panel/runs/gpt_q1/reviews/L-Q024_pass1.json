@@ -1,0 +1,54 @@
+{
+  "item_id": "L-Q024",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Assuming an ideal gas, PV = nRT, so P = (2.0)(8.314)(300.0)/0.049884 = 100000 Pa.",
+    "assumptions": [
+      "The gas in A obeys the ideal-gas equation of state.",
+      "The stated temperature describes an equilibrium state."
+    ],
+    "answer": 100000,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The problem does not specify ideal-gas behavior or another equation of state, so the stated amount, temperature and volume do not uniquely determine pressure."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    "A nonideal gas with compressibility factor Z = 0.98 at the specified state would have P = ZnRT/V approximately 98000 Pa instead of 100000 Pa."
+  ],
+  "notes": "All four variants have the same conditional ideal-gas answer, approximately 1.0e5 Pa at the supplied precision. Container B's pressure is structurally disconnected (D) in every variant because B is explicitly completely unconnected to A. The variants change only B's pressure, consistently expressed in Pa. The unusually precise volume and explicitly unrelated container make the presentation slightly artificial.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T12:54:07+00:00",
+  "completed_at": "2026-11-13T12:54:53+00:00",
+  "minutes_spent": 0.77,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f4669d08e8c07cc66519058986bb84b91a872a46241094747203ac21bae331e4",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

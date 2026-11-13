@@ -1,0 +1,79 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "R-529",
+  "pass_number": 2,
+  "started_at": "2026-11-13T12:52:42+00:00",
+  "completed_at": "2026-11-13T12:53:26+00:00",
+  "minutes_spent": 0.74,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Nonrelativistically, pc = sqrt(2(mc²)K) and λ = hc/(pc). Converting mc² to 511000 eV gives λ = 1240/sqrt(2 × 511000 × 150) nm = 100.15 pm. An additional energy q supplied to the target electron replaces K by 150 eV + q.",
+    "assumptions": [
+      "Use the stipulated nonrelativistic approximation.",
+      "Express both energy inputs in compatible units before numerical substitution.",
+      "Energy supplied to the separate particles has no stated physical coupling to the target electron."
+    ],
+    "answer": 100.15,
+    "unit": "pm"
+  },
+  "stratum_assignments": {
+    "T6713": {
+      "stratum": "R",
+      "answer_with_sentence": 77.5758,
+      "regime": null
+    },
+    "TBF36": {
+      "stratum": "D",
+      "answer_with_sentence": 100.15,
+      "regime": null
+    },
+    "T4D5A": {
+      "stratum": "D",
+      "answer_with_sentence": 100.15,
+      "regime": null
+    },
+    "T0BD2": {
+      "stratum": "R",
+      "answer_with_sentence": 77.5758,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TBF36 states 200 eV, whereas its claimed minimal partner T6713 states 100 eV and its own value_shown metadata incorrectly specifies 100 eV."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "medium"
+  },
+  "counterexamples": [],
+  "notes": "The physical classifications, wiring and certified numerical answers are correct. For either relevant sentence, q = 50, 100 and 200 eV gives 86.7324, 77.5758 and 65.5635 pm, respectively; both disconnected sentences preserve 100.15 pm. The maximum total kinetic energy is 350 eV, well within the stipulated nonrelativistic regime and the authors' loose 500 eV bound. The relations require converting the supplied keV rest energy to eV when using hc in eV nm. Pass 1 expressed the same wavelengths in nm; conversion to the now-specified target unit pm introduces no substantive disagreement. The invalid verdict concerns the mismatched rendering and metadata, not the physics or certified wavelengths.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "3b36971f62d9f10163f847e131232cda11b9aa7b6422ed2ddb1e1608dc22a644",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

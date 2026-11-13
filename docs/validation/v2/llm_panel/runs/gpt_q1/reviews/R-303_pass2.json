@@ -1,0 +1,109 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "R-303",
+  "pass_number": 2,
+  "started_at": "2026-11-13T12:58:52+00:00",
+  "completed_at": "2026-11-13T12:59:56+00:00",
+  "minutes_spent": 1.08,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's laws give T_L - m1*g = m1*a, m2*g - T_R = m2*a, and (T_R - T_L)*r = I*a/r. With I = M*r^2/2, a = (m2 - m1)*g/(m1 + m2 + M/2) = 19.6/9.",
+    "assumptions": [
+      "The pulley rotates about a fixed, frictionless axle.",
+      "The string is light, taut, inextensible, intact, and does not slip.",
+      "Gravity is uniform and other external forces are negligible.",
+      "An attached additional block moves together with the left block."
+    ],
+    "answer": 2.1777777778,
+    "unit": "m/s²"
+  },
+  "stratum_assignments": {
+    "T0A1D": {
+      "stratum": "C",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "TA14B": {
+      "stratum": "D",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "TC717": {
+      "stratum": "R",
+      "answer_with_sentence": 1.2,
+      "regime": null
+    },
+    "T316A": {
+      "stratum": "K",
+      "answer_with_sentence": 2.1777777778,
+      "regime": "The intact-string tensions are approximately 35.93 N and 38.11 N, below every certified breaking-strength value."
+    },
+    "TE2E7": {
+      "stratum": "R",
+      "answer_with_sentence": 1.2,
+      "regime": null
+    },
+    "TB44B": {
+      "stratum": "C",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "TAA97": {
+      "stratum": "D",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "TC3E8": {
+      "stratum": "K",
+      "answer_with_sentence": 2.1777777778,
+      "regime": "The intact-string tensions are approximately 35.93 N and 38.11 N, below every certified breaking-strength value."
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "inconsistent_units",
+    "other"
+  ],
+  "defect_reasons": {
+    "inconsistent_units": "The packet specifies target_unit as m/s, whereas the requested acceleration and the governing equation have units m/s².",
+    "other": "Both K claims incorrectly assert acceleration g everywhere outside their strict inequality, including the threshold equality where the string can remain intact."
+  },
+  "defect_severity": {
+    "inconsistent_units": "high",
+    "other": "high"
+  },
+  "counterexamples": [
+    {
+      "claim": "For T316A and TC3E8, outside Max(m1*(g+a), m2*(g-a)) < q the answer is g.",
+      "case": "Set q = 343/9 N, approximately 38.111111 N, equal to the larger intact-string tension.",
+      "result": "The strict inequality is false, but a string that withstands tension up to q, or breaks only above q, can remain intact at equality. Its acceleration remains 19.6/9 m/s², not 9.8 m/s²."
+    }
+  ],
+  "notes": "The pass-1 solution and all eight stratum assignments stand. Every tabulated certified numerical answer is correct to its stated precision: the attached-block answers follow from a(q) = (2-q)*9.8/(9+q). Radius cancels through I/r² = M/2, and all certified strength values exceed the required tensions. Paired sentences preserve their numbers and units and change attachment as intended. The pass-2 invalid verdict concerns the incorrect target-unit metadata and the additional outside-regime assertion, neither of which was assessed in pass 1. More generally, a universal post-break answer also requires specifying the failure and subsequent contact conditions.",
+  "equation_consistent": true,
+  "units_consistent": false,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "2741bf66cd91fdca96ba09db0925d93d938e3e3dbf722796f1f8f39165043499",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

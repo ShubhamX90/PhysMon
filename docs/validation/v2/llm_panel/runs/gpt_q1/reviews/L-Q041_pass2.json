@@ -1,0 +1,59 @@
+{
+  "item_id": "L-Q041",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For an ideal gas, P_A V_A = n_A R T_A, giving P_A = (0.5)(8.314)(500.0)/0.020785 = 100000 Pa.",
+    "assumptions": [
+      "Gas A obeys the ideal-gas equation of state, which the rendered problems do not specify.",
+      "Gas A is in thermodynamic equilibrium."
+    ],
+    "answer": 100000,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The rendered problems specify neither ideal-gas behavior nor another equation of state, so amount, temperature and volume do not uniquely determine pressure."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    "A gas with compressibility factor Z = 0.99 at the specified temperature and molar volume would have P_A = Z n_A R T_A/V_A = 99000 Pa; the rendered problems do not exclude this behavior."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "The pass-1 judgment stands. The supplied equation and numerical answer are correct conditional on ideal-gas behavior: J/m^3 equals Pa, and the supplied parameter values give exactly 100000 Pa. Calling R the ideal gas constant in the authors' parameters does not establish ideal-gas behavior in the rendered problems. Container B is structurally disconnected in all four variants, so its pressure cannot affect the target. The authors' free-symbol argument establishes invariance within their assumed equation but does not justify that equation for the unspecified gas. The differing B pressures are intentional legacy parameter changes, not a minimal-pair defect.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T12:55:41+00:00",
+  "completed_at": "2026-11-13T12:56:02+00:00",
+  "minutes_spent": 0.36,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "8a2e53e5b193d3f2b428d8f7a5fb8a58b4edd9c6cc929a3c865216e5e5a33820",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

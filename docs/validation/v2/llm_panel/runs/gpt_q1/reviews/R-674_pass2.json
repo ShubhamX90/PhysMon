@@ -1,0 +1,79 @@
+{
+  "item_id": "R-674",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Snell's law gives theta2 = arcsin(n1*sin(theta1)/n2). With n1 = 1, n2 = 1.5 and theta1 = 40°, theta2 = 25.374°. Tilting the ray farther from the normal by q replaces theta1 with 40° + q.",
+    "assumptions": [
+      "The media are homogeneous and isotropic, and geometrical optics applies.",
+      "The interface and refractive indices remain unchanged when the incoming ray is tilted.",
+      "Trigonometric functions use consistent angular units."
+    ],
+    "answer": 25.374,
+    "unit": "degrees"
+  },
+  "stratum_assignments": {
+    "T3DFF": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    },
+    "T1482": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    },
+    "TBC1C": {
+      "stratum": "R",
+      "answer_with_sentence": 30.7102,
+      "regime": null
+    },
+    "T7A9C": {
+      "stratum": "R",
+      "answer_with_sentence": 30.7102,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "inconsistent_units"
+  ],
+  "defect_reasons": {
+    "inconsistent_units": "The declared target_unit is rad/s, an angular velocity unit, whereas the requested refraction angle and certified numerical answers require degrees."
+  },
+  "defect_severity": {
+    "inconsistent_units": "high"
+  },
+  "counterexamples": [],
+  "notes": "The pass-1 solution and stratum assignments stand. The graph, wiring and Snell relation are correct. Both disconnected tilts leave the answer at 25.374° for every listed value. Both ray tilts give 28.1255°, 30.7102° and 33.1° for q = 5°, 10° and 15°, respectively, within the stated precision. All incident angles remain physically admissible. Paired sentences preserve the shown magnitude and unit and change the intended attachment. answer_correct refers to the numerical answers interpreted in degrees; the incompatible target-unit claim makes the complete item invalid.",
+  "equation_consistent": true,
+  "units_consistent": false,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T13:02:38+00:00",
+  "completed_at": "2026-11-13T13:03:05+00:00",
+  "minutes_spent": 0.45,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "8cc56237bae8fbca090755c21bdfd0730f501737c623705f486daa0c943f515f",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

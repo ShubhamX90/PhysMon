@@ -1,0 +1,142 @@
+{
+  "blind_stratum_agreement": {
+    "agree": 48,
+    "missing": 0,
+    "n": 50,
+    "rate": 0.96
+  },
+  "checks": {
+    "Q1_detected_for_declared_reason": {
+      "detected": 34,
+      "min": 0.85,
+      "n": 39,
+      "pass": true,
+      "value": 0.8717948717948718
+    },
+    "Q2_legacy_valid_accepted": {
+      "accepted": 4,
+      "min": 5,
+      "n": 6,
+      "pass": false
+    },
+    "Q3_all_valid_accepted": {
+      "accepted": 9,
+      "min": 0.85,
+      "n": 14,
+      "pass": false,
+      "value": 0.6428571428571429
+    },
+    "Q4_no_type_missed": {
+      "missed_types": [
+        "contradictory_distractor_statement"
+      ],
+      "pass": false
+    }
+  },
+  "contested_items": {
+    "L-Q024": {
+      "detected": true,
+      "reason": "'ideal' deleted; at 1 bar and 300 K a careful physicist may assume an ideal gas"
+    },
+    "L-Q028": {
+      "detected": true,
+      "reason": "'ideal' deleted; at 1 bar and 300 K a careful physicist may assume an ideal gas"
+    },
+    "L-Q041": {
+      "detected": true,
+      "reason": "'ideal' deleted; at 1 bar and 300 K a careful physicist may assume an ideal gas"
+    },
+    "L-Q043": {
+      "detected": false,
+      "reason": "the coupling does not change the answer (Kirchhoff's current law at the junction)"
+    },
+    "L-Q048": {
+      "detected": true,
+      "reason": "Q = m c dT uses A's own stated rise, so the coupling does not change the answer"
+    }
+  },
+  "flags_outside_vocabulary": {},
+  "missing_pass2_reviews": [],
+  "per_type": {
+    "contradictory_distractor_statement": {
+      "detected": 0,
+      "detected_exact_term": 0,
+      "flagged": 0,
+      "n": 3,
+      "pass1_detected": 0
+    },
+    "failed_transformation_identity": {
+      "detected": 5,
+      "detected_exact_term": 5,
+      "flagged": 5,
+      "n": 5,
+      "pass1_detected": 3
+    },
+    "hidden_coupling": {
+      "detected": 4,
+      "detected_exact_term": 4,
+      "flagged": 4,
+      "n": 5,
+      "pass1_detected": 0
+    },
+    "inconsistent_units": {
+      "detected": 5,
+      "detected_exact_term": 5,
+      "flagged": 5,
+      "n": 5,
+      "pass1_detected": 3
+    },
+    "insufficient_boundary_condition": {
+      "detected": 3,
+      "detected_exact_term": 3,
+      "flagged": 3,
+      "n": 3,
+      "pass1_detected": 3
+    },
+    "invalid_numerical_precision": {
+      "detected": 2,
+      "detected_exact_term": 2,
+      "flagged": 3,
+      "n": 3,
+      "pass1_detected": 0
+    },
+    "invalid_parameter_domain": {
+      "detected": 5,
+      "detected_exact_term": 5,
+      "flagged": 5,
+      "n": 5,
+      "pass1_detected": 3
+    },
+    "missing_assumption": {
+      "detected": 3,
+      "detected_exact_term": 3,
+      "flagged": 3,
+      "n": 3,
+      "pass1_detected": 3
+    },
+    "relevant_variable_removed_from_equation": {
+      "detected": 5,
+      "detected_exact_term": 5,
+      "flagged": 5,
+      "n": 5,
+      "pass1_detected": 0
+    },
+    "rendering_not_minimal": {
+      "detected": 2,
+      "detected_exact_term": 2,
+      "flagged": 2,
+      "n": 2,
+      "pass1_detected": 0
+    }
+  },
+  "review_errors": {},
+  "split": "qualification",
+  "valid": {
+    "accepted": 9,
+    "legacy_accepted": 4,
+    "legacy_n": 6,
+    "n": 14,
+    "valid_but_high_severity_flag": 0
+  },
+  "verdict": "NOT_QUALIFIED"
+}

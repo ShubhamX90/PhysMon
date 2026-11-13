@@ -1,0 +1,84 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "R-704",
+  "pass_number": 1,
+  "started_at": "2026-11-13T13:03:05+00:00",
+  "completed_at": "2026-11-13T13:03:49+00:00",
+  "minutes_spent": 0.73,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law gives T_L - m_L g = m_L a and m_R g - T_R = m_R a. Pulley rotation gives (T_R - T_L)r = I a/r, with I = Mr²/2. Thus a = (m_R - m_L)g/(m_L + m_R + M/2) = 19.6/9.",
+    "assumptions": [
+      "The pulley rotates about a fixed, frictionless axle.",
+      "The string is taut and inextensible, and its mass is negligible.",
+      "The blocks hang freely without contacting other objects.",
+      "Air resistance is negligible."
+    ],
+    "answer": 2.1777777778,
+    "unit": "m/s²"
+  },
+  "stratum_assignments": {
+    "TB39A": {
+      "stratum": "R",
+      "answer_with_sentence": 1.2,
+      "regime": null
+    },
+    "TA3B0": {
+      "stratum": "R",
+      "answer_with_sentence": 1.2,
+      "regime": null
+    },
+    "TFE1B": {
+      "stratum": "K",
+      "answer_with_sentence": 2.1777777778,
+      "regime": "The string remains intact: the two side tensions are approximately 35.93 N and 38.11 N, both below 200 N."
+    },
+    "TDDE2": {
+      "stratum": "C",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "TFF18": {
+      "stratum": "C",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "TE857": {
+      "stratum": "K",
+      "answer_with_sentence": 2.1777777778,
+      "regime": "The string remains intact: the two side tensions are approximately 35.93 N and 38.11 N, both below 200 N."
+    },
+    "TA3AE": {
+      "stratum": "D",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Using conventional ideal Atwood-machine assumptions, the problem has a unique answer. Either attached block increases the left moving mass to 3.8 kg, giving a = (5 - 3.8)9.8/(3.8 + 5 + 1) = 1.2 m/s². The shelf-supported block has no mechanical connection to the moving system. Pulley radius enters both the moment of inertia and the torque/kinematic relations, then cancels through I/r² = M/2. All mass variants consistently specify 0.8 kg, both radius variants specify 12 cm, and both strength variants specify 200 N; the attachment changes and wording variants introduce no unintended numerical differences.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "6260e57530ae39aa4ac8a65cb961a6997548e3f13d3f4e38b13ac1751ad5d72c",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

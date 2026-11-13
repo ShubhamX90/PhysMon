@@ -1,0 +1,63 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "L-Q058",
+  "pass_number": 2,
+  "started_at": "2026-11-13T13:05:33+00:00",
+  "completed_at": "2026-11-13T13:05:56+00:00",
+  "minutes_spent": 0.37,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Q = mcΔT. Substituting the rendered values gives Q = (-2.0)(4186.0)(5.0) = -41860 J, formally.",
+    "assumptions": [
+      "Specific heat is constant over the temperature interval.",
+      "Heating involves no phase change.",
+      "An ordinary water sample requires positive mass, which the rendered problem violates."
+    ],
+    "answer": -41860.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "invalid_parameter_domain",
+    "failed_transformation_identity"
+  ],
+  "defect_reasons": {
+    "invalid_parameter_domain": "Every rendering assigns the water sample a physically inadmissible mass of -2.0 kg.",
+    "failed_transformation_identity": "The certified answer +41860 J uses the metadata mass +2.0 kg, whereas the rendered mass -2.0 kg yields -41860 J under the stated equation."
+  },
+  "defect_severity": {
+    "invalid_parameter_domain": "high",
+    "failed_transformation_identity": "high"
+  },
+  "counterexamples": [
+    "In the 10 s variant, substituting the stated mass into Q = mcΔT yields -41860 J rather than the certified +41860 J; the same discrepancy occurs in all four variants."
+  ],
+  "notes": "The pass-1 assessment stands. The governing equation and the authors' observation-duration independence argument are correct, but the positive mass in the parameter metadata conflicts with every rendering. The later observation duration is structurally disconnected from the target, and the variants change only its numerical value while retaining seconds. The reported negative answer is formal algebra; no physically admissible water sample satisfies the stated mass.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "610b405a61e30ad69f19131c94c964e406cf29d8ef96d44e31bb7ca5f3ab2956",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "item_id": "L-Q057",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Power is energy per unit time. Unit identities: 1 W = 1 J/s, 1 kW = 1000 W, and 1 mW = 0.001 W.",
+    "assumptions": [
+      "Each meter reading is converted directly using the stated unit."
+    ],
+    "answer": 200,
+    "unit": "W"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The second rendering reports 220 W, whereas the other three report 200 W, so the variants change the physical power as well as its representation."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "The second variant gives 0.22 kW × 1000 W/kW = 220 W, which differs from 200 W by 20 W."
+  ],
+  "notes": "Answers in packet order are 200 W, 220 W, 200 W, and 200 W. Each rendering is individually well-posed; the invalid verdict concerns their inconsistency as renderings of one problem. No separate base problem or added distractor statements are supplied.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "started_at": "2026-11-13T13:06:07+00:00",
+  "completed_at": "2026-11-13T13:06:29+00:00",
+  "minutes_spent": 0.36,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "51341790b404bd26f2ce312ff3808b75703ea15dce3866c49e0ad5a9d9266d37",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

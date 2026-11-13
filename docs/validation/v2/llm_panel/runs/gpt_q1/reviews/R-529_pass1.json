@@ -1,0 +1,73 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_q1",
+  "item_id": "R-529",
+  "pass_number": 1,
+  "started_at": "2026-11-13T12:52:06+00:00",
+  "completed_at": "2026-11-13T12:52:42+00:00",
+  "minutes_spent": 0.6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Using K = p²/(2m) and λ = h/p gives λ = hc/√(2mc²K). At K = 150 eV, λ = 1240/√(2 × 511000 × 150) nm = 0.10015 nm.",
+    "assumptions": [
+      "Use the stipulated nonrelativistic approximation.",
+      "The electron retains its stated kinetic energy until wavelength determination, except for any explicitly added accelerating stage."
+    ],
+    "answer": 0.10015,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "T6713": {
+      "stratum": "R",
+      "answer_with_sentence": 0.077576,
+      "regime": null
+    },
+    "TBF36": {
+      "stratum": "D",
+      "answer_with_sentence": 0.10015,
+      "regime": null
+    },
+    "T4D5A": {
+      "stratum": "D",
+      "answer_with_sentence": 0.10015,
+      "regime": null
+    },
+    "T0BD2": {
+      "stratum": "R",
+      "answer_with_sentence": 0.077576,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TBF36 specifies an additional kinetic energy of 200 eV, whereas the other variants specify 100 eV, violating the required equality of number and unit across variants."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "medium"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and each individual augmented problem have definite answers. T6713 and T0BD2 increase the target electron's kinetic energy to 250 eV. TBF36 and T4D5A describe energy supplied to separate particles with no stated physical connection to the target electron. The invalid verdict concerns the variant-matching requirement, not the wavelength calculation.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "efe9b5e29f1a7fd461db1e05b27c6d099a4569d2103dd9cc807ebc9bdcd29f1c",
+    "frozen_prompt_sha256": "55622a155143e751325743361a610529f0b8d6821451128d340bf5ef08cdd841",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}
