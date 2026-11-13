@@ -1,4 +1,4 @@
-# DRAFT for user review (G1 freeze): open questions for the user
+# ADOPTED 2026-11-13 as amended by `decisions_2026-11-13.md` (G1 freeze pending the items listed there): open questions for the user
 
 Status: DRAFT, 2026-11-13, agent-written. Each item is a choice the plan of record (`docs/proposals/PhysMon_Research_v2.tex`)
 leaves to G1, or a gap found while drafting the other files in this folder. Format: question; options;

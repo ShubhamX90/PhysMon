@@ -1,4 +1,4 @@
-# DRAFT for user review (G1 freeze): G3 hypothesis scorecard thresholds (H0-H6)
+# ADOPTED 2026-11-13 as amended by `decisions_2026-11-13.md` (G1 freeze pending the items listed there): G3 hypothesis scorecard thresholds (H0-H6)
 
 Status: DRAFT, 2026-11-13, agent-written, nothing run. Implements G1 element "the scorecard criteria of G3 with numeric
 thresholds" (plan `sec:gates` G1; G3 item 3) for the hypotheses of `sec:hypotheses`.

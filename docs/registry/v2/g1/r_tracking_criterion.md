@@ -1,4 +1,4 @@
-# DRAFT for user review (G1 freeze): minimum R-tracking criterion
+# ADOPTED 2026-11-13 as amended by `decisions_2026-11-13.md` (G1 freeze pending the items listed there): minimum R-tracking criterion
 
 Status: DRAFT, 2026-11-13, agent-written, nothing run. Implements G1 element "the minimum R-tracking criterion checked
 in G2" (plan `sec:gates` G1; G2 item 3; G3 gate; H6 row of `sec:hypotheses`).

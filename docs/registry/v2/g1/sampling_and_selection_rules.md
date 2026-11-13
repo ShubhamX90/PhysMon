@@ -1,4 +1,4 @@
-# DRAFT for user review (G1 freeze): band, sampling and selection rules
+# ADOPTED 2026-11-13 as amended by `decisions_2026-11-13.md` (G1 freeze pending the items listed there): band, sampling and selection rules
 
 Status: DRAFT, 2026-11-13, agent-written, nothing run. Implements the G1 elements "sampling may be adaptive only by a
 rule fixed in G1" (G3 item 1), "G3 can add at most one secondary family to G4, chosen by a rule fixed in G1" (G3 gate),

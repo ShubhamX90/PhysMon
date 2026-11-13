@@ -1,4 +1,4 @@
-# DRAFT for user review (G1 freeze): experiment cards X01-X12
+# ADOPTED 2026-11-13 as amended by `decisions_2026-11-13.md` (G1 freeze pending the items listed there): experiment cards X01-X12
 
 Status: DRAFT, written 2026-11-13 by an agent (CPU only; nothing was run for this file). Not frozen until the user
 approves it and the decision log records the G1 freeze.
