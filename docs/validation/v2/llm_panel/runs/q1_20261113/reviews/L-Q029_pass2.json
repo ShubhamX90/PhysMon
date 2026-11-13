@@ -1,0 +1,46 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch12",
+  "item_id": "L-Q029",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:37:00Z",
+  "completed_at": "2026-11-13T10:42:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Sensible heat: Q_A = m_A c_A Delta T_A",
+    "assumptions": [
+      "No phase change; constant specific heat",
+      "No work done on A",
+      "Mass taken as 2.0 kg (the authors' parameter), not the -2.0 kg printed in every rendering"
+    ],
+    "answer": 41860.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "unclear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_parameter_domain", "other", "contradictory_distractor_statement"],
+  "defect_reasons": {
+    "invalid_parameter_domain": "Every rendering states a mass of -2.0 kg of water, which is physically impossible.",
+    "other": "The rendered text (m = -2.0 kg) disagrees with the authors' parameter table (m_A = 2.0 kg); evaluating the stated relation on the text as written gives -41860 J, not the certified 41860 J, so the certified answer does not correspond to the problem the solver sees.",
+    "contradictory_distractor_statement": "Container B is called insulated and thermally isolated yet is said to absorb heat; internally inconsistent though it does not affect A."
+  },
+  "defect_severity": {
+    "invalid_parameter_domain": "high",
+    "other": "high",
+    "contradictory_distractor_statement": "low"
+  },
+  "counterexamples": [
+    "A solver who applies Q = m c Delta T literally to the text gets (-2.0)(4186.0)(5.0) = -41860 J, which the certified answer 41860 J would mark wrong; a solver who flags the negative mass as impossible gives no number at all."
+  ],
+  "notes": "The governing relation, units (kg * J/(kg K) * K = J) and the arithmetic 2.0 * 4186.0 * 5.0 = 41860 J are correct for the authors' parameters, and the distractor invariance claim (Q_B absent from the relation; renderings differ only in B's heat) holds. The item fails because the rendering corrupts the mass sign (apparently a rendering/perturbation bug), so the problem shown is physically impossible and does not match the certified parameters. Rendering 3 additionally sets B's heat to 41860 J, equal to the certified answer (numeric lure). Fix: render the mass as 2.0 kg. Pass 2 agrees with pass 1.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

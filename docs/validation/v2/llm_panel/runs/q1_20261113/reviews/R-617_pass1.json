@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch04",
+  "item_id": "R-617",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:24:30Z",
+  "completed_at": "2026-11-13T10:33:00Z",
+  "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Static equilibrium with Archimedes' principle: T = (rho_liquid - rho_cube) V g, V = (0.10 m)^3 = 1.0e-3 m^3; buoyancy 1000*1e-3*9.8 = 9.8 N, weight 600*1e-3*9.8 = 5.88 N, T = 3.92 N",
+    "assumptions": ["incompressible liquid of uniform density", "light (massless) vertical string", "cube fully submerged and at rest, not touching walls or bottom", "string pulls straight down on the cube"],
+    "answer": 3.92,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T4FA4": {"stratum": "K", "answer_with_sentence": null, "regime": "The breaking strength is irrelevant only while it exceeds the required tension (3.92 N). The stated 2 N is BELOW 3.92 N, so the string would break and the cube could not be held at rest: the sentence contradicts the problem and no static tension answer exists."},
+    "TDB71": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T5A82": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "T0CF0": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T25E6": {"stratum": "K", "answer_with_sentence": null, "regime": "Same as T4FA4: irrelevant only if the rating exceeds 3.92 N; 2 N < 3.92 N, so the string breaks, contradicting the stated equilibrium."},
+    "T1C91": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null},
+    "TBDC5": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "T1946": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["contradictory_distractor_statement", "invalid_parameter_domain"],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "T4FA4 and T25E6 give a 2 N string strength, but holding the cube requires 3.92 N, so the string would break and the problem's 'held at rest' is contradicted.",
+    "invalid_parameter_domain": "If these sentences are meant as conditionally irrelevant (K), the stated 2 N lies outside the regime (strength > 3.92 N) where the string strength does not matter."
+  },
+  "defect_severity": {"contradictory_distractor_statement": "high", "invalid_parameter_domain": "high"},
+  "counterexamples": ["With T4FA4 or T25E6 added: required tension 3.92 N > 2 N maximum, so the static configuration is impossible; any certified answer of 3.92 N would be inconsistent with the sentence."],
+  "notes": "Liquid 1250 kg/m^3 in the tank: buoyancy 12.25 N, T = 12.25 - 5.88 = 6.37 N (R for T5A82 and TBDC5). Depth sentences (T1C91, T1946): hydrostatic pressure on the faces depends on depth but the net upward force (buoyancy) does not for an incompressible liquid, so depth cancels (C), answer 3.92 N. Variant checks: liquid sentences all state 1250 kg/m^3; strength sentences both 2 N; depth sentences both 50 cm. T1C91 and T1946 are wording variants with the same attachment (both the cube in the tank), which is fine. The remaining six sentences are sound; the defect is confined to the two 2 N sentences."
+}

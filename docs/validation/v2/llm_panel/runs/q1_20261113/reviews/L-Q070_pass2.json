@@ -1,0 +1,40 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch09",
+  "item_id": "L-Q070",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:14:30Z",
+  "completed_at": "2026-11-13T10:18:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Work by a constant force parallel to displacement: W = F * d",
+    "assumptions": ["constant force", "force parallel to displacement", "battery exerts no force on the box"],
+    "answer": 160.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["failed_transformation_identity", "missing_assumption"],
+  "defect_reasons": {
+    "failed_transformation_identity": "The certified answer 200 J does not follow from the stated relation W = F*d with F = 20.0 N and d = 8.0 m, which gives 160 J.",
+    "missing_assumption": "That the displacement is parallel to the applied force (theta = 0) is implied but not stated in the assumptions or the problem."
+  },
+  "defect_severity": {
+    "failed_transformation_identity": "high",
+    "missing_assumption": "low"
+  },
+  "counterexamples": [
+    "W = F*d = 20.0 N * 8.0 m = 160 J, not the certified 200 J; this holds in every rendering since the battery energy does not enter."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "The governing equation, parameters, units and the invariance argument (battery is disconnected, D) are all correct and agree with my pass 1 (160 J). Only the certified answer display is wrong: 200 J instead of 160 J. Note that 200 J coincides with the battery energy in the third rendering, suggesting the certified answer may have been taken from a distractor value; whatever the cause, the item as certified is wrong and needs its answer corrected to 160 J."
+}

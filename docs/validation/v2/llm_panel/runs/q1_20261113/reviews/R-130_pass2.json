@@ -1,0 +1,45 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch07",
+  "item_id": "R-130",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:28:30Z",
+  "completed_at": "2026-11-13T10:34:00Z",
+  "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Simple pendulum, small-angle: T = 2 pi sqrt(L/g)",
+    "assumptions": ["point-mass bob", "light inextensible string", "small amplitude", "no damping"],
+    "answer": 1.7952,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TC874": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null},
+    "T9BC6": {"stratum": "R", "answer_with_sentence": 2.1987, "regime": null},
+    "TC4D9": {"stratum": "C", "answer_with_sentence": 1.7952, "regime": null},
+    "T88E8": {"stratum": "C", "answer_with_sentence": 1.7952, "regime": null},
+    "TC403": {"stratum": "R", "answer_with_sentence": 2.1987, "regime": null},
+    "TF69B": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["failed_transformation_identity"],
+  "defect_reasons": {
+    "failed_transformation_identity": "The R claims (T9BC6, TC403) state the wiring L -> L + q but the certified answers 1.55469, 1.2694, 0.897598 s are 2 pi sqrt((L - q)/g) for q = 0.2, 0.4, 0.6 m; the correct answers are 2.0071, 2.1987, 2.3748 s."
+  },
+  "defect_severity": {"failed_transformation_identity": "high"},
+  "counterexamples": [
+    "T9BC6 / TC403 at q = 0.4 m: L = 1.2 m, T = 2 pi sqrt(1.2/9.8) = 2.1987 s, not the certified 1.2694 s (which is 2 pi sqrt(0.4/9.8)).",
+    "At q = 0.2 m: T = 2 pi sqrt(1.0/9.8) = 2.0071 s vs certified 1.55469 s; at q = 0.6 m: T = 2 pi sqrt(1.4/9.8) = 2.3748 s vs certified 0.897598 s. A longer pendulum cannot have a shorter period."
+  ],
+  "notes": "Base answer 1.7952 s correct. Mass cancellation (C) and the drawer / far-wall cords (D) are correct; paired sentences differ only in attachment (0.4 m, 0.5 kg). The relevant-sentence certified answers decrease with q, matching subtraction rather than the stated addition, and contradict both the sentences ('the bob now hangs lower') and the authors' own wiring. Agrees with pass 1."
+  ,
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

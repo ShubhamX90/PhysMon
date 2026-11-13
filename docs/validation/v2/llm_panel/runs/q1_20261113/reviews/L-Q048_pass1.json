@@ -1,0 +1,43 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch01",
+  "item_id": "L-Q048",
+  "pass_number": 1,
+  "started_at": "2026-11-13T00:08:00Z",
+  "completed_at": "2026-11-13T00:15:00Z",
+  "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Sensible heat (first law with no work, no phase change): Q_A = m c dT",
+    "assumptions": [
+      "No phase change in system A over the 10 K rise",
+      "No work done on or by system A (constant pressure, negligible expansion work), so the net heat into A equals its internal-energy rise",
+      "c is constant over the temperature range",
+      "'Heat added to system A' means net heat received by A"
+    ],
+    "answer": 41860.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["contradictory_distractor_statement", "hidden_coupling", "missing_assumption"],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "Calorimeter B is described as 'insulated' and in the same sentence as 'thermally coupled to system A', which is self-contradictory and is not a clean disconnected distractor.",
+    "hidden_coupling": "Because B is stated to be thermally coupled to A, B's absorbed heat can plausibly be read as having flowed from (or through) A, so a reader may compute the heat supplied to A as m c dT + Q_B (e.g. 41860 + 22000 = 63860 J) rather than 41860 J.",
+    "missing_assumption": "The problem does not say whether 'heat added to A' means net heat (fixed by A's temperature rise) or gross heat supplied to A before any transfer to B; with a stated coupling these differ."
+  },
+  "defect_severity": {
+    "contradictory_distractor_statement": "high",
+    "hidden_coupling": "medium",
+    "missing_assumption": "medium"
+  },
+  "counterexamples": [
+    "Variant 1 read as 'a heater warms A, and A loses 22000 J to the coupled calorimeter B': heat supplied to A = 41860 + 22000 = 63860 J, not 41860 J.",
+    "Variant 4: if B absorbed 65000 J from A and A still rose 10 K, the gross heat input to A would be 106860 J."
+  ],
+  "notes": "Per-variant answers under the net-heat reading: all four are 41860 J (m c dT = 1.0 x 4186.0 x 10.0). Under the gross-heat reading (B's heat came from A), answers are 63860, 82860, 83860 and 106860 J. Variants 2 and 3 use 41000 J and 42000 J, close to the true 41860 J, which acts as a numeric lure. The 'insulated ... but thermally coupled' wording makes the distractor incoherent; a clean disconnected distractor would say B is insulated and not in thermal contact with A. Answer magnitude 4.186e4 J; certified answer at stated precision should be about 4.19e4 J (or 41860 J)."
+}

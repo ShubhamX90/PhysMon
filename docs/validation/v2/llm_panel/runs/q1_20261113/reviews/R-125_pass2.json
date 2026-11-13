@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch04",
+  "item_id": "R-125",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:06:30Z",
+  "completed_at": "2026-11-13T10:12:00Z",
+  "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "RC charging: V_C(t) = V0 (1 - exp(-t/(R C))), tau = 0.1 s, V_C(80 ms) = 12 (1 - e^{-0.8})",
+    "assumptions": ["ideal battery and wires", "no capacitor leakage", "capacitor initially uncharged"],
+    "answer": 6.60805,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "TD847": {"stratum": "R", "answer_with_sentence": 5.22338, "regime": null},
+    "T97FD": {"stratum": "D", "answer_with_sentence": 6.60805, "regime": null},
+    "T01DF": {"stratum": "R", "answer_with_sentence": 5.22338, "regime": null},
+    "TC3C7": {"stratum": "K", "answer_with_sentence": 6.60805, "regime": "irrelevant while the opening time exceeds 80 ms"},
+    "T3BFD": {"stratum": "D", "answer_with_sentence": 6.60805, "regime": null},
+    "T821E": {"stratum": "K", "answer_with_sentence": 6.60805, "regime": "irrelevant while the disconnection time exceeds 80 ms"}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Checked certified answers: q = 1 kOhm: tau = 0.12 s, 12(1 - e^{-0.6667}) = 12 * 0.48658 = 5.83899 V; q = 2 kOhm: tau = 0.14 s, 5.22338 V; q = 5 kOhm: tau = 0.2 s, 12(1 - e^{-0.4}) = 3.95616 V. All match. K values 300, 500, 1000 ms all exceed 80 ms, so the answer stays 6.60805 V; the outside-regime expression V0(1 - exp(-q/tau)) is correct because an open-circuited ideal, non-leaking capacitor holds its voltage. Minimal pairs (T3BFD with T01DF, T97FD with TD847) state the same 2 kOhm and differ only in attachment; TC3C7 and T821E both state 500 ms. Agrees with my pass 1.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

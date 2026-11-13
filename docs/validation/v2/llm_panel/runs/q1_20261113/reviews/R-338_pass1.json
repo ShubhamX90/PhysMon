@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch07",
+  "item_id": "R-338",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:00:00Z",
+  "completed_at": "2026-11-13T10:07:00Z",
+  "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law along the incline (or work-energy theorem): a = g(sin theta - mu_k cos theta); v^2 = v0^2 + 2 a d",
+    "assumptions": ["block treated as a particle sliding without tipping", "constant mu_k", "no air resistance", "block starts from rest at the start of the 4 m", "block does start to slide (mu_s < tan 30 deg = 0.577)"],
+    "answer": 5.387,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T9630": {"stratum": "C", "answer_with_sentence": 5.387, "regime": null},
+    "T4340": {"stratum": "K", "answer_with_sentence": 5.387, "regime": "mu_s < tan(30 deg) = 0.577 so the block starts sliding from rest; 0.35 is inside this regime"},
+    "TD05D": {"stratum": "R", "answer_with_sentence": 6.597, "regime": null},
+    "T908A": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null},
+    "T1BB6": {"stratum": "K", "answer_with_sentence": 5.387, "regime": "mu_s < tan(30 deg) = 0.577 so the block starts sliding from rest; 0.35 is inside this regime"},
+    "T8540": {"stratum": "C", "answer_with_sentence": 5.387, "regime": null},
+    "T4D96": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null},
+    "T1D64": {"stratum": "R", "answer_with_sentence": 6.597, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "a = 9.8(0.5 - 0.15*0.8660) = 3.627 m/s^2; v = sqrt(2*3.627*4) = 5.387 m/s. With the 2 m prior slide on the same incline, v0^2 = 2*3.627*2 = 14.51, v^2 = 43.52, v = 6.597 m/s. Mass variants (T9630, T8540) both state 2 kg; static-friction variants (T4340, T1BB6) both state 0.35; prior-slide variants (TD05D, T908A, T4D96, T1D64) all state 2 m. TD05D/T1D64 slightly strain the base wording 'released from rest ... slides 4 m' but each explicitly says the stated distance began after 2 m of sliding, so the reading is unambiguous. T908A/T4D96 imply the block was placed on the incline and then released from rest, so the earlier slide is disconnected."
+}

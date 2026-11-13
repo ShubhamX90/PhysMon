@@ -1,0 +1,38 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch12",
+  "item_id": "L-Q016",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:10:00Z",
+  "completed_at": "2026-11-13T10:16:00Z",
+  "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Work done by a constant force: W = F d cos(theta)",
+    "assumptions": [
+      "The force is parallel to the displacement (theta = 0; not stated explicitly, implied by 'pushes ... through')",
+      "Calorimeter B has no mechanical or thermal coupling to system A"
+    ],
+    "answer": 42000.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption", "contradictory_distractor_statement"],
+  "defect_reasons": {
+    "missing_assumption": "The angle between the force and the displacement is not stated; W = 42000 J requires the force to be parallel to the displacement.",
+    "contradictory_distractor_statement": "The distractor is internally inconsistent: B is called thermally isolated yet absorbs heat, and the parenthetical 'later note' gives a second, doubled value for the same heat, which can confuse which 'quantity' is being revised (though neither value bears on the work on A)."
+  },
+  "defect_severity": {
+    "missing_assumption": "low",
+    "contradictory_distractor_statement": "low"
+  },
+  "counterexamples": [
+    "If the force made 60 degrees with the displacement, W = 600 * 70 * 0.5 = 21000 J."
+  ],
+  "notes": "W = 600.0 N * 70.0 m = 42000 J in every rendering. The four renderings differ only in the heat value attributed to calorimeter B (20000/41000/42000/65000 J, each with a doubled 'later note' value); B is explicitly not connected to A, so the statement is structurally disconnected and the answer is invariant. Rendering 3 uses 42000 J, exactly equal to the correct answer, and rendering 2 uses 41000 J, close to it; these act as numeric lures but do not change the physics. The phrase 'this same quantity' in the parenthetical could, on a careless reading, be taken to revise something about system A; the most natural reading is that it revises B's heat. 'Thermally isolated' is most plausibly meant as isolated from A, but literally an isolated calorimeter cannot absorb heat."
+}

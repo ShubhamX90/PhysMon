@@ -1,0 +1,40 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch03",
+  "item_id": "L-Q038",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:00:00Z",
+  "completed_at": "2026-11-13T10:06:00Z",
+  "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's law of universal gravitation, F = G M m_A / r^2",
+    "assumptions": [
+      "The mass of object A, written '3.0 m', is read as 3.0 kg (the unit 'm' is metres, not a mass unit)",
+      "Point masses (or spherically symmetric bodies) separated by 20.0 m centre to centre",
+      "Source B exerts no force on A, as stipulated ('never interacts'), e.g. it is negligibly far away"
+    ],
+    "answer": 4.002,
+    "unit": "N"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["inconsistent_units", "contradictory_distractor_statement"],
+  "defect_reasons": {
+    "inconsistent_units": "The mass of object A is given as '3.0 m', where 'm' is a length unit (metres) or an undefined symbol; a force in newtons requires a mass in kg, so the answer is either 4.002 N (reading kg) or 1.334 m N/kg (reading a symbolic mass m).",
+    "contradictory_distractor_statement": "A source of mass 2.0e12-1.2e13 kg that 'never interacts' with A contradicts universal gravitation, which couples every mass pair; the decoupling is asserted by fiat with no stated distance or shielding, so the distractor is physically inconsistent with the problem's own law."
+  },
+  "defect_severity": {
+    "inconsistent_units": "high",
+    "contradictory_distractor_statement": "medium"
+  },
+  "counterexamples": [
+    "Reading '3.0 m' as 3.0 times an unspecified mass m gives F = 1.334 m (N/kg), not a number in N.",
+    "If B (mass 1.2e13 kg) were placed, say, 20 m from A on the opposite side, it would add/subtract G*1.2e13*3/400 = 6.0 N, so the answer is invariant to B only because of the unphysical 'never interacts' stipulation."
+  ],
+  "notes": "Calculation: G M m / r^2 = 6.67e-11 * 8.0e12 * 3.0 / 400 = 6.67e-11 * 6.0e10 = 4.002 N (about 4.0 N). All four renderings differ only in the mass of B (2.0e12, 7.5e12, 8.0e12, 1.2e13 kg); under the stated stipulation the answer is 4.002 N for every rendering. The renderings are otherwise identical word for word."
+}

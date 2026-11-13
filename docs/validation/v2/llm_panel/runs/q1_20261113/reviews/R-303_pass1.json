@@ -1,0 +1,44 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch14",
+  "item_id": "R-303",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:00:00Z",
+  "completed_at": "2026-11-13T10:08:00Z",
+  "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law for each block plus rotational second law for the pulley (uniform disc, I = (1/2) M R^2, no-slip a = alpha R): a = (m2 - m1) g / (m1 + m2 + M/2) = (5 - 3)(9.8)/(3 + 5 + 1) = 19.6/9",
+    "assumptions": [
+      "string is massless and inextensible",
+      "string does not slip on the pulley (stated)",
+      "pulley axle is frictionless (not stated explicitly)",
+      "pulley is a uniform solid disc rotating about its fixed central axis",
+      "blocks hang vertically, no air resistance"
+    ],
+    "answer": 2.178,
+    "unit": "m/s^2"
+  },
+  "stratum_assignments": {
+    "T0A1D": {"stratum": "C", "answer_with_sentence": 2.178, "regime": null},
+    "TA14B": {"stratum": "D", "answer_with_sentence": 2.178, "regime": null},
+    "TC717": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "T316A": {"stratum": "K", "answer_with_sentence": 2.178, "regime": "string remains intact only while both tensions stay below 200 N; actual tensions are T_left = 3(9.8 + 2.178) = 35.9 N and T_right = 5(9.8 - 2.178) = 38.1 N, well inside the regime"},
+    "TE2E7": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "TB44B": {"stratum": "C", "answer_with_sentence": 2.178, "regime": null},
+    "TAA97": {"stratum": "D", "answer_with_sentence": 2.178, "regime": null},
+    "TC3E8": {"stratum": "K", "answer_with_sentence": 2.178, "regime": "string remains intact only while tensions stay below 200 N; tensions are about 36-38 N"}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "The pulley axle being frictionless is not stated, though it is the standard default for this textbook setup."
+  },
+  "defect_severity": {"missing_assumption": "low"},
+  "counterexamples": [],
+  "notes": "Base: a = 19.6/9 = 2.1778 m/s^2. With 0.8 kg attached below the left block (TC717, TE2E7): left mass 3.8 kg, a = (5 - 3.8)(9.8)/(3.8 + 5 + 1) = 11.76/9.8 = 1.200 m/s^2. Radius cancels because I/R^2 = M/2 for a uniform disc, so the radius sentences are C. Variant groups check: T0A1D/TB44B both 12 cm; TA14B/TC717/TE2E7/TAA97 all 0.8 kg; T316A/TC3E8 both 200 N. Wording differs only in attachment/phrasing. TA14B ('drawer in another room') is slightly contrived but harmless."
+}

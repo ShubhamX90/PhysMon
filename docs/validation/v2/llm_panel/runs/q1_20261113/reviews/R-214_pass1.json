@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch02",
+  "item_id": "R-214",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:08:00Z",
+  "completed_at": "2026-11-13T10:18:00Z",
+  "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law along the incline with kinetic friction: a = g(sin(theta) - mu_k cos(theta)); constant-acceleration kinematics v^2 = v0^2 + 2 a d (equivalently work-energy theorem)",
+    "assumptions": ["block starts from rest at the beginning of the 4 m", "Coulomb kinetic friction with constant mu_k", "no air resistance", "block slides without tipping or rolling", "rigid, fixed incline"],
+    "answer": 5.387,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T513A": {"stratum": "C", "answer_with_sentence": 5.387, "regime": null},
+    "T8A07": {"stratum": "K", "answer_with_sentence": 5.387, "regime": "mu_s < tan(30 deg) = 0.577, so the block starts to slide from rest; for mu_s >= 0.577 it would not move"},
+    "T3451": {"stratum": "R", "answer_with_sentence": 6.597, "regime": null},
+    "T529A": {"stratum": "C", "answer_with_sentence": 5.387, "regime": null},
+    "T0B87": {"stratum": "K", "answer_with_sentence": 5.387, "regime": "mu_s < tan(30 deg) = 0.577, so the block starts to slide from rest; for mu_s >= 0.577 it would not move"},
+    "T386C": {"stratum": "R", "answer_with_sentence": 6.597, "regime": null},
+    "T1816": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null},
+    "T8B65": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: a = 9.8*(0.5 - 0.15*0.866025) = 9.8*0.370096 = 3.62694 m/s^2; v = sqrt(2*3.62694*4) = sqrt(29.0155) = 5.387 m/s. Mass (T513A, T529A) appears in gravity, normal force and friction but cancels (C). Static friction 0.35 (T8A07, T0B87) only decides whether the block starts moving; 0.35 < tan30 = 0.577, so the block slides and the answer is unchanged (K). T3451/T386C: block already slid 2 m on the same incline from rest, so v0^2 = 2a*2 and v^2 = 2a*6 = 43.523, v = 6.597 m/s (R). T1816/T8B65: prior sliding on a bench/floor before being placed on the incline and released from rest has no path to the target (D). Variant pairs check: mass pair both state 2 kg (T529A adds 'solid wooden', which does not change the quantity); static-friction pair both 0.35 (differ only 'has been measured as' vs 'is'); the 2 m distance quartet all state 2 m and differ in what the sliding is attached to. Minor: the R sentences make the problem's 'released from rest' refer to the earlier release point, which they state explicitly, so no contradiction. Air resistance is implicitly neglected (standard)."
+}

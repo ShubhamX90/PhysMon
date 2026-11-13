@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch07",
+  "item_id": "R-854",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:14:30Z",
+  "completed_at": "2026-11-13T10:19:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy balance for sensible heating: P t = m c Delta T, so t = m c Delta T / P",
+    "assumptions": ["all 1500 W goes into the water (no losses, negligible container heat capacity)", "constant c", "no phase change over the 40 K rise", "water well mixed"],
+    "answer": 223.25,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T47A8": {"stratum": "K", "answer_with_sentence": 223.25, "regime": "liquid water throughout: T0 > 273.15 K and T0 + 40 K < 373.15 K (at 1 atm); 293 K -> 333 K is inside"},
+    "TA8AC": {"stratum": "R", "answer_with_sentence": 334.88, "regime": null},
+    "T3E04": {"stratum": "R", "answer_with_sentence": 334.88, "regime": null},
+    "T7E28": {"stratum": "D", "answer_with_sentence": 223.25, "regime": null},
+    "T17E2": {"stratum": "K", "answer_with_sentence": 223.25, "regime": "liquid water throughout: T0 > 273.15 K and T0 + 40 K < 373.15 K (at 1 atm); 293 K -> 333 K is inside"},
+    "TD9B0": {"stratum": "D", "answer_with_sentence": 223.25, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "t = 2*4186*40/1500 = 334880/1500 = 223.25 s. With the extra 1 kg mixed in (same starting temperature, so no change in initial temperature): t = 3*4186*40/1500 = 334.88 s. Paired sentences state the same values (293 K; 1 kg). The jug sentences say 'the same starting temperature' although the base problem does not state a starting temperature; this is harmless because only equality matters. The no-loss assumption is implicit ('delivers 1500 W to the water'), which is standard."
+}

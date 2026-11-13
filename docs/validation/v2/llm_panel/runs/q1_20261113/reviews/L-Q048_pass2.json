@@ -1,0 +1,46 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch01",
+  "item_id": "L-Q048",
+  "pass_number": 2,
+  "started_at": "2026-11-13T00:15:30Z",
+  "completed_at": "2026-11-13T00:21:00Z",
+  "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Q_A = m_A c_A dT_A",
+    "assumptions": [
+      "No phase change, no work, constant c",
+      "'Heat added to A' means net heat received by A"
+    ],
+    "answer": 41860.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["contradictory_distractor_statement", "hidden_coupling", "missing_assumption"],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "Every variant says B is 'insulated' yet 'thermally coupled to system A'; the authors' argument relies on 'System B is thermally isolated', which the renderings explicitly contradict.",
+    "hidden_coupling": "The renderings state a thermal coupling between B and A, so Q_B is not structurally disconnected; under that coupling the heat supplied to A can depend on Q_B (gross reading m c dT + Q_B), contrary to the claim that Q_B is irrelevant.",
+    "missing_assumption": "The item does not specify that 'heat added to A' is the net heat fixed by A's temperature rise; the irrelevance argument holds only under that unstated reading."
+  },
+  "defect_severity": {
+    "contradictory_distractor_statement": "high",
+    "hidden_coupling": "high",
+    "missing_assumption": "medium"
+  },
+  "counterexamples": [
+    "Variant 1 with B coupled to A and drawing its 22000 J from A: heat supplied to A = 41860 + 22000 = 63860 J, not the certified 41860 J.",
+    "Variant 4 under the same reading: 41860 + 65000 = 106860 J."
+  ],
+  "notes": "The governing equation, units and the number 41860 J (1.0 x 4186.0 x 10.0) are correct for the net-heat reading, and the symbolic argument that Q_B is absent from m_A c_A dT_A is formally true. The defect is in the renderings: the authors' proof asserts B is thermally isolated, but the added statement says B is thermally coupled to A, which is exactly the condition under which Q_B could matter. Fix: replace 'but it is thermally coupled to system A' with 'and has no thermal contact with system A'. Pass 2 agrees with pass 1 and upgrades hidden_coupling to high because the authors' own premise (isolation) is contradicted by the text.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

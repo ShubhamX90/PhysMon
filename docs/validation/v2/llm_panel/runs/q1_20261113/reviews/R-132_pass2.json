@@ -1,0 +1,45 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch06",
+  "item_id": "R-132",
+  "pass_number": 2,
+  "started_at": "2026-11-13T00:05:00Z",
+  "completed_at": "2026-11-13T00:12:00Z",
+  "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Ohm's law and Joule heating: P = V^2 (1/R1 + 1/R2)",
+    "assumptions": ["ideal battery (negligible internal resistance, stated)", "ideal wires", "ohmic resistors", "steady DC"],
+    "answer": 36.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T17CA": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "TA2CD": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T546D": {"stratum": "K", "answer_with_sentence": 36.0, "regime": "Fuse intact while V/R1 = 2 A does not exceed 5 A; outside it the 6-ohm branch opens and P = V^2/R2 = 12 W."},
+    "T8370": {"stratum": "K", "answer_with_sentence": 36.0, "regime": "Fuse conducts while V/R1 = 2 A is below the 5 A rating; outside it P = V^2/R2 = 12 W."},
+    "T92FB": {"stratum": "R", "answer_with_sentence": 56.25, "regime": null},
+    "T8C6B": {"stratum": "R", "answer_with_sentence": 56.25, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["failed_transformation_identity"],
+  "defect_reasons": {
+    "failed_transformation_identity": "For the R sentences T92FB and T8C6B the stated wiring is an aiding cell (emf V + q) but the certified answers 27.5625, 20.25 and 9.0 W equal (V - q)^2/R_eq, i.e. an opposing cell; the correct answers are 45.5625, 56.25 and 81 W for q = 1.5, 3, 6 V."
+  },
+  "defect_severity": {"failed_transformation_identity": "high"},
+  "counterexamples": [
+    "T92FB / T8C6B at q = 3 V: emf aids, total emf 15 V, R_eq = 4 ohm, P = 225/4 = 56.25 W; certified 20.25 W = 9^2/4 corresponds to 12 - 3 = 9 V.",
+    "q = 1.5 V: correct (13.5)^2/4 = 45.5625 W; certified 27.5625 W = (10.5)^2/4.",
+    "q = 6 V: correct 18^2/4 = 81 W; certified 9.0 W = 6^2/4."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "Pass 1 and pass 2 agree on the physics. Base answer 36 W, D claims (T17CA, TA2CD) and K claims (T546D, T8370; regime V/R1 < q with fallback V^2/R2 = 12 W) are correct; at the listed fuse values 3, 5, 10 A the branch current 2 A is below each, so 36 W throughout. Minimal pairs (T17CA with T92FB, TA2CD with T8C6B) share '3 V cell of negligible internal resistance' and differ only in attachment, as intended. The single defect is the sign of the series cell in the certified R answers, which contradicts both sentence texts ('aiding its emf', 'emfs add') and the authors' own wiring statement (V + q). The base relation itself is consistent; the error is in applying the transformation."
+}

@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch13",
+  "item_id": "L-Q002",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:28:00Z",
+  "completed_at": "2026-11-13T10:35:00Z",
+  "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Coulomb field of a point charge: E = k q / r^2",
+    "assumptions": ["charge A is a point charge in vacuum/air", "no other charges influence the field point (setup B isolated)", "the field-point distance for A is the stated 0.2 m"],
+    "answer": 449500.0,
+    "unit": "N/C"
+  },
+  "stratum_assignments": {},
+  "validity": "uncertain",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 4,
+  "uncertain_fields": ["referent of 'this same quantity' in the parenthetical note"],
+  "defect_flags": ["contradictory_distractor_statement"],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "The parenthetical '(A later note reports this same quantity as X m instead.)' contradicts a stated distance; its referent is most naturally B's field-point distance (irrelevant), but 'this same quantity' can also be read as the field-point distance (A's 0.2 m), which would change the answer (e.g. 0.3 m gives 1.998e5 N/C)."
+  },
+  "defect_severity": {"contradictory_distractor_statement": "medium"},
+  "counterexamples": [
+    "Variant 1 read with A's distance corrected to 0.3 m: E = 8.99e9*2e-6/0.09 = 1.998e5 N/C instead of 4.495e5 N/C",
+    "Variant 4 read with A's distance corrected to 0.9 m: E = 17980/0.81 = 2.22e4 N/C"
+  ],
+  "notes": "E = 8.99e9 * 2e-6 / (0.2)^2 = 17980/0.04 = 4.495e5 N/C. Under the intended reading (B's distance and the 'later note' both refer to isolated setup B), all four renderings give 4.495e5 N/C, since B is structurally disconnected. In rendering 3 B's distance (0.20 m) equals A's distance, which is harmless. The 'later note' values are exactly 3x B's distance in each rendering (0.3, 0.57, 0.6, 0.9); the note serves no physical purpose and makes the text artificial. Whether the item is valid depends on whether the self-contradicting note is acceptable; if the benchmark intends only a disconnected distractor, the note should be removed or attached unambiguously to setup B."
+}

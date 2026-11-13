@@ -19,6 +19,8 @@ from typing import Any
 FORBIDDEN_PATTERNS = ("key_RESTRICTED", "packet_key", "PhysMons", "planted_defect", "rolevalue_bank", "s178_",
                       "llm_panel/bank", "roles_m0")
 WEB_TOOLS = ("WebFetch", "WebSearch", "web-fetch")
+ACCESS_FIELDS = ("file_path", "path", "pattern", "command", "notebook_path", "url")
+ALLOWED_TOOLS = ("Read", "Write", "SubagentHandback")  # the assignment allows Read and Write; the last returns the report
 
 
 def _tool_uses(obj: Any) -> list[dict[str, Any]]:
@@ -37,7 +39,7 @@ def _tool_uses(obj: Any) -> list[dict[str, Any]]:
 
 
 def audit(transcript: Path, allowed_dir: str) -> dict[str, Any]:
-    violations, n_calls = [], 0
+    violations, n_calls, sequence = [], 0, []
     allowed = allowed_dir.rstrip("/")
     for line in transcript.read_text(encoding="utf-8", errors="replace").splitlines():
         try:
@@ -47,17 +49,39 @@ def audit(transcript: Path, allowed_dir: str) -> dict[str, Any]:
         for use in _tool_uses(obj):
             n_calls += 1
             name = str(use.get("name", ""))
-            text = json.dumps(use.get("input", {}), ensure_ascii=False)
+            inp = use.get("input", {}) if isinstance(use.get("input"), dict) else {}
             if name in WEB_TOOLS:
-                violations.append({"tool": name, "reason": "web access", "input": text[:300]})
+                violations.append({"tool": name, "reason": "web access", "input": json.dumps(inp)[:300]})
                 continue
+            # only the fields that name what is accessed; written content (which contains units such as "m/s") is not
+            # an access and is never scanned
+            accessed = {k: str(v) for k, v in inp.items() if k in ACCESS_FIELDS}
+            if "file_path" in accessed:
+                sequence.append((name, Path(accessed["file_path"]).name))
+            text = json.dumps(accessed, ensure_ascii=False)
             hit = [p for p in FORBIDDEN_PATTERNS if p in text]
-            paths = re.findall(r"(/[A-Za-z0-9_.\-/]+)", text)
-            outside = [p for p in paths if not p.startswith(allowed) and not p.startswith(("/dev/null", "/tmp/claude"))]
+            outside = []
+            for key, value in accessed.items():
+                if key == "command":  # a shell command: every absolute path in it
+                    outside += [p for p in re.findall(r"(?:^|\s)(/[A-Za-z0-9_.\-/]+)", value) if not p.startswith(allowed)]
+                elif not value.startswith(allowed):
+                    outside.append(value)
+            if name not in ALLOWED_TOOLS:
+                outside.append(f"<tool {name} not allowed>")
             if hit or outside:
                 violations.append({"tool": name, "forbidden": hit, "outside_paths": outside[:5], "input": text[:300]})
+    # blind pass 1: each item's pass-1 review is written before its pass-2 packet is first read
+    order = {}
+    for i, (tool, name) in enumerate(sequence):
+        if tool == "Write" and name.endswith("_pass1.json"):
+            order.setdefault(name[: -len("_pass1.json")], {})["pass1_written"] = i
+        if tool == "Read" and name.endswith("_pass2_packet.json"):
+            order.setdefault(name[: -len("_pass2_packet.json")], {}).setdefault("pass2_read", i)
+    order_violations = sorted(item for item, o in order.items()
+                              if "pass2_read" in o and o.get("pass1_written", 10**9) > o["pass2_read"])
     return {"transcript": str(transcript), "allowed_dir": allowed, "n_tool_calls": n_calls,
-            "violations": violations, "clean": not violations and n_calls > 0}
+            "violations": violations, "pass2_opened_before_pass1_saved": order_violations,
+            "clean": not violations and not order_violations and n_calls > 0}
 
 
 def main(argv: list[str] | None = None) -> int:

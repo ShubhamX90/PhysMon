@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch11",
+  "item_id": "L-Q012",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:14:30Z",
+  "completed_at": "2026-11-13T10:20:00Z",
+  "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Torque of a perpendicular force: tau = r F (plus any torque transmitted through the stated mechanical coupling)",
+    "assumptions": ["force exactly perpendicular to the lever arm", "the coupling to system B transmits no torque (needed for a unique answer, not stated)"],
+    "answer": 12.0,
+    "unit": "N·m"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["hidden_coupling", "insufficient_boundary_condition", "contradictory_distractor_statement"],
+  "defect_reasons": {
+    "hidden_coupling": "The added statement says system B is mechanically coupled to system A, so B's torque (6, 11, 12 or 18 N·m) can be transmitted to A and change the torque acting on A; the variants are not obviously equivalent.",
+    "insufficient_boundary_condition": "The nature of the coupling (rigid shaft, gear ratio, sign/direction of B's torque) is not given, so the net torque on A is not uniquely determined if the coupling transmits torque.",
+    "contradictory_distractor_statement": "B is described both as 'separate' and in an 'adjacent workshop' and as 'mechanically coupled to system A', which are in tension."
+  },
+  "defect_severity": {"hidden_coupling": "high", "insufficient_boundary_condition": "high", "contradictory_distractor_statement": "medium"},
+  "counterexamples": [
+    "If the coupling is a rigid shaft joining A and B with B's torque in the same sense, the torque on A's axle is 12 + tau_B (18, 23, 24 or 30 N·m), not 12 N·m.",
+    "If B's torque opposes A's, the net torque is 12 - tau_B (6, 1, 0 or -6 N·m)."
+  ],
+  "notes": "Reading 'torque on system A' as only the torque of the 20 N force on the 0.6 m arm gives tau = 0.6 x 20.0 = 12.0 N·m in every variant. But the explicit statement that B is mechanically coupled to A gives a physical path from B's torque to A, so the answer under the four renderings may differ, and without the coupling details there is no unique answer. The variant with tau_B = 12.0 N·m coincides numerically with A's own torque, a potential lure."
+}

@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch02",
+  "item_id": "L-Q041",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:05:00Z",
+  "completed_at": "2026-11-13T10:08:00Z",
+  "minutes_spent": 3,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Ideal gas law P = nRT/V",
+    "assumptions": ["gas in A is ideal", "R = 8.314 J/(mol K)", "container B has no thermal or mechanical contact with A"],
+    "answer": 100000.0,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "The rendered text states neither that the gas is ideal nor R = 8.314 J/(mol K) (only the parameter list does); with CODATA R the answer is about 100005.6 Pa, a 0.006% difference."
+  },
+  "defect_severity": {"missing_assumption": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Authors' equation P_A = n_A R T_A / V_A with n=0.5 mol, R=8.314 J/(mol K), T=500 K, V=0.020785 m^3 gives exactly 100000 Pa, matching the certified answer and my pass 1. Units: J/m^3 = Pa, consistent. P_B is genuinely disconnected: B is sealed and stated to be unconnected, so no hidden coupling. Variants differ only in P_B, as intended. Agreement with pass 1; no change. Minor: the variant with P_B = 100000 Pa coincides with the answer, and the choice of V to give a round answer plus explicit 'completely unconnected' wording is slightly artificial, not a validity issue."
+}

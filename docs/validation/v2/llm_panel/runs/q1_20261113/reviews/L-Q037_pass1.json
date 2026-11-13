@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch06",
+  "item_id": "L-Q037",
+  "pass_number": 1,
+  "started_at": "2026-11-13T00:34:00Z",
+  "completed_at": "2026-11-13T00:39:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of mechanical energy: (1/2) v^2 = g h, v = sqrt(2 g h)",
+    "assumptions": ["cart starts from rest (not stated)", "g = 9.8 m/s^2 (not stated; 9.81 gives 9.905 m/s)", "frictionless (stated), no air drag", "rotational kinetic energy of wheels neglected / cart treated as a sliding point mass"],
+    "answer": 9.9,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "The initial speed (from rest) and the value of g are not stated; with rest and g = 9.8 the answer is 9.899 m/s, with g = 9.81 it is 9.905 m/s, and any nonzero starting speed changes it."
+  },
+  "defect_severity": {"missing_assumption": "medium"},
+  "counterexamples": [
+    "If cart A starts at 2 m/s, v = sqrt(4 + 98) = 10.1 m/s, not 9.9 m/s."
+  ],
+  "notes": "v = sqrt(2*9.8*5.0) = sqrt(98) = 9.899 m/s (about 9.9 m/s). Cart B's speed (7.0, 9.5, 9.9, 12.0 m/s) is structurally disconnected and the answer is invariant across renderings. The 9.9 m/s rendering equals the answer and 9.5 is close: lures, not defects. Starting from rest is the conventional reading of 'descends a ramp', so I treat the omission as medium rather than high."
+}

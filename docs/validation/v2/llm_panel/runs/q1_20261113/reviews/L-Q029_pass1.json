@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch12",
+  "item_id": "L-Q029",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:31:00Z",
+  "completed_at": "2026-11-13T10:37:00Z",
+  "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Sensible heat: Q = m c Delta T",
+    "assumptions": [
+      "No phase change; constant specific heat over the 5 K rise",
+      "All energy entering A is heat (no work)",
+      "Mass taken as its physical magnitude 2.0 kg, since a mass of -2.0 kg is unphysical"
+    ],
+    "answer": 41860.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "unclear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_parameter_domain", "contradictory_distractor_statement"],
+  "defect_reasons": {
+    "invalid_parameter_domain": "System A is stated to contain -2.0 kg of water; mass cannot be negative, so the problem is physically meaningless as written and Q = mc Delta T gives -41860 J for a system that 'warms', which is self-contradictory.",
+    "contradictory_distractor_statement": "Container B is described as 'insulated' and 'thermally isolated' yet 'absorbs' heat, an internally inconsistent statement (it does not affect A's answer)."
+  },
+  "defect_severity": {
+    "invalid_parameter_domain": "high",
+    "contradictory_distractor_statement": "low"
+  },
+  "counterexamples": [
+    "Applying Q = m c Delta T literally with m = -2.0 kg gives Q = -41860 J, i.e. heat removed from a system that is stated to warm; reading |m| = 2.0 kg gives +41860 J. The item admits two incompatible answers depending on how the impossible mass is handled."
+  ],
+  "notes": "With m = 2.0 kg, Q = 2.0 * 4186.0 * 5.0 = 41860 J. The renderings differ only in B's absorbed heat (20000, 40000, 41860, 60000 J); B is structurally disconnected, so the answer would be invariant if the item were otherwise well-posed. Rendering 3 sets B's heat to 41860 J, equal to the physical answer (numeric lure). The negative mass is a defect in every rendering and makes the item invalid regardless of the distractor."
+}

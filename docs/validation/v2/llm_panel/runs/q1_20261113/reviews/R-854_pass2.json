@@ -1,0 +1,44 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch07",
+  "item_id": "R-854",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:19:30Z",
+  "completed_at": "2026-11-13T10:24:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "P t = m c Delta T, so t = m c Delta T / P",
+    "assumptions": ["no heat losses", "constant c", "no phase change over the rise", "water well mixed"],
+    "answer": 223.25,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T47A8": {"stratum": "C", "answer_with_sentence": 223.25, "regime": "cancels from T_final - T_initial; also implicitly requires liquid water throughout (T0 + 40 K < 373.15 K)"},
+    "TA8AC": {"stratum": "R", "answer_with_sentence": 334.88, "regime": null},
+    "T3E04": {"stratum": "R", "answer_with_sentence": 334.88, "regime": null},
+    "T7E28": {"stratum": "D", "answer_with_sentence": 223.25, "regime": null},
+    "T17E2": {"stratum": "C", "answer_with_sentence": 223.25, "regime": "cancels from T_final - T_initial; also implicitly requires liquid water throughout (T0 + 40 K < 373.15 K)"},
+    "TD9B0": {"stratum": "D", "answer_with_sentence": 223.25, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "The initial-temperature invariance (claimed C) holds only while the water stays liquid (T0 + 40 K below 373.15 K at 1 atm and T0 above freezing); the assumptions list does not state 'no phase change', though all certified values 283-303 K satisfy it."
+  },
+  "defect_severity": {"missing_assumption": "low"},
+  "counterexamples": [
+    "Outside the tested values: T0 = 350 K would require boiling above 373 K and the time would no longer be m c dT / P."
+  ],
+  "notes": "Base 223.253 s correct. R answers check: (2+q)*4186*40/1500 = 279.067, 334.88, 446.507 s for q = 0.5, 1, 2 kg. D claims correct (jug in another room or kitchen has no path). Paired sentences differ only in attachment (1 kg; 293 K). In pass 1 I labelled the initial-temperature sentences K (phase-change regime); the authors label them C via cancellation in T_final - T_initial. Both readings are defensible: the temperature does appear in the relations and cancels, and the phase-change regime is a secondary condition satisfied by all tested values. I accept C and flag only the unstated no-phase-change assumption at low severity. Pass 1 left unchanged."
+  ,
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

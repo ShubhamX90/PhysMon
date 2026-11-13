@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch02",
+  "item_id": "R-214",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:18:00Z",
+  "completed_at": "2026-11-13T10:26:00Z",
+  "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law along the incline with kinetic friction: a = g(sin(theta) - mu_k cos(theta)); v^2 = 2 a d from rest",
+    "assumptions": ["block starts from rest at the beginning of the 4 m", "constant mu_k", "no air resistance", "block slides without tipping"],
+    "answer": 5.38661,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T513A": {"stratum": "C", "answer_with_sentence": 5.38661, "regime": null},
+    "T8A07": {"stratum": "K", "answer_with_sentence": 5.38661, "regime": "mu_s < tan(30 deg) = 0.577"},
+    "T3451": {"stratum": "R", "answer_with_sentence": 6.59722, "regime": null},
+    "T529A": {"stratum": "C", "answer_with_sentence": 5.38661, "regime": null},
+    "T0B87": {"stratum": "K", "answer_with_sentence": 5.38661, "regime": "mu_s < tan(30 deg) = 0.577"},
+    "T386C": {"stratum": "R", "answer_with_sentence": 6.59722, "regime": null},
+    "T1816": {"stratum": "D", "answer_with_sentence": 5.38661, "regime": null},
+    "T8B65": {"stratum": "D", "answer_with_sentence": 5.38661, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All authors' claims agree with my pass 1. Checks: a = 3.62694 m/s^2; base v = sqrt(29.0155) = 5.38661 m/s. R wiring (d -> d+q): q=1 -> sqrt(2a*5)=sqrt(36.269)=6.0224; q=2 -> sqrt(43.523)=6.5972; q=3 -> sqrt(50.777)=7.1258, all match. Mass cancellation expression reduces to sqrt(2 d g (sin - mu cos)), independent of m, for all listed masses. K: static-friction values 0.25, 0.35, 0.45 are all below tan30 = 0.577 and above mu_k = 0.15, so the block starts to slide and the answer is unchanged; the stated out-of-regime answer 0 is correct (block stays at rest). D: sliding on a bench or another room's floor before being placed and released on the incline has no path to the target. Minimal pairs T1816/T3451 and T8B65/T386C state the same 2 m and differ only in what the sliding is attached to (plus incidental wording). The authors' assumption 'the block starts from rest' refers to the release point, which the R wiring handles correctly. Air resistance is neglected implicitly, which is standard for this problem."
+}

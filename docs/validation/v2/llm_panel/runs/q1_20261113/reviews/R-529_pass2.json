@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch11",
+  "item_id": "R-529",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:50:30Z",
+  "completed_at": "2026-11-13T10:58:00Z",
+  "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "lambda = hc / pc with pc = sqrt(2 mc^2 K) (non-relativistic)",
+    "assumptions": ["K << mc^2", "hc = 1240 eV nm", "mc^2 = 511 keV = 511000 eV"],
+    "answer": 100.15,
+    "unit": "pm"
+  },
+  "stratum_assignments": {
+    "T6713": {"stratum": "R", "answer_with_sentence": 77.576, "regime": null},
+    "T0BD2": {"stratum": "R", "answer_with_sentence": 77.576, "regime": null},
+    "TBF36": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null},
+    "T4D5A": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal", "other", "inconsistent_units"],
+  "defect_reasons": {
+    "rendering_not_minimal": "TBF36 is claimed as the minimal pair of T6713 but states 200 eV where T6713 states 100 eV, so the pair differs in the number as well as the attachment.",
+    "other": "TBF36's claim gives value_shown = 100 eV, but its rendered text says 200 eV, so the claim metadata does not match the sentence.",
+    "inconsistent_units": "Inputs list mc2 in keV and Ke in eV while the relation pc = sqrt(2*mc2*Ke) needs a common unit; the certified numbers use the correct conversion, so this affects only metadata."
+  },
+  "defect_severity": {"rendering_not_minimal": "medium", "other": "medium", "inconsistent_units": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "Verified certified answers (pm): base K = 150 eV -> 1240/12381.4 nm = 100.15; K = 200 -> 86.732; K = 250 -> 77.576; K = 350 -> 65.564. All correct, and the R/D strata are right; the non-relativistic treatment is fine up to 350 eV. The defect is that TBF36's rendered number (200 eV) does not match its claimed value (100 eV) or its minimal-pair partner, which breaks the controlled contrast; the D answer itself is unaffected. T4D5A vs T0BD2 is a proper minimal pair. Fix: change TBF36's text to 100 eV. The assumption about photon energies is boilerplate and irrelevant (no photon in the problem). Consistent with my pass 1."
+}

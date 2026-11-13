@@ -1,0 +1,35 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch12",
+  "item_id": "L-Q028",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:21:00Z",
+  "completed_at": "2026-11-13T10:26:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Ideal gas law: P = nRT/V",
+    "assumptions": [
+      "Gas in A behaves ideally (not stated; reasonable at ~1 bar and 300 K)",
+      "R = 8.314 J/(mol K)",
+      "Container B has no mechanical, thermal or material connection to A"
+    ],
+    "answer": 100008.0,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "The problem does not say the gas is ideal, which is needed to obtain P from n, T and V alone."
+  },
+  "defect_severity": {
+    "missing_assumption": "low"
+  },
+  "counterexamples": [],
+  "notes": "P = 1.0 * 8.314 * 300.0 / 0.02494 = 2494.2/0.02494 = 100008 Pa (100014 Pa with R = 8.314462618), i.e. 1.00e5 Pa to the 2-3 significant figures supported by the data; the volume 0.02494 m^3 was evidently chosen so that P = 1.000e5 Pa. Container B's pressure differs across renderings (50000, 98000, 100000, 150000 Pa) and is structurally disconnected, so the answer is invariant. Rendering 3 sets B's pressure to 100000 Pa, equal to the answer (a numeric lure), and rendering 2 (98000 Pa) is near it. A grader should accept ~1.00e5 Pa; a tolerance tighter than ~0.02% would penalise legitimate choices of R."
+}

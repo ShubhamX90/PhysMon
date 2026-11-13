@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch08",
+  "item_id": "L-Q039",
+  "pass_number": 2,
+  "started_at": "2026-11-13T00:09:30Z",
+  "completed_at": "2026-11-13T00:11:30Z",
+  "minutes_spent": 2,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Linear thermal expansion: Delta L = alpha * L0 * Delta T",
+    "assumptions": ["alpha constant over the 100 K range", "free (unconstrained) linear expansion", "'thermal expansion' means the change in length Delta L, not the final length"],
+    "answer": 0.01,
+    "unit": "m"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Governing equation Delta L = alpha L Delta T matches the problem and parameters; units (1/K * m * K = m) are consistent; certified 0.01 m equals my pass-1 answer (2e-5 * 5.0 * 100.0 = 0.010 m exactly). The invariance claim holds: the lamp voltage concerns a separate device stated not to affect rod A, so it has no path to Delta L. Renderings differ only in the lamp voltage. The target name 'thermal_expansion_of_rod_A' with unit m confirms the Delta L reading. Naturalness is slightly artificial because the distractor sentence announces its own irrelevance. No disagreement with pass 1.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

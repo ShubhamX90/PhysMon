@@ -1,0 +1,40 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch05",
+  "item_id": "L-Q060",
+  "pass_number": 2,
+  "started_at": "2026-11-13T00:32:00Z",
+  "completed_at": "2026-11-13T00:35:00Z",
+  "minutes_spent": 3,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Sensible heat: Q_A = m_A c_A dT_A",
+    "assumptions": [
+      "Mass of water 0.5 kg (authors' parameter; the text says '0.5 m')",
+      "No phase change or work; constant specific heat",
+      "Vessel B thermally isolated from A"
+    ],
+    "answer": 41860.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["inconsistent_units"],
+  "defect_reasons": {
+    "inconsistent_units": "The parameter table gives m_A = 0.5 kg, but every rendering states '0.5 m' of water, a length unit that is not a mass and does not match the certified computation."
+  },
+  "defect_severity": {"inconsistent_units": "high"},
+  "counterexamples": [
+    "If '0.5 m' is read as 0.5 m^3 of water (about 500 kg), Q is about 4.19e7 J rather than the certified 41860 J."
+  ],
+  "notes": "The governing equation, the authors' parameters and the certified answer are internally consistent: 0.5 kg * 4186.0 J/(kg K) * 20.0 K = 41860 J, units J. The distractor Q_B is genuinely disconnected because B is thermally isolated, so the invariance claim holds. The defect is solely in the rendered text: the mass unit is printed as 'm' instead of 'kg', so the problem as shown to a solver is dimensionally inconsistent. Fixing the unit would make the item CERTIFIED_AND_VALIDATED. No disagreement with pass 1.",
+  "equation_consistent": true,
+  "units_consistent": false,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

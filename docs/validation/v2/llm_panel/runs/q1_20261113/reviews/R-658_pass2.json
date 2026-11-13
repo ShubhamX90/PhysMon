@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch06",
+  "item_id": "R-658",
+  "pass_number": 2,
+  "started_at": "2026-11-13T00:27:00Z",
+  "completed_at": "2026-11-13T00:34:00Z",
+  "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "lambda = hc / pc with pc = sqrt(2 mc^2 Ke) (non-relativistic de Broglie)",
+    "assumptions": ["non-relativistic (stated)", "electron starts from rest", "hc = 1240 eV nm, mc^2 = 511 keV"],
+    "answer": 100.15,
+    "unit": "pm"
+  },
+  "stratum_assignments": {
+    "T6A32": {"stratum": "R", "answer_with_sentence": 77.576, "regime": null},
+    "TC659": {"stratum": "R", "answer_with_sentence": 77.576, "regime": null},
+    "T0B7A": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["hidden_coupling"],
+  "defect_reasons": {
+    "hidden_coupling": "T6A32 is claimed D, but 'the electron above' is the problem's own electron, which gains a further 100 eV before the wavelength is determined, so its wavelength becomes 77.58 pm, not 100.15 pm."
+  },
+  "defect_severity": {"hidden_coupling": "high"},
+  "counterexamples": [
+    "T6A32 at q = 100 eV: Ke = 250 eV, pc = sqrt(2*511000*250) = 15984.4 eV, lambda = 1240/15984.4 nm = 77.58 pm; certified 100.15 pm.",
+    "T6A32 at q = 50 eV: lambda = 86.73 pm (certified 100.15); at q = 200 eV: lambda = 65.56 pm (certified 100.15)."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "Verified: base 100.15 pm; TC659 (R) answers 86.73, 77.58, 65.56 pm for q = 50, 100, 200 eV are correct; T0B7A (proton in another building) is correctly D. T6A32 is wrongly labelled D and is listed as the minimal pair of TC659, but both sentences attach the 100 eV to the same electron, so they are not a D/R minimal pair; the D partner of TC659 is T0B7A. If the authors meant 'the electron above' as some other electron spatially above, the wording does not convey that and the natural reading is the problem's electron, so the sentence would at best be ambiguous; either way the D claim fails. My pass-1 assignments agree with this verdict. Minor: the TC659 wiring says 'Ke + q at most 500 eV' while the maximum is 350 eV; harmless."
+}

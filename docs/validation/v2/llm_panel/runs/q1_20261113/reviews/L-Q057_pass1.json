@@ -1,0 +1,35 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch03",
+  "item_id": "L-Q057",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:39:00Z",
+  "completed_at": "2026-11-13T10:43:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "SI unit conversion of power: 1 W = 1 J/s = 1000 mW = 0.001 kW",
+    "assumptions": [
+      "The meter reading is taken at face value"
+    ],
+    "answer": 200.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {
+    "rendering_not_minimal": "Three renderings express 200 W (200 W, 200 J/s, 200000 mW) but the second states 0.22 kW = 220 W, so the renderings differ in the physical value, not only in unit, and do not share one answer."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "Variant 2: 0.22 kW * 1000 W/kW = 220 W, not 200 W."
+  ],
+  "notes": "Per-rendering answers: 200 W, 220 W, 200 W, 200 W. The renderings appear intended as unit re-expressions of one quantity (an invariance-to-units item), in which case 0.22 kW should be 0.20 kW (or 0.2 kW). The task itself is a trivial unit conversion with no physics beyond the definition of the watt, hence 'artificial'."
+}

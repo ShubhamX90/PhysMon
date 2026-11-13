@@ -1,0 +1,52 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch13",
+  "item_id": "R-704",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:18:30Z",
+  "completed_at": "2026-11-13T10:27:00Z",
+  "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "a = (m2 - m1) g / (m1 + m2 + M/2) (Newton's laws for blocks, I = M R^2/2 and no-slip for the disc pulley)",
+    "assumptions": ["light inextensible non-slipping string", "frictionless axle", "uniform solid disc pulley", "uniform g = 9.8 m/s^2"],
+    "answer": 2.17778,
+    "unit": "m/s^2"
+  },
+  "stratum_assignments": {
+    "TB39A": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "TA3B0": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "TFE1B": {"stratum": "K", "answer_with_sentence": 2.17778, "regime": "max tension (about 38.1 N) below the 200 N breaking strength"},
+    "TDDE2": {"stratum": "C", "answer_with_sentence": 2.17778, "regime": null},
+    "TFF18": {"stratum": "C", "answer_with_sentence": 2.17778, "regime": null},
+    "TE857": {"stratum": "K", "answer_with_sentence": 2.17778, "regime": "max tension (about 38.1 N) below the 200 N limit"},
+    "TA3AE": {"stratum": "D", "answer_with_sentence": 2.17778, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["hidden_coupling", "rendering_not_minimal", "missing_assumption"],
+  "defect_reasons": {
+    "hidden_coupling": "TB39A ('A 0.8 kg block is glued to the bottom of the left block so that it moves with it') is claimed D with invariant answer 2.17778 m/s^2, but the glued block adds to the left hanging mass exactly as in TA3B0, giving 1.2 m/s^2 at 0.8 kg (1.66809 at 0.4 kg, 0.768627 at 1.2 kg).",
+    "rendering_not_minimal": "TB39A is declared the D minimal-pair partner of TA3B0, but both sentences attach the block to the left block (glued vs tied), so the pair does not differ in attachment as a D/R minimal pair must; the intended D partner is TA3AE (shelf).",
+    "missing_assumption": "The frictionless axle is listed in the authors' assumptions but not stated in the problem text (standard default, low impact)."
+  },
+  "defect_severity": {
+    "hidden_coupling": "high",
+    "rendering_not_minimal": "medium",
+    "missing_assumption": "low"
+  },
+  "counterexamples": [
+    "TB39A at q = 0.8 kg: m1 = 3.8 kg, a = (5-3.8)(9.8)/(3.8+5+1) = 1.2 m/s^2, not the certified 2.17778 m/s^2",
+    "TB39A at q = 0.4 kg: a = 1.6(9.8)/9.4 = 1.66809 m/s^2; at q = 1.2 kg: a = 0.8(9.8)/10.2 = 0.768627 m/s^2"
+  ],
+  "notes": "Agrees with my pass 1, where I already assigned TB39A to R (1.2 m/s^2). Verified claims: base 19.6/9 = 2.17778 m/s^2 correct; TA3B0 (R) answers 1.66809, 1.2, 0.768627 correct; TA3AE (D) correct; TDDE2/TFF18 (C) cancellation (M r^2/2)/r^2 = M/2 correct, units cm fine, 'axle to rim' = radius, answers correct for 8, 12, 16 cm; TFE1B/TE857 (K) correct: max tension Max(3(9.8+2.178), 5(9.8-2.178)) = 38.1 N is below 120, 200 and 300 N, so all certified K values lie inside the regime. The stated out-of-regime answer 'g' (free fall after the string breaks) is a reasonable idealisation. The relations and inputs are complete. The only substantive defect is the mislabelling of TB39A as D; relabelling it R with answers equal to TA3B0's (or rewriting it to detach the block) would fix the item."
+  ,
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

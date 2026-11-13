@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch01",
+  "item_id": "L-Q006",
+  "pass_number": 2,
+  "started_at": "2026-11-13T00:37:30Z",
+  "completed_at": "2026-11-13T00:40:00Z",
+  "minutes_spent": 3,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Linear thermal expansion dL = alpha L0 dT",
+    "assumptions": [
+      "alpha in 1/K, constant over the range",
+      "Rod A unconstrained; small-strain linear approximation valid (alpha dT = 0.002)"
+    ],
+    "answer": 0.01,
+    "unit": "m"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["inconsistent_units", "missing_assumption"],
+  "defect_reasons": {
+    "inconsistent_units": "The rendered text omits the unit of the expansion coefficient (the authors' parameter is 2e-05 1/K, but the text says only '2e-05').",
+    "missing_assumption": "The text does not state that rod A expands freely; standard default, does not affect correctness."
+  },
+  "defect_severity": {
+    "inconsistent_units": "low",
+    "missing_assumption": "low"
+  },
+  "counterexamples": [],
+  "notes": "Authors' relation, parameters and certified 0.010 m match my pass-1 result (2e-5 x 5.0 x 100.0 = 0.010 m). The rod B statement is explicitly non-interacting, so delta_L_B is structurally disconnected and the answer is invariant across all four variants; the claim holds. Recommend adding 'K^-1' after 2e-05 in the rendering. Pass 2 agrees with pass 1.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

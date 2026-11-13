@@ -1,0 +1,45 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch04",
+  "item_id": "R-617",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:33:30Z",
+  "completed_at": "2026-11-13T10:41:00Z",
+  "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "T = (rho_l - rho_s) g a^3 = (1000 - 600)(9.8)(1.0e-3) N",
+    "assumptions": ["incompressible uniform liquid", "light, vertical, taut string", "cube fully submerged and at rest"],
+    "answer": 3.92,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T4FA4": {"stratum": "K", "answer_with_sentence": null, "regime": "irrelevant only while breaking strength > 3.92 N; 2 N is outside this regime, so the stated equilibrium is impossible"},
+    "TDB71": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T5A82": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "T0CF0": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T25E6": {"stratum": "K", "answer_with_sentence": null, "regime": "irrelevant only while rating > 3.92 N; 2 N is outside this regime"},
+    "T1C91": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null},
+    "TBDC5": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "T1946": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_parameter_domain", "contradictory_distractor_statement", "failed_transformation_identity"],
+  "defect_reasons": {
+    "invalid_parameter_domain": "For T4FA4 and T25E6 the authors' own regime 'irrelevant while T < q' requires 3.92 N < 2 N, which is false, so the stated 2 N lies outside the K regime.",
+    "contradictory_distractor_statement": "A string that breaks above 2 N cannot supply the required 3.92 N, contradicting the problem's statement that the cube is held at rest under the surface.",
+    "failed_transformation_identity": "The certified answer 3.92 N for q = 2 N contradicts the authors' own regime rule, whose outside-regime answer is 0 (and that answer in turn contradicts 'held at rest')."
+  },
+  "defect_severity": {"invalid_parameter_domain": "high", "contradictory_distractor_statement": "high", "failed_transformation_identity": "high"},
+  "counterexamples": ["T4FA4/T25E6 with q = 2 N: required tension (1000-600)(9.8)(1e-3) = 3.92 N exceeds 2 N, so the string snaps; the certified 3.92 N is not attainable. Any q > 3.92 N (e.g. 10 N) would make these sentences valid K items."],
+  "notes": "Confirms pass 1. All other claims check: base 3.92 N; R answers (q - 600)(9.8e-3): 1150 -> 5.39 N, 1250 -> 6.37 N, 1350 -> 7.35 N, correct. C cancellation for depth is correct: (rho_l g (q+a) - rho_l g q) a^2 = rho_l g a^3, independent of q; answers 3.92 N at 20, 50, 80 cm. D sentences (bottle, beaker) are disconnected; minimal pairs TDB71/TBDC5 and T0CF0/T5A82 state the same 1250 kg/m^3 and differ only in attachment. Depth variants T1C91/T1946 both 50 cm. The defect is confined to the two breaking-strength sentences; fixing their value to e.g. 10 N (and listing several values above 3.92 N, or above 7.35 N if combined with replacement liquids) would make the item valid.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

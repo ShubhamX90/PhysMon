@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch02",
+  "item_id": "L-Q035",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:31:00Z",
+  "completed_at": "2026-11-13T10:35:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Sensible heat Q = m c dT",
+    "assumptions": ["mass of A is 1.5 kg (rendered text says '1.5 m')", "constant specific heat", "no phase change"],
+    "answer": 27000.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["inconsistent_units"],
+  "defect_reasons": {
+    "inconsistent_units": "The parameter list gives m_A = 1.5 kg but every rendered variant states 'mass 1.5 m' (metres), so the problem text the solver sees is dimensionally inconsistent with the certified 27000 J."
+  },
+  "defect_severity": {"inconsistent_units": "high"},
+  "counterexamples": ["Literal reading of every variant: 1.5 m * 900 J/(kg K) * 20 K = 27000 J*m/kg, not an energy in J."],
+  "equation_consistent": true,
+  "units_consistent": false,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "The authors' equation Q = m_A c_A dT_A with m_A = 1.5 kg, c_A = 900 J/(kg K), dT_A = 20 K gives 27000 J, matching my pass 1 under the kg reading, and m_B is genuinely disconnected (B never exchanges heat with A), so the distractor claim holds in all four variants. The defect is in the rendering: the parameter's unit is kg but the text renders it as 'm', so the item as presented carries a wrong unit on a required given. Agreement with pass 1. Correcting '1.5 m' to '1.5 kg' in all variants would make the item valid (CERTIFIED_AND_VALIDATED). answer_correct is true for the intended (kg) problem only."
+}

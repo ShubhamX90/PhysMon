@@ -1,0 +1,38 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch10",
+  "item_id": "R-818",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:14:00Z",
+  "completed_at": "2026-11-13T10:19:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Simple pendulum, small-angle: T = 2 pi sqrt(L/g)",
+    "assumptions": ["point-like bob (simple pendulum)", "light inextensible string", "small amplitude", "no air resistance"],
+    "answer": 1.7952,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TFECF": {"stratum": "C", "answer_with_sentence": 1.7952, "regime": null},
+    "T81FE": {"stratum": "R", "answer_with_sentence": 2.1987, "regime": null},
+    "T6E10": {"stratum": "C", "answer_with_sentence": 1.7952, "regime": null},
+    "T1540": {"stratum": "R", "answer_with_sentence": 2.1987, "regime": null},
+    "T71B3": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null},
+    "T481A": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {
+    "rendering_not_minimal": "The cord-length sentences are meant to be variants of one quantity, but T71B3 states 0.6 m while T81FE, T1540 and T481A state 0.4 m."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "medium"
+  },
+  "counterexamples": [],
+  "notes": "Base: L/g = 0.8/9.8 = 4/49, T = 2 pi (2/7) = 1.7952 s. With a 0.4 m cord added between string and bob: L = 1.2 m, L/g = 6/49, T = 2 pi sqrt(6)/7 = 2.1987 s. Mass (0.5 kg) appears in the equation of motion m L theta'' = -m g theta and cancels (C). TFECF adds 'small brass sphere' beyond T6E10, which is harmless (consistent with the 'small bob'). The physics is correct; the only defect is the 0.6 m vs 0.4 m mismatch in the cord-length variants, which breaks the minimal-pair design. Validity marked invalid because of that defect, though it is not high severity; it could be uncertain depending on whether T71B3 is meant as a variant."
+}

@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch07",
+  "item_id": "R-754",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:34:30Z",
+  "completed_at": "2026-11-13T10:41:00Z",
+  "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law for each block plus rotational dynamics of the pulley (I = M R^2 / 2, no slip a = alpha R): a = (m2 - m1) g / (m1 + m2 + M/2)",
+    "assumptions": ["light inextensible string", "no slip on the pulley", "frictionless axle", "uniform solid disc pulley", "no air resistance", "string intact (tensions below breaking limit)"],
+    "answer": 2.1778,
+    "unit": "m/s^2"
+  },
+  "stratum_assignments": {
+    "T1B5C": {"stratum": "D", "answer_with_sentence": 2.1778, "regime": null},
+    "TA9DB": {"stratum": "C", "answer_with_sentence": 2.1778, "regime": null},
+    "T48BE": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "TB8E8": {"stratum": "K", "answer_with_sentence": 2.1778, "regime": "both string tensions (about 35.9 N and 38.1 N) are below the 200 N breaking limit"},
+    "T89F4": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "T4B03": {"stratum": "K", "answer_with_sentence": 2.1778, "regime": "both string tensions (about 35.9 N and 38.1 N) are below the 200 N breaking limit"},
+    "TDEAD": {"stratum": "C", "answer_with_sentence": 2.1778, "regime": null},
+    "TC42A": {"stratum": "D", "answer_with_sentence": 2.1778, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "a = (5 - 3)*9.8/(3 + 5 + 1) = 19.6/9 = 2.1778 m/s^2. Tensions: T_left = 3(9.8 + 2.1778) = 35.93 N, T_right = 5(9.8 - 2.1778) = 38.11 N, both far below 200 N. With 0.8 kg added to the left block: a = (5 - 3.8)*9.8/(3.8 + 5 + 1) = 11.76/9.8 = 1.2 m/s^2 (right side still heavier, direction unchanged). The radius appears in torque (T2 - T1) R = I alpha with I = M R^2/2 and a = alpha R, and cancels. Paired sentences state the same values (0.8 kg; 12 cm; 200 N). TA9DB has slightly awkward wording ('measures, from its axle to its rim, 12 cm') but means the radius. A frictionless axle is not stated but is the standard implicit assumption."
+}

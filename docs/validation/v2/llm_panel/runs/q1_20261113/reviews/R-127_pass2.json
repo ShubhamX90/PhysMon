@@ -1,0 +1,45 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch11",
+  "item_id": "R-127",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:34:30Z",
+  "completed_at": "2026-11-13T10:42:00Z",
+  "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "RC charging: V_C(t) = V0 (1 - exp(-t/(RC))); after an open-circuit break at time q < t the capacitor holds V0 (1 - exp(-q/(RC)))",
+    "assumptions": ["ideal battery and wires", "no capacitor leakage", "capacitor initially uncharged"],
+    "answer": 6.60805,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "T68B9": {"stratum": "D", "answer_with_sentence": 6.60805, "regime": null},
+    "TC787": {"stratum": "D", "answer_with_sentence": 6.60805, "regime": null},
+    "TD8AD": {"stratum": "R", "answer_with_sentence": 5.22338, "regime": null},
+    "T5388": {"stratum": "R", "answer_with_sentence": 5.22338, "regime": null},
+    "T1DF2": {"stratum": "R", "answer_with_sentence": 4.72163, "regime": "irrelevant only if the break time q exceeds t = 80 ms; here q = 50 ms < 80 ms, so it is relevant"},
+    "T67B8": {"stratum": "R", "answer_with_sentence": 4.72163, "regime": "irrelevant only if the break time q exceeds t = 80 ms; here q = 50 ms < 80 ms, so it is relevant"}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_parameter_domain", "failed_transformation_identity", "hidden_coupling"],
+  "defect_reasons": {
+    "invalid_parameter_domain": "T1DF2 and T67B8 are labelled K with irrelevance regime q > t, but the stated q = 50 ms is less than t = 80 ms, i.e. outside the regime where the break is irrelevant.",
+    "failed_transformation_identity": "By the authors' own 'outside the regime' formula, with q = 50 ms the answer is 12(1 - e^-0.5) = 4.72163 V, not the certified 6.60805 V.",
+    "hidden_coupling": "The break time, claimed not to affect the answer, actually freezes the capacitor voltage at 4.72 V instead of letting it reach 6.61 V at 80 ms."
+  },
+  "defect_severity": {"invalid_parameter_domain": "high", "failed_transformation_identity": "high", "hidden_coupling": "high"},
+  "counterexamples": [
+    "T1DF2 / T67B8 with q = 50 ms: V_C(80 ms) = 12(1 - e^-0.5) = 4.72163 V, not 6.60805 V as certified."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "Verified: base 6.60805 V; extra series resistor 1, 2, 5 kOhm gives tau = 0.12, 0.14, 0.20 s and V = 5.83899, 5.22338, 3.95616 V, all correct. D claims for the resistor in the parts tray / spare board are correct, and the minimal pairs (T68B9-T5388, TC787-TD8AD) keep 2 kOhm and change only the attachment. The defect is confined to the two K sentences: the stated 50 ms break time lies on the wrong side of the claimed regime, so they are R with answer 4.72163 V. A K version would need a break time after 80 ms (e.g. 100 ms). Minor wording: 'broken again' implies a prior break that never happened. Agrees with my pass 1."
+}

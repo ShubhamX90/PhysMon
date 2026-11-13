@@ -1,0 +1,40 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch01",
+  "item_id": "L-Q058",
+  "pass_number": 2,
+  "started_at": "2026-11-13T00:27:30Z",
+  "completed_at": "2026-11-13T00:31:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Q = m c dT",
+    "assumptions": ["No phase change, no work, constant c"],
+    "answer": -41860.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "unclear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_parameter_domain", "failed_transformation_identity"],
+  "defect_reasons": {
+    "invalid_parameter_domain": "Every rendering states the mass as -2.0 kg, which is physically impossible.",
+    "failed_transformation_identity": "The authors' parameters use m = 2.0 kg and certify +41860 J, but the rendered text gives m = -2.0 kg, for which the stated relation yields -41860 J; the certified answer does not follow from the rendered inputs."
+  },
+  "defect_severity": {
+    "invalid_parameter_domain": "high",
+    "failed_transformation_identity": "high"
+  },
+  "counterexamples": [
+    "Substituting the rendered values into the authors' own relation: (-2.0 kg)(4186.0 J/(kg K))(5.0 K) = -41860 J, not the certified 41860 J."
+  ],
+  "notes": "The governing relation, units and the irrelevance of the 'later observation lasted t s' distractor are all correct (duration does not enter m c dT, so the answer is the same across the four variants). The defect is a sign mismatch between the rendered mass (-2.0 kg) and the authors' parameter (2.0 kg). Fix: render the mass as 2.0 kg. Pass 2 agrees with pass 1.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

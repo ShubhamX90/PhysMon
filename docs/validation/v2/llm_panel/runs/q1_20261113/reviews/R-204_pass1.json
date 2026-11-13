@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch11",
+  "item_id": "R-204",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:00:00Z",
+  "completed_at": "2026-11-13T10:07:00Z",
+  "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Kinetic theory of an ideal gas: v_rms = sqrt(3RT/M)",
+    "assumptions": ["ideal gas in thermal equilibrium (Maxwell-Boltzmann distribution)", "M = 4 g/mol = 0.004 kg/mol", "classical translational motion"],
+    "answer": 1367.7,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TB113": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "T69F0": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "TDC0B": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null},
+    "T76FA": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null},
+    "T90D1": {"stratum": "C", "answer_with_sentence": 1367.7, "regime": null},
+    "T0565": {"stratum": "C", "answer_with_sentence": 1367.7, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: v_rms = sqrt(3*8.314*300/0.004) = sqrt(1.87065e6) = 1367.7 m/s. With T raised to 400 K: sqrt(2.4942e6) = 1579.3 m/s. The amount of gas (2 mol) enters pV = nRT and the total kinetic energy but cancels from the per-molecule rms speed, so C (one could argue D, but n belongs to the system). TB113 and T69F0 both attach the 100 K rise to the gas; TB113 adds 'closed rigid container' (constant volume), which does not change v_rms, so the pair differs in an extra clause beyond wording. TDC0B and T76FA both attach the rise to disconnected objects. All sentences state the same number and unit within each group (100 K; 2 mol)."
+}

@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch09",
+  "item_id": "R-859",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:06:30Z",
+  "completed_at": "2026-11-13T10:11:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Simple pendulum, small-angle limit: T = 2*pi*sqrt(L/g)",
+    "assumptions": ["point-mass bob", "light inextensible string", "small amplitude", "no air resistance", "fixed pivot"],
+    "answer": 1.7952,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T4EBD": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null},
+    "TB560": {"stratum": "C", "answer_with_sentence": 1.7952, "regime": null},
+    "TDAE7": {"stratum": "R", "answer_with_sentence": 2.19866, "regime": null},
+    "T5EF9": {"stratum": "R", "answer_with_sentence": 2.19866, "regime": null},
+    "TAE16": {"stratum": "C", "answer_with_sentence": 1.7952, "regime": null},
+    "TF2E1": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All authors' strata agree with my pass 1. Checked certified answers: L+q = 1.0, 1.2, 1.4 m give T = 2.00709, 2.19866, 2.37482 s; base 1.7952 s. Mass cancellation expression 2*pi*sqrt(q*L^2/(q*g*L)) = 2*pi*sqrt(L/g) is correct. Minimal pairs (T4EBD/TDAE7, TF2E1/T5EF9) share the same number and unit and differ in attachment. Minor point: T5EF9's trailing clause 'so the bob now hangs lower' spells out the consequence and so cues relevance more strongly than its D partner TF2E1; not a physics defect. The base assumptions do not explicitly state a point-mass bob, but 'small bob' covers it."
+}

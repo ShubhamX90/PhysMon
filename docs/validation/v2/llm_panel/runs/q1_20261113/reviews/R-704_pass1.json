@@ -1,0 +1,35 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch13",
+  "item_id": "R-704",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:10:00Z",
+  "completed_at": "2026-11-13T10:18:00Z",
+  "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law for each block plus rotational dynamics of the pulley (I = M R^2/2, no-slip a = alpha R): a = (m2 - m1) g / (m1 + m2 + M/2)",
+    "assumptions": ["massless inextensible string", "string does not slip (stated)", "frictionless pulley axle", "pulley is a uniform solid disc rotating about its centre", "system released/moving freely with no other external forces"],
+    "answer": 2.1778,
+    "unit": "m/s^2"
+  },
+  "stratum_assignments": {
+    "TB39A": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "TA3B0": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "TFE1B": {"stratum": "K", "answer_with_sentence": 2.1778, "regime": "Irrelevant while both string tensions stay below the 200 N breaking strength; here T_left = 3(9.8+2.178) = 35.9 N and T_right = 5(9.8-2.178) = 38.1 N, far below 200 N."},
+    "TDDE2": {"stratum": "C", "answer_with_sentence": 2.1778, "regime": null},
+    "TFF18": {"stratum": "C", "answer_with_sentence": 2.1778, "regime": null},
+    "TE857": {"stratum": "K", "answer_with_sentence": 2.1778, "regime": "Irrelevant while both tensions (about 35.9 N and 38.1 N) remain below the 200 N limit."},
+    "TA3AE": {"stratum": "D", "answer_with_sentence": 2.1778, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {"missing_assumption": "A frictionless pulley axle is not stated, though it is the standard default and needed for the closed-form answer."},
+  "defect_severity": {"missing_assumption": "low"},
+  "counterexamples": [],
+  "notes": "Base: a = (5-3)(9.8)/(3+5+2/2) = 19.6/9 = 2.1778 m/s^2. With 0.8 kg added to the left block (glued or tied beneath, both move with it): a = (5-3.8)(9.8)/(3.8+5+1) = 11.76/9.8 = 1.2 m/s^2; right block still heavier, so the direction is unchanged. Radius cancels: torque (T2-T1)R = (M R^2/2)(a/R) gives T2-T1 = M a/2, independent of R. Breaking-strength sentences are K: max tension about 38.1 N (about 37.6 N with the extra 0.8 kg) is well below 200 N. Shelf block is D. Variant groups: {TB39A, TA3B0, TA3AE} all state 0.8 kg and differ in attachment (R, R, D); {TDDE2, TFF18} both state 12 cm radius ('from axle to rim' equals radius); {TFE1B, TE857} both state 200 N ('break only above 200 N' vs 'withstand up to 200 N' are equivalent statements of the same threshold). All variants consistent in number and unit."
+}

@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch01",
+  "item_id": "L-Q058",
+  "pass_number": 1,
+  "started_at": "2026-11-13T00:22:00Z",
+  "completed_at": "2026-11-13T00:27:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Sensible heat Q = m c dT",
+    "assumptions": [
+      "No phase change, no work, constant c",
+      "Mass must be positive; the stated -2.0 kg is unphysical"
+    ],
+    "answer": -41860.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "unclear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_parameter_domain"],
+  "defect_reasons": {
+    "invalid_parameter_domain": "The mass of water is given as -2.0 kg; mass cannot be negative, so the problem is physically meaningless as posed (formal m c dT gives -41860 J, contradicting a temperature rise with heat added)."
+  },
+  "defect_severity": {
+    "invalid_parameter_domain": "high"
+  },
+  "counterexamples": [
+    "Formal substitution gives Q = (-2.0)(4186.0)(5.0) = -41860 J, i.e. heat removed while the temperature rises, which is inconsistent for any real sample; if the sign is a typo for 2.0 kg, Q = +41860 J. No single defensible answer exists."
+  ],
+  "notes": "The added statement ('A later observation lasted t s', t = 10, 20, 40, 80 s) is a disconnected distractor: the heat for a given m, c, dT does not depend on the duration of a later observation, so all four variants share the same answer. That part is fine. The item fails on the negative mass. Formal answer -41860 J; physically intended (if |m|) +41860 J."
+}

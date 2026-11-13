@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch02",
+  "item_id": "L-Q035",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:26:00Z",
+  "completed_at": "2026-11-13T10:31:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Sensible heat Q = m c dT",
+    "assumptions": ["the mass of A is 1.5 kg (the text writes '1.5 m', taken as a unit typo)", "constant specific heat over the 20 K range", "no phase change"],
+    "answer": 27000.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["inconsistent_units"],
+  "defect_reasons": {
+    "inconsistent_units": "Block A's mass is given as '1.5 m' (metres, a length unit) rather than '1.5 kg', so as written m c dT has units J*m/kg, not J, and the answer only follows if the solver silently corrects the unit."
+  },
+  "defect_severity": {"inconsistent_units": "high"},
+  "counterexamples": ["Taking the text literally, 1.5 m * 900 J/(kg K) * 20 K = 27000 J*m/kg, which is not an energy; no heat in joules follows without assuming the intended unit is kg."],
+  "notes": "Under the evident intent (m = 1.5 kg): Q = 1.5 * 900.0 * 20.0 = 27000 J. All four variants differ only in block B's mass (0.5, 1.4, 1.5, 2.5 kg); B never exchanges heat with A, so the added statement is structurally disconnected (D) and the intended answer is 27000 J in every variant. Note the block B mass is correctly given in kg while A's is in 'm', and one variant gives B the same 1.5 numerical value as A, which makes the unit slip conspicuous. I mark the item invalid because the base problem's given value has a wrong unit; if the unit were corrected to kg the item would be valid."
+}

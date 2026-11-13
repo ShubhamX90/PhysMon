@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch03",
+  "item_id": "R-792",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:30:30Z",
+  "completed_at": "2026-11-13T10:38:00Z",
+  "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "lambda = hc / pc with pc = sqrt(2 mc^2 Ke) (non-relativistic de Broglie)",
+    "assumptions": [
+      "Non-relativistic kinematics, Ke << mc^2",
+      "Electron starts from rest",
+      "hc = 1240 eV nm, mc^2 = 511 keV"
+    ],
+    "answer": 100.15,
+    "unit": "pm"
+  },
+  "stratum_assignments": {
+    "TBF27": {"stratum": "R", "answer_with_sentence": 77.576, "regime": null},
+    "TFD00": {"stratum": "R", "answer_with_sentence": 77.576, "regime": null},
+    "T178C": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null},
+    "TDD95": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Consistent with pass 1 (pass 1 gave nm; the target unit is pm: 0.10015 nm = 100.15 pm, 0.077576 nm = 77.576 pm). Independent checks of the certified R answers: q=50 -> Ke=200 eV, pc = sqrt(2.044e8) = 14296.9 eV, lambda = 86.732 pm (certified 86.7324); q=100 -> Ke=250 eV, pc = 15984.4 eV, lambda = 77.576 pm (certified 77.5758); q=200 -> Ke=350 eV, pc = sqrt(3.577e8) = 18913.0 eV, lambda = 65.563 pm (certified 65.5635). D answers 100.15 pm at every q are correct: an ion beam on another bench and a proton in another building have no physical path to this electron. Minimal pairs (T178C with TBF27, TDD95 with TFD00) share the same frame, number (100) and unit (eV) and differ only in the recipient. Regime: largest Ke is 350 eV, K/mc^2 = 6.8e-4, so the relativistic correction to lambda is under 2e-4 relative, below the stated precision concerns; the wiring note's bound 'at most 500 eV' is loose but true. The assumption about hc being 'used for every photon energy' is irrelevant boilerplate (no photon in the problem) but harmless. Relations are dimensionally consistent (eV*nm / eV = nm).",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

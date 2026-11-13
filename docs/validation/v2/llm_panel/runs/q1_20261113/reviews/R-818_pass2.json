@@ -1,0 +1,46 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch10",
+  "item_id": "R-818",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:20:00Z",
+  "completed_at": "2026-11-13T10:25:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Simple pendulum, small-angle: T = 2 pi sqrt(L/g)",
+    "assumptions": ["point-like bob", "light inextensible string", "small amplitude", "no air resistance", "uniform g"],
+    "answer": 1.7952,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TFECF": {"stratum": "C", "answer_with_sentence": 1.7952, "regime": null},
+    "T81FE": {"stratum": "R", "answer_with_sentence": 2.19866, "regime": null},
+    "T6E10": {"stratum": "C", "answer_with_sentence": 1.7952, "regime": null},
+    "T1540": {"stratum": "R", "answer_with_sentence": 2.19866, "regime": null},
+    "T71B3": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null},
+    "T481A": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {
+    "rendering_not_minimal": "T71B3 is claimed with value_shown 0.4 m and minimal_pair_with T81FE, but its rendered text states a 0.6 m cord, so the pair differs in the number as well as the attachment."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "medium"
+  },
+  "counterexamples": [
+    "T71B3 text: 'A 0.6 m light cord is coiled up in a drawer...' vs claim value_shown '0.4' and its pair T81FE '0.4 m light cord'."
+  ],
+  "notes": "Physics checks: base T = 2 pi sqrt(0.8/9.8) = 4 pi/7 = 1.7952 s, correct. R answers (T81FE, T1540) for L + q: q = 0.2 -> 2 pi sqrt(1.0/9.8) = 2.00709 s; q = 0.4 -> 2.19866 s; q = 0.6 -> 2 pi sqrt(1/7) = 2.37482 s; all correct and consistent with the wiring. C claims for mass (T6E10, TFECF): the cancellation expression 2 pi sqrt(m L^2/(m g L)) is correct for a point bob; answers 1.7952 s correct. D claims (T481A, T71B3) correct as invariances. T481A pairs correctly with T1540 (both 0.4 m). The sole defect is the rendering of T71B3 (0.6 m instead of the claimed 0.4 m), which agrees with my pass-1 finding; it does not change any answer but breaks the minimal-pair contrast and makes the claim's value_shown false. Fix: render T71B3 with 0.4 m."
+  ,
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch13",
+  "item_id": "L-Q015",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:42:00Z",
+  "completed_at": "2026-11-13T10:46:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Coulomb's law: F = k |q1 q2| / r^2",
+    "assumptions": ["point charges", "air treated as vacuum (relative permittivity about 1), as implied by the given k", "the third charge is far away/isolated"],
+    "answer": 0.899,
+    "unit": "N"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "F = 8.99e9 * (1.0e-6)(4.0e-6) / (0.2)^2 = 8.99e9 * 4.0e-12 / 0.04 = 0.03596/0.04 = 0.899 N. Same answer in all four renderings: the third charge is stated to be negligibly far away and isolated, so it is disconnected. Even if it were nearby, the pairwise force between q1 and q2 would be unchanged by superposition (only the net force on each would change), so the invariance is robust. 'Exerts no measurable force on the q1-q2 pair' is slightly redundant phrasing."
+}

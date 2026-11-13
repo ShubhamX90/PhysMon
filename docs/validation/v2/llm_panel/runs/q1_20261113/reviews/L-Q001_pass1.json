@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch06",
+  "item_id": "L-Q001",
+  "pass_number": 1,
+  "started_at": "2026-11-13T00:12:00Z",
+  "completed_at": "2026-11-13T00:16:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Linear thermal expansion: dL = alpha * L0 * dT",
+    "assumptions": ["alpha is in 1/K (unit not stated)", "alpha constant over the 200 K range", "rod free to expand (no constraint)", "small-strain linear approximation (alpha*dT = 0.003)"],
+    "answer": 0.012,
+    "unit": "m"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["inconsistent_units"],
+  "defect_reasons": {
+    "inconsistent_units": "The expansion coefficient 1.5e-05 is given without its unit (1/K); the intended reading is unambiguous but the statement is dimensionally incomplete."
+  },
+  "defect_severity": {"inconsistent_units": "low"},
+  "counterexamples": [],
+  "notes": "dL = 1.5e-5 * 4.0 * 200 = 0.012 m in every rendering. The added statement about rod B (0.005, 0.0115, 0.012, 0.018 m) is structurally disconnected (explicitly 'never interacts'), so the answer is invariant. One rendering sets rod B's expansion equal to the answer (0.012 m), and another (0.0115 m) close to it; these are lures, not defects. The explicit disclaimer 'never interacts thermally or mechanically' makes the distractor somewhat artificial."
+}

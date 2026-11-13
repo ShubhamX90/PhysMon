@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch06",
+  "item_id": "R-658",
+  "pass_number": 1,
+  "started_at": "2026-11-13T00:21:00Z",
+  "completed_at": "2026-11-13T00:27:00Z",
+  "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "de Broglie relation with non-relativistic momentum: lambda = h/p, p = sqrt(2 m K), so lambda = hc / sqrt(2 mc^2 K)",
+    "assumptions": ["non-relativistic (stated; K/mc^2 = 3e-4)", "electron starts from rest so K is its total kinetic energy", "hc = 1240 eV nm, mc^2 = 511 keV as given"],
+    "answer": 0.10015,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "T6A32": {"stratum": "R", "answer_with_sentence": 0.077576, "regime": null},
+    "TC659": {"stratum": "R", "answer_with_sentence": 0.077576, "regime": null},
+    "T0B7A": {"stratum": "D", "answer_with_sentence": 0.10015, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: 2 mc^2 K = 2 * 511000 * 150 = 1.533e8 eV^2, sqrt = 12381.44 eV, lambda = 1240/12381.44 = 0.10015 nm (about 1.0015 angstrom). With the extra 100 eV, K = 250 eV: sqrt(2.555e8) = 15984.37 eV, lambda = 0.077576 nm. The proton sentence is structurally disconnected. All three sentences share 'a further 100 eV of kinetic energy' and differ only in attachment. T6A32's 'the electron above' is slightly awkward but unambiguous. Non-relativistic treatment remains excellent at 250 eV (K/mc^2 about 5e-4)."
+}

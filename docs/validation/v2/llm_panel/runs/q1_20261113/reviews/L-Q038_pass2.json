@@ -1,0 +1,45 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch03",
+  "item_id": "L-Q038",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:06:30Z",
+  "completed_at": "2026-11-13T10:11:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's law of universal gravitation, F = G M_A m_A / r_A^2",
+    "assumptions": [
+      "m_A = 3.0 kg (the parameter table says kg; the rendered text says '3.0 m')",
+      "Point masses 20.0 m apart",
+      "Source B exerts no force on A, by stipulation"
+    ],
+    "answer": 4.002,
+    "unit": "N"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["inconsistent_units", "contradictory_distractor_statement"],
+  "defect_reasons": {
+    "inconsistent_units": "The parameter table gives m_A = 3.0 kg but every rendering states 'Object A of mass 3.0 m', so the problem as shown to a solver has a mass in metres (or a symbolic mass m), and the certified 4.002 N does not follow from the text.",
+    "contradictory_distractor_statement": "The authors' argument that M_B is 'absent from object A's force law' is true only by fiat: under universal gravitation any mass B attracts A, and no distance or shielding is given to make that force negligible, so the decoupling contradicts the problem's own physics."
+  },
+  "defect_severity": {
+    "inconsistent_units": "high",
+    "contradictory_distractor_statement": "medium"
+  },
+  "counterexamples": [
+    "With the text read literally, m_A = 3.0 m (symbolic) gives F = 1.334 m N/kg, not 4.002 N.",
+    "B of mass 1.2e13 kg at 20 m from A would exert G*1.2e13*3.0/400 = 6.0 N on A, larger than the certified force itself; invariance to M_B relies solely on the 'never interacts' stipulation."
+  ],
+  "notes": "Agreement with pass 1 on the number: G M_A m_A / r_A^2 = 6.67e-11 * 8.0e12 * 3.0 / 400 = 4.002 N, matching the certified answer, and the sympy expression is dimensionally correct (N). The renderings differ only in M_B, as intended for a legacy invariance item. The defect is in the rendering: the mass unit of object A is printed as 'm' instead of 'kg'. If that typo is fixed, the item would be valid but still artificial because of the 'never interacts' stipulation on a gravitating mass; a natural fix is to place B far away (e.g. 'B is 1 light-year away') or to make B's quantity something genuinely disconnected.",
+  "equation_consistent": true,
+  "units_consistent": false,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

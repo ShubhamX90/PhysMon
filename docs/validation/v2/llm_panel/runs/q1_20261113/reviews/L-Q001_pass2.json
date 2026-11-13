@@ -1,0 +1,37 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch06",
+  "item_id": "L-Q001",
+  "pass_number": 2,
+  "started_at": "2026-11-13T00:16:00Z",
+  "completed_at": "2026-11-13T00:21:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Linear thermal expansion: dL_A = alpha_A * L_A * dT_A",
+    "assumptions": ["alpha in 1/K", "alpha constant over 200 K", "rod A unconstrained", "small-strain approximation (alpha*dT = 0.003)"],
+    "answer": 0.012,
+    "unit": "m"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_numerical_precision", "inconsistent_units"],
+  "defect_reasons": {
+    "invalid_numerical_precision": "The certified answer is displayed as 0.01 m, but alpha*L*dT = 1.5e-5 * 4.0 * 200 = 0.012 m exactly; 0.01 m is 17% low and, at the precision of the inputs, wrong, and it cannot distinguish the correct 0.012 m from the rod-B lure 0.0115 m or from 0.005-0.015 m generally.",
+    "inconsistent_units": "The problem text gives the expansion coefficient as a bare 1.5e-05 without its unit 1/K (the parameters list has it, the renderings do not)."
+  },
+  "defect_severity": {"invalid_numerical_precision": "high", "inconsistent_units": "low"},
+  "counterexamples": [
+    "A correct solver answering 0.012 m differs from the certified 0.01 m by 20% relative to the certified value; a solver copying the rod-B lure 0.0115 m is closer in relative terms to neither and would be graded inconsistently under any tolerance tight enough to separate 0.01 from 0.012."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": false,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "Physics, governing equation, parameter units and the distractor argument (rod B absent from the governing expression and explicitly non-interacting) are all correct, and the invariance across the four renderings holds. The defect is the certified answer display '0.01 m', which rounds the exact 0.012 m to one significant figure. If the stored certified numeric value used for grading is 0.012 m and only the display is rounded, the item is repairable by fixing the display (it would then be CERTIFIED_AND_VALIDATED with a low units note); as presented, the certified answer is wrong at the stated precision. Pass 1 noted the missing 1/K unit; unchanged here."
+}

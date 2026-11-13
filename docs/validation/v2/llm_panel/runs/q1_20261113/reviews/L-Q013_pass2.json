@@ -1,0 +1,42 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch12",
+  "item_id": "L-Q013",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:05:00Z",
+  "completed_at": "2026-11-13T10:09:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of linear momentum for a perfectly inelastic collision: v_f = (m1 v1 + m2 v2)/(m1 + m2)",
+    "assumptions": [
+      "Object 2 initially at rest (v2 = 0; used by the authors but not stated in any rendering)",
+      "No net external impulse during the collision",
+      "One-dimensional head-on motion"
+    ],
+    "answer": 2.4,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "The authors' parameter v2 = 0.0 m/s is never stated in the problem text, so the reader must assume object 2 is at rest to obtain 2.4 m/s."
+  },
+  "defect_severity": {
+    "missing_assumption": "medium"
+  },
+  "counterexamples": [
+    "With object 2 moving toward object 1 at 1.0 m/s (v2 = -1.0 m/s), v_f = (12 - 3)/5 = 1.8 m/s, not the certified 2.4 m/s."
+  ],
+  "notes": "Equation, units and the certified answer (2*6 + 3*0)/(2+3) = 2.4 m/s are correct and agree with my pass 1. The authors' invariance claim holds: the shape descriptor has no path into the momentum balance, and all four renderings differ only in the shape word. The only defect is that v2 = 0 is an implicit parameter; the item would be clean if the text said object 2 is initially at rest. Pass 2 agrees with pass 1.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS"
+}

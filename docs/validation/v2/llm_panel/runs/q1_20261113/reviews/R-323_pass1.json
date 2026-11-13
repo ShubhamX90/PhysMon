@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch10",
+  "item_id": "R-323",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:00:00Z",
+  "completed_at": "2026-11-13T10:06:00Z",
+  "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "RC charging: V_C(t) = E (1 - exp(-t/(R C))), tau = R C = 5000 ohm * 20e-6 F = 0.1 s",
+    "assumptions": ["ideal battery (no internal resistance)", "ideal capacitor and resistor", "capacitor initially uncharged, circuit closed at t = 0"],
+    "answer": 6.608,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "TD742": {"stratum": "R", "answer_with_sentence": 5.223, "regime": null},
+    "T6A26": {"stratum": "D", "answer_with_sentence": 6.608, "regime": null},
+    "T5A17": {"stratum": "R", "answer_with_sentence": 5.223, "regime": null},
+    "TABC4": {"stratum": "K", "answer_with_sentence": 6.608, "regime": "Switch-opening time affects V_C(80 ms) only if it is earlier than 80 ms; 500 ms > 80 ms, so the charging transient up to 80 ms is unaffected."},
+    "TD46C": {"stratum": "D", "answer_with_sentence": 6.608, "regime": null},
+    "T2215": {"stratum": "K", "answer_with_sentence": 6.608, "regime": "Disconnection time matters only if earlier than 80 ms; 500 ms > 80 ms."}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: t/tau = 0.8, V = 12(1 - e^-0.8) = 12 * 0.550671 = 6.608 V. With an extra 2 kohm in series: R = 7 kohm, tau = 0.14 s, t/tau = 0.5714, V = 12(1 - 0.564718) = 5.223 V. The four 2 kohm sentences state the same value and unit and differ only in attachment; the two 500 ms sentences state the same time. Minor: TD742 'is inserted' does not say when, but is naturally read as part of the circuit from the start."
+}

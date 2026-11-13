@@ -1,0 +1,40 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch11",
+  "item_id": "L-Q012",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:20:30Z",
+  "completed_at": "2026-11-13T10:25:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "tau_A = r_A F_A for a perpendicular force, plus any torque transmitted from B through the stated coupling",
+    "assumptions": ["force perpendicular to the arm", "coupling transmits no torque (not stated; contradicted by the text)"],
+    "answer": 12.0,
+    "unit": "N·m"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["hidden_coupling", "contradictory_distractor_statement", "insufficient_boundary_condition", "relevant_variable_removed_from_equation"],
+  "defect_reasons": {
+    "hidden_coupling": "The authors' proof asserts 'System B is mechanically isolated from system A', but every variant states that B 'is mechanically coupled to system A', so tau_B has a physical path to the torque on A.",
+    "contradictory_distractor_statement": "The distractor calls B 'separate' and places it in an adjacent workshop while also saying it is mechanically coupled to A, contradicting the isolation the certified answer relies on.",
+    "insufficient_boundary_condition": "No coupling geometry, ratio or torque sense is given, so if the coupling transmits torque the net torque on A is not uniquely determined.",
+    "relevant_variable_removed_from_equation": "Given the stated coupling, tau_B should appear in the relation for the torque on A, but the governing expression r_A*F_A omits it; the proof relies only on symbol absence."
+  },
+  "defect_severity": {"hidden_coupling": "high", "contradictory_distractor_statement": "high", "insufficient_boundary_condition": "medium", "relevant_variable_removed_from_equation": "medium"},
+  "counterexamples": [
+    "Rigid shaft coupling with B's torque in the same sense: torque on A = 12 + tau_B = 18, 23, 24, 30 N·m across the four variants, not 12 N·m.",
+    "Opposing sense: 12 - tau_B = 6, 1, 0, -6 N·m; in the 12.0 N·m variant the net torque on A would vanish."
+  ],
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "The arithmetic r_A F_A = 0.6 x 20.0 = 12 N·m is right and units are consistent, but the certification argument is purely symbolic (tau_B absent from the authored expression) and its physical premise ('mechanically isolated') is the opposite of what the rendered text says ('mechanically coupled to system A'). The certified answer is therefore not established for the item as written; answer_correct=false means the claim of invariance to tau_B is not supported, not that 12 N·m is impossible under the isolated reading. Consistent with my pass 1."
+}

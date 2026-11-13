@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch10",
+  "item_id": "L-Q004",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:26:00Z",
+  "completed_at": "2026-11-13T10:31:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Hydrostatic (gauge) pressure: p = rho g h",
+    "assumptions": ["incompressible static mercury", "uniform g; g not stated, taken as 9.8 m/s^2 (9.81 gives 13341.6 Pa)", "contribution means gauge pressure from column A only"],
+    "answer": 13328.0,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption", "contradictory_distractor_statement"],
+  "defect_reasons": {
+    "missing_assumption": "The value of g is not stated, so the answer is 13328 Pa (g = 9.8) or 13341.6 Pa (g = 9.81) depending on convention.",
+    "contradictory_distractor_statement": "Each variant states column B's height and then says a later note reports the same quantity as a different value, an internally contradictory and confusing statement (and 'this same quantity' could be misread as the depth of the point of interest)."
+  },
+  "defect_severity": {
+    "missing_assumption": "medium",
+    "contradictory_distractor_statement": "low"
+  },
+  "counterexamples": [],
+  "notes": "In all four renderings the answer is p = 13600 * g * 0.1 = 1360 g Pa, independent of column B's height (disconnected, so structurally irrelevant) and of the contradictory 'later note'. The renderings differ only in B's height (0.05, 0.09, 0.10, 0.15 m) and in the note value (3x B's height), consistent with a disconnected-distractor design. The phrasing is templated and unnatural."
+}

@@ -1,0 +1,43 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch12",
+  "item_id": "L-Q016",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:16:00Z",
+  "completed_at": "2026-11-13T10:20:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Work done by a constant force parallel to the displacement: W_A = F_A * delta_x_A",
+    "assumptions": [
+      "Force parallel to displacement (implicit in the authors' equation; not stated in the text)",
+      "Calorimeter B uncoupled from system A"
+    ],
+    "answer": 42000.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption", "contradictory_distractor_statement"],
+  "defect_reasons": {
+    "missing_assumption": "The authors' relation W = F * delta_x assumes the force is parallel to the displacement, which the text does not state.",
+    "contradictory_distractor_statement": "The distractor says B is thermally isolated yet absorbs heat, and then reports a second, doubled value for 'this same quantity'; it is self-contradictory, though it does not bear on the work on A."
+  },
+  "defect_severity": {
+    "missing_assumption": "low",
+    "contradictory_distractor_statement": "low"
+  },
+  "counterexamples": [
+    "If the force were at 60 degrees to the displacement, W = 21000 J, not 42000 J."
+  ],
+  "notes": "Equation, units (N*m = J) and the certified answer 600.0 * 70.0 = 42000 J are correct and match my pass 1. The invariance claim holds: Q_B has no path into W_A, and the renderings differ only in B's heat values. Rendering 3's heat value (42000 J) coincides with the answer and rendering 2's (41000 J) is near it, so these renderings act as numeric lures; this is fine for a distractor test but adds to the artificial feel. The parenthetical 'later note' revising a distractor value is an unnatural construction. Pass 2 agrees with pass 1.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "NATURALNESS_FLAG"
+}

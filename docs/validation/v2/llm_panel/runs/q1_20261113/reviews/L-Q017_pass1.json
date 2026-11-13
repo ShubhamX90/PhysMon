@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch01",
+  "item_id": "L-Q017",
+  "pass_number": 1,
+  "started_at": "2026-11-13T00:00:00Z",
+  "completed_at": "2026-11-13T00:04:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Unit conversion within SI (1 kN = 1000 N; 1 mN = 0.001 N); no physical law involved",
+    "assumptions": ["The instrument reading is taken at face value", "All renderings are meant to express the same force"],
+    "answer": 50.0,
+    "unit": "N"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {
+    "rendering_not_minimal": "Variant 2 states 0.055 kN = 55 N, while variants 1, 3 and 4 state 50 N (50 N, 50000 mN, 5x10^1 N); the renderings do not express the same quantity, so the answer is 55 N for variant 2 and 50 N for the others."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "Variant 2: 0.055 kN x 1000 N/kN = 55 N, not 50 N; a correct equivalent rendering would be 0.050 kN (or 0.05 kN)."
+  ],
+  "notes": "Answers per variant: (1) 50 N, (2) 55 N, (3) 50 N, (4) 50 N. If the item intends all renderings to share one answer of 50 N, variant 2 is wrong. Trivial difficulty; the question 'What is that force in newtons?' is natural but the task is a pure unit conversion."
+}

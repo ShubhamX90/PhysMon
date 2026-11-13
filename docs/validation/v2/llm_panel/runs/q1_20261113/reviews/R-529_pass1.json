@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch11",
+  "item_id": "R-529",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:42:30Z",
+  "completed_at": "2026-11-13T10:50:00Z",
+  "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "de Broglie relation with non-relativistic momentum: lambda = h/p = hc / sqrt(2 mc^2 K)",
+    "assumptions": ["non-relativistic electron (K = 150 eV << 511 keV)", "hc = 1240 eV nm", "mc^2 = 511 keV"],
+    "answer": 0.10015,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "T6713": {"stratum": "R", "answer_with_sentence": 0.077576, "regime": null},
+    "T0BD2": {"stratum": "R", "answer_with_sentence": 0.077576, "regime": null},
+    "TBF36": {"stratum": "D", "answer_with_sentence": 0.10015, "regime": null},
+    "T4D5A": {"stratum": "D", "answer_with_sentence": 0.10015, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {
+    "rendering_not_minimal": "TBF36 states 200 eV while the other three sentences about the same quantity (an extra kinetic energy) state 100 eV, so it is not a variant differing only in wording and attachment."
+  },
+  "defect_severity": {"rendering_not_minimal": "medium"},
+  "counterexamples": [],
+  "notes": "Base: sqrt(2 x 511000 x 150) = sqrt(1.533e8) = 12381.4 eV; lambda = 1240/12381.4 = 0.10015 nm. With K = 250 eV: sqrt(2.555e8) = 15984.4 eV; lambda = 0.077576 nm. Physics of every sentence is fine; the only issue is the 200 eV number in TBF36. I mark validity invalid because the variant set is not minimal as required; severity medium since the D answer is unaffected by the number. Could be revised to valid if the item does not claim TBF36 as a minimal-pair variant."
+}

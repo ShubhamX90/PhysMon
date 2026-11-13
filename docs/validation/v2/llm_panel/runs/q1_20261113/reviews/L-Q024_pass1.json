@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch08",
+  "item_id": "L-Q024",
+  "pass_number": 1,
+  "started_at": "2026-11-13T00:22:30Z",
+  "completed_at": "2026-11-13T00:27:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Ideal gas law: P = n R T / V",
+    "assumptions": ["gas in A behaves ideally (reasonable at ~1 bar and 300 K)", "R = 8.314 J/(mol K)", "uniform equilibrium state in A"],
+    "answer": 100000.0,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "The problem does not state that the gas is ideal, although at about 1 bar and 300 K this is the standard and adequate assumption."
+  },
+  "defect_severity": {
+    "missing_assumption": "low"
+  },
+  "counterexamples": [],
+  "notes": "P = 2.0 * 8.314 * 300.0 / 0.049884 = 4988.4 / 0.049884 = 100000 Pa (1.000e5 Pa). With CODATA R = 8.314462618 J/(mol K), P = 4988.678 / 0.049884 = about 100007 Pa, a 0.007% difference, so 1.00e5 Pa at any reasonable precision. The volume 0.049884 m^3 is evidently chosen so that the answer is exactly 1e5 Pa with R = 8.314. Container B's pressure (40000, 99000, 100000, 140000 Pa) is in a separate sealed container stated to be completely unconnected, so it is structurally disconnected (D) and the answer is invariant. Note that two distractor values (99000 and 100000 Pa) are numerically at or near the answer, which makes them deliberate lures; in the 100000 Pa rendering the distractor equals the answer, so copying it would be scored correct, which weakens that rendering as a test of distractor resistance but does not make it wrong physics. Renderings differ only in B's pressure."
+}

@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch04",
+  "item_id": "L-Q069",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:18:00Z",
+  "completed_at": "2026-11-13T10:21:00Z",
+  "minutes_spent": 3,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "SI unit conversion: 1 kJ = 1000 J, 1 mJ = 1e-3 J, 1 N*m = 1 J",
+    "assumptions": ["N*m here denotes work/energy (N times m), not torque"],
+    "answer": 1000.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {
+    "rendering_not_minimal": "Three renderings (1000 J, 1000000 mJ, 1000 N*m) all equal 1000 J, but the second rendering states 1.1 kJ = 1100 J, so it is not an equivalent rendering of the same quantity and the answer is not invariant across renderings."
+  },
+  "defect_severity": {"rendering_not_minimal": "high"},
+  "counterexamples": ["Rendering 2: 1.1 kJ converts to 1100 J, not 1000 J, so a model answering 1000 J for every rendering would be wrong on rendering 2, and a correct 1100 J would be scored wrong if the certified answer is a single 1000 J."],
+  "notes": "Per-rendering answers: 1000 J, 1100 J, 1000 J, 1000 J. If the item intends a unit-rendering invariance test (same energy written in different units), rendering 2 breaks it (should be 1 kJ or 1.0 kJ). If instead rendering 2 is intended to be a different value, the item is not a set of renderings of one problem. Either way the set is inconsistent. Each individual question is trivially well-posed. Writing N*m for energy is dimensionally fine but is conventionally reserved for torque; minor. The phrase 'energy change is stated as ... What is that energy in joules?' is an artificial pure unit-conversion task."
+}

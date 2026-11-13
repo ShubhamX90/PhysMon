@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch02",
+  "item_id": "R-242",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:35:00Z",
+  "completed_at": "2026-11-13T10:44:00Z",
+  "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Hydrostatic pressure p = p_surface + rho g h; Pascal's principle for added surface pressure",
+    "assumptions": ["incompressible liquid of uniform density", "liquid at rest", "the liquid is at least 12 m deep", "uniform g"],
+    "answer": 218600.0,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {
+    "T581F": {"stratum": "D", "answer_with_sentence": 218600.0, "regime": null},
+    "TBF2E": {"stratum": "C", "answer_with_sentence": 218600.0, "regime": null},
+    "T4352": {"stratum": "C", "answer_with_sentence": 218600.0, "regime": null},
+    "TCA3B": {"stratum": "D", "answer_with_sentence": 218600.0, "regime": null},
+    "T998E": {"stratum": "R", "answer_with_sentence": 238600.0, "regime": null},
+    "T64A1": {"stratum": "R", "answer_with_sentence": 238600.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "The problem does not state that the liquid is at least 12 m deep, though asking for the pressure at 12 m depth implies it."
+  },
+  "defect_severity": {"missing_assumption": "low"},
+  "counterexamples": [],
+  "notes": "Base: p = 101000 + 1000*9.8*12 = 101000 + 117600 = 218600 Pa (218.6 kPa). T998E (pump raises the sealed gas pressure above the surface by 20 kPa and holds it) and T64A1 (piston applies an extra 20 kPa to the surface) raise the surface pressure to 121 kPa; by Pascal's principle p = 238600 Pa (R). T581F (football in the next room) and TCA3B (car tyre outside) have no path to the tank (D). TBF2E and T4352 (area 2 m^2): area enters a force balance on the liquid column (p A = p0 A + rho g h A) but cancels, so the pressure is unchanged (C); one could also argue D, since pressure at depth does not involve area at all, but C is the better description. Variant checks: the four 20 kPa sentences all state 20 kPa and differ only in attachment; the two area sentences both state 2 m^2 (cross-section vs base, which are the same for a uniform tank). For T64A1 I read '20 kPa pressure rise ... applied by a piston' as the total extra surface pressure including the piston's weight."
+}

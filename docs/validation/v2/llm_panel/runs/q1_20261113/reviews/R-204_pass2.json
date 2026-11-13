@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch11",
+  "item_id": "R-204",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:07:30Z",
+  "completed_at": "2026-11-13T10:14:00Z",
+  "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Kinetic theory of an ideal gas: v_rms = sqrt(3RT/M)",
+    "assumptions": ["ideal classical gas in thermal equilibrium", "M = 0.004 kg/mol", "translational motion only"],
+    "answer": 1367.72,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TB113": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "T69F0": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "TDC0B": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null},
+    "T76FA": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null},
+    "T90D1": {"stratum": "C", "answer_with_sentence": 1367.72, "regime": null},
+    "T0565": {"stratum": "C", "answer_with_sentence": 1367.72, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["inconsistent_units"],
+  "defect_reasons": {
+    "inconsistent_units": "The inputs list M in g/mol while the relation vrms = sqrt(2*Ek/M) requires M in kg/mol; the certified answers do use the correct conversion, so this affects only the stated metadata."
+  },
+  "defect_severity": {"inconsistent_units": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked all certified answers: T = 350 K -> sqrt(2.182425e6) = 1477.30; 400 K -> 1579.30; 500 K -> sqrt(3.11775e6) = 1765.72; base 1367.72 m/s. All agree with my pass 1. The C claim for amount of gas is correct: n enters U = (3/2)nRT and m_total = nM and cancels. Minimal pairs: T76FA (oven in next room) vs TB113 (this gas sample, closed rigid container) and TDC0B (unrelated metal block) vs T69F0 (gas sample above) keep 100 K and change only the attachment; TB113's extra 'closed rigid container' clause is harmless (v_rms depends only on T). TDC0B's word 'unrelated' is a mild cue but not a defect. No disagreement with pass 1."
+}

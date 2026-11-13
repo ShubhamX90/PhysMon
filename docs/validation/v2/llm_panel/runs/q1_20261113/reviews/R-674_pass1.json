@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch09",
+  "item_id": "R-674",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:18:30Z",
+  "completed_at": "2026-11-13T10:25:00Z",
+  "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law: n1 sin(theta1) = n2 sin(theta2)",
+    "assumptions": ["flat interface, isotropic homogeneous media", "angles measured from the normal", "ray stays in the plane of incidence"],
+    "answer": 25.37,
+    "unit": "degree"
+  },
+  "stratum_assignments": {
+    "T3DFF": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "T1482": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "TBC1C": {"stratum": "R", "answer_with_sentence": 30.71, "regime": null},
+    "T7A9C": {"stratum": "R", "answer_with_sentence": 30.71, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: sin(theta2) = sin(40 deg)/1.5 = 0.642788/1.5 = 0.428525, theta2 = 25.374 deg. With the ray tilted 10 deg farther from the normal, incidence = 50 deg: sin(theta2) = 0.766044/1.5 = 0.510696, theta2 = 30.710 deg. All four sentences state 10 degrees and differ only in what is tilted. The solar panel and picture frame have no optical path to the ray (D). Minor wording point: with 'then', the question is read as asking for the refraction angle after the tilt; that is the natural reading but the sentence does not restate it. TBC1C explicitly keeps the ray in the plane of incidence; T7A9C's 'away from the normal' implies the same."
+}

@@ -1,0 +1,51 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch14",
+  "item_id": "R-303",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:08:30Z",
+  "completed_at": "2026-11-13T10:16:00Z",
+  "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law for each block plus rotational second law for a uniform-disc pulley with no slip: a = (m2 - m1) g / (m1 + m2 + M/2)",
+    "assumptions": [
+      "string is massless and inextensible",
+      "no slip on the pulley (stated)",
+      "frictionless axle (in authors' assumptions, not in the problem text)",
+      "uniform solid disc pulley on a fixed axis"
+    ],
+    "answer": 2.178,
+    "unit": "m/s^2"
+  },
+  "stratum_assignments": {
+    "T0A1D": {"stratum": "C", "answer_with_sentence": 2.178, "regime": null},
+    "TA14B": {"stratum": "D", "answer_with_sentence": 2.178, "regime": null},
+    "TC717": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "T316A": {"stratum": "K", "answer_with_sentence": 2.178, "regime": "max string tension (about 38.1 N) below the 200 N breaking strength"},
+    "TE2E7": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "TB44B": {"stratum": "C", "answer_with_sentence": 2.178, "regime": null},
+    "TAA97": {"stratum": "D", "answer_with_sentence": 2.178, "regime": null},
+    "TC3E8": {"stratum": "K", "answer_with_sentence": 2.178, "regime": "max string tension (about 38.1 N) below the 200 N rating"}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["inconsistent_units", "missing_assumption"],
+  "defect_reasons": {
+    "inconsistent_units": "The claimed target_unit is 'm/s', but the target is an acceleration whose unit is m/s^2, so the certified answer 2.17778 is stated in a dimensionally wrong unit.",
+    "missing_assumption": "The frictionless axle is listed in the authors' assumptions but not stated in the problem text; it is the standard textbook default, so the impact is minor."
+  },
+  "defect_severity": {"inconsistent_units": "medium", "missing_assumption": "low"},
+  "counterexamples": [
+    "Target unit claim: the answer (m2 - m1) g / m_eff has dimensions of g, i.e. m/s^2, not m/s."
+  ],
+  "notes": "All numerical claims check out. Base answer 19.6/9 = 2.17778 m/s^2. R sentences (TC717, TE2E7), with q added to m1: q=0.4 gives 1.6*9.8/9.4 = 1.66809; q=0.8 gives 1.2*9.8/9.8 = 1.2; q=1.2 gives 0.8*9.8/10.2 = 0.768627. All match. C sentences: the radius cancels through I/r^2 = M/2; the cancellation expression is correct. K sentences: tensions T_left = 3(9.8+2.178) = 35.9 N and T_right = 5(9.8-2.178) = 38.1 N are below all tested values (120, 200, 300 N), so the regime claim and invariant answers hold. Saying the answer is g outside the regime is a reasonable free-fall simplification. Minimal pairs TA14B/TE2E7 and TAA97/TC717 share 0.8 kg and differ only in attachment. TA14B's explicit 'unrelated to the setup' is a strong giveaway cue but is not a defect. Radius pair (12 cm) and tension pair (200 N) are consistent. Pass 1 agrees on every stratum and answer. The only new defect is the wrong target_unit metadata ('m/s' instead of 'm/s^2'). It is trivial to fix (change it to m/s^2), and the item would then be CERTIFIED_AND_VALIDATED.",
+  "equation_consistent": true,
+  "units_consistent": false,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

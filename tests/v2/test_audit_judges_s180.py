@@ -30,3 +30,21 @@ def test_clean_and_dirty_transcripts(tmp_path):
     web = _t(tmp_path / "w.jsonl", [("WebSearch", {"query": "atwood"})])
     assert not s180.audit(web, d)["clean"]
     assert not s180.audit(_t(tmp_path / "e.jsonl", []), d)["clean"]  # no tool calls: nothing to show it worked
+
+
+def test_written_content_with_units_is_not_an_access_but_other_tools_are(tmp_path):
+    d = "/scratch/pabitra/physmon/judge/r1/b01"
+    units = _t(tmp_path / "u.jsonl", [("Write", {"file_path": f"{d}/out/R-1_pass1.json",
+                                                  "content": '{"unit": "m/s", "notes": "kg/m^3 and 9.8/2"}'})])
+    assert s180.audit(units, d)["clean"]
+    glob = _t(tmp_path / "g.jsonl", [("Glob", {"pattern": f"{d}/*"})])
+    assert not s180.audit(glob, d)["clean"]  # inside the directory, but not an allowed tool
+
+
+def test_pass2_opened_before_pass1_was_saved_is_a_violation(tmp_path):
+    d = "/scratch/pabitra/physmon/judge/r1/b01"
+    early = _t(tmp_path / "o.jsonl", [("Read", {"file_path": f"{d}/R-1_pass1_packet.json"}),
+                                      ("Read", {"file_path": f"{d}/R-1_pass2_packet.json"}),
+                                      ("Write", {"file_path": f"{d}/out/R-1_pass1.json", "content": "{}"})])
+    r = s180.audit(early, d)
+    assert not r["clean"] and r["pass2_opened_before_pass1_saved"] == ["R-1"]

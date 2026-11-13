@@ -1,0 +1,47 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch07",
+  "item_id": "R-338",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:07:30Z",
+  "completed_at": "2026-11-13T10:14:00Z",
+  "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law along the incline: a = g(sin theta - mu_k cos theta); v^2 = v0^2 + 2 a d",
+    "assumptions": ["block treated as a particle", "constant mu_k", "no air resistance", "block starts from rest at the start of the 4 m", "mu_s < tan 30 deg so the block slides"],
+    "answer": 5.387,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T9630": {"stratum": "C", "answer_with_sentence": 5.387, "regime": null},
+    "T4340": {"stratum": "K", "answer_with_sentence": 5.387, "regime": "mu_s < tan(30 deg) = 0.577"},
+    "TD05D": {"stratum": "R", "answer_with_sentence": 6.597, "regime": null},
+    "T908A": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null},
+    "T1BB6": {"stratum": "K", "answer_with_sentence": 5.387, "regime": "mu_s < tan(30 deg) = 0.577"},
+    "T8540": {"stratum": "C", "answer_with_sentence": 5.387, "regime": null},
+    "T4D96": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null},
+    "T1D64": {"stratum": "R", "answer_with_sentence": 6.597, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["failed_transformation_identity"],
+  "defect_reasons": {
+    "failed_transformation_identity": "For the R sentences TD05D and T1D64 the stated wiring (total slide d + q from rest) gives v = sqrt(2 a (d + q)) = 6.022, 6.597, 7.126 m/s at q = 1, 2, 3 m, but the certified answers are 5.38661 at every q, i.e. the base answer unchanged."
+  },
+  "defect_severity": {"failed_transformation_identity": "high"},
+  "counterexamples": [
+    "TD05D / T1D64 at q = 2 m: a = 3.62694 m/s^2, v = sqrt(2*3.62694*6) = 6.597 m/s, not the certified 5.38661 m/s.",
+    "TD05D / T1D64 at q = 1 m: v = sqrt(2*3.62694*5) = 6.022 m/s; at q = 3 m: v = sqrt(2*3.62694*7) = 7.126 m/s; certified 5.38661 at both."
+  ],
+  "notes": "Base answer 5.38661 m/s, relations, units and the C, D and K claims check out: mass cancels from a = g(sin theta - mu cos theta); the lab-bench and next-room slides (T908A, T4D96) have no path to the target since the block is placed and released from rest; static friction 0.25-0.45 is below tan 30 deg = 0.577 so the block slides and mu_s does not enter (outside the regime the block stays at rest, speed 0, as claimed). Paired sentences state the same number and unit (2 kg, 0.35, 2 m). The only defect is that the certified answers for the two R sentences are invariant (equal to the base answer), contradicting their own wiring and stratum; the item's physics is otherwise sound and would be valid once those answers are recomputed. Agrees with my pass 1."
+  ,
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

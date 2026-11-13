@@ -1,0 +1,43 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch09",
+  "item_id": "R-674",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:25:30Z",
+  "completed_at": "2026-11-13T10:32:00Z",
+  "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law: theta2 = asin(n1 sin(theta1)/n2)",
+    "assumptions": ["flat interface", "light passes from medium 1 into medium 2", "angles from the normal", "ray stays in the plane of incidence"],
+    "answer": 25.374,
+    "unit": "degree"
+  },
+  "stratum_assignments": {
+    "T3DFF": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "T1482": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "TBC1C": {"stratum": "R", "answer_with_sentence": 30.710, "regime": null},
+    "T7A9C": {"stratum": "R", "answer_with_sentence": 30.710, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["inconsistent_units"],
+  "defect_reasons": {
+    "inconsistent_units": "The declared target_unit is 'rad/s' (an angular velocity), but the target is an angle and every certified answer is in degrees, as are the inputs and the claims."
+  },
+  "defect_severity": {
+    "inconsistent_units": "high"
+  },
+  "counterexamples": [
+    "Base answer 25.374 interpreted in the declared target unit would be 25.374 rad/s, which is dimensionally not an angle; the correct statement is 25.374 deg (0.4429 rad)."
+  ],
+  "equation_consistent": true,
+  "units_consistent": false,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "Physics, strata and numbers all agree with my pass 1. Checked certified answers: incidence 45, 50, 55 deg give 28.1255, 30.7102, 33.100 deg; base 25.374 deg; D sentences invariant. Wiring theta1 -> theta1 + q is correct for a tilt away from the normal in the plane of incidence (no total internal reflection issue since n2 > n1). The only defect is the target_unit metadata 'rad/s', which is dimensionally wrong; I rate it high because a unit-aware scorer using it would mis-grade, but the fix is trivial (target_unit -> deg) and after that fix the item would be CERTIFIED_AND_VALIDATED. Minor: 33.1 is given to fewer digits than the other answers (33.0999...), which is adequate. Minimal pairs (T1482/T7A9C, T3DFF/TBC1C) share 10 deg; TBC1C adds an explanatory clause ('turning the ray farther from the normal within the same plane of incidence') that its D partner lacks, a small cue but not a physics defect."
+}

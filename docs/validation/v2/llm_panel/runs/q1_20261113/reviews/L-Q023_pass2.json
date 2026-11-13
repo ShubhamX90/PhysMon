@@ -1,0 +1,46 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch03",
+  "item_id": "L-Q023",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:16:30Z",
+  "completed_at": "2026-11-13T10:21:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Gravitational potential energy in a uniform field, U = m g h",
+    "assumptions": [
+      "Uniform field g = 9.8 m/s^2",
+      "Height 5.0 m measured from the reference level"
+    ],
+    "answer": 98.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["relevant_variable_removed_from_equation", "inconsistent_units", "missing_assumption"],
+  "defect_reasons": {
+    "relevant_variable_removed_from_equation": "The certified sympy expression is '1 * g * h': the mass m has been replaced by the literal 1, so the machine-checkable relation evaluates to 9.8*5.0 = 49 (J/kg), not the certified 98.0 J, and contradicts both the LaTeX equation U = m g h and the authors' proof text ('depends only on m, g, and h').",
+    "inconsistent_units": "Because m is missing, the sympy expression has units of m^2/s^2 (J/kg), not the target unit J.",
+    "missing_assumption": "The text does not state explicitly that the 5.0 m height is measured from the reference level, though that is the obvious reading."
+  },
+  "defect_severity": {
+    "relevant_variable_removed_from_equation": "high",
+    "inconsistent_units": "medium",
+    "missing_assumption": "low"
+  },
+  "counterexamples": [
+    "Evaluating the certified sympy expression with the listed parameters gives 1*9.8*5.0 = 49, half the certified answer of 98.0 J.",
+    "An invariance check run on '1 * g * h' would also report U as invariant to m, which is false (doubling m to 4.0 kg doubles U to 196 J)."
+  ],
+  "notes": "No disagreement with pass 1 about the problem text or the number: U = 2.0*9.8*5.0 = 98 J is correct and matches the certified display, and the distractor (another object's fall time in an unrelated trial) is genuinely disconnected for all four renderings. The defect is in the authors' certificate: the sympy governing expression drops m. I judge the item invalid as certified because that expression is the claimed relation and it does not produce the certified answer; if the expression is corrected to 'm * g * h' the item would be valid (CERTIFIED_AND_VALIDATED, slightly artificial distractor).",
+  "equation_consistent": false,
+  "units_consistent": false,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

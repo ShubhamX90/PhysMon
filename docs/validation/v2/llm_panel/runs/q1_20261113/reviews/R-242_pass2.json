@@ -1,0 +1,42 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch02",
+  "item_id": "R-242",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:44:00Z",
+  "completed_at": "2026-11-13T10:51:00Z",
+  "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Hydrostatic pressure p = p0 + rho g h; Pascal's principle",
+    "assumptions": ["incompressible liquid of uniform density at rest", "liquid at least 12 m deep", "uniform g"],
+    "answer": 218.6,
+    "unit": "kPa"
+  },
+  "stratum_assignments": {
+    "T581F": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null},
+    "TBF2E": {"stratum": "C", "answer_with_sentence": 218.6, "regime": null},
+    "T4352": {"stratum": "C", "answer_with_sentence": 218.6, "regime": null},
+    "TCA3B": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null},
+    "T998E": {"stratum": "R", "answer_with_sentence": 238.6, "regime": null},
+    "T64A1": {"stratum": "R", "answer_with_sentence": 238.6, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption", "other"],
+  "defect_reasons": {
+    "missing_assumption": "Neither the problem nor the authors' assumptions state that the liquid is at least 12 m deep (implied by the question) or, for the R wiring, that the liquid is incompressible (stated only in the wiring).",
+    "other": "For T4352 the claim labels the quantity 'the tank's cross-sectional area' and uses a column relation p = p0 + m g / A with A the base area, which holds only for a uniform tank; the sentence does not say the tank is uniform, though the answer is invariant regardless of shape (hydrostatic paradox)."
+  },
+  "defect_severity": {"missing_assumption": "low", "other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All claims agree with my pass 1 (218.6 kPa = 218600 Pa). R wiring p0 -> p0 + q: q = 10, 20, 40 kPa gives 228.6, 238.6, 258.6 kPa, correct by Pascal's principle for both the pressurised sealed gas space (T998E) and the piston (T64A1). D claims for the football in the next room and the car tyre outside hold. C claims for the area: the cancellation p0 + rho q h g / q = p0 + rho g h is correct for the column force balance; pressure at depth is independent of area and tank shape, so the invariance holds for all listed areas. Minimal pairs T581F/T64A1 and TCA3B/T998E each state 20 kPa and differ only in attachment. No disagreement with pass 1; the low flags are presentation-level and do not affect validity."
+}

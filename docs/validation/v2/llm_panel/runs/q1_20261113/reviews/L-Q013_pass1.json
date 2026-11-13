@@ -1,0 +1,37 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch12",
+  "item_id": "L-Q013",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:00:00Z",
+  "completed_at": "2026-11-13T10:05:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of linear momentum for a perfectly inelastic collision: m1 v1 + m2 v2 = (m1 + m2) v_f",
+    "assumptions": [
+      "Object 2 is initially at rest (not stated; standard reading)",
+      "No net external impulse during the collision (isolated system along the line of motion)",
+      "One-dimensional head-on motion; point-mass/rigid-body translation only, no rotation induced"
+    ],
+    "answer": 2.4,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "The initial velocity of object 2 is never stated; the answer 2.4 m/s requires assuming it is at rest."
+  },
+  "defect_severity": {
+    "missing_assumption": "medium"
+  },
+  "counterexamples": [
+    "If object 2 moved toward object 1 at 1.0 m/s, v_f = (12 - 3)/5 = 1.8 m/s rather than 2.4 m/s."
+  ],
+  "notes": "All four renderings differ only in the shape word (cubic, spherical, cylindrical, pyramid-shaped); shape has no physical path to the common velocity of a perfectly inelastic 1D collision under momentum conservation, so every rendering gives 2.4 m/s (in object 1's original direction) under the at-rest assumption. A head-on collision of non-symmetric shapes (e.g., pyramids) could in principle induce rotation if the contact is off the centre-of-mass line, but the centre-of-mass velocity is still 2.4 m/s; 'common final velocity' is naturally read as that. The shape sentence is a structurally disconnected distractor."
+}

@@ -1,0 +1,35 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch05",
+  "item_id": "L-Q060",
+  "pass_number": 1,
+  "started_at": "2026-11-13T00:26:00Z",
+  "completed_at": "2026-11-13T00:31:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Sensible heat: Q = m c dT",
+    "assumptions": [
+      "The stated '0.5 m' of water is read as 0.5 kg (the unit 'm' is not a mass unit)",
+      "No phase change, no work done, constant specific heat over the 20 K rise",
+      "Vessel B exchanges no heat with A"
+    ],
+    "answer": 41860.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["inconsistent_units"],
+  "defect_reasons": {
+    "inconsistent_units": "The amount of water is given as '0.5 m' (metres), which is not a mass; Q = m c dT needs kg, and plausible readings give different answers (0.5 kg -> 41860 J; 0.5 m^3 -> about 500 kg -> about 4.19e7 J)."
+  },
+  "defect_severity": {"inconsistent_units": "high"},
+  "counterexamples": [
+    "Reading '0.5 m' as 0.5 m^3 of water (rho ~ 1000 kg/m^3) gives m ~ 500 kg and Q ~ 500 * 4186 * 20 ~ 4.19e7 J, not 41860 J."
+  ],
+  "notes": "Under the intended reading (0.5 kg), Q = 0.5 * 4186.0 * 20.0 = 41860 J for all four renderings; vessel B's absorbed heat (25000, 40000, 41860, 70000 J) is disconnected since B is thermally isolated from A. Note the third rendering sets B's heat equal to the answer (41860 J), a deliberate lure that is not a physics defect. The item is invalid as written only because of the mass unit; correcting 'm' to 'kg' would make it valid."
+}

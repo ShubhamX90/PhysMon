@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch10",
+  "item_id": "L-Q004",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:32:00Z",
+  "completed_at": "2026-11-13T10:36:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Hydrostatic (gauge) pressure: p = rho_A g h_A",
+    "assumptions": ["incompressible static mercury", "g = 9.8 m/s^2 (not stated in the rendered text)", "gauge pressure from column A only"],
+    "answer": 13328.0,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption", "contradictory_distractor_statement"],
+  "defect_reasons": {
+    "missing_assumption": "The certified answer uses g = 9.8 m/s^2, a parameter that appears in the authors' parameter list but not in any rendered variant, so a solver using 9.81 gets 13341.6 Pa.",
+    "contradictory_distractor_statement": "The parenthetical 'a later note reports this same quantity as ... instead' contradicts the just-stated height of column B and makes the referent of 'this same quantity' unclear."
+  },
+  "defect_severity": {
+    "missing_assumption": "medium",
+    "contradictory_distractor_statement": "low"
+  },
+  "counterexamples": [
+    "With g = 9.81 m/s^2 (a common convention), p = 13600 * 9.81 * 0.1 = 13341.6 Pa, not 13328 Pa."
+  ],
+  "notes": "The governing equation, units and certified answer (13600 * 9.8 * 0.1 = 13328 Pa) are correct, and the invariance claim holds: h_B belongs to a disconnected column and has no path to the target, so all four renderings share the answer. Agrees with pass 1. The defects are in the wording: unstated g (medium; the difference is about 0.1 percent, so a tolerant grader would accept either) and a self-contradictory, templated distractor note. Fix: state g = 9.8 m/s^2 in the text and drop or reword the 'later note'."
+  ,
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS"
+}

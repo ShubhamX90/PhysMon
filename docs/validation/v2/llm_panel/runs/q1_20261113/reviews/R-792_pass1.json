@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch03",
+  "item_id": "R-792",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:22:00Z",
+  "completed_at": "2026-11-13T10:30:00Z",
+  "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "de Broglie relation lambda = h/p with non-relativistic p = sqrt(2 m K), i.e. lambda = hc / sqrt(2 mc^2 K)",
+    "assumptions": [
+      "Non-relativistic kinematics (K = 150 eV << mc^2 = 511 keV, error ~1e-4)",
+      "Electron starts from rest, so final kinetic energy is exactly 150 eV",
+      "hc = 1240 eV nm, mc^2 = 511 keV as given"
+    ],
+    "answer": 0.10015,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "TBF27": {"stratum": "R", "answer_with_sentence": 0.077576, "regime": null},
+    "TFD00": {"stratum": "R", "answer_with_sentence": 0.077576, "regime": null},
+    "T178C": {"stratum": "D", "answer_with_sentence": 0.10015, "regime": null},
+    "TDD95": {"stratum": "D", "answer_with_sentence": 0.10015, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: 2 mc^2 K = 2*511000*150 = 1.533e8 eV^2, sqrt = 12381.4 eV, lambda = 1240/12381.4 = 0.10015 nm. With the extra 100 eV given to this electron, K = 250 eV: 2*511000*250 = 2.555e8 eV^2, sqrt = 15984.4 eV, lambda = 1240/15984.4 = 0.077576 nm (still non-relativistic, K/mc^2 ~ 5e-4). TBF27 and TFD00 attach the 100 eV to the same electron (relevant); T178C (separate ion beam) and TDD95 (proton in another building) attach it to systems with no physical path to the electron's wavelength (disconnected). All four sentences state the same quantity, 100 eV, and share the frame 'Before the wavelength is determined, a further 100 eV of kinetic energy is given to ...'; they differ only in the recipient, as intended. Minor: TBF27's 'the electron above' is slightly unusual phrasing but unambiguous."
+}

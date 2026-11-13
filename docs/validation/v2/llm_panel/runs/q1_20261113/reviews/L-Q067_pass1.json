@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch08",
+  "item_id": "L-Q067",
+  "pass_number": 1,
+  "started_at": "2026-11-13T00:00:00Z",
+  "completed_at": "2026-11-13T00:03:00Z",
+  "minutes_spent": 3,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Joule heating in an ohmic resistor: P = V^2 / R",
+    "assumptions": ["ohmic resistor, DC (or RMS) voltage", "12.0 V is the voltage across the resistor itself", "resistance is 8.0 ohm at operating conditions"],
+    "answer": 18.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "P = (12.0 V)^2 / 8.0 ohm = 144/8 = 18 W in all four renderings. The ambient pressure (18, 36, 72, 144 kPa) has no physical path to the dissipated power when V and R are given directly (structurally disconnected, D). All four renderings differ only in the pressure value, so the answer is invariant at 18 W. The pressure sentence is a little artificial in a bench electronics context, and 18 kPa is an unusually low ambient pressure for a bench (roughly 12 km altitude equivalent), but it does not affect the answer."
+}

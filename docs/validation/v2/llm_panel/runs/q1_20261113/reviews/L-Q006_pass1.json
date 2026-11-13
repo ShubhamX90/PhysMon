@@ -1,0 +1,37 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch01",
+  "item_id": "L-Q006",
+  "pass_number": 1,
+  "started_at": "2026-11-13T00:32:00Z",
+  "completed_at": "2026-11-13T00:37:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Linear thermal expansion dL = alpha L0 dT",
+    "assumptions": [
+      "alpha is the linear expansion coefficient in 1/K (unit not stated in the text)",
+      "alpha constant over the 100 K range; small-strain linear approximation (alpha dT = 0.002)",
+      "Rod A is free to expand (unconstrained)"
+    ],
+    "answer": 0.01,
+    "unit": "m"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["inconsistent_units", "missing_assumption"],
+  "defect_reasons": {
+    "inconsistent_units": "The expansion coefficient '2e-05' is given without its unit (should be 2e-05 K^-1), though the intended unit is unambiguous from context.",
+    "missing_assumption": "The text does not state that rod A is free to expand (unconstrained); this is the standard default reading."
+  },
+  "defect_severity": {
+    "inconsistent_units": "low",
+    "missing_assumption": "low"
+  },
+  "counterexamples": [],
+  "notes": "dL = 2e-5 x 5.0 x 100.0 = 0.010 m for all four variants. The rod B statement ('never interacts thermally or mechanically with rod A') is a cleanly disconnected distractor; its values 0.004, 0.0098, 0.010 and 0.015 m do not affect the answer (0.0098 and 0.010 m are near or equal to the true answer and act as lures, which is acceptable for a distractor). Item is correct and well-posed."
+}

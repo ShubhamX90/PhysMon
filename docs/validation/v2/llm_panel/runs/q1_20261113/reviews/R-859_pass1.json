@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch09",
+  "item_id": "R-859",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:00:00Z",
+  "completed_at": "2026-11-13T10:06:00Z",
+  "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Simple pendulum, small-angle limit: T = 2*pi*sqrt(L/g)",
+    "assumptions": ["point-mass bob (small bob)", "massless inextensible string", "small amplitude (sin theta ~ theta)", "no air resistance or damping", "fixed pivot"],
+    "answer": 1.795,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T4EBD": {"stratum": "D", "answer_with_sentence": 1.795, "regime": null},
+    "TB560": {"stratum": "C", "answer_with_sentence": 1.795, "regime": null},
+    "TDAE7": {"stratum": "R", "answer_with_sentence": 2.199, "regime": null},
+    "T5EF9": {"stratum": "R", "answer_with_sentence": 2.199, "regime": null},
+    "TAE16": {"stratum": "C", "answer_with_sentence": 1.795, "regime": null},
+    "TF2E1": {"stratum": "D", "answer_with_sentence": 1.795, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: T = 2*pi*sqrt(0.8/9.8) = 2*pi*0.28571 = 1.7952 s. With the 0.4 m cord inserted, effective length 1.2 m: T = 2*pi*sqrt(1.2/9.8) = 2*pi*0.34993 = 2.1987 s. Mass appears in m*L*theta'' = -m*g*theta and cancels (C). The four cord sentences all state 0.4 m and the two mass sentences both state 0.5 kg, so numbers/units are consistent across variants. Minor wording differences: T5EF9 adds the cue 'so the bob now hangs lower' (a hint about relevance), and TAE16 adds 'small brass sphere'; neither changes the physics. Knot length is implicitly treated as negligible."
+}

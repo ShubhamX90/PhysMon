@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch13",
+  "item_id": "L-Q036",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:00:00Z",
+  "completed_at": "2026-11-13T10:04:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Undamped LC resonance: f0 = 1/(2*pi*sqrt(L*C))",
+    "assumptions": ["ideal (lossless) series/parallel LC circuit; resistance negligible", "'resonance frequency' means ordinary frequency in Hz (not angular frequency)", "resonator B is electrically isolated and not coupled (no mutual inductance or field coupling)"],
+    "answer": 159.15,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "LC = 0.1 * 1.0e-5 = 1.0e-6 s^2, sqrt = 1.0e-3 s, omega0 = 1000 rad/s, f0 = 1000/(2*pi) = 159.15 Hz. All four renderings have the same answer; resonator B is stated to be electrically isolated, so its frequency is structurally disconnected (D). The 159 Hz rendering coincides with the correct answer to within rounding, so it acts as a lure of a different kind than the other values (a model copying B's frequency would be scored correct there); this is a design consideration rather than a physics defect. Minor: 'electrically isolated' does not strictly rule out magnetic/acoustic coupling, but the intended reading is clear. Angular frequency 1000 rad/s would be the answer under an omega reading; the word 'frequency' plus Hz context favours 159.15 Hz."
+}

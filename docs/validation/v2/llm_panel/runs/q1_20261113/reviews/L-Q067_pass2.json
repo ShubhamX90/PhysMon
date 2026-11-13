@@ -1,0 +1,38 @@
+{
+  "reviewer_id": "claude-opus-5-5:q1_20261113:batch08",
+  "item_id": "L-Q067",
+  "pass_number": 2,
+  "started_at": "2026-11-13T00:03:30Z",
+  "completed_at": "2026-11-13T00:06:00Z",
+  "minutes_spent": 3,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Joule heating in an ohmic resistor: P = V^2 / R",
+    "assumptions": ["ohmic resistor, DC (or RMS) voltage", "12.0 V is the voltage across the resistor itself", "resistance is 8.0 ohm at operating conditions"],
+    "answer": 18.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_numerical_precision"],
+  "defect_reasons": {
+    "invalid_numerical_precision": "The certified answer is displayed as 20 W, but V^2/R = 144/8 = 18 W exactly; rounding to one significant figure (an 11% error) is far coarser than the 2-3 significant-figure inputs and makes the displayed answer wrong."
+  },
+  "defect_severity": {
+    "invalid_numerical_precision": "high"
+  },
+  "counterexamples": [
+    "With V = 12.0 V and R = 8.0 ohm, P = 18.0 W; a solver answering 18 W would be scored against a certified 20 W and could be marked wrong under any tolerance tighter than about 11%."
+  ],
+  "notes": "Governing equation P = V^2/R and parameters match the problem; units are consistent (V^2/ohm = W). The invariance claim is correct: ambient pressure (18-144 kPa) has no physical path to P when V and R are specified, so all renderings share the same answer and differ only in the pressure value. The only defect is the certified answer display of 20 W instead of 18 W. If the stored certified value is 18 W and only the display is rounded, the fix is to display 18 W (or 18.0 W). Agrees with my pass 1 (18 W, pressure disconnected); the change in validity is due solely to the certified answer display seen in pass 2.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": false,
+  "admission_category": "SOLVER_INVALID"
+}
