@@ -229,6 +229,57 @@ def _not_separated(values: dict[str, float]) -> list[tuple[str, str]]:
 
 # --- certification -------------------------------------------------------------------------------------------------------
 
+def _dim_of(expression: sympy.Expr, dims: dict[str, dm.Dim]) -> dm.Dim:
+    """`dimensions.expr_dimension`, extended with Max/Min (arguments of one dimension) and comparisons (sides of one
+    dimension; the comparison itself is dimensionless)."""
+
+    if isinstance(expression, sympy.core.relational.Relational):
+        if _dim_of(expression.lhs, dims) != _dim_of(expression.rhs, dims):
+            raise dm.DimensionError(f"the sides of {expression} have different dimensions")
+        return dm.DIMLESS
+    if isinstance(expression, (sympy.Max, sympy.Min)):
+        arg_dims = [_dim_of(a, dims) for a in expression.args]
+        if any(d != arg_dims[0] for d in arg_dims[1:]):
+            raise dm.DimensionError(f"the arguments of {expression.func.__name__} have different dimensions")
+        return arg_dims[0]
+    if expression.is_Add or expression.is_Mul or expression.is_Pow or isinstance(expression, sympy.Function):
+        rebuilt = {}
+        for arg in expression.args:  # recurse with this function so nested Max/Min and comparisons are handled
+            if isinstance(arg, (sympy.Max, sympy.Min, sympy.core.relational.Relational)):
+                rebuilt[arg] = sympy.Symbol(f"__d{len(rebuilt)}")
+        if rebuilt:
+            inner = {str(sym): _dim_of(arg, dims) for arg, sym in rebuilt.items()}
+            return dm.expr_dimension(expression.xreplace(rebuilt), {**dims, **inner})
+    return dm.expr_dimension(expression, dims)
+
+
+def law_dimension_ok(text: str, structure: gr.Structure, q_unit: str, target: bool = True) -> tuple[bool, str]:
+    """Whether an expression over node names and q (SI) is dimensionally consistent and, if `target`, has the target's
+    dimension. A bare number (such as 0: "the block stays at rest") is accepted for any dimension."""
+
+    dims = {n.name: dm.UNITS[n.unit].dim for n in structure.nodes}
+    dims[Q] = dm.UNITS[q_unit].dim
+    try:
+        expression = gr.parse_expr(text, [*dims])
+        if expression.is_number:
+            return True, "number"
+        got = _dim_of(expression, dims)
+    except (dm.DimensionError, TypeError, ValueError, sympy.SympifyError) as exc:
+        return False, str(exc)
+    want = dm.UNITS[structure.render.target_unit].dim
+    if target and got != want:
+        return False, f"dimension {got.label()} is not the target's {want.label()}"
+    return True, got.label()
+
+
+def frame_ok(frame: str, fill: str) -> bool:
+    """A C/K frame has a relation slot and a value slot, and renders cleanly with the non-numeric fill."""
+
+    if "{relation}" not in frame or "{value}" not in frame:
+        return False
+    text = _sentence(frame, None, None, "R", fill)
+    return "{" not in text and "}" not in text
+
 def certify_role_spec(structure: gr.Structure, spec: RoleSpec) -> dict[str, Any]:
     """Blocking checks for one spec on every instance of the structure; returns {'passed': bool, 'checks': {...}}."""
 
@@ -251,7 +302,9 @@ def certify_role_spec(structure: gr.Structure, spec: RoleSpec) -> dict[str, Any]
         check("wiring_dimension", node.kind == "input" and dims_ok, f"{node.name} [{node.unit}] {spec.relevant.op} q [{spec.unit}]")
     except (gr.GraphError, KeyError) as exc:
         check("wiring_dimension", False, str(exc))
-        return {"passed": False, "checks": checks}
+    if not checks["wiring_dimension"]["ok"] or not checks["op_known"]["ok"] or not checks["unit_known"]["ok"]:
+        failed = [k for k, v in checks.items() if not v["ok"]]
+        return {"passed": False, "failed": failed, "strata_failed": [], "checks": checks}
     per_instance = []
     for instance in range(len(structure.instances)):
         si = display_inputs_si(structure, instance)
@@ -314,9 +367,16 @@ def certify_cancelling(structure: gr.Structure, c: CancellingSpec) -> dict[str, 
     out["values_at_least_3"] = len(c.values) >= 3
     out["phrasings_at_least_2"] = len(c.phrasings) >= 2
     out["intermediate_relations_listed"] = bool(c.intermediate_relations)
+    out["expr_dimension_ok"], out["expr_dimension"] = law_dimension_ok(c.expr_with_q, structure, c.unit)
+    # informational: a misuse foil models a wrong calculation, which may well have the wrong dimension (dividing by a mass,
+    # reporting an angular acceleration) or even be inconsistent (forgetting a 1/r^2); recorded, not blocking
+    out["wrong_law_consistent"], out["wrong_law_dimension"] = law_dimension_ok(c.wrong_law, structure, c.unit, target=False)
+    out["wrong_law_has_target_dimension"] = law_dimension_ok(c.wrong_law, structure, c.unit)[0]
+    out["frame_ok"] = frame_ok(c.frame, c.nonnumeric_fill)
     out["passed"] = all(out.get(k) is True for k in ("q_present_unsimplified", "derivative_zero", "numeric_invariance",
                                                       "wrong_law_separated_at_2_of_3", "values_at_least_3",
-                                                      "phrasings_at_least_2", "intermediate_relations_listed"))
+                                                      "phrasings_at_least_2", "intermediate_relations_listed",
+                                                      "expr_dimension_ok", "frame_ok"))
     return out
 
 
@@ -341,9 +401,14 @@ def certify_conditional(structure: gr.Structure, k: ConditionalSpec) -> dict[str
         out["error"] = repr(exc)
     out["values_at_least_3"] = len(k.values) >= 3
     out["phrasings_at_least_2"] = len(k.phrasings) >= 2
+    out["predicate_dimension_ok"], out["predicate_dimension"] = law_dimension_ok(k.predicate, structure, k.unit, target=False)
+    out["out_of_regime_dimension_ok"], out["out_of_regime_dimension"] = law_dimension_ok(k.out_of_regime_law, structure,
+                                                                                         k.unit)
+    out["frame_ok"] = frame_ok(k.frame, k.nonnumeric_fill)
     out["passed"] = all(out.get(n) is True for n in ("predicate_holds_at_all_values", "counter_regime_value_breaks_predicate",
                                                       "out_of_regime_law_separated", "values_at_least_3",
-                                                      "phrasings_at_least_2"))
+                                                      "phrasings_at_least_2", "predicate_dimension_ok",
+                                                      "out_of_regime_dimension_ok", "frame_ok"))
     return out
 
 
@@ -359,8 +424,8 @@ UNITLESS = {"1", ""}  # dimensionless quantities are written as a bare number
 
 def _sentence(frame: str, value: float | None, unit: str | None, relation: str, fill: str) -> str:
     if value is None:
-        text = frame.replace("{value} {unit}", fill)
-        return text.format(relation=relation)
+        text = frame.replace("{value} {unit}", fill).replace("{value}", fill)
+        return text.format(relation=relation, unit="")
     unit = unit or ""
     if "{value} {unit}" in frame and (unit in GLUED_UNITS or unit in UNITLESS):
         frame = frame.replace("{value} {unit}", "{value}" + GLUED_UNITS.get(unit, ""))
