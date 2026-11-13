@@ -18,6 +18,7 @@ import argparse
 import hashlib
 import json
 import random
+import re
 import sys
 from collections import Counter
 from pathlib import Path
@@ -31,6 +32,39 @@ from physmon.validation import rolevalue_bank as rb  # noqa: E402
 LEGACY = REPO_ROOT / "docs/validation/v2/materials/v2"
 SEED = 42
 PER_TYPE = 3
+# Accepted vocabulary terms per declared type (frozen with the protocol, before any judge sees the bank): a defect is
+# detected for the declared reason when the pass-2 flags contain any accepted term. The independent pre-freeze review
+# (2026-11-13) found each alternative below to be a defensible description of the planted defect.
+ACCEPTED_TERMS = {
+    "hidden_coupling": ["hidden_coupling", "relevant_variable_removed_from_equation"],
+    "failed_transformation_identity": ["failed_transformation_identity"],
+    "relevant_variable_removed_from_equation": ["relevant_variable_removed_from_equation",
+                                                "failed_transformation_identity"],
+    "invalid_parameter_domain": ["invalid_parameter_domain", "hidden_coupling", "contradictory_distractor_statement"],
+    "inconsistent_units": ["inconsistent_units"],
+    "rendering_not_minimal": ["rendering_not_minimal"],
+    "insufficient_boundary_condition": ["insufficient_boundary_condition", "missing_assumption"],
+    "missing_assumption": ["missing_assumption", "insufficient_boundary_condition"],
+    "invalid_numerical_precision": ["invalid_numerical_precision"],
+    "contradictory_distractor_statement": ["contradictory_distractor_statement"],
+}
+ITEM_ACCEPTED_TERMS = {  # legacy items whose single changed number reads equally as a rendering or unit defect
+    "L-Q017": ["failed_transformation_identity", "rendering_not_minimal", "inconsistent_units"],
+    "L-Q057": ["failed_transformation_identity", "rendering_not_minimal", "inconsistent_units"],
+    "L-Q069": ["failed_transformation_identity", "rendering_not_minimal", "inconsistent_units"],
+    # the physics is unaffected; the defect is text saying "coupled" against an "isolated" claim
+    "L-Q043": ["hidden_coupling", "contradictory_distractor_statement"],
+    "L-Q048": ["hidden_coupling", "contradictory_distractor_statement"],
+}
+CONTESTED = {  # kept as labelled by the user (J14.5-013); flagged by the pre-freeze review and reported separately
+    "L-Q043": "the coupling does not change the answer (Kirchhoff's current law at the junction)",
+    "L-Q048": "Q = m c dT uses A's own stated rise, so the coupling does not change the answer",
+    "L-Q024": "'ideal' deleted; at 1 bar and 300 K a careful physicist may assume an ideal gas",
+    "L-Q028": "'ideal' deleted; at 1 bar and 300 K a careful physicist may assume an ideal gas",
+    "L-Q041": "'ideal' deleted; at 1 bar and 300 K a careful physicist may assume an ideal gas",
+}
+QUESTION = re.compile(r"What is the ([^?\n]+)\?\s*$")
+
 LEAK_FIELDS = ("defect_type", "expected_verdict", "detectable_in", "description", "structure_id", "split",
                "physicist_confirmation", "edited_answer", "original_answer", "family")
 
@@ -43,11 +77,20 @@ def legacy_items() -> tuple[list[dict], list[dict], dict]:
     pass1, pass2, key = [], [], {}
     for item_id, b in sorted(bank.items()):
         new_id = f"L-{item_id}"
-        pass1.append({**p1[item_id], "item_id": new_id, "kind": "legacy"})
-        pass2.append({**p2[item_id], "item_id": new_id, "kind": "legacy"})
+        a1, a2 = dict(p1[item_id]), dict(p2[item_id])
+        # every legacy valid control asks "Determine the X." and every defective item "What is ...?": a cue. Every
+        # defective item with a "What is the X?" question gets the equivalent "Determine the X." form (13 of 27), so
+        # "Determine" no longer marks a valid item (6 of 19 instead of 6 of 6).
+        if b["expected_verdict"] == "invalid":
+            for packet in (a1, a2):
+                packet["variants"] = [QUESTION.sub(lambda m: f"Determine the {m.group(1)}.", v) for v in packet["variants"]]
+        pass1.append({**a1, "item_id": new_id, "kind": "legacy"})
+        pass2.append({**a2, "item_id": new_id, "kind": "legacy"})
         key[new_id] = {"defect_type": b["defect_type"], "expected_verdict": b["expected_verdict"],
                        "detectable_in": b["detectable_in"], "description": b["description"], "source": "legacy_14.5",
-                       "split": "qualification", "structure_id": b["family"]}
+                       "split": "qualification", "structure_id": b["family"],
+                       "accepted_terms": ITEM_ACCEPTED_TERMS.get(new_id, ACCEPTED_TERMS.get(b["defect_type"], [])),
+                       "contested": CONTESTED.get(new_id)}
     return pass1, pass2, key
 
 
@@ -84,7 +127,8 @@ def build(out: Path) -> dict:
         key[item["item_id"]] = {"defect_type": item["defect_type"], "expected_verdict": item["expected_verdict"],
                                 "detectable_in": item["detectable_in"], "description": item["description"],
                                 "source": "role_m0", "structure_id": item["structure_id"],
-                                "split": "heldout" if item["item_id"] in heldout else "qualification"}
+                                "split": "heldout" if item["item_id"] in heldout else "qualification",
+                                "accepted_terms": ACCEPTED_TERMS.get(item["defect_type"], []), "contested": None}
     for packet in p1 + p2:  # leak scan: no key field in any judge-facing packet
         leaked = [f for f in LEAK_FIELDS if f in packet]
         if leaked:

@@ -163,3 +163,32 @@ def test_the_unbalanced_design_over_rejects_which_is_why_n_is_balanced():
     unbalanced = rs.power_f1(rs.SimParams(base_logit=3.5, n_n_cells=1), J=24, k=4, n_sims=2000)
     balanced = rs.power_f1(rs.SimParams(base_logit=3.5), J=24, k=4, n_sims=2000)
     assert unbalanced["rejection_rate_sign_flip"] > balanced["rejection_rate_sign_flip"] + 0.015
+
+
+def test_one_sided_labels_agree_with_the_one_sided_test():
+    # a mean whose one-sided t p is below 0.05 while the two-sided 95% interval still touches zero
+    rng = np.random.default_rng(11)
+    for _ in range(200):
+        d = rng.normal(0.04, 0.10, 25)
+        s = rs.paired_summary(d, 0.10, "greater")
+        if s["p_t"] < 0.05 and s["ci95_t"][0] < 0 < s["ci90_t"][0]:
+            assert s["outcome"] in ("EFFECT", "TRIVIAL_EFFECT") and s["classification_interval"] == "ci90_t"
+            break
+    else:
+        raise AssertionError("no such sample drawn")
+    assert rs.paired_summary(d, 0.10, "two-sided")["classification_interval"] == "ci95_t"
+
+
+def test_f2_and_f3_simulators_keep_their_level_and_detect_effects():
+    f2_null = rs.power_generic(rs.simulate_f2, rs.SimParamsF2(placebo_rate=0.05), 40, 4, rs.SESOI["F2"], "greater",
+                               n_sims=600)
+    assert f2_null["rejection_rate_sign_flip"] <= 0.075  # nominal 0.05; MC SE about 0.009
+    f2_eff = rs.power_generic(rs.simulate_f2, rs.SimParamsF2(placebo_rate=0.02, neglect_excess_logit=2.0), 24, 4,
+                              rs.SESOI["F2"], "greater", n_sims=200)
+    assert f2_eff["rejection_rate_sign_flip"] > 0.9
+    f3_null = rs.power_generic(rs.simulate_f3, rs.SimParamsF3(slope_r=0.3, slope_d=0.3), 40, 4, rs.SESOI["F3"],
+                               "two-sided", n_sims=600)
+    assert f3_null["rejection_rate_sign_flip"] <= 0.075
+    f3_eff = rs.power_generic(rs.simulate_f3, rs.SimParamsF3(slope_r=0.0, slope_d=-0.8), 40, 4, rs.SESOI["F3"],
+                              "two-sided", n_sims=200)
+    assert f3_eff["rejection_rate_sign_flip"] > 0.9

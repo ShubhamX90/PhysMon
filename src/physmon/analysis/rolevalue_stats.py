@@ -22,8 +22,10 @@ Definitions (plan of record):
 * Structure-level differences: t-interval with J-1 df, a sign-flip randomisation test (exact up to J = 16, else 20,000
   flips, seed 42) with its symmetry check reported, and a bootstrap over structures (2,000 resamples, seed 42).
 * Equivalence by two one-sided tests within the SESOI (alpha 0.05 each, i.e. the 90% interval inside the margin).
-  Four outcomes: EFFECT (95% interval excludes zero and extends beyond the margin), TRIVIAL_EFFECT (excludes zero,
-  inside the margin), EQUIVALENT (TOST passes and the 95% interval includes zero), INCONCLUSIVE (none of these).
+  Four outcomes: EFFECT (the interval excludes zero and extends beyond the margin), TRIVIAL_EFFECT (excludes zero,
+  inside the margin), EQUIVALENT (TOST passes and the interval includes zero), INCONCLUSIVE (none of these). The
+  interval is the two-sided 95% one for the two-sided F3 and the two-sided 90% one for the one-sided F1 and F2, whose
+  lower bound is the one-sided 95% bound, so a label never contradicts its test.
   "No effect" is never an outcome.
 * F1-F3 are Holm-corrected at family-wise alpha 0.05.
 * Rare shares: Jeffreys Beta(0.5, 0.5) per structure; combined by a Beta-Binomial model fitted by maximum likelihood,
@@ -260,11 +262,14 @@ def paired_summary(diffs: Sequence[float | None], margin: float, alternative: st
     else:
         p_t = float(2 * (1 - stats.t.cdf(abs(t_stat), len(d) - 1)))
     ci95 = t_interval(d, 0.95)
+    ci90 = t_interval(d, 0.90)
     tost = tost_p(d, margin)
+    label_interval = ci95 if alternative == "two-sided" else ci90  # one-sided 95% bound for one-sided contrasts
     return {"J": len(d), "mean": float(arr.mean()), "sd": float(arr.std(ddof=1)), "ci95_t": ci95,
-            "ci90_t": t_interval(d, 0.90), "ci95_bootstrap": bootstrap_ci(d), "p_t": p_t,
+            "ci90_t": ci90, "ci95_bootstrap": bootstrap_ci(d), "p_t": p_t,
             "p_sign_flip": sign_flip_p(d, alternative), "alternative": alternative, "sesoi": margin, "p_tost": tost,
-            "outcome": classify(ci95, tost, margin),
+            "classification_interval": "ci95_t" if alternative == "two-sided" else "ci90_t",
+            "outcome": classify(label_interval, tost, margin),
             "symmetry_check": {"skewness": float(stats.skew(arr)), "mean_minus_median": float(arr.mean() - np.median(arr))}}
 
 
@@ -485,3 +490,67 @@ def power_f1(params: SimParams, J: int, k: int, n_sims: int = 1000, seed: int = 
         equivalences += summary.get("outcome") == "EQUIVALENT"
     return {"J": J, "k": k, "n_sims": n_sims, "rejection_rate_sign_flip": rej_flip / n_sims,
             "rejection_rate_t": rej_t / n_sims, "equivalence_rate": equivalences / n_sims}
+
+
+@dataclass
+class SimParamsF2:
+    placebo_rate: float = 0.02  # mean share of R samples equal to the placebo value
+    sd_structure_logit: float = 0.7
+    neglect_excess_logit: float = 0.0  # logit increase of the neglect share over the placebo rate (0 = null)
+    n_values: int = 3
+    n_phrasings: int = 2
+
+
+def simulate_f2(params: SimParamsF2, J: int, k: int, rng: np.random.Generator) -> list[float]:
+    """Structure-level F2 estimates (neglect share - placebo rate) over k x n_values x n_phrasings R samples, where each
+    sample is neglect, placebo or neither (a multinomial draw)."""
+
+    n = k * params.n_values * params.n_phrasings
+    base = math.log(params.placebo_rate / (1 - params.placebo_rate))
+    out = []
+    for _ in range(J):
+        b = rng.normal(base, params.sd_structure_logit)
+        p_plac = 1 / (1 + math.exp(-b))
+        p_neg = 1 / (1 + math.exp(-(b + params.neglect_excess_logit)))
+        if p_neg + p_plac > 0.95:
+            p_neg, p_plac = 0.95 * p_neg / (p_neg + p_plac), 0.95 * p_plac / (p_neg + p_plac)
+        neg, plac, _ = rng.multinomial(n, [p_neg, p_plac, 1 - p_neg - p_plac])
+        out.append((neg - plac) / n)
+    return out
+
+
+@dataclass
+class SimParamsF3:
+    base_logit: float = 1.0
+    sd_structure: float = 1.0
+    slope_r: float = 0.0  # logit change of R tracking per value step
+    slope_d: float = 0.0  # logit change of D tracking per value step (null: equal slopes)
+    sd_slope: float = 0.2  # between-structure SD of each slope
+    n_values: int = 3
+    n_phrasings: int = 2
+
+
+def simulate_f3(params: SimParamsF3, J: int, k: int, rng: np.random.Generator) -> list[float | None]:
+    out = []
+    for _ in range(J):
+        base = rng.normal(params.base_logit, params.sd_structure)
+        t_by_z: dict[tuple[str, int], list[int]] = {}
+        for role, slope in (("R", params.slope_r), ("D", params.slope_d)):
+            s = rng.normal(slope, params.sd_slope) if params.sd_slope else slope
+            for z in range(params.n_values):
+                p = 1 / (1 + math.exp(-(base + s * (z - (params.n_values - 1) / 2))))
+                hits = int(rng.binomial(k * params.n_phrasings, p))
+                t_by_z[(role, z)] = [1] * hits + [0] * (k * params.n_phrasings - hits)
+        out.append(f3_estimate(t_by_z))
+    return out
+
+
+def power_generic(simulate, params, J: int, k: int, margin: float, alternative: str, n_sims: int = 1000,
+                  seed: int = SEED) -> dict[str, float]:
+    rng = np.random.default_rng(seed)
+    rej = eq = 0
+    for _ in range(n_sims):
+        summary = paired_summary(simulate(params, J, k, rng), margin, alternative)
+        rej += summary.get("p_sign_flip", 1.0) < ALPHA
+        eq += summary.get("outcome") == "EQUIVALENT"
+    return {"J": J, "k": k, "n_sims": n_sims, "rejection_rate_sign_flip": rej / n_sims, "equivalence_rate": eq / n_sims}

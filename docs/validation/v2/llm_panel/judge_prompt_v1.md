@@ -22,14 +22,16 @@ accident, say so in `notes`.
    * `C` cancelling: it belongs to the system and appears in the governing relations, but cancels from the answer;
    * `K` conditionally irrelevant: it would matter only outside a regime, and the stated value is inside it (state the
      regime).
-   Also check whether the sentences that belong together read as intended variants of one another.
+   Sentences about the same quantity are written as variants of one another: they should state the same number and
+   unit and differ only in wording and in what the quantity is attached to. Check that they do.
 3. Write the pass-1 review (schema below) and save it. Pass 1 is then locked: never edit it.
 
 **Pass 2 (with the authors' claims).** Only after saving pass 1, open the pass-2 packet. It repeats the item and adds
 the authors' claims: each sentence's stratum, the certified answers at every value of the quantity, the wiring or
 relations behind them, the regime for K, the governing relations, assumptions, inputs and the target unit. Check every
 claim against the physics, the units and your own pass-1 work: graph and relations, units and dimensions, domain and
-regime, numerical answers, whether paired sentences differ only as intended, and any omitted dependency. Where you
+regime, numerical answers, whether paired sentences differ only as intended, and any omitted dependency. A claim's
+`minimal_pair_with` names the sentence it is meant to be a variant of (same number and unit, different attachment). Where you
 disagree with your own pass 1 now, say why in `notes`; do not change pass 1. Write the pass-2 review and save it.
 
 **Legacy items.** Some items have `variants` (several renderings of one problem with an added statement) instead of
@@ -55,8 +57,10 @@ certified answer and the authors' argument.
   `contradictory_distractor_statement` (an added statement contradicts the problem),
   `rendering_not_minimal` (sentences claimed to be variants of each other differ in more than intended, for example in
   the number or unit), or `other` (explain in `notes`).
-  For each flag give a severity (`high`: the item is wrong; `medium`; `low`) and a one-sentence reason in
-  `defect_reasons`.
+  Write `defect_flags` as a list of these exact terms, for example `["hidden_coupling"]`. For each flag give a
+  severity in `defect_severity` (for example `{"hidden_coupling": "high"}`; `high`: the item is wrong; `medium`;
+  `low`) and a one-sentence reason in `defect_reasons` (for example `{"hidden_coupling": "..."}`). An item you judge
+  `valid` has no `high` flag.
 * `counterexamples`: concrete cases where a claimed invariance or answer fails.
 
 ## Output (one JSON object per pass; nothing else in the file)

@@ -86,12 +86,15 @@ def test_each_planted_defect_is_really_present(bank):
         elif k["defect_type"] == "inconsistent_units":
             assert dm.UNITS[pk["target_unit"]].dim != dm.UNITS[structure.render.target_unit].dim
         elif k["defect_type"] == "invalid_parameter_domain":
+            bad = rv._fmt(spec.conditional.counter_regime_value)
             shown = [texts[c["sentence_id"]] for c in _claims(p2, item_id, "K")]
-            assert all(rv._fmt(spec.conditional.counter_regime_value) in t for t in shown)
+            assert all(bad in t for t in shown)
+            assert all(c["values"] == [bad] and list(c["certified_answers"]) == [bad] for c in _claims(p2, item_id, "K"))
         elif k["defect_type"] == "hidden_coupling":
             assert len(_claims(p2, item_id, "R")) == 1  # R1 removed
             coupled = [texts[c["sentence_id"]] for c in _claims(p2, item_id, "D")]
             assert any(spec.phrasings_r[1].relation in t for t in coupled)
+            assert all("minimal_pair_with" in c for c in _claims(p2, item_id, "D"))  # no tell
         elif k["defect_type"] == "rendering_not_minimal":
             d_texts = [texts[c["sentence_id"]] for c in _claims(p2, item_id, "D")]
             assert any(rv._fmt(spec.values[rb.DISPLAY_INDEX + 1]) in t for t in d_texts)
@@ -125,6 +128,58 @@ def _perfect(key, p2):
         out.append(_review(item_id, 2, "valid") if k["expected_verdict"] == "valid"
                    else _review(item_id, 2, "invalid", [k["defect_type"]]))
     return out
+
+
+def test_accepted_terms_contested_items_and_question_wording(bank):
+    _, key, p1, _ = bank
+    for item_id, k in key.items():
+        if k["expected_verdict"] == "invalid":
+            assert k["defect_type"] in k["accepted_terms"] or item_id in s178.ITEM_ACCEPTED_TERMS
+            assert set(k["accepted_terms"]) <= s179.VOCABULARY
+    assert {i for i, k in key.items() if k.get("contested")} == set(s178.CONTESTED)
+    legacy_def = [p1[i] for i, k in key.items() if k["source"] == "legacy_14.5" and k["expected_verdict"] == "invalid"]
+    determine = [p for p in legacy_def if any("Determine the" in v for v in p["variants"])]
+    assert len(determine) >= 10  # "Determine" now marks 6 valid of about 19 items, not 6 of 6
+
+
+def test_alternative_terms_count_and_high_severity_blocks_acceptance(bank, tmp_path):
+    _, key, _, p2 = bank
+    alt = []
+    for r in _perfect(key, p2):
+        k = key[r["item_id"]]
+        if r["pass_number"] == 2 and k["defect_type"] == "invalid_parameter_domain":
+            r = {**r, "defect_flags": ["hidden_coupling"]}
+        if r["pass_number"] == 2 and k["expected_verdict"] == "valid" and r["item_id"].startswith("R-"):
+            r = {**r, "defect_severity": {"rendering_not_minimal": "high"}}
+        alt.append(r)
+    _write(tmp_path / "alt", alt)
+    res = s179.score(*s179.load_reviews(tmp_path / "alt")[:1], key, p2)
+    ipd = res["per_type"]["invalid_parameter_domain"]
+    assert ipd["detected"] == ipd["n"] and ipd["detected_exact_term"] == 0
+    assert res["valid"]["valid_but_high_severity_flag"] == 8 and not res["checks"]["Q3_all_valid_accepted"]["pass"]
+
+
+def test_stratum_agreement_counts_omissions_and_survives_bad_shapes(bank, tmp_path):
+    _, key, _, p2 = bank
+    rows = []
+    for r in _perfect(key, p2):
+        if r["pass_number"] == 1 and r["item_id"].startswith("R-") and key[r["item_id"]]["expected_verdict"] == "valid":
+            first = sorted(r["stratum_assignments"])[0]
+            r = {**r, "stratum_assignments": {first: "D"}}  # a bare string, and every other sentence omitted
+        rows.append(r)
+    _write(tmp_path / "shape", rows)
+    res = s179.score(*s179.load_reviews(tmp_path / "shape")[:1], key, p2)
+    agreement = res["blind_stratum_agreement"]
+    assert agreement["missing"] > 0 and agreement["rate"] < 0.2
+
+
+def test_batches_never_hold_two_items_of_one_structure():
+    s181 = _load("s181", "scripts/v2/s181_prepare_judge_batches.py")
+    items = [f"i{n}" for n in range(53)]
+    groups = {f"i{n}": f"g{n % 12}" for n in range(53)}
+    batches = s181.make_batches(items, groups)
+    assert sorted(i for b in batches for i in b) == sorted(items)
+    assert all(len(b) <= 4 and len({groups[i] for i in b}) == len(b) for b in batches)
 
 
 def test_a_perfect_judge_qualifies_and_a_flawed_one_does_not(bank, tmp_path):

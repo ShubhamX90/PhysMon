@@ -118,7 +118,7 @@ def plant(item: dict[str, Any], defect_type: str) -> dict[str, Any]:
         out["sentences"] = [s for s in out["sentences"] if s["label"] != "R1"]
         out["claims"] = [c for c in out["claims"] if c["label"] != "R1"]
         next(s for s in out["sentences"] if s["label"] == "D1")["text"] = coupled
-        next(c for c in out["claims"] if c["label"] == "D1").pop("minimal_pair_with", None)
+        next(c for c in out["claims"] if c["label"] == "D1")["minimal_pair_with"] = "R0"  # every D claim names a twin
         out["description"] = "D1 states a relation through which q enters the target but is claimed structurally disconnected"
     elif defect_type == "failed_transformation_identity":
         wrong = _r_answers(structure, spec, FLIP_OP[spec.relevant.op])
@@ -141,8 +141,10 @@ def plant(item: dict[str, Any], defect_type: str) -> dict[str, Any]:
                 rel = k.phrasings[int(s["label"][1])].relation
                 s["text"] = rv._sentence(k.frame, bad, k.unit, rel, "")
         for c in out["claims"]:
-            if c["stratum"] == "K":
+            if c["stratum"] == "K":  # the claim is made consistent with the shown value: q = bad, still "irrelevant"
                 c["value_shown"] = rv._fmt(bad)
+                c["values"] = [rv._fmt(bad)]
+                c["certified_answers"] = {rv._fmt(bad): item["base_answer"]}
         out["description"] = f"K value {rv._fmt(bad)} lies outside the regime ({k.predicate}) but is claimed irrelevant"
     elif defect_type == "inconsistent_units":
         out["target_unit"] = WRONG_UNIT[item["target_unit"]]

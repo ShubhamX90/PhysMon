@@ -22,6 +22,22 @@ sys.path.insert(0, str(REPO_ROOT / "src"))
 from physmon.governance.review import validate_review  # noqa: E402
 
 Q1_MIN, Q3_MIN, Q2_MIN_LEGACY_VALID = 0.85, 0.85, 5
+VOCABULARY = {"hidden_coupling", "missing_assumption", "relevant_variable_removed_from_equation",
+              "failed_transformation_identity", "inconsistent_units", "invalid_parameter_domain",
+              "insufficient_boundary_condition", "invalid_numerical_precision", "contradictory_distractor_statement",
+              "rendering_not_minimal", "other"}
+
+
+def flags(record: dict | None) -> list[str]:
+    """The record's defect flags as plain terms (a list of strings; objects or other shapes yield nothing)."""
+
+    raw = (record or {}).get("defect_flags", [])
+    return [f for f in raw if isinstance(f, str)] if isinstance(raw, list) else []
+
+
+def has_high_severity(record: dict | None) -> bool:
+    severity = (record or {}).get("defect_severity") or {}
+    return isinstance(severity, dict) and any(str(v).lower() == "high" for v in severity.values())
 
 
 def load_reviews(directory: Path) -> tuple[dict[tuple[str, int], dict], dict[str, list[str]]]:
@@ -46,36 +62,50 @@ def load_reviews(directory: Path) -> tuple[dict[tuple[str, int], dict], dict[str
 def score(reviews: dict[tuple[str, int], dict], key: dict[str, dict], packets2: dict[str, dict],
           split: str = "qualification") -> dict[str, Any]:
     items = {i: k for i, k in key.items() if k["split"] == split}
-    per_type: dict[str, dict[str, int]] = defaultdict(lambda: {"n": 0, "detected": 0, "flagged": 0, "pass1_detected": 0})
-    valid = {"n": 0, "accepted": 0, "legacy_n": 0, "legacy_accepted": 0}
-    strata = {"n": 0, "agree": 0}
-    missing = []
+    per_type: dict[str, dict[str, int]] = defaultdict(lambda: {"n": 0, "detected": 0, "detected_exact_term": 0,
+                                                               "flagged": 0, "pass1_detected": 0})
+    valid = {"n": 0, "accepted": 0, "legacy_n": 0, "legacy_accepted": 0, "valid_but_high_severity_flag": 0}
+    strata = {"n": 0, "agree": 0, "missing": 0}
+    missing, unknown_terms, contested = [], defaultdict(list), {}
     for item_id, k in sorted(items.items()):
         r2 = reviews.get((item_id, 2))
         r1 = reviews.get((item_id, 1))
         if r2 is None:
             missing.append(item_id)
+        for rec in (r1, r2):
+            bad = sorted(set(flags(rec)) - VOCABULARY)
+            if bad:
+                unknown_terms[item_id].extend(bad)
         if k["expected_verdict"] == "valid":
             valid["n"] += 1
-            ok = r2 is not None and r2["validity"] == "valid"
+            ok = r2 is not None and r2["validity"] == "valid" and not has_high_severity(r2)  # plan: no high-severity defect
+            valid["valid_but_high_severity_flag"] += r2 is not None and r2["validity"] == "valid" and has_high_severity(r2)
             valid["accepted"] += ok
             if k["source"] == "legacy_14.5":
                 valid["legacy_n"] += 1
                 valid["legacy_accepted"] += ok
-            if k["source"] == "role_m0" and r1 is not None:  # blind stratum agreement on certified items
-                claims = {c["sentence_id"]: c["stratum"] for c in packets2[item_id].get("authors_claims", [])}
-                for sid, a in (r1.get("stratum_assignments") or {}).items():
-                    if sid in claims:
-                        strata["n"] += 1
-                        strata["agree"] += str((a or {}).get("stratum", "")).upper() == claims[sid]
+            if k["source"] == "role_m0":  # blind stratum agreement over every certified sentence (omitted = disagree)
+                given = (r1 or {}).get("stratum_assignments")
+                given = given if isinstance(given, dict) else {}
+                for c in packets2[item_id].get("authors_claims", []):
+                    a = given.get(c["sentence_id"])
+                    stratum = a.get("stratum") if isinstance(a, dict) else a
+                    strata["n"] += 1
+                    strata["missing"] += a is None
+                    strata["agree"] += isinstance(stratum, str) and stratum.strip().upper() == c["stratum"]
             continue
+        accepted = set(k.get("accepted_terms") or [k["defect_type"]])
         t = per_type[k["defect_type"]]
         t["n"] += 1
+        hit = r2 is not None and r2["validity"] == "invalid" and bool(accepted & set(flags(r2)))
         if r2 is not None:
-            t["detected"] += r2["validity"] == "invalid" and k["defect_type"] in r2.get("defect_flags", [])
+            t["detected"] += hit
+            t["detected_exact_term"] += r2["validity"] == "invalid" and k["defect_type"] in flags(r2)
             t["flagged"] += r2["validity"] in ("invalid", "uncertain")
         if k["detectable_in"] == "pass1" and r1 is not None:
-            t["pass1_detected"] += r1["validity"] == "invalid" and k["defect_type"] in r1.get("defect_flags", [])
+            t["pass1_detected"] += r1["validity"] == "invalid" and bool(accepted & set(flags(r1)))
+        if k.get("contested"):
+            contested[item_id] = {"reason": k["contested"], "detected": hit}
     n_def = sum(t["n"] for t in per_type.values())
     n_det = sum(t["detected"] for t in per_type.values())
     q1 = n_det / n_def if n_def else 0.0
@@ -95,7 +125,8 @@ def score(reviews: dict[tuple[str, int], dict], key: dict[str, dict], packets2: 
     return {"split": split, "verdict": "QUALIFIED" if all(c["pass"] for c in checks.values()) else "NOT_QUALIFIED",
             "checks": checks, "per_type": {d: dict(t) for d, t in sorted(per_type.items())},
             "valid": valid, "blind_stratum_agreement": {**strata, "rate": strata["agree"] / strata["n"] if strata["n"] else None},
-            "missing_pass2_reviews": missing}
+            "missing_pass2_reviews": missing, "contested_items": contested,
+            "flags_outside_vocabulary": dict(unknown_terms)}
 
 
 def main(argv: list[str] | None = None) -> int:
