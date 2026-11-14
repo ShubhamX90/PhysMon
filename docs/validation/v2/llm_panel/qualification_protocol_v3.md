@@ -1,7 +1,10 @@
-# LLM judge requalification protocol v3 (DRAFT pending independent key review; not frozen)
+# LLM judge requalification protocol v3 (frozen 2026-11-14, before any judge has seen bank v5 or prompt v3)
 
-**Status: DRAFT pending independent key review.** Not frozen, and no judge may be run on bank v5 until it is. Before
-freezing, an independent reviewer (who has not built the bank and does not see any judge output) recomputes every label of
+**Status: FROZEN 2026-11-14** after the independent key review (`bank_v5_key_review.md`: KEY SOUND, no blocking fix;
+all 32 expected verdicts reproduced, every certified answer, deletion alternative and planted wrong answer recomputed).
+Its non-blocking point 3 was adopted before the freeze (two accepted terms added, below); the other non-blocking points
+are recorded, not acted on. Key sha256 b57ae31f74786f9083461088a3c826d73b7692c4e39f31a0a613514540733425 (the packets are
+unchanged by that edit). Before freezing, an independent reviewer (who has not built the bank and does not see any judge output) recomputes every label of
 `bank_v5/key_RESTRICTED.json`: each certified answer, each deletion's alternative answer, each valid control against
 rule 1, and each planted defect (J15.1-025 (3)). Any correction is made to the builder (`s187`) and the bank rebuilt
 before the freeze; after the freeze, labels are not changed in the light of judge output.
@@ -82,6 +85,11 @@ such a displayed answer does not follow from the shown relation and inputs eithe
 same defect (GPT flagged F-206 this way in the v4 run; the change is made for bank v5 only, before any judge sees it, as
 decided in J15.1-025 (4)). All three precision items of bank v5 meet the condition; the basis is recorded per item
 (`accepted_terms_basis`).
+Added before the freeze on the independent key review (point 3; `s187.V5_EXTRA_TERMS`): fresh
+`relevant_variable_removed_from_equation` items also accept `inconsistent_units` (dropping a variable from the shown
+equation changes its dimension), and fresh `invalid_parameter_domain` items also accept `failed_transformation_identity`
+(the planted value in the text no longer matches the parameter table). The reviewer's third suggestion (under-specification
+terms for the hidden-coupling item) was not adopted: it would accept a flag that does not name the coupling.
 
 ## Judges and runs
 As in protocol v2, with prompt v3: each judge is run once on all 32 items. Claude Opus 5.5 as fresh agent instances

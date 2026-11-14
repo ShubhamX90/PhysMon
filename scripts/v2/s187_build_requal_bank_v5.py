@@ -70,6 +70,9 @@ s178 = _load("s178", "scripts/v2/s178_build_judge_bank.py")
 s186 = _load("s186", "scripts/v2/s186_build_requal_bank.py")
 
 SEED = 5151
+# Added before freezing on the independent key review (bank_v5_key_review.md, point 3); no judge had seen bank v5.
+V5_EXTRA_TERMS = {"relevant_variable_removed_from_equation": ["inconsistent_units"],
+                  "invalid_parameter_domain": ["failed_transformation_identity"]}
 LLM_PANEL = REPO_ROOT / "docs/validation/v2/llm_panel"
 BANK_V3, BANK_V4 = LLM_PANEL / "bank_v3", LLM_PANEL / "bank_v4"
 V2_MATERIALS = REPO_ROOT / "docs/validation/v2/materials/v2"
@@ -513,7 +516,7 @@ def fresh_items(rng: random.Random, families: dict, templates: dict, excluded: s
             item = {"kind": "legacy", "family": fid, "defect_type": defect_type,
                     "expected_verdict": inj.expected_verdict, "detectable_in": inj.detectable_in,
                     "description": inj.description, "source": "fresh_v1_inject",
-                    "accepted_terms": s186.LEGACY_ACCEPTED.get(defect_type, []),
+                    "accepted_terms": s186.LEGACY_ACCEPTED.get(defect_type, []) + V5_EXTRA_TERMS.get(defect_type, []),
                     "pass1": {"variants": inj.edited_prompts},
                     "pass2": legacy_pass2(template, family, inj.edited_prompts, inj.edited_equation, inj.edited_answer)}
             if defect_type == "invalid_numerical_precision":
@@ -725,6 +728,10 @@ def build(out: Path) -> dict:
         "accepted_terms_change": (
             "invalid_numerical_precision items whose displayed answer is off by more than the stated precision also "
             f"accept failed_transformation_identity (the shown answer then does not follow from the relation); {DECIDED}. "
+            "Fresh legacy items also accept, from the independent key review before freezing (bank_v5_key_review.md, "
+            "non-blocking point 3): relevant_variable_removed_from_equation + inconsistent_units (dropping a variable "
+            "from the shown equation changes its dimension), invalid_parameter_domain + failed_transformation_identity "
+            "(the planted value in the text no longer matches the parameter table). "
             "Every other type keeps the terms frozen in s178.ACCEPTED_TERMS / s186.LEGACY_ACCEPTED."),
         "safeguard_A_deletions": deletion_record,
         "safeguard_B_screen": {

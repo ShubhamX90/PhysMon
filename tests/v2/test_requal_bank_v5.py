@@ -152,7 +152,8 @@ def test_precision_items_accept_failed_transformation_identity_with_a_recorded_b
             assert k["accepted_terms"] == ["invalid_numerical_precision", "failed_transformation_identity"]
             assert "before any judge has seen bank v5" in k["accepted_terms_basis"]
         elif k["source"] == "fresh_v1_inject":
-            assert k["accepted_terms"] == s187.s186.LEGACY_ACCEPTED.get(k["defect_type"], [])
+            assert k["accepted_terms"] == (s187.s186.LEGACY_ACCEPTED.get(k["defect_type"], [])
+                                           + s187.V5_EXTRA_TERMS.get(k["defect_type"], []))
         else:
             assert k["accepted_terms"] == s187.s178.ACCEPTED_TERMS.get(k["defect_type"], [])
     family = {"correct_answer": "24.0 W"}
