@@ -19,7 +19,7 @@ using the cluster.
 ## Governing guidance for Stage 14 onwards
 
 The plan of record for all work from Stage 14 is PhysMon Research Redesign v2, selected by the
-user on 2026-10-15 and revised on 2026-11-11 (after the ICLR 2027 reviews of the withdrawn
+user on 2026-10-15 and revised on 2026-11-11 and 2026-11-14 (v2.2) (after the ICLR 2027 reviews of the withdrawn
 Phase-I paper). Its canonical source is `docs/proposals/PhysMon_Research_v2.tex`; the built
 `PhysMon_Research_v2.pdf` and searchable `PhysMon_Research_v2.extracted.txt` are regenerated from
 it with `scripts/build_plan_pdf.sh` (edit the `.tex`, never the PDF, and commit all three

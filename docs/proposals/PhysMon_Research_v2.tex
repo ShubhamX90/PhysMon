@@ -1,4 +1,4 @@
-% PhysMon research plan of record: Research Redesign v2, revised edition of 11 November 2026.
+% PhysMon research plan of record: Research Redesign v2, revision v2.2 of 14 November 2026 (v2.1 of 11 November 2026).
 % Canonical source. Build the PDF and its searchable text with: scripts/build_plan_pdf.sh
 % (tectonic in the separate conda environment `texbuild`). Edit this file, not the PDF.
 \documentclass[10pt,a4paper]{article}
@@ -20,7 +20,7 @@
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
 \pagestyle{fancy}\fancyhf{}
-\lhead{\small PHYSMON \textbar{} RESEARCH REDESIGN v2 (REVISED 11 NOV 2026)}
+\lhead{\small PHYSMON \textbar{} RESEARCH REDESIGN v2.2 (REVISED 14 NOV 2026)}
 \rhead{\small\thepage}
 \cfoot{\footnotesize Working research protocol -- not completed results}
 % source and status tags
@@ -29,9 +29,9 @@
 \newcommand{\gate}[1]{\par\smallskip\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{\small #1}}\par\smallskip}
 \title{\vspace{-1.5em}\textbf{PHYSICS-COUNTERFACTUAL MECHANISMS}\\[0.3em]
 \large Benchmark Red-Team, DECOY-v2 Reconstruction, and a Gated Mechanistic Research Programme\\[0.6em]
-\normalsize Research redesign v2 --- revised edition (supersedes the edition of 14 October 2026)}
+\normalsize Research redesign v2 --- revised edition v2.2 (supersedes the editions of 14 October and 11 November 2026)}
 \author{PhysMon working document}
-\date{11 November 2026}
+\date{14 November 2026}
 \begin{document}
 \maketitle
 \thispagestyle{fancy}
@@ -39,8 +39,8 @@
 \begin{center}
 \fbox{\parbox{0.94\linewidth}{\small
 \textbf{DOCUMENT STATUS.} This is a proposed, falsifiable experimental protocol, not a record of experiments
-performed. It is the single plan of record for PhysMon from Stage~14 onward. This edition (11 November 2026)
-revises the edition of 14 October 2026 after (i) the four ICLR 2027 reviews of the Phase-I paper
+performed. It is the single plan of record for PhysMon from Stage~14 onward. The edition of 11 November 2026 (v2.1)
+revised the edition of 14 October 2026 after (i) the four ICLR 2027 reviews of the Phase-I paper
 \emph{Confidence Without Cause} (submission 50608, withdrawn on 11 November 2026), whose numerical claims were
 reproduced from the repository's committed data; (ii) the exploratory results of Stages 14.0--14.20; (iii) a
 literature update of 11 November 2026; and (iv) four independent reviews: two of a first draft (one by an agent
@@ -48,7 +48,11 @@ with repository access, one by an external language model supplied by the user) 
 agents with repository access (fidelity to the October edition and the repository; scientific consistency). The October
 edition's identifiers (B0--B7, P0--P11, A01--F20, X01--X12) are kept so that the journal, ledger and decision log
 still resolve; Appendix~\ref{app:disposition} gives the disposition of every October block. The October PDF is
-preserved in Git history (for example commit \texttt{2cf08e2}).\\[0.3em]
+preserved in Git history (for example commit \texttt{2cf08e2}). \textbf{Revision v2.2 (14 November 2026)} amends the
+edition of 11 November 2026 after a review of the construct, the role-by-value design, the dataset and the statistics
+(\texttt{docs/\allowbreak registry/\allowbreak v2/\allowbreak g1/\allowbreak plan\_\allowbreak revision\_\allowbreak v2.2\_\allowbreak 2026-11-14.md}): strata C and K enter the confirmatory core, the
+sentence design of the dataset is tightened, two usefulness arms become required, and samples per cell are fixed by a
+power simulation; Appendix~\ref{app:revisions} lists the changes.\\[0.3em]
 \textbf{Authorship.} Revised by the project's coding agent (Claude) at the user's direction; checked against the
 repository by independent agent reviews (Appendix~\ref{app:revisions}); not reviewed by a person outside the project. Revision-sensitive
 hypotheses, labels, validation decisions and claim scope require explicit decision-log entries.}}
@@ -516,8 +520,8 @@ input stays as a supporting condition); (vi) becomes the prespecified misuse fun
 kept; (i), (iii), (iv) are supporting conditions (Sections~\ref{sec:rolevalue}, \ref{sec:conditions}). The
 primary scientific endpoint is O4; O1, O2, O3 and O5 are always reported; candidate log-odds (O6) exist only
 inside a causal claim type; teacher-forced dispersion is a diagnostic (Section~\ref{sec:outcomes}). G4 confirms
-the role-by-value family fixed in advance (Section~\ref{sec:gates}); the G3 scorecard may add at most one secondary
-family, labelled as chosen on EXPLORATION data.
+the role-by-value families fixed in advance (the R/D family F1--F3, then the C/K family; Section~\ref{sec:gates}); the G3
+scorecard may add at most one further secondary family, third in the sequence and labelled as chosen on EXPLORATION data.
 
 \textbf{B2.3 Relevance is not a keyword} (binding). Match tasks with explicitly disconnected and physically
 connected subsystems, but do not fabricate a single-word role flip that changes other physical assumptions or
@@ -924,7 +928,7 @@ report boundary conditions. If model output shifts only within teacher-forced st
 target to a calibrated likelihood or interface mechanism rather than physical shortcut reliance.}
 
 \textbf{Status:} kept in substance and enforced by the critical path: G4 confirms the role-by-value family fixed
-in advance and the G3 scorecard may add at most one secondary family;
+in advance (F1--F3, then the C/K family) and the G3 scorecard may add at most one further secondary family;
 G4 supplies the held-out structural units and the format-robustness check; G5 starts only after G4 (for H3, H4, or
 H6-RD; H6-extended only if G4 covered C and K). A shift
 confined to teacher-forced string probabilities supports at most a T1 readout claim (Section~\ref{sec:causal}).
@@ -1125,10 +1129,40 @@ taxonomy may collapse these, but the overlap is always shown.
 
 \textbf{Difficulty and wording controls.} Value effects are estimated within role (difficulty is roughly constant
 across $z$ inside a role); the relevant role's no-cue difficulty is recorded as a covariate. Every estimand is
-estimated per phrasing. \emph{Agreement across phrasings}, required before a role claim, means: the
+estimated per phrasing. \emph{Agreement across phrasings}, required before a role claim, means (the operational form is fixed as the next paragraph says): the
 phrasing-by-role interaction on each of the G4 contrasts F1--F3 (Section~\ref{sec:statistics}) is inside its SESOI by two one-sided tests, or, where that test is
 underpowered, each phrasing's estimate exceeds the SESOI in the same direction; otherwise the result is reported
 per phrasing and called wording-dependent.
+
+\textbf{Samples per cell and the agreement rule} \tg{PROPOSAL} (v2.2). At eight samples per cell and thirty structures
+the implemented agreement check failed in worlds that are truly invariant, so a correct model would have been
+labelled wording-dependent (J15.1-026). The number of samples per cell $k$ and the operational form of the agreement
+rule above are therefore fixed from the power simulation in \texttt{results/\allowbreak stage15/\allowbreak g1\_\allowbreak power/\allowbreak attempt\_\allowbreak 20261114/}, before the G1
+freeze, by a rule written before its results existed: choose the agreement rule closest to the wording above among those
+whose false-disagreement rate in agreeing worlds is at most 0.05; then choose the smallest $k\in\{8,12,16,24,32,40\}$
+that gives at least 0.80 probability of the correct outcome in the invariant world and at least 0.80 detection of true
+wording dependence at the planned number of structures $J$. The chosen rule and $k$ are recorded in the G1 freeze and
+replace the earlier planning value of eight.
+
+\textbf{Two kinds of disconnection.} Stratum D irrelevance by remoteness alone (another place, another time) measures
+sensitivity to narrative distance, not system membership, so D cells come in two kinds, one per phrasing pair, both
+required: \emph{co-present} (a different object or subsystem in the same scene at the same time, with no physical path to
+the target) and \emph{other event} (the target object in an event with no path to the target). The primary phrasings of
+either kind use no marker words (a marker-word phrasing, explicitness of isolation, stays an optional supporting contrast). Results are reported per kind; the difference between the kinds is the system-membership moderator of H3.
+
+\textbf{Paired phrasings and consequence-free wording.} Phrasings come in pairs $(r_i,d_i)$ that share frame, numeral and
+unit and differ only in the attachment phrase, with lengths within three words of each other (the difference is
+recorded), so that role is not confounded with wording; analyses pair phrasings by index. No phrasing in any role may state
+the physical consequence of the quantity (``so it was already moving when the stated distance began''): a consequence
+lexicon is applied and every phrasing must be \texttt{consequence\_free}, in addition to the marker-word check.
+
+\textbf{Familiarity, hygiene and gold traces.} Each C quantity carries a \texttt{textbook\_familiarity} (famous, standard,
+uncommon), because a cancellation such as mass on an incline can be recited without computing; C results are reported by
+familiarity. A study value may not equal a displayed input numeral, so that accidental coincidences with inputs or answers
+are not scored as misuse; digit overlap with the inputs and the gold is recorded. Every cell has a gold trace rendered from
+the graph (R with the step where the quantity enters; D and N with the base trace and the statement that the quantity has no
+path; C showing it enter and cancel; K checking the regime predicate), against which the H4 extractor reads the certified
+intermediate values of the cell's own world.
 
 \textbf{Feasibility.} Not every structure admits every stratum. Infeasibility is recorded by the generator and
 never imputed. A structure is \emph{complete} for the primary contrast only if it has R and D cells at three values
@@ -1142,15 +1176,28 @@ other source) is a new item: it needs its own certificate and validation; it doe
 \subsection{Supporting conditions}
 \label{sec:conditions}
 
-Kept from the October design and the Stage~14 cells, now subordinate to the role-by-value core: no cue;
+Kept from the October design and the Stage~14 cells, now subordinate to the role-by-value core (the core now includes C and K;
+Section~\ref{sec:gates}): no cue;
 style-matched non-numeric sentence; same-unit cue at three proximity levels kept as \emph{distinct} conditions
 (exact match, near within the grading tolerance, tolerance-separated); incompatible unit with the same digits;
 numeric metadata; convertible unit (the invariance/equivariance family, old Cue~C); relevant edit of an existing
 input; role reversal (use on request); formula hint (a positive diagnostic: expected to help or to do nothing,
 never a gate); an explicit relevance instruction (``identify and ignore irrelevant information''); cue position
-(before or after the relevant inputs); and a small \emph{non-physics dependency control} (GSM-DC-style problems
+(before or after the relevant inputs); a \texttt{K\_out} cell for stratum K, where the question stays well posed outside the
+regime (the certified answer changes), recorded as infeasible with the reason where it does not, which with K shows whether
+the model establishes the condition (a supporting condition, not part of a confirmatory family); and a small \emph{non-physics dependency control} (GSM-DC-style problems
 with the same role manipulation) to tell a general numeric or dependency phenomenon from one that needs physical
-semantics.
+semantics. The M0~v2 cells merge the October supporting cells (non-numeric extra; numeric metadata; a target-unit value on a
+separate object at exact, near-high-overlap, near-low-overlap, moderate and far proximity; incompatible and convertible
+unit; relevant edit; role reversal) with a certified tolerance status per grading view, so that exact match, near within
+tolerance and tolerance-separated are distinct conditions in fact (the October ``near'' cells, 5.38 and 5.4 against a gold of
+5.387, were not, and no exact-match cell existed), plus relevance-instruction and position cells.
+
+\textbf{Usefulness arms (required, v2.2).} Two low-cost arms answer the reviewer question whether any of this improves
+answers, and are run in G3 and reported in G4 as secondary estimation only: (1) \emph{self-consistency}, the majority answer
+over the $k$ samples of a cell scored for tracking (no new generation); (2) the \emph{relevance instruction} on no-cue, R and D
+cells at the middle value, asking whether telling the model to identify what matters reduces D losses and whether it makes the
+model ignore R quantities (instruction-induced neglect).
 
 \subsection{Outcomes}
 \label{sec:outcomes}
@@ -1226,9 +1273,9 @@ H0 & No role or presence effect beyond generic perturbation & D tracking equal t
 H1 & Numeral presence (F-copy, F-answer prior) & Answers follow the copy curve in every role, stratum and unit & Copy tracking absent in D or confined to same-unit cells \\
 H2 & Plausibility and unit (F-match, F-unit) & Departures only for same-unit or convertible plausible values; vanish under plausibility matching & Departures with incompatible units or implausible values \\
 H3 & Relevance-selection failure (F-role) & D: tracking loss with answers following a prespecified misuse curve (substitute, add or subtract, in its predicted direction). C: final answer follows the wrong-law curve that keeps the quantity. K: final answer follows the out-of-regime law. Moderators (marking, stratum, position) are secondary & Invariance in D, C and K while R responds correctly \\
-H4 & Readout contamination & Correct value in the trace, final answer moved toward the quantity; little change under the relevance instruction & Departures already present in the trace's computation \\
+H4 & Readout contamination & Correct value in the trace (read against the cell's gold trace), final answer moved toward the quantity; little change under the relevance instruction & Departures already present in the trace's computation \\
 H5 & Computational diversion & O5 rises (length, budget exhaustion) while O1 and O4 are equivalent to no-cue & O1 or O4 departures \\
-H6 & Correct selection, in two scopes. \emph{H6-RD}: the three G4 contrasts F1 (D tracking loss against $N$), F2 (R neglect share against its placebo rate) and F3 (role $\times$ value interaction on tracking) each shown equivalent to zero within its SESOI (two one-sided tests), with R tracking at or above the G1 criterion, across values and phrasings. \emph{H6-extended}: H6-RD plus the same for C and K (intermediate use in C and K allowed) & Departures in any stratum; an underpowered null is INCONCLUSIVE, not H6 \\
+H6 & Correct selection, in two scopes. \emph{H6-RD}: the three G4 contrasts F1 (D tracking loss against $N$), F2 (R neglect share against its placebo rate) and F3 (role $\times$ value interaction on tracking) each shown equivalent to zero within its SESOI (two one-sided tests), with R tracking at or above the G1 criterion, across values and phrasings. \emph{H6-extended}: H6-RD plus the same for C and K (intermediate use in C and K allowed; the C/K family is preregistered in G4 unconditionally from v2.2) & Departures in any stratum; an underpowered null is INCONCLUSIVE, not H6 \\
 \bottomrule
 \end{tabularx}
 \end{center}
@@ -1344,7 +1391,7 @@ G3 behavioural discovery & Core role-by-value factorial plus minimal controls; h
 G4 independent behavioural confirmation & New validated structural clusters; frozen analysis of the role-by-value family & Is the effect real beyond development data? \\
 G5 mechanism & Function hypothesis; T1/T2/T3 experiments with the interaction estimand, rescue and held-out prediction & What computation explains the behaviour? \\
 G6 external and functional confirmation & Independently sourced physics items (re-certified), non-physics transfer, second model & Does the explanation generalise as claimed? \\
-G7 practical use (optional) & Monitoring or selective repair against cheap alternatives & Does the explanation support a useful intervention? \\
+G7 practical use (optional) & Monitoring or selective repair against cheap alternatives (the first two cheap rungs are measured in G3/G4) & Does the explanation support a useful intervention? \\
 \bottomrule
 \end{tabularx}
 \end{center}
@@ -1380,7 +1427,7 @@ and tolerance-separated cues are distinct conditions; the outcome definitions, g
 categories (Section~\ref{sec:outcomes}); a sampled, batched reasoning-contract version (prospective only; the
 greedy Stage~14 records are never pooled with it); analysis and power-simulation scripts tested on synthetic
 records; the scorecard criteria of G3 with numeric thresholds; the minimum R-tracking criterion checked in G2;
-the T1 prefix type per experiment and its compatibility strata; equivalence margins with their scientific
+the samples per cell $k$ and the operational agreement rule, from the power simulation by the rule of Section~\ref{sec:rolevalue}; the D kinds, paired phrasings, consequence lexicon, C familiarity labels, value hygiene and gold traces of Section~\ref{sec:rolevalue}; the T1 prefix type per experiment and its compatibility strata; equivalence margins with their scientific
 justification (Section~\ref{sec:statistics}); experiment cards; the LLM review panel (models chosen under D2, prompts
 frozen, qualified on the extended planted-defect bank, Section~\ref{sec:llmpanel}); the M0 pilot structures; and
 the dataset admission standard and data-role allocation of Section~\ref{sec:datasetplan}.
@@ -1418,13 +1465,14 @@ is not run. The band and the R criterion are not changed after seeing G2 results
 
 \subsubsection*{G3. Behavioural discovery (GPU, staged)}
 \begin{enumerate}
-\item \textbf{Core run.} 24--40 complete calibrated structures from the 130-structure EXPLORATION pool of M250 (Section~\ref{sec:datasetplan}); core conditions: no cue; R and D roles at three
-values each in two phrasings; the non-numeric sentence; plus the small non-physics dependency control set. Sampling
+\item \textbf{Core run.} 24--40 complete calibrated structures from the 130-structure EXPLORATION pool of M250 (Section~\ref{sec:datasetplan}); core conditions: no cue; R and D roles, and, for every structure where they are feasible, C and K roles (unconditionally, not as
+ablations), at three values each in two phrasings; the non-numeric sentence; plus the small non-physics dependency control set. Sampling
 may be adaptive only by a rule fixed in G1. Results are reported on the calibrated population and, for the same
 cells where run, on all validated structures.
-\item \textbf{Targeted explanatory ablations}, added only when the core run shows something to explain: strata C
-and K, marking and system membership, unit and proximity, position, relevance instruction, formula hint,
-convertible units.
+\item \textbf{Targeted explanatory ablations}, added only when the core run shows something to explain: marking and
+system membership, unit and proximity, position, formula hint, convertible units, the \texttt{K\_out} cell. (Strata C and K
+are in the core run; the relevance instruction and self-consistency are the required usefulness arms of
+Section~\ref{sec:conditions}, not optional ablations.)
 \item \textbf{Hypothesis scorecard.} For each of H0--H6 the prespecified evidence for and against (Section~\ref{sec:hypotheses})
 is estimated with intervals and given one status: SUPPORTED, CONTRADICTED, INCONCLUSIVE or \NE{}. Several
 hypotheses may be supported at once; hypotheses are not exclusive rows and are not read by first match. An
@@ -1436,15 +1484,17 @@ physics-specificity.
 its results are never confirmatory and its site selection is separated from G5's held-out tests.
 \end{enumerate}
 \gate{\textbf{Gate G3.} The G4 question is fixed now, not chosen from G3's largest estimate: G4 confirms the
-role-by-value family (Section~\ref{sec:statistics}) whatever G3 shows, provided G2 passed. G3 can add at most one
-secondary family to G4, chosen by a rule fixed in G1 and labelled as chosen on EXPLORATION data. If R tracking in
+role-by-value families (Section~\ref{sec:statistics}) whatever G3 shows, provided G2 passed: the primary R/D family F1--F3,
+then the C/K family. G3 can add at most one further secondary family to G4, third in the sequence, chosen by a rule fixed in G1
+and labelled as chosen on EXPLORATION data. If R tracking in
 G3 falls below the G1 criterion, the G3 role result is reported as uninterpretable for role (itself a finding);
 items and band are not changed on the same data. A formula hint that does not help is a diagnostic, not a gate.}
 
 \subsubsection*{G4. Independent behavioural confirmation (GPU, medium)}
 Structures from the sealed INTERNAL\_CONFIRMATION pool of M250 and M500 (270 structures, Section~\ref{sec:datasetplan}), in template clusters no earlier run has touched, opened in the number the power simulation requires (shadow set held back),
 validated by the qualified LLM panel (Section~\ref{sec:llmpanel}; human B4 review where available) or, failing that,
-labelled EXPLORATORY-REPLICATION. Preregistered: the role-by-value family with its
+labelled EXPLORATORY-REPLICATION. Preregistered, in fixed sequence: the primary R/D family F1--F3, then the C/K family (tracking loss against $N$ in C and in K,
+Holm within the family), then the G3-chosen secondary family if any, each with its
 estimands, decision rules and sample size from the power simulation; the primary and second models fixed by the
 G2 primary-model rule, the second by fixed sequence; two declared final-answer formats on a random half of items, each with its effect estimate and
 interval, and a stated rule for how much format dependence changes the interpretation (planning: the reading
@@ -1457,7 +1507,7 @@ is reported as not replicated.}
 Gated on G4 establishing H3 or H4, or H6-RD (the mechanism of correct selection between relevant and structurally
 disconnected quantities, when the model selects correctly and errors are rare; it needs the equivalence tests that
 only G4's size can power). A mechanism-of-correctness claim covers only the strata G4 confirmed: H6-extended (C and K
-as well) needs those strata in G4's preregistered family; under H1/H2 only a narrow study of
+as well) needs those strata in G4's preregistered family (the C/K family, preregistered unconditionally from v2.2); under H1/H2 only a narrow study of
 unit or number handling, framed against Liu and Owusu et al. The exploratory mechanism pilot of G3 is the only
 mechanism work before G4. Every experiment declares claim type T1, T2 or T3 and
 follows Section~\ref{sec:causal}. Starts on the primary and second models fixed by the G2 rule (planning order Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct; both listed as fully verified by TransformerLens~3.4;
@@ -1476,7 +1526,9 @@ for any broad generalisation claim.
 
 \subsubsection*{G7. Practical use (optional)}
 Monitoring (the Phase-I monitor under cluster-held-out folds is a side track, D6) and selective repair against a
-cheap ladder (relevance instruction, self-consistency, longer budget), with strength-versus-damage curves.
+cheap ladder (relevance instruction, self-consistency, longer budget), with strength-versus-damage curves. The first two
+rungs of that ladder are no longer reserved to G7: from v2.2 they are required arms of G3 and G4 (Section~\ref{sec:conditions});
+G7 covers the rest of the ladder and every intervention.
 
 % ===== s05b_blocks =====
 \subsection{Dataset plan: 250 structures, then 500}
@@ -1501,7 +1553,9 @@ these hold, and each is recorded in its provenance:
 \item typed dependency graph with a solver certificate for every cell (strata R and D required; C and K where
 feasible, Section~\ref{sec:strata}), certified responses $y^*_r(z)$ at three or more values, separation of
 $y^*_R$ from $y^*_D$ and of every misuse curve and placebo value beyond the loosest tolerance;
-\item two or more independently validated phrasings per role relation, one without marker words;
+\item two or more independently validated phrasings per role relation, one without marker words, in pairs $(r_i,d_i)$ that
+are consequence-free and matched in frame, numeral and unit, with both D kinds (co-present and other event) present and every
+cell carrying a gold trace (Section~\ref{sec:rolevalue});
 \item mutation tests passed (P3.3), including broken cancellation and out-of-regime mutations for C and K;
 \item acceptance by the qualified LLM panel (Section~\ref{sec:llmpanel}) on every phrasing, with no unresolved
 high-severity flag;
@@ -1515,8 +1569,10 @@ A structure that fails is replaced, never edited after any model output on it ex
 
 \textbf{Composition targets} \tg{PROPOSAL}, checked at each milestone and reported, not forced by editing items:
 at least 10 domains with no domain above 25\% of structures; at least 20\% upper-university structures and
-multi-step variants (B3.1 strata), so that models are not at ceiling; stratum C feasible in at least 30\% and K in
-at least 20\% of structures, so that H6-extended and the C/K forms of H3 can be powered; difficulty spread recorded
+multi-step variants (B3.1 strata), so that models are not at ceiling; stratum C feasible in at least 50\% and K in
+at least 30\% of the \emph{new} structures (those built for dataset~v2, not upgraded from v1; the v2.1 targets of 30\% and 20\%
+overall were too low to power the C/K family), so that the C/K family of G4, H6-extended and the C/K forms of H3 can be powered;
+at M250 at most half of the C quantities are ``famous'' (\texttt{textbook\_familiarity}); difficulty spread recorded
 before any model run.
 
 \textbf{Milestones and data roles} (assigned by lineage, before any outcome is seen; Section~\ref{sec:status},
@@ -1538,6 +1594,10 @@ G6. Because calibration bands differ by model, a large sealed pool is what lets 
 their targets. External (EPC) items are additional and are not counted in the 500. If generation or validation
 falls short at a milestone, the shortfall is reported and the gate proceeds only if its own power target is met;
 admission standards are never relaxed to reach a count.
+
+\textbf{M1000 option} \tg{PROPOSAL} (v2.2). M250 and M500 stand. Whether to continue to 1{,}000 structures is decided at the M500
+point from the power simulation for the C/K family and from per-domain results; the generator, the overlap detectors and the
+id scheme are built now to reach 1{,}000 structures without redesign. Admission standards never relax to reach a count.
 
 \textbf{Effort.} Generation and certification are agent and CPU work. LLM-panel validation costs about 2--3 judges
 $\times$ 2 passes per structure and phrasing (about 3,000--6,000 judge runs for 500 structures; local GPU-hours or
@@ -1832,7 +1892,7 @@ compatibility $\times$ relevance on answer contamination, correct-versus-decoy l
 is replaced by the role-by-value interaction on O4 (Section~\ref{sec:rolevalue}), with O1, O2, O3 and O5 reported
 beside it; proximity, unit and marking are moderators. G4 preregisters the role-by-value family fixed in advance
 (Section~\ref{sec:gates}), with its estimands, decision rules and sample size, on held-out structures in untouched
-clusters, and opens it once; G3 may add at most one secondary family, labelled as chosen on EXPLORATION data. Broad multiverse tables are secondary.
+clusters, and opens it once; G3 may add at most one further secondary family (after the R/D and C/K families), labelled as chosen on EXPLORATION data. Broad multiverse tables are secondary.
 \item[P4.2 Honest power.] Simulation from discovery-only data with cluster dependence and within-structure
 correlation, including the variance of a cue \emph{difference}, not only the no-cue variance; sample size for the
 smallest scientifically meaningful effect; attrition from parser and validator failures recorded; a
@@ -2175,7 +2235,7 @@ against the non-mechanistic ladder. If cue removal or the relevance instruction 
 neural edit is not called operationally superior; it may still be a mechanistic test.}
 
 \textbf{Status (11 Nov 2026):} not started. A Phase-I reviewer asked for exactly this downstream use; the first
-rung (relevance instruction) is measured in G3 at no extra cost.
+rung (relevance instruction) and self-consistency are measured in G3 and reported in G4 as required arms (v2.2).
 
 %----------------------------------------------------------------------
 \subsubsection{P11. Confirmatory closure, adversarial review and claim freeze}
@@ -2618,8 +2678,8 @@ marker words such as ``unrelated'' or ``separate''); effects must agree across p
 (\texttt{UNIQUE\_MATCH}, \texttt{MULTI\_MATCH}, \texttt{NO\_MATCH}). Frozen with the item at G1; read at G3/G4.
 \item \textbf{Formula hint} as a positive diagnostic (expected to help or to do nothing; never a gate). G3; also a
 G0 review-derived addition.
-\item \textbf{Relevance instruction} (``identify and ignore irrelevant information''), with and without a cue: G3;
-also the cheapest mitigation baseline at G7.
+\item \textbf{Relevance instruction} (``identify and ignore irrelevant information''), with and without a cue: a required
+arm in G3, reported in G4 (with self-consistency, v2.2); also the cheapest mitigation baseline at G7.
 \item \textbf{Non-physics dependency control} (GSM-DC-style problems with the same role manipulation), to tell a
 general numeric or dependency phenomenon from one needing physical semantics. Small control at G3; wider
 non-physics transfer at G6.
@@ -2776,8 +2836,8 @@ supports H1. Departures confined to same-unit plausible values support H2. H6-RD
 equivalent to zero (Section~\ref{sec:statistics}); H6-extended adds the same for C and K. Relevance-selection language (H3) is
 used only if a D tracking loss is attributed to a prespecified misuse curve (substitute, add or subtract, in its
 predicted direction; for C and K a wrong-law curve) across values.
-\item \emph{Selection.} G4 confirms the role-by-value family fixed in advance; the G3 scorecard may add at most one
-secondary family (Section~\ref{sec:gates}).
+\item \emph{Selection.} G4 confirms the role-by-value families fixed in advance (R/D family F1--F3, then the C/K family); the G3
+scorecard may add at most one further secondary family (Section~\ref{sec:gates}).
 \end{itemize}
 \end{description}
 
@@ -3071,8 +3131,9 @@ mixed-effects logistic model of tracking (two-sided: physics predicts tracking t
 role). For H6-RD each of F1--F3 is instead tested for equivalence within its SESOI. $\Lambda$ and $\lambda$ are
 reported as descriptive summaries and gate nothing. The misuse shares that attribute an F1 loss to particular
 misuse curves are a secondary family, Holm-corrected across curves and tested in each curve's predicted direction,
-only after F1 passes. The second model follows by fixed sequence after the first. At most one
-secondary family chosen in G3 is tested after the primary family, Holm-corrected, and labelled as chosen on
+only after F1 passes. The second family, preregistered unconditionally, is the \emph{C/K family}: the tracking loss against $N$ in
+C and in K, Holm-corrected within the family and tested after the primary family. The second model follows by fixed sequence after
+the first. At most one further secondary family chosen in G3 is tested third, Holm-corrected, and labelled as chosen on
 EXPLORATION data.
 \item Prespecified secondary scans use Benjamini--Hochberg and stay exploratory.
 \item Selection over layers, heads, sites, positions, phrasings, metrics and thresholds is handled by discovery on
@@ -3085,7 +3146,7 @@ O'Brien--Fleming spending may be preregistered.
 Before G3 and again before G4, simulate from the G2 estimates (structure, value and phrasing variance components,
 $\omega$ of the cue difference, within-item Bernoulli variance, which more samples reduce and between-structure
 variance does not; Wang 2026), for $J\in\{24,40,60,80\}$ complete role-by-value structures and
-$k\in\{3,5,8\}$, at least 1,000 simulated datasets each analysed exactly as planned, on simulated null data as well as effect data so
+$k\in\{3,5,8\}$ (extended to the $k$ grid and agreement rule of Section~\ref{sec:rolevalue}, which fixes $k$ for G3 and G4), including the C/K family, at least 1,000 simulated datasets each analysed exactly as planned, on simulated null data as well as effect data so
 that the type-I error of the chosen analysis and resampling unit is shown to be calibrated, for the tracking loss, the role-by-value interaction
 and the misuse, neglect and copy shares, which may be rare (Stage~14.20 had 2 wrong answers in 128 cells). The
 simulation includes a scenario with 20--40\% loss to infeasible cells, validation failures, parse failures and
@@ -3097,7 +3158,7 @@ or 17. More samples per item cannot
 substitute for more independent structures. If errors are genuinely rare, the legitimate choices are a harder,
 independently justified regime or the study of correct selection (H6); a continuous diagnostic (O6) is never
 promoted to proof of an error because the categorical endpoint lacks power. The dataset is built to 250 and then 500
-structures (Section~\ref{sec:datasetplan}); the simulation decides how many of them each gate opens, and the sealed
+structures, with an M1000 option (Section~\ref{sec:datasetplan}); the simulation decides how many of them each gate opens, and the sealed
 remainder is kept for later gates.
 
 \subsection{Negative and missing result policy}
@@ -3211,7 +3272,9 @@ upper-university Stage~A problems).
 \subsection{Staged budget for the revised gates}
 \label{sec:compute-budget}
 
-Generations per model $=$ structures $\times$ cells per structure $\times$ $k$ samples. A ``core cell'' below is
+Generations per model $=$ structures $\times$ cells per structure $\times$ $k$ samples. The $k$ values and cell counts in the table are the
+planning figures of the 11 November edition; from v2.2 the core run adds C and K cells (up to 12 more per structure where both are
+feasible) and $k$ is fixed by the simulation of Section~\ref{sec:rolevalue}, so the counts and hours are recomputed when $k$ is fixed. A ``core cell'' below is
 one role-by-value cell (role $\times$ value $\times$ phrasing); the minimum complete structure has R and D at three
 values in two phrasings, i.e.\ 12 cells, plus the no-cue base and the non-numeric sentence: 14 cells. An added
 ablation condition is assumed to be crossed with three values and two phrasings (6 cells). The HF column multiplies by the measured 12.6--14.7~s per record; the vLLM
@@ -3231,7 +3294,7 @@ about 1.6--5.5~h & under 0.5~h & not planned \\
 G3 behavioural discovery (core) & 24--40 complete structures $\times$ 14 cells $\times$ $k$ 3--8; plus a small
 non-physics control sized in its card & 1{,}008--4{,}480 & about 3.5--18~h, split into jobs under 10~h & about
 0.2--1~h & excluded \\
-G3 targeted ablations (only after the core result) & per ablation condition: 24--40 structures $\times$ 6 cells
+G3 explanatory ablations (only after the core result) & per ablation condition: 24--40 structures $\times$ 6 cells
 $\times$ $k$ 3--8 & 432--1{,}920 per condition & about 1.5--7.8~h per condition & under 0.5~h per condition &
 excluded \\
 G4 confirmation & $J$ from the power simulation (one-sided bracket $J\approx6.2\,\omega^2/\delta^2$: about 17--39
@@ -3321,7 +3384,8 @@ gate), \texttt{exploratory\_or\_confirmatory}, \texttt{structure\_uuid}, \texttt
 only on records that compute the O6 diagnostic.
 
 \textbf{Added by the revised framework:} \texttt{stratum} (R, D, C, K), \texttt{role\_relation\_id},
-\texttt{value\_index} and value $z$, \texttt{phrasing\_id} and \texttt{marker\_word\_present},
+\texttt{value\_index} and value $z$, \texttt{phrasing\_id} and \texttt{marker\_word\_present}, \texttt{consequence\_free},
+\texttt{d\_kind} (co-present or other event), \texttt{textbook\_familiarity} (C), the gold trace,
 \texttt{certified\_response} $y^*_r(z)$, \texttt{tracking} $T$, \texttt{feasibility\_status},
 \texttt{misuse\_matches} (\texttt{UNIQUE\_MATCH}/\texttt{MULTI\_MATCH}/\texttt{NO\_MATCH} with every matched
 hypothesis), \texttt{completion\_status} (O3), \texttt{thinking\_closed}, \texttt{generated\_tokens},
@@ -3374,7 +3438,7 @@ for model in selected_models:
         assert certified_invariance_and_response(records.certificates)
         emit_immutable_raw_records(records, submit_commit)
 # Freeze choices using discovery ONLY.
-# G4 family is fixed in G1; discovery may add one secondary family
+# G4 families (R/D, then C/K) are fixed in G1; discovery may add one further secondary family
 protocol = freeze_g4_family(manifest.discovery)
 power = simulate_power(protocol, variance_components_from_G2)
 write_preregistration(protocol, power, git_sha=submit_commit)
@@ -3958,7 +4022,7 @@ Issue numbers follow the consolidated register in \texttt{docs/reviews/iclr2027\
 11 & Near-match claim overstated & C7 & Proximity as distinct conditions; role-by-value design \\
 12 & Verifier scope and tolerance & C10 & Strata certificates; B1.5 audit if v1 is reused \\
 13 & Scope: short plug-in calculations & -- & Problem-structure strata (B3.1); strata C and K require more than plug-in \\
-14 & No downstream use & -- & G7 (repair against cheap alternatives) \\
+14 & No downstream use & -- & Required G3/G4 arms (self-consistency, relevance instruction; v2.2); G7 (repair against cheap alternatives) \\
 15 & One string's probability is not confidence & C1--C3 & O1--O4; O6 only inside a causal claim type \\
 16 & Threshold justification & C2b & Rule 5 of Section~\ref{sec:status}; G0(g) \\
 17 & Similar AUROC is not shared information & -- & G7 only, with deployable comparators \\
@@ -4083,6 +4147,19 @@ exists, and G4 waiting for the full panel. The user also gave the agent standing
 without per-job approval and to cancel pending non-PhysMon jobs on the shared account (recorded in
 \texttt{AGENTS.md}), and approved a separate vLLM environment and a Qwen3-8B download (D3, D4). At the user's choice of 11 November 2026 the plan was consolidated into this single LaTeX source and
 PDF; the Markdown revision layer was removed (preserved in Git history).
+\item[14 November 2026 (v2.2), plan amendments.] After a review of the construct, design, dataset and statistics, at the user's
+direction (``fix the core issues''), recorded in \texttt{docs/\allowbreak registry/\allowbreak v2/\allowbreak g1/\allowbreak plan\_\allowbreak revision\_\allowbreak v2.2\_\allowbreak 2026-11-14.md}. Changes:
+(A1) strata C and K are in the G3 core run for every structure where feasible and G4 preregisters the C/K family second,
+unconditionally, because D alone is irrelevance by narrative and could be passed by reading the story; C and K feasibility
+targets rise to 50\% and 30\% of new structures; (A2) two D kinds, co-present and other event, both required; (A3) paired
+phrasings $(r_i,d_i)$ and a consequence lexicon, after one R wording stated its own consequence; (A4) C results reported by
+textbook familiarity; (A5) a \texttt{K\_out} supporting cell; (A6) self-consistency and the relevance instruction become
+required G3/G4 arms instead of G7-only or optional; (A7) a gold trace for every cell, for the H4 extractor; (A8) the October
+supporting cells restored in M0~v2 with certified tolerance status, since no exact-match cell had existed; (A9) value hygiene;
+(B1) $k$ and the operational agreement rule fixed from the power simulation by a rule written before its results, replacing
+$k=8$, which labelled truly invariant worlds as wording-dependent; (B2) an M1000 option. The four strata, tracking as the primary
+estimand, F1--F3 and their SESOIs, the gates and data roles, the causal standard, the claim hierarchy and the LLM panel
+protocol are unchanged; the sealed M0 pilot stays sealed. The numbers of B1 are filled in from the simulation before the G1 freeze.
 \end{description}
 
 \end{document}
