@@ -31,7 +31,7 @@ thresholds" (plan `sec:gates` G1; G3 item 3) for the hypotheses of `sec:hypothes
    NOT_ROBUST. NOT YET IMPLEMENTED.
 6. **Phrasing agreement (PLAN `sec:rolevalue` "Difficulty and wording controls"; `rvs.phrasing_agreement`).** A role
    status (H3, H6) needs agreement on F1-F3. PROPOSED: if agreement fails, the pooled status is INCONCLUSIVE flagged
-   WORDING_DEPENDENT and per-phrasing statuses are reported beside it.
+   WORDING_DEPENDENT and per-phrasing statuses are reported beside it. [amended 2026-11-14 by plan_revision_v2.2, section E: k = 24; agreement rule B; decision 21 target = EQUIVALENT or TRIVIAL: `rvs.phrasing_agreement` is rule B with three states per contrast; AGREE on F1, F2 and F3 is required; any DISAGREE (demonstrated) flags WORDING_DEPENDENT, otherwise any UNRESOLVED flags PHRASING_AGREEMENT_NOT_SHOWN; the earlier check is `rvs.phrasing_agreement_rule_a`, unused by the scorecard; k = 24 per R, D, C and K cell.]
 7. **Missingness (PLAN negative and missing result policy).** Status comes from the all-attempted analysis. PROPOSED:
    if the complete-case or budget-exhausted-as-wrong analysis would give a different status, the status is kept and
    flagged MISSINGNESS_SENSITIVE.
@@ -137,7 +137,7 @@ Rules are evaluated per stratum; strata are never pooled (PLAN `sec:strata` rule
   values and phrasings. H6-extended adds the same for C and K. **Against:** departures in any stratum; an underpowered
   null is INCONCLUSIVE.
 - **SUPPORTED (H6-RD):** F1, F2, F3 each EQUIVALENT (TOST alpha 0.05 each; no multiplicity correction because all three
-  must pass, an intersection-union test), T_R >= criterion, phrasing agreement on F1-F3.
+  must pass, an intersection-union test), T_R >= criterion, phrasing agreement on F1-F3. [amended 2026-11-14 by plan_revision_v2.2, section E: k = 24; agreement rule B; decision 21 target = EQUIVALENT or TRIVIAL: the joint power target of decision 21 applies to the rate of F1-F3 all EQUIVALENT or TRIVIAL_EFFECT, the H6-RD criterion under decision 1.]
 - **SUPPORTED (H6-extended):** H6-RD plus F1 on C and on K EQUIVALENT and the C and K tracking slopes across values
   EQUIVALENT within log(1.5) (PROPOSED: R-minus-C slope is meaningless because C's quantity differs from R's, so the
   C/K analogue of F3 is the stratum's own slope, target 0; NOT YET IMPLEMENTED).

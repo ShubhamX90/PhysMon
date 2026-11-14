@@ -37,7 +37,7 @@ requalified only on unseen items).
 | 3 | "Extends beyond the margin" = any part of the interval beyond the SESOI; the point estimate's position is reported beside | DECIDED | conventional reading of the four-outcome language |
 | 4 | Minimum evaluable structures for any status: **6** | DECIDED + CODE | below J = 6 the exact two-sided sign-flip test cannot reach p < 0.05 (2/2^5 = 0.0625) |
 | 5 | Method agreement (t, sign-flip, bootstrap, mixed model) and drop-1-to-3-structures robustness implemented before the freeze | DECIDED + CODE | required by the plan (B6.4, P4.6); cheap |
-| 6 | Phrasings disagree: pooled status INCONCLUSIVE flagged WORDING_DEPENDENT, per-phrasing statuses beside | DECIDED | a role claim needs agreement across phrasings (plan) |
+| 6 | Phrasings disagree: pooled status INCONCLUSIVE flagged WORDING_DEPENDENT, per-phrasing statuses beside | DECIDED | a role claim needs agreement across phrasings (plan) Amended 2026-11-14 by plan_revision_v2.2, section E: agreement rule B (three states per contrast AGREE / DISAGREE / UNRESOLVED); DISAGREE flagged WORDING_DEPENDENT, UNRESOLVED flagged PHRASING_AGREEMENT_NOT_SHOWN. |
 | 7 | F3 per value **index** step, stated in the card | DECIDED | the SESOI was reasoned per step; values are not equally spaced |
 
 ## B. Thresholds
@@ -57,12 +57,12 @@ requalified only on unseen items).
 | # | Decision | Status | Reason |
 |---|---|---|---|
 | 15 | No adaptive sampling in G3: J = min(40, eligible), fixed k | DECIDED | adaptive rules add researcher degrees of freedom for little gain |
-| 16 | k = 8 per R/D cell; N **and** no-cue sampled 6k each (fully balanced) | DECIDED (**draft offered a cheaper no-cue**) | vLLM made generation cheap (2,080 samples in minutes); balance keeps every interval free of the J15.1-011 skew |
+| 16 | k = 8 per R/D cell; N **and** no-cue sampled 6k each (fully balanced) | DECIDED (**draft offered a cheaper no-cue**) | vLLM made generation cheap (2,080 samples in minutes); balance keeps every interval free of the J15.1-011 skew **Amended 2026-11-14 by plan_revision_v2.2, section E: k = 24 per R, D, C and K cell** (was k = 8; N and no-cue stay balanced at 6k each, now 144). |
 | 17 | Held-out values (m >= 5) not run in G3; run in G4 as a committed prediction from the G3-attributed curves | DECIDED | a true out-of-sample test of the misuse curves |
 | 18 | Non-physics control: 16 structures, R/D x 3 values x 2 phrasings | DECIDED | enough to estimate, explicitly not powered (plan: a null there is INCONCLUSIVE) |
 | 19 | G4 opens with a no-cue calibration pass (k_sel = 4) on sealed structures in a seeded order; in-band ones enter until J is reached; estimation and role cells use fresh samples | DECIDED | in-band status needs selection samples; selection and estimation stay disjoint |
 | 20 | G4 meets its rule if (a) at least one of F1-F3 is Holm-rejected in its predicted direction with label EFFECT, or (b) all three are EQUIVALENT/TRIVIAL with R tracking >= the criterion (H6-RD); "replicated" also needs the G3 direction for every contrast that was EFFECT in G3 | DECIDED | makes the G4 gate numeric |
-| 21 | G4 size from a simulation of joint TOST power (F1-F3) using G2 variance components; more sealed structures opened if needed (270 available) | DECIDED + CODE (before G4) | planning J = 50 does not power joint equivalence at omega >= 0.2 |
+| 21 | G4 size from a simulation of joint TOST power (F1-F3) using G2 variance components; more sealed structures opened if needed (270 available) | DECIDED + CODE (before G4) | planning J = 50 does not power joint equivalence at omega >= 0.2 Amended 2026-11-14 by plan_revision_v2.2, section E: target = joint EQUIVALENT or TRIVIAL_EFFECT rate (H6-RD criterion under decision 1), not all EQUIVALENT. |
 
 ## D. Secondary family and order
 

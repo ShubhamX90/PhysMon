@@ -111,3 +111,29 @@ the freeze it is opened only as a pipeline and grading check. The design-validat
 3. Plan text updated to v2.2 with a revision-log entry; PDF rebuilt.
 4. Remaining G1 items: H4 trace extractor (against the new gold traces), non-physics control set (16 structures, same
    pair rules), dataset admission standard including A2-A5 and A9; then the freeze.
+
+## E. B1 resolved from the simulation (2026-11-14; `results/stage15/g1_power/attempt_20261114/`, 864 grid points x 4,000 datasets)
+
+Applied the rule written in B1 before the results existed.
+* **Agreement rule: RULE_B** (the plan's literal first clause), with three states per contrast: the per-structure
+  difference between phrasing pair 0 and pair 1 is AGREE when it passes TOST inside the contrast's SESOI (whether or not
+  its interval includes zero), DISAGREE when its interval excludes zero and extends beyond the SESOI, otherwise
+  UNRESOLVED; the plan's second clause (both phrasings beyond the SESOI on the same side) also counts as agreement. A role
+  claim needs AGREE on F1, F2 and F3; DISAGREE is reported as demonstrated wording dependence, UNRESOLVED as
+  "agreement not shown" (both demote the pooled status to INCONCLUSIVE, with different flags). Rejected: RULE_A (the
+  implemented check: it also required the difference's interval to include zero, which caps its success near 0.86 at any
+  sample size); RULE_C (doubled F3 margin: detects a wording difference at the SESOI 0-39% of the time); RULE_D (does
+  not require agreement to be shown, which the plan requires).
+* **k = 24 samples per R, D, C and K cell** (replaces decision 16's k = 8; N and no-cue stay balanced with the role
+  totals). At J = 40, omega = 0.2, baseline 0.58: invariant world scored correctly 0.95, a true effect in both phrasings
+  found and not demoted 0.94, a wording difference at the SESOI flagged 0.96 and demonstrated 0.94, false DISAGREE
+  across the three contrasts at most 0.05. k = 16 fails the false-DISAGREE criterion (0.05-0.07). If fewer than 40
+  structures are eligible (J = 30) the same k gives 0.87 / 0.84 / 0.95 and false DISAGREE just above 0.05 (reported).
+* **Decision 21 corrected.** The joint equivalence target for H6-RD is the rate of all three contrasts being
+  EQUIVALENT or TRIVIAL_EFFECT (decision 1), not all three EQUIVALENT: the latter is capped near 0.73-0.79 at any J
+  because the label requires the interval to include zero (a true null fails that 10% of the time per one-sided
+  contrast). At k = 24 the EQUIVALENT-or-TRIVIAL rate is 1.00 at J = 30 and above.
+* **F3 estimator unchanged**: alternatives (probability-scale slope, information-weighted slope, mixed logistic) are
+  3-14% more efficient at most; the limit is binomial noise.
+* Not simulated (stated limits): sign-flip/bootstrap method agreement, leave-k-out, Holm, the R-tracking gate,
+  correlation between contrasts, infeasible strata.

@@ -18,8 +18,9 @@ Rules common to every row (scorecard section 1, decisions):
   excess > 0); H0 is contradicted by a reliable departure in any direction.
 * TRIVIAL_EFFECT supports H6-RD (reported as a trivial departure within the SESOI); only EQUIVALENT supports H0
   (decision 1).
-* Role statuses (H3, H3-R, H6) need phrasing agreement on F1-F3; otherwise INCONCLUSIVE flagged WORDING_DEPENDENT with
-  per-phrasing statuses beside (decision 6).
+* Role statuses (H3, H3-R, H6) need phrasing agreement (rule B: AGREE / DISAGREE / UNRESOLVED per contrast, plan_revision_v2.2
+  section E) on F1-F3; otherwise INCONCLUSIVE flagged WORDING_DEPENDENT (some contrast DISAGREE, demonstrated) or
+  PHRASING_AGREEMENT_NOT_SHOWN (none DISAGREE, some UNRESOLVED), with per-phrasing statuses beside (decision 6).
 * R tracking (decision 8): T_R >= 0.40 (point estimate) on >= 16 evaluable structures (each with R cells at 3 values);
   below it H3, H3-R and H6 are NOT_EVALUATED ("uninterpretable for role", itself a finding); H0, H1, H2, H4, H5 are
   still scored.
@@ -429,6 +430,9 @@ def _h6ext(inputs: ScorecardInputs, rt: Mapping[str, Any], h6rd: Mapping[str, An
 # --- phrasing agreement (decision 6) -------------------------------------------------------------------------------------
 
 def _phrasing_state(inputs: ScorecardInputs) -> dict[str, Any]:
+    """Per-contrast AGREE / DISAGREE / UNRESOLVED (rule B, plan_revision_v2.2 section E) with the difference estimates;
+    not assessable when a contrast is NOT_EVALUATED (fewer than 6 structures) or was not computed."""
+
     ph = inputs.phrasing
     if ph is None:
         return {"assessable": False, "reason": "phrasing agreement not computed"}
@@ -437,18 +441,25 @@ def _phrasing_state(inputs: ScorecardInputs) -> dict[str, Any]:
         s = ph.get(f"phrasing_by_role_{f}")
         if s is None:
             return {"assessable": False, "reason": f"phrasing-by-role {f} not computed"}
-        if s.get("outcome") == NOT_EVALUATED and not s.get("same_side_beyond_sesoi"):
+        state = s.get("agreement") or (rvs.AGREE if s.get("agree") else rvs.UNRESOLVED)  # bool-only inputs: legacy
+        if state == NOT_EVALUATED:
             return {"assessable": False, "reason": f"phrasing-by-role {f} NOT_EVALUATED ({s.get('reason')})"}
-        per[f] = {"agree": bool(s.get("agree")), "outcome": s.get("outcome"), "mean": s.get("mean"),
-                  "ci95_t": s.get("ci95_t")}
-    return {"assessable": True, "per_contrast": per, "agree": all(v["agree"] for v in per.values())}
+        per[f] = {"agreement": state, "agree": state == rvs.AGREE, "outcome": s.get("outcome"), "J": s.get("J"),
+                  "mean": s.get("mean"), "ci95_t": s.get("ci95_t"), "p_tost": s.get("p_tost"),
+                  "sesoi": s.get("sesoi", rvs.SESOI[f]), "same_side_beyond_sesoi": s.get("same_side_beyond_sesoi")}
+    states = {f: v["agreement"] for f, v in per.items()}
+    return {"assessable": True, "rule": "B", "per_contrast": per, "states": states,
+            "agree": all(v == rvs.AGREE for v in states.values()),
+            "disagree": [f for f, v in states.items() if v == rvs.DISAGREE],
+            "unresolved": [f for f, v in states.items() if v == rvs.UNRESOLVED]}
 
 
 def _with_phrasing(inputs: ScorecardInputs, rt: Mapping[str, Any], result: dict[str, Any],
                    rule_fn: Callable[[ScorecardInputs, Mapping[str, Any]], dict[str, Any]]) -> dict[str, Any]:
-    """Decision 6: a role status needs agreement across phrasings on F1-F3; otherwise INCONCLUSIVE flagged
-    WORDING_DEPENDENT, with per-phrasing statuses beside (computed with that phrasing's F1-F3 and the pooled misuse
-    attribution)."""
+    """Decision 6 with rule B: a role status needs AGREE on F1, F2 and F3. Otherwise a pooled SUPPORTED or CONTRADICTED is
+    demoted to INCONCLUSIVE, flagged WORDING_DEPENDENT when any contrast is DISAGREE (demonstrated wording dependence) or
+    PHRASING_AGREEMENT_NOT_SHOWN when none is DISAGREE but some are UNRESOLVED; per-phrasing statuses are kept beside
+    (computed with that phrasing's F1-F3 and the pooled misuse attribution)."""
 
     if result["status"] == NOT_EVALUATED:
         return result
@@ -465,11 +476,15 @@ def _with_phrasing(inputs: ScorecardInputs, rt: Mapping[str, Any], result: dict[
             result["status"] = INCONCLUSIVE
         result["flags"] = sorted(set(result["flags"]) | {"PHRASING_AGREEMENT_NOT_EVALUATED"})
     elif not state["agree"]:
+        demonstrated = bool(state["disagree"])
         if result["status"] in (SUPPORTED, CONTRADICTED):
             result["pooled_status_before_phrasing_rule"] = result["status"]
-            result["reason"] = f"phrasings disagree (pooled would be {result['status']}); " + result["reason"]
+            what = (f"phrasings DISAGREE on {', '.join(state['disagree'])} (demonstrated wording dependence)" if demonstrated
+                    else f"phrasing agreement not shown on {', '.join(state['unresolved'])} (UNRESOLVED)")
+            result["reason"] = f"{what} (pooled would be {result['status']}); " + result["reason"]
             result["status"] = INCONCLUSIVE
-        result["flags"] = sorted(set(result["flags"]) | {"WORDING_DEPENDENT"})
+        result["flags"] = sorted(set(result["flags"]) | {
+            "WORDING_DEPENDENT" if demonstrated else "PHRASING_AGREEMENT_NOT_SHOWN"})
     return result
 
 
@@ -531,6 +546,7 @@ def scorecard(inputs: ScorecardInputs, sensitivity: Mapping[str, ScorecardInputs
             global_flags.append("GENERAL_NUMERIC_OR_DEPENDENCY")
         control_out["note"] = "a null on the control is INCONCLUSIVE unless powered and is not evidence of physics-specificity"
     contrasts = {k: _numbers(inputs.family.get(k)) for k in ("F1", "F2", "F3")}
+    phrasing_out = _phrasing_state(inputs)
     contrasts["F1_vs_no_cue"] = _numbers(rvs.paired_summary([e.get("F1_vs_no_cue") for e in inputs.estimates.values()],
                                                             rvs.SESOI["F1"], "greater"))
     if not all("method_agreement" in inputs.family.get(k, {}) for k in ("F1", "F2", "F3")
@@ -545,7 +561,7 @@ def scorecard(inputs: ScorecardInputs, sensitivity: Mapping[str, ScorecardInputs
     out = {"schema": SCHEMA, "sources": list(SOURCES), "population": inputs.population,
            "configuration": inputs.configuration, "statuses_allowed": list(STATUSES),
            "summary": {h: statuses[h]["status"] for h in HYPOTHESES}, "hypotheses": statuses, "r_tracking": rt,
-           "contrasts": contrasts, "misuse": {st: {h: {k: v[k] for k in ("attribution", "reason", "J",
+           "contrasts": contrasts, "phrasing_agreement": phrasing_out, "misuse": {st: {h: {k: v[k] for k in ("attribution", "reason", "J",
                                                                         "structures_defined", "structures_confounded",
                                                                         "matches_total", "values_above_N")}
                                                    | {"M": _numbers(v["M"])} for h, v in m.items()}

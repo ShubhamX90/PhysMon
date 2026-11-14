@@ -97,6 +97,11 @@ MULTIMODAL_SHARE = 0.20
 # Decision 4 (G1, 2026-11-13): below 6 evaluable structures no contrast gets a status; the exact two-sided sign-flip test
 # cannot reach p < 0.05 with J < 6 (minimum p = 2/2^J; J = 5 gives 0.0625).
 MIN_EVALUABLE_STRUCTURES = 6
+# Samples per R, D, C and K cell in G3/G4 role-by-value runs; N and no-cue cells are sampled 6x this (balanced design).
+# Amended 2026-11-14 by plan_revision_v2.2, section E: k = 24 (was 8, decision 16). Applies to future runs only; the
+# registered run specs under data/v2/runs/ are immutable records.
+SAMPLES_PER_CELL = 24
+BALANCED_CELL_MULTIPLIER = 6
 ROBUSTNESS_KS = (1, 2, 3)  # decision 5 / plan P4.6: effects must survive dropping one to three structures
 ROBUSTNESS_MAX_SUBSETS = 1000  # all subsets when there are at most this many, else a seeded sample of this many
 
@@ -530,10 +535,11 @@ def primary_family(estimates: Mapping[str, Mapping[str, Any]], diagnostics: bool
     return res
 
 
-def phrasing_agreement(records: Sequence[Mapping[str, Any]], cells: Mapping[str, Cell],
-                       phrasings: Sequence[int | str] = (0, 1), view: str = PRIMARY_VIEW) -> dict[str, Any]:
-    """Per-phrasing F1-F3 and the phrasing-by-role check: the per-structure difference between two phrasings' estimates
-    must be equivalent to zero within the SESOI (TOST), or both phrasings' estimates exceed the SESOI in one direction.
+def phrasing_agreement_rule_a(records: Sequence[Mapping[str, Any]], cells: Mapping[str, Cell],
+                              phrasings: Sequence[int | str] = (0, 1), view: str = PRIMARY_VIEW) -> dict[str, Any]:
+    """RULE A, kept for the record and no longer used by the scorecard (superseded 2026-11-14 by rule B,
+    `phrasing_agreement`; plan_revision_v2.2 section E). Per-phrasing F1-F3 and the phrasing-by-role check: the
+    per-structure difference between two phrasings' estimates must be equivalent to zero within the SESOI (TOST), or both phrasings' estimates exceed the SESOI in one direction.
     Phrasings are indices (`phrasing_indices`: the first R phrasing with the first D phrasing) or exact ids."""
 
     per = {p: structure_estimates(records, cells, view, phrasing=p) for p in phrasings}
@@ -1152,8 +1158,10 @@ def power_generic(simulate, params, J: int, k: int, margin: float, alternative: 
 
 def joint_tost_power(params_f1: SimParams, params_f2: SimParamsF2, params_f3: SimParamsF3, J: int, k: int,
                      n_sims: int = 1000, seed: int = SEED) -> dict[str, Any]:
-    """Decision 21: power of the H6-RD route in G4, i.e. the share of simulated datasets in which F1, F2 and F3 are all
-    EQUIVALENT (TOST at alpha 0.05 each, an intersection-union test, no multiplicity correction), beside each single
+    """Decision 21 (corrected 2026-11-14): power of the H6-RD route in G4. Two joint rates are reported: all of F1-F3
+    EQUIVALENT (`joint_equivalence_rate`, TOST at alpha 0.05 each, an intersection-union test, no multiplicity
+    correction; the earlier figure, capped near 0.73-0.79 at any J) and all EQUIVALENT or TRIVIAL_EFFECT
+    (`joint_equivalent_or_trivial_rate`, the H6-RD criterion under decision 1 and the target of the curve), beside each single
     contrast's equivalence rate and the G4 rule (b) rate in which EQUIVALENT or TRIVIAL_EFFECT both count (decisions 1
     and 20). Each dataset draws F1, F2 and F3 for the same J structures from the existing simulators with the given
     variance components (from G2). The three contrasts are simulated independently given the parameters, so a
@@ -1182,9 +1190,175 @@ def joint_tost_power(params_f1: SimParams, params_f2: SimParamsF2, params_f3: Si
 def joint_tost_power_curve(params_f1: SimParams, params_f2: SimParamsF2, params_f3: SimParamsF3,
                            Js: Sequence[int], k: int, n_sims: int = 1000, seed: int = SEED,
                            target: float = 0.80) -> dict[str, Any]:
-    """`joint_tost_power` over a grid of J; `J_for_target` is the smallest J in the grid whose joint equivalence rate
-    reaches `target` (None if none does: open more sealed structures, decision 21)."""
+    """`joint_tost_power` over a grid of J. Decision 21 as corrected 2026-11-14 (plan_revision_v2.2 section E): the target
+    applies to the joint EQUIVALENT-or-TRIVIAL_EFFECT rate (the H6-RD criterion under decision 1); `J_for_target` is the
+    smallest J in the grid reaching it (None if none does: open more sealed structures). The all-EQUIVALENT rate (the
+    earlier target, capped near 0.73-0.79 because the label needs the interval to include zero) stays in every row and in
+    `J_for_target_all_equivalent`."""
 
     rows = [joint_tost_power(params_f1, params_f2, params_f3, J, k, n_sims, seed) for J in Js]
-    hit = [r["J"] for r in rows if r["joint_equivalence_rate"] >= target]
-    return {"rows": rows, "target": target, "J_for_target": min(hit) if hit else None}
+    hit = [r["J"] for r in rows if r["joint_equivalent_or_trivial_rate"] >= target]
+    hit_eq = [r["J"] for r in rows if r["joint_equivalence_rate"] >= target]
+    return {"rows": rows, "target": target, "target_applies_to": "joint_equivalent_or_trivial_rate",
+            "J_for_target": min(hit) if hit else None,
+            "J_for_target_all_equivalent": min(hit_eq) if hit_eq else None}
+
+
+# --- phrasing-agreement rules (G1 design study, 2026-11-14; rule B adopted as operative by plan_revision_v2.2 section E) -------
+
+AGREE, DISAGREE, UNRESOLVED = "AGREE", "DISAGREE", "UNRESOLVED"
+AGREEMENT_RULES = ("A", "B", "C", "D")
+AGREEMENT_RULE_TEXT = {
+    "A": "as implemented: per-structure phrasing difference two-sided summary; AGREE iff its label is EQUIVALENT (TOST passes "
+         "and the 95% interval includes zero) or both per-phrasing 95% intervals lie beyond the SESOI on the same side",
+    "B": "plan's first clause: per-structure phrasing difference; AGREE iff TOST within the SESOI passes, DISAGREE iff its 95% "
+         "interval excludes zero and extends beyond the SESOI, else UNRESOLVED",
+    "C": "as B with margin SESOI for F1/F2 and 2 x SESOI for F3 (sensitivity only)",
+    "D": "pooled label decides; phrasings count as agreeing unless the B-difference is DISAGREE (wording-dependence must be "
+         "demonstrated; UNRESOLVED is shown but does not demote)",
+}
+
+
+def agreement_margin(contrast: str, rule: str) -> float:
+    """Equivalence margin of the phrasing difference: the contrast's SESOI, except 2 x SESOI for F3 under rule C."""
+
+    return 2 * SESOI[contrast] if (rule == "C" and contrast == "F3") else SESOI[contrast]
+
+
+def batch_paired_labels(estimates: np.ndarray, margin: float, alternative: str) -> dict[str, np.ndarray]:
+    """Vectorised t-based version of `paired_summary`'s label for many simulated datasets at once (rows of `estimates`,
+    shape (n_datasets, J)): the mean, the 90% and 95% t intervals, whether TOST passes (alpha 0.05) and the
+    EFFECT / TRIVIAL_EFFECT / EQUIVALENT / INCONCLUSIVE label read on the same interval as `paired_summary` (the 90%
+    interval for one-sided contrasts, 95% otherwise). Sign-flip and bootstrap are not computed, so method agreement and
+    leave-k-out are not applied."""
+
+    d = np.asarray(estimates, float)
+    n, J = d.shape
+    mean = d.mean(axis=1)
+    sd = d.std(axis=1, ddof=1)
+    se = sd / math.sqrt(J)
+    t95, t90 = stats.t.ppf(0.975, J - 1), stats.t.ppf(0.95, J - 1)
+    with np.errstate(divide="ignore", invalid="ignore"):
+        p_low = 1 - stats.t.cdf((mean + margin) / se, J - 1)
+        p_high = stats.t.cdf((mean - margin) / se, J - 1)
+    tost = np.where(se == 0, np.where(np.abs(mean) < margin, 0.0, 1.0), np.maximum(p_low, p_high))
+    lo95, hi95, lo90, hi90 = mean - t95 * se, mean + t95 * se, mean - t90 * se, mean + t90 * se
+    lo, hi = (lo95, hi95) if alternative == "two-sided" else (lo90, hi90)
+    excludes = (lo > 0) | (hi < 0)
+    beyond = (hi > margin) | (lo < -margin)
+    label = np.where(excludes & beyond, "EFFECT", np.where(excludes, "TRIVIAL_EFFECT",
+                                                            np.where(tost < ALPHA, "EQUIVALENT", "INCONCLUSIVE")))
+    return {"mean": mean, "lo95": lo95, "hi95": hi95, "lo90": lo90, "hi90": hi90, "p_tost": tost,
+            "tost_pass": tost < ALPHA, "label": label}
+
+
+def batch_agreement_labels(est_a: np.ndarray, est_b: np.ndarray, contrast: str, rule: str) -> np.ndarray:
+    """AGREE / DISAGREE / UNRESOLVED per simulated dataset for one contrast and one rule, from the per-structure estimates
+    under phrasing pair 0 (`est_a`) and pair 1 (`est_b`), each of shape (n_datasets, J). Rule D uses rule B's labels (the
+    difference is the same; only what a non-AGREE does to the pooled claim differs, see `agreement_demotes`)."""
+
+    margin = agreement_margin(contrast, rule)
+    diff = batch_paired_labels(est_a - est_b, margin, "two-sided")
+    effect = diff["label"] == "EFFECT"
+    if rule == "A":
+        equivalent = diff["label"] == "EQUIVALENT"
+        pa, pb = (batch_paired_labels(e, SESOI[contrast], "two-sided") for e in (est_a, est_b))
+        same_side = ((pa["lo95"] > SESOI[contrast]) & (pb["lo95"] > SESOI[contrast])) | (
+            (pa["hi95"] < -SESOI[contrast]) & (pb["hi95"] < -SESOI[contrast]))
+        agree = equivalent | same_side
+        return np.where(agree, AGREE, np.where(effect, DISAGREE, UNRESOLVED))
+    return np.where(effect, DISAGREE, np.where(diff["tost_pass"], AGREE, UNRESOLVED))
+
+
+def agreement_demotes(labels: Mapping[str, np.ndarray], rule: str) -> np.ndarray:
+    """Whether the rule demotes the pooled claim (WORDING_DEPENDENT): rules A-C when any of F1-F3 is not AGREE, rule D only
+    when any is DISAGREE."""
+
+    stacked = np.stack([np.asarray(labels[f]) for f in ("F1", "F2", "F3")])
+    return (stacked == DISAGREE).any(axis=0) if rule == "D" else (stacked != AGREE).any(axis=0)
+
+
+def phrasing_difference_agreement(diffs: Sequence[float | None], margin: float) -> dict[str, Any]:
+    """Rule B for one contrast on real structure-level phrasing differences (estimate under phrasing 0 minus phrasing 1):
+    the paired two-sided summary with `margin`, read as AGREE (TOST passes), DISAGREE (95% interval excludes zero and
+    extends beyond the margin; EFFECT takes precedence, as in `classify`) or UNRESOLVED; NOT_EVALUATED below
+    MIN_EVALUABLE_STRUCTURES."""
+
+    s = paired_summary(diffs, margin, "two-sided")
+    if s["outcome"] == "NOT_EVALUATED":
+        return {**s, "agreement": "NOT_EVALUATED"}
+    if s["outcome"] == "EFFECT":
+        agreement = DISAGREE
+    elif s["p_tost"] < ALPHA:
+        agreement = AGREE
+    else:
+        agreement = UNRESOLVED
+    return {**s, "agreement": agreement}
+
+
+def phrasing_agreement_rules(records: Sequence[Mapping[str, Any]], cells: Mapping[str, Cell],
+                             phrasings: Sequence[int | str] = (0, 1), view: str = PRIMARY_VIEW) -> dict[str, Any]:
+    """Rules A-D (`AGREEMENT_RULE_TEXT`) per contrast on real records, for comparison on a dataset. Rule A is
+    `phrasing_agreement_rule_a` unchanged; B, C (F3 margin doubled) and D use `phrasing_difference_agreement`. Returns per rule
+    the per-contrast label and `demotes` (see `agreement_demotes`)."""
+
+    if len(phrasings) != 2:
+        raise ValueError("the agreement rules compare exactly two phrasings")
+    base = phrasing_agreement_rule_a(records, cells, phrasings, view)
+    per = {p: structure_estimates(records, cells, view, phrasing=p) for p in phrasings}
+    a, b = phrasings
+    out: dict[str, Any] = {"rules": {}, "phrasings": list(phrasings)}
+    diffs = {f: [per[a][s][f] - per[b][s][f] for s in per[a] if s in per[b] and per[a][s][f] is not None
+                 and per[b][s][f] is not None] for f in ("F1", "F2", "F3")}
+    for rule in AGREEMENT_RULES:
+        labels = {}
+        for f in ("F1", "F2", "F3"):
+            if rule == "A":
+                s = base.get(f"phrasing_by_role_{f}", {})
+                if s.get("outcome") == "NOT_EVALUATED" and not s.get("same_side_beyond_sesoi"):
+                    labels[f] = "NOT_EVALUATED"
+                else:
+                    labels[f] = AGREE if s.get("agree") else (DISAGREE if s.get("outcome") == "EFFECT" else UNRESOLVED)
+            else:
+                labels[f] = phrasing_difference_agreement(diffs[f], agreement_margin(f, rule))["agreement"]
+        evaluable = all(v != "NOT_EVALUATED" for v in labels.values())
+        demotes = None
+        if evaluable:
+            demotes = (any(v == DISAGREE for v in labels.values()) if rule == "D"
+                       else any(v != AGREE for v in labels.values()))
+        out["rules"][rule] = {"labels": labels, "demotes": demotes, "text": AGREEMENT_RULE_TEXT[rule]}
+    return out
+
+
+def phrasing_agreement(records: Sequence[Mapping[str, Any]], cells: Mapping[str, Cell],
+                       phrasings: Sequence[int | str] = (0, 1), view: str = PRIMARY_VIEW) -> dict[str, Any]:
+    """The operative phrasing-agreement check (RULE B, adopted 2026-11-14, plan_revision_v2.2 section E). Per-phrasing
+    F1-F3 and, per contrast, the per-structure difference between the two phrasings' estimates read in three states:
+    AGREE when its TOST inside the contrast's SESOI passes (whether or not the interval includes zero) or both
+    phrasings' 95% intervals lie beyond the SESOI on the same side (the plan's second clause); DISAGREE when the
+    difference's 95% interval excludes zero and extends beyond the SESOI; otherwise UNRESOLVED; NOT_EVALUATED below
+    MIN_EVALUABLE_STRUCTURES. Phrasings are indices (`phrasing_indices`) or exact ids. Each `phrasing_by_role_F*` entry
+    is the paired summary of the difference plus `agreement` (the state), `agree` (state == AGREE) and
+    `same_side_beyond_sesoi`. Rule A is `phrasing_agreement_rule_a`."""
+
+    per = {p: structure_estimates(records, cells, view, phrasing=p) for p in phrasings}
+    out: dict[str, Any] = {"rule": "B", "rule_text": AGREEMENT_RULE_TEXT["B"] + "; or both phrasings' 95% intervals beyond "
+                           "the SESOI on the same side (second clause)", "phrasings": list(phrasings),
+                           "per_phrasing": {str(p): primary_family(e) for p, e in per.items()}}
+    if len(phrasings) == 2:
+        a, b = phrasings
+        states = {}
+        for f in ("F1", "F2", "F3"):
+            diffs = [per[a][s][f] - per[b][s][f] for s in per[a] if s in per[b]
+                     and per[a][s][f] is not None and per[b][s][f] is not None]
+            res = phrasing_difference_agreement(diffs, SESOI[f])
+            same_side = all(out["per_phrasing"][str(p)][f].get("ci95_t", [0, 0])[0] > SESOI[f] for p in phrasings) or all(
+                out["per_phrasing"][str(p)][f].get("ci95_t", [0, 0])[1] < -SESOI[f] for p in phrasings)
+            if same_side:
+                res["agreement"] = AGREE
+            res["same_side_beyond_sesoi"] = same_side
+            res["agree"] = res["agreement"] == AGREE
+            out[f"phrasing_by_role_{f}"] = res
+            states[f] = res["agreement"]
+        out["states"] = states
+    return out

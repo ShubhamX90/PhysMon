@@ -45,7 +45,7 @@ recommendation (R). Nothing here is decided.
 
 15. **Adaptive sampling in G3.** R: none (J = min(40, eligible), fixed k). Option B: two-stage 24 then 40 on interval
     width only.
-16. **k in G3 and the no-cue count.** R: k = 8 per R/D cell, N 6k, no-cue 6k. Option: no-cue at k (descriptive only;
+16. **k in G3 and the no-cue count.** R: k = 8 per R/D cell, N 6k, no-cue 6k [amended 2026-11-14 by plan_revision_v2.2, section E: k = 24; N and no-cue 6k = 144]. Option: no-cue at k (descriptive only;
     cheaper, but its interval inherits the imbalance J15.1-011 found for N).
 17. **Held-out values (m >= 5) for the dependency-curve test**: the plan assigns them to no gate. R: not run in G3;
     run in G4 as a committed prediction of answer modes at the held-out values from the G3-attributed curves.
@@ -60,7 +60,7 @@ recommendation (R). Nothing here is decided.
 21. **G4 size for the H6-RD route.** Planning J = 50 powers each one-sided test, but joint TOST of F1-F3 at 80% needs
     about 11.95 omega^2/Delta^2 if the three are independent (each at about 93%): about 48 at omega 0.2 and 75 at
     omega 0.25 (Delta 0.10). R: size G4 by simulating joint TOST power from the G2 variance components; open more
-    sealed structures if needed (270 available).
+    sealed structures if needed (270 available). [amended 2026-11-14 by plan_revision_v2.2, section E: k = 24; agreement rule B; decision 21 target = EQUIVALENT or TRIVIAL: the target is the joint EQUIVALENT-or-TRIVIAL rate.]
 
 ## D. Secondary family and testing order
 

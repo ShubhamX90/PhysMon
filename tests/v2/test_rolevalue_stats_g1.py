@@ -240,6 +240,8 @@ def test_ck_family_and_phrasing_indices_pair_r_and_d_phrasings():
     assert ph["per_phrasing"]["0"]["F1"]["mean"] == pytest.approx(0.45, abs=0.06)
     assert ph["per_phrasing"]["1"]["F1"]["mean"] == pytest.approx(0.0, abs=0.06)
     assert not ph["phrasing_by_role_F1"]["agree"]  # one phrasing loses, the other does not: wording-dependent
+    assert ph["phrasing_by_role_F1"]["agreement"] == rs.DISAGREE and ph["rule"] == "B"
+    assert rs.phrasing_agreement_rule_a(records, cells)["phrasing_by_role_F1"]["agree"] is False
 
 
 def test_heldout_value_cells_do_not_enter_the_primary_estimates(effect_data):
@@ -261,5 +263,24 @@ def test_joint_equivalence_power_is_below_every_single_contrast_power():
     single = out["single_equivalence_rate"]
     assert 0 < out["joint_equivalence_rate"] < min(single.values())
     assert out["joint_equivalent_or_trivial_rate"] >= out["joint_equivalence_rate"]
+    assert set(out["single_equivalent_or_trivial_rate"]) == {"F1", "F2", "F3"}
     curve = rs.joint_tost_power_curve(rs.SimParams(), rs.SimParamsF2(), rs.SimParamsF3(), Js=(12, 40), k=8, n_sims=40)
     assert curve["rows"][0]["joint_equivalence_rate"] <= curve["rows"][1]["joint_equivalence_rate"]
+
+
+def test_joint_curve_target_applies_to_the_equivalent_or_trivial_rate(monkeypatch):
+    rows = {12: (0.30, 0.50), 24: (0.70, 0.85), 40: (0.75, 0.99)}  # (all EQUIVALENT, EQUIVALENT or TRIVIAL)
+
+    def fake(p1, p2, p3, J, k, n_sims, seed):
+        eq, eqt = rows[J]
+        return {"J": J, "k": k, "joint_equivalence_rate": eq, "joint_equivalent_or_trivial_rate": eqt}
+
+    monkeypatch.setattr(rs, "joint_tost_power", fake)
+    curve = rs.joint_tost_power_curve(None, None, None, Js=(12, 24, 40), k=24, target=0.80)
+    assert curve["J_for_target"] == 24 and curve["J_for_target_all_equivalent"] is None
+    assert curve["target_applies_to"] == "joint_equivalent_or_trivial_rate"
+    assert curve["rows"][1]["joint_equivalence_rate"] == 0.70  # the old number stays in the output
+
+
+def test_samples_per_cell_is_24_and_the_balanced_cells_follow():
+    assert rs.SAMPLES_PER_CELL == 24 and rs.BALANCED_CELL_MULTIPLIER * rs.SAMPLES_PER_CELL == 144

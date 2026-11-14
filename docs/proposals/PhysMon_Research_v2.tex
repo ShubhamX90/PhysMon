@@ -52,7 +52,7 @@ preserved in Git history (for example commit \texttt{2cf08e2}). \textbf{Revision
 edition of 11 November 2026 after a review of the construct, the role-by-value design, the dataset and the statistics
 (\texttt{docs/\allowbreak registry/\allowbreak v2/\allowbreak g1/\allowbreak plan\_\allowbreak revision\_\allowbreak v2.2\_\allowbreak 2026-11-14.md}): strata C and K enter the confirmatory core, the
 sentence design of the dataset is tightened, two usefulness arms become required, and samples per cell are fixed by a
-power simulation; Appendix~\ref{app:revisions} lists the changes.\\[0.3em]
+power simulation ($k=24$, agreement rule B); Appendix~\ref{app:revisions} lists the changes.\\[0.3em]
 \textbf{Authorship.} Revised by the project's coding agent (Claude) at the user's direction; checked against the
 repository by independent agent reviews (Appendix~\ref{app:revisions}); not reviewed by a person outside the project. Revision-sensitive
 hypotheses, labels, validation decisions and claim scope require explicit decision-log entries.}}
@@ -1137,12 +1137,35 @@ per phrasing and called wording-dependent.
 \textbf{Samples per cell and the agreement rule} \tg{PROPOSAL} (v2.2). At eight samples per cell and thirty structures
 the implemented agreement check failed in worlds that are truly invariant, so a correct model would have been
 labelled wording-dependent (J15.1-026). The number of samples per cell $k$ and the operational form of the agreement
-rule above are therefore fixed from the power simulation in \texttt{results/\allowbreak stage15/\allowbreak g1\_\allowbreak power/\allowbreak attempt\_\allowbreak 20261114/}, before the G1
+rule were therefore fixed from the power simulation in \texttt{results/\allowbreak stage15/\allowbreak g1\_\allowbreak power/\allowbreak attempt\_\allowbreak 20261114/} (864 grid points, 4{,}000 simulated datasets each), before the G1
 freeze, by a rule written before its results existed: choose the agreement rule closest to the wording above among those
 whose false-disagreement rate in agreeing worlds is at most 0.05; then choose the smallest $k\in\{8,12,16,24,32,40\}$
 that gives at least 0.80 probability of the correct outcome in the invariant world and at least 0.80 detection of true
-wording dependence at the planned number of structures $J$. The chosen rule and $k$ are recorded in the G1 freeze and
-replace the earlier planning value of eight.
+wording dependence at the planned number of structures $J$. The resolved decision
+(\texttt{plan\_revision\_v2.2}, section~E) is as follows.
+\emph{Agreement rule.} For each of F1, F2 and F3 the per-structure difference between phrasing pair~0 and pair~1 is
+read in three states: \textsc{agree} when its two-one-sided test (TOST) inside the contrast's SESOI passes, whether or not its interval includes zero,
+or when both phrasings' 95\,\% intervals lie beyond the SESOI on the same side (the second clause of the rule above);
+\textsc{disagree} when the difference's 95\,\% interval excludes zero and extends beyond the SESOI; otherwise
+\textsc{unresolved}. A role claim needs \textsc{agree} on F1, F2 and F3. When not all agree, the pooled status is demoted
+to INCONCLUSIVE, flagged \texttt{WORDING\_DEPENDENT} when any contrast is \textsc{disagree} (demonstrated wording
+dependence) and \texttt{PHRASING\_AGREEMENT\_NOT\_SHOWN} when none is \textsc{disagree} but some are \textsc{unresolved}.
+The implemented check it replaces also demanded that the difference's interval include zero, which caps its success near 0.86 at
+any sample size; a doubled F3 margin detects a wording difference at the SESOI only 0--39\,\% of the time; and a rule that
+does not require agreement to be shown contradicts the plan.
+\emph{Samples per cell.} $k=24$ for every R, D, C and K cell; the no-cue and non-numeric-sentence cells stay balanced with
+the role totals ($6k=144$ samples each). At $J=40$, $\omega=0.2$ and a baseline tracking share of 0.58, an invariant world is scored correctly with
+probability 0.95, a true effect present in both phrasings is found and not demoted with probability 0.94, a wording
+difference at the SESOI is flagged with probability 0.96 and demonstrated with 0.94, and a false \textsc{disagree} across the three
+contrasts has probability at most 0.05; $k=16$ fails the false-\textsc{disagree} criterion (0.05--0.07). If only $J=30$ structures are
+eligible, the same $k$ gives 0.87, 0.84 and 0.95, with a false \textsc{disagree} rate just above 0.05, reported as such. The F3
+estimator is unchanged: the alternatives simulated (probability-scale slope, information-weighted slope, mixed logistic) are at most
+3--14\,\% more efficient, the limit being binomial noise. Not simulated: sign-flip and bootstrap method agreement, leave-$k$-out, Holm,
+the R-tracking gate, correlation between contrasts and infeasible strata.
+\emph{Joint equivalence (decision 21, corrected).} The target for H6-RD is the probability that all three contrasts are
+EQUIVALENT \emph{or} TRIVIAL\_EFFECT (decision~1), not that all three are EQUIVALENT: the latter is capped near 0.73--0.79 at any $J$ because
+that label requires the interval to include zero, which a one-sided contrast fails about 10\,\% of the time under a true null. At $k=24$ the
+EQUIVALENT-or-TRIVIAL rate is 1.00 at $J=30$ and above; both rates are reported.
 
 \textbf{Two kinds of disconnection.} Stratum D irrelevance by remoteness alone (another place, another time) measures
 sensitivity to narrative distance, not system membership, so D cells come in two kinds, one per phrasing pair, both
@@ -3146,13 +3169,15 @@ O'Brien--Fleming spending may be preregistered.
 Before G3 and again before G4, simulate from the G2 estimates (structure, value and phrasing variance components,
 $\omega$ of the cue difference, within-item Bernoulli variance, which more samples reduce and between-structure
 variance does not; Wang 2026), for $J\in\{24,40,60,80\}$ complete role-by-value structures and
-$k\in\{3,5,8\}$ (extended to the $k$ grid and agreement rule of Section~\ref{sec:rolevalue}, which fixes $k$ for G3 and G4), including the C/K family, at least 1,000 simulated datasets each analysed exactly as planned, on simulated null data as well as effect data so
+$k\in\{3,5,8\}$ (extended to $\{8,12,16,24,32,40\}$ in Section~\ref{sec:rolevalue}, which fixes $k=24$ and the three-state agreement rule for G3 and G4), including the C/K family, at least 1,000 simulated datasets each analysed exactly as planned, on simulated null data as well as effect data so
 that the type-I error of the chosen analysis and resampling unit is shown to be calibrated, for the tracking loss, the role-by-value interaction
 and the misuse, neglect and copy shares, which may be rare (Stage~14.20 had 2 wrong answers in 128 cells). The
 simulation includes a scenario with 20--40\% loss to infeasible cells, validation failures, parse failures and
 budget exhaustion. Analytic bracket: $J\approx7.85\,\omega^2/\delta^2$ for 80\% power at two-sided $\alpha=0.05$
 (Miller 2024), about $6.2\,\omega^2/\delta^2$ for the one-sided G4 tests, with $\omega$ the standard deviation of the
 per-structure value \emph{of the estimand being tested} (estimated in G2, not borrowed from a no-cue difference);
+the joint equivalence route to H6-RD (decision~21) is sized by simulating the probability that F1, F2 and F3 are all EQUIVALENT or
+TRIVIAL\_EFFECT, reported beside the all-EQUIVALENT rate, which is capped near 0.73--0.79 whatever $J$ (Section~\ref{sec:rolevalue});
 with $\omega=0.25$, $\delta=0.10$ needs about 49 (two-sided) or 39 (one-sided) structures and $\delta=0.15$ about 22
 or 17. More samples per item cannot
 substitute for more independent structures. If errors are genuinely rare, the legitimate choices are a harder,
@@ -3274,7 +3299,10 @@ upper-university Stage~A problems).
 
 Generations per model $=$ structures $\times$ cells per structure $\times$ $k$ samples. The $k$ values and cell counts in the table are the
 planning figures of the 11 November edition; from v2.2 the core run adds C and K cells (up to 12 more per structure where both are
-feasible) and $k$ is fixed by the simulation of Section~\ref{sec:rolevalue}, so the counts and hours are recomputed when $k$ is fixed. A ``core cell'' below is
+feasible) and $k=24$ per R, D, C and K cell (Section~\ref{sec:rolevalue}), with the no-cue and non-numeric-sentence cells sampled $6k=144$ times each. The G3 core, ablation and G4 rows
+below are recomputed for that design (the other rows keep their original $k$): a structure costs 24 role cells ($12$ R/D, up to $12$ C/K)
+plus 12 balanced no-cue and sentence cell-equivalents, i.e.\ 576 generations without C and K and 864 with both, against $14k=112$ at $k=8$ in the
+11 November table, a multiplier of 5.1 to 7.7 (3.0 to 4.5 against the balanced-design figure of 192 per structure, which that table did not count). A ``core cell'' below is
 one role-by-value cell (role $\times$ value $\times$ phrasing); the minimum complete structure has R and D at three
 values in two phrasings, i.e.\ 12 cells, plus the no-cue base and the non-numeric sentence: 14 cells. An added
 ablation condition is assumed to be crossed with three values and two phrasings (6 cells). The HF column multiplies by the measured 12.6--14.7~s per record; the vLLM
@@ -3291,15 +3319,15 @@ G2 calibration (difficulty band) & 130 EXPLORATION structures $\times$ $k_{sel}$
 structures $\times$ 7 cells (R and D at three values in one phrasing, non-numeric sentence) $\times$ 4 & about 1{,}320 & about 4.6--5.4~h & under 0.5~h & not planned \\
 G2 design-validation pilot & 8--12 structures $\times$ 14 cells $\times$ $k$ 4--8 & 448--1{,}344 &
 about 1.6--5.5~h & under 0.5~h & not planned \\
-G3 behavioural discovery (core) & 24--40 complete structures $\times$ 14 cells $\times$ $k$ 3--8; plus a small
-non-physics control sized in its card & 1{,}008--4{,}480 & about 3.5--18~h, split into jobs under 10~h & about
-0.2--1~h & excluded \\
+G3 behavioural discovery (core) & 24--40 complete structures $\times$ 576--864 generations ($k=24$; C and K cells in the core; balanced no-cue and N); plus a small
+non-physics control sized in its card & 13{,}824--34{,}560 (was 1{,}008--4{,}480) & about 48--140~h, split into jobs under 10~h (vLLM is the practical route) & about
+1.5--7~h (estimate, scaled) & excluded \\
 G3 explanatory ablations (only after the core result) & per ablation condition: 24--40 structures $\times$ 6 cells
-$\times$ $k$ 3--8 & 432--1{,}920 per condition & about 1.5--7.8~h per condition & under 0.5~h per condition &
+$\times$ $k=24$ & 3{,}456--5{,}760 per condition (was 432--1{,}920) & about 12--24~h per condition & about 0.5--1~h per condition (estimate) &
 excluded \\
 G4 confirmation & $J$ from the power simulation (one-sided bracket $J\approx6.2\,\omega^2/\delta^2$: about 17--39
-for $\omega=0.25$, $\delta=0.15$--$0.10$; planning 50 to absorb losses) $\times$ 14 cells $\times$ $k$ 8, plus the
-second answer format on half of the structures & about 8{,}400 at $J=50$ & about 29--34~h in 4 jobs & about 2~h & hard
+for $\omega=0.25$, $\delta=0.15$--$0.10$; planning 50 to absorb losses) $\times$ 576--864 generations ($k=24$, C and K in the core), plus the
+second answer format on half of the structures & 43{,}200--64{,}800 at $J=50$ (was about 8{,}400) & about 150--265~h (vLLM is the route; HF impractical) & about 10--16~h (estimate, scaled) & hard
 subset only \\
 Qwen3-32B hard-subset check & 20 structures $\times$ 4 conditions $\times$ $k$ 4 & 320 at 8{,}000--12{,}000 tokens
 (2.6--3.8~M tokens) & -- & -- & HF about 35--55~h (4--6 jobs); vLLM bf16 several hours (estimate) \\
@@ -4159,7 +4187,7 @@ supporting cells restored in M0~v2 with certified tolerance status, since no exa
 (B1) $k$ and the operational agreement rule fixed from the power simulation by a rule written before its results, replacing
 $k=8$, which labelled truly invariant worlds as wording-dependent; (B2) an M1000 option. The four strata, tracking as the primary
 estimand, F1--F3 and their SESOIs, the gates and data roles, the causal standard, the claim hierarchy and the LLM panel
-protocol are unchanged; the sealed M0 pilot stays sealed. The numbers of B1 are filled in from the simulation before the G1 freeze.
+protocol are unchanged; the sealed M0 pilot stays sealed. B1 is resolved (section~E of the revision record): agreement rule B with three states (\textsc{agree}, \textsc{disagree}, \textsc{unresolved}; flags \texttt{WORDING\_DEPENDENT} and \texttt{PHRASING\_AGREEMENT\_NOT\_SHOWN}), $k=24$ per R, D, C and K cell, and decision~21's joint-equivalence target corrected to EQUIVALENT or TRIVIAL\_EFFECT; the compute-budget rows for G3 and G4 are recomputed for $k=24$ with C and K in the core.
 \end{description}
 
 \end{document}

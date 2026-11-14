@@ -53,7 +53,7 @@ any of F1-F3 has a 95% t-interval half-width above its SESOI. The trigger reads 
 or signs.
 
 **k (PROPOSED default, to be replaced by the pre-G3 power simulation, PLAN `sec:statistics` power):** k = 8 per R/D
-cell (the G4 planning k, so G3 variance components are measured at G4's k); N sampled 6k = 48 (PLAN design rule
+cell [amended 2026-11-14 by plan_revision_v2.2, section E: k = 24 per R, D, C and K cell; N and no-cue 6k = 144 each; per structure about 288 + 144 + 144 = 576 generations before C/K; agreement rule B; decision 21 target = EQUIVALENT or TRIVIAL] (the G4 planning k, so G3 variance components are measured at G4's k); N sampled 6k = 48 (PLAN design rule
 J15.1-011: N as often as all D cells together); no-cue sampled 6k = 48 (PROPOSED: the F1-vs-no-cue contrast has the
 same imbalance that made the one-sided sign-flip over-reject; open question). Per structure about 96 + 48 + 48 = 192
 generations; at J = 40 about 7,700, against the plan's 1,008-4,480 for the core (see inconsistency 1 in

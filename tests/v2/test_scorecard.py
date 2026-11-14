@@ -92,6 +92,7 @@ def test_a_loss_in_one_phrasing_only_is_wording_dependent():
     assert h3["pooled_status_before_phrasing_rule"] == "SUPPORTED"
     assert h3["per_phrasing"] == {"0": "SUPPORTED", "1": "CONTRADICTED"}
     assert not h3["phrasing_agreement"]["per_contrast"]["F1"]["agree"]
+    assert h3["phrasing_agreement"]["per_contrast"]["F1"]["agreement"] == "DISAGREE"
 
 
 def test_r_tracking_below_the_criterion_makes_role_hypotheses_not_evaluated_but_h0_is_scored():
@@ -127,13 +128,24 @@ def test_copy_in_both_unit_classes_supports_h1():
 
 def test_phrasing_agreement_on_f3_needs_samples():
     """At k = 8 the per-phrasing F3 difference is too noisy for its TOST at J = 30, so role statuses of an invariant
-    world stay INCONCLUSIVE (WORDING_DEPENDENT): the rule of the plan, recorded here so it is not a surprise in G3."""
+    world stay INCONCLUSIVE. Under rule B nothing is demonstrated, so the flag is PHRASING_AGREEMENT_NOT_SHOWN, not
+    WORDING_DEPENDENT (plan_revision_v2.2, section E; k = 24 is the design value)."""
 
-    card = card_for(lambda c, j: {"correct": 0.6}, k=8, seed=8)
+    card = card_for(lambda c, j: {"correct": 0.6}, k=8, seed=10)  # seed 8 gives a false DISAGREE on F3 at k = 8
     h6 = card["hypotheses"]["H6-RD"]
-    assert h6["status"] == "INCONCLUSIVE" and "WORDING_DEPENDENT" in h6["flags"]
+    assert h6["status"] == "INCONCLUSIVE" and "PHRASING_AGREEMENT_NOT_SHOWN" in h6["flags"]
+    assert "WORDING_DEPENDENT" not in h6["flags"]
     assert h6["pooled_status_before_phrasing_rule"] == "SUPPORTED"
-    assert not h6["phrasing_agreement"]["per_contrast"]["F3"]["agree"]
+    assert h6["phrasing_agreement"]["per_contrast"]["F3"]["agreement"] == "UNRESOLVED"
+    assert h6["phrasing_agreement"]["unresolved"] and not h6["phrasing_agreement"]["disagree"]
+
+
+def test_invariant_world_at_the_design_k_is_agreed_and_supported():
+    card = card_for(lambda c, j: {"correct": 0.6}, n=40, k=rs.SAMPLES_PER_CELL, seed=9, tokens=lambda c, j: 800.0)
+    h6 = card["hypotheses"]["H6-RD"]
+    assert card["phrasing_agreement"]["states"] == {"F1": "AGREE", "F2": "AGREE", "F3": "AGREE"}
+    assert h6["status"] == "SUPPORTED" and "WORDING_DEPENDENT" not in h6["flags"]
+    assert card["phrasing_agreement"]["per_contrast"]["F1"]["ci95_t"] is not None  # difference estimates are reported
 
 
 # --- rule edge cases on structure-level estimates -------------------------------------------------------------------------
@@ -154,7 +166,15 @@ def estimates(t_r=0.6, n=20):
     return {f"S{j}": {"T": {"R": t_r}, "n_values": {"R": 3}, "F1_vs_no_cue": None} for j in range(n)}
 
 
-AGREE = {f"phrasing_by_role_{f}": {"outcome": "EQUIVALENT", "agree": True} for f in ("F1", "F2", "F3")}
+AGREE = {f"phrasing_by_role_{f}": {"outcome": "EQUIVALENT", "agree": True, "agreement": "AGREE"} for f in ("F1", "F2", "F3")}
+
+
+def phrasing_with(**states):
+    out = {k: dict(v) for k, v in AGREE.items()}
+    for f, st in states.items():
+        out[f"phrasing_by_role_{f}"] = {"outcome": "EFFECT" if st == "DISAGREE" else "INCONCLUSIVE", "agree": False,
+                                        "agreement": st, "mean": 0.1, "ci95_t": [0.05, 0.15]}
+    return out
 
 
 def misuse_entry(attribution, mean=0.0, sd=0.02, reason="test"):
@@ -199,6 +219,29 @@ def test_decision_8_r_tracking_criterion_boundaries():
     assert sc.r_tracking_check(two_values)["J"] == 0
     card = sc.scorecard(inputs(estimates=estimates(0.9, 15)))
     assert status(card, "H6-RD") == "NOT_EVALUATED" and "not evaluable" in card["hypotheses"]["H6-RD"]["reason"]
+
+
+def test_phrasing_states_demote_with_distinct_flags():
+    mis = {"D": {"add": misuse_entry("NOT_ATTRIBUTED")}}
+    ok = sc.scorecard(inputs(misuse=mis))["hypotheses"]["H6-RD"]
+    assert ok["status"] == "SUPPORTED" and not {"WORDING_DEPENDENT", "PHRASING_AGREEMENT_NOT_SHOWN"} & set(ok["flags"])
+    shown = sc.scorecard(inputs(misuse=mis, phrasing=phrasing_with(F3="UNRESOLVED")))
+    h6 = shown["hypotheses"]["H6-RD"]
+    assert h6["status"] == "INCONCLUSIVE" and "PHRASING_AGREEMENT_NOT_SHOWN" in h6["flags"]
+    assert "WORDING_DEPENDENT" not in h6["flags"] and h6["pooled_status_before_phrasing_rule"] == "SUPPORTED"
+    assert shown["phrasing_agreement"]["states"]["F3"] == "UNRESOLVED"
+    demo = sc.scorecard(inputs(misuse=mis, phrasing=phrasing_with(F1="DISAGREE", F3="UNRESOLVED")))
+    h6 = demo["hypotheses"]["H6-RD"]
+    assert h6["status"] == "INCONCLUSIVE" and "WORDING_DEPENDENT" in h6["flags"]
+    assert "PHRASING_AGREEMENT_NOT_SHOWN" not in h6["flags"] and h6["phrasing_agreement"]["disagree"] == ["F1"]
+    assert demo["phrasing_agreement"]["per_contrast"]["F1"]["ci95_t"] == [0.05, 0.15]
+
+
+def test_phrasing_not_evaluated_below_six_structures_keeps_the_not_evaluated_handling():
+    ph = {k: dict(v) for k, v in AGREE.items()}
+    ph["phrasing_by_role_F2"] = {"outcome": "NOT_EVALUATED", "agreement": "NOT_EVALUATED", "reason": "fewer than 6"}
+    h6 = sc.scorecard(inputs(phrasing=ph, misuse={"D": {"add": misuse_entry("NOT_ATTRIBUTED")}}))["hypotheses"]["H6-RD"]
+    assert h6["status"] == "INCONCLUSIVE" and "PHRASING_AGREEMENT_NOT_EVALUATED" in h6["flags"]
 
 
 def test_missing_phrasing_agreement_blocks_a_role_claim():
