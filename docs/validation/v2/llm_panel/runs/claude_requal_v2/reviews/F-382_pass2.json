@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch07",
+  "item_id": "F-382",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:15:30Z", "completed_at": "2026-11-13T10:18:00Z", "minutes_spent": 3,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Ohm's law V = I R_circuit",
+    "assumptions": ["ohmic resistor", "steady (DC) current"],
+    "answer": 30.0,
+    "unit": "V"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["contradictory_distractor_statement", "invalid_numerical_precision"],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "Each variant states two different resistances for the same disconnected workbench resistor (47/94, 68/136, 150/300, 220/440 ohm), so the item contradicts itself; the authors' argument addresses only the irrelevance of R_other, not the contradiction.",
+    "invalid_numerical_precision": "The certified display '30.0 V' carries three significant figures while the current is given as 0.3 A (one significant figure); the value is correct, only its displayed precision is overstated."
+  },
+  "defect_severity": {
+    "contradictory_distractor_statement": "high",
+    "invalid_numerical_precision": "low"
+  },
+  "counterexamples": ["Variant 1: 'a disconnected 47 ohm resistor ... (A later note reports this same quantity as 94 ohm instead.)' - one quantity, two values."],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "The governing equation V = I R_circuit and the certified answer 30 V are correct, and R_other is indeed structurally disconnected. The item is nevertheless invalid under rule 2 because every rendering contains a self-contradictory statement about the distractor. Agrees with my pass 1. precision_adequate is set true because 30 V is correct at the given precision; the extra digit in the display is a low-severity issue."
+}

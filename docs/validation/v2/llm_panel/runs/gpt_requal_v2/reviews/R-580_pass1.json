@@ -1,0 +1,87 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "item_id": "R-580",
+  "pass_number": 1,
+  "started_at": "2026-11-13T15:08:49+00:00",
+  "completed_at": "2026-11-13T15:09:46+00:00",
+  "minutes_spent": 0.96,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Classical translational equipartition gives (1/2)M<v²> = (3/2)RT, so v_rms = sqrt(3RT/M). With M = 0.004 kg/mol and T = 300 K, v_rms = sqrt(1870650) = 1367.72 m/s.",
+    "assumptions": [
+      "Classical equilibrium translational equipartition applies; this governing statistical model is not explicitly stated.",
+      "Speeds are measured relative to the gas's bulk rest frame.",
+      "After heating, the measured gas has equilibrated at 400 K."
+    ],
+    "answer": 1367.72,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TB4AB": {
+      "stratum": "R",
+      "answer_with_sentence": 1579.3,
+      "regime": null
+    },
+    "TD72E": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "T3A0A": {
+      "stratum": "R",
+      "answer_with_sentence": 1579.3,
+      "regime": null
+    },
+    "TA997": {
+      "stratum": "C",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "T96F8": {
+      "stratum": "C",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "T4878": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The classical equilibrium statistical model needed to infer molecular rms speed from temperature and molar mass alone is unstated, contrary to the strict admission requirement for governing modelling conditions.",
+    "rendering_not_minimal": "T3A0A introduces a closed rigid container in addition to changing the wording of the temperature-rise statement."
+  },
+  "defect_severity": {
+    "missing_assumption": "high",
+    "rendering_not_minimal": "low"
+  },
+  "counterexamples": [],
+  "notes": "All numerical answers and role assignments are conditional on classical equilibrium equipartition. An ideal equation of state is not independently necessary: classical equilibrium translational equipartition also holds with position-dependent intermolecular interactions. Heating the sample by 100 K gives 400 K and multiplies its rms speed by sqrt(4/3). Holding the container rigid changes the heating process but not this final-temperature result. For either 2 mol sentence, (1/2)nM<v²> = (3/2)nRT shows explicitly that n cancels. All temperature-rise variants consistently specify 100 K, and both amount variants specify 2 mol. No added statement contradicts the base problem.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "eb47859f51dafab4bf299a0239a826c037840fe31ff3f82269ecbdf5f07c57c7",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

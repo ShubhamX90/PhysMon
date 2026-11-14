@@ -1,0 +1,42 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch02",
+  "item_id": "R-580",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:06:30Z",
+  "completed_at": "2026-11-13T10:12:00Z",
+  "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Kinetic theory / equipartition of translational energy: v_rms = sqrt(3RT/M)",
+    "assumptions": ["classical (Maxwell-Boltzmann) gas in thermal equilibrium", "non-relativistic molecular motion", "M = 4 g/mol = 0.004 kg/mol"],
+    "answer": 1367.72,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TB4AB": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "TD72E": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null},
+    "T3A0A": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "TA997": {"stratum": "C", "answer_with_sentence": 1367.72, "regime": null},
+    "T96F8": {"stratum": "C", "answer_with_sentence": 1367.72, "regime": null},
+    "T4878": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["inconsistent_units"],
+  "defect_reasons": {
+    "inconsistent_units": "The relation vrms = sqrt(2*Ek/M) requires M in kg/mol, while the inputs list M in g/mol; the certified answers apply the conversion correctly, so this is a documentation inconsistency only."
+  },
+  "defect_severity": {"inconsistent_units": "low"},
+  "counterexamples": [],
+  "notes": "All certified answers check: T = 300 K -> 1367.72; 350 K -> sqrt(2,182,425) = 1477.30; 400 K -> sqrt(2,494,200) = 1579.30; 500 K -> sqrt(3,117,750) = 1765.72 m/s. The cancellation expression sqrt(2*(3nRT/2)/(nM)) = sqrt(3RT/M) is correct, so the amount of gas is C at all listed values. The stated assumption that the gas is ideal is not written in the problem, but it does not decide the answer: the Maxwell velocity distribution and v_rms = sqrt(3RT/M) hold for any classical gas in equilibrium, and helium at 300 K is far from quantum degeneracy, so no rule-1 failure. Minimal pairs (T3A0A/T4878, TB4AB/TD72E) share the number 100 and unit K and differ only in what is heated. Agrees with pass 1."
+  ,
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

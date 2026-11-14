@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch06",
+  "item_id": "F-326",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:00:00Z",
+  "completed_at": "2026-11-13T10:05:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation in a Newtonian point-mass (spherically symmetric) potential: (1/2) v_esc^2 = G M / R, so v_esc = sqrt(2 G M / R)",
+    "assumptions": [
+      "Planet treated as spherically symmetric (point-mass potential outside surface)",
+      "No atmosphere/drag, planet rotation ignored, non-relativistic",
+      "Escape to infinity from rest relative to planet frame"
+    ],
+    "answer": 4.0,
+    "unit": "toy units (stated as m/s by the variant framing; G given without units)"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["inconsistent_units"],
+  "defect_reasons": {
+    "inconsistent_units": "G is given as a bare 1.0 and the mass as '8.0 m' (m normally denotes metres), so the unit of the answer cannot be derived dimensionally; in the stated toy-unit system the number 4.0 is unaffected."
+  },
+  "defect_severity": {"inconsistent_units": "medium"},
+  "counterexamples": [],
+  "notes": "v_esc = sqrt(2*1.0*8.0/1.0) = sqrt(16) = 4.0. All four renderings differ only in the speed of probe B (2.0, 3.8, 4.0, 6.0 m/s), which is explicitly stated to never interact with the planet; it is a structurally disconnected distractor and the answer is 4.0 in every rendering. The 4.0 m/s rendering coincides numerically with the answer, which could act as a lure but is not a defect. No contradiction between statements."
+}

@@ -1,0 +1,38 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch08",
+  "item_id": "F-206",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:30:30Z",
+  "completed_at": "2026-11-13T10:33:00Z",
+  "minutes_spent": 3,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Ohm's law V = I R",
+    "assumptions": ["ohmic resistor", "the stated current is the current at the moment asked about"],
+    "answer": 12.0,
+    "unit": "V"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["failed_transformation_identity", "invalid_numerical_precision"],
+  "defect_reasons": {
+    "failed_transformation_identity": "The certified answer 10 V does not follow from the authors' own relation V = I R with I = 2.0 A and R = 6.0 ohm, which gives 12 V.",
+    "invalid_numerical_precision": "Even read as a rounding of 12 V, '10 V' discards precision the two-significant-figure inputs support and is numerically wrong at the stated precision."
+  },
+  "defect_severity": {
+    "failed_transformation_identity": "high",
+    "invalid_numerical_precision": "high"
+  },
+  "counterexamples": ["V = 2.0 A x 6.0 ohm = 12.0 V, not the certified 10 V, in every rendering."],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": false,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "Governing equation, parameters and the invariance argument (the light-switch timing does not enter V = I R) are correct and agree with pass 1. The certified answer display is wrong: 10 V instead of 12 V. No disagreement with pass 1; pass 1 did not see the certified answer."
+}

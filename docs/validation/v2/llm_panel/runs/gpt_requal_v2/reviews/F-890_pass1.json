@@ -1,0 +1,54 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "item_id": "F-890",
+  "pass_number": 1,
+  "started_at": "2026-11-13T15:17:57+00:00",
+  "completed_at": "2026-11-13T15:18:29+00:00",
+  "minutes_spent": 0.53,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For a stationary point charge, Coulomb's law gives E = k|Q_A|/r² = (8.99e9)(4e-6)/(0.3²) = 399555.56 N/C.",
+    "assumptions": [
+      "Charge A is a stationary point charge, or a spherically symmetric charge distribution with the field point outside it.",
+      "The supplied Coulomb constant applies."
+    ],
+    "answer": 399555.56,
+    "unit": "N/C"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The problem does not specify that A is a point charge or otherwise give a charge distribution sufficient to determine its field from total charge and distance alone."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    "A uniformly charged spherical shell carrying 4e-6 C, with radius 0.6 m and the field point 0.3 m from its center, produces zero electric field there; a point charge at the same center produces 399555.56 N/C."
+  ],
+  "notes": "The numerical solution is conditional on the unstated point-charge model. In all four renderings, B is structurally disconnected by explicit stipulation, so its charge does not change the field contribution from A. The renderings differ only in B's charge value, consistently expressed in C; these are legacy parameter variants rather than same-value sentence pairs. The categorical assertion that a charged source never interacts with A or the field point makes the setup slightly artificial.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "b27d079ad1a6dfbaa364c5068d0c2ed1e948166d008a0d0fae5574fecacf42cb",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

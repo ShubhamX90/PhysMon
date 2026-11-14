@@ -1,0 +1,86 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "item_id": "R-291",
+  "pass_number": 1,
+  "started_at": "2026-11-13T15:14:18+00:00",
+  "completed_at": "2026-11-13T15:15:16+00:00",
+  "minutes_spent": 0.96,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For an ideal simple pendulum, T = 4 sqrt(L/g) K(sin(theta_max/2)), where K is the complete elliptic integral of the first kind. At small amplitude, T ≈ 2π sqrt(L/g).",
+    "assumptions": [
+      "The small bob is treated as a point mass on a taut, light string.",
+      "Damping is negligible.",
+      "The numerical answer assumes small angular amplitude, which the problem does not state."
+    ],
+    "answer": 1.7952,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T574F": {
+      "stratum": "R",
+      "answer_with_sentence": 2.1987,
+      "regime": null
+    },
+    "T11A7": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T0DAB": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T979B": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "TD7EF": {
+      "stratum": "R",
+      "answer_with_sentence": 2.1987,
+      "regime": null
+    },
+    "T8168": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "Neither the oscillation amplitude nor a small-angle condition is supplied, so the period is not uniquely determined."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "For L = 0.8 m, the period approaches 1.7952 s at small amplitude, but an amplitude of 90 degrees gives approximately 2.1189 s."
+  ],
+  "notes": "All numerical answers above are conditional small-angle values; the stated problem and every augmented version lack a unique numerical period. Either attached-cord sentence increases the effective pendulum length to 1.2 m. The remote cords have no physical connection to the pendulum. Bob mass cancels from mL theta'' = -mg sin(theta), including at finite amplitude. All cord variants consistently specify 0.4 m, and both mass variants consistently specify 0.5 kg; their wording and attachments introduce no additional defect.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "6a6c41f70d3c12fb6a50aee78edb4fdaf87d6de4eb96438d3d71349bcffdb568",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

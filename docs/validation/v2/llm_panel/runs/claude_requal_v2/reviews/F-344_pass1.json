@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch06",
+  "item_id": "F-344",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:45:00Z",
+  "completed_at": "2026-11-13T10:49:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Rotational Newton's second law about a fixed axis: tau = F r = I alpha, so alpha = F r / I",
+    "assumptions": [
+      "Wheel A rotates about a fixed axis through its centre; I = 2.0 kg m^2 is about that axis",
+      "The applied tangential force is the only torque (frictionless axle)",
+      "Force applied at the stated radius, perpendicular to the radius"
+    ],
+    "answer": 4.0,
+    "unit": "rad/s^2"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "alpha = 16.0*0.5/2.0 = 4.0 rad/s^2. The renderings differ only in the tangential force on rotor B (6.0, 15.0, 16.0, 24.0 N), which is stated to be disconnected from wheel A; it is a structurally disconnected distractor and the answer is 4.0 rad/s^2 in all four. The frictionless-axle and fixed-axis conditions are standard idealisations that need not be stated. The 16.0 N rendering repeats wheel A's force value for rotor B, which is a possible lure but not a contradiction because it is a different body."
+}

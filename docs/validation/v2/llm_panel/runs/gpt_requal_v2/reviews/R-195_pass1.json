@@ -1,0 +1,85 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "item_id": "R-195",
+  "pass_number": 1,
+  "started_at": "2026-11-13T15:15:59+00:00",
+  "completed_at": "2026-11-13T15:16:42+00:00",
+  "minutes_spent": 0.71,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The pendulum equation mL²θ̈ = −mgL sinθ becomes θ̈ + (g/L)θ = 0 at small amplitude. Therefore T = 2π√(L/g) = 2π√(0.8/9.8).",
+    "assumptions": [
+      "The small bob is treated as a point mass.",
+      "The string is inextensible and its support is fixed.",
+      "Damping is negligible.",
+      "The stated small amplitude permits the small-angle approximation."
+    ],
+    "answer": 1.7952,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T9329": {
+      "stratum": "R",
+      "answer_with_sentence": 2.1987,
+      "regime": null
+    },
+    "TB53B": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T51B9": {
+      "stratum": "R",
+      "answer_with_sentence": 2.1987,
+      "regime": null
+    },
+    "TABF5": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T8F8D": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T84F1": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TABF5 additionally specifies brass composition and spherical shape relative to TB53B, although these details do not affect the period under the small-bob approximation."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "low"
+  },
+  "counterexamples": [],
+  "notes": "Both attached-cord sentences increase the effective pendulum length to 1.2 m. Bob mass appears in both inertia and gravitational torque and cancels. The drawer and far-wall cords are disconnected from the pendulum. All cord variants consistently specify 0.4 m, and both mass variants specify 0.5 kg.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a45806e79637365f0dbdaa63e9cd9da2d97a2f7b89f555c46be577c22f6a510f",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

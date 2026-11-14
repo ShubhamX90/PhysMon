@@ -1,0 +1,38 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch08",
+  "item_id": "F-605",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:38:30Z",
+  "completed_at": "2026-11-13T10:41:00Z",
+  "minutes_spent": 3,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Gravitational potential energy in a uniform field U = m g h",
+    "assumptions": ["the 4.0 m height is measured from the zero level of potential energy", "uniform field g = 9.8 m/s^2", "object B does not interact with A"],
+    "answer": 117.6,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_numerical_precision", "missing_assumption"],
+  "defect_reasons": {
+    "invalid_numerical_precision": "The certified answer 100 J is m g h = 117.6 J rounded to one significant figure, whereas the inputs (3.0 kg, 9.8 m/s^2, 4.0 m) support two (about 120 J); 100 J is off by about 15% and is wrong at the stated precision.",
+    "missing_assumption": "The question refers to 'the chosen zero level' without stating it, though the natural reading is that the 4.0 m height is measured from it."
+  },
+  "defect_severity": {
+    "invalid_numerical_precision": "high",
+    "missing_assumption": "medium"
+  },
+  "counterexamples": ["U = 3.0 x 9.8 x 4.0 = 117.6 J (about 1.2 x 10^2 J), not the certified 100 J."],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": false,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "Governing equation U = m g h, parameters and the invariance argument (object B's kinetic energy does not enter) are correct and match pass 1. The certified answer display of 100 J is wrong at the precision of the inputs. The zero-level wording issue from pass 1 is kept at medium. No disagreement with pass 1."
+}

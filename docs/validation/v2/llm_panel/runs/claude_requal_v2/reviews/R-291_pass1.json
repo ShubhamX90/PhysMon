@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch03",
+  "item_id": "R-291",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:00:00Z",
+  "completed_at": "2026-11-13T10:07:00Z",
+  "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Simple pendulum, small-angle: T = 2*pi*sqrt(L/g)",
+    "assumptions": ["point-mass bob on a light inextensible string", "small-amplitude oscillation (sin(theta) ~ theta)", "no air resistance", "g = 9.8 m/s^2"],
+    "answer": 1.7952,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T574F": {"stratum": "R", "answer_with_sentence": 2.1987, "regime": null},
+    "T11A7": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null},
+    "T0DAB": {"stratum": "C", "answer_with_sentence": 1.7952, "regime": null},
+    "T979B": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null},
+    "TD7EF": {"stratum": "R", "answer_with_sentence": 2.1987, "regime": null},
+    "T8168": {"stratum": "C", "answer_with_sentence": 1.7952, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "The problem says only that the bob 'swings' and never states that the oscillations are small (or gives an amplitude); T = 2*pi*sqrt(L/g) holds only for small amplitude, and a large swing (e.g. 60 degrees, about 7% longer period) gives a materially different answer."
+  },
+  "defect_severity": {"missing_assumption": "high"},
+  "counterexamples": ["With an amplitude of 60 degrees the period of the 0.8 m pendulum is about 1.7952 * 1.073 = 1.93 s, not 1.80 s."],
+  "notes": "Base T = 2*pi*sqrt(0.8/9.8) = 4*pi/7 = 1.7952 s. With the 0.4 m cord inserted (T574F, TD7EF) the effective length is 1.2 m, T = 2*pi*sqrt(1.2/9.8) = 2.1987 s (treating the knot/cord as rigidly in line with the string and the bob as a point mass). Cords not attached to the pendulum (T11A7, T979B) are disconnected. Bob mass (T0DAB, T8168) enters the equation of motion (m g sin(theta) = m L theta'') but cancels: C. Variant pairs check: all cord sentences state 0.4 m; both mass sentences state 0.5 kg; wording differs only in attachment. The physics of the strata is fine; the only defect is the unstated small-amplitude condition."
+}

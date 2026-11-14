@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch01",
+  "item_id": "F-956",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:31:00Z",
+  "completed_at": "2026-11-13T10:33:00Z",
+  "minutes_spent": 2,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "V_A = V_total R_A / (R_A + R_B)",
+    "assumptions": ["ideal supply", "ideal wires", "ohmic resistors"],
+    "answer": 8.0,
+    "unit": "V"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "The renderings refer to 'elsewhere in the diagram' although no diagram is provided; harmless wording, does not affect the answer."
+  },
+  "defect_severity": {
+    "other": "low"
+  },
+  "counterexamples": [],
+  "notes": "Agrees with pass 1. Governing equation, parameters and units correct; 24.0*4.0/12.0 = 8.0 V matches the certified 8.0 V. The disconnected battery's emf is structurally disconnected in every rendering and the renderings differ only in that value; the 8.0 V distractor rendering coincides numerically with the answer, which does not make it wrong. The 'diagram' reference is a low-severity wording issue only (I recorded it in pass-1 notes without a flag).",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

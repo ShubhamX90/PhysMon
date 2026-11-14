@@ -1,0 +1,53 @@
+{
+  "item_id": "F-605",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "In a uniform gravitational field, U = mg(z - z0), where U(z0) = 0.",
+    "assumptions": [
+      "To obtain the conventional numerical answer, the stated height of 4.0 m must be measured above the gravitational potential energy zero level."
+    ],
+    "answer": 117.6,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "All four renderings refer to a chosen potential energy zero level without identifying it or explicitly relating the stated height to it, so the requested potential energy is not uniquely fixed."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "If A is 4.0 m above the laboratory floor, choosing zero potential energy at the floor gives 117.6 J, whereas choosing it 2.0 m above the floor gives 58.8 J."
+  ],
+  "notes": "The conditional answer is 117.6 J, or approximately 1.2 × 10^2 J at two significant figures. Each variant's object B statement is structurally disconnected (D): B explicitly does not interact with A, and changing its kinetic energy leaves A's potential energy unchanged for any fixed reference level. The legacy renderings differ only in B's kinetic energy. Explicitly stating that A is 4.0 m above the chosen zero level would resolve the missing reference condition.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "started_at": "2026-11-13T15:18:54+00:00",
+  "completed_at": "2026-11-13T15:19:15+00:00",
+  "minutes_spent": 0.35,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "d976424d29b30cd3e5a581dd79e3c36887a27ef3e9080a500a1e5899d4faa6cd",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

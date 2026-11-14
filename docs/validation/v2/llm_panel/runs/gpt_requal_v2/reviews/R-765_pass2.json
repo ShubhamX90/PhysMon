@@ -1,0 +1,99 @@
+{
+  "item_id": "R-765",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Newton's second law gives a = g(sin(theta) - mu*cos(theta)) = 3.62694266 m/s². From rest, v = sqrt(2*a*d) = 5.38661 m/s. An uninterrupted earlier slide of q along the same incline replaces d by d + q.",
+    "assumptions": [
+      "The incline angle and kinetic friction coefficient remain constant throughout the slide.",
+      "The stated sliding establishes that static friction does not prevent release.",
+      "The block translates under gravity, normal force and friction."
+    ],
+    "answer": 5.38661,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TB05E": {
+      "stratum": "K",
+      "answer_with_sentence": 5.38661,
+      "regime": "mu_s < tan(30 degrees) = 0.57735; all listed values satisfy this condition."
+    },
+    "T10DB": {
+      "stratum": "R",
+      "answer_with_sentence": 6.59722,
+      "regime": null
+    },
+    "T9E8A": {
+      "stratum": "C",
+      "answer_with_sentence": 5.38661,
+      "regime": null
+    },
+    "TAD31": {
+      "stratum": "K",
+      "answer_with_sentence": 5.38661,
+      "regime": "mu_s < tan(30 degrees) = 0.57735; all listed values satisfy this condition."
+    },
+    "TEE30": {
+      "stratum": "D",
+      "answer_with_sentence": 5.38661,
+      "regime": null
+    },
+    "T7D23": {
+      "stratum": "D",
+      "answer_with_sentence": 5.38661,
+      "regime": null
+    },
+    "TC19F": {
+      "stratum": "R",
+      "answer_with_sentence": 6.59722,
+      "regime": null
+    },
+    "T2A1D": {
+      "stratum": "C",
+      "answer_with_sentence": 5.38661,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TEE30 states 3 m, whereas its designated minimal partner TC19F states 2 m and the authors incorrectly record TEE30's value_shown as 2 m."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "medium"
+  },
+  "counterexamples": [],
+  "notes": "The pass-1 conclusions stand. All strata, governing relations, cancellation expressions, units and certified numerical answers are correct. For either relevant sentence, earlier distances of 1, 2 and 3 m give speeds of 6.02241, 6.59722 and 7.12581 m/s. Mass cancels for every listed positive mass. Earlier bench or floor motion has no effect because the block is subsequently released from rest on the incline. The TEE30 numerical mismatch violates minimality and its value_shown metadata, but does not change any certified speed or introduce contradictory physical conditions within an individual rendering.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "started_at": "2026-11-13T15:16:01+00:00",
+  "completed_at": "2026-11-13T15:16:43+00:00",
+  "minutes_spent": 0.7,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "1e96f7744ef41e6452f72a2d5ab45dd10b177a5367959782a15698ce49de2f94",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

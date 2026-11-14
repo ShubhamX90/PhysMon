@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch07",
+  "item_id": "R-858",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:00:00Z", "completed_at": "2026-11-13T10:06:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Static equilibrium with Archimedes' principle: T + m g = rho_liquid V g, so T = (rho_liquid - rho_cube) V g",
+    "assumptions": ["cube fully submerged and at rest", "string vertical and light", "liquid static, incompressible", "g = 9.8 m/s^2"],
+    "answer": 3.92,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "TF858": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null},
+    "T8DA9": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "T9990": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "TD98F": {"stratum": "K", "answer_with_sentence": 3.92, "regime": "string does not break: tension (3.92 N) below the 50 N limit"},
+    "T1230": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "TA6C1": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null},
+    "T507B": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "TD4DC": {"stratum": "K", "answer_with_sentence": 3.92, "regime": "string does not break: tension (3.92 N) below the 50 N rating"}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: V = 1e-3 m^3; buoyancy 9.8 N, weight 5.88 N, T = 3.92 N. Depth sentences: pressures on top and bottom faces both depend on depth but their difference (buoyancy) does not, so depth cancels (C). Replacement liquid 1250 kg/m^3: T = 650*1e-3*9.8 = 6.37 N. Variant pairs state the same number and unit (50 cm, 1250 kg/m^3, 50 N). Minor: T8DA9 says 'holds the cube under this new liquid' without 'completely', while T1230 says 'completely under its surface'; read naturally both mean fully submerged. Both replacement sentences make the asked tension refer to the new configuration; acceptable."
+}

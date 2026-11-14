@@ -1,0 +1,17 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch04",
+  "item_id": "F-909",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:14:00Z", "completed_at": "2026-11-13T10:21:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "simple pendulum, small-amplitude: f = (1/(2 pi)) sqrt(g/L)", "assumptions": ["pendulum A is a simple pendulum (point bob on a light inextensible string) - not stated", "small-amplitude oscillation - not stated", "pendulum B is causally isolated from A (stated)"], "answer": 0.7046, "unit": "Hz"},
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {"missing_assumption": "The item states neither that pendulum A is a simple (point-mass) pendulum nor that its oscillations are small, and no amplitude is given; a physical pendulum of length 0.5 m (e.g. a uniform rod, f = 0.863 Hz) or a large-amplitude swing gives a materially different frequency, so the governing model that decides the answer is not stated."},
+  "defect_severity": {"missing_assumption": "high"},
+  "counterexamples": ["If A is a uniform rod of length 0.5 m pivoted at one end: f = (1/2pi) sqrt(3g/(2L)) = (1/2pi) sqrt(29.4) = 0.863 Hz instead of 0.705 Hz.", "Simple pendulum at 90 degrees amplitude: period longer by factor ~1.180, f ~ 0.597 Hz."],
+  "notes": "Under the standard reading (simple pendulum, small oscillations): f = sqrt(9.8/0.5)/(2 pi) = 4.4272/6.2832 = 0.7046 Hz, identical across all four variants; pendulum B's frequency (0.35, 0.7, 1.05, 1.4 Hz) is structurally disconnected because the text says B never interacts with A. The variants differ only in B's frequency. The 0.7 Hz variant puts B almost at A's frequency, but with no interaction stated there is no resonance effect. Defect judged under admission rule 1: the small-angle simple-pendulum model is the one most readers assume, but it is not stated and the answer depends on it."
+}

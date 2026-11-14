@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch04",
+  "item_id": "R-833",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:06:30Z", "completed_at": "2026-11-13T10:13:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "lambda = hc / sqrt(2 mc^2 K) (non-relativistic de Broglie)", "assumptions": ["starts from rest (stated)", "non-relativistic (stated)", "hc = 1240 eV nm, mc^2 = 511 keV"], "answer": 100.15, "unit": "pm"},
+  "stratum_assignments": {
+    "T577E": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null},
+    "T22B3": {"stratum": "R", "answer_with_sentence": 77.576, "regime": null},
+    "TA85F": {"stratum": "R", "answer_with_sentence": 77.576, "regime": null},
+    "T9262": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["inconsistent_units"],
+  "defect_reasons": {"inconsistent_units": "The target unit is given as eV, but the target is a wavelength; the certified numbers (100.15, 77.5758, 65.5635, 86.7324) are correct only in picometres, so the certified answer '100.15 eV' is dimensionally wrong as stated."},
+  "defect_severity": {"inconsistent_units": "high"},
+  "counterexamples": ["Base: lambda = 1240 eV nm / sqrt(2*511000 eV*150 eV) = 0.10015 nm = 100.15 pm, not 100.15 eV; an answer graded against target_unit eV would be dimensionally meaningless."],
+  "notes": "Numerics all verified: q=50 -> K=200 eV, lambda = 0.10015*sqrt(150/200) = 0.086733 nm (86.73 pm); q=100 -> K=250 eV, 0.077576 nm; q=200 -> K=350 eV, 0.065564 nm. Strata R/D/D/R agree with my pass 1; the D sentences have no physical path to this electron. Paired sentences state the same 100 eV and differ only in the recipient, so the minimal-pair claims hold. Non-relativistic treatment remains valid up to 350 eV (correction ~K/(4mc^2) < 2e-4). The only defect is the declared target unit: eV is an energy unit, while the answer is a length; the inputs list hc in eV*nm, so the natural output unit is nm, and the numbers correspond to pm. The problem text and physics are otherwise correct; if the target unit is corrected to pm the item would be CERTIFIED_AND_VALIDATED.",
+  "equation_consistent": true,
+  "units_consistent": false,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

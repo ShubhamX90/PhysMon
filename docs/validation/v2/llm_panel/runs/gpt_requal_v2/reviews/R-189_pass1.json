@@ -1,0 +1,83 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "item_id": "R-189",
+  "pass_number": 1,
+  "started_at": "2026-11-13T15:10:42+00:00",
+  "completed_at": "2026-11-13T15:11:22+00:00",
+  "minutes_spent": 0.66,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law gives N = mg cos(30°) and a = g[sin(30°) - 0.15 cos(30°)] = 3.62694 m/s². Using v² = u² + 2as with u = 0 and s = 4 m gives v = 5.38661 m/s.",
+    "assumptions": [
+      "The block undergoes ordinary translational sliding on the stated incline with constant kinetic friction.",
+      "For the base problem, the stated 4 m begins at release from rest.",
+      "Sliding occurs as explicitly stated in the problem."
+    ],
+    "answer": 5.38661,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T5DF8": {
+      "stratum": "K",
+      "answer_with_sentence": 5.38661,
+      "regime": "The block starts sliding spontaneously when mu_s < tan(30°) ≈ 0.57735. The stated 0.35 satisfies this condition; subsequent acceleration depends on kinetic friction."
+    },
+    "TC409": {
+      "stratum": "R",
+      "answer_with_sentence": 6.59722,
+      "regime": null
+    },
+    "TDA34": {
+      "stratum": "C",
+      "answer_with_sentence": 5.38661,
+      "regime": null
+    },
+    "TD27A": {
+      "stratum": "R",
+      "answer_with_sentence": 6.59722,
+      "regime": null
+    },
+    "T0BDA": {
+      "stratum": "D",
+      "answer_with_sentence": 5.38661,
+      "regime": null
+    },
+    "T7D9C": {
+      "stratum": "C",
+      "answer_with_sentence": 5.38661,
+      "regime": null
+    },
+    "T263F": {
+      "stratum": "K",
+      "answer_with_sentence": 5.38661,
+      "regime": "The block starts sliding spontaneously when mu_s < tan(30°) ≈ 0.57735. The stated 0.35 satisfies this condition; subsequent acceleration depends on kinetic friction."
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "The two earlier-on-incline sentences explicitly place an additional 2 m between release and the start of the stated 4 m, giving 6 m of continuous acceleration from rest and v = sqrt(2a × 6). Earlier bench motion has no effect after placement and release from rest on the incline. Mass appears in both inertia and the gravitational and frictional forces, then cancels. All variants of each quantity preserve its numerical value and unit. The wooden-block wording adds a material description, but the specified friction coefficient leaves the result unchanged. Although the base problem does not specify static friction, it explicitly states that the block slides, so initiation is established.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "06f4721b6af0b11bb17a6b0e0a7dbd270add28d4cc1502d14868e3d3e60e045d",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

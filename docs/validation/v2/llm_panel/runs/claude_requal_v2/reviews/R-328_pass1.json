@@ -1,0 +1,19 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch04",
+  "item_id": "R-328",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:47:00Z", "completed_at": "2026-11-13T10:55:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Snell's law n1 sin(theta1) = n2 sin(theta2)", "assumptions": ["flat interface, isotropic media (stated/standard)", "n1 = 1, n2 = 1.5 (stated)"], "answer": 25.37, "unit": "degree"},
+  "stratum_assignments": {
+    "T737C": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "T154B": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "T4453": {"stratum": "R", "answer_with_sentence": 30.71, "regime": null},
+    "T4986": {"stratum": "R", "answer_with_sentence": 30.71, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: sin(theta2) = sin 40 / 1.5 = 0.64279/1.5 = 0.42853, theta2 = 25.37 deg. With the incoming ray tilted 10 deg farther from the normal, incidence 50 deg: sin(theta2) = 0.76604/1.5 = 0.51070, theta2 = 30.71 deg. Going from n=1 into n=1.5 there is no total internal reflection at any incidence. A tilted solar panel on the roof or a tilted picture frame has no optical path to this ray. All four sentences state 10 deg. T4986 additionally specifies 'within the same plane of incidence'; T4453 says only 'away from the normal', which I read as an in-plane increase of the incidence angle by 10 deg (the natural reading); a partly out-of-plane rotation would increase the incidence angle by less, but that reading is strained. Not flagged."
+}

@@ -1,0 +1,63 @@
+{
+  "item_id": "F-464",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Hydrostatic equilibrium gives Δp = rho_A g h_A. Substituting the rendered density gives (-1000.0)(9.8)(2.0) = -19600 Pa.",
+    "assumptions": [
+      "The fluid is stationary and has uniform density.",
+      "Gravitational acceleration is 9.8 m/s², as supplied in the authors' parameters.",
+      "Negative density is treated formally for the calculation; it is outside the physical domain of an ordinary fluid."
+    ],
+    "answer": -19600.0,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "invalid_parameter_domain",
+    "failed_transformation_identity"
+  ],
+  "defect_reasons": {
+    "invalid_parameter_domain": "Every rendering specifies a negative mass density, which is outside the physical domain of the ordinary fluid model used.",
+    "failed_transformation_identity": "The certified positive answer uses the parameter-table density of +1000.0 kg/m³, whereas every rendering specifies -1000.0 kg/m³ and formally yields -19600 Pa."
+  },
+  "defect_severity": {
+    "invalid_parameter_domain": "high",
+    "failed_transformation_identity": "high"
+  },
+  "counterexamples": [
+    "In every supplied variant, substituting the rendered density into the governing equation gives -19600 Pa rather than the certified +19600 Pa."
+  ],
+  "notes": "The pass-1 conclusions stand. The governing relation and its dimensions are correct: kg/m³ × m/s² × m = Pa. Tank B's depth is disconnected from the target in all four variants, so the authors' invariance claim holds. The variants differ only in the depth of tank B and contain no contradictory distractor statements. The parameter table silently changes the sign of fluid A's density. The renderings omit a numerical value of g; the numerical result uses the authors' supplied value. The certified answer's defect is its sign, not rounding.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "started_at": "2026-11-13T15:12:52+00:00",
+  "completed_at": "2026-11-13T15:13:21+00:00",
+  "minutes_spent": 0.48,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "2b6d77f58b201d100abf5864481fc5fcb9a52e38dce9bcd89ccc72f7365a2bf4",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

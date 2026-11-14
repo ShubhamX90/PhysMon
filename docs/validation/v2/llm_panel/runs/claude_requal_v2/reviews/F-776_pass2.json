@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch03",
+  "item_id": "F-776",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:50:00Z",
+  "completed_at": "2026-11-13T10:55:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Torque tau = r F (perpendicular force), plus any torque transmitted through the stated mechanical coupling",
+    "assumptions": ["force perpendicular at 0.3 m", "coupling with B as stated in the text, nature unspecified"],
+    "answer": 15.0,
+    "unit": "N·m"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "unclear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["hidden_coupling", "insufficient_boundary_condition", "contradictory_distractor_statement"],
+  "defect_reasons": {
+    "hidden_coupling": "The authors' proof asserts 'System B is mechanically isolated from system A', but every rendering states B 'is mechanically coupled to system A', so B's torque has a physical path to the torque on A and the claimed invariance of the answer to tau_B is unsupported.",
+    "insufficient_boundary_condition": "With a coupling stated but its nature (rigid, geared, sense of B's torque) unspecified, the net torque on A is not uniquely determined.",
+    "contradictory_distractor_statement": "The distractor sentence calls B 'separate' and located 'in an adjacent workshop' yet 'mechanically coupled to system A', contradicting itself and contradicting the authors' stated isolation."
+  },
+  "defect_severity": {"hidden_coupling": "high", "insufficient_boundary_condition": "high", "contradictory_distractor_statement": "high"},
+  "counterexamples": ["Rendering 3: a rigid coupling transmitting B's 15.0 N·m in the opposite sense gives a net torque of 0 on A; in the same sense, 30.0 N·m; neither is the certified 15 N·m.", "Rendering 1: same-sense transmission gives 22.5 N·m."],
+  "notes": "r_A F_A = 0.3 * 50.0 = 15.0 N·m is correct for the applied force alone, and units are consistent. But the rendered text says the opposite of the authors' premise (coupled vs isolated): the item likely intended 'not mechanically coupled'. As written, the governing equation omits a quantity that the text links to the target, so the certified answer is not established. Agrees with pass 1.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

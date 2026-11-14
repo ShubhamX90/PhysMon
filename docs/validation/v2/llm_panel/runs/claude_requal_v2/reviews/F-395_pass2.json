@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch01",
+  "item_id": "F-395",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:18:30Z",
+  "completed_at": "2026-11-13T10:22:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Q = C V",
+    "assumptions": ["C1 fully charged across the ideal 9.0 V source", "C2 isolated from C1"],
+    "answer": 0.00045,
+    "unit": "C"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_numerical_precision"],
+  "defect_reasons": {
+    "invalid_numerical_precision": "The certified answer is displayed as 0.0004 C, but C V = 5.0e-5 F * 9.0 V = 4.5e-4 C; with two-significant-figure inputs the one-figure display is about 11% off and would mark the correct answer 4.5e-4 C as disagreeing."
+  },
+  "defect_severity": {
+    "invalid_numerical_precision": "high"
+  },
+  "counterexamples": ["Correct answer 4.5e-4 C vs certified display 0.0004 C: relative difference 11%, beyond the two-significant-figure precision of the inputs."],
+  "notes": "Governing equation, parameters, units and the disconnection argument are all correct; C2's charge is structurally disconnected in all four renderings, and the renderings differ only in that charge. The sole defect is the certified answer display (0.0004 C instead of 4.5e-4 C). If the stored certified value is actually 4.5e-4 and only the display string is truncated, the physics would be valid and the defect would be confined to the display, but as presented the certified answer is wrong at the inputs' precision.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": false,
+  "admission_category": "SOLVER_INVALID"
+}

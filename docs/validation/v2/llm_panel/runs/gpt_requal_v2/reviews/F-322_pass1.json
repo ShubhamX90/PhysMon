@@ -1,0 +1,52 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "item_id": "F-322",
+  "pass_number": 1,
+  "started_at": "2026-11-13T15:10:00+00:00",
+  "completed_at": "2026-11-13T15:10:22+00:00",
+  "minutes_spent": 0.37,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Translational kinetic energy is K = (1/2)mv^2 = (1/2)(4.0)(5.0)^2 = 50 J.",
+    "assumptions": [
+      "The stated speed is measured in the reference frame in which kinetic energy is requested.",
+      "Classical kinetic energy is adequate at the stated speed and precision."
+    ],
+    "answer": 50.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "contradictory_distractor_statement"
+  ],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "Each rendering gives two incompatible values for the same spring energy, without stating a physical change or explicitly correcting the original value."
+  },
+  "defect_severity": {
+    "contradictory_distractor_statement": "high"
+  },
+  "counterexamples": [],
+  "notes": "The spring energy is structurally disconnected (D), and the ball's kinetic energy is 50 J in every rendering. Nevertheless, the respective spring-energy statements conflict: 5.0 versus 10 J, 12.0 versus 24 J, 20.0 versus 40 J, and 35.0 versus 70 J. Admission rule 2 makes every rendering invalid despite the unaffected answer. Only the supplied pass-1 packet was consulted.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "e2e55bd5b7fecad016726bfd58d7ae401ca82832a774ffcaee5c0369107b12d3",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

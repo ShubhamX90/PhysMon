@@ -1,0 +1,42 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch06",
+  "item_id": "R-350",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:38:00Z",
+  "completed_at": "2026-11-13T10:44:00Z",
+  "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Thin-lens equation d_i = f d_o / (d_o - f)",
+    "assumptions": [
+      "Thin lens, paraxial rays",
+      "Real object on the axis beyond the focal length"
+    ],
+    "answer": 17.1429,
+    "unit": "cm"
+  },
+  "stratum_assignments": {
+    "T60D5": {"stratum": "C", "answer_with_sentence": 17.1429, "regime": null},
+    "T9D31": {"stratum": "D", "answer_with_sentence": 17.1429, "regime": null},
+    "T9757": {"stratum": "C", "answer_with_sentence": 17.1429, "regime": null},
+    "TF6A6": {"stratum": "R", "answer_with_sentence": 15.3488, "regime": null},
+    "TD4A9": {"stratum": "R", "answer_with_sentence": 15.3488, "regime": null},
+    "TD2E0": {"stratum": "D", "answer_with_sentence": 17.1429, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Verified: base d_i = 12*40/28 = 17.1429 cm. R wiring d_o -> d_o + q: q = 5: 12*45/33 = 16.3636; q = 15: 12*55/43 = 15.3488; q = 25: 12*65/53 = 14.7170 cm, all match. C claim for object height: from the two ray relations h_i/h_o = f/(d_o - f) and h_i/h_o = d_i/d_o, eliminating h_i gives d_i = f d_o/(d_o - f), independent of h_o; the expression_with_q reduces correctly, so C is acceptable and consistent with my pass 1. D claims for the microphone and desk-fan stands hold: neither is on the optical path or holds the object. Minimal pairs (T9D31 with TD4A9, TD2E0 with TF6A6) share 15 cm and differ only in what is moved. Height sentences share 4 cm. All listed object distances (45, 55, 65 cm) remain beyond f = 12 cm, so the image stays real as the question presupposes. Units consistent (cm throughout).",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

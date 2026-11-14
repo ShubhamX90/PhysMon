@@ -1,0 +1,60 @@
+{
+  "item_id": "F-855",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For the series potential divider, I = V_in/(R_A + R_B) = 1.0 A and V_A = I R_A = 5.0 V.",
+    "assumptions": [
+      "The potential divider consists of resistors A and B in series across the stated input voltage.",
+      "There is no additional load across resistor A.",
+      "Resistors are ohmic and wires are ideal."
+    ],
+    "answer": 5.0,
+    "unit": "V"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "contradictory_distractor_statement"
+  ],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "Each variant assigns two incompatible emf values to the same disconnected battery without specifying a physical change or resolving the conflicting reports."
+  },
+  "defect_severity": {
+    "contradictory_distractor_statement": "high"
+  },
+  "counterexamples": [
+    "The four variants respectively report the same battery's emf as both 2.0 and 4 V, 4.0 and 8 V, 5.0 and 10 V, and 8.0 and 16 V."
+  ],
+  "notes": "The governing equation, parameter units, certified answer and displayed precision are correct. The battery is explicitly disconnected, so its emf cannot affect the divider voltage; this supports the authors' invariance claim. However, absence of its symbol from the equation does not cure the contradictory statements within every rendering. Admission rule 2 therefore makes the item invalid despite the unique target answer. This agrees with the locked pass-1 review.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "started_at": "2026-11-13T15:11:33+00:00",
+  "completed_at": "2026-11-13T15:11:57+00:00",
+  "minutes_spent": 0.41,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "bae651dc618a66d147c0570ea049be52562bb7834c7fd41aa3dd9875d62b6dca",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

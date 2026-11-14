@@ -1,0 +1,125 @@
+{
+  "item_id": "R-195",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For small oscillations, mL_eff^2 θ̈ = -mgL_eff θ, so T = 2π√(L_eff/g). The base length is 0.8 m. Either attached cord changes the effective length to 0.8 m + q.",
+    "assumptions": [
+      "The small bob is approximated as a point mass.",
+      "The support is fixed.",
+      "The string and attached cord are light and inextensible.",
+      "Air resistance is negligible.",
+      "The amplitude is small."
+    ],
+    "answer": 1.7952,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T9329": {
+      "stratum": "R",
+      "answer_with_sentence": 2.1987,
+      "regime": null
+    },
+    "TB53B": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T51B9": {
+      "stratum": "R",
+      "answer_with_sentence": 2.1987,
+      "regime": null
+    },
+    "TABF5": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T8F8D": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T84F1": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "failed_transformation_identity",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "failed_transformation_identity": "For T9329 and T51B9, the certified answers retain the base period despite the correctly stated wiring requiring T(q) = 2π√((0.8 + q)/9.8).",
+    "rendering_not_minimal": "TABF5 adds brass composition and spherical shape relative to TB53B, beyond restating the same bob mass."
+  },
+  "defect_severity": {
+    "failed_transformation_identity": "high",
+    "rendering_not_minimal": "low"
+  },
+  "counterexamples": [
+    {
+      "sentence_ids": [
+        "T9329",
+        "T51B9"
+      ],
+      "cord_length_m": 0.2,
+      "effective_length_m": 1.0,
+      "correct_period_s": 2.0071,
+      "certified_period_s": 1.7952
+    },
+    {
+      "sentence_ids": [
+        "T9329",
+        "T51B9"
+      ],
+      "cord_length_m": 0.4,
+      "effective_length_m": 1.2,
+      "correct_period_s": 2.1987,
+      "certified_period_s": 1.7952
+    },
+    {
+      "sentence_ids": [
+        "T9329",
+        "T51B9"
+      ],
+      "cord_length_m": 0.6,
+      "effective_length_m": 1.4,
+      "correct_period_s": 2.3748,
+      "certified_period_s": 1.7952
+    }
+  ],
+  "notes": "The independent physics conclusions from pass 1 stand. The pass-2 invalid verdict arises from the authors' incorrect certified answers for both relevant cord sentences. The base equation is correct when its length is the effective pendulum length, but its claimed transformed results contradict the wiring. All stratum labels are correct. The disconnected-cord answers and mass-cancellation relations and answers are correct at every listed value. All parameter values are admissible; units and displayed precision are adequate. The explicitly named cord minimal pairs preserve the same number and unit and change attachment as intended. No K claim is present.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "started_at": "2026-11-13T15:16:42+00:00",
+  "completed_at": "2026-11-13T15:17:22+00:00",
+  "minutes_spent": 0.67,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "3e9828bad333d21b89907c654971eeee155e3a1e29ef866c15b5d4844a19bc23",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

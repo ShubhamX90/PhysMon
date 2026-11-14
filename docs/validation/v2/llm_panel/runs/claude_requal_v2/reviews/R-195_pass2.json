@@ -1,0 +1,45 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch05",
+  "item_id": "R-195",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:37:30Z",
+  "completed_at": "2026-11-13T10:44:00Z",
+  "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Simple pendulum, small-angle: T = 2 pi sqrt(L/g)",
+    "assumptions": ["point-like bob", "light inextensible string", "small amplitude", "negligible air resistance", "uniform g = 9.8 m/s^2"],
+    "answer": 1.7952,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T9329": {"stratum": "R", "answer_with_sentence": 2.1987, "regime": null},
+    "TB53B": {"stratum": "C", "answer_with_sentence": 1.7952, "regime": null},
+    "T51B9": {"stratum": "R", "answer_with_sentence": 2.1987, "regime": null},
+    "TABF5": {"stratum": "C", "answer_with_sentence": 1.7952, "regime": null},
+    "T8F8D": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null},
+    "T84F1": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["failed_transformation_identity"],
+  "defect_reasons": {
+    "failed_transformation_identity": "For the R sentences T9329 and T51B9 the stated wiring makes the length L + q, but the certified answers are 1.7952 s at every q (the unchanged base answer) instead of 2 pi sqrt((0.8 + q)/9.8)."
+  },
+  "defect_severity": {"failed_transformation_identity": "high"},
+  "counterexamples": [
+    "T9329/T51B9 with q = 0.2 m: L = 1.0 m, T = 2 pi sqrt(1.0/9.8) = 2.0071 s, certified 1.7952 s.",
+    "T9329/T51B9 with q = 0.4 m (the shown value): L = 1.2 m, T = 2.1987 s, certified 1.7952 s.",
+    "T9329/T51B9 with q = 0.6 m: L = 1.4 m, T = 2 pi sqrt(1.4/9.8) = 2.3748 s, certified 1.7952 s."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "Base answer 4 pi/7 = 1.7952 s is correct, the mass sentences are correctly C (m cancels from omega^2 = m g L / (m L^2)), and the D cord sentences are correctly invariant; minimal pairs keep 0.4 m. But the two R claims are internally inconsistent: their wiring (L -> L + q) contradicts their certified answers, which equal the base answer for all q. This agrees with my pass 1 value of 2.1987 s for the shown 0.4 m. The problem text itself is well-posed; the defect is in the certified answers."
+}

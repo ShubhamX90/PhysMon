@@ -1,0 +1,102 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "item_id": "R-532",
+  "pass_number": 2,
+  "started_at": "2026-11-13T15:20:09+00:00",
+  "completed_at": "2026-11-13T15:20:42+00:00",
+  "minutes_spent": 0.55,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Archimedes' principle and static vertical force balance give T = Fb - mg = (rho_l - rho_s)g a^3. With a = 0.10 m, T = (1000 - 600)(9.8)(0.001) = 3.92 N. For replacement-liquid density q, T = (q - 600)(9.8)(0.001).",
+    "assumptions": [
+      "The liquid is in hydrostatic equilibrium with uniform density.",
+      "The cube remains at rest and completely submerged, without contact with the tank.",
+      "The light vertical string supplies the downward force."
+    ],
+    "answer": 3.92,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T3008": {
+      "stratum": "D",
+      "answer_with_sentence": 3.92,
+      "regime": null
+    },
+    "T1289": {
+      "stratum": "R",
+      "answer_with_sentence": 6.37,
+      "regime": null
+    },
+    "TCDB4": {
+      "stratum": "C",
+      "answer_with_sentence": 3.92,
+      "regime": null
+    },
+    "T680F": {
+      "stratum": "R",
+      "answer_with_sentence": 6.37,
+      "regime": null
+    },
+    "TDF2C": {
+      "stratum": "D",
+      "answer_with_sentence": 3.92,
+      "regime": null
+    },
+    "T1C10": {
+      "stratum": "K",
+      "answer_with_sentence": 3.92,
+      "regime": "The required tension is below the breaking threshold: 3.92 N < q for every listed threshold, 30, 50 and 80 N."
+    },
+    "TCDB2": {
+      "stratum": "K",
+      "answer_with_sentence": 3.92,
+      "regime": "The required tension is below the string capacity: 3.92 N < q for every listed capacity, 30, 50 and 80 N."
+    },
+    "TF855": {
+      "stratum": "C",
+      "answer_with_sentence": 3.92,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "failed_transformation_identity"
+  ],
+  "defect_reasons": {
+    "failed_transformation_identity": "For both T1289 and T680F, the certified replacement-liquid tensions contradict the stated relation: densities 1150, 1250 and 1350 kg/m³ give 5.39, 6.37 and 7.35 N, respectively, rather than 15.19, 16.17 and 17.15 N."
+  },
+  "defect_severity": {
+    "failed_transformation_identity": "high"
+  },
+  "counterexamples": [
+    "At replacement density 1250 kg/m³, the buoyant force is 12.25 N and the cube's weight is 5.88 N, so equilibrium requires T = 6.37 N. The certified 16.17 N would produce a net downward force of 9.80 N.",
+    "At replacement densities 1150 and 1350 kg/m³, the stated relation gives 5.39 and 7.35 N; both certified answers exceed these results by 9.80 N."
+  ],
+  "notes": "The pass-1 solution and all stratum assignments remain unchanged. The governing relations, replacement wiring, depth cancellation, disconnected attachments and stated K regimes are correct. Every listed K value exceeds the required tension. Paired sentences preserve their numbers and units, and the replacement statements describe a subsequent state without contradiction. Lengths must be converted from centimetres to metres when evaluating the SI expressions. The incorrect certified answers are arithmetic or evaluation defects, not rounding defects. No outside information was accessed.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "632e3bae234b1b940b7f9d02a2158ac48bb7500c1f16155a7adb804cad1bd6d9",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

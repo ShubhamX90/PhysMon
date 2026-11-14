@@ -1,0 +1,49 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch06",
+  "item_id": "R-189",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:20:00Z",
+  "completed_at": "2026-11-13T10:30:00Z",
+  "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "a = g(sin theta - mu_k cos theta); v = sqrt(2 a d) from rest",
+    "assumptions": [
+      "Block starts from rest (stated)",
+      "Constant kinetic friction coefficient 0.15",
+      "Uniform g = 9.8 m/s^2; particle sliding, no air resistance"
+    ],
+    "answer": 5.38661,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T5DF8": {"stratum": "K", "answer_with_sentence": 5.38661, "regime": "mu_s < tan(30 deg) = 0.577 (block starts sliding); 0.25, 0.35, 0.45 all inside"},
+    "TC409": {"stratum": "R", "answer_with_sentence": 6.59722, "regime": null},
+    "TDA34": {"stratum": "C", "answer_with_sentence": 5.38661, "regime": null},
+    "TD27A": {"stratum": "R", "answer_with_sentence": 6.59722, "regime": null},
+    "T0BDA": {"stratum": "D", "answer_with_sentence": 5.38661, "regime": null},
+    "T7D9C": {"stratum": "C", "answer_with_sentence": 5.38661, "regime": null},
+    "T263F": {"stratum": "K", "answer_with_sentence": 5.38661, "regime": "mu_s < tan(30 deg) = 0.577; 0.25, 0.35, 0.45 all inside"}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["hidden_coupling"],
+  "defect_reasons": {
+    "hidden_coupling": "TC409 is claimed D (no causal path) with answer 5.38661 at every q, but its text says the block slid 2 m down the same rough slope, without stopping, between release from rest and the start of the stated distance, which is physically the same situation as the R sentence TD27A, so the speed after the stated distance is sqrt(2 a (d+q)) = 6.02241, 6.59722, 7.12581 m/s for q = 1, 2, 3 m."
+  },
+  "defect_severity": {"hidden_coupling": "high"},
+  "counterexamples": [
+    "TC409 with q = 2 m: block has slid 6 m from rest at a = 3.62694 m/s^2 when the speed is asked, v = sqrt(2*3.62694*6) = 6.59722 m/s, not the certified 5.38661 m/s.",
+    "TC409 with q = 1 m: v = sqrt(2*3.62694*5) = 6.02241 m/s; q = 3 m: v = sqrt(2*3.62694*7) = 7.12581 m/s."
+  ],
+  "notes": "Checked all other claims. Base: a = 9.8*(0.5 - 0.15*0.8660254) = 3.62694 m/s^2, v = sqrt(29.0155) = 5.38661 m/s, correct. TD27A (R): d+q wiring and answers 6.02241/6.59722/7.12581 verified. TDA34, T7D9C (C): mass cancels from the stated relations; the expression_with_q reduces to sqrt(2 d g (sin - mu cos)), correct. T5DF8, T263F (K): regime mu_s < tan 30 = 0.577; all listed values (0.25, 0.35, 0.45) are inside, so the block starts sliding from rest and the answer is unchanged; correct. T0BDA (D): the bench slide precedes placement and release from rest on the incline; correct. Paired sentences state the same numbers and units. The single defect is TC409, which is labelled D and paired with TD27A as if it were the disconnected variant, but its wording ('down the same rough slope ... between its release from rest and the start of the stated distance') places the earlier 2 m on the incline after release, so it is relevant. This agrees with my pass-1 assignment (TC409 = R, 6.597). The item cannot be admitted until TC409 is relabelled R with the d+q answers or rewritten as a genuinely disconnected statement.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

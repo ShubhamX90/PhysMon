@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch02",
+  "item_id": "F-800",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:15:30Z",
+  "completed_at": "2026-11-13T10:19:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Wave relation v = f * lambda, so f = v / lambda",
+    "assumptions": ["the given speed and wavelength belong to the same wave on string A"],
+    "answer": 20.0,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["relevant_variable_removed_from_equation"],
+  "defect_reasons": {
+    "relevant_variable_removed_from_equation": "The machine-readable governing_equation_sympy is '1 / lambda_A', which omits v_A and evaluates to 3.33 rather than 20; the LaTeX equation, the proof text and the certified answer all use f_A = v_A / lambda_A, so the defect is confined to that field."
+  },
+  "defect_severity": {"relevant_variable_removed_from_equation": "medium"},
+  "counterexamples": ["Evaluating governing_equation_sympy '1 / lambda_A' at lambda_A = 0.3 m gives 3.33 (and in units of 1/m, not Hz), not the certified 20.0 Hz."],
+  "notes": "Certified answer 20.0 Hz = 6.0 / 0.3 is correct and identical across all four variants; f_B is structurally disconnected and absent from the governing relation, as claimed. The only problem is the inconsistent sympy serialization of the governing equation; the item as presented and its certified answer are correct, so I judge it valid with a medium flag. If the pipeline certifies answers by evaluating the sympy field, that field should be fixed. Agrees with pass 1 on the physics.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

@@ -1,0 +1,98 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "item_id": "R-161",
+  "pass_number": 1,
+  "started_at": "2026-11-13T15:17:42+00:00",
+  "completed_at": "2026-11-13T15:18:22+00:00",
+  "minutes_spent": 0.67,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Along the incline, ma = mg sin(30°) - μk mg cos(30°), giving a = 3.62694 m/s². Thus v² = v0² + 2a(4 m) = v0² + 29.0155 m²/s². The initial speed v0 is unspecified, so there is no unique numerical answer. If v0 = 0, v = 5.38661 m/s.",
+    "assumptions": [
+      "The incline is stationary and straight.",
+      "Gravity, the normal force and kinetic friction are the only forces affecting motion.",
+      "The coefficient of kinetic friction is constant throughout the stated distance.",
+      "An initial speed is required but is not supplied."
+    ],
+    "answer": null,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TC8D8": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T378C": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T1887": {
+      "stratum": "R",
+      "answer_with_sentence": 6.59722,
+      "regime": null
+    },
+    "T4F3B": {
+      "stratum": "K",
+      "answer_with_sentence": null,
+      "regime": "The block is already sliding and accelerates downhill, so static friction does not act. If initiation from rest is considered, μs = 0.35 < tan(30°), so static friction cannot prevent sliding."
+    },
+    "TEF3B": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T339F": {
+      "stratum": "C",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T3397": {
+      "stratum": "C",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T3228": {
+      "stratum": "K",
+      "answer_with_sentence": null,
+      "regime": "The block is already sliding and accelerates downhill, so static friction does not act. If initiation from rest is considered, μs = 0.35 < tan(30°), so static friction cannot prevent sliding."
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The base problem does not specify the speed at the start of the 4 m interval, and most added sentences leave this necessary initial condition unspecified."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "For the base problem, starting the 4 m interval from rest gives 5.38661 m/s, whereas starting at 3 m/s downhill gives 6.16567 m/s; both satisfy the supplied description.",
+    "For TEF3B, release from rest followed by uninterrupted sliding gives 6.59722 m/s after the total 6 m, whereas an initial downhill release speed of 3 m/s gives 7.24730 m/s."
+  ],
+  "notes": "Null answers indicate missing initial-speed information, not zero speed. T1887 explicitly supplies release from rest and uninterrupted travel, so its total sliding distance is 6 m and its answer is unique. TEF3B supplies an earlier distance but does not explicitly specify release from rest; 6.59722 m/s follows only with that additional condition and continuous sliding. The numerical quantities match across their apparent wording variants: 2 m, 2 kg and dimensionless 0.35. However, the slope-history variants differ substantively because only T1887 explicitly states release from rest and no stopping. Mass cancels between inertia, gravity and friction. The wooden-material description supplies no further quantitative dependence because kinetic friction is already specified.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "5cdc646ff71b18b311a480d2d35657b43cba389e0752d73466794d2ced39cdb4",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

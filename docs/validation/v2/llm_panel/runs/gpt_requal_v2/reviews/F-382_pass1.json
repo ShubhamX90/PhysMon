@@ -1,0 +1,51 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "item_id": "F-382",
+  "pass_number": 1,
+  "started_at": "2026-11-13T15:19:48+00:00",
+  "completed_at": "2026-11-13T15:20:12+00:00",
+  "minutes_spent": 0.4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Ohm's law: V = IR = (0.3 A)(100.0 Ω) = 30 V.",
+    "assumptions": [
+      "The operating resistor is ohmic, as permitted by the standard apparatus idealisations."
+    ],
+    "answer": 30.0,
+    "unit": "V"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "contradictory_distractor_statement"
+  ],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "Every variant assigns two incompatible resistances to the same disconnected resistor: 47 and 94 Ω, 68 and 136 Ω, 150 and 300 Ω, or 220 and 440 Ω."
+  },
+  "defect_severity": {
+    "contradictory_distractor_statement": "high"
+  },
+  "counterexamples": [],
+  "notes": "The workbench resistor is structurally disconnected (D), so the voltage is 30 V in all four variants regardless of its resistance. Nevertheless, the conflicting reports explicitly concern the same quantity, with no stated correction or physical change resolving them; admission rule 2 therefore makes every rendering invalid. The differing resistance values across legacy variants are parameter changes, not an additional minimal-pair defect.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "e2d2e87943aa7ab82d192aea69f4cbf2b910f371f8246945bc50dd8b888df393",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

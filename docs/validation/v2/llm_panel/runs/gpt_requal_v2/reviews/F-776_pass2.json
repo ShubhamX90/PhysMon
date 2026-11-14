@@ -1,0 +1,67 @@
+{
+  "item_id": "F-776",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "The applied force contributes torque r_A F_A sin(90 degrees) = 0.3 × 50.0 = 15 N·m. The total torque on A must also include torque transmitted by its mechanical coupling to B.",
+    "assumptions": [
+      "The lever arm is measured from A's pivot.",
+      "The numerical answer describes only the specified force's contribution.",
+      "The total torque requires a coupling model and the relative directions of the torques."
+    ],
+    "answer": 15.0,
+    "unit": "N·m"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "hidden_coupling",
+    "missing_assumption",
+    "relevant_variable_removed_from_equation"
+  ],
+  "defect_reasons": {
+    "hidden_coupling": "The authors claim B is mechanically isolated, whereas every rendering explicitly mechanically couples B to A, providing a path for torque transmission.",
+    "missing_assumption": "The coupling's torque transmission relation and relative torque direction are unspecified, so the total torque on A is not uniquely determined.",
+    "relevant_variable_removed_from_equation": "The governing equation omits the possible torque transmitted from B even though the target asks what torque acts on A."
+  },
+  "defect_severity": {
+    "hidden_coupling": "high",
+    "missing_assumption": "high",
+    "relevant_variable_removed_from_equation": "high"
+  },
+  "counterexamples": [
+    "With an ideal direct coupling transmitting B's stated torque to A in the same direction as the applied force's torque, the four total torques are 22.5, 29.0, 30.0 and 37.0 N·m.",
+    "With that transmitted torque acting in the opposite direction, the signed total torques are 7.5, 1.0, 0.0 and -7.0 N·m, taking the applied force's torque as positive."
+  ],
+  "notes": "The pass-2 packet confirms the pass-1 assessment. Absence of tau_B from a proposed expression does not establish physical independence. The expression and certified value correctly describe the specified force's torque contribution, but do not establish the total torque requested. The legacy renderings retain the same wording and units while changing only B's torque value. Units and displayed precision are adequate.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "started_at": "2026-11-13T15:11:51+00:00",
+  "completed_at": "2026-11-13T15:12:31+00:00",
+  "minutes_spent": 0.66,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "fa999159a44cabe43ae4b393c088f7f71c2646b53eeb0b4ef184384a4aa4d70e",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

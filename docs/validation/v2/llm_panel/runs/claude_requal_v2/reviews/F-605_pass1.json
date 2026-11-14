@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch08",
+  "item_id": "F-605",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:34:00Z",
+  "completed_at": "2026-11-13T10:38:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Gravitational potential energy in a uniform field U = m g h",
+    "assumptions": ["the 4.0 m height is measured from the zero level of potential energy", "uniform field g = 9.8 m/s^2", "object B does not interact with A"],
+    "answer": 117.6,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "The question refers to 'the chosen zero level' without stating it; the standard reading is that the 4.0 m height is measured from that level, but the text does not say so explicitly."
+  },
+  "defect_severity": {
+    "missing_assumption": "medium"
+  },
+  "counterexamples": [],
+  "notes": "U = 3.0 kg x 9.8 m/s^2 x 4.0 m = 117.6 J (about 1.2 x 10^2 J at two significant figures) in every rendering. The renderings differ only in object B's kinetic energy (8, 15, 25, 40 J); B is stated not to interact with A, so B's kinetic energy is disconnected from A's potential energy. I treat the zero-level wording as a medium wording issue rather than a high defect because a stated height is conventionally a height above the reference level and the question explicitly asks relative to that level."
+}

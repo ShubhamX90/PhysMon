@@ -1,0 +1,22 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch07",
+  "item_id": "F-382",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:12:30Z", "completed_at": "2026-11-13T10:15:00Z", "minutes_spent": 3,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Ohm's law V = I R",
+    "assumptions": ["ohmic resistor", "steady (DC) current"],
+    "answer": 30.0,
+    "unit": "V"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["contradictory_distractor_statement"],
+  "defect_reasons": {"contradictory_distractor_statement": "Every variant gives two different values for the same disconnected workbench resistor (e.g. 47 ohm and then 94 ohm), so the item contradicts itself even though the answer V = 0.3 A x 100.0 ohm = 30 V is unaffected."},
+  "defect_severity": {"contradictory_distractor_statement": "high"},
+  "counterexamples": ["Variant 1: 'a disconnected 47 ohm resistor' followed by 'A later note reports this same quantity as 94 ohm instead' - two values for one quantity."],
+  "notes": "Answer in all four variants is 30 V (current 0.3 A given to one significant figure; 30 V at that precision). The disconnected resistor has no path to the target, but the parenthetical note is a self-contradiction, which under rule 2 makes the item invalid."
+}

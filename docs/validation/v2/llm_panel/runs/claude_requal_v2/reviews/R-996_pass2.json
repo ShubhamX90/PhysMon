@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch07",
+  "item_id": "R-996",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:43:30Z", "completed_at": "2026-11-13T10:50:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "lambda = hc / sqrt(2 mc^2 K), non-relativistic de Broglie",
+    "assumptions": ["electron starts from rest (assumed by authors, not stated in the problem)", "non-relativistic (stated)", "hc = 1240 eV nm, mc^2 = 511 keV"],
+    "answer": 100.15,
+    "unit": "pm"
+  },
+  "stratum_assignments": {
+    "T48F5": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null},
+    "T1045": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null},
+    "TBAC2": {"stratum": "R", "answer_with_sentence": 77.576, "regime": null},
+    "TEA1B": {"stratum": "R", "answer_with_sentence": 77.576, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["insufficient_boundary_condition"],
+  "defect_reasons": {"insufficient_boundary_condition": "The authors' own assumptions list 'The electron starts from rest', but the problem text only says the electron 'has gained a kinetic energy of 150 eV' and never states the initial condition, so the final kinetic energy and wavelength are not uniquely fixed."},
+  "defect_severity": {"insufficient_boundary_condition": "high"},
+  "counterexamples": ["Initial kinetic energy 50 eV: after gaining 150 eV, K = 200 eV and lambda = 86.73 pm, not 100.15 pm."],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "Under the from-rest assumption all certified numbers check: base 1240/sqrt(2*511000*150) nm = 0.10015 nm = 100.15 pm; K = 200, 250, 350 eV give 86.732, 77.576, 65.564 pm. D sentences (proton in a cyclotron elsewhere, separate ion beam) have no path to the electron's wavelength. Minimal pairs (T1045/TBAC2, T48F5/TEA1B) all state 100 eV and differ only in attachment. Non-relativistic treatment is fine at <= 350 eV (the wiring's 'at most 500 eV' is a loose but harmless bound). The only defect is that the from-rest condition, which the authors list as an assumption, is not stated in the item; by rule 1 that is high severity even though most readers would assume it. Agrees with my pass 1; confidence raised because the authors explicitly rely on the unstated condition."
+}

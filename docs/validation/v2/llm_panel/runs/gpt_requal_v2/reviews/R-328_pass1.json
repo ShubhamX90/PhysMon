@@ -1,0 +1,67 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "item_id": "R-328",
+  "pass_number": 1,
+  "started_at": "2026-11-13T15:15:09+00:00",
+  "completed_at": "2026-11-13T15:15:34+00:00",
+  "minutes_spent": 0.42,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law: n1 sin(theta1) = n2 sin(theta2). Thus theta2 = arcsin(sin(40 degrees)/1.5) = 25.374 degrees.",
+    "assumptions": [
+      "Standard geometric optics with ordinary refraction at the interface.",
+      "The given refractive indices apply to the incident light."
+    ],
+    "answer": 25.374,
+    "unit": "degrees"
+  },
+  "stratum_assignments": {
+    "T737C": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    },
+    "T154B": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    },
+    "T4453": {
+      "stratum": "R",
+      "answer_with_sentence": 30.7102,
+      "regime": null
+    },
+    "T4986": {
+      "stratum": "R",
+      "answer_with_sentence": 30.7102,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Both relevant additions increase the incidence angle from 40 degrees to 50 degrees, giving arcsin(sin(50 degrees)/1.5). The panel and picture frame have no stated physical connection to the ray or interface. All four variants consistently specify a 10° tilt; their wording and attachment produce the intended differences. The unrelated-object additions make the presentation slightly artificial.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "824b3b7120ebd476878ae8fb54f2599fe70b9ca8455396281102828c25d54423",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

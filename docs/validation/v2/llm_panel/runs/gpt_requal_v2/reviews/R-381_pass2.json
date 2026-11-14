@@ -1,0 +1,83 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "item_id": "R-381",
+  "pass_number": 2,
+  "started_at": "2026-11-13T15:10:48+00:00",
+  "completed_at": "2026-11-13T15:11:14+00:00",
+  "minutes_spent": 0.45,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Ohm's law and Joule heating give P = V^2(1/R1 + 1/R2). Thus P = 12^2(1/6 + 1/12) = 36 W. An aiding series cell changes V to V + q.",
+    "assumptions": [
+      "The resistors are ohmic.",
+      "Wires and the specified sources have negligible resistance.",
+      "The branch fuse is initially intact and has the stated negligible resistance."
+    ],
+    "answer": 36,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T197B": {
+      "stratum": "D",
+      "answer_with_sentence": 36,
+      "regime": null
+    },
+    "T1374": {
+      "stratum": "K",
+      "answer_with_sentence": 36,
+      "regime": "The branch current is V/R1 = 2 A, below every listed fuse threshold: 3, 5 and 10 A."
+    },
+    "T7F3F": {
+      "stratum": "K",
+      "answer_with_sentence": 36,
+      "regime": "The branch current is 2 A, below every listed fuse rating: 3, 5 and 10 A."
+    },
+    "T24CC": {
+      "stratum": "R",
+      "answer_with_sentence": 56.25,
+      "regime": null
+    },
+    "T8967": {
+      "stratum": "R",
+      "answer_with_sentence": 56.25,
+      "regime": null
+    },
+    "T27DC": {
+      "stratum": "D",
+      "answer_with_sentence": 36,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All claims agree with the locked pass-1 review. For either aiding-cell sentence, P(q) = (12 + q)^2/4 W when q is expressed in volts, giving 45.5625, 56.25 and 81 W at 1.5, 3 and 6 V. Both disconnected-cell sentences leave the answer at 36 W. All listed fuse ratings exceed the 2 A branch current, so their certified answers and stated regime hold. The reference expression after the first branch opens is 12^2/12 = 12 W. Every cell variant uses the same shown value and unit; the declared minimal pairs change the cell's attachment as intended. The fuse variants likewise preserve the shown value and unit. No contradictory statements or omitted material dependencies were found.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "75520ccda61cc4803fa8d3f0c3c55c18c8f7522772e563cfc4f52765358c0333",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

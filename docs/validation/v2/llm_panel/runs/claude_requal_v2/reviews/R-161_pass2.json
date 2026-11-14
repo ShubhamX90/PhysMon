@@ -1,0 +1,43 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch03",
+  "item_id": "R-161",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:34:00Z",
+  "completed_at": "2026-11-13T10:41:00Z",
+  "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "a = g(sin(theta) - mu_k cos(theta)); v^2 = v0^2 + 2 a d",
+    "assumptions": ["block starts the 4 m from rest (not stated in the item)", "constant mu_k", "no air resistance"],
+    "answer": 5.38661,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TC8D8": {"stratum": "D", "answer_with_sentence": 5.38661, "regime": null},
+    "T378C": {"stratum": "D", "answer_with_sentence": 5.38661, "regime": null},
+    "T1887": {"stratum": "R", "answer_with_sentence": 6.59722, "regime": null},
+    "T4F3B": {"stratum": "K", "answer_with_sentence": 5.38661, "regime": "mu_s < tan(30 deg) = 0.577"},
+    "TEF3B": {"stratum": "R", "answer_with_sentence": 6.59722, "regime": null},
+    "T339F": {"stratum": "C", "answer_with_sentence": 5.38661, "regime": null},
+    "T3397": {"stratum": "C", "answer_with_sentence": 5.38661, "regime": null},
+    "T3228": {"stratum": "K", "answer_with_sentence": 5.38661, "regime": "mu_s < tan(30 deg) = 0.577"}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["insufficient_boundary_condition"],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The authors' assumptions include 'the block starts from rest', but the item text says only that the block 'moves down' the incline and never states its speed at the start of the 4 m, so the certified v = sqrt(2 a d) is not the unique answer to the item as written."
+  },
+  "defect_severity": {"insufficient_boundary_condition": "high"},
+  "counterexamples": ["Entering the 4 m at 2 m/s gives v = sqrt(4 + 29.016) = 5.746 m/s, not the certified 5.38661 m/s; the base wording 'moves down' even suggests the block is already moving."],
+  "notes": "Numbers verified: a = 9.8(0.5 - 0.15*0.86603) = 3.62694 m/s^2; base sqrt(2*3.62694*4) = 5.38661 m/s; R cases d + q = 5, 6, 7 m give 6.02241, 6.59722, 7.12581 m/s. Mass cancellation relations are correct. K regime mu_s < tan(theta) = 0.577 holds for all listed values 0.25, 0.35, 0.45 (note that if the block is already moving, as 'moves down' suggests, static friction is irrelevant in every regime; the K claim is consistent with the authors' from-rest reading). D sentences (floor of next room, lab bench) have no path to the target. Minimal pairs T378C/TEF3B and TC8D8/T1887 all state 2 m and differ only in attachment. Minor wording point (low, not flagged as a defect): TEF3B says 'from where it was released' without 'from rest', while T1887 says 'release from rest'; 'released' conventionally implies from rest. Agrees with pass 1: the only defect is the unstated initial condition.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS"
+}

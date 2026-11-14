@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch05",
+  "item_id": "F-890",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:22:00Z",
+  "completed_at": "2026-11-13T10:27:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Coulomb field of a point charge: E = k |q| / r^2",
+    "assumptions": ["charge A is a point charge (or spherically symmetric)", "vacuum, with the given k", "the question asks only for the field due to A, so superposition with B is not asked"],
+    "answer": 399555.6,
+    "unit": "N/C"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "The phrase that source B 'never interacts with ... the field point' is physically loose, since any charge produces a field everywhere; it does not change the answer because only the field due to A is asked."
+  },
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "E = 8.99e9 * 4e-6 / 0.3^2 = 35960 / 0.09 = 3.9956e5 N/C (about 4.0e5 N/C) in all four variants; B's charge (1.0, 3.8, 4.0, 6.0 microC) is irrelevant to the field due to A. Each variant states B's charge once, so no contradiction. 'Charge A' is taken as a point charge, a standard idealisation."
+}

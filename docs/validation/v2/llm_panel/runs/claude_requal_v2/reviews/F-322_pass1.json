@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch05",
+  "item_id": "F-322",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:15:00Z",
+  "completed_at": "2026-11-13T10:18:00Z",
+  "minutes_spent": 3,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Kinetic energy K = (1/2) m v^2",
+    "assumptions": ["Newtonian (5 m/s is far from relativistic)", "speed measured in the lab frame"],
+    "answer": 50.0,
+    "unit": "J"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["contradictory_distractor_statement"],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "Every variant gives two different values for the spring's stored energy (e.g. 5.0 J and then 10 J for 'this same quantity'), so the item contradicts itself even though the answer does not depend on the spring."
+  },
+  "defect_severity": {"contradictory_distractor_statement": "high"},
+  "counterexamples": [],
+  "notes": "K = 0.5*4.0*5.0^2 = 50 J in all four variants; the spring is isolated and unconnected, so its energy has no path to the ball's kinetic energy. The parenthetical 'later note' doubling the spring energy is an internal contradiction in every rendering."
+}

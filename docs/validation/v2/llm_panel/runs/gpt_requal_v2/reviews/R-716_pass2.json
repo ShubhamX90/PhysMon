@@ -1,0 +1,105 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "item_id": "R-716",
+  "pass_number": 2,
+  "started_at": "2026-11-13T15:14:17+00:00",
+  "completed_at": "2026-11-13T15:15:09+00:00",
+  "minutes_spent": 0.86,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For an intact, taut string, T_L-m1*g=m1*a, m2*g-T_R=m2*a, and (T_R-T_L)*r=(M*r^2/2)*(a/r). Therefore a=(m2-m1)*g/(m1+m2+M/2)=19.6/9.",
+    "assumptions": [
+      "The string remains intact, taut and inextensible.",
+      "The pulley turns about a fixed, frictionless axle.",
+      "The string does not slip on the pulley."
+    ],
+    "answer": 2.1777777778,
+    "unit": "m/s²"
+  },
+  "stratum_assignments": {
+    "T27DB": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T714F": {
+      "stratum": "C",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "TAA7E": {
+      "stratum": "D",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "T3277": {
+      "stratum": "R",
+      "answer_with_sentence": 1.2,
+      "regime": null
+    },
+    "T0FDB": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T4BEC": {
+      "stratum": "C",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "TC6FB": {
+      "stratum": "R",
+      "answer_with_sentence": 1.2,
+      "regime": null
+    },
+    "T7958": {
+      "stratum": "D",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "invalid_parameter_domain",
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "invalid_parameter_domain": "The claimed K regime requires q>38.1111 N, whereas the sole listed breaking strength is 20 N, so the asserted regime membership and certified intact-string acceleration are wrong.",
+    "missing_assumption": "The strength variants do not specify rupture behavior or when acceleration is evaluated, and 'rated to break only above 20 N' does not uniquely establish the actual breaking threshold."
+  },
+  "defect_severity": {
+    "invalid_parameter_domain": "high",
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    "The certified acceleration requires T_L=35.9333 N and T_R=38.1111 N; a string with maximum permissible tension 20 N cannot sustain that motion.",
+    "Actual breaking thresholds of 21 N and 40 N both satisfy the literal wording 'break only above 20 N', but only the latter supports the calculated intact-string tensions."
+  ],
+  "notes": "The pass-2 claims confirm the pass-1 findings; no revision of my pass-1 conclusions is needed. The supplied acceleration relations are correct for intact operation. The stated K inequality is also correct, but its assertion that every listed value satisfies it is false. A sufficiently strong string would be conditionally irrelevant under q>38.1111 N. The reference acceleration g outside that regime additionally requires a specified post-rupture model. All other numerical certificates check: adding masses 0.4, 0.8 and 1.2 kg to the left block gives respectively 1.6680851, 1.2 and 0.76862745 m/s². For the pulley, I/r²=M/2, so all listed radii cancel; centimetres must be converted consistently if intermediate SI quantities are calculated. The disconnected-block certificates and the explicitly named minimal pairs are sound. All wording variants preserve their shown number and unit, although the two strength sentences differ in how definitively they specify a maximum tension. Displayed numerical precision is adequate.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "bd52534ac112188360c086671bccf54507356eeaf1b494b833a7bdf0d7f6f1c9",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

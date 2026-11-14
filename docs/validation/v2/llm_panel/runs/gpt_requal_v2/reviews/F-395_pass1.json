@@ -1,0 +1,46 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "item_id": "F-395",
+  "pass_number": 1,
+  "started_at": "2026-11-13T15:17:22+00:00",
+  "completed_at": "2026-11-13T15:17:42+00:00",
+  "minutes_spent": 0.34,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Q1 = C1 V = (5.0 × 10⁻⁵ F)(9.0 V) = 4.5 × 10⁻⁴ C.",
+    "assumptions": [
+      "Standard ideal lumped-circuit capacitor and voltage-source models apply.",
+      "Stored charge denotes the magnitude of charge on either capacitor plate."
+    ],
+    "answer": 0.00045,
+    "unit": "C"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All four renderings give the same answer, 4.5 × 10⁻⁴ C. The charge on disconnected C2 is structurally disconnected (D) under the standard circuit model. The legacy variants differ only in the stated charge on C2 and retain consistent units.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "92bdb77fc2e608eb86f509723190924f1ee4a68bb5ac61d5c522e59df7b7c0f9",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

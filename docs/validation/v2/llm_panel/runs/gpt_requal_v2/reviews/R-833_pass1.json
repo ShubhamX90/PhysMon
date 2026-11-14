@@ -1,0 +1,67 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "item_id": "R-833",
+  "pass_number": 1,
+  "started_at": "2026-11-13T15:12:01+00:00",
+  "completed_at": "2026-11-13T15:12:25+00:00",
+  "minutes_spent": 0.4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The de Broglie relation is λ = h/p. Non-relativistically, p² = 2mK, so λ = hc/√(2mc²K). With K = 150 eV, λ = 1240/√(2 × 511000 × 150) nm ≈ 0.10015 nm.",
+    "assumptions": [
+      "The stated non-relativistic model applies.",
+      "The wavelength refers to the electron after all described accelerating stages."
+    ],
+    "answer": 0.10015,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "T577E": {
+      "stratum": "D",
+      "answer_with_sentence": 0.10015,
+      "regime": null
+    },
+    "T22B3": {
+      "stratum": "R",
+      "answer_with_sentence": 0.07758,
+      "regime": null
+    },
+    "TA85F": {
+      "stratum": "R",
+      "answer_with_sentence": 0.07758,
+      "regime": null
+    },
+    "T9262": {
+      "stratum": "D",
+      "answer_with_sentence": 0.10015,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All four sentences specify the same additional kinetic energy, 100 eV, with matching units. The two electron attachments raise its kinetic energy to 250 eV, giving λ = 1240/√(2 × 511000 × 250) nm ≈ 0.07758 nm. The separate proton and ion beam have no specified physical connection to the electron. The disconnected additions are somewhat artificial but introduce no contradiction.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "fdc410189ae7074a27500cba836a9258a3865c6f9f2dc28edd49691289c30fc7",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "item_id": "R-381",
+  "pass_number": 1,
+  "started_at": "2026-11-13T15:10:17+00:00",
+  "completed_at": "2026-11-13T15:10:47+00:00",
+  "minutes_spent": 0.51,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Parallel branches share the supply voltage. By Ohm's law and Joule heating, P_total = V^2(1/R1 + 1/R2) = 12^2(1/6 + 1/12) = 36 W. The branch currents are 2 A and 1 A.",
+    "assumptions": [
+      "The resistors are ohmic with the stated resistances.",
+      "Wires have negligible resistance.",
+      "A fuse, when specified, is initially intact and has negligible resistance as stated."
+    ],
+    "answer": 36,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T197B": {
+      "stratum": "D",
+      "answer_with_sentence": 36,
+      "regime": null
+    },
+    "T1374": {
+      "stratum": "K",
+      "answer_with_sentence": 36,
+      "regime": "The fuse remains intact for branch currents below 5 A; the first branch carries 2 A."
+    },
+    "T7F3F": {
+      "stratum": "K",
+      "answer_with_sentence": 36,
+      "regime": "The branch current of 2 A is below the fuse's 5 A rating, so the fuse remains conducting."
+    },
+    "T24CC": {
+      "stratum": "R",
+      "answer_with_sentence": 56.25,
+      "regime": null
+    },
+    "T8967": {
+      "stratum": "R",
+      "answer_with_sentence": 56.25,
+      "regime": null
+    },
+    "T27DC": {
+      "stratum": "D",
+      "answer_with_sentence": 36,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Both aiding-cell sentences produce a 15 V supply and P_total = 15^2(1/6 + 1/12) = 56.25 W. All cell variants specify the same 3 V and negligible internal resistance; the disconnected variants have no physical path to the target. Both fuse variants specify 5 A and negligible resistance. 'Rated at 5 A' uses the conventional operating interpretation of a fuse; its precise blowing behavior is immaterial at 2 A. The added unrelated cell descriptions make the presentation slightly artificial.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "cbf67b14157a26c05ca9496318739f5b8f446c97d5416030da3dd439520cfb90",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch03",
+  "item_id": "F-776",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:42:00Z",
+  "completed_at": "2026-11-13T10:49:00Z",
+  "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Torque tau = r F sin(phi), with phi = 90 deg",
+    "assumptions": ["force applied perpendicular at the end of the 0.3 m lever arm", "only the torque of the applied 50.0 N force is asked for (B's coupled torque ignored) - this reading is NOT licensed by the text"],
+    "answer": 15.0,
+    "unit": "N·m"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "unclear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["hidden_coupling", "insufficient_boundary_condition", "contradictory_distractor_statement"],
+  "defect_reasons": {
+    "hidden_coupling": "System B is stated to be mechanically coupled to system A, so its torque (7.5, 14.0, 15.0 or 22.0 N·m) has a physical path to the torque acting on A and cannot be assumed to leave the answer unchanged.",
+    "insufficient_boundary_condition": "The nature of the coupling (rigid shaft, gearing ratio, direction/sense of B's torque) is not stated, so the net torque on A could be 15.0 N·m, 15.0 + tau_B, 15.0 - tau_B or a geared fraction, with no unique answer.",
+    "contradictory_distractor_statement": "B is described as 'a separate wrench system ... in an adjacent workshop' yet in the same sentence 'mechanically coupled to system A', which contradicts itself."
+  },
+  "defect_severity": {"hidden_coupling": "high", "insufficient_boundary_condition": "high", "contradictory_distractor_statement": "high"},
+  "counterexamples": ["Rendering 1: if B's 7.5 N·m is transmitted through a rigid coupling in the same sense, the torque on A is 22.5 N·m; in the opposite sense 7.5 N·m; not 15.0 N·m.", "Rendering 3: tau_B = 15.0 N·m opposing would give zero net torque on A."],
+  "notes": "The applied force alone gives tau = 0.3 * 50.0 = 15.0 N·m. If the intended answer is 15.0 N·m in all renderings with B as a distractor, the word 'coupled' (perhaps meant to be 'not coupled') breaks the distractor: a coupled system's torque plausibly acts on A. The question 'What torque acts on system A?' asks for the net/total torque, which would include any transmitted torque."
+}

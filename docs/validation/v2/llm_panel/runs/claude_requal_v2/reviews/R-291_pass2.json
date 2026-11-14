@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch03",
+  "item_id": "R-291",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:08:00Z",
+  "completed_at": "2026-11-13T10:14:00Z",
+  "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Simple pendulum, small-angle: T = 2*pi*sqrt(L/g)",
+    "assumptions": ["point-mass bob on a light inextensible string", "small-amplitude oscillation", "no air resistance", "g = 9.8 m/s^2"],
+    "answer": 1.7952,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T574F": {"stratum": "R", "answer_with_sentence": 2.19866, "regime": null},
+    "T11A7": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null},
+    "T0DAB": {"stratum": "C", "answer_with_sentence": 1.7952, "regime": null},
+    "T979B": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null},
+    "TD7EF": {"stratum": "R", "answer_with_sentence": 2.19866, "regime": null},
+    "T8168": {"stratum": "C", "answer_with_sentence": 1.7952, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "The authors' assumptions list 'the amplitude is small', but the problem text only says the bob 'swings' and never states small oscillations or an amplitude, so the small-angle formula the certified answers rely on is not licensed by the item and a large swing gives a materially longer period."
+  },
+  "defect_severity": {"missing_assumption": "high"},
+  "counterexamples": ["At a 60 degree amplitude the 0.8 m pendulum has T about 1.93 s (factor about 1.073 over 1.7952 s), so the certified base answer 1.7952 s is not unique for the item as written."],
+  "notes": "All claimed strata and numbers check: base 2*pi*sqrt(0.8/9.8) = 1.7952 s; R cords with q = 0.2, 0.4, 0.6 m give L = 1.0, 1.2, 1.4 m and T = 2.00709, 2.19866, 2.37482 s (verified). D cords (wall hook, drawer) have no path to the pendulum. Mass cancellation via I = m L^2, torque m g L theta is correct. Minimal pairs T11A7/TD7EF and T979B/T574F all state 0.4 m and differ only in attachment. Units consistent. Agreement with pass 1; the sole defect is that the small-amplitude condition appears in the authors' assumptions but not in the item text, which under admission rule 1 makes the item invalid.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS"
+}

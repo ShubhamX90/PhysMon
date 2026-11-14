@@ -1,0 +1,38 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch06",
+  "item_id": "R-350",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:31:00Z",
+  "completed_at": "2026-11-13T10:38:00Z",
+  "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Thin-lens equation 1/f = 1/d_o + 1/d_i (real-is-positive convention)",
+    "assumptions": [
+      "Thin lens, paraxial rays",
+      "Lens in a uniform medium (air)",
+      "Object real, on the axis, 40 cm in front"
+    ],
+    "answer": 17.143,
+    "unit": "cm"
+  },
+  "stratum_assignments": {
+    "T60D5": {"stratum": "C", "answer_with_sentence": 17.143, "regime": null},
+    "T9D31": {"stratum": "D", "answer_with_sentence": 17.143, "regime": null},
+    "T9757": {"stratum": "C", "answer_with_sentence": 17.143, "regime": null},
+    "TF6A6": {"stratum": "R", "answer_with_sentence": 15.349, "regime": null},
+    "TD4A9": {"stratum": "R", "answer_with_sentence": 15.349, "regime": null},
+    "TD2E0": {"stratum": "D", "answer_with_sentence": 17.143, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: 1/d_i = 1/12 - 1/40 = 7/120, d_i = 17.142857 cm. Object moved to 55 cm (TF6A6, TD4A9): 1/d_i = 1/12 - 1/55 = 43/660, d_i = 15.3488 cm. Object height (T60D5, T9757) belongs to the system and enters the magnification relation h_i/h_o = -d_i/d_o but not the image distance; I classify it C (it could arguably be called D for the image-distance target, since height never enters the thin-lens equation). Microphone stand and desk fan stand (T9D31, TD2E0) have no optical path to the image: D. Variant groups share numbers and units: {T60D5, T9757} 4 cm; {T9D31, TF6A6, TD4A9, TD2E0} 15 cm. For the 'then pushed' sentences I read the question as asking for the image after the push; this is the natural reading. 'Upright arrow' in T9757 is harmless."
+}

@@ -1,0 +1,92 @@
+{
+  "item_id": "R-291",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For an ideal simple pendulum, T = 4 sqrt(L/g) K(sin(theta_max/2)), where K is the complete elliptic integral of the first kind. The small-angle limit is T = 2*pi*sqrt(L/g).",
+    "assumptions": [
+      "The small bob is treated as a point mass.",
+      "The string and any attached cord are light, inextensible and taut.",
+      "Damping is negligible.",
+      "The numerical answer requires small angular amplitude, which is listed in the authors' assumptions but absent from the problem and added sentences."
+    ],
+    "answer": 1.7952,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T574F": {
+      "stratum": "R",
+      "answer_with_sentence": 2.19866,
+      "regime": null
+    },
+    "T11A7": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T0DAB": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T979B": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "TD7EF": {
+      "stratum": "R",
+      "answer_with_sentence": 2.19866,
+      "regime": null
+    },
+    "T8168": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The problem specifies neither the oscillation amplitude nor a small-angle condition, so materially different periods are possible; listing small amplitude only in the authors' assumptions does not supply this condition to the solver."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "With L = 0.8 m and g = 9.8 m/s^2, a 90-degree amplitude gives approximately 2.1189 s, whereas the small-angle limit is 1.7952 s; both are compatible with the stated problem."
+  ],
+  "notes": "The pass-1 verdict stands. All displayed numerical answers in this review are conditional small-angle values. Under the authors' additional small-amplitude assumption, every certified value is correctly calculated: attached-cord lengths 0.2, 0.4 and 0.6 m give periods 2.00709, 2.19866 and 2.37482 s. The R wiring correctly replaces L by L + q; both remote cords are disconnected in the intended model. Bob mass cancels, including in the finite-amplitude point-mass equation. The cancellation expression has units of time, and the torque relation uses the restoring magnitude in the linear approximation. All claimed minimal pairs preserve the number and unit and change the intended attachment. Equation consistency and numerical precision are affirmed under the declared model; answer_correct is false because the rendered item does not establish that model and therefore does not determine the certified period uniquely.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "started_at": "2026-11-13T15:15:16+00:00",
+  "completed_at": "2026-11-13T15:15:57+00:00",
+  "minutes_spent": 0.69,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "d723c1ff6565681fa1651b476844a0db89370d715f649ceddb1dda56a9adeeeb",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch08",
+  "item_id": "R-428",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:18:30Z",
+  "completed_at": "2026-11-13T10:26:00Z",
+  "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Atwood machine with massive pulley: a = (m2 - m1) g / (m1 + m2 + M/2)",
+    "assumptions": ["string does not slip on the pulley (assumed; not stated in the problem)", "light, inextensible string", "frictionless pulley axle", "uniform solid disc pulley, I = M R^2/2", "g = 9.8 m/s^2"],
+    "answer": 2.1778,
+    "unit": "m/s^2"
+  },
+  "stratum_assignments": {
+    "TBE0C": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "TCD07": {"stratum": "K", "answer_with_sentence": 2.1778, "regime": "max string tension (38.1 N) below the stated limit"},
+    "TC912": {"stratum": "C", "answer_with_sentence": 2.1778, "regime": null},
+    "T9AFE": {"stratum": "D", "answer_with_sentence": 2.1778, "regime": null},
+    "T1887": {"stratum": "K", "answer_with_sentence": 2.1778, "regime": "max string tension (38.1 N) below the stated breaking threshold"},
+    "T707F": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "TF9C3": {"stratum": "C", "answer_with_sentence": 2.1778, "regime": null},
+    "T572A": {"stratum": "D", "answer_with_sentence": 2.1778, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "The authors' certified answers rely on the assumption that the string does not slip on the pulley, which appears in their assumption list but not in the problem text; without it a frictionlessly sliding string gives a = 2.45 m/s^2 instead of 2.18 m/s^2."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": ["String sliding over a frictionless pulley rim: a = (5-3)(9.8)/8 = 2.45 m/s^2, pulley mass and radius both irrelevant."],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "All certified answers check under the no-slip model: base 19.6/9 = 2.17778; R with q = 0.4, 0.8, 1.2 kg added to m1: 15.68/9.4 = 1.66809, 11.76/9.8 = 1.2, 7.84/10.2 = 0.768627. Radius cancels (I/r^2 = M/2) for 8, 12, 16 cm. K regime: max tension is 38.1 N (right side), below 120, 200 and 300 N, so all listed values lie inside the regime. Minimal pairs T572A/TBE0C and T9AFE/T707F state the same 0.8 kg and differ only in attachment. The only defect is that the no-slip condition, listed by the authors as an assumption, is not stated in the problem; under admission rule 1 this decides the answer (2.18 vs 2.45 m/s^2), so I keep my pass-1 verdict. If the panel treats no-slip as implied by giving the pulley's mass, the item would otherwise be CERTIFIED_AND_VALIDATED. No disagreement with pass 1."
+}

@@ -1,0 +1,100 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "item_id": "R-716",
+  "pass_number": 1,
+  "started_at": "2026-11-13T15:12:55+00:00",
+  "completed_at": "2026-11-13T15:14:17+00:00",
+  "minutes_spent": 1.37,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For an intact, taut string: T_L-3g=3a, 5g-T_R=5a, and (T_R-T_L)r=I(a/r), with I=Mr²/2. Thus a=(5-3)g/(3+5+M/2)=19.6/9.",
+    "assumptions": [
+      "The string remains intact and taut.",
+      "The pulley rotates about a fixed, frictionless axle.",
+      "The stated no-slip constraint applies."
+    ],
+    "answer": 2.1777777778,
+    "unit": "m/s²"
+  },
+  "stratum_assignments": {
+    "T27DB": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T714F": {
+      "stratum": "C",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "TAA7E": {
+      "stratum": "D",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "T3277": {
+      "stratum": "R",
+      "answer_with_sentence": 1.2,
+      "regime": null
+    },
+    "T0FDB": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T4BEC": {
+      "stratum": "C",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "TC6FB": {
+      "stratum": "R",
+      "answer_with_sentence": 1.2,
+      "regime": null
+    },
+    "T7958": {
+      "stratum": "D",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "invalid_parameter_domain",
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "invalid_parameter_domain": "Interpreting T0FDB as a maximum permissible tension, its 20 N capacity is below both tensions required for intact operation, so the stated apparatus cannot sustain the usual constrained motion.",
+    "missing_assumption": "The strength variants do not specify the rupture behavior or the intended observation time, and T27DB's wording also does not uniquely specify the actual breaking threshold."
+  },
+  "defect_severity": {
+    "invalid_parameter_domain": "high",
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    "The base solution requires T_L=35.9333 N and T_R=38.1111 N, both exceeding 20 N; therefore a 20 N maximum strength is not conditionally irrelevant.",
+    "Actual breaking thresholds of 21 N and 40 N both satisfy the literal statement that breaking occurs only above 20 N, but the first cannot sustain the base motion whereas the second can."
+  ],
+  "notes": "The base problem is well-posed under standard apparatus idealizations. Adding 0.8 kg to the left gives a=(5-3.8)9.8/(5+3.8+1)=1.2 m/s². Pulley radius cancels through I/r²=M/2. The detached blocks have no physical connection to the target. All apparent wording pairs preserve their numerical values and units. However, 'rated to break only above' is less definite about the actual failure threshold than 'can withstand ... up to'. Null answers for the strength variants denote that no unique replacement acceleration follows from the packet. If both blocks were explicitly detached after rupture, each would subsequently have acceleration magnitude 9.8 m/s², but that additional model is not stated.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "26e52cb48b3dcbadcd02596dc7ba27b6137be5a6ba1b47f3472d49d71cd2cffb",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

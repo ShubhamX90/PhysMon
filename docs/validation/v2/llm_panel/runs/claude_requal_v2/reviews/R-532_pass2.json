@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch04",
+  "item_id": "R-532",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:37:00Z", "completed_at": "2026-11-13T10:46:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "T = (rho_l - rho_s) g a^3", "assumptions": ["fully submerged, at rest", "light vertical taut string", "incompressible uniform liquid", "g = 9.8 m/s^2"], "answer": 3.92, "unit": "N"},
+  "stratum_assignments": {
+    "T3008": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T1289": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "TCDB4": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null},
+    "T680F": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "TDF2C": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T1C10": {"stratum": "K", "answer_with_sentence": 3.92, "regime": "string intact: required tension below the rated limit"},
+    "TCDB2": {"stratum": "K", "answer_with_sentence": 3.92, "regime": "string intact: required tension below the rated limit"},
+    "TF855": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["failed_transformation_identity"],
+  "defect_reasons": {"failed_transformation_identity": "For the replacement-liquid sentences T1289 and T680F the certified answers (15.19, 16.17, 17.15 N) do not follow from the stated wiring T = (q - rho_s) g a^3, which gives 5.39, 6.37, 7.35 N; the certified numbers equal (1000 + q - 600) g a^3, i.e. q was added to the original density instead of replacing it."},
+  "defect_severity": {"failed_transformation_identity": "high"},
+  "counterexamples": ["T680F at q = 1250 kg/m^3: T = (1250 - 600)*9.8*1.0e-3 = 6.37 N, not the certified 16.17 N.", "T1289 at q = 1150: (1150 - 600)*9.8e-3 = 5.39 N vs certified 15.19 N; at q = 1350: 7.35 N vs certified 17.15 N."],
+  "notes": "Base answer 3.92 N is correct. D claims (T3008, TDF2C) are correct: liquids on another bench or in a sealed bottle cannot act on the cube. C claims (TCDB4, TF855) are correct: depth q enters p_top and p_bottom and cancels in Fb = rho_l g a * a^2; the certified 3.92 N at 20/50/80 cm is right. K claims (T1C10, TCDB2) are correct: the string limit only matters if the required tension exceeded it; 3.92 N is below 30, 50 and 80 N, so every listed value is inside the regime. Paired sentences state the same value and unit and differ only in attachment. The defect is purely numerical in the R claims: the authors' certified values are 10 N too large (they equal 1650*9.8e-3 etc., consistent with rho_l = 1000 + q), contradicting their own 'replace' wiring. My pass-1 answer of 6.37 N for the R sentences stands. Problem text itself is well-posed.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

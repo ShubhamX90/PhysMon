@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch01",
+  "item_id": "F-792",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:22:30Z",
+  "completed_at": "2026-11-13T10:25:00Z",
+  "minutes_spent": 3,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Terminal voltage of a discharging battery: V = emf - I r",
+    "assumptions": ["battery A supplies (delivers) the current, i.e. it is discharging", "linear internal resistance"],
+    "answer": 6.0,
+    "unit": "V"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "V = 9.0 - 1.5*2.0 = 6.0 V in all renderings; the disconnected battery's emf (3.0, 6.0, 9.0, 12.0 V) has no path to battery A's terminal voltage. 'Supplies current' fixes the current direction (discharging). Renderings differ only in the disconnected emf. Minor wording: 'elsewhere in the diagram' refers to a diagram that is not shown; harmless."
+}

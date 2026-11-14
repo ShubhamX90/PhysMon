@@ -1,0 +1,47 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch01",
+  "item_id": "R-716",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:08:30Z",
+  "completed_at": "2026-11-13T10:15:00Z",
+  "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "a = (m2 - m1) g / (m1 + m2 + M/2) for an Atwood machine with a uniform-disc pulley and no slip",
+    "assumptions": ["light inextensible string", "no slip", "frictionless axle", "I = MR^2/2", "string does not break"],
+    "answer": 2.17778,
+    "unit": "m/s^2"
+  },
+  "stratum_assignments": {
+    "T27DB": {"stratum": "R", "answer_with_sentence": 9.8, "regime": "Claimed K with regime max(m1(g+a), m2(g-a)) < q; actual max tension = 5*(9.8-2.178) = 38.11 N > 20 N, so the value is outside the regime and the string breaks."},
+    "T714F": {"stratum": "C", "answer_with_sentence": 2.17778, "regime": null},
+    "TAA7E": {"stratum": "D", "answer_with_sentence": 2.17778, "regime": null},
+    "T3277": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "T0FDB": {"stratum": "R", "answer_with_sentence": 9.8, "regime": "Same as T27DB: 38.11 N > 20 N."},
+    "T4BEC": {"stratum": "C", "answer_with_sentence": 2.17778, "regime": null},
+    "TC6FB": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "T7958": {"stratum": "D", "answer_with_sentence": 2.17778, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_parameter_domain", "contradictory_distractor_statement"],
+  "defect_reasons": {
+    "invalid_parameter_domain": "The K claim asserts every listed value lies inside the regime max(m1(g+a), m2(g-a)) < q, but max(35.93 N, 38.11 N) = 38.11 N exceeds q = 20 N, so the listed value is outside the regime and the certified answer 2.17778 m/s^2 for T0FDB/T27DB is wrong.",
+    "contradictory_distractor_statement": "A string that can withstand only 20 N cannot hold the 3 kg and 5 kg blocks (weights 29.4 N and 49 N) that the problem says hang from it, so sentences T0FDB and T27DB contradict the setup."
+  },
+  "defect_severity": {
+    "invalid_parameter_domain": "high",
+    "contradictory_distractor_statement": "high"
+  },
+  "counterexamples": ["T0FDB/T27DB at q = 20 N: T_left = 3*(9.8+2.17778) = 35.93 N, T_right = 5*(9.8-2.17778) = 38.11 N, both > 20 N; the regime condition the authors state is violated and the string would break, so the certified answer 2.17778 m/s^2 does not hold."],
+  "notes": "Pass 2 agrees with pass 1. Base answer 2.17778 m/s^2 verified. C claims (radius 8/12/16 cm) verified: I/r^2 = M/2 = 1 kg independent of r. R claims verified: 0.4 kg -> 1.6*9.8/9.4 = 1.66809; 0.8 kg -> 1.2; 1.2 kg -> 0.8*9.8/10.2 = 0.768627 m/s^2. D claims verified. Minimal pairs T7958/TC6FB and TAA7E/T3277 state the same 0.8 kg and differ only in attachment, as intended; T0FDB/T27DB and T4BEC/T714F are same-value rewordings. The only failure is the string-strength K claim: the authors' own regime expression evaluates to 38.11 N, not below 20 N; a breaking strength above about 38.2 N (e.g. 50 N) would be needed.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

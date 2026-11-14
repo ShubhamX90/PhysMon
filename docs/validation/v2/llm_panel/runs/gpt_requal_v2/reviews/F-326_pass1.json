@@ -1,0 +1,52 @@
+{
+  "item_id": "F-326",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For Newtonian gravity, energy conservation gives (1/2) v_esc^2 - GM/R = 0, hence v_esc = sqrt(2GM/R). Substituting the numerical values gives 4, but the stated mass unit prevents interpreting this as a physical speed.",
+    "assumptions": [
+      "The intended toy model uses Newtonian gravity for an isolated, spherically symmetric planet.",
+      "Obtaining 4 m/s requires correcting the planet's mass to 8.0 kg and interpreting G as 1.0 m^3 kg^-1 s^-2."
+    ],
+    "answer": null,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "inconsistent_units"
+  ],
+  "defect_reasons": {
+    "inconsistent_units": "Every rendering specifies the planet's mass as 8.0 m, a length rather than a mass, so the supplied quantities do not yield a dimensionally valid escape speed under the standard gravitational model."
+  },
+  "defect_severity": {
+    "inconsistent_units": "high"
+  },
+  "counterexamples": [],
+  "notes": "Probe B's speed is structurally disconnected (D) in every rendering because the probe is in a separate simulation and never interacts with the planet. Its four stated speeds therefore do not affect the target. With the mass unit corrected to kg and conventional SI units assigned to G, every rendering would give 4.0 m/s. The null answer records that this correction is not authorized by the packet as written.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "started_at": "2026-11-13T15:15:57+00:00",
+  "completed_at": "2026-11-13T15:16:29+00:00",
+  "minutes_spent": 0.53,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "de9e0e407c52bd1b67dfbc35f4b94cc874a844a3d0568ba7dc8011185fad7745",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch06",
+  "item_id": "F-326",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:05:00Z",
+  "completed_at": "2026-11-13T10:09:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "v_esc = sqrt(2 G M / r) from energy conservation in a Newtonian point-mass potential",
+    "assumptions": [
+      "Spherically symmetric planet, no atmosphere, rotation ignored, non-relativistic",
+      "G = 1.0 N m^2/kg^2, M = 8.0 kg, r = 1.0 m (per authors' parameter table)"
+    ],
+    "answer": 4.0,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["inconsistent_units"],
+  "defect_reasons": {
+    "inconsistent_units": "The parameter table gives M in kg and G in N m^2/kg^2, but every rendering states the mass as '8.0 m' (a length unit) and G with no unit, so the rendered text is dimensionally inconsistent with the certified 'm/s' answer even though the number 4.0 is unaffected."
+  },
+  "defect_severity": {"inconsistent_units": "medium"},
+  "counterexamples": [],
+  "notes": "Governing equation and certified answer check: sqrt(2*1.0*8.0/1.0) = 4.0 m/s with the tabulated SI units. The distractor v_B (2.0, 3.8, 4.0, 6.0 m/s) is absent from the equation and explicitly non-interacting, so the invariance claim holds in all four renderings; renderings differ only in v_B. Pass 2 confirms my pass-1 flag and sharpens it: the mass unit in the text appears to be a rendering slip ('m' instead of 'kg'), and G's unit is omitted. I keep severity medium because the numerical answer and the physics claim are correct and the toy-model framing makes the intended reading clear, but the unit slip should be fixed before admission. The 4.0 m/s rendering numerically coincides with the answer (possible lure; not a defect).",
+  "equation_consistent": true,
+  "units_consistent": false,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS"
+}

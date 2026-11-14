@@ -1,0 +1,42 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch01",
+  "item_id": "R-716",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:00:00Z",
+  "completed_at": "2026-11-13T10:08:00Z",
+  "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law for each block plus rotational dynamics of the pulley (I = MR^2/2, no slip a = alpha R): a = (m2 - m1) g / (m1 + m2 + M/2)",
+    "assumptions": ["light inextensible string", "no slip on pulley", "frictionless pulley axle", "uniform solid disc pulley I = MR^2/2", "string does not break"],
+    "answer": 2.1778,
+    "unit": "m/s^2"
+  },
+  "stratum_assignments": {
+    "T27DB": {"stratum": "R", "answer_with_sentence": 9.8, "regime": "Intended as K (irrelevant while string tension < 20 N), but the tensions are T_left = 3(9.8+2.178) = 35.9 N and T_right = 5(9.8-2.178) = 38.1 N (even the static weight of the 3 kg block is 29.4 N), so a string that breaks above 20 N breaks; the blocks would then fall freely (a = g = 9.8 m/s^2). The stated value lies outside the regime in which the sentence is irrelevant."},
+    "T714F": {"stratum": "C", "answer_with_sentence": 2.1778, "regime": null},
+    "TAA7E": {"stratum": "D", "answer_with_sentence": 2.1778, "regime": null},
+    "T3277": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "T0FDB": {"stratum": "R", "answer_with_sentence": 9.8, "regime": "Same as T27DB: the string's 20 N limit is below the actual tensions (35.9 N and 38.1 N), so the string breaks."},
+    "T4BEC": {"stratum": "C", "answer_with_sentence": 2.1778, "regime": null},
+    "TC6FB": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "T7958": {"stratum": "D", "answer_with_sentence": 2.1778, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_parameter_domain", "contradictory_distractor_statement"],
+  "defect_reasons": {
+    "invalid_parameter_domain": "The string strength of 20 N is below the actual string tensions (about 35.9 N and 38.1 N, and 29.4 N even at rest), so the string-strength sentences are not inside the regime where they would be irrelevant.",
+    "contradictory_distractor_statement": "A string that withstands only 20 N cannot support the 3 kg and 5 kg blocks the problem says hang from it, so the added sentences T27DB/T0FDB contradict the setup."
+  },
+  "defect_severity": {
+    "invalid_parameter_domain": "high",
+    "contradictory_distractor_statement": "high"
+  },
+  "counterexamples": ["With T27DB or T0FDB added: required tension ~36-38 N > 20 N limit, so the string breaks and the motion is not that of the Atwood machine; the base answer 2.18 m/s^2 does not hold."],
+  "notes": "Base problem: a = 2*9.8/(3+5+1) = 2.178 m/s^2. Radius sentences cancel (C) because I/R^2 = M/2 is independent of R. 0.8 kg added to left block: a = (5-3.8)*9.8/(3.8+5+1) = 1.2 m/s^2. Paired sentences (T27DB/T0FDB 20 N; T714F/T4BEC 12 cm; TAA7E/T7958 0.8 kg; T3277/TC6FB 0.8 kg) state the same number and unit. Pairs TAA7E/T7958 are both D and T3277/TC6FB are both R, so these pairs are rewordings of the same attachment rather than contrasting attachments; noted, not a defect in itself."
+}

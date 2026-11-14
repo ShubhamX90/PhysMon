@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch05",
+  "item_id": "F-890",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:27:30Z",
+  "completed_at": "2026-11-13T10:30:00Z",
+  "minutes_spent": 3,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Coulomb field of a point charge: E = k |q_A| / r_A^2",
+    "assumptions": ["point charge A", "vacuum with the given k", "only the field due to A is asked"],
+    "answer": 399555.6,
+    "unit": "N/C"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "The text says B 'never interacts with ... the field point', which is physically loose (a charge's field is long-range); the authors' 'separate isolated setup' reading is not stated as such, but the target is the field due to A alone, so the answer is unaffected."
+  },
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "8.99e9 * 4e-6 / 0.09 = 399555.6 N/C matches the certified display. Governing equation omits q_B correctly because the target is explicitly the field due to A. Each variant gives one value for q_B, so no contradiction. Agrees with pass 1."
+}

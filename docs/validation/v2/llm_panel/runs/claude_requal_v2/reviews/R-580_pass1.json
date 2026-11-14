@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch02",
+  "item_id": "R-580",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:00:00Z",
+  "completed_at": "2026-11-13T10:06:00Z",
+  "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Kinetic theory / equipartition of translational energy: v_rms = sqrt(3RT/M)",
+    "assumptions": ["classical (Maxwell-Boltzmann) gas in thermal equilibrium", "non-relativistic molecular motion", "M = 4 g/mol = 0.004 kg/mol"],
+    "answer": 1367.7,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TB4AB": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "TD72E": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null},
+    "T3A0A": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "TA997": {"stratum": "C", "answer_with_sentence": 1367.7, "regime": null},
+    "T96F8": {"stratum": "C", "answer_with_sentence": 1367.7, "regime": null},
+    "T4878": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: v_rms = sqrt(3*8.314*300/0.004) = sqrt(1,870,650) = 1367.7 m/s. With T = 400 K: sqrt(2,494,200) = 1579.3 m/s. The amount of substance (2 mol) belongs to the sample and enters PV = nRT and the total kinetic energy (3/2)nRT, but cancels from the per-molecule rms speed; classified C. v_rms = sqrt(3RT/M) follows from classical equipartition of translational energy and does not need the ideal-gas assumption, so no modelling condition is missing. The four heater sentences all state 100 K and the two amount sentences both state 2 mol; variants are consistent. TB4AB's 'the gas sample above' is slightly awkward but unambiguous."
+}

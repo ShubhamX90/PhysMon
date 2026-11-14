@@ -1,0 +1,40 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch06",
+  "item_id": "R-189",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:10:00Z",
+  "completed_at": "2026-11-13T10:20:00Z",
+  "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law along the incline with kinetic friction: a = g(sin theta - mu_k cos theta); constant-acceleration kinematics from rest: v^2 = 2 a d",
+    "assumptions": [
+      "Block starts from rest (stated)",
+      "Coulomb kinetic friction with constant mu_k = 0.15",
+      "Block treated as a particle sliding (no rolling/tipping); no air resistance",
+      "Incline fixed"
+    ],
+    "answer": 5.387,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T5DF8": {"stratum": "K", "answer_with_sentence": 5.387, "regime": "mu_s matters only if mu_s >= tan(30 deg) = 0.577 (block would not start sliding from rest); 0.35 < 0.577, so the block slides and the answer is unchanged"},
+    "TC409": {"stratum": "R", "answer_with_sentence": 6.597, "regime": null},
+    "TDA34": {"stratum": "C", "answer_with_sentence": 5.387, "regime": null},
+    "TD27A": {"stratum": "R", "answer_with_sentence": 6.597, "regime": null},
+    "T0BDA": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null},
+    "T7D9C": {"stratum": "C", "answer_with_sentence": 5.387, "regime": null},
+    "T263F": {"stratum": "K", "answer_with_sentence": 5.387, "regime": "mu_s matters only if mu_s >= tan(30 deg) = 0.577; 0.35 is below this, so the block starts sliding"}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "a = 9.8*(0.5 - 0.15*0.8660254) = 9.8*0.3700962 = 3.62694 m/s^2. Base: v^2 = 2*3.62694*4 = 29.0155, v = 5.3866 m/s. With the earlier 2 m on the same incline (TC409, TD27A) the block has slid 6 m from rest at the end of the stated distance: v^2 = 2*3.62694*6 = 43.5233, v = 6.5972 m/s. Mass (TDA34, T7D9C) cancels from a = g(sin - mu_k cos). Static friction 0.35 (T5DF8, T263F) only decides whether the block starts moving; tan 30 = 0.577 > 0.35 so it does. T0BDA: the bench slide precedes placement on the incline and release from rest, so it is disconnected. Variant groups state the same numbers and units: {T5DF8, T263F} 0.35; {TDA34, T7D9C} 2 kg; {TC409, TD27A, T0BDA} 2 m. Minor: TC409/TD27A re-anchor 'the stated distance' to begin 2 m after release, which the base problem implicitly places at the release point; the sentences make the re-anchoring explicit, so I do not count it as a contradiction. T7D9C adds 'solid wooden' which is harmless."
+}

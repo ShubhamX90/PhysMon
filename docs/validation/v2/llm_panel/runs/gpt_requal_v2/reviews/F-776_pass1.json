@@ -1,0 +1,55 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "item_id": "F-776",
+  "pass_number": 1,
+  "started_at": "2026-11-13T15:11:21+00:00",
+  "completed_at": "2026-11-13T15:11:51+00:00",
+  "minutes_spent": 0.5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The specified force contributes torque tau_F = r F sin(90 degrees) = 0.3 × 50.0 = 15 N·m. The total torque on A also includes any torque transmitted through the mechanical coupling.",
+    "assumptions": [
+      "The lever arm is measured from A's pivot.",
+      "The numerical answer below is the magnitude of the specified force's torque alone; the total torque is not uniquely determined."
+    ],
+    "answer": 15.0,
+    "unit": "N·m"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "All four variants explicitly mechanically couple B to A but omit the coupling's torque transmission relation and relative torque direction, preventing a unique total torque on A."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    "For an ideal direct coupling transmitting B's torque in the same direction as the specified force's torque, the four total torques are respectively 22.5, 29.0, 30.0 and 37.0 N·m.",
+    "For an ideal direct coupling transmitting B's torque in the opposite direction, the corresponding signed total torques are 7.5, 1.0, 0.0 and -7.0 N·m, taking the specified force's torque as positive."
+  ],
+  "notes": "The mechanically coupled B torque has a physical path to the target and is relevant in every rendering. Its effect cannot be calculated uniquely without further coupling information. If the question intended only the torque contributed by the specified 50.0 N force, that contribution is 15 N·m in every variant, but the wording does not restrict the target that way. The legacy variants share the same wording and unit and vary only B's numerical torque.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "6bb3e6eced5817543d0584ff082244bc60f8b67eb01c524113f146f486c86836",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

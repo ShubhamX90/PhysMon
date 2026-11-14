@@ -1,0 +1,53 @@
+{
+  "item_id": "F-464",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Hydrostatic equilibrium gives Δp = ρgh. Formally, (-1000.0)(9.8)(2.0) = -19600 Pa.",
+    "assumptions": [
+      "The fluid is stationary and has uniform density.",
+      "Uniform terrestrial gravitational acceleration g = 9.8 m/s² is assumed.",
+      "The calculation treats the supplied negative density algebraically; it is not a physically admissible density for an ordinary fluid."
+    ],
+    "answer": -19600.0,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "invalid_parameter_domain"
+  ],
+  "defect_reasons": {
+    "invalid_parameter_domain": "The specified mass density of -1000.0 kg/m³ is outside the physical domain of ordinary fluids, so the formal hydrostatic calculation does not describe an admissible fluid."
+  },
+  "defect_severity": {
+    "invalid_parameter_domain": "high"
+  },
+  "counterexamples": [],
+  "notes": "All four renderings give the same formal pressure contribution, approximately -2.0 × 10^4 Pa at the supplied precision. Tank B's depth is structurally disconnected (D) in every rendering. The different depths occur in separate variants and create no internal contradiction. No numerical value of g is supplied; the numerical calculation uses the conventional terrestrial approximation.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "started_at": "2026-11-13T15:12:31+00:00",
+  "completed_at": "2026-11-13T15:12:52+00:00",
+  "minutes_spent": 0.36,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "cd802cf6c871f2c0020f80be606c83c9fe6e19619f41e46cdb90716879c8b6bc",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

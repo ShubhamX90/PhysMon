@@ -1,0 +1,97 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "item_id": "R-428",
+  "pass_number": 1,
+  "started_at": "2026-11-13T15:18:21+00:00",
+  "completed_at": "2026-11-13T15:19:16+00:00",
+  "minutes_spent": 0.91,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "With a taut string that does not slip, Newton's laws give T_L-m_L g=m_L a, m_R g-T_R=m_R a, and (T_R-T_L)R=I a/R. For a uniform disc, I=MR²/2, hence a=(m_R-m_L)g/(m_L+m_R+M/2)=19.6/9.",
+    "assumptions": [
+      "The string remains taut and is inextensible.",
+      "The pulley axle is frictionless.",
+      "The string does not slip on the pulley; this necessary modelling condition is not stated."
+    ],
+    "answer": 2.1777777778,
+    "unit": "m/s²"
+  },
+  "stratum_assignments": {
+    "TBE0C": {
+      "stratum": "R",
+      "answer_with_sentence": 1.2,
+      "regime": null
+    },
+    "TCD07": {
+      "stratum": "K",
+      "answer_with_sentence": 2.1777777778,
+      "regime": "The string remains intact: under the assumed no-slip model, the tensions are approximately 35.93 N and 38.11 N, both below 200 N."
+    },
+    "TC912": {
+      "stratum": "C",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "T9AFE": {
+      "stratum": "D",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "T1887": {
+      "stratum": "K",
+      "answer_with_sentence": 2.1777777778,
+      "regime": "The string remains intact: under the assumed no-slip model, the tensions are approximately 35.93 N and 38.11 N, both below 200 N."
+    },
+    "T707F": {
+      "stratum": "R",
+      "answer_with_sentence": 1.2,
+      "regime": null
+    },
+    "TF9C3": {
+      "stratum": "C",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    },
+    "T572A": {
+      "stratum": "D",
+      "answer_with_sentence": 2.1777777778,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The problem does not specify that the string does not slip on the massive pulley, although this condition determines whether the pulley's rotational inertia contributes to the acceleration."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    "With a frictionless string–rim contact and a frictionless axle, the string slides over the pulley without driving its rotation, giving a=(5-3)×9.8/(5+3)=2.45 m/s² instead of 2.1777777778 m/s².",
+    "With the attached 0.8 kg mass and frictionless string–rim contact, the acceleration is (5-3.8)×9.8/(5+3.8)=1.3363636364 m/s² instead of 1.2 m/s²."
+  ],
+  "notes": "All numerical answers and stratum assignments use the conventional no-slip interpretation and are conditional on that missing assumption. For the attached-mass sentences, a=11.76/9.8=1.2 m/s². For the radius sentences, R cancels through I/R²=M/2. Variants consistently retain 0.8 kg, 200 N, and 12 cm; no contradictory statements were found.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "afd35492f1a8274d01ef67f61730fb85df270aabc17ea1f6e9f670f5db6018cf",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

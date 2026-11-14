@@ -1,0 +1,81 @@
+{
+  "item_id": "R-996",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "The non-relativistic de Broglie relation gives lambda = hc/sqrt(2(mc²)K_final), where K_final = K_initial + 150 eV, or K_initial + 150 eV + q when an additional accelerating stage acts on the electron.",
+    "assumptions": [
+      "Non-relativistic motion is explicitly stated.",
+      "Convert mc² = 511 keV to 511000 eV.",
+      "The numerical answer below requires K_initial = 0, which is absent from the problem."
+    ],
+    "answer": 100.15,
+    "unit": "pm"
+  },
+  "stratum_assignments": {
+    "T48F5": {
+      "stratum": "D",
+      "answer_with_sentence": 100.15,
+      "regime": null
+    },
+    "T1045": {
+      "stratum": "D",
+      "answer_with_sentence": 100.15,
+      "regime": null
+    },
+    "TBAC2": {
+      "stratum": "R",
+      "answer_with_sentence": 77.5758,
+      "regime": null
+    },
+    "TEA1B": {
+      "stratum": "R",
+      "answer_with_sentence": 77.5758,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The problem specifies the electron's kinetic-energy gain but omits its initial kinetic energy; the authors assume an initially stationary electron without stating this necessary condition in the problem."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "An electron initially having 150 eV of kinetic energy gains the stated 150 eV and finishes with 300 eV, yielding approximately 70.82 pm rather than 100.15 pm while remaining non-relativistic."
+  ],
+  "notes": "The pass-1 conclusion stands. The authors' assumptions disclose the intended initial condition but do not supply it in the problem presented to the solver. All reported numerical sentence answers are conditional on that missing condition. With an initially stationary electron, every certified value is numerically correct: disconnected additions give 100.15 pm throughout, and relevant additions of 50, 100 and 200 eV give 86.7324, 77.5758 and 65.5635 pm. The relations are dimensionally consistent after converting keV to eV and nm to pm. The additional stages reach at most 350 eV for the listed values, comfortably within the stated non-relativistic model; the claimed 500 eV upper bound is conservative. The disconnected attachments have no specified causal path to the target. Both minimal pairs preserve the stated 100 eV quantity and change its attachment as intended. The answer_correct field is false because the certified answers are not uniquely implied by the rendered problem, despite being numerically correct under the authors' extra assumption.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "started_at": "2026-11-13T15:14:43+00:00",
+  "completed_at": "2026-11-13T15:15:18+00:00",
+  "minutes_spent": 0.59,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "7db9b862873167f40fc075a0a6bf2303f25f462e0ad69adc1c549bcee9945eac",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

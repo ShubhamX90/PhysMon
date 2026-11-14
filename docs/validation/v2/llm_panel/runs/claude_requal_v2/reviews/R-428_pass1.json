@@ -1,0 +1,40 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch08",
+  "item_id": "R-428",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:08:00Z",
+  "completed_at": "2026-11-13T10:18:00Z",
+  "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Atwood machine with massive pulley: Newton's second law for each block plus rotational dynamics of the pulley (I = M R^2 / 2, a = alpha R), giving a = (m2 - m1) g / (m1 + m2 + M/2)",
+    "assumptions": ["string does not slip on the pulley (assumed; not stated)", "light, inextensible string", "frictionless pulley axle", "uniform solid disc pulley, I = M R^2/2", "g = 9.8 m/s^2"],
+    "answer": 2.1778,
+    "unit": "m/s^2"
+  },
+  "stratum_assignments": {
+    "TBE0C": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "TCD07": {"stratum": "K", "answer_with_sentence": 2.1778, "regime": "string tensions (about 35.9 N on the left, 38.1 N on the right) stay below the 200 N limit, so the string does not break"},
+    "TC912": {"stratum": "C", "answer_with_sentence": 2.1778, "regime": null},
+    "T9AFE": {"stratum": "D", "answer_with_sentence": 2.1778, "regime": null},
+    "T1887": {"stratum": "K", "answer_with_sentence": 2.1778, "regime": "string tensions (about 35.9 N and 38.1 N) stay below the 200 N breaking threshold"},
+    "T707F": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "TF9C3": {"stratum": "C", "answer_with_sentence": 2.1778, "regime": null},
+    "T572A": {"stratum": "D", "answer_with_sentence": 2.1778, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "The problem does not state that the string does not slip on the pulley; with no-slip a = 19.6/9 = 2.18 m/s^2, whereas if the string slides over a frictionless rim the disc does not affect the motion and a = 19.6/8 = 2.45 m/s^2."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": ["If the string slides without friction over the pulley rim, a = (5-3)(9.8)/(5+3) = 2.45 m/s^2 rather than 2.18 m/s^2."],
+  "notes": "Base: a = (5-3)(9.8)/(3+5+1) = 19.6/9 = 2.178 m/s^2. Tensions: T_left = 3(9.8+2.178) = 35.9 N, T_right = 5(9.8-2.178) = 38.1 N. With 0.8 kg attached to the left block: a = (5-3.8)(9.8)/(3.8+5+1) = 11.76/9.8 = 1.2 m/s^2. Pulley radius cancels because I/R^2 = M/2. Paired sentences check: TBE0C/T707F (0.8 kg, attached to left block, glued vs tied), T9AFE/T572A (0.8 kg, shelf vs other room) and these vs the attached pair all state 0.8 kg; TCD07/T1887 both state 200 N; TC912/TF9C3 both state 12 cm. Wording differences are as intended. The no-slip condition is what most readers would assume given that the pulley's mass is supplied, but under admission rule 1 it decides the answer and is not among the exempt apparatus idealisations, so I flag it; my confidence in that judgement is moderate. Physics otherwise correct."
+}

@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch07",
+  "item_id": "R-765",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:18:30Z", "completed_at": "2026-11-13T10:27:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law along the incline with kinetic friction: a = g(sin theta - mu_k cos theta); kinematics v^2 = 2 a d from rest",
+    "assumptions": ["released from rest", "block slides (does not stick)", "constant kinetic friction coefficient", "negligible air resistance", "block treated as a particle (no tipping)"],
+    "answer": 5.39,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TB05E": {"stratum": "K", "answer_with_sentence": 5.39, "regime": "block starts to slide when released: mu_s < tan 30 deg = 0.577; 0.35 is inside this regime"},
+    "T10DB": {"stratum": "R", "answer_with_sentence": 6.60, "regime": null},
+    "T9E8A": {"stratum": "C", "answer_with_sentence": 5.39, "regime": null},
+    "TAD31": {"stratum": "K", "answer_with_sentence": 5.39, "regime": "block starts to slide when released: mu_s < tan 30 deg = 0.577; 0.35 is inside this regime"},
+    "TEE30": {"stratum": "D", "answer_with_sentence": 5.39, "regime": null},
+    "T7D23": {"stratum": "D", "answer_with_sentence": 5.39, "regime": null},
+    "TC19F": {"stratum": "R", "answer_with_sentence": 6.60, "regime": null},
+    "T2A1D": {"stratum": "C", "answer_with_sentence": 5.39, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "The prior-sliding sentences are variants of one quantity, but TEE30 states 3 m while T10DB, TC19F and T7D23 state 2 m, so TEE30 differs in its number as well as its attachment."},
+  "defect_severity": {"rendering_not_minimal": "medium"},
+  "counterexamples": [],
+  "notes": "a = 9.8(0.5 - 0.15*0.86603) = 9.8*0.37010 = 3.6269 m/s^2. Base: v = sqrt(2*3.6269*4) = sqrt(29.015) = 5.387 m/s. With 2 m of prior sliding from rest on the same slope, the block has covered 6 m from release at the end: v = sqrt(2*3.6269*6) = sqrt(43.52) = 6.597 m/s. Mass cancels from a (C). Static coefficient 0.35 < tan 30 deg, so the block does start to slide (K); the problem also states it slides. Sliding on a bench or floor before being placed and released from rest on the incline has no path to the target (D). TEE30's 3 m does not change its own answer, so I rate the mismatch medium; it does break the intended minimal pairing. T9E8A adds 'solid wooden' to the mass sentence, a harmless attachment detail."
+}

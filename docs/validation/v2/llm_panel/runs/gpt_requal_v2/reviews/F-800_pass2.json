@@ -1,0 +1,61 @@
+{
+  "item_id": "F-800",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "The wave relation v_A = f_A lambda_A gives f_A = 6.0/0.3 = 20 Hz.",
+    "assumptions": [
+      "The stated speed and wavelength describe the same wave on string A."
+    ],
+    "answer": 20,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "relevant_variable_removed_from_equation",
+    "inconsistent_units"
+  ],
+  "defect_reasons": {
+    "relevant_variable_removed_from_equation": "The supplied SymPy expression 1/lambda_A omits the necessary wave speed v_A and does not calculate the claimed frequency.",
+    "inconsistent_units": "The SymPy expression 1/lambda_A has units of inverse metres, whereas the target frequency requires inverse seconds."
+  },
+  "defect_severity": {
+    "relevant_variable_removed_from_equation": "high",
+    "inconsistent_units": "high"
+  },
+  "counterexamples": [
+    "For the supplied wavelength of 0.3 m, the SymPy expression evaluates to approximately 3.333 m^-1, whereas the frequency is 20 Hz using the supplied speed of 6.0 m/s."
+  ],
+  "notes": "The problem renderings, certified answer, LaTeX equation and authors' proof text agree with my locked pass-1 solution. Oscillator B is structurally disconnected in every variant because interaction is explicitly excluded. The variants change only B's frequency, as intended for these legacy renderings. The pass-2 verdict differs solely because the newly supplied SymPy expression contradicts the correct governing relation. The displayed answer's precision is not a material defect.",
+  "equation_consistent": false,
+  "units_consistent": false,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "started_at": "2026-11-13T15:09:53+00:00",
+  "completed_at": "2026-11-13T15:10:17+00:00",
+  "minutes_spent": 0.39,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "90e8e0c5709758a9e48e8b93b7f35e3d599d341a6f9e64d82fcfd565370eff78",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

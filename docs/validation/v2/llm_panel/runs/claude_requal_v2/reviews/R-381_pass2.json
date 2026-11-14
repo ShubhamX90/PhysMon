@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch02",
+  "item_id": "R-381",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:25:30Z",
+  "completed_at": "2026-11-13T10:30:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Ohm's law and Joule heating for parallel resistors: P = V^2/R1 + V^2/R2 = V^2/R_eq",
+    "assumptions": ["ideal battery (internal resistance negligible, as stated)", "ideal connecting wires", "ohmic resistors"],
+    "answer": 36.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T197B": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T1374": {"stratum": "K", "answer_with_sentence": 36.0, "regime": "current through the 6 ohm branch (V/R1 = 2 A) below the fuse threshold, so the fuse does not blow"},
+    "T7F3F": {"stratum": "K", "answer_with_sentence": 36.0, "regime": "current through the 6 ohm branch (V/R1 = 2 A) below the fuse rating, so the fuse does not blow"},
+    "T24CC": {"stratum": "R", "answer_with_sentence": 56.25, "regime": null},
+    "T8967": {"stratum": "R", "answer_with_sentence": 56.25, "regime": null},
+    "T27DC": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Relation P = V^2(1/R1 + 1/R2) is correct; base 36 W. R answers check: 13.5^2/4 = 45.5625, 15^2/4 = 56.25, 18^2/4 = 81.0 W. K regime V/R1 < q holds for every listed rating (2 A < 3, 5, 10 A); the reference expression V^2/R2 outside the regime (blown fuse opens branch 1) is also correct. The regime is written with a strict inequality while T1374 says the fuse blows only above q; the two conventions differ only at I = q, which no listed value reaches. Minimal pairs T197B/T8967 and T27DC/T24CC share 3 V and differ only in attachment. Agrees with pass 1.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

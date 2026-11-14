@@ -1,0 +1,30 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch02",
+  "item_id": "F-464",
+  "pass_number": 1,
+  "started_at": "2026-11-13T10:30:30Z",
+  "completed_at": "2026-11-13T10:35:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Hydrostatic pressure: p = rho * g * h",
+    "assumptions": ["incompressible fluid at rest", "uniform gravitational field, g = 9.81 m/s^2 (not stated in the item)"],
+    "answer": -19620.0,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_parameter_domain", "missing_assumption"],
+  "defect_reasons": {
+    "invalid_parameter_domain": "Fluid A is given a density of -1000.0 kg/m^3; mass density cannot be negative, so the hydrostatic relation is applied outside its physical domain and the formal answer (-19.6 kPa) is meaningless.",
+    "missing_assumption": "No value of g is stated; 9.8 and 9.81 m/s^2 give 19.60 and 19.62 kPa, which differ only beyond the two-significant-figure precision of the inputs."
+  },
+  "defect_severity": {"invalid_parameter_domain": "high", "missing_assumption": "low"},
+  "counterexamples": ["With rho = -1000 kg/m^3, p = rho*g*h = -19620 Pa: a negative gauge pressure from a fluid column, which no physical fluid produces."],
+  "notes": "Tank B's depth (1.0, 1.9, 2.0, 3.0 m) is structurally disconnected, as stated, so the variants agree with one another. The item is invalid because of the negative density. If the sign were a typo for +1000 kg/m^3, the answer would be 19.6 kPa (g = 9.8) or 19.62 kPa (g = 9.81)."
+}

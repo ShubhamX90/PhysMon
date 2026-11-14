@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v2:batch02",
+  "item_id": "F-464",
+  "pass_number": 2,
+  "started_at": "2026-11-13T10:35:30Z",
+  "completed_at": "2026-11-13T10:40:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Hydrostatic pressure: p = rho * g * h",
+    "assumptions": ["incompressible fluid at rest", "uniform gravitational field, g not stated in the item (authors use 9.8 m/s^2)"],
+    "answer": -19600.0,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_parameter_domain", "failed_transformation_identity", "missing_assumption"],
+  "defect_reasons": {
+    "invalid_parameter_domain": "Every rendered variant gives fluid A a density of -1000.0 kg/m^3, which is physically impossible for a mass density.",
+    "failed_transformation_identity": "The certified answer 19600 Pa uses rho_A = +1000 kg/m^3 from the parameter list, but the rendered text states -1000 kg/m^3, from which rho*g*h gives -19600 Pa; the rendering does not match the certified parameters, so the certified answer does not follow from the item as written.",
+    "missing_assumption": "The value of g (authors use 9.8 m/s^2) is not stated in the item; 9.8 versus 9.81 changes the answer only in the third significant figure (19600 vs 19620 Pa), within the precision of the inputs."
+  },
+  "defect_severity": {"invalid_parameter_domain": "high", "failed_transformation_identity": "high", "missing_assumption": "low"},
+  "counterexamples": ["Applying the authors' own equation P = rho_A g h_A to the rendered value rho_A = -1000.0 kg/m^3 with g = 9.8 m/s^2 and h_A = 2.0 m gives -19600 Pa, not the certified 19600 Pa."],
+  "notes": "The governing equation and the disconnection of h_B are correct, and with rho_A = +1000 kg/m^3 the certified 19600 Pa would be right. The defect is a sign error in the rendering of the density (likely a sign-flip perturbation leaking into the text), which makes every variant physically impossible and inconsistent with the certified answer. Agrees with and sharpens pass 1.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

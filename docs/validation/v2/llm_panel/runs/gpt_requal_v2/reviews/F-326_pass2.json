@@ -1,0 +1,57 @@
+{
+  "item_id": "F-326",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Newtonian energy conservation gives v_esc = sqrt(2GM/r). With M = 8.0 kg, G = 1.0 N*m^2/kg^2, and r = 1.0 m, this yields 4.0 m/s. The rendered mass is instead 8.0 m, so no dimensionally valid escape speed follows as written.",
+    "assumptions": [
+      "Newtonian gravity for an isolated, spherically symmetric planet.",
+      "The certified numerical answer requires replacing the rendered mass unit m with kg."
+    ],
+    "answer": null,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "inconsistent_units"
+  ],
+  "defect_reasons": {
+    "inconsistent_units": "Every rendering gives the planetary mass as 8.0 m, contradicting the parameter metadata's kg and preventing the governing expression from yielding a speed with the stated gravitational constant."
+  },
+  "defect_severity": {
+    "inconsistent_units": "high"
+  },
+  "counterexamples": [],
+  "notes": "The pass-1 verdict stands. The governing equation, parameter metadata, and certified answer are internally consistent, but the metadata does not repair the erroneous mass unit in the problem renderings. Probe B is structurally disconnected in every variant, and changing its speed leaves the target unchanged; the authors' disconnection argument is correct. The legacy variants consistently vary only probe B's reported speed. The certified answer is correct only after correcting the rendered mass unit.",
+  "equation_consistent": true,
+  "units_consistent": false,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v2",
+  "started_at": "2026-11-13T15:16:29+00:00",
+  "completed_at": "2026-11-13T15:16:50+00:00",
+  "minutes_spent": 0.35,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "b653c31083c4bc37aa13cd333714080e3c9ad108185b1f30dae4f006baa220fb",
+    "frozen_prompt_sha256": "082366dfe00dc103dc0a89acf3e15276a0b816212c0852d6ca09d399a60110ce",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}
