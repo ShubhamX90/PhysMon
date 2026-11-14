@@ -1,0 +1,153 @@
+{
+  "chat_template_sha256": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+  "created_utc": "2026-11-14T04:55:39Z",
+  "design": {
+    "floor_multiplier": 3.0,
+    "interventions": {
+      "head_z_add": {
+        "downstream_site": "attn_out of the same layer",
+        "head": "n_heads // 2",
+        "layer": "n_layers // 2",
+        "scale": "20 x median L2 norm of HF z of that head",
+        "scale_factor": 20.0,
+        "seed": 1852,
+        "site": "z",
+        "stands_for": "T1 head intervention at answer positions",
+        "start": "n_prompt (first trace token)",
+        "width": 16
+      },
+      "resid_add": {
+        "downstream_site": "resid_post of that layer, read after the hook",
+        "layer": "n_layers // 2",
+        "scale": "1.0 x median L2 norm of HF resid_post at that layer",
+        "scale_factor": 1.0,
+        "seed": 1851,
+        "site": "resid_post",
+        "stands_for": "T3 intervention at a quantity's prompt tokens",
+        "start": "n_prompt // 2",
+        "width": 4
+      }
+    },
+    "sites": [
+      "resid_pre",
+      "resid_mid",
+      "resid_post",
+      "attn_out",
+      "z",
+      "mlp_out"
+    ],
+    "thresholds": {
+      "component": {
+        "one_minus_cos_mean": {
+          "allowance": 0.001,
+          "ceiling": 0.01
+        },
+        "one_minus_cos_min": {
+          "allowance": 0.01,
+          "ceiling": 0.1
+        },
+        "rel_l2": {
+          "allowance": 0.05,
+          "ceiling": 0.15
+        }
+      },
+      "intervention_effect": {
+        "rel_err": {
+          "allowance": 0.1,
+          "ceiling": 0.5
+        }
+      },
+      "logits": {
+        "kl_mean": {
+          "allowance": 0.01,
+          "ceiling": 0.05
+        },
+        "top1_disagreement": {
+          "allowance": 0.01,
+          "ceiling": 0.03
+        }
+      },
+      "residual": {
+        "one_minus_cos_mean": {
+          "allowance": 0.0001,
+          "ceiling": 0.001
+        },
+        "one_minus_cos_min": {
+          "allowance": 0.001,
+          "ceiling": 0.01
+        },
+        "rel_l2": {
+          "allowance": 0.02,
+          "ceiling": 0.05
+        }
+      }
+    },
+    "tl_options": {
+      "center_unembed": false,
+      "center_writing_weights": false,
+      "default_prepend_bos": false,
+      "fold_ln": false,
+      "fold_value_biases": false,
+      "n_devices": 1,
+      "refactor_factored_attn_matrices": false,
+      "use_attn_result": false
+    }
+  },
+  "design_fingerprint": "e5cd6023eeeb5725c055841314ea42664851857756a51c9412a3e0f94035bb66",
+  "inputs_sha256": "786db1e3bc3080c92239ebf231c6fd5bdd4f81f90785ef65dbe8ddef124edd10",
+  "length_distribution": {
+    "max": 4096,
+    "n_records": 2080,
+    "p50": 501.5,
+    "p95": 929.0999999999999,
+    "quantiles": [
+      0.05,
+      0.1318181818181818,
+      0.21363636363636362,
+      0.2954545454545454,
+      0.3772727272727272,
+      0.4590909090909091,
+      0.5409090909090909,
+      0.6227272727272727,
+      0.7045454545454545,
+      0.7863636363636364,
+      0.8681818181818183,
+      0.95
+    ],
+    "targets": [
+      271.0,
+      328.0999999999999,
+      368.0,
+      403.0,
+      435.3499999999999,
+      476.45000000000005,
+      527.0,
+      577.0,
+      625.0,
+      688.0,
+      771.0,
+      929.0999999999999
+    ]
+  },
+  "manifest": "docs/model_manifests/qwen_primary.json",
+  "manifest_sha256": "22570ba358ea9d2a26baa1a3c49d63f7731943f8dc574315515b1b943a302fd8",
+  "model_key": "qwen_primary",
+  "model_name": "Qwen/Qwen2.5-7B-Instruct",
+  "model_path": "${PHYSMON_MODEL_ROOT}/Qwen2.5-7B-Instruct",
+  "model_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "n_prompts": 12,
+  "n_tokens": {
+    "max": 1088,
+    "median": 698,
+    "min": 417
+  },
+  "note": "inputs frozen before any GPU result; traces chosen by length only, never by answer or correctness",
+  "schema": "g0_extended_parity/v1",
+  "selection_rule": "Choose n (trace, prompt) pairs by trace length only. Returns the selections and the length targets.\n\n    Targets are the quantiles linspace(0.05, 0.95, n) of the model's calibration lengths. Longest target first, each structure\n    used once: an M0 structure (instance 0, the instance the role cells use) whose trace is within 15% of the target is\n    preferred, and the prompt is one of that structure's role cells (cell type cycling no_cue, N, R, D, C, K: the trace is the\n    model's own trace under the no-cue control prompt, as in T1 prefix type (ii)); otherwise the closest trace of any unused\n    structure is taken with its own calibration prompt. Ties break on (structure_id, instance, sample_index).",
+  "sources": {
+    "data/v2/dataset/m0_pilot/cells.jsonl": "01031c8dd44a9df89768496393c00c6ec8fed943568f4f80cb9e895f1c6093a4",
+    "data/v2/dataset/v1/dataset.jsonl": "27a41bf2ddf60cd2a1b2e02266b1b3249feca4ebebb4515a6a54216b7fed1c63",
+    "results/stage15/s15_cal_qwen25_7b/raw_records.jsonl": "e275ad67c08df80592fc234eff7b98d102d47bef80a18051ce01f8849613cc95"
+  },
+  "tokenizer_json_sha256": "c0382117ea329cdf097041132f6d735924b697924d6f6fc3945713e96ce87539"
+}

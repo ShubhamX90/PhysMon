@@ -113,3 +113,22 @@ def test_placebo_switches_to_multiplicative_when_additive_changes_sign():
     assert kind == "multiplicative" and value == pytest.approx(1 / 3)
     value, kind = rv.placebo_value(3.0, 1.0, sign_definite=True)
     assert kind == "additive" and value == pytest.approx(5.0)
+
+
+def test_incompatible_unit_cells_carry_a_digit_copy_foil(s01):
+    # G1 decision 26: q (kg, cm, N) has no acceleration dimension, so the copy misuse is the numeral read in m/s^2
+    cells = rv.role_cells(s01, s01_spec(), 0)
+    by_id = {c.cell_id: c for c in cells}
+    for cid in ("R:z1:r0:after_context", "D:z1:d1:after_context"):
+        assert by_id[cid].foils["digit_copy"] == 0.8 and "copy" not in by_id[cid].foils
+    c = next(c for c in cells if c.stratum == "C" and c.value_index == 0)
+    k = next(c for c in cells if c.stratum == "K" and c.value_index == 2)
+    assert c.foils["digit_copy"] == 8.0 and k.foils["digit_copy"] == 300.0
+    assert not any(c.foils for c in cells if c.stratum in ("none", "N"))
+
+
+def test_copy_foils_switch_on_the_dimension_and_use_the_rendered_numeral():
+    assert rv.copy_foils(250.0, "cm", "m") == {"copy": pytest.approx(2.5)}
+    assert rv.copy_foils(0.8, "kg", "m/s^2") == {"digit_copy": 0.8}
+    assert rv.copy_foils(1234567.0, "kg", "m/s^2") == {"digit_copy": 1235000.0}  # 4 significant digits, as typed
+

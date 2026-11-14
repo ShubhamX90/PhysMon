@@ -165,3 +165,25 @@ def test_rendered_cells_are_minimal_pairs_and_numerals_appear(sid):
         if sub is not None:
             text = rv._sentence(sub.frame, None, None, sub.phrasings[0].relation, sub.nonnumeric_fill)
             assert "{" not in text and "}" not in text  # the non-numeric fill renders cleanly
+
+
+@pytest.mark.parametrize("sid", sorted(roles_m0.ROLE_SPECS))
+def test_every_cell_has_exactly_one_copy_foil_matching_its_rendered_numeral(sid):
+    # G1 decision 26: `copy` when q has the target's dimension, else `digit_copy` (the numeral as typed, read in the
+    # target display unit); a digit copy that coincides with the gold is recorded as confounded, never silently matched
+    from physmon.benchmark.v2 import dimensions as dm
+
+    structure, spec = roles_m0.structure(sid), roles_m0.ROLE_SPECS[sid]
+    target_dim = dm.UNITS[structure.render.target_unit].dim
+    for c in rv.role_cells(structure, spec, 0):
+        if c.stratum in ("none", "N"):
+            continue
+        same = dm.UNITS[c.unit].dim == target_dim
+        assert ("copy" in c.foils) == same and ("digit_copy" in c.foils) == (not same), c.cell_id
+        if not same:
+            numeral = rv._fmt(c.value)
+            assert c.foils["digit_copy"] == float(numeral) and numeral in c.prompt
+            gold_close = abs(c.foils["digit_copy"] - c.gold_value) <= rv.LOOSEST_REL_TOL * max(
+                abs(c.foils["digit_copy"]), abs(c.gold_value))
+            assert gold_close == ("digit_copy~gold" in c.confounded), c.cell_id
+

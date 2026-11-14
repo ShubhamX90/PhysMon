@@ -34,6 +34,16 @@ Definitions (plan of record):
   the same value at two or more of at least three values.
 * lambda (descriptive): Hodges-Lehmann location of COMPLETE answers per cell, scaled by the R twin's certified change;
   flagged MULTIMODAL when two or more answer modes each hold at least 20% of the cell's complete answers.
+
+G1 decisions of 2026-11-13 (`docs/registry/v2/g1/decisions_2026-11-13.md`) implemented here:
+* Decision 4: no status below 6 evaluable structures (`MIN_EVALUABLE_STRUCTURES`): below J = 6 the exact two-sided
+  sign-flip test cannot reach p < 0.05 (2/2^5 = 0.0625). Such a contrast is NOT_EVALUATED, never a zero.
+* Decision 5: method agreement (`method_agreement`: t, sign-flip, bootstrap decide; the hierarchical model of
+  `hierarchical_view` is complementary and never the decision) and leave-1-to-3-structures-out robustness
+  (`leave_k_out`, with the extreme-deletion rule of `g3_scorecard_thresholds.md` section 1.5).
+* Population-level misuse excess and attribution (`misuse_attribution`, decision 13), copy excess in R
+  (`copy_excess_r`), O5 cost contrasts (`cost_contrasts`, decisions 10 and 11), C/K versions of F1 and of the value
+  slope (`ck_family`), and the joint-TOST power simulator for F1-F3 (`joint_tost_power`, decision 21).
 """
 
 from __future__ import annotations
@@ -69,8 +79,26 @@ SESOI_REASONS = {
           "the reading of any single item",
     "lambda_D": "descriptive: a leak of a tenth of the relevant-role response",
 }
+SESOI.update({
+    "M": 0.10,  # misuse excess over N, per curve class (plan: "for the D tracking loss and misuse shares ... 0.10")
+    "CR": 0.10,  # copy excess in R over N
+    "L5": math.log(1.2),  # O5 response length, log ratio D / N (decision 10)
+    "B5": 0.05,  # O5 budget exhaustion share, D - N (decision 10)
+})
+SESOI_REASONS.update({
+    "M": "behavioural: the share of answers that may be lost to an irrelevant quantity before it matters (plan of record "
+         "planning value 0.10 for the D tracking loss and misuse shares)",
+    "CR": "same reason as the misuse shares (g3_scorecard_thresholds.md section 2)",
+    "L5": "a fifth longer response is a practical cost at a fixed budget (decision 10)",
+    "B5": "five more exhausted budgets per hundred is a practical cost (decision 10)",
+})
 PRIMARY_VIEW = "grade_declared"
 MULTIMODAL_SHARE = 0.20
+# Decision 4 (G1, 2026-11-13): below 6 evaluable structures no contrast gets a status; the exact two-sided sign-flip test
+# cannot reach p < 0.05 with J < 6 (minimum p = 2/2^J; J = 5 gives 0.0625).
+MIN_EVALUABLE_STRUCTURES = 6
+ROBUSTNESS_KS = (1, 2, 3)  # decision 5 / plan P4.6: effects must survive dropping one to three structures
+ROBUSTNESS_MAX_SUBSETS = 1000  # all subsets when there are at most this many, else a seeded sample of this many
 
 
 # --- per-sample quantities ---------------------------------------------------------------------------------------------
@@ -109,6 +137,7 @@ class Cell:
     foils: dict[str, float]
     placebo: float | None
     confounded: list[str]
+    heldout: bool = False  # held-out values (m >= 5) are not part of F1-F3 (decision 17: a G4 committed prediction)
 
 
 def cells_from_rows(rows: Iterable[Mapping[str, Any]]) -> dict[str, Cell]:
@@ -117,7 +146,8 @@ def cells_from_rows(rows: Iterable[Mapping[str, Any]]) -> dict[str, Cell]:
         role = r.get("role") or {}
         out[r["job_id"]] = Cell(r["job_id"], r["structure_id"], role.get("stratum", r.get("cue_semantic_role") or "none"),
                                 role.get("value_index"), role.get("phrasing_id"), float(r["gold_value"]),
-                                dict(r.get("foils") or {}), role.get("placebo"), list(role.get("confounded") or []))
+                                dict(r.get("foils") or {}), role.get("placebo"), list(role.get("confounded") or []),
+                                bool(role.get("heldout", False)))
     return out
 
 
@@ -137,35 +167,63 @@ def _mean(xs: Sequence[float]) -> float | None:
     return float(np.mean(xs)) if len(xs) else None
 
 
+def phrasing_indices(cells: Mapping[str, Cell]) -> dict[str, int]:
+    """Phrasing index of every R/D/C/K cell: the position of its phrasing id among the sorted phrasing ids of the same
+    structure and stratum (R phrasings r0, r1 and D phrasings d0, d1 both map to 0, 1), so per-phrasing analyses pair
+    the first R phrasing with the first D phrasing."""
+
+    ids: dict[tuple[str, str], set[str]] = defaultdict(set)
+    for c in cells.values():
+        if c.phrasing_id is not None and c.stratum in ("R", "D", "C", "K"):
+            ids[(c.structure_id, c.stratum)].add(c.phrasing_id)
+    order = {k: sorted(v) for k, v in ids.items()}
+    return {key: order[(c.structure_id, c.stratum)].index(c.phrasing_id) for key, c in cells.items()
+            if c.phrasing_id is not None and c.stratum in ("R", "D", "C", "K")}
+
+
 def structure_estimates(records: Iterable[Mapping[str, Any]], cells: Mapping[str, Cell], view: str = PRIMARY_VIEW,
-                        phrasing: str | None = None) -> dict[str, dict[str, Any]]:
-    """Per structure: T̄ by stratum, the F1/F2/F3 estimates, and their inputs. `phrasing` restricts R/D cells to one
-    phrasing index (0 or 1 by position in the cell's role), for the per-phrasing analyses."""
+                        phrasing: int | str | None = None) -> dict[str, dict[str, Any]]:
+    """Per structure: T̄ by stratum, the F1/F2/F3 estimates, and their inputs; for C and K cells (targeted ablations)
+    also F1_C = T̄_N - T̄_C, F1_K = T̄_N - T̄_K and the stratum's own value slope (target 0). `phrasing` restricts R/D
+    cells to one phrasing: an int is the phrasing index of `phrasing_indices` (0 or 1 by position in the cell's role), a
+    str an exact phrasing id. Held-out-value cells are excluded."""
 
     by_cell = group_records(records, cells)
+    index = phrasing_indices(cells)
     out: dict[str, dict[str, Any]] = {}
     per_s: dict[str, dict[str, Any]] = defaultdict(lambda: {"T": defaultdict(list), "T_by_z": defaultdict(list),
                                                             "neglect": [], "placebo": []})
     for key, recs in by_cell.items():
         cell = cells[key]
-        if phrasing is not None and cell.stratum in ("R", "D") and cell.phrasing_id != phrasing:
+        if cell.heldout:
             continue
+        if phrasing is not None and cell.stratum in ("R", "D"):
+            if isinstance(phrasing, int) and index.get(key) != phrasing:
+                continue
+            if isinstance(phrasing, str) and cell.phrasing_id != phrasing:
+                continue
         s = per_s[cell.structure_id]
         ts = [tracking(r, view) for r in recs]
         s["T"][cell.stratum].extend(ts)
-        if cell.stratum in ("R", "D") and cell.value_index is not None:
+        if cell.stratum in ("R", "D", "C", "K") and cell.value_index is not None:
             s["T_by_z"][(cell.stratum, cell.value_index)].extend(ts)
         if cell.stratum == "R":
             s["neglect"].extend(int(matches_value(r, cell.foils.get("neglect"))) for r in recs)
             s["placebo"].extend(int(matches_value(r, cell.placebo)) for r in recs)
     for sid, s in per_s.items():
         t = {k: _mean(v) for k, v in s["T"].items()}
-        f1 = (t["N"] - t["D"]) if t.get("N") is not None and t.get("D") is not None else None
-        f1_nocue = (t["none"] - t["D"]) if t.get("none") is not None and t.get("D") is not None else None
+
+        def loss(a: str, b: str) -> float | None:
+            return (t[a] - t[b]) if t.get(a) is not None and t.get(b) is not None else None
+
         f2 = (_mean(s["neglect"]) - _mean(s["placebo"])) if s["neglect"] else None
-        out[sid] = {"T": t, "F1": f1, "F1_vs_no_cue": f1_nocue, "F2": f2, "F3": f3_estimate(s["T_by_z"]),
+        values = {r: len({z for (rr, z), v in s["T_by_z"].items() if rr == r and len(v)}) for r in ("R", "D", "C", "K")}
+        out[sid] = {"T": t, "F1": loss("N", "D"), "F1_vs_no_cue": loss("none", "D"), "F2": f2,
+                    "F3": f3_estimate(s["T_by_z"]), "F1_C": loss("N", "C"), "F1_K": loss("N", "K"),
+                    "slope_C": stratum_slope(s["T_by_z"], "C"), "slope_K": stratum_slope(s["T_by_z"], "K"),
                     "neglect_share": _mean(s["neglect"]), "placebo_rate": _mean(s["placebo"]),
-                    "n_samples": {k: len(v) for k, v in s["T"].items()}}
+                    "n_samples": {k: len(v) for k, v in s["T"].items()},
+                    "n_values": {k: v for k, v in values.items() if v}}
     return out
 
 
@@ -179,16 +237,21 @@ def _slope(xs: Sequence[float], ys: Sequence[float]) -> float:
     return float(((x - x.mean()) * (y - y.mean())).sum() / ((x - x.mean()) ** 2).sum())
 
 
+def stratum_slope(t_by_z: Mapping[tuple[str, int], Sequence[int]], role: str) -> float | None:
+    """Least-squares slope of the empirical logit of tracking across the value index for one stratum (needs >= 2
+    values); for C and K the target is 0 (g3_scorecard_thresholds.md, H6-extended)."""
+
+    zs = sorted(z for (r, z) in t_by_z if r == role and len(t_by_z[(r, z)]))
+    if len(zs) < 2:
+        return None
+    return _slope(zs, [empirical_logit(sum(t_by_z[(role, z)]), len(t_by_z[(role, z)])) for z in zs])
+
+
 def f3_estimate(t_by_z: Mapping[tuple[str, int], Sequence[int]]) -> float | None:
     """R slope minus D slope of the empirical logit of tracking across the value index (needs >= 2 values in each)."""
 
-    slopes = {}
-    for role in ("R", "D"):
-        zs = sorted(z for (r, z) in t_by_z if r == role and len(t_by_z[(r, z)]))
-        if len(zs) < 2:
-            return None
-        slopes[role] = _slope(zs, [empirical_logit(sum(t_by_z[(role, z)]), len(t_by_z[(role, z)])) for z in zs])
-    return slopes["R"] - slopes["D"]
+    r, d = stratum_slope(t_by_z, "R"), stratum_slope(t_by_z, "D")
+    return None if r is None or d is None else r - d
 
 
 # --- inference on structure-level differences ----------------------------------------------------------------------------
@@ -210,12 +273,19 @@ def sign_flip_p(diffs: Sequence[float], alternative: str) -> float:
     return float(np.mean(np.abs(means) >= abs(observed) - 1e-12))
 
 
-def bootstrap_ci(diffs: Sequence[float], level: float = 0.95) -> list[float]:
+def _bootstrap_means(diffs: Sequence[float]) -> np.ndarray:
     d = np.asarray(diffs, float)
     rng = np.random.default_rng(SEED)
-    means = np.sort(d[rng.integers(0, len(d), size=(N_BOOT, len(d)))].mean(axis=1))
+    return np.sort(d[rng.integers(0, len(d), size=(N_BOOT, len(d)))].mean(axis=1))
+
+
+def _quantile_interval(means: np.ndarray, level: float) -> list[float]:
     lo = (1 - level) / 2
     return [float(np.quantile(means, lo)), float(np.quantile(means, 1 - lo))]
+
+
+def bootstrap_ci(diffs: Sequence[float], level: float = 0.95) -> list[float]:
+    return _quantile_interval(_bootstrap_means(diffs), level)
 
 
 def t_interval(diffs: Sequence[float], level: float) -> list[float]:
@@ -251,10 +321,14 @@ def classify(ci95: Sequence[float], tost: float, margin: float) -> str:
 
 def paired_summary(diffs: Sequence[float | None], margin: float, alternative: str) -> dict[str, Any]:
     d = [float(x) for x in diffs if x is not None and math.isfinite(x)]
-    if len(d) < 3:
-        return {"J": len(d), "outcome": "NOT_EVALUATED", "reason": "fewer than 3 evaluable structures"}
+    if len(d) < MIN_EVALUABLE_STRUCTURES:
+        return {"J": len(d), "outcome": "NOT_EVALUATED", "alternative": alternative, "sesoi": margin,
+                "reason": f"fewer than {MIN_EVALUABLE_STRUCTURES} evaluable structures (decision 4)"}
     arr = np.asarray(d)
-    t_stat = arr.mean() / (arr.std(ddof=1) / math.sqrt(len(d))) if arr.std(ddof=1) > 0 else math.inf * np.sign(arr.mean())
+    if arr.std(ddof=1) > 0:
+        t_stat = arr.mean() / (arr.std(ddof=1) / math.sqrt(len(d)))
+    else:  # no spread: an infinite statistic in the direction of a non-zero mean, 0 for an all-zero set
+        t_stat = math.copysign(math.inf, arr.mean()) if arr.mean() != 0 else 0.0
     if alternative == "greater":
         p_t = float(1 - stats.t.cdf(t_stat, len(d) - 1))
     elif alternative == "less":
@@ -265,8 +339,10 @@ def paired_summary(diffs: Sequence[float | None], margin: float, alternative: st
     ci90 = t_interval(d, 0.90)
     tost = tost_p(d, margin)
     label_interval = ci95 if alternative == "two-sided" else ci90  # one-sided 95% bound for one-sided contrasts
+    boot = _bootstrap_means(d)
     return {"J": len(d), "mean": float(arr.mean()), "sd": float(arr.std(ddof=1)), "ci95_t": ci95,
-            "ci90_t": ci90, "ci95_bootstrap": bootstrap_ci(d), "p_t": p_t,
+            "ci90_t": ci90, "ci95_bootstrap": _quantile_interval(boot, 0.95),
+            "ci90_bootstrap": _quantile_interval(boot, 0.90), "p_t": p_t,
             "p_sign_flip": sign_flip_p(d, alternative), "alternative": alternative, "sesoi": margin, "p_tost": tost,
             "classification_interval": "ci95_t" if alternative == "two-sided" else "ci90_t",
             "outcome": classify(label_interval, tost, margin),
@@ -284,34 +360,329 @@ def holm(pvalues: Mapping[str, float]) -> dict[str, dict[str, Any]]:
     return out
 
 
-def primary_family(estimates: Mapping[str, Mapping[str, Any]]) -> dict[str, Any]:
-    """F1 (one-sided, loss > 0), F2 (one-sided, excess > 0), F3 (two-sided), Holm-corrected on the sign-flip p values."""
+def _excludes_zero_on(interval: Sequence[float], sign: int) -> bool:
+    return bool(interval[0] > 0) if sign > 0 else bool(interval[1] < 0)
 
-    res = {"F1": paired_summary([e["F1"] for e in estimates.values()], SESOI["F1"], "greater"),
-           "F2": paired_summary([e["F2"] for e in estimates.values()], SESOI["F2"], "greater"),
-           "F3": paired_summary([e["F3"] for e in estimates.values()], SESOI["F3"], "two-sided")}
+
+def method_agreement(diffs: Sequence[float | None], summary: Mapping[str, Any],
+                     hierarchical: Mapping[str, Any] | None = None) -> dict[str, Any]:
+    """Decision 5 / plan B6.4: do the paired t-interval, the bootstrap over structures and the sign-flip test agree on
+    the sign of the effect and on excluding zero? Each method is read at the level of the label interval (the
+    one-sided 95% bound, i.e. the 90% two-sided interval, for one-sided contrasts; the 95% interval for two-sided ones),
+    in the observed direction of the mean (for a one-sided contrast whose mean is on the untested side, the sign-flip
+    p is computed in the observed direction). `decision_methods_agree` uses t, sign-flip and bootstrap
+    (g3_scorecard_thresholds.md section 1.4); the hierarchical model is complementary, reported beside, never the
+    decision."""
+
+    if summary.get("outcome") == "NOT_EVALUATED":
+        return {"assessable": False, "reason": summary.get("reason")}
+    d = [float(x) for x in diffs if x is not None and math.isfinite(x)]
+    mean = float(np.mean(d))
+    sign = 1 if mean > 0 else (-1 if mean < 0 else 0)
+    direction = sign or 1
+    two_sided = summary["alternative"] == "two-sided"
+    label_t = summary["ci95_t"] if two_sided else summary["ci90_t"]
+    label_boot = summary["ci95_bootstrap"] if two_sided else summary["ci90_bootstrap"]
+    # two-sided contrasts: the two-sided p; one-sided ones: the one-sided p in the observed direction (alpha 0.05 each)
+    p_flip = summary["p_sign_flip"] if two_sided else sign_flip_p(d, "greater" if direction > 0 else "less")
+    boot_mid = float(np.median(label_boot))
+    methods: dict[str, Any] = {
+        "t": {"sign": sign, "interval": label_t, "excludes_zero": _excludes_zero_on(label_t, direction)},
+        "bootstrap": {"sign": (1 if boot_mid > 0 else -1 if boot_mid < 0 else 0), "interval": label_boot,
+                      "excludes_zero": _excludes_zero_on(label_boot, direction)},
+        "sign_flip": {"sign": sign, "p": p_flip, "direction": direction, "excludes_zero": bool(p_flip < ALPHA)},
+    }
+    decision = ("t", "bootstrap", "sign_flip")
+    out: dict[str, Any] = {"assessable": True, "direction": direction, "methods": methods,
+                           "decision_methods": list(decision),
+                           "decision_methods_agree": len({methods[m]["excludes_zero"] for m in decision}) == 1
+                           and len({methods[m]["sign"] for m in decision}) == 1}
+    if hierarchical is not None and hierarchical.get("status") == "OK":
+        h_sign = 1 if hierarchical["estimate"] > 0 else (-1 if hierarchical["estimate"] < 0 else 0)
+        methods["hierarchical"] = {"sign": h_sign, "interval": hierarchical["interval"],
+                                   "excludes_zero": _excludes_zero_on(hierarchical["interval"], direction),
+                                   "method": hierarchical["method"]}
+        out["hierarchical_agrees_in_sign"] = h_sign == sign
+        out["hierarchical_agrees_in_excluding_zero"] = methods["hierarchical"]["excludes_zero"] == methods["t"]["excludes_zero"]
+    elif hierarchical is not None:
+        out["hierarchical_not_available"] = hierarchical.get("reason")
+    out["all_agree_in_sign"] = len({m["sign"] for m in methods.values()}) == 1
+    out["all_agree_in_excluding_zero"] = len({m["excludes_zero"] for m in methods.values()}) == 1
+    return out
+
+
+def _labels_after_deletion(d: np.ndarray, dropped: np.ndarray, margin: float, alternative: str) -> dict[str, np.ndarray]:
+    """Vectorised `paired_summary` label and mean for each row of `dropped` (index sets removed from `d`)."""
+
+    n = len(d) - dropped.shape[1]
+    total, total_sq = d.sum(), (d ** 2).sum()
+    mean = (total - d[dropped].sum(axis=1)) / n
+    ss = (total_sq - (d[dropped] ** 2).sum(axis=1)) - n * mean ** 2
+    sd = np.sqrt(np.clip(ss, 0, None) / (n - 1))
+    se = sd / math.sqrt(n)
+    level = 0.95 if alternative == "two-sided" else 0.90
+    half = stats.t.ppf(1 - (1 - level) / 2, n - 1) * se
+    lo, hi = mean - half, mean + half
+    with np.errstate(divide="ignore", invalid="ignore"):
+        p_low = 1 - stats.t.cdf((mean + margin) / se, n - 1)
+        p_high = stats.t.cdf((mean - margin) / se, n - 1)
+    tost = np.where(se == 0, np.where(np.abs(mean) < margin, 0.0, 1.0), np.maximum(p_low, p_high))
+    excludes = (lo > 0) | (hi < 0)
+    beyond = (hi > margin) | (lo < -margin)
+    label = np.where(excludes & beyond, "EFFECT", np.where(excludes, "TRIVIAL_EFFECT",
+                                                            np.where(tost < ALPHA, "EQUIVALENT", "INCONCLUSIVE")))
+    if n < MIN_EVALUABLE_STRUCTURES:
+        label = np.full(len(mean), "NOT_EVALUATED")
+    return {"label": label, "mean": mean, "lo": lo, "hi": hi}
+
+
+def leave_k_out(diffs: Sequence[float | None], margin: float, alternative: str, ks: Sequence[int] = ROBUSTNESS_KS,
+                max_subsets: int = ROBUSTNESS_MAX_SUBSETS, seed: int = SEED) -> dict[str, Any]:
+    """Decision 5 / plan P4.6: leave-k-structures-out robustness for k = 1, 2, 3. For each k, the structures are deleted
+    in every subset when there are at most `max_subsets` subsets (always for k = 1 at J <= 1000), else in a seeded
+    sample of `max_subsets` distinct subsets that always contains the extreme subset below; reported: the share of
+    subsets in which the outcome label and the sign of the mean are unchanged. A deletion that leaves fewer than 6
+    structures has no label (decision 4) and so counts as a change. FRAGILE: any deletion with k <= 3 changes the label.
+
+    Extreme-deletion rule (g3_scorecard_thresholds.md section 1.5): when the label interval excludes zero, delete the
+    1, 2 and 3 structures with the largest estimates in the direction of the effect; the label interval (one-sided 95%
+    bound for one-sided contrasts, by decision 2; 95% two-sided otherwise) must still exclude zero in that direction
+    each time, else NOT_ROBUST."""
+
+    d = np.asarray([float(x) for x in diffs if x is not None and math.isfinite(x)])
+    J = len(d)
+    if J < MIN_EVALUABLE_STRUCTURES:
+        return {"assessable": False, "J": J, "reason": f"fewer than {MIN_EVALUABLE_STRUCTURES} evaluable structures"}
+    full = _labels_after_deletion(d, np.zeros((1, 0), dtype=int), margin, alternative)
+    full_label, full_mean = str(full["label"][0]), float(full["mean"][0])
+    full_sign = int(np.sign(full_mean))
+    direction = 1 if full_mean >= 0 else -1
+    excludes = bool(full["lo"][0] > 0 or full["hi"][0] < 0)
+    order = np.argsort(-direction * d, kind="stable")  # most extreme in the direction of the effect first
+    rng = np.random.default_rng(seed)
+    by_k: dict[str, Any] = {}
+    extreme: dict[str, Any] = {}
+    fragile = False
+    for k in ks:
+        if J - k < 2:
+            by_k[str(k)] = {"assessable": False, "reason": f"J - k = {J - k} leaves no interval"}
+            continue
+        n_all = math.comb(J, k)
+        extreme_set = tuple(sorted(int(i) for i in order[:k]))
+        if n_all <= max_subsets:
+            subsets = list(itertools.combinations(range(J), k))
+            exhaustive = True
+        else:
+            chosen = {extreme_set}
+            while len(chosen) < max_subsets:
+                chosen.add(tuple(sorted(int(i) for i in rng.choice(J, size=k, replace=False))))
+            subsets = sorted(chosen)
+            exhaustive = False
+        res = _labels_after_deletion(d, np.asarray(subsets, dtype=int), margin, alternative)
+        label_same = res["label"] == full_label
+        sign_same = np.sign(res["mean"]) == full_sign
+        labels, counts = np.unique(res["label"], return_counts=True)
+        by_k[str(k)] = {"assessable": True, "n_subsets": len(subsets), "n_possible": n_all, "exhaustive": exhaustive,
+                        "share_label_unchanged": float(label_same.mean()), "share_sign_unchanged": float(sign_same.mean()),
+                        "labels": {str(a): int(b) for a, b in zip(labels, counts)}, "J_after": J - k}
+        fragile = fragile or not bool(label_same.all())
+        ext = _labels_after_deletion(d, np.asarray([extreme_set], dtype=int), margin, alternative)
+        lo, hi = float(ext["lo"][0]), float(ext["hi"][0])
+        extreme[str(k)] = {"dropped_index": list(extreme_set), "dropped_estimates": [float(d[i]) for i in extreme_set],
+                           "interval": [lo, hi], "label": str(ext["label"][0]),
+                           "still_excludes_zero": bool(lo > 0) if direction > 0 else bool(hi < 0)}
+    not_robust = excludes and any(not v["still_excludes_zero"] for v in extreme.values())
+    return {"assessable": True, "J": J, "full_label": full_label, "full_sign": full_sign, "direction": direction,
+            "by_k": by_k, "fragile": fragile, "extreme_deletion": extreme if excludes else None,
+            "not_robust": bool(not_robust), "max_subsets": max_subsets, "seed": seed}
+
+
+def diagnosed_summary(diffs: Sequence[float | None], margin: float, alternative: str,
+                      hierarchical: Mapping[str, Any] | None = None) -> dict[str, Any]:
+    """`paired_summary` plus `method_agreement` and `leave_k_out` (decision 5)."""
+
+    summary = paired_summary(diffs, margin, alternative)
+    if summary["outcome"] != "NOT_EVALUATED":
+        summary["method_agreement"] = method_agreement(diffs, summary, hierarchical)
+        summary["robustness"] = leave_k_out(diffs, margin, alternative)
+    if hierarchical is not None:
+        summary["hierarchical"] = dict(hierarchical)
+    return summary
+
+
+PRIMARY = {"F1": ("F1", "greater"), "F2": ("F2", "greater"), "F3": ("F3", "two-sided")}
+
+
+def primary_family(estimates: Mapping[str, Mapping[str, Any]], diagnostics: bool = True,
+                   hierarchical: Mapping[str, Mapping[str, Any]] | None = None) -> dict[str, Any]:
+    """F1 (one-sided, loss > 0), F2 (one-sided, excess > 0), F3 (two-sided), Holm-corrected on the sign-flip p values.
+    With `diagnostics`, each evaluable contrast also carries `method_agreement` and `robustness` (decision 5);
+    `hierarchical` (the output of `hierarchical_view`) is attached beside, complementary only."""
+
+    res: dict[str, Any] = {}
+    for name, (key, alternative) in PRIMARY.items():
+        diffs = [e[key] for e in estimates.values()]
+        hier = (hierarchical or {}).get(name)
+        res[name] = (diagnosed_summary(diffs, SESOI[name], alternative, hier) if diagnostics
+                     else paired_summary(diffs, SESOI[name], alternative))
     evaluable = {k: v["p_sign_flip"] for k, v in res.items() if "p_sign_flip" in v}
     res["holm"] = holm(evaluable) if evaluable else {}
     return res
 
 
-def phrasing_agreement(records: Sequence[Mapping[str, Any]], cells: Mapping[str, Cell], phrasings: Sequence[str],
-                       view: str = PRIMARY_VIEW) -> dict[str, Any]:
+def phrasing_agreement(records: Sequence[Mapping[str, Any]], cells: Mapping[str, Cell],
+                       phrasings: Sequence[int | str] = (0, 1), view: str = PRIMARY_VIEW) -> dict[str, Any]:
     """Per-phrasing F1-F3 and the phrasing-by-role check: the per-structure difference between two phrasings' estimates
-    must be equivalent to zero within the SESOI (TOST), or both phrasings' estimates exceed the SESOI in one direction."""
+    must be equivalent to zero within the SESOI (TOST), or both phrasings' estimates exceed the SESOI in one direction.
+    Phrasings are indices (`phrasing_indices`: the first R phrasing with the first D phrasing) or exact ids."""
 
     per = {p: structure_estimates(records, cells, view, phrasing=p) for p in phrasings}
-    out: dict[str, Any] = {"per_phrasing": {p: primary_family(e) for p, e in per.items()}}
+    out: dict[str, Any] = {"phrasings": list(phrasings),
+                           "per_phrasing": {str(p): primary_family(e) for p, e in per.items()}}
     if len(phrasings) == 2:
         a, b = phrasings
         for f in ("F1", "F2", "F3"):
             diffs = [per[a][s][f] - per[b][s][f] for s in per[a] if s in per[b]
                      and per[a][s][f] is not None and per[b][s][f] is not None]
             summary = paired_summary(diffs, SESOI[f], "two-sided")
-            same_side = all(out["per_phrasing"][p][f].get("ci95_t", [0, 0])[0] > SESOI[f] for p in phrasings) or all(
-                out["per_phrasing"][p][f].get("ci95_t", [0, 0])[1] < -SESOI[f] for p in phrasings)
+            same_side = all(out["per_phrasing"][str(p)][f].get("ci95_t", [0, 0])[0] > SESOI[f] for p in phrasings) or all(
+                out["per_phrasing"][str(p)][f].get("ci95_t", [0, 0])[1] < -SESOI[f] for p in phrasings)
             summary["agree"] = summary.get("outcome") == "EQUIVALENT" or same_side
+            summary["same_side_beyond_sesoi"] = same_side
             out[f"phrasing_by_role_{f}"] = summary
+    return out
+
+
+# --- hierarchical view (complementary, decision 5) ---------------------------------------------------------------------------
+
+HIER_FE_PRIOR_SD = 5.0  # weakly informative N(0, 5^2) on fixed effects (logit scale): covers rates 0.007-0.993 at 1 SD
+HIER_VC_PRIOR_SD = 1.0  # statsmodels default prior SD of the log variance-component SDs
+HIER_MAX_ABS_LOGIT = 10.0  # |coefficient| above this is read as (quasi-)separation, i.e. an unstable fit
+
+
+def _hier_rows(records: Sequence[Mapping[str, Any]], cells: Mapping[str, Cell], contrast: str,
+               view: str) -> tuple[np.ndarray, np.ndarray, np.ndarray, list[str], list[str]]:
+    """Per-sample rows (y, fixed-effect design, structure index, fixed-effect names, random-slope names)."""
+
+    by_cell = group_records(records, cells)
+    ys: list[int] = []
+    xs: list[list[float]] = []
+    groups: list[str] = []
+    for key, recs in by_cell.items():
+        cell = cells[key]
+        if cell.heldout:
+            continue
+        if contrast == "F1" and cell.stratum in ("N", "D"):
+            for r in recs:
+                ys.append(tracking(r, view))
+                xs.append([1.0, float(cell.stratum == "D")])
+                groups.append(cell.structure_id)
+        elif contrast == "F2" and cell.stratum == "R":
+            for r in recs:
+                for is_neglect, target in ((1.0, cell.foils.get("neglect")), (0.0, cell.placebo)):
+                    ys.append(int(matches_value(r, target)))
+                    xs.append([1.0, is_neglect])
+                    groups.append(cell.structure_id)
+        elif contrast == "F3" and cell.stratum in ("R", "D") and cell.value_index is not None:
+            for r in recs:
+                is_r = float(cell.stratum == "R")
+                ys.append(tracking(r, view))
+                xs.append([1.0, is_r, float(cell.value_index), is_r * float(cell.value_index)])
+                groups.append(cell.structure_id)
+    names = {"F1": ["intercept", "D"], "F2": ["intercept", "neglect"], "F3": ["intercept", "R", "z", "R:z"]}[contrast]
+    x = np.asarray(xs, float) if xs else np.zeros((0, len(names)))
+    if contrast == "F3" and len(x):
+        x[:, 2] -= x[:, 2].mean()  # centre the value index; the interaction is unchanged
+        x[:, 3] = x[:, 1] * x[:, 2]
+    slopes = {"F1": ["D"], "F2": ["neglect"], "F3": ["R", "R:z"]}[contrast]
+    return np.asarray(ys, float), x, np.asarray(groups), names, slopes
+
+
+def _hier_fit_one(y: np.ndarray, x: np.ndarray, groups: np.ndarray, names: list[str], slopes: list[str],
+                  term: str, sign: int, level: float) -> dict[str, Any]:
+    import warnings
+
+    import scipy.sparse as sparse
+    import statsmodels.api as sm
+    from statsmodels.genmod.bayes_mixed_glm import BinomialBayesMixedGLM
+
+    levels, g = np.unique(groups, return_inverse=True)
+    J = len(levels)
+    base = {"term": term, "J": int(J), "n_rows": int(len(y)), "level": level}
+    if J < MIN_EVALUABLE_STRUCTURES:
+        return {**base, "status": "NOT_EVALUATED", "reason": f"fewer than {MIN_EVALUABLE_STRUCTURES} structures"}
+    if y.min() == y.max():
+        return {**base, "status": "NOT_EVALUATED", "reason": "the outcome does not vary"}
+    j = names.index(term)
+    z = stats.norm.ppf(1 - (1 - level) / 2)
+    reasons = []
+    # 1) Bayesian mixed logistic model: structure random intercept and random slope(s) of the contrast term(s), each
+    #    with its own variance component; posterior mode and Laplace SD (fit_map, Newton-CG, which converged where BFGS
+    #    stopped on precision loss at the same optimum). Mean-field VB (fit_vb) understates posterior SDs (by 40-60% in
+    #    the G1 prototype), so the Laplace approximation is used.
+    columns = [np.ones(len(y))] + [x[:, names.index(t)] for t in slopes]
+    rows = np.concatenate([np.arange(len(y))] * len(columns))
+    cols = np.concatenate([g + i * J for i in range(len(columns))])
+    vals = np.concatenate(columns)
+    keep = vals != 0
+    exog_vc = sparse.csr_matrix((vals[keep], (rows[keep], cols[keep])), shape=(len(y), J * len(columns)))
+    ident = np.repeat(np.arange(len(columns)), J)
+    try:
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            model = BinomialBayesMixedGLM(y, x, exog_vc, ident, vcp_p=HIER_VC_PRIOR_SD, fe_p=HIER_FE_PRIOR_SD)
+            # statsmodels draws the random-effect start values from the global numpy RNG; a fixed start keeps the fit
+            # reproducible and leaves the global RNG alone
+            model._get_start = lambda: np.concatenate((np.zeros(model.k_fep), np.ones(model.k_vcp),  # noqa: SLF001
+                                                      np.zeros(model.k_vc)))
+            fit = model.fit_map(method="Newton-CG")
+        est, sd = float(fit.fe_mean[j]), float(fit.fe_sd[j])
+        retvals = getattr(fit, "optim_retvals", None)
+        converged = bool(retvals.get("success", False)) if isinstance(retvals, dict) else True
+        if converged and math.isfinite(est) and math.isfinite(sd) and sd > 0 and abs(est) <= HIER_MAX_ABS_LOGIT:
+            e = sign * est
+            return {**base, "status": "OK", "method": "BinomialBayesMixedGLM.fit_map (structure random intercept and "
+                    f"random slope of {', '.join(slopes)})", "estimate": e, "sd": sd,
+                    "interval": [float(e - z * sd), float(e + z * sd)],
+                    "vc_sd_log_mean": [float(v) for v in fit.vcp_mean]}
+        reasons.append(f"Bayesian fit unstable (converged={converged}, estimate={est}, sd={sd})")
+    except Exception as exc:  # noqa: BLE001 - any failure of the complementary fit falls back, never crashes the analysis
+        reasons.append(f"Bayesian fit failed: {exc!r}")
+    # 2) fallback: GEE (binomial, exchangeable within structure) with the robust sandwich SE clustered by structure
+    try:
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            gee = sm.GEE(y, x, groups=g, family=sm.families.Binomial(), cov_struct=sm.cov_struct.Exchangeable()).fit()
+        est, sd = float(gee.params[j]), float(gee.bse[j])
+        if math.isfinite(est) and math.isfinite(sd) and sd > 0 and abs(est) <= HIER_MAX_ABS_LOGIT:
+            e = sign * est
+            return {**base, "status": "OK", "method": "GEE (binomial, exchangeable, robust SE clustered by structure)",
+                    "estimate": e, "sd": sd, "interval": [float(e - z * sd), float(e + z * sd)],
+                    "fallback_reason": "; ".join(reasons)}
+        reasons.append(f"GEE unstable (estimate={est}, sd={sd})")
+    except Exception as exc:  # noqa: BLE001
+        reasons.append(f"GEE failed: {exc!r}")
+    return {**base, "status": "NOT_EVALUATED", "reason": "; ".join(reasons)}
+
+
+def hierarchical_view(records: Sequence[Mapping[str, Any]], cells: Mapping[str, Cell],
+                      view: str = PRIMARY_VIEW) -> dict[str, dict[str, Any]]:
+    """Decision 5: the mixed-effects logistic view of F1-F3 on per-sample outcomes (plan `sec:statistics`: hierarchical
+    models are complementary views, not a ranking; the paired analysis of structure-level estimates decides).
+
+    * F1: tracking ~ D (N and D samples); estimate = -beta_D (positive = a loss in D, the sign of F1).
+    * F2: match ~ neglect (each R sample gives a neglect-match row and a placebo-match row); estimate = beta_neglect.
+    * F3: tracking ~ R + z + R:z (R and D samples, z = value index, centred); estimate = beta_R:z, the R minus D slope.
+    Each has a structure random intercept and structure random slope(s) of its contrast term(s). Fit: the Bayesian
+    mixed GLM (posterior mode, Laplace SD); if it fails to converge, gives a non-finite or non-positive SD or a
+    coefficient beyond |10| logits (separation), a GEE clustered by structure is used instead and the reason is
+    recorded; if both fail, NOT_EVALUATED. The coefficient is on the logit scale, so only its sign and whether its
+    interval excludes zero are compared with the paired analysis (at the same level: 90% for F1, F2; 95% for F3)."""
+
+    out = {}
+    for contrast, term, sign, level in (("F1", "D", -1, 0.90), ("F2", "neglect", 1, 0.90), ("F3", "R:z", 1, 0.95)):
+        y, x, groups, names, slopes = _hier_rows(records, cells, contrast, view)
+        out[contrast] = _hier_fit_one(y, x, groups, names, slopes, term, sign, level)
     return out
 
 
@@ -323,9 +694,10 @@ def jeffreys(successes: int, n: int, level: float = 0.95) -> dict[str, float]:
             "hi": float(stats.beta.ppf(1 - (1 - level) / 2, a, b)), "x": successes, "n": n}
 
 
-def beta_binomial_fit(counts: Sequence[tuple[int, int]]) -> dict[str, Any]:
+def beta_binomial_fit(counts: Sequence[tuple[int, int]], n_boot: int = 200) -> dict[str, Any]:
     """Maximum-likelihood Beta-Binomial over structures (x successes of n each): mean mu and overdispersion rho, with a
-    bootstrap-over-structures interval for mu. Zero totals give a finite estimate, never a reported zero."""
+    bootstrap-over-structures interval for mu (`n_boot` resamples; 0 skips it). Zero totals give a finite estimate,
+    never a reported zero."""
 
     data = [(int(x), int(n)) for x, n in counts if n > 0]
     if not data:
@@ -345,10 +717,13 @@ def beta_binomial_fit(counts: Sequence[tuple[int, int]]) -> dict[str, Any]:
         return 1 / (1 + math.exp(-r.x[0])), 1 / (1 + math.exp(r.x[1]))
 
     mu, rho = fit(data)
-    rng = np.random.default_rng(SEED)
-    boots = sorted(fit([data[i] for i in rng.integers(0, len(data), len(data))])[0] for _ in range(200))
-    return {"mu": mu, "rho": rho, "ci95_bootstrap": [boots[4], boots[194]], "J": len(data),
-            "x_total": sum(c[0] for c in data), "n_total": sum(c[1] for c in data)}
+    out = {"mu": mu, "rho": rho, "J": len(data), "x_total": sum(c[0] for c in data), "n_total": sum(c[1] for c in data)}
+    if n_boot:
+        rng = np.random.default_rng(SEED)
+        boots = np.sort([fit([data[i] for i in rng.integers(0, len(data), len(data))])[0] for _ in range(n_boot)])
+        out["ci95_bootstrap"] = [float(boots[max(0, int(0.025 * n_boot) - 1)]),
+                                 float(boots[min(n_boot - 1, int(0.975 * n_boot) - 1)])]
+    return out
 
 
 # --- misuse support and lambda ---------------------------------------------------------------------------------------------
@@ -383,6 +758,225 @@ def misuse_support(records: Sequence[Mapping[str, Any]], cells: Mapping[str, Cel
                   "supported": len(by_z) >= 3 and wins >= 2,
                   "confounded": any(h in c for c in confounded)}
     return out
+
+
+def curve_class(name: str) -> str:
+    """The population-level misuse curve of a per-structure foil name: `add:m2` and `add:M` are both `add`; foils
+    without a node (`copy`, `digit_copy`, `relevant_twin`, `wrong_law`, `out_of_regime`) are their own class."""
+
+    return name.split(":", 1)[0]
+
+
+ROUTE_CLASSES = {"D": ("replace", "add", "subtract", "relevant_twin"), "C": ("wrong_law",), "K": ("out_of_regime",)}
+COPY_CLASSES = ("copy", "digit_copy")
+MIN_MISUSE_MATCHES = 5  # decision 13: fewer D matches in total make attribution INCONCLUSIVE, not absent
+NOT_MISUSE = ("neglect",)
+
+
+def _confounded_names(cell: Cell) -> set[str]:
+    return {part for pair in cell.confounded for part in pair.split("~") if part != "gold"}
+
+
+def _class_shares(records: Sequence[Mapping[str, Any]], cells: Mapping[str, Cell], stratum: str,
+                  classes: Sequence[str] | None = None) -> dict[str, dict[str, Any]]:
+    """Per class h and structure: per study value z, the stratum's samples matching any unconfounded member of h at z,
+    and the N samples of the same structure matching the same targets; plus whether h is defined and confounded."""
+
+    by_cell = group_records(records, cells)
+    n_recs: dict[str, list[Mapping[str, Any]]] = defaultdict(list)
+    for key, recs in by_cell.items():
+        if cells[key].stratum == "N":
+            n_recs[cells[key].structure_id].extend(recs)
+    defined: dict[tuple[str, str], set[str]] = defaultdict(set)
+    confounded: dict[tuple[str, str], set[str]] = defaultdict(set)
+    for c in cells.values():
+        if c.stratum != stratum or c.heldout or c.value_index is None:
+            continue
+        for name in c.foils:
+            if name in NOT_MISUSE or (classes is not None and curve_class(name) not in classes):
+                continue
+            defined[(curve_class(name), c.structure_id)].add(name)
+        for name in _confounded_names(c):
+            confounded[(curve_class(name), c.structure_id)].add(name)
+    out: dict[str, dict[str, Any]] = defaultdict(dict)
+    for (h, sid), members in defined.items():
+        usable = members - confounded[(h, sid)]
+        slot: dict[str, Any] = {"members": sorted(members), "usable": sorted(usable), "confounded": not usable,
+                                "by_value": {}}
+        out[h][sid] = slot
+        if not usable:
+            continue
+        for key, recs in by_cell.items():
+            c = cells[key]
+            if c.structure_id != sid or c.stratum != stratum or c.heldout or c.value_index is None:
+                continue
+            targets = [c.foils[m] for m in usable if m in c.foils]
+            v = slot["by_value"].setdefault(c.value_index, {"x": 0, "n": 0, "targets": set()})
+            v["x"] += sum(any(matches_value(r, t) for t in targets) for r in recs)
+            v["n"] += len(recs)
+            v["targets"].update(targets)
+        for v in slot["by_value"].values():
+            nr = n_recs.get(sid, [])
+            v["n_x"] = sum(any(matches_value(r, t) for t in v["targets"]) for r in nr)
+            v["n_n"] = len(nr)
+            v["targets"] = sorted(v["targets"])
+    return out
+
+
+def _excess(slot: Mapping[str, Any]) -> float | None:
+    """Per structure: mean over the study values of (stratum share - N share) matching the curve."""
+
+    vals = [v["x"] / v["n"] - v["n_x"] / v["n_n"] for v in slot["by_value"].values() if v["n"] and v["n_n"]]
+    return float(np.mean(vals)) if vals else None
+
+
+def misuse_attribution(records: Sequence[Mapping[str, Any]], cells: Mapping[str, Cell],
+                       stratum: str = "D") -> dict[str, Any]:
+    """Population-level misuse excess M_h and attribution A_h per curve class (g3_scorecard_thresholds.md section 2 as
+    amended by decision 13). Per structure, M_h = mean over the study values of (share of stratum samples matching
+    f_h(z) - share of N samples matching f_h(z)), where a class's members confounded with the gold in that structure
+    are not counted. M_h is summarised over structures like a primary contrast (one-sided, SESOI 0.10, with method
+    agreement and robustness). Attribution of h:
+
+    * NOT_EVALUATED: h defined (with an unconfounded member) in fewer than 6 structures;
+    * NOT_ATTRIBUTED (CONFOUNDED): h confounded with the gold in more than half of the structures where it is defined;
+    * INCONCLUSIVE: fewer than 5 stratum samples in total match h (rare categories; not absent);
+    * ATTRIBUTED: M_h's interval excludes zero in the positive direction (EFFECT or TRIVIAL_EFFECT, with the decision
+      methods agreeing and not NOT_ROBUST), and the Beta-Binomial pooled stratum share exceeds the pooled N rate at
+      2 or more of at least 3 study values;
+    * NOT_ATTRIBUTED otherwise."""
+
+    shares = _class_shares(records, cells, stratum)
+    out: dict[str, Any] = {}
+    for h, per_s in sorted(shares.items()):
+        n_defined = len(per_s)
+        n_conf = sum(1 for v in per_s.values() if v["confounded"])
+        usable = {sid: v for sid, v in per_s.items() if not v["confounded"]}
+        diffs = {sid: _excess(v) for sid, v in usable.items()}
+        summary = diagnosed_summary(list(diffs.values()), SESOI["M"], "greater")
+        x_total = sum(b["x"] for v in usable.values() for b in v["by_value"].values())
+        zs = sorted({z for v in usable.values() for z in v["by_value"]})
+        pooled = {}
+        for z in zs:
+            d_counts = [(v["by_value"][z]["x"], v["by_value"][z]["n"]) for v in usable.values() if z in v["by_value"]]
+            n_counts = [(v["by_value"][z]["n_x"], v["by_value"][z]["n_n"]) for v in usable.values() if z in v["by_value"]]
+            mu_d = beta_binomial_fit(d_counts, n_boot=0).get("mu")
+            mu_n = beta_binomial_fit(n_counts, n_boot=0).get("mu")
+            x_d = sum(c[0] for c in d_counts)
+            # with no stratum match at z the two fitted means differ only by optimiser artefacts: never "above"
+            pooled[str(z)] = {"mu_stratum": mu_d, "mu_N": mu_n, "x_stratum": x_d,
+                              "above_N": bool(x_d > 0 and mu_d is not None and mu_n is not None and mu_d > mu_n)}
+        wins = sum(v["above_N"] for v in pooled.values())
+        label = effective_label(summary)
+        entry = {"class": h, "stratum": stratum, "structures_defined": n_defined, "structures_confounded": n_conf,
+                 "J": summary["J"], "M": summary, "effective_label": label, "matches_total": int(x_total),
+                 "pooled_by_value": pooled, "values": len(zs), "values_above_N": int(wins),
+                 "per_structure": {sid: {"excess": diffs[sid], "members": v["usable"]} for sid, v in usable.items()}}
+        if n_defined == 0 or (summary["outcome"] == "NOT_EVALUATED" and n_conf * 2 <= n_defined):
+            entry["attribution"], entry["reason"] = "NOT_EVALUATED", (
+                f"defined without confounding in {len(usable)} structures (< {MIN_EVALUABLE_STRUCTURES})")
+        elif n_conf * 2 > n_defined:
+            entry["attribution"], entry["reason"] = "NOT_ATTRIBUTED", (
+                f"CONFOUNDED: confounded with the gold in {n_conf} of {n_defined} structures (more than half)")
+        elif x_total < MIN_MISUSE_MATCHES:
+            entry["attribution"], entry["reason"] = "INCONCLUSIVE", (
+                f"{x_total} matching samples in total (< {MIN_MISUSE_MATCHES}): rare, not absent")
+        elif label["label"] in ("EFFECT", "TRIVIAL_EFFECT") and label["sign"] > 0 and len(zs) >= 3 and wins >= 2:
+            entry["attribution"], entry["reason"] = "ATTRIBUTED", (
+                f"M_{h} {label['label']} positive and pooled share above N at {wins} of {len(zs)} values")
+        else:
+            entry["attribution"], entry["reason"] = "NOT_ATTRIBUTED", (
+                f"M_{h} effective label {label['label']} (sign {label['sign']}); pooled share above N at {wins} of "
+                f"{len(zs)} values")
+        out[h] = entry
+    return out
+
+
+def copy_excess_r(records: Sequence[Mapping[str, Any]], cells: Mapping[str, Cell]) -> dict[str, Any]:
+    """CR: per structure, mean over values of (share of R samples matching the copy curve - share of N samples matching
+    it), per copy class (`copy` where q has the target's dimension, `digit_copy` otherwise). N contains no numeral, so
+    it is a valid comparator here. One-sided, SESOI 0.10."""
+
+    shares = _class_shares(records, cells, "R", classes=COPY_CLASSES)
+    out = {}
+    for h in COPY_CLASSES:
+        per_s = shares.get(h, {})
+        diffs = [_excess(v) for v in per_s.values() if not v["confounded"]]
+        summary = diagnosed_summary(diffs, SESOI["CR"], "greater")
+        out[h] = {"class": h, "structures_defined": len(per_s), "CR": summary, "effective_label": effective_label(summary)}
+    return out
+
+
+def cost_contrasts(records: Sequence[Mapping[str, Any]], cells: Mapping[str, Cell]) -> dict[str, Any]:
+    """O5 (decisions 10, 11): per structure, L5 = log(mean generated tokens in D / mean in N) and B5 = BUDGET_EXHAUSTED
+    share in D - share in N; N is the primary comparator, no-cue beside. One-sided (a rise), SESOI log(1.2) and 0.05.
+    Records without `n_generated_tokens` do not enter L5."""
+
+    by_cell = group_records(records, cells)
+    tok: dict[str, dict[str, list[float]]] = defaultdict(lambda: defaultdict(list))
+    bud: dict[str, dict[str, list[int]]] = defaultdict(lambda: defaultdict(list))
+    for key, recs in by_cell.items():
+        c = cells[key]
+        if c.heldout or c.stratum not in ("D", "N", "none"):
+            continue
+        for r in recs:
+            if r.get("n_generated_tokens") is not None:
+                tok[c.structure_id][c.stratum].append(float(r["n_generated_tokens"]))
+            bud[c.structure_id][c.stratum].append(int(r.get("completion_status") == "BUDGET_EXHAUSTED"))
+
+    def l5(sid: str, ref: str) -> float | None:
+        a, b = tok[sid].get("D"), tok[sid].get(ref)
+        return math.log(np.mean(a) / np.mean(b)) if a and b and np.mean(a) > 0 and np.mean(b) > 0 else None
+
+    def b5(sid: str, ref: str) -> float | None:
+        a, b = bud[sid].get("D"), bud[sid].get(ref)
+        return float(np.mean(a) - np.mean(b)) if a and b else None
+
+    sids = sorted(set(tok) | set(bud))
+    return {"L5": diagnosed_summary([l5(s, "N") for s in sids], SESOI["L5"], "greater"),
+            "B5": diagnosed_summary([b5(s, "N") for s in sids], SESOI["B5"], "greater"),
+            "L5_vs_no_cue": paired_summary([l5(s, "none") for s in sids], SESOI["L5"], "greater"),
+            "B5_vs_no_cue": paired_summary([b5(s, "none") for s in sids], SESOI["B5"], "greater")}
+
+
+def ck_family(estimates: Mapping[str, Mapping[str, Any]]) -> dict[str, Any]:
+    """C/K versions of F1 (T̄_N - T̄_C, one-sided, SESOI 0.10) and of the value dependence (the stratum's own slope of
+    empirical-logit tracking per value step, two-sided, SESOI log(1.5), target 0), for H3 (C/K) and H6-extended."""
+
+    out = {}
+    for st in ("C", "K"):
+        f1 = [e.get(f"F1_{st}") for e in estimates.values()]
+        slope = [e.get(f"slope_{st}") for e in estimates.values()]
+        run = any(x is not None for x in f1)
+        out[st] = {"run": run, "F1": diagnosed_summary(f1, SESOI["F1"], "greater"),
+                   "slope": diagnosed_summary(slope, SESOI["F3"], "two-sided")}
+    return out
+
+
+def effective_label(summary: Mapping[str, Any]) -> dict[str, Any]:
+    """The label a scorecard reads (g3_scorecard_thresholds.md sections 1.4, 1.5): an EFFECT or TRIVIAL_EFFECT whose
+    decision methods (t, sign-flip, bootstrap) disagree is read as INCONCLUSIVE flagged METHOD_DISAGREEMENT; one that
+    does not survive the extreme deletion is INCONCLUSIVE flagged NOT_ROBUST. FRAGILE (any leave-k-out label change) is
+    carried as a flag. `sign` is the sign of the mean (0 when not evaluated)."""
+
+    raw = summary.get("outcome", "NOT_EVALUATED")
+    flags: list[str] = []
+    label = raw
+    if raw == "NOT_EVALUATED":
+        return {"label": raw, "raw": raw, "sign": 0, "flags": flags}
+    agreement = summary.get("method_agreement") or {}
+    robust = summary.get("robustness") or {}
+    if raw in ("EFFECT", "TRIVIAL_EFFECT"):
+        if agreement and not agreement.get("decision_methods_agree", True):
+            label = "INCONCLUSIVE"
+            flags.append("METHOD_DISAGREEMENT")
+        if robust.get("not_robust"):
+            label = "INCONCLUSIVE"
+            flags.append("NOT_ROBUST")
+    if robust.get("fragile"):
+        flags.append("FRAGILE")
+    mean = summary.get("mean", 0.0)
+    return {"label": label, "raw": raw, "sign": 1 if mean > 0 else (-1 if mean < 0 else 0), "flags": flags}
 
 
 def hodges_lehmann(values: Sequence[float]) -> float | None:
@@ -554,3 +1148,43 @@ def power_generic(simulate, params, J: int, k: int, margin: float, alternative: 
         rej += summary.get("p_sign_flip", 1.0) < ALPHA
         eq += summary.get("outcome") == "EQUIVALENT"
     return {"J": J, "k": k, "n_sims": n_sims, "rejection_rate_sign_flip": rej / n_sims, "equivalence_rate": eq / n_sims}
+
+
+def joint_tost_power(params_f1: SimParams, params_f2: SimParamsF2, params_f3: SimParamsF3, J: int, k: int,
+                     n_sims: int = 1000, seed: int = SEED) -> dict[str, Any]:
+    """Decision 21: power of the H6-RD route in G4, i.e. the share of simulated datasets in which F1, F2 and F3 are all
+    EQUIVALENT (TOST at alpha 0.05 each, an intersection-union test, no multiplicity correction), beside each single
+    contrast's equivalence rate and the G4 rule (b) rate in which EQUIVALENT or TRIVIAL_EFFECT both count (decisions 1
+    and 20). Each dataset draws F1, F2 and F3 for the same J structures from the existing simulators with the given
+    variance components (from G2). The three contrasts are simulated independently given the parameters, so a
+    correlation between them across structures is not modelled; with positive correlation the joint rate would be
+    somewhat higher, so this is a conservative planning figure."""
+
+    rng = np.random.default_rng(seed)
+    single = {"F1": 0, "F2": 0, "F3": 0}
+    single_or_trivial = {"F1": 0, "F2": 0, "F3": 0}
+    joint = joint_or_trivial = 0
+    for _ in range(n_sims):
+        outcomes = {"F1": paired_summary(simulate_f1(params_f1, J, k, rng), SESOI["F1"], "greater")["outcome"],
+                    "F2": paired_summary(simulate_f2(params_f2, J, k, rng), SESOI["F2"], "greater")["outcome"],
+                    "F3": paired_summary(simulate_f3(params_f3, J, k, rng), SESOI["F3"], "two-sided")["outcome"]}
+        for f, o in outcomes.items():
+            single[f] += o == "EQUIVALENT"
+            single_or_trivial[f] += o in ("EQUIVALENT", "TRIVIAL_EFFECT")
+        joint += all(o == "EQUIVALENT" for o in outcomes.values())
+        joint_or_trivial += all(o in ("EQUIVALENT", "TRIVIAL_EFFECT") for o in outcomes.values())
+    return {"J": J, "k": k, "n_sims": n_sims, "seed": seed,
+            "single_equivalence_rate": {f: v / n_sims for f, v in single.items()},
+            "single_equivalent_or_trivial_rate": {f: v / n_sims for f, v in single_or_trivial.items()},
+            "joint_equivalence_rate": joint / n_sims, "joint_equivalent_or_trivial_rate": joint_or_trivial / n_sims}
+
+
+def joint_tost_power_curve(params_f1: SimParams, params_f2: SimParamsF2, params_f3: SimParamsF3,
+                           Js: Sequence[int], k: int, n_sims: int = 1000, seed: int = SEED,
+                           target: float = 0.80) -> dict[str, Any]:
+    """`joint_tost_power` over a grid of J; `J_for_target` is the smallest J in the grid whose joint equivalence rate
+    reaches `target` (None if none does: open more sealed structures, decision 21)."""
+
+    rows = [joint_tost_power(params_f1, params_f2, params_f3, J, k, n_sims, seed) for J in Js]
+    hit = [r["J"] for r in rows if r["joint_equivalence_rate"] >= target]
+    return {"rows": rows, "target": target, "J_for_target": min(hit) if hit else None}

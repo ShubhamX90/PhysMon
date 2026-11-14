@@ -14,7 +14,8 @@ A `RoleSpec` attaches one quantity q to a structure in physical roles, at three 
 
 R and D cells of one value are minimal pairs: same frame, numeral, unit, position and question; only the relational phrase
 differs. Each cell carries its certified answer, the prespecified misuse foils (copy; substitute, add or subtract on every
-input of q's dimension; the relevant twin's answer for D cells; the irrelevant-role answer, i.e. neglect, for R cells), the
+input of q's dimension, or, when q's dimension differs from the target's, `digit_copy`, the same numeral read in the
+target unit; the relevant twin's answer for D cells; the irrelevant-role answer, i.e. neglect, for R cells), the
 placebo value for R cells, and the pairs that are not separated beyond the loosest grading tolerance. `certify_role_spec`
 returns the checks; a spec that fails any blocking check yields no cells.
 """
@@ -184,15 +185,25 @@ def _eval_expr(text: str, structure: gr.Structure, values: dict[str, float], q_s
     return float(sympy.lambdify([sympy.Symbol(a) for a in arguments], expression, modules="math")(*[env[a] for a in arguments]))
 
 
+def copy_foils(value: float, unit: str, target_unit: str) -> dict[str, float]:
+    """The copy misuse of q (target display unit). If q has the target's dimension: `copy`, q converted to the target unit.
+    Otherwise (G1 decision 26, 2026-11-13): `digit_copy`, the same numeral as typed in the prompt read in the target
+    display unit (a 0.8 kg block copied into an answer in m/s^2 gives 0.8), so the copy curve is defined in every unit
+    (H1 "every unit"; H2 copy test)."""
+
+    if dm.UNITS[unit].dim == dm.UNITS[target_unit].dim:
+        return {"copy": dm.from_si(dm.to_si(value, unit), target_unit)}
+    return {"digit_copy": float(_fmt(value))}
+
+
 def misuse_foils(structure: gr.Structure, si: dict[str, float], spec: RoleSpec, value: float) -> dict[str, float]:
-    """Answers (target display unit) produced by each prespecified misuse of q at this value."""
+    """Answers (target display unit) produced by each prespecified misuse of q at this value: `copy` or `digit_copy`
+    (`copy_foils`), and substitute, add or subtract on every input of q's dimension."""
 
     target_unit = structure.render.target_unit
     q_dim = dm.UNITS[spec.unit].dim
     q_si = dm.to_si(value, spec.unit)
-    foils: dict[str, float] = {}
-    if q_dim == dm.UNITS[target_unit].dim:
-        foils["copy"] = dm.from_si(q_si, target_unit)
+    foils: dict[str, float] = copy_foils(value, spec.unit, target_unit)
     evaluate = gr.compile_target(structure)
     for node in structure.inputs:
         if dm.UNITS[node.unit].dim != q_dim:
@@ -491,8 +502,7 @@ def role_cells(structure: gr.Structure, spec: RoleSpec, instance: int, *, positi
             law = sub.wrong_law if stratum == "C" else sub.out_of_regime_law
             foils = {"wrong_law" if stratum == "C" else "out_of_regime": dm.from_si(
                 _eval_expr(law, structure, values_all, q_si), target_unit)}
-            if dm.UNITS[sub.unit].dim == dm.UNITS[target_unit].dim:
-                foils["copy"] = dm.from_si(q_si, target_unit)
+            foils.update(copy_foils(value, sub.unit, target_unit))
             for phrasing in sub.phrasings:
                 sentence = _sentence(sub.frame, value, sub.unit, phrasing.relation, sub.nonnumeric_fill)
                 named = {"gold": y_d, **foils}

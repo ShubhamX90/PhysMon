@@ -121,9 +121,14 @@ def test_sign_flip_and_holm():
     assert h["b"]["p_holm"] == pytest.approx(0.06) and h["a"]["reject"] and not h["c"]["reject"]
 
 
-def test_fewer_than_three_structures_is_not_evaluated_not_zero():
+def test_fewer_than_six_structures_is_not_evaluated_not_zero():
+    # decision 4 (G1, 2026-11-13): the floor is 6 evaluable structures (it was 3)
     out = rs.paired_summary([0.1, None, float("nan")], 0.1, "greater")
     assert out["outcome"] == "NOT_EVALUATED" and "mean" not in out
+    five = rs.paired_summary([0.3, 0.4, 0.35, 0.5, 0.45], 0.1, "greater")
+    assert five["outcome"] == "NOT_EVALUATED" and "mean" not in five and "6" in five["reason"]
+    six = rs.paired_summary([0.3, 0.4, 0.35, 0.5, 0.45, 0.4], 0.1, "greater")
+    assert six["outcome"] == "EFFECT" and six["J"] == 6
 
 
 def test_rare_rates_give_finite_intervals_and_the_beta_binomial_recovers_the_mean():
