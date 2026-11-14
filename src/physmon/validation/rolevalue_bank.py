@@ -1,7 +1,7 @@
 """Judge-qualification items for role-by-value structures (Stage 15, G1 "LLM review panel": extend the planted-defect bank
 with fresh valid items and new planted defects, with a held-out portion; plan of record sec:llmpanel and B4.4).
 
-Each item is built from a certified M0 role spec on instance 0 and shown to a judge in two passes:
+Each item is built from a certified M0 role spec on one instance (instance 0 unless stated) and shown to a judge in two passes:
 * Pass 1 (blind): the base problem and every role sentence (R, D and, where present, C and K, both phrasings, at the
   middle study value), in a shuffled order under neutral ids. The judge solves the problem, assigns each sentence's
   stratum, states the answer when the sentence is added, and flags defects.
@@ -48,19 +48,20 @@ def _sid(item_id: str, label: str) -> str:
     return "T" + hashlib.sha256(f"{item_id}:{label}".encode()).hexdigest()[:4].upper()
 
 
-def _r_answers(structure, spec: rv.RoleSpec, op: str | None = None) -> dict[str, float]:
-    si = rv.display_inputs_si(structure, 0)
+def _r_answers(structure, spec: rv.RoleSpec, op: str | None = None, instance: int = 0) -> dict[str, float]:
+    si = rv.display_inputs_si(structure, instance)
     wiring = spec.relevant if op is None else dataclasses.replace(spec.relevant, op=op)
     use = dataclasses.replace(spec, relevant=wiring)
     return {rv._fmt(v): float(f"{rv.gold_r(structure, si, use, v)[0]:.6g}") for v in spec.values}
 
 
-def base_item(structure_id: str, item_id: str) -> dict[str, Any]:
-    """An unmodified (valid) item: pass-1 packet, pass-2 packet and the internal key."""
+def base_item(structure_id: str, item_id: str, instance: int = 0) -> dict[str, Any]:
+    """An unmodified (valid) item: pass-1 packet, pass-2 packet and the internal key. `instance` selects the certified
+    instance of the structure (every role spec is certified on every instance); banks v3 and v4 use instance 0."""
 
     structure, spec = roles_m0.structure(structure_id), roles_m0.ROLE_SPECS[structure_id]
-    problem = rv._assemble(structure, 0, "", "after_context")
-    y_d = float(f"{dg.gold_for(structure, dict(structure.instances[0])):.6g}")
+    problem = rv._assemble(structure, instance, "", "after_context")
+    y_d = float(f"{dg.gold_for(structure, dict(structure.instances[instance])):.6g}")
     z = spec.values[DISPLAY_INDEX]
     sentences, claims = [], []
     for role, phrasings in (("R", spec.phrasings_r), ("D", spec.phrasings_d)):
@@ -71,7 +72,7 @@ def base_item(structure_id: str, item_id: str) -> dict[str, Any]:
                                      "values": [rv._fmt(v) for v in spec.values], "value_shown": rv._fmt(z),
                                      "unit": spec.unit}
             if role == "R":
-                claim["certified_answers"] = _r_answers(structure, spec)
+                claim["certified_answers"] = _r_answers(structure, spec, instance=instance)
                 claim["wiring"] = f"q {spec.relevant.op} -> input {spec.relevant.input_name}: {spec.relevant.rationale}"
             else:
                 claim["certified_answers"] = {rv._fmt(v): y_d for v in spec.values}
@@ -106,7 +107,7 @@ def base_item(structure_id: str, item_id: str) -> dict[str, Any]:
             "relations": relations, "assumptions": [a.text for a in structure.assumptions],
             "inputs": [{"name": n.name, "unit": n.unit, "description": n.description} for n in structure.inputs],
             "defect_type": "valid", "expected_verdict": "valid", "detectable_in": DETECTABLE_IN["valid"],
-            "description": "unmodified certified M0 item"}
+            "description": "unmodified certified M0 item", "instance": instance}
     return item
 
 
@@ -126,7 +127,7 @@ def plant(item: dict[str, Any], defect_type: str) -> dict[str, Any]:
         next(c for c in out["claims"] if c["label"] == "D1")["minimal_pair_with"] = "R0"  # every D claim names a twin
         out["description"] = "D1 states a relation through which q enters the target but is claimed structurally disconnected"
     elif defect_type == "failed_transformation_identity":
-        wrong = _r_answers(structure, spec, FLIP_OP[spec.relevant.op])
+        wrong = _r_answers(structure, spec, FLIP_OP[spec.relevant.op], item.get("instance", 0))
         for c in out["claims"]:
             if c["stratum"] == "R":
                 c["certified_answers"] = wrong

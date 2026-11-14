@@ -1,0 +1,1419 @@
+{
+  "accepted_terms_change": "invalid_numerical_precision items whose displayed answer is off by more than the stated precision also accept failed_transformation_identity (the shown answer then does not follow from the relation); decided 2026-11-14, before any judge has seen bank v5 or prompt v3. Every other type keeps the terms frozen in s178.ACCEPTED_TERMS / s186.LEGACY_ACCEPTED.",
+  "by_source": {
+    "fresh_v1_condition_deleted": 4,
+    "fresh_v1_inject": 16,
+    "role_m0_condition_deleted": 2,
+    "role_m0_plant_v5": 6,
+    "role_m0_valid_v5": 4
+  },
+  "by_type": {
+    "contradictory_distractor_statement": 3,
+    "failed_transformation_identity": 3,
+    "hidden_coupling": 1,
+    "inconsistent_units": 1,
+    "insufficient_boundary_condition": 3,
+    "invalid_numerical_precision": 3,
+    "invalid_parameter_domain": 1,
+    "missing_assumption": 3,
+    "relevant_variable_removed_from_equation": 1,
+    "rendering_not_minimal": 3,
+    "valid": 4,
+    "valid_equivalent_rewrite": 6
+  },
+  "excluded_families": 89,
+  "expected": {
+    "invalid": 22,
+    "valid": 10
+  },
+  "n_items": 32,
+  "role_assignment": {
+    "chosen": {
+      "failed_transformation_identity": [
+        "S26",
+        "S27",
+        "S55"
+      ],
+      "rendering_not_minimal": [
+        "S15",
+        "S20",
+        "S92"
+      ],
+      "valid": [
+        "S02",
+        "S07",
+        "S13",
+        "S72"
+      ]
+    },
+    "eligible": {
+      "failed_transformation_identity": [
+        "S01",
+        "S02",
+        "S07",
+        "S26",
+        "S27",
+        "S55"
+      ],
+      "rendering_not_minimal": [
+        "S01",
+        "S07",
+        "S15",
+        "S20",
+        "S26",
+        "S27",
+        "S30",
+        "S55",
+        "S92"
+      ],
+      "valid": [
+        "S01",
+        "S02",
+        "S07",
+        "S13",
+        "S27",
+        "S30",
+        "S55",
+        "S72"
+      ]
+    },
+    "n_optimal_assignments": 6,
+    "not_eligible": {
+      "S02|rendering_not_minimal": "pair used in bank v3 or v4",
+      "S13|failed_transformation_identity": "pair used in bank v3 or v4",
+      "S13|rendering_not_minimal": "pair used in bank v3 or v4",
+      "S15|failed_transformation_identity": "pair used in bank v3 or v4",
+      "S15|valid": "valid item in bank v4",
+      "S20|failed_transformation_identity": "plant fails on instance 1: ValueError('f(a) and f(b) must have different signs')",
+      "S20|valid": "valid item in bank v4",
+      "S26|valid": "valid item in bank v4",
+      "S30|failed_transformation_identity": "plant fails on instance 1: IndexError('index 0 is out of bounds for axis 0 with size 0')",
+      "S72|failed_transformation_identity": "plant fails on instance 1: ValueError('math domain error')",
+      "S72|rendering_not_minimal": "pair used in bank v3 or v4",
+      "S92|failed_transformation_identity": "pair used in bank v3 or v4",
+      "S92|valid": "valid item in bank v4"
+    },
+    "plant_instances": {
+      "S15": {
+        "base_answer": 21.6,
+        "defect_type": "rendering_not_minimal",
+        "description": "D0 shows 6 while its claimed R0 twin shows 3 (not a minimal pair at the same value)",
+        "instance": 1,
+        "target_unit": "W"
+      },
+      "S20": {
+        "base_answer": 14.0,
+        "defect_type": "rendering_not_minimal",
+        "description": "D0 shows 25 while its claimed R0 twin shows 15 (not a minimal pair at the same value)",
+        "instance": 1,
+        "target_unit": "cm"
+      },
+      "S26": {
+        "base_answer": 23.8834,
+        "defect_type": "failed_transformation_identity",
+        "description": "R answers computed with q subtract instead of add",
+        "instance": 1,
+        "target_unit": "deg"
+      },
+      "S27": {
+        "base_answer": 266.6,
+        "defect_type": "failed_transformation_identity",
+        "description": "R answers computed with q subtract instead of add",
+        "instance": 1,
+        "target_unit": "kPa"
+      },
+      "S55": {
+        "base_answer": 558.368,
+        "defect_type": "failed_transformation_identity",
+        "description": "R answers computed with q subtract instead of add",
+        "instance": 1,
+        "target_unit": "m/s"
+      },
+      "S92": {
+        "base_answer": 21.4988,
+        "defect_type": "rendering_not_minimal",
+        "description": "D0 shows 1350 while its claimed R0 twin shows 1250 (not a minimal pair at the same value)",
+        "instance": 1,
+        "target_unit": "N"
+      }
+    },
+    "repeated_structures": 0,
+    "screens_at_unseen_instance": {
+      "S01": {
+        "conditions": [
+          {
+            "condition": "pulley mass distribution (uniform solid disc, I = M R^2 / 2)",
+            "evidence": "uniform solid disc",
+            "status": "stated"
+          },
+          {
+            "condition": "string does not slip on the pulley",
+            "evidence": "does not slip on the pulley",
+            "status": "stated"
+          },
+          {
+            "condition": "light, inextensible string",
+            "evidence": "light string",
+            "status": "stated"
+          },
+          {
+            "condition": "frictionless axle",
+            "evidence": "rule 1: frictionless pulley axles",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "a = (m2 - m1) g / (m1 + m2 + M/2)"
+      },
+      "S02": {
+        "conditions": [
+          {
+            "condition": "released from rest",
+            "evidence": "released from rest",
+            "status": "stated"
+          },
+          {
+            "condition": "kinetic friction with the stated coefficient",
+            "evidence": "coefficient of kinetic friction",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "v = sqrt(2 g (sin(theta) - mu cos(theta)) d)"
+      },
+      "S07": {
+        "conditions": [
+          {
+            "condition": "capacitor initially uncharged",
+            "evidence": "initially uncharged",
+            "status": "stated"
+          },
+          {
+            "condition": "series connection",
+            "evidence": "in series",
+            "status": "stated"
+          },
+          {
+            "condition": "ideal battery and wires",
+            "evidence": "rule 1: ideal batteries, sources and wires need not be stated unless a resistance is given",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "VC = V0 (1 - exp(-t / (R C)))"
+      },
+      "S13": {
+        "conditions": [
+          {
+            "condition": "simple pendulum: a small bob on a light string",
+            "evidence": "small bob hangs from a light string",
+            "status": "stated"
+          },
+          {
+            "condition": "small amplitude",
+            "evidence": "small amplitude",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "T = 2 pi sqrt(L / g)"
+      },
+      "S15": {
+        "conditions": [
+          {
+            "condition": "battery internal resistance",
+            "evidence": "negligible internal resistance",
+            "status": "stated"
+          },
+          {
+            "condition": "parallel connection",
+            "evidence": "in parallel",
+            "status": "stated"
+          },
+          {
+            "condition": "ohmic resistors",
+            "evidence": "rule 1: ohmic resistors",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "P = V^2 (1/R1 + 1/R2)"
+      },
+      "S20": {
+        "conditions": [
+          {
+            "condition": "thin lens, paraxial rays",
+            "evidence": "thin converging lens",
+            "status": "stated"
+          },
+          {
+            "condition": "object on the axis, in front of the lens",
+            "evidence": "on the axis \\d+ cm in front of the lens",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "di = f do / (do - f)"
+      },
+      "S26": {
+        "conditions": [
+          {
+            "condition": "flat interface",
+            "evidence": "flat interface",
+            "status": "stated"
+          },
+          {
+            "condition": "angles from the normal",
+            "evidence": "measured from the normal",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "theta2 = asin(n1 sin(theta1) / n2)"
+      },
+      "S27": {
+        "conditions": [
+          {
+            "condition": "pressure at the free surface",
+            "evidence": "pressure at the free surface is \\d",
+            "status": "stated"
+          },
+          {
+            "condition": "liquid at rest (hydrostatics)",
+            "evidence": "the lab frame is inertial and nothing in the text sets the apparatus in motion (default of every item)",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "p = p0 + rho g h"
+      },
+      "S30": {
+        "conditions": [
+          {
+            "condition": "all of the heater power goes into the water",
+            "evidence": "delivers [\\d.]+ W to [\\d.]+ kg of water",
+            "status": "stated"
+          },
+          {
+            "condition": "constant specific heat",
+            "evidence": "specific heat capacity of water is \\d",
+            "status": "stated"
+          },
+          {
+            "condition": "no phase change",
+            "evidence": "the question asks for a 40 K rise of the water's temperature, which presupposes liquid water throughout",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "t = m c dT / P"
+      },
+      "S55": {
+        "conditions": [
+          {
+            "condition": "thermal equilibrium at the stated temperature",
+            "evidence": "thermal equilibrium at a temperature",
+            "status": "stated"
+          },
+          {
+            "condition": "gas model",
+            "evidence": "vrms = sqrt(3RT/M) holds for any classical gas in equilibrium (equipartition); 'ideal' is stated anyway",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "vrms = sqrt(3 R T / M)"
+      },
+      "S72": {
+        "conditions": [
+          {
+            "condition": "starts from rest (K is the total kinetic energy)",
+            "evidence": "starts from rest",
+            "status": "stated"
+          },
+          {
+            "condition": "non-relativistic treatment",
+            "evidence": "non-relativistically",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "lambda = hc / sqrt(2 mc^2 K)"
+      },
+      "S92": {
+        "conditions": [
+          {
+            "condition": "cube at rest and completely submerged",
+            "evidence": "held at rest completely under the surface",
+            "status": "stated"
+          },
+          {
+            "condition": "vertical string",
+            "evidence": "light vertical string",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "T = (rho_l - rho_s) g a^3"
+      }
+    },
+    "valid_role_instances": {
+      "S02": {
+        "base_answer": 7.44889,
+        "instance": 1,
+        "target_unit": "m/s"
+      },
+      "S07": {
+        "base_answer": 6.42146,
+        "instance": 1,
+        "target_unit": "V"
+      },
+      "S13": {
+        "base_answer": 2.19866,
+        "instance": 1,
+        "target_unit": "s"
+      },
+      "S72": {
+        "base_answer": 166.917,
+        "instance": 1,
+        "target_unit": "pm"
+      }
+    }
+  },
+  "safeguard_A_deletions": [
+    {
+      "alternative": "the ball is thrown straight down at 2.0 m/s: v = 2.0 + g t",
+      "alternative_answer": 16.7,
+      "base_screen": "every answer-deciding condition is stated or waived",
+      "certified_answer": 14.7,
+      "defect_type": "insufficient_boundary_condition",
+      "deleted": "is dropped from rest and falls freely",
+      "kind": "legacy",
+      "reason": "passes: the alternative changes the answer by 13.6%",
+      "relative_shift": 0.136054,
+      "replacement": "falls freely",
+      "target": "CM_B_UM_011",
+      "used": true
+    },
+    {
+      "alternative": "the cart starts from rest: x = a t^2 / 2",
+      "alternative_answer": 9.0,
+      "base_screen": "every answer-deciding condition is stated or waived",
+      "certified_answer": 18.0,
+      "defect_type": "insufficient_boundary_condition",
+      "deleted": "Cart A begins at 3.0 m/s and accelerates",
+      "kind": "legacy",
+      "reason": "passes: the alternative changes the answer by 50.0%",
+      "relative_shift": 0.5,
+      "replacement": "Cart A accelerates",
+      "target": "CM_A_STD_002",
+      "used": true
+    },
+    {
+      "alternative": "the force acts at 60 degrees to the handle: tau = r F sin(60 deg)",
+      "alternative_answer": 12.9904,
+      "base_screen": "every answer-deciding condition is stated or waived",
+      "certified_answer": 15.0,
+      "defect_type": "insufficient_boundary_condition",
+      "deleted": "A perpendicular force of",
+      "kind": "legacy",
+      "reason": "passes: the alternative changes the answer by 13.4%",
+      "relative_shift": 0.133975,
+      "replacement": "A force of",
+      "target": "CM_B_010",
+      "used": true
+    },
+    {
+      "alternative": "the surface is a 30-degree incline: f = mu m g cos(30 deg)",
+      "alternative_answer": 12.7306,
+      "base_screen": "every answer-deciding condition is stated or waived",
+      "certified_answer": 14.7,
+      "defect_type": "insufficient_boundary_condition",
+      "deleted": "slides across a horizontal surface",
+      "kind": "legacy",
+      "reason": "passes; not needed (enough items of this type earlier in the list)",
+      "relative_shift": 0.133975,
+      "replacement": "slides across a surface",
+      "target": "CM_B_UM_004",
+      "used": false
+    },
+    {
+      "alternative": "relativistic momentum pc = sqrt(K^2 + 2 K mc^2)",
+      "alternative_answer": 100.143,
+      "base_screen": "every answer-deciding condition is stated or waived",
+      "certified_answer": 100.15,
+      "defect_type": "missing_assumption",
+      "deleted": " Treat the electron non-relativistically.",
+      "kind": "role",
+      "reason": "Safeguard A: the alternative changes the answer by 0.01% (<= 5%); the deletion does not decide the answer",
+      "relative_shift": 7.3e-05,
+      "replacement": "",
+      "target": "S72",
+      "used": false
+    },
+    {
+      "alternative": "the pulley is a thin ring (I = M R^2): a = (m2 - m1) g / (m1 + m2 + M)",
+      "alternative_answer": 1.96,
+      "base_screen": "every answer-deciding condition is stated or waived",
+      "certified_answer": 2.17778,
+      "defect_type": "missing_assumption",
+      "deleted": ", which is a uniform solid disc of mass 2 kg.",
+      "kind": "role",
+      "reason": "passes: the alternative changes the answer by 10.0%",
+      "relative_shift": 0.1,
+      "replacement": " of mass 2 kg.",
+      "target": "S01",
+      "used": true
+    },
+    {
+      "alternative": "a rough incline holds the block at rest: the weight's downslope component is still m g sin(theta)",
+      "alternative_answer": 9.8,
+      "base_screen": "no condition beyond the stated values decides the answer",
+      "certified_answer": 9.8,
+      "defect_type": "missing_assumption",
+      "deleted": "rests on a frictionless incline",
+      "kind": "legacy",
+      "reason": "Safeguard A: the alternative changes the answer by 0.00% (<= 5%); the deletion does not decide the answer",
+      "relative_shift": 0.0,
+      "replacement": "rests on an incline",
+      "target": "CM_B_UM_007",
+      "used": false
+    },
+    {
+      "alternative": "the wheel slips (a driven wheel on a slippery road, slip ratio 0.2): v_cm = (1 - 0.2) R omega",
+      "alternative_answer": 4.8,
+      "base_screen": "every answer-deciding condition is stated or waived",
+      "certified_answer": 6.0,
+      "defect_type": "missing_assumption",
+      "deleted": "Wheel A rolls without slipping with radius 0.5 m and angular speed 12.0 rad/s.",
+      "kind": "legacy",
+      "reason": "passes: the alternative changes the answer by 20.0%",
+      "relative_shift": 0.2,
+      "replacement": "Wheel A, of radius 0.5 m, moves along the ground while turning at an angular speed of 12.0 rad/s.",
+      "target": "CM_B_UM_046",
+      "used": true
+    },
+    {
+      "alternative": "internal resistance 0.5 ohm: P = (12 V * 4 / 4.5)^2 / 4 ohm",
+      "alternative_answer": 28.4444,
+      "base_screen": "every answer-deciding condition is stated or waived",
+      "certified_answer": 36.0,
+      "defect_type": "missing_assumption",
+      "deleted": " and negligible internal resistance",
+      "kind": "role",
+      "reason": "the deleted condition is exempt under rule 1 (rule 1: ideal batteries, sources and wires need not be stated unless a resistance is given): its deletion is not a defect",
+      "relative_shift": 0.209877,
+      "replacement": "",
+      "target": "S15",
+      "used": false
+    },
+    {
+      "alternative": "10% of the heater's output is lost to the surroundings: t = m c dT / (0.9 P)",
+      "alternative_answer": 248.059,
+      "base_screen": "every answer-deciding condition is stated or waived",
+      "certified_answer": 223.253,
+      "defect_type": "missing_assumption",
+      "deleted": "An electric heater delivers 1500 W to 2 kg of water.",
+      "kind": "role",
+      "reason": "passes: the alternative changes the answer by 11.1%",
+      "relative_shift": 0.111111,
+      "replacement": "An electric heater rated at 1500 W is used to heat 2 kg of water.",
+      "target": "S30",
+      "used": true
+    },
+    {
+      "alternative": "the object floats partly submerged, displacing the stated 0.002 m^3",
+      "alternative_answer": 19.6,
+      "base_screen": "every answer-deciding condition is stated or waived",
+      "certified_answer": 19.6,
+      "defect_type": "missing_assumption",
+      "deleted": "is fully submerged in water",
+      "kind": "legacy",
+      "reason": "Safeguard A: the alternative changes the answer by 0.00% (<= 5%); the deletion does not decide the answer",
+      "relative_shift": 0.0,
+      "replacement": "is in water",
+      "target": "CM_B_UM_008",
+      "used": false
+    }
+  ],
+  "safeguard_B_screen": {
+    "dropped": [
+      "CM_A_001: not stated: acceleration along the motion ('undergoes constant acceleration' does not say speeding up; a deceleration gives -1 m/s)",
+      "CM_A_002: not stated: acceleration along the motion (a deceleration reverses the object and changes the distance)",
+      "CM_A_STD_008: not stated: force along the displacement (W = F d cos(theta))",
+      "CM_A_STD_015: not stated: point (or spherically symmetric) charges",
+      "CM_B_STD_014: not stated: point masses, distance measured from the centre of the central mass",
+      "CM_B_UM_013: not stated: uniform circular motion (otherwise 'the speed' is not one number)",
+      "CM_B_UM_033: not stated: simple pendulum (a point-like bob on a light string); small amplitude (T depends on it)",
+      "CM_B_UM_042: not stated: directions of the two velocities (opposite directions give 35 m/s)",
+      "CM_B_UM_050: not stated: massless spring (a spring's mass lowers the frequency; light springs are not among rule 1's exemptions)",
+      "CM_B_UM_055: not stated: simple pendulum (a point-like bob on a light string); small amplitude (T depends on it)",
+      "CM_B_UM_056: not stated: both ends of the string fixed (one free end gives v / (4 L))"
+    ],
+    "m0_structures": {
+      "S01": {
+        "conditions": [
+          {
+            "condition": "pulley mass distribution (uniform solid disc, I = M R^2 / 2)",
+            "evidence": "uniform solid disc",
+            "status": "stated"
+          },
+          {
+            "condition": "string does not slip on the pulley",
+            "evidence": "does not slip on the pulley",
+            "status": "stated"
+          },
+          {
+            "condition": "light, inextensible string",
+            "evidence": "light string",
+            "status": "stated"
+          },
+          {
+            "condition": "frictionless axle",
+            "evidence": "rule 1: frictionless pulley axles",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "a = (m2 - m1) g / (m1 + m2 + M/2)"
+      },
+      "S02": {
+        "conditions": [
+          {
+            "condition": "released from rest",
+            "evidence": "released from rest",
+            "status": "stated"
+          },
+          {
+            "condition": "kinetic friction with the stated coefficient",
+            "evidence": "coefficient of kinetic friction",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "v = sqrt(2 g (sin(theta) - mu cos(theta)) d)"
+      },
+      "S07": {
+        "conditions": [
+          {
+            "condition": "capacitor initially uncharged",
+            "evidence": "initially uncharged",
+            "status": "stated"
+          },
+          {
+            "condition": "series connection",
+            "evidence": "in series",
+            "status": "stated"
+          },
+          {
+            "condition": "ideal battery and wires",
+            "evidence": "rule 1: ideal batteries, sources and wires need not be stated unless a resistance is given",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "VC = V0 (1 - exp(-t / (R C)))"
+      },
+      "S13": {
+        "conditions": [
+          {
+            "condition": "simple pendulum: a small bob on a light string",
+            "evidence": "small bob hangs from a light string",
+            "status": "stated"
+          },
+          {
+            "condition": "small amplitude",
+            "evidence": "small amplitude",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "T = 2 pi sqrt(L / g)"
+      },
+      "S15": {
+        "conditions": [
+          {
+            "condition": "battery internal resistance",
+            "evidence": "negligible internal resistance",
+            "status": "stated"
+          },
+          {
+            "condition": "parallel connection",
+            "evidence": "in parallel",
+            "status": "stated"
+          },
+          {
+            "condition": "ohmic resistors",
+            "evidence": "rule 1: ohmic resistors",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "P = V^2 (1/R1 + 1/R2)"
+      },
+      "S20": {
+        "conditions": [
+          {
+            "condition": "thin lens, paraxial rays",
+            "evidence": "thin converging lens",
+            "status": "stated"
+          },
+          {
+            "condition": "object on the axis, in front of the lens",
+            "evidence": "on the axis \\d+ cm in front of the lens",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "di = f do / (do - f)"
+      },
+      "S26": {
+        "conditions": [
+          {
+            "condition": "flat interface",
+            "evidence": "flat interface",
+            "status": "stated"
+          },
+          {
+            "condition": "angles from the normal",
+            "evidence": "measured from the normal",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "theta2 = asin(n1 sin(theta1) / n2)"
+      },
+      "S27": {
+        "conditions": [
+          {
+            "condition": "pressure at the free surface",
+            "evidence": "pressure at the free surface is \\d",
+            "status": "stated"
+          },
+          {
+            "condition": "liquid at rest (hydrostatics)",
+            "evidence": "the lab frame is inertial and nothing in the text sets the apparatus in motion (default of every item)",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "p = p0 + rho g h"
+      },
+      "S30": {
+        "conditions": [
+          {
+            "condition": "all of the heater power goes into the water",
+            "evidence": "delivers [\\d.]+ W to [\\d.]+ kg of water",
+            "status": "stated"
+          },
+          {
+            "condition": "constant specific heat",
+            "evidence": "specific heat capacity of water is \\d",
+            "status": "stated"
+          },
+          {
+            "condition": "no phase change",
+            "evidence": "the question asks for a 40 K rise of the water's temperature, which presupposes liquid water throughout",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "t = m c dT / P"
+      },
+      "S55": {
+        "conditions": [
+          {
+            "condition": "thermal equilibrium at the stated temperature",
+            "evidence": "thermal equilibrium at a temperature",
+            "status": "stated"
+          },
+          {
+            "condition": "gas model",
+            "evidence": "vrms = sqrt(3RT/M) holds for any classical gas in equilibrium (equipartition); 'ideal' is stated anyway",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "vrms = sqrt(3 R T / M)"
+      },
+      "S72": {
+        "conditions": [
+          {
+            "condition": "starts from rest (K is the total kinetic energy)",
+            "evidence": "starts from rest",
+            "status": "stated"
+          },
+          {
+            "condition": "non-relativistic treatment",
+            "evidence": "non-relativistically",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "lambda = hc / sqrt(2 mc^2 K)"
+      },
+      "S92": {
+        "conditions": [
+          {
+            "condition": "cube at rest and completely submerged",
+            "evidence": "held at rest completely under the surface",
+            "status": "stated"
+          },
+          {
+            "condition": "vertical string",
+            "evidence": "light vertical string",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "T = (rho_l - rho_s) g a^3"
+      }
+    },
+    "v1_families": {
+      "CM_A_001": {
+        "conditions": [
+          {
+            "condition": "initial velocity",
+            "evidence": "initially moving at \\d",
+            "status": "stated"
+          },
+          {
+            "condition": "acceleration along the motion ('undergoes constant acceleration' does not say speeding up; a deceleration gives -1 m/s)",
+            "evidence": null,
+            "status": "NOT STATED"
+          }
+        ],
+        "passed": false,
+        "reason": "not stated: acceleration along the motion ('undergoes constant acceleration' does not say speeding up; a deceleration gives -1 m/s)",
+        "relation": "v = v0 + a t"
+      },
+      "CM_A_002": {
+        "conditions": [
+          {
+            "condition": "initial speed",
+            "evidence": "starts with speed \\d",
+            "status": "stated"
+          },
+          {
+            "condition": "acceleration along the motion (a deceleration reverses the object and changes the distance)",
+            "evidence": null,
+            "status": "NOT STATED"
+          }
+        ],
+        "passed": false,
+        "reason": "not stated: acceleration along the motion (a deceleration reverses the object and changes the distance)",
+        "relation": "x = v0 t + a t^2/2"
+      },
+      "CM_A_007": {
+        "conditions": [
+          {
+            "condition": "speed on the circle (uniform motion)",
+            "evidence": "at constant speed \\d",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "F = m v^2 / r"
+      },
+      "CM_A_STD_001": {
+        "conditions": [
+          {
+            "condition": "initial velocity",
+            "evidence": "starts at \\d",
+            "status": "stated"
+          },
+          {
+            "condition": "acceleration along the motion",
+            "evidence": "\\baccelerates at \\d",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "v = v0 + a t"
+      },
+      "CM_A_STD_002": {
+        "conditions": [
+          {
+            "condition": "initial velocity",
+            "evidence": "begins at \\d",
+            "status": "stated"
+          },
+          {
+            "condition": "acceleration along the motion",
+            "evidence": "\\baccelerates at \\d",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "x = v0 t + a t^2/2"
+      },
+      "CM_A_STD_003": {
+        "conditions": [
+          {
+            "condition": "non-relativistic motion",
+            "evidence": "non-relativistic speed: v/c < 1e-7, the relativistic answer agrees to better than 1e-13",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "K = m v^2 / 2"
+      },
+      "CM_A_STD_004": {
+        "conditions": [
+          {
+            "condition": "linear (Hookean) spring",
+            "evidence": "has constant \\d",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "F = k x"
+      },
+      "CM_A_STD_005": {
+        "conditions": [],
+        "passed": true,
+        "reason": "no condition beyond the stated values decides the answer",
+        "relation": "F = m v^2 / r"
+      },
+      "CM_A_STD_006": {
+        "conditions": [
+          {
+            "condition": "non-relativistic motion",
+            "evidence": "non-relativistic speed: v/c < 1e-7, the relativistic answer agrees to better than 1e-13",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "p = m v"
+      },
+      "CM_A_STD_008": {
+        "conditions": [
+          {
+            "condition": "force along the displacement (W = F d cos(theta))",
+            "evidence": null,
+            "status": "NOT STATED"
+          }
+        ],
+        "passed": false,
+        "reason": "not stated: force along the displacement (W = F d cos(theta))",
+        "relation": "W = F d"
+      },
+      "CM_A_STD_009": {
+        "conditions": [
+          {
+            "condition": "force perpendicular to the lever arm (tau = r F sin(theta))",
+            "evidence": "\\bperpendicular\\b",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "tau = r F"
+      },
+      "CM_A_STD_010": {
+        "conditions": [],
+        "passed": true,
+        "reason": "no condition beyond the stated values decides the answer",
+        "relation": "v = f lambda"
+      },
+      "CM_A_STD_013": {
+        "conditions": [],
+        "passed": true,
+        "reason": "no condition beyond the stated values decides the answer",
+        "relation": "Q = C V"
+      },
+      "CM_A_STD_015": {
+        "conditions": [
+          {
+            "condition": "point (or spherically symmetric) charges",
+            "evidence": null,
+            "status": "NOT STATED"
+          },
+          {
+            "condition": "medium",
+            "evidence": "Use k = ",
+            "status": "stated"
+          }
+        ],
+        "passed": false,
+        "reason": "not stated: point (or spherically symmetric) charges",
+        "relation": "F = k q1 q2 / r^2"
+      },
+      "CM_B_002": {
+        "conditions": [
+          {
+            "condition": "initial velocity",
+            "evidence": "starts at speed \\d",
+            "status": "stated"
+          },
+          {
+            "condition": "acceleration along the motion",
+            "evidence": "\\baccelerates at \\d",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "v = v0 + a t"
+      },
+      "CM_B_005": {
+        "conditions": [
+          {
+            "condition": "linear (Hookean) spring",
+            "evidence": "spring constant \\d",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "F = k x"
+      },
+      "CM_B_006": {
+        "conditions": [
+          {
+            "condition": "non-relativistic motion",
+            "evidence": "non-relativistic speed: v/c < 1e-7, the relativistic answer agrees to better than 1e-13",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "p = m v"
+      },
+      "CM_B_007": {
+        "conditions": [
+          {
+            "condition": "speed on the circle (uniform motion)",
+            "evidence": "at constant speed \\d",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "F = m v^2 / r"
+      },
+      "CM_B_010": {
+        "conditions": [
+          {
+            "condition": "force perpendicular to the lever arm (tau = r F sin(theta))",
+            "evidence": "\\bperpendicular\\b",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "tau = r F"
+      },
+      "CM_B_STD_003": {
+        "conditions": [
+          {
+            "condition": "the braking torque is the net torque",
+            "evidence": "rule 1: frictionless axles are a standard idealisation",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "alpha = tau / I"
+      },
+      "CM_B_STD_013": {
+        "conditions": [
+          {
+            "condition": "r measured from the planet's centre",
+            "evidence": "orbits a planet .*at radius",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "F = G M m / r^2"
+      },
+      "CM_B_STD_014": {
+        "conditions": [
+          {
+            "condition": "point masses, distance measured from the centre of the central mass",
+            "evidence": null,
+            "status": "NOT STATED"
+          }
+        ],
+        "passed": false,
+        "reason": "not stated: point masses, distance measured from the centre of the central mass",
+        "relation": "F = G M m / r^2"
+      },
+      "CM_B_UM_002": {
+        "conditions": [],
+        "passed": true,
+        "reason": "no condition beyond the stated values decides the answer",
+        "relation": "F_net = m a"
+      },
+      "CM_B_UM_004": {
+        "conditions": [
+          {
+            "condition": "horizontal surface (normal force m g)",
+            "evidence": "horizontal surface",
+            "status": "stated"
+          },
+          {
+            "condition": "sliding (kinetic friction)",
+            "evidence": "\\bslides\\b",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "f = mu_k m g"
+      },
+      "CM_B_UM_005": {
+        "conditions": [
+          {
+            "condition": "bucket not accelerating",
+            "evidence": "hangs motionless",
+            "status": "stated"
+          },
+          {
+            "condition": "light rope",
+            "evidence": "rule 1: light, inextensible strings",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "T = m g"
+      },
+      "CM_B_UM_007": {
+        "conditions": [],
+        "passed": true,
+        "reason": "no condition beyond the stated values decides the answer",
+        "relation": "F = m g sin(theta)"
+      },
+      "CM_B_UM_008": {
+        "conditions": [
+          {
+            "condition": "displaced volume",
+            "evidence": "displaces \\d",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "F_b = rho V g"
+      },
+      "CM_B_UM_009": {
+        "conditions": [
+          {
+            "condition": "initial velocity",
+            "evidence": "starts at \\d",
+            "status": "stated"
+          },
+          {
+            "condition": "acceleration along the motion",
+            "evidence": "accelerates uniformly at \\d",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "v = u + a t"
+      },
+      "CM_B_UM_011": {
+        "conditions": [
+          {
+            "condition": "released from rest",
+            "evidence": "dropped from rest",
+            "status": "stated"
+          },
+          {
+            "condition": "free fall (no drag)",
+            "evidence": "falls freely",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "v = g t"
+      },
+      "CM_B_UM_012": {
+        "conditions": [],
+        "passed": true,
+        "reason": "no condition beyond the stated values decides the answer",
+        "relation": "v = f lambda"
+      },
+      "CM_B_UM_013": {
+        "conditions": [
+          {
+            "condition": "uniform circular motion (otherwise 'the speed' is not one number)",
+            "evidence": null,
+            "status": "NOT STATED"
+          }
+        ],
+        "passed": false,
+        "reason": "not stated: uniform circular motion (otherwise 'the speed' is not one number)",
+        "relation": "v = 2 pi r / T"
+      },
+      "CM_B_UM_016": {
+        "conditions": [],
+        "passed": true,
+        "reason": "no condition beyond the stated values decides the answer",
+        "relation": "I = P / V"
+      },
+      "CM_B_UM_019": {
+        "conditions": [
+          {
+            "condition": "battery internal resistance",
+            "evidence": "negligible internal resistance",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "I = emf / R"
+      },
+      "CM_B_UM_022": {
+        "conditions": [],
+        "passed": true,
+        "reason": "no condition beyond the stated values decides the answer",
+        "relation": "V = P / I"
+      },
+      "CM_B_UM_024": {
+        "conditions": [],
+        "passed": true,
+        "reason": "no condition beyond the stated values decides the answer",
+        "relation": "V = Q / C"
+      },
+      "CM_B_UM_027": {
+        "conditions": [
+          {
+            "condition": "force perpendicular to the lever arm (tau = r F sin(theta))",
+            "evidence": "\\bperpendicular\\b",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "tau = r F"
+      },
+      "CM_B_UM_029": {
+        "conditions": [
+          {
+            "condition": "force perpendicular to the lever arm (tau = r F sin(theta))",
+            "evidence": "\\bperpendicular\\b",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "tau = r F"
+      },
+      "CM_B_UM_030": {
+        "conditions": [
+          {
+            "condition": "force perpendicular to the lever arm (tau = r F sin(theta))",
+            "evidence": "\\bperpendicular\\b",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "tau = r F"
+      },
+      "CM_B_UM_033": {
+        "conditions": [
+          {
+            "condition": "simple pendulum (a point-like bob on a light string)",
+            "evidence": null,
+            "status": "NOT STATED"
+          },
+          {
+            "condition": "small amplitude (T depends on it)",
+            "evidence": null,
+            "status": "NOT STATED"
+          }
+        ],
+        "passed": false,
+        "reason": "not stated: simple pendulum (a point-like bob on a light string); small amplitude (T depends on it)",
+        "relation": "f = sqrt(g / L) / (2 pi)"
+      },
+      "CM_B_UM_037": {
+        "conditions": [
+          {
+            "condition": "capacitor charged to the source voltage",
+            "evidence": "rule 1: ideal batteries, sources and wires need not be stated unless a resistance is given",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "Q = C V"
+      },
+      "CM_B_UM_038": {
+        "conditions": [
+          {
+            "condition": "capacitor charged to the source voltage",
+            "evidence": "rule 1: ideal batteries, sources and wires need not be stated unless a resistance is given",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "Q = C V"
+      },
+      "CM_B_UM_039": {
+        "conditions": [
+          {
+            "condition": "capacitor charged to the source voltage",
+            "evidence": "rule 1: ideal batteries, sources and wires need not be stated unless a resistance is given",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "Q = C V"
+      },
+      "CM_B_UM_040": {
+        "conditions": [
+          {
+            "condition": "capacitor charged to the source voltage",
+            "evidence": "rule 1: ideal batteries, sources and wires need not be stated unless a resistance is given",
+            "status": "waived"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "Q = C V"
+      },
+      "CM_B_UM_042": {
+        "conditions": [
+          {
+            "condition": "directions of the two velocities (opposite directions give 35 m/s)",
+            "evidence": null,
+            "status": "NOT STATED"
+          }
+        ],
+        "passed": false,
+        "reason": "not stated: directions of the two velocities (opposite directions give 35 m/s)",
+        "relation": "v_rel = v_A - v_frame"
+      },
+      "CM_B_UM_046": {
+        "conditions": [
+          {
+            "condition": "rolling without slipping",
+            "evidence": "rolls without slipping",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "v_cm = R omega"
+      },
+      "CM_B_UM_050": {
+        "conditions": [
+          {
+            "condition": "massless spring (a spring's mass lowers the frequency; light springs are not among rule 1's exemptions)",
+            "evidence": null,
+            "status": "NOT STATED"
+          }
+        ],
+        "passed": false,
+        "reason": "not stated: massless spring (a spring's mass lowers the frequency; light springs are not among rule 1's exemptions)",
+        "relation": "f = sqrt(k / m) / (2 pi)"
+      },
+      "CM_B_UM_055": {
+        "conditions": [
+          {
+            "condition": "simple pendulum (a point-like bob on a light string)",
+            "evidence": null,
+            "status": "NOT STATED"
+          },
+          {
+            "condition": "small amplitude (T depends on it)",
+            "evidence": null,
+            "status": "NOT STATED"
+          }
+        ],
+        "passed": false,
+        "reason": "not stated: simple pendulum (a point-like bob on a light string); small amplitude (T depends on it)",
+        "relation": "f = sqrt(g / L) / (2 pi)"
+      },
+      "CM_B_UM_056": {
+        "conditions": [
+          {
+            "condition": "both ends of the string fixed (one free end gives v / (4 L))",
+            "evidence": null,
+            "status": "NOT STATED"
+          }
+        ],
+        "passed": false,
+        "reason": "not stated: both ends of the string fixed (one free end gives v / (4 L))",
+        "relation": "f1 = v / (2 L)"
+      },
+      "EL_A_002": {
+        "conditions": [],
+        "passed": true,
+        "reason": "no condition beyond the stated values decides the answer",
+        "relation": "P = I^2 R"
+      },
+      "EL_A_004": {
+        "conditions": [
+          {
+            "condition": "point charges",
+            "evidence": "point charges",
+            "status": "stated"
+          },
+          {
+            "condition": "medium",
+            "evidence": "vacuum approximation",
+            "status": "stated"
+          }
+        ],
+        "passed": true,
+        "reason": "every answer-deciding condition is stated or waived",
+        "relation": "F = k q1 q2 / r^2"
+      },
+      "EL_B_002": {
+        "conditions": [],
+        "passed": true,
+        "reason": "no condition beyond the stated values decides the answer",
+        "relation": "P = V^2 / R"
+      }
+    }
+  },
+  "seed": 5151,
+  "sha256": {
+    "key_RESTRICTED.json": "3dc9103883539a99a2ce3a9b572dffbcc4ca1a30400cb370587013e9fe6519d4",
+    "pass1_packets.jsonl": "ffd7abed7b2cfc022d5d67b19ba4f294c57317e7ca8ed4e2a55baeec5aa364fe",
+    "pass2_packets.jsonl": "224d5adb8789d74c531889f621177d8187cb35b21891465448c6b571f73edf8e"
+  },
+  "split": "requal",
+  "unused_families": 51,
+  "usable_families": 36
+}

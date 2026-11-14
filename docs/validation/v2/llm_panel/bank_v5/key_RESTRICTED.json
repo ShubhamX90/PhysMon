@@ -1,0 +1,623 @@
+{
+  "F-113": {
+    "accepted_terms": [
+      "relevant_variable_removed_from_equation",
+      "failed_transformation_identity"
+    ],
+    "contested": null,
+    "defect_type": "relevant_variable_removed_from_equation",
+    "description": "parameter 'r_A' replaced by 1 in the displayed governing equation; the edited equation evaluates to 15 against the certified 12",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "fresh_v1_inject",
+    "split": "requal",
+    "structure_id": "CM_B_UM_030"
+  },
+  "F-150": {
+    "accepted_terms": [
+      "invalid_numerical_precision",
+      "failed_transformation_identity"
+    ],
+    "accepted_terms_basis": "shown 20 W vs certified 24.0 W: off by 4, more than the stated precision (+/- 0.05), so the shown answer does not follow from the relation either; failed_transformation_identity also accepted (decided 2026-11-14, before any judge has seen bank v5 or prompt v3)",
+    "contested": null,
+    "defect_type": "invalid_numerical_precision",
+    "description": "the certified answer 24.0 W is shown rounded to one significant figure (20), a 16.7% error",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "fresh_v1_inject",
+    "split": "requal",
+    "structure_id": "EL_B_002"
+  },
+  "F-246": {
+    "accepted_terms": [
+      "insufficient_boundary_condition",
+      "missing_assumption"
+    ],
+    "alternative": {
+      "answer": 12.9904,
+      "case": "the force acts at 60 degrees to the handle: tau = r F sin(60 deg)",
+      "certified_answer": 15.0,
+      "relative_difference": 0.134,
+      "unit": "N*m"
+    },
+    "contested": null,
+    "defect_type": "insufficient_boundary_condition",
+    "description": "'perpendicular' deleted: the direction of the force relative to the wrench is not stated",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "fresh_v1_condition_deleted",
+    "split": "requal",
+    "structure_id": "CM_B_010"
+  },
+  "F-279": {
+    "accepted_terms": [],
+    "contested": null,
+    "defect_type": "valid_equivalent_rewrite",
+    "description": "'What is the X?' reworded as 'Determine the X.'; meaning, numbers and units are unchanged",
+    "detectable_in": "pass1",
+    "expected_verdict": "valid",
+    "screen": {
+      "conditions": [
+        {
+          "condition": "point charges",
+          "evidence": "point charges",
+          "status": "stated"
+        },
+        {
+          "condition": "medium",
+          "evidence": "vacuum approximation",
+          "status": "stated"
+        }
+      ],
+      "passed": true,
+      "reason": "every answer-deciding condition is stated or waived",
+      "relation": "F = k q1 q2 / r^2"
+    },
+    "source": "fresh_v1_inject",
+    "split": "requal",
+    "structure_id": "EL_A_004"
+  },
+  "F-333": {
+    "accepted_terms": [
+      "invalid_numerical_precision",
+      "failed_transformation_identity"
+    ],
+    "accepted_terms_basis": "shown 20 m/s vs certified 18.0 m/s: off by 2, more than the stated precision (+/- 0.05), so the shown answer does not follow from the relation either; failed_transformation_identity also accepted (decided 2026-11-14, before any judge has seen bank v5 or prompt v3)",
+    "contested": null,
+    "defect_type": "invalid_numerical_precision",
+    "description": "the certified answer 18.0 m/s is shown rounded to one significant figure (20), a 11.1% error",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "fresh_v1_inject",
+    "split": "requal",
+    "structure_id": "CM_A_STD_010"
+  },
+  "F-352": {
+    "accepted_terms": [
+      "invalid_numerical_precision",
+      "failed_transformation_identity"
+    ],
+    "accepted_terms_basis": "shown 10 m/s vs certified 11 m/s: off by 1, more than the stated precision (+/- 0.5), so the shown answer does not follow from the relation either; failed_transformation_identity also accepted (decided 2026-11-14, before any judge has seen bank v5 or prompt v3)",
+    "contested": null,
+    "defect_type": "invalid_numerical_precision",
+    "description": "the certified answer 11 m/s is shown rounded to one significant figure (10), a 9.1% error",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "source": "fresh_v1_inject",
+    "split": "requal",
+    "structure_id": "CM_B_UM_009"
+  },
+  "F-357": {
+    "accepted_terms": [
+      "contradictory_distractor_statement"
+    ],
+    "contested": null,
+    "defect_type": "contradictory_distractor_statement",
+    "description": "a later sentence restates the distractor quantity, with its unit, at 2 times the value, and the new value equals no other number in the prompt",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "fresh_v1_inject",
+    "split": "requal",
+    "structure_id": "CM_B_UM_038"
+  },
+  "F-406": {
+    "accepted_terms": [],
+    "contested": null,
+    "defect_type": "valid_equivalent_rewrite",
+    "description": "'What is the X?' reworded as 'Determine the X.'; meaning, numbers and units are unchanged",
+    "detectable_in": "pass1",
+    "expected_verdict": "valid",
+    "screen": {
+      "conditions": [
+        {
+          "condition": "horizontal surface (normal force m g)",
+          "evidence": "horizontal surface",
+          "status": "stated"
+        },
+        {
+          "condition": "sliding (kinetic friction)",
+          "evidence": "\\bslides\\b",
+          "status": "stated"
+        }
+      ],
+      "passed": true,
+      "reason": "every answer-deciding condition is stated or waived",
+      "relation": "f = mu_k m g"
+    },
+    "source": "fresh_v1_inject",
+    "split": "requal",
+    "structure_id": "CM_B_UM_004"
+  },
+  "F-485": {
+    "accepted_terms": [
+      "invalid_parameter_domain",
+      "hidden_coupling",
+      "contradictory_distractor_statement"
+    ],
+    "contested": null,
+    "defect_type": "invalid_parameter_domain",
+    "description": "the first mass or amount of substance was made negative (a temperature difference is deliberately not used: a negative change is valid)",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "fresh_v1_inject",
+    "split": "requal",
+    "structure_id": "CM_B_007"
+  },
+  "F-500": {
+    "accepted_terms": [],
+    "contested": null,
+    "defect_type": "valid_equivalent_rewrite",
+    "description": "'What is the X?' reworded as 'Determine the X.'; meaning, numbers and units are unchanged",
+    "detectable_in": "pass1",
+    "expected_verdict": "valid",
+    "screen": {
+      "conditions": [
+        {
+          "condition": "bucket not accelerating",
+          "evidence": "hangs motionless",
+          "status": "stated"
+        },
+        {
+          "condition": "light rope",
+          "evidence": "rule 1: light, inextensible strings",
+          "status": "waived"
+        }
+      ],
+      "passed": true,
+      "reason": "every answer-deciding condition is stated or waived",
+      "relation": "T = m g"
+    },
+    "source": "fresh_v1_inject",
+    "split": "requal",
+    "structure_id": "CM_B_UM_005"
+  },
+  "F-593": {
+    "accepted_terms": [],
+    "contested": null,
+    "defect_type": "valid_equivalent_rewrite",
+    "description": "'What is the X?' reworded as 'Determine the X.'; meaning, numbers and units are unchanged",
+    "detectable_in": "pass1",
+    "expected_verdict": "valid",
+    "screen": {
+      "conditions": [
+        {
+          "condition": "non-relativistic motion",
+          "evidence": "non-relativistic speed: v/c < 1e-7, the relativistic answer agrees to better than 1e-13",
+          "status": "waived"
+        }
+      ],
+      "passed": true,
+      "reason": "every answer-deciding condition is stated or waived",
+      "relation": "K = m v^2 / 2"
+    },
+    "source": "fresh_v1_inject",
+    "split": "requal",
+    "structure_id": "CM_A_STD_003"
+  },
+  "F-779": {
+    "accepted_terms": [
+      "insufficient_boundary_condition",
+      "missing_assumption"
+    ],
+    "alternative": {
+      "answer": 9.0,
+      "case": "the cart starts from rest: x = a t^2 / 2",
+      "certified_answer": 18.0,
+      "relative_difference": 0.5,
+      "unit": "m"
+    },
+    "contested": null,
+    "defect_type": "insufficient_boundary_condition",
+    "description": "the initial velocity ('begins at 3.0 m/s') deleted",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "fresh_v1_condition_deleted",
+    "split": "requal",
+    "structure_id": "CM_A_STD_002"
+  },
+  "F-788": {
+    "accepted_terms": [
+      "insufficient_boundary_condition",
+      "missing_assumption"
+    ],
+    "alternative": {
+      "answer": 16.7,
+      "case": "the ball is thrown straight down at 2.0 m/s: v = 2.0 + g t",
+      "certified_answer": 14.7,
+      "relative_difference": 0.1361,
+      "unit": "m/s"
+    },
+    "contested": null,
+    "defect_type": "insufficient_boundary_condition",
+    "description": "'dropped from rest' deleted ('Ball A falls freely'): the initial velocity is not stated",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "fresh_v1_condition_deleted",
+    "split": "requal",
+    "structure_id": "CM_B_UM_011"
+  },
+  "F-867": {
+    "accepted_terms": [
+      "inconsistent_units"
+    ],
+    "contested": null,
+    "defect_type": "inconsistent_units",
+    "description": "the first '<number> kg' became '<number> m': a mass given in metres",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "fresh_v1_inject",
+    "split": "requal",
+    "structure_id": "CM_A_STD_006"
+  },
+  "F-900": {
+    "accepted_terms": [
+      "contradictory_distractor_statement"
+    ],
+    "contested": null,
+    "defect_type": "contradictory_distractor_statement",
+    "description": "a later sentence restates the distractor quantity, with its unit, at 5 times the value, and the new value equals no other number in the prompt",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "fresh_v1_inject",
+    "split": "requal",
+    "structure_id": "CM_B_002"
+  },
+  "F-903": {
+    "accepted_terms": [],
+    "contested": null,
+    "defect_type": "valid_equivalent_rewrite",
+    "description": "'What is the X?' reworded as 'Determine the X.'; meaning, numbers and units are unchanged",
+    "detectable_in": "pass1",
+    "expected_verdict": "valid",
+    "screen": {
+      "conditions": [],
+      "passed": true,
+      "reason": "no condition beyond the stated values decides the answer",
+      "relation": "v = f lambda"
+    },
+    "source": "fresh_v1_inject",
+    "split": "requal",
+    "structure_id": "CM_B_UM_012"
+  },
+  "F-905": {
+    "accepted_terms": [
+      "hidden_coupling",
+      "contradictory_distractor_statement",
+      "relevant_variable_removed_from_equation"
+    ],
+    "contested": null,
+    "defect_type": "hidden_coupling",
+    "description": "'isolated from' replaced by 'coupled to': the distractor subsystem now interacts with the target system",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "fresh_v1_inject",
+    "split": "requal",
+    "structure_id": "CM_B_UM_019"
+  },
+  "F-933": {
+    "accepted_terms": [
+      "contradictory_distractor_statement"
+    ],
+    "contested": null,
+    "defect_type": "contradictory_distractor_statement",
+    "description": "a later sentence restates the distractor quantity, with its unit, at 2 times the value, and the new value equals no other number in the prompt",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "fresh_v1_inject",
+    "split": "requal",
+    "structure_id": "CM_B_UM_039"
+  },
+  "F-970": {
+    "accepted_terms": [
+      "missing_assumption",
+      "insufficient_boundary_condition"
+    ],
+    "alternative": {
+      "answer": 4.8,
+      "case": "the wheel slips (a driven wheel on a slippery road, slip ratio 0.2): v_cm = (1 - 0.2) R omega",
+      "certified_answer": 6.0,
+      "relative_difference": 0.2,
+      "unit": "m/s"
+    },
+    "contested": null,
+    "defect_type": "missing_assumption",
+    "description": "'rolls without slipping' removed: the rolling (no-slip) condition is not stated",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "source": "fresh_v1_condition_deleted",
+    "split": "requal",
+    "structure_id": "CM_B_UM_046"
+  },
+  "F-985": {
+    "accepted_terms": [],
+    "contested": null,
+    "defect_type": "valid_equivalent_rewrite",
+    "description": "'What is the X?' reworded as 'Determine the X.'; meaning, numbers and units are unchanged",
+    "detectable_in": "pass1",
+    "expected_verdict": "valid",
+    "screen": {
+      "conditions": [
+        {
+          "condition": "the braking torque is the net torque",
+          "evidence": "rule 1: frictionless axles are a standard idealisation",
+          "status": "waived"
+        }
+      ],
+      "passed": true,
+      "reason": "every answer-deciding condition is stated or waived",
+      "relation": "alpha = tau / I"
+    },
+    "source": "fresh_v1_inject",
+    "split": "requal",
+    "structure_id": "CM_B_STD_003"
+  },
+  "R-200": {
+    "accepted_terms": [
+      "rendering_not_minimal"
+    ],
+    "contested": null,
+    "defect_type": "rendering_not_minimal",
+    "description": "D0 shows 6 while its claimed R0 twin shows 3 (not a minimal pair at the same value)",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "instance": 1,
+    "source": "role_m0_plant_v5",
+    "split": "requal",
+    "structure_id": "S15"
+  },
+  "R-258": {
+    "accepted_terms": [
+      "failed_transformation_identity"
+    ],
+    "contested": null,
+    "defect_type": "failed_transformation_identity",
+    "description": "R answers computed with q subtract instead of add",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "instance": 1,
+    "source": "role_m0_plant_v5",
+    "split": "requal",
+    "structure_id": "S55"
+  },
+  "R-273": {
+    "accepted_terms": [
+      "missing_assumption",
+      "insufficient_boundary_condition"
+    ],
+    "alternative": {
+      "answer": 248.059,
+      "case": "10% of the heater's output is lost to the surroundings: t = m c dT / (0.9 P)",
+      "certified_answer": 223.253,
+      "relative_difference": 0.1111,
+      "unit": "s"
+    },
+    "contested": null,
+    "defect_type": "missing_assumption",
+    "description": "'delivers 1500 W to the water' replaced by a 1500 W rating: that no heat is lost is not stated",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "instance": 0,
+    "source": "role_m0_condition_deleted",
+    "split": "requal",
+    "structure_id": "S30"
+  },
+  "R-463": {
+    "accepted_terms": [
+      "failed_transformation_identity"
+    ],
+    "contested": null,
+    "defect_type": "failed_transformation_identity",
+    "description": "R answers computed with q subtract instead of add",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "instance": 1,
+    "source": "role_m0_plant_v5",
+    "split": "requal",
+    "structure_id": "S27"
+  },
+  "R-592": {
+    "accepted_terms": [
+      "missing_assumption",
+      "insufficient_boundary_condition"
+    ],
+    "alternative": {
+      "answer": 1.96,
+      "case": "the pulley is a thin ring (I = M R^2): a = (m2 - m1) g / (m1 + m2 + M)",
+      "certified_answer": 2.17778,
+      "relative_difference": 0.1,
+      "unit": "m/s^2"
+    },
+    "contested": null,
+    "defect_type": "missing_assumption",
+    "description": "'uniform solid disc' deleted: the pulley's moment of inertia (mass distribution) is not stated",
+    "detectable_in": "pass1",
+    "expected_verdict": "invalid",
+    "instance": 0,
+    "source": "role_m0_condition_deleted",
+    "split": "requal",
+    "structure_id": "S01"
+  },
+  "R-663": {
+    "accepted_terms": [
+      "rendering_not_minimal"
+    ],
+    "contested": null,
+    "defect_type": "rendering_not_minimal",
+    "description": "D0 shows 1350 while its claimed R0 twin shows 1250 (not a minimal pair at the same value)",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "instance": 1,
+    "source": "role_m0_plant_v5",
+    "split": "requal",
+    "structure_id": "S92"
+  },
+  "R-697": {
+    "accepted_terms": [
+      "rendering_not_minimal"
+    ],
+    "contested": null,
+    "defect_type": "rendering_not_minimal",
+    "description": "D0 shows 25 while its claimed R0 twin shows 15 (not a minimal pair at the same value)",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "instance": 1,
+    "source": "role_m0_plant_v5",
+    "split": "requal",
+    "structure_id": "S20"
+  },
+  "R-699": {
+    "accepted_terms": [
+      "failed_transformation_identity"
+    ],
+    "contested": null,
+    "defect_type": "failed_transformation_identity",
+    "description": "R answers computed with q subtract instead of add",
+    "detectable_in": "pass2",
+    "expected_verdict": "invalid",
+    "instance": 1,
+    "source": "role_m0_plant_v5",
+    "split": "requal",
+    "structure_id": "S26"
+  },
+  "R-802": {
+    "accepted_terms": [],
+    "contested": null,
+    "defect_type": "valid",
+    "description": "unmodified certified M0 item",
+    "detectable_in": "pass2",
+    "expected_verdict": "valid",
+    "instance": 1,
+    "screen": {
+      "conditions": [
+        {
+          "condition": "starts from rest (K is the total kinetic energy)",
+          "evidence": "starts from rest",
+          "status": "stated"
+        },
+        {
+          "condition": "non-relativistic treatment",
+          "evidence": "non-relativistically",
+          "status": "stated"
+        }
+      ],
+      "passed": true,
+      "reason": "every answer-deciding condition is stated or waived",
+      "relation": "lambda = hc / sqrt(2 mc^2 K)"
+    },
+    "source": "role_m0_valid_v5",
+    "split": "requal",
+    "structure_id": "S72"
+  },
+  "R-836": {
+    "accepted_terms": [],
+    "contested": null,
+    "defect_type": "valid",
+    "description": "unmodified certified M0 item",
+    "detectable_in": "pass2",
+    "expected_verdict": "valid",
+    "instance": 1,
+    "screen": {
+      "conditions": [
+        {
+          "condition": "simple pendulum: a small bob on a light string",
+          "evidence": "small bob hangs from a light string",
+          "status": "stated"
+        },
+        {
+          "condition": "small amplitude",
+          "evidence": "small amplitude",
+          "status": "stated"
+        }
+      ],
+      "passed": true,
+      "reason": "every answer-deciding condition is stated or waived",
+      "relation": "T = 2 pi sqrt(L / g)"
+    },
+    "source": "role_m0_valid_v5",
+    "split": "requal",
+    "structure_id": "S13"
+  },
+  "R-870": {
+    "accepted_terms": [],
+    "contested": null,
+    "defect_type": "valid",
+    "description": "unmodified certified M0 item",
+    "detectable_in": "pass2",
+    "expected_verdict": "valid",
+    "instance": 1,
+    "screen": {
+      "conditions": [
+        {
+          "condition": "capacitor initially uncharged",
+          "evidence": "initially uncharged",
+          "status": "stated"
+        },
+        {
+          "condition": "series connection",
+          "evidence": "in series",
+          "status": "stated"
+        },
+        {
+          "condition": "ideal battery and wires",
+          "evidence": "rule 1: ideal batteries, sources and wires need not be stated unless a resistance is given",
+          "status": "waived"
+        }
+      ],
+      "passed": true,
+      "reason": "every answer-deciding condition is stated or waived",
+      "relation": "VC = V0 (1 - exp(-t / (R C)))"
+    },
+    "source": "role_m0_valid_v5",
+    "split": "requal",
+    "structure_id": "S07"
+  },
+  "R-972": {
+    "accepted_terms": [],
+    "contested": null,
+    "defect_type": "valid",
+    "description": "unmodified certified M0 item",
+    "detectable_in": "pass2",
+    "expected_verdict": "valid",
+    "instance": 1,
+    "screen": {
+      "conditions": [
+        {
+          "condition": "released from rest",
+          "evidence": "released from rest",
+          "status": "stated"
+        },
+        {
+          "condition": "kinetic friction with the stated coefficient",
+          "evidence": "coefficient of kinetic friction",
+          "status": "stated"
+        }
+      ],
+      "passed": true,
+      "reason": "every answer-deciding condition is stated or waived",
+      "relation": "v = sqrt(2 g (sin(theta) - mu cos(theta)) d)"
+    },
+    "source": "role_m0_valid_v5",
+    "split": "requal",
+    "structure_id": "S02"
+  }
+}
