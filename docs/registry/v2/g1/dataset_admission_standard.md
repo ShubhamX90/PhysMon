@@ -27,6 +27,7 @@ REPLACED, never edited after any model output on it exists. Planning: 1.3-1.5 ge
 | 2.5 | Misuse curves and placebo | every misuse curve and the placebo value separated from the gold and from each other by more than the loosest tolerance at two or more of three values; inseparable pairs recorded as confounded |
 | 2.6 | Mutation tests (P3.3) | the certifier rejects every planted mutation, including broken cancellation (C) and out-of-regime values (K) |
 | 2.7 | Gold traces | one per cell, rendered from the graph; last value equals the cell gold (relative 1e-9) |
+| 2.7b | Target naming for the H4 extractor | every cell row carries `target_symbols` and `target_phrases` (from the graph's target node and the question), so the frozen trace extractor never falls back to its lexicon default (the cause of all 3 real-trace misses in its validation, J15.1-031) |
 | 2.8 | Feasibility | infeasible strata recorded with reason, never imputed; "complete" = R and D at three values in two phrasing pairs |
 
 ## 3. Wording (machine, then judge)

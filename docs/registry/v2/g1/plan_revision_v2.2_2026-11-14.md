@@ -137,3 +137,15 @@ Applied the rule written in B1 before the results existed.
   3-14% more efficient at most; the limit is binomial noise.
 * Not simulated (stated limits): sign-flip/bootstrap method agreement, leave-k-out, Holm, the R-tracking gate,
   correlation between contrasts, infeasible strata.
+
+## F. M0 v2 build review (2026-11-14)
+* **A2 refined: three D kinds.** In 9 of 12 structures the tightest honest "other event" D is an *undone* change of the
+  target object (R: "...and left there"; D: "...and taken out again"): disconnected (no lasting path to the target) and
+  a near-perfect minimal pair, but a test of reversal rather than of an unrelated event. It is labelled
+  `same_object_undone_event`, separate from `same_object_other_event` (S02, S20, S92) and `other_object_same_scene`
+  (every d0). Results are reported per kind; at M250 each kind should hold at least a quarter of the structures.
+* **Accepted limits of M0 v2:** no position (before-context) cells, because every pair-0 R sentence refers to entities
+  the context introduces later; position cells at M250 need phrasings written for that position. K_out is feasible only
+  for S07 (reasons in `certificates.json`). S02 pair 0 cannot share one frame (`pair_frame_matched: false`).
+* **Sealed m0_pilot rebuild:** after decision 26 (commit 86977b3) s177 adds the `digit_copy` foil, so a rebuild differs
+  from the sealed files by that foil only (tested row by row); the sealed files are unchanged and remain the record.
