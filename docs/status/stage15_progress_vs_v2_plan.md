@@ -1,6 +1,6 @@
 # Stage 15 progress against the v2 plan of record
 
-Plan of record: `docs/proposals/PhysMon_Research_v2.tex` (revision of 11 November 2026). Status as of **2026-11-13 evening IST**, main at `30d5620` (updated after the judge qualification run).
+Plan of record: `docs/proposals/PhysMon_Research_v2.tex` (revision of 11 November 2026). Status as of **2026-11-14 IST**, main at `431ae98` (updated after the prompt-v3 requalification; J15.1-024..029).
 Updated at each checkpoint; the journal (`docs/journal/stage15/`) holds the detail and the evidence for every row.
 
 Status words: **DONE** (committed and tested), **DONE (provisional)** (done, but reviewed only by the agent, pending the LLM panel or the user), **RUNNING** (GPU work in flight), **PARTIAL**, **NOT STARTED**, **NOT DUE** (gated on an earlier gate).
@@ -14,10 +14,10 @@ Nothing below is a confirmatory result; every Stage 15 number so far is EXPLORAT
 | 2 | G0 review additions (a)-(g) | DONE, with two NOT_EVALUATED parts | `bca487a`; see section 2 |
 | 3 | Qwen3-32B revision identification and manifest | DONE | `docs/model_manifests/qwen3_thinking.json` (27/27 files match revision `9216db57`, identified after the fact) |
 | 4 | G1 construct (strata, generator, mutation tests, contracts, analysis scripts, SESOI, cards) | PARTIAL | section 3 |
-| 5 | LLM review panel (choose judges, freeze prompts, extend bank, qualify) | PARTIAL: prompt v1 frozen, bank extended (v3), first qualification run NOT QUALIFIED | section 3, rows G1-14..17; J15.1-013/015 |
+| 5 | LLM review panel (choose judges, freeze prompts, extend bank, qualify) | DONE for two judges: Claude Opus 5.5 (provisional tier) and GPT-6.1 Sol QUALIFIED with prompt v3 on unseen bank v5; Gemini unavailable | section 3, rows G1-14..17; J15.1-013/015/021/024/029 |
 | 6 | M0 pilot structures (8-12) with role-by-value cells | DONE (provisional) | 12 structures, `e0f35aa`, `15a2749`; J15.1-007 |
 | 7 | Non-physics dependency control set | NOT STARTED | |
-| 8 | G0 extended parity at the planned hook sites (one GPU job) | NOT STARTED | needs a GPU job; on the critical path of the G2 primary-model rule (not only G5) |
+| 8 | G0 extended parity at the planned hook sites (one GPU job) | QUEUED: job 449313 (H200), code and protocol committed, tested on CPU only | J15.1-026 |
 | 9 | G2 design-validation pilot on M0 (one GPU job) | DONE (GPU), sealed | both pilots complete (job 444871); `collect` refuses until the G1 freeze (J15.1-009) |
 | 10 | M250 build | NOT STARTED | follows the design-validation pilot |
 | 11 | G2 calibration on the 7-8B models | 3 of 4 DONE (v1 no-cue part); Qwen3-8B thinking RUNNING | J15.1-014 |
@@ -36,7 +36,7 @@ Order note: the plan runs nothing before G1. Two GPU items run early on idle que
 | 2e. Claim-wording check | DONE | `scripts/check_claim_wording.py`: 4 prohibited phrasings in the withdrawn paper |
 | 2f. Provenance-consistency check | DONE | `scripts/check_provenance_consistency.py`: 1 conflict ("could not write physics" vs `created_by: agent`) |
 | 2g. Dated threshold note | DONE | `docs/registry/v2/threshold_history.md` |
-| 3. P0 narrowed + extended HF/TL parity at G5 hook sites | Smoke parity done earlier (job 399217); extended parity NOT STARTED | GPU job needed; blocks G5 only |
+| 3. P0 narrowed + extended HF/TL parity at G5 hook sites | Smoke parity done earlier (job 399217); extended parity QUEUED (job 449313) | decision 30 makes it a G2 criterion |
 | 4. Phase-I closure note | DONE | `docs/reviews/iclr2027_submission50608/phase1_closure_note.md` |
 | 5. Qwen3-32B revision and manifest | DONE | registry updated `2282099` |
 | **Gate G0** | **NOT PASSED** (item 3 outstanding) | "behaviour can proceed" without it; mechanism work cannot |
@@ -53,19 +53,19 @@ Order note: the plan runs nothing before G1. Two GPU items run early on idle que
 | G1-6 | Sampled, batched reasoning contract (prospective only) | DONE | `reasoning-v2`; `generation.py` (HF and vLLM); never pooled with greedy Stage 14 |
 | G1-7 | Analysis scripts tested on synthetic records | DONE for the role-by-value family and batch-1 calibration/parity | `src/physmon/analysis/rolevalue_stats.py` (F1-F3, TOST four-way, Holm, rare rates, misuse support, lambda), `s176` |
 | G1-8 | Power-simulation scripts | DONE for F1-F3; misuse-share simulator not yet | null-calibrated (F1 balanced 0.032-0.043, F2 0.022-0.054, F3 0.045-0.050); F3 power at SESOI 0.51/0.76/0.97 at J = 24/40/80; re-run from G2 variance estimates later |
-| G1-9 | G3 scorecard criteria with numeric thresholds (H0-H6) | DRAFT for user review | `docs/registry/v2/g1/g3_scorecard_thresholds.md` |
+| G1-9 | G3 scorecard criteria with numeric thresholds (H0-H6) | ADOPTED (decisions 2026-11-13) and coded | `g3_scorecard_thresholds.md`, `src/physmon/analysis/scorecard.py` (J15.1-026); open: k=8 per-phrasing F3 TOST rarely passes in invariant synthetic worlds, settle k or the agreement rule by simulation before the freeze |
 | G1-10 | Minimum R-tracking criterion (checked in G2) | DRAFT (proposed >= 0.50 on >= 16 structures) | `docs/registry/v2/g1/r_tracking_criterion.md` |
 | G1-11 | T1 prefix type per experiment and compatibility strata | DRAFT | in the experiment cards |
 | G1-12 | Equivalence margins (SESOI) with reasons | DRAFT | planning values of the plan coded with reasons (F1 0.10, F2 0.10, F3 OR 1.5/step, lambda_D 0.10); user review pending |
 | G1-13 | Experiment cards | DRAFT for user review (X01-X12) | `docs/registry/v2/g1/experiment_cards.md`; 33 open questions in `open_questions_for_user.md` |
-| G1-14 | LLM panel: judges chosen (D2) | DONE | Claude sole provisional judge until GPT/Gemini credits |
-| G1-15 | LLM panel: prompts frozen | DONE (v1) | `docs/validation/v2/llm_panel/judge_prompt_v1.md`, pre-freeze independent review |
-| G1-16 | LLM panel: planted-defect bank extended (fresh valid items, new defects, held-out portion) | DONE (bank v3: 63 items, 10 held out) | `docs/validation/v2/llm_panel/bank_v3/` |
-| G1-17 | LLM panel: qualification (>=85% defects for the declared reason, >=5/6 valid accepted) | RUN q1: NOT QUALIFIED | Q1 30/39, Q2 6/6, Q3 14/14, Q4 missed under-specification types; audit clean (J15.1-015); requalification needs a fresh planted set |
+| G1-14 | LLM panel: judges chosen (D2) | DONE | Claude (provisional tier) + GPT-6.1 Sol via Codex/ChatGPT login; Gemini not available |
+| G1-15 | LLM panel: prompts frozen | DONE (v3 in use) | `judge_prompt_v3.md` = v1 + admission standard J1-J3 (v2) + false-claims sentence (v3) |
+| G1-16 | LLM panel: planted-defect bank extended (fresh valid items, new defects, held-out portion) | DONE (banks v3, v4, v5; v5 key independently reviewed before freeze) | `docs/validation/v2/llm_panel/bank_v5/`, `bank_v5_key_review.md` |
+| G1-17 | LLM panel: qualification (>=85% defects for the declared reason, >=5/6 valid accepted) | DONE: both QUALIFIED (protocol v3) | v1: both NOT QUALIFIED; v2 (bank v4): both narrowly NOT QUALIFIED, two key errors found; v3 (bank v5): Claude 22/22 + 10/10, GPT 21/22 + 10/10 (GPT's precision detections rest on the pre-freeze term change, J15.1-029) |
 | G1-18 | M0 pilot structures | DONE (provisional) | 12 certified specs; review by the lead agent only |
 | G1-19 | Dataset admission standard and data-role allocation | NOT STARTED (plan text exists) | |
 | G1-20 | Adaptive-sampling rule and G3 secondary-family selection rule | DRAFT | `docs/registry/v2/g1/sampling_and_selection_rules.md` (no adaptive sampling proposed) |
-| **Gate G1** | **NOT PASSED** | certificates, mutation tests and analysis tests done; panel not yet qualified; cards drafted, awaiting the user |
+| **Gate G1** | **NOT PASSED** | panel qualified; decisions adopted; statistics and scorecard coded; remaining: k / F3 agreement rule by simulation, H4 trace extractor, non-physics control set, dataset admission standard, then the freeze |
 
 Design rule frozen inside G1-7/8 (J15.1-011): the non-numeric control is sampled as often as all D cells of a structure together; the sign-flip test is primary.
 
@@ -105,7 +105,7 @@ Design rule frozen inside G1-7/8 (J15.1-011): the non-numeric control is sampled
 | Id | Decision | Status |
 |---|---|---|
 | D1 | Full P0 regeneration off the critical path | default kept (not run) |
-| D2 | Judge panel | decided 2026-11-12: Claude + GPT + Gemini; Claude alone, provisional, until credits |
+| D2 | Judge panel | decided 2026-11-12: Claude + GPT + Gemini; now Claude (provisional) + GPT-6.1 Sol qualified (prompt v3); Gemini pending |
 | D3 | Qwen3-8B download | done: revision `b968826d` pinned and verified |
 | D4 | vLLM in a separate environment with parity | done: vLLM 0.33.0 env on scratch; parity PASS on Qwen2.5-7B |
 | D5 | 32-anchor no-cue resample | default kept (not resubmitted; superseded in part by the k = 8 calibration) |
