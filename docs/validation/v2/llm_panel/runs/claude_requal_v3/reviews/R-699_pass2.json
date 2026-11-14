@@ -1,0 +1,45 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch07",
+  "item_id": "R-699",
+  "pass_number": 2,
+  "started_at": "2026-11-14T10:28:00Z",
+  "completed_at": "2026-11-14T10:38:00Z",
+  "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law: n1 sin(theta1) = n2 sin(theta2)",
+    "assumptions": ["flat interface", "isotropic, homogeneous media", "angles measured from the normal (stated)"],
+    "answer": 23.8834,
+    "unit": "deg"
+  },
+  "stratum_assignments": {
+    "TC4F8": {"stratum": "R", "answer_with_sentence": 29.943, "regime": null},
+    "T7503": {"stratum": "D", "answer_with_sentence": 23.8834, "regime": null},
+    "T5F58": {"stratum": "D", "answer_with_sentence": 23.8834, "regime": null},
+    "T3636": {"stratum": "R", "answer_with_sentence": 29.943, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["failed_transformation_identity"],
+  "defect_reasons": {
+    "failed_transformation_identity": "The certified answers for the R sentences TC4F8 and T3636 (20.6673, 17.3567, 13.9707 deg at q = 5, 10, 15) correspond to an incidence angle of 35 - q, whereas both the sentences and the stated wiring say the ray is tilted farther from the normal (theta1 + q), which gives 26.98, 29.94 and 32.73 deg."
+  },
+  "defect_severity": {
+    "failed_transformation_identity": "high"
+  },
+  "counterexamples": [
+    "TC4F8 / T3636 at q = 10: theta1 = 45 deg, sin(theta2) = 1.2*0.707107/1.7 = 0.499134, theta2 = 29.94 deg; certified 17.3567 deg (which is asin(1.2*sin25/1.7), i.e. theta1 = 25 deg).",
+    "TC4F8 / T3636 at q = 5: theta1 = 40 deg, sin(theta2) = 1.2*0.642788/1.7 = 0.453733, theta2 = 26.98 deg; certified 20.6673 deg (theta1 = 30 deg).",
+    "TC4F8 / T3636 at q = 15: theta1 = 50 deg, sin(theta2) = 1.2*0.766044/1.7 = 0.540737, theta2 = 32.73 deg; certified 13.9707 deg (theta1 = 20 deg)."
+  ],
+  "notes": "Agrees with pass 1. Base answer 23.8834 deg, relation theta2 = asin(n1 sin(theta1)/n2), strata (R for TC4F8/T3636, D for T7503/T5F58), D invariance answers, and the minimal pairs (T5F58/T3636 and T7503/TC4F8, all 10 deg, differing only in what is tilted) are correct. The defect is that the R certified answers decrease with q, i.e. they were computed with the sign of the tilt reversed relative to the sentences ('farther from the normal', 'away from the normal') and the authors' own wiring (theta1 + q). The item text itself is sound; only the certified answers are wrong.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

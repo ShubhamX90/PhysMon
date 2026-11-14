@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch08",
+  "item_id": "F-485",
+  "pass_number": 2,
+  "started_at": "2026-11-14T00:04:00Z", "completed_at": "2026-11-14T00:07:00Z", "minutes_spent": 3,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Uniform circular motion: F_c = m v^2 / r", "assumptions": ["uniform circular motion at constant speed", "non-relativistic", "mass positive (authors' parameter m = 1.0 kg; the text says -1.0 kg)"], "answer": 8.0, "unit": "N"},
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_parameter_domain", "other"],
+  "defect_reasons": {
+    "invalid_parameter_domain": "Every rendering states the object's mass as -1.0 kg, a negative mass outside the domain of Newtonian circular motion.",
+    "other": "The authors' parameter list gives m = +1.0 kg while every rendering says -1.0 kg, so the certified 8.0 N does not follow from the text as written (literal substitution gives -8.0 N); the claimed parameter value is false as a description of the item text."
+  },
+  "defect_severity": {"invalid_parameter_domain": "high", "other": "high"},
+  "counterexamples": ["Using the stated text value m = -1.0 kg: F = (-1.0)(4.0)^2/2.0 = -8.0 N, not the certified 8.0 N."],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "Pass 2 agrees with pass 1. The governing relation, units and the disconnection of the independent object C (3.0/6.0/10.0/18.0 N) are all correct, and with m = +1.0 kg the answer 8.0 N would be right. The defect is the sign of the mass in the rendered text, which also makes the rendered problem disagree with the authors' parameters. answer_correct is false relative to the text as rendered."
+}

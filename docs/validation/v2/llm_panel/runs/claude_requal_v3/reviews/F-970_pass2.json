@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch05",
+  "item_id": "F-970",
+  "pass_number": 2,
+  "started_at": "2026-11-14T10:43:00Z",
+  "completed_at": "2026-11-14T10:47:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Rolling without slipping: v_cm = omega R",
+    "assumptions": ["wheel rolls without slipping on stationary ground (NOT stated in the item)", "R = 0.5 m is the rolling radius"],
+    "answer": 6.0,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {"missing_assumption": "The authors' target is the 'rolling' centre-of-mass speed and their equation v_cm = R omega is the rolling-without-slipping constraint, but the text says only that the wheel 'moves along the ground while turning', so the condition that decides the answer is not stated."},
+  "defect_severity": {"missing_assumption": "high"},
+  "counterexamples": ["A wheel turning at 12.0 rad/s while sliding on ice, or spinning in place, has v_cm different from R omega = 6.0 m/s (any value is possible), so the text admits materially different answers."],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "Given rolling without slipping, the equation, parameters (0.5 m, 12.0 rad/s), units and certified answer 6.0 m/s are correct, and the invariance claim holds: the conveyor belt in a separate apparatus never contacts the wheel and its speed is absent from the governing relation. The item nonetheless fails rule 1 because the rolling-without-slipping condition is not stated; the authors' own target name ('rolling_center_of_mass_speed') shows they assumed it. Same conclusion as pass 1. admission_category ANSWER_AMBIGUOUS because the text as given does not fix a unique answer; the certified answer is correct under the intended (unstated) model."
+}

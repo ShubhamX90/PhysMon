@@ -1,0 +1,24 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch01",
+  "item_id": "R-697",
+  "pass_number": 1,
+  "started_at": "2026-11-14T10:00:00Z", "completed_at": "2026-11-14T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Thin-lens equation 1/f = 1/u + 1/v (real-is-positive convention)", "assumptions": ["thin lens, paraxial rays", "object distance measured from lens along the axis", "lens in air"], "answer": 14.0, "unit": "cm"},
+  "stratum_assignments": {
+    "TE3BF": {"stratum": "D", "answer_with_sentence": 14.0, "regime": null},
+    "TAD1B": {"stratum": "R", "answer_with_sentence": 12.5, "regime": null},
+    "T2924": {"stratum": "D", "answer_with_sentence": 14.0, "regime": null},
+    "T97EB": {"stratum": "D", "answer_with_sentence": 14.0, "regime": null},
+    "T1331": {"stratum": "R", "answer_with_sentence": 12.5, "regime": null},
+    "TF673": {"stratum": "D", "answer_with_sentence": 14.0, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": ["TF673 pairing"],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "The stand-displacement sentences TE3BF, TAD1B and T1331 all state 15 cm, but TF673 (microphone stand) states 25 cm, so if TF673 is meant as a variant of a stand-displacement sentence it differs in the number, not only in attachment."},
+  "defect_severity": {"rendering_not_minimal": "high"},
+  "counterexamples": [],
+  "notes": "Base: 1/v = 1/10 - 1/35 = 25/350, v = 14 cm (real). With the object's stand pushed 15 cm farther, u = 50 cm, 1/v = 1/10 - 1/50 = 4/50, v = 12.5 cm, still real. Object height (4 cm) affects image height via magnification but not image distance; I class it D for the asked quantity (it could be argued C as it belongs to the system, but it never enters the image-distance relation). T2924 and T97EB both state 4 cm and are consistent variants. TAD1B and T1331 are equivalent wordings (both 15 cm). TE3BF pairs with them at 15 cm. TF673 uses 25 cm; severity high is provisional, conditional on it being claimed as a minimal pair of a 15 cm sentence."
+}

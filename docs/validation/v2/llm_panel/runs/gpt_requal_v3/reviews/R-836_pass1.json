@@ -1,0 +1,79 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "R-836",
+  "pass_number": 1,
+  "started_at": "2026-11-14T05:46:10+00:00",
+  "completed_at": "2026-11-14T05:46:53+00:00",
+  "minutes_spent": 0.72,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For a simple pendulum, mL²θ̈ = −mgL sinθ. At small amplitude, T = 2π√(L/g). With L = 1.2 m and g = 9.8 m/s², T = 2.1987 s.",
+    "assumptions": [
+      "The suspension point is fixed and the string remains taut.",
+      "The small bob is treated as a point mass.",
+      "Damping and air resistance are negligible.",
+      "The stated small amplitude permits sinθ ≈ θ."
+    ],
+    "answer": 2.1987,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T6565": {
+      "stratum": "C",
+      "answer_with_sentence": 2.1987,
+      "regime": null
+    },
+    "T0685": {
+      "stratum": "D",
+      "answer_with_sentence": 2.1987,
+      "regime": null
+    },
+    "TC51A": {
+      "stratum": "D",
+      "answer_with_sentence": 2.1987,
+      "regime": null
+    },
+    "T998A": {
+      "stratum": "C",
+      "answer_with_sentence": 2.1987,
+      "regime": null
+    },
+    "TE112": {
+      "stratum": "R",
+      "answer_with_sentence": 2.5388,
+      "regime": null
+    },
+    "T5DBD": {
+      "stratum": "R",
+      "answer_with_sentence": 2.5388,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "The bob's mass appears in both gravitational torque and rotational inertia and cancels. The wall and drawer cords have no physical connection to the pendulum. Either attached cord extends the effective pendulum length to 1.6 m. All mass variants specify 0.5 kg, and all cord variants specify 0.4 m. Brass composition and spherical shape introduce no material change under the stated small-bob idealization.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "aada6aa8f9e2e101c39b4ca8389f23f3cf6c4d53e892d2458cc5ed1d62aa93d8",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

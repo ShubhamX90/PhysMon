@@ -1,0 +1,99 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "R-592",
+  "pass_number": 1,
+  "started_at": "2026-11-14T05:51:22+00:00",
+  "completed_at": "2026-11-14T05:52:27+00:00",
+  "minutes_spent": 1.08,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law and rotational dynamics give T_L-3g=3a, 5g-T_R=5a, and (T_R-T_L)r=I(a/r). Consequently a=19.6/(8+I/r²) m/s². The pulley mass does not determine I/r², so there is no unique numerical answer.",
+    "assumptions": [
+      "The string is taut and inextensible.",
+      "The pulley rotates about a fixed, frictionless axle.",
+      "The stated no-slip condition gives angular acceleration a/r."
+    ],
+    "answer": null,
+    "unit": "m/s²"
+  },
+  "stratum_assignments": {
+    "T59AF": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T3426": {
+      "stratum": "K",
+      "answer_with_sentence": null,
+      "regime": "The string remains intact when both strand tensions are at most 200 N. For this ideal apparatus with nonnegative pulley inertia, neither tension exceeds 49 N."
+    },
+    "TB300": {
+      "stratum": "K",
+      "answer_with_sentence": null,
+      "regime": "The string remains intact when both strand tensions are at most 200 N. For this ideal apparatus with nonnegative pulley inertia, neither tension exceeds 49 N."
+    },
+    "T7D27": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T3BAA": {
+      "stratum": "C",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T5F33": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TF5D9": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TF030": {
+      "stratum": "C",
+      "answer_with_sentence": null,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [
+    "Unconditional C classification of T3BAA and TF030 requires a specified pulley mass-distribution model."
+  ],
+  "defect_flags": [
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The pulley mass is specified, but its moment of inertia or mass-distribution model is omitted, and different standard pulley models yield materially different accelerations."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    "A uniform solid-disk pulley has I/r²=1 kg and gives a=19.6/9=2.17778 m/s²; a thin-hoop pulley of the same mass and radius has I/r²=2 kg and gives a=19.6/10=1.96 m/s².",
+    "With either attached-block sentence, a=11.76/(8.8+I/r²) m/s²: the solid-disk model gives 1.20 m/s², whereas the thin-hoop model gives 1.08889 m/s²."
+  ],
+  "notes": "Null answers indicate underdetermination, not zero acceleration. The radius sentences are provisionally classified C under a fixed pulley shape factor κ, for which I=κMr² and radius cancels; specifying radius alone does not supply κ. Under the additional uniform solid-disk assumption, all sentences except T59AF and T5F33 retain the base answer 2.17778 m/s²; those two give 1.20 m/s². The sentence variants consistently use 0.8 kg, 200 N, and 12 cm, with no contradictory values. No outside information was accessed.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "0d55ba30a63cd4e0df789401e48e3dfbe744a0383026f0b7bc4c6cc9e37b0750",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

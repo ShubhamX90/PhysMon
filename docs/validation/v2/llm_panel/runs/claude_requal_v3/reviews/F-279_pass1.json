@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch06",
+  "item_id": "F-279",
+  "pass_number": 1,
+  "started_at": "2026-11-14T10:39:00Z",
+  "completed_at": "2026-11-14T10:44:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Coulomb's law: F = k q1 q2 / r^2",
+    "assumptions": ["vacuum approximation for air (stated), k = 8.99e9 N*m^2/C^2", "point charges at rest"],
+    "answer": 5.394,
+    "unit": "N"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "F = 8.99e9 * (2e-6)(3e-6) / (0.1)^2 = 8.99e9 * 6e-12 / 0.01 = 5.394 N in every rendering. The air temperature (15, 20, 25, 35 C) belongs to the medium; physically it affects air's permittivity only through density (relative permittivity about 1.0005-1.0006, a change of order 1e-5 over this range), and the stated vacuum approximation removes it, so it is irrelevant under the stated model (K-like: irrelevant within the vacuum-approximation regime). Wording 'and use the vacuum approximation' is a slightly awkward splice of instruction into description."
+}

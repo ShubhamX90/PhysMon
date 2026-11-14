@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch07",
+  "item_id": "R-699",
+  "pass_number": 1,
+  "started_at": "2026-11-14T10:20:00Z",
+  "completed_at": "2026-11-14T10:28:00Z",
+  "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law: n1 sin(theta1) = n2 sin(theta2)",
+    "assumptions": ["flat interface", "isotropic, homogeneous media", "angles measured from the normal (stated)"],
+    "answer": 23.88,
+    "unit": "degree"
+  },
+  "stratum_assignments": {
+    "TC4F8": {"stratum": "R", "answer_with_sentence": 29.94, "regime": null},
+    "T7503": {"stratum": "D", "answer_with_sentence": 23.88, "regime": null},
+    "T5F58": {"stratum": "D", "answer_with_sentence": 23.88, "regime": null},
+    "T3636": {"stratum": "R", "answer_with_sentence": 29.94, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: sin(theta2) = 1.2*sin35/1.7 = 1.2*0.573576/1.7 = 0.404878, theta2 = 23.883 deg. No total internal reflection (going into the denser medium). TC4F8 and T3636 increase the angle of incidence to 45 deg: sin(theta2) = 1.2*0.707107/1.7 = 0.499134, theta2 = 29.943 deg. Solar panel (T7503) and picture frame (T5F58) tilts have no optical path to the ray: D. All four sentences state 10 degrees and differ only in what is tilted. TC4F8 makes the in-plane direction explicit; T3636 'away from the normal' is naturally read as the incidence angle increasing by 10 deg. Minor reading point (not a defect): the sentences say the tilt is applied 'then', and the question asks for 'the angle of refraction'; I read it as the angle after the tilt, which is the natural reading."
+}

@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch08",
+  "item_id": "F-113",
+  "pass_number": 2,
+  "started_at": "2026-11-14T00:22:00Z", "completed_at": "2026-11-14T00:26:00Z", "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Torque of a perpendicular force: tau = r F", "assumptions": ["the 15.0 N force acts at the end of the 0.8 m lever arm, perpendicular to it"], "answer": 12.0, "unit": "N*m"},
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["relevant_variable_removed_from_equation", "inconsistent_units"],
+  "defect_reasons": {
+    "relevant_variable_removed_from_equation": "The machine-readable governing equation is '1 * F_A', which omits the lever arm r_A (the LaTeX and proof text say r_A * F_A), so the authors' claim that the expression has free symbols {r_A, F_A} is false and the shown equation evaluates to 15.0, not the certified 12.0 N*m.",
+    "inconsistent_units": "As shown, '1 * F_A' has units of force (N), not the target unit N*m."
+  },
+  "defect_severity": {"relevant_variable_removed_from_equation": "high", "inconsistent_units": "medium"},
+  "counterexamples": ["Evaluating the shown sympy equation '1 * F_A' with F_A = 15.0 N gives 15.0 (N), not 12.0 N*m; changing r_A from 0.8 m to 1.6 m changes the true torque to 24.0 N*m but leaves the shown expression unchanged."],
+  "equation_consistent": false,
+  "units_consistent": false,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "Pass 2 agrees with pass 1 on the physics: 0.8 m * 15.0 N = 12.0 N*m, and the certified answer, the LaTeX equation tau_A = r_A F_A and the disconnection of isolated system B are all correct. The defect is in the authors' displayed sympy equation and the proof text's false claim about its free symbols; under the admission standard a false claim about the equation shown is a high-severity defect even though the certified answer is right."
+}

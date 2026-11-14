@@ -1,0 +1,51 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "F-500",
+  "pass_number": 2,
+  "started_at": "2026-11-14T05:45:53+00:00",
+  "completed_at": "2026-11-14T05:46:10+00:00",
+  "minutes_spent": 0.27,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Vertical equilibrium gives T_A - m_A g = 0, hence T_A = 3.0 × 9.8 = 29.4 N.",
+    "assumptions": [
+      "The bucket remains motionless, so its acceleration is zero.",
+      "Rope A supports the bucket vertically under standard textbook apparatus idealizations."
+    ],
+    "answer": 29.4,
+    "unit": "N"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "The authors' equation, free-symbol argument, parameter units and certified answer agree with the locked pass-1 solution. The crate's force is structurally disconnected because interaction is explicitly excluded. All four variants give 29.4 N and differ only in the intentionally varied disconnected force value. No revision to the pass-1 judgment is needed.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "5a6ef65b2b30a4d98d725fdc4f3dbc7ea53568fff4e73b229561354ee69df270",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch08",
+  "item_id": "F-485",
+  "pass_number": 1,
+  "started_at": "2026-11-14T00:00:00Z", "completed_at": "2026-11-14T00:04:00Z", "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Uniform circular motion: F_c = m v^2 / r", "assumptions": ["uniform circular motion at constant speed", "non-relativistic", "mass must be positive; the stated -1.0 kg is unphysical"], "answer": 8.0, "unit": "N"},
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_parameter_domain"],
+  "defect_reasons": {"invalid_parameter_domain": "The object's mass is given as -1.0 kg; a negative inertial mass is outside the domain of Newtonian mechanics, so F = m v^2/r gives a meaningless -8.0 N (magnitude 8.0 N only if the sign is ignored)."},
+  "defect_severity": {"invalid_parameter_domain": "high"},
+  "counterexamples": ["Literal substitution m = -1.0 kg gives F = -1.0 * 4.0^2 / 2.0 = -8.0 N, a negative 'required centripetal force', which is unphysical; taking |m| gives 8.0 N. The item has no well-defined physical answer."],
+  "notes": "Across all four renderings the added statement (object C requiring 3.0, 6.0, 10.0 or 18.0 N) concerns an explicitly independent system and is structurally disconnected; the answer is unchanged across renderings (8.0 N in magnitude if the mass were +1.0 kg). The only defect is the negative mass in the base problem."
+}

@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch04",
+  "item_id": "R-200",
+  "pass_number": 2,
+  "started_at": "2026-11-14T10:56:00Z", "completed_at": "2026-11-14T11:04:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "P = V^2 (1/R1 + 1/R2) for an ideal source across parallel resistors", "assumptions": ["ideal battery and wires", "ohmic resistors"], "answer": 21.6, "unit": "W"},
+  "stratum_assignments": {
+    "TC157": {"stratum": "R", "answer_with_sentence": 38.4, "regime": null},
+    "T1402": {"stratum": "R", "answer_with_sentence": 38.4, "regime": null},
+    "T7126": {"stratum": "D", "answer_with_sentence": 21.6, "regime": null},
+    "T4F4D": {"stratum": "K", "answer_with_sentence": 21.6, "regime": "V/R1 = 1.8 A below the fuse threshold"},
+    "T5876": {"stratum": "D", "answer_with_sentence": 21.6, "regime": null},
+    "TF3F1": {"stratum": "K", "answer_with_sentence": 21.6, "regime": "V/R1 = 1.8 A below the fuse rating"}
+  },
+  "validity": "invalid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {
+    "rendering_not_minimal": "T5876 is claimed to show value 3 V and to be a minimal pair with T1402, but its text states a 6 V cell, so both the value-shown claim and the minimal-pair claim are false."
+  },
+  "defect_severity": {"rendering_not_minimal": "high"},
+  "counterexamples": ["T5876 text: 'A 6 V cell ... lying unused in a drawer'; claim: value_shown '3', minimal_pair_with T1402 ('A 3 V cell ... aiding its emf'). The pair differs in the number (6 V vs 3 V), not only in attachment."],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "Pass 1 flagged the 6 V vs 3 V mismatch as medium pending the claims; the pass-2 claims make it a false authors' claim (value as it appears in the text, and minimal pairing), which under rule 3 is high. All numerical answers check: base 81(4/15) = 21.6 W; aiding cell q = 1.5, 3, 6 V gives 110.25(4/15) = 29.4, 144(4/15) = 38.4, 225(4/15) = 60.0 W. The K regime V/R1 = 1.8 A < q holds for every listed rating (3, 5, 10 A), and the outside-regime reference V^2/R2 (only the 15 ohm branch left) is correct. T7126/TC157 is a proper minimal pair (both 3 V). The D stratum of T5876 itself is correct; the defect is only in the stated value and pairing."
+}

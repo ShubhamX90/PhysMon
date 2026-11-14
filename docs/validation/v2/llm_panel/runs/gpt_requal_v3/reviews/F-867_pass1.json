@@ -1,0 +1,53 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "F-867",
+  "pass_number": 1,
+  "started_at": "2026-11-14T05:51:06+00:00",
+  "completed_at": "2026-11-14T05:51:38+00:00",
+  "minutes_spent": 0.52,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Momentum is p = Mv. The given speed yields momentum magnitude p = M(4.0 m/s), but the stated mass '3.0 m' supplies a length rather than a mass. A numerical momentum cannot be determined as written. If the intended mass were 3.0 kg, the answer would be 12 kg·m/s.",
+    "assumptions": [
+      "The question asks for momentum magnitude.",
+      "The stated speed is the current speed.",
+      "A numerical mass in valid mass units is required."
+    ],
+    "answer": null,
+    "unit": "kg·m/s"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "inconsistent_units"
+  ],
+  "defect_reasons": {
+    "inconsistent_units": "Every variant states the mass as '3.0 m'; metres measure length, so multiplying the stated quantity by velocity does not produce momentum."
+  },
+  "defect_severity": {
+    "inconsistent_units": "high"
+  },
+  "counterexamples": [],
+  "notes": "All four variants share the mass-unit defect. If 'm' instead denotes a symbolic mass, its value and unit are unspecified, so a numerical answer remains unavailable. The earlier rolling distances are irrelevant to momentum at the explicitly given current speed, even if the cart is object A. The legacy variants deliberately change the historical distance; this alone is not a minimal-pair defect.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "8075ae915c5f4230f265f57d61d01cc54c675715d588caad5fa5b91bd522dc24",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

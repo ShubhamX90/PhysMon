@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch01",
+  "item_id": "R-697",
+  "pass_number": 2,
+  "started_at": "2026-11-14T10:08:00Z", "completed_at": "2026-11-14T10:16:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Thin-lens equation di = f*do/(do - f)", "assumptions": ["thin lens, paraxial rays", "object beyond the focal length on the incident side", "lens in air"], "answer": 14.0, "unit": "cm"},
+  "stratum_assignments": {
+    "TE3BF": {"stratum": "D", "answer_with_sentence": 14.0, "regime": null},
+    "TAD1B": {"stratum": "R", "answer_with_sentence": 12.5, "regime": null},
+    "T2924": {"stratum": "C", "answer_with_sentence": 14.0, "regime": null},
+    "T97EB": {"stratum": "C", "answer_with_sentence": 14.0, "regime": null},
+    "T1331": {"stratum": "R", "answer_with_sentence": 12.5, "regime": null},
+    "TF673": {"stratum": "D", "answer_with_sentence": 14.0, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal", "other"],
+  "defect_reasons": {
+    "rendering_not_minimal": "TF673 is claimed as the minimal pair of T1331, but TF673 states 25 cm while T1331 states 15 cm, so they differ in the number as well as in attachment.",
+    "other": "The claim for TF673 gives value_shown = 15, but the sentence text displays 25 cm, so the authors' claim about the value as it appears in the text is false."
+  },
+  "defect_severity": {"rendering_not_minimal": "high", "other": "high"},
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "counterexamples": ["TF673 text: 'pushed 25 cm farther' vs claimed value_shown '15' and minimal pair T1331 at 15 cm."],
+  "notes": "Checked certified answers: q=5 -> do=40, di=10*40/30=13.333 cm; q=15 -> do=50, di=12.5 cm; q=25 -> do=60, di=12.0 cm; base 14.0 cm. All correct, all images real. Height sentences: h_o enters the two ray-construction relations and cancels (di = do*(h_i/h_o)... with h_i proportional to h_o), giving 14.0 cm at 2, 4, 6 cm; the C label is defensible. In pass 1 I labelled these D on the grounds that h_o does not enter the lens equation; with the authors' ray-construction derivation shown, I accept C; the answer is unaffected either way. TE3BF/TAD1B pair is minimal (both 15 cm, stand of fan vs stand of object). T2924/T97EB both 4 cm, consistent. The only defect is TF673's 25 cm, which contradicts its claimed displayed value and its claimed pairing with T1331; this confirms my provisional pass-1 flag."
+}

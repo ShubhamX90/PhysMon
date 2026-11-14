@@ -1,0 +1,55 @@
+{
+  "item_id": "F-970",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For rolling without slipping on stationary ground, v_CM = omega R = (12.0)(0.5) = 6 m/s. With slipping permitted, angular speed and radius do not determine the center-of-mass speed.",
+    "assumptions": [
+      "The ground is stationary.",
+      "Obtaining 6 m/s requires rolling without slipping, which the problem does not state."
+    ],
+    "answer": null,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "All four variants omit the rolling-without-slipping condition required to infer center-of-mass speed from angular speed and radius."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    "A wheel with radius 0.5 m and angular speed 12.0 rad/s can move along stationary ground at 3 m/s while slipping.",
+    "The same wheel can instead move at 8 m/s while slipping, satisfying the stated conditions with a different center-of-mass speed."
+  ],
+  "notes": "No unique numerical answer exists in any variant. Each conveyor-belt statement is structurally disconnected (D), so changing its speed does not resolve the missing rolling condition. The legacy renderings differ only in the belt speed, consistently expressed in m/s.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "started_at": "2026-11-14T05:45:23+00:00",
+  "completed_at": "2026-11-14T05:45:53+00:00",
+  "minutes_spent": 0.51,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "b51bd20e37d1c492a0440b864aac1af7bfb3be341955137f07603bdfdb132b1f",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

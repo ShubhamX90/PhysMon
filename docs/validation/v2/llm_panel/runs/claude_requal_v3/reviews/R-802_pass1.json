@@ -1,0 +1,19 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch04",
+  "item_id": "R-802",
+  "pass_number": 1,
+  "started_at": "2026-11-14T10:00:00Z", "completed_at": "2026-11-14T10:06:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "de Broglie relation lambda = h/p with non-relativistic p = sqrt(2 m K), i.e. lambda = hc / sqrt(2 mc^2 K)", "assumptions": ["electron starts from rest so its kinetic energy is exactly 54 eV", "non-relativistic (stated)", "hc = 1240 eV nm, mc^2 = 511 keV (stated)"], "answer": 0.16692, "unit": "nm"},
+  "stratum_assignments": {
+    "T8B18": {"stratum": "D", "answer_with_sentence": 0.16692, "regime": null},
+    "T70DC": {"stratum": "D", "answer_with_sentence": 0.16692, "regime": null},
+    "T6C4C": {"stratum": "R", "answer_with_sentence": 0.098841, "regime": null},
+    "TB699": {"stratum": "R", "answer_with_sentence": 0.098841, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: sqrt(2*511000*54) = sqrt(55,188,000) = 7428.86 eV; lambda = 1240/7428.86 = 0.16692 nm. With the extra 100 eV given to the same electron, K = 154 eV: sqrt(2*511000*154) = sqrt(157,388,000) = 12545.44 eV; lambda = 1240/12545.44 = 0.098841 nm. 154 eV is far below 511 keV, so the non-relativistic treatment stays adequate. All four sentences state the same 100 eV and differ only in what receives it (separate ion beam, proton in another building, this electron, the electron above), so they are consistent variants."
+}

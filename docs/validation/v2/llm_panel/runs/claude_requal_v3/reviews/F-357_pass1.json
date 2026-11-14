@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch02",
+  "item_id": "F-357",
+  "pass_number": 1,
+  "started_at": "2026-11-14T10:46:30Z",
+  "completed_at": "2026-11-14T10:51:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Capacitor charge: Q = C V",
+    "assumptions": [
+      "capacitor A is fully charged (steady state) across the ideal 9.0 V source",
+      "C2 is disconnected and has no influence on A"
+    ],
+    "answer": 0.0009,
+    "unit": "C"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["contradictory_distractor_statement"],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "Every rendering gives two different values for the charge on the disconnected capacitor C2 (e.g. 3e-4 C and, in a 'later note', 0.0006 C for 'this same quantity'), so the item contradicts itself even though the answer for capacitor A survives."
+  },
+  "defect_severity": {
+    "contradictory_distractor_statement": "high"
+  },
+  "counterexamples": [
+    "Rendering 1: C2 'holds a charge of 3e-4 C' and 'a later note reports this same quantity as 0.0006 C instead' -- two values for one quantity."
+  ],
+  "notes": "Q_A = 1.0e-4 F * 9.0 V = 9.0e-4 C in every rendering; C2 is structurally disconnected. The parenthetical 'later note' doubles C2's charge in each rendering, which is a self-contradiction under rule 2. The parenthetical is also artificial. That A is fully charged (steady state) is not stated explicitly but 'is connected across a 9.0 V source' with an ideal source and no resistance is the standard reading; not flagged."
+}

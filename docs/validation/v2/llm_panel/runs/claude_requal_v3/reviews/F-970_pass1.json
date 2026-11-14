@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch05",
+  "item_id": "F-970",
+  "pass_number": 1,
+  "started_at": "2026-11-14T10:37:00Z",
+  "completed_at": "2026-11-14T10:42:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Rolling without slipping: v_cm = omega R",
+    "assumptions": ["wheel rolls without slipping on stationary ground (NOT stated in the item)", "R = 0.5 m is the rolling radius"],
+    "answer": 6.0,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {"missing_assumption": "The item says only that the wheel 'moves along the ground while turning'; without the condition that it rolls without slipping, v_cm is not determined by omega and R (a skidding or spinning wheel can have any centre-of-mass speed), so the answer 6.0 m/s rests on an unstated modelling condition."},
+  "defect_severity": {"missing_assumption": "high"},
+  "counterexamples": ["A wheel spinning at 12.0 rad/s while skidding (e.g. a car wheel spinning on ice or a bowling ball sliding as it starts to rotate) can move with v_cm of 2 m/s or 10 m/s, not omega R = 6.0 m/s."],
+  "notes": "With rolling without slipping, v_cm = 12.0 rad/s x 0.5 m = 6.0 m/s. The conveyor belt is in another apparatus and never contacts the wheel, so its speed (3, 5, 6 or 9 m/s) is structurally disconnected; the renderings differ only in that value. Note that one rendering's distractor (6.0 m/s) equals the answer, which is harmless for correctness. The radius '0.5 m' has one significant figure while the answer is given to two; low concern. The main defect is the missing rolling-without-slipping condition, which rule 1 requires to be stated."
+}

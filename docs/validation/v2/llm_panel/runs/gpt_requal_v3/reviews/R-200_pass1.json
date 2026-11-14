@@ -1,0 +1,84 @@
+{
+  "item_id": "R-200",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Parallel resistors each have the source voltage across them, so P_total = V^2(1/R1 + 1/R2) = 9^2(1/5 + 1/15) = 21.6 W.",
+    "assumptions": [
+      "The resistors are ohmic.",
+      "Ideal connecting wires are assumed.",
+      "Each fuse is initially intact."
+    ],
+    "answer": 21.6,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "TC157": {
+      "stratum": "R",
+      "answer_with_sentence": 38.4,
+      "regime": null
+    },
+    "T1402": {
+      "stratum": "R",
+      "answer_with_sentence": 38.4,
+      "regime": null
+    },
+    "T7126": {
+      "stratum": "D",
+      "answer_with_sentence": 21.6,
+      "regime": null
+    },
+    "T4F4D": {
+      "stratum": "K",
+      "answer_with_sentence": 21.6,
+      "regime": "The intact fuse has negligible resistance and remains intact because the first branch current is 9/5 = 1.8 A, below 5 A."
+    },
+    "T5876": {
+      "stratum": "D",
+      "answer_with_sentence": 21.6,
+      "regime": null
+    },
+    "TF3F1": {
+      "stratum": "K",
+      "answer_with_sentence": 21.6,
+      "regime": "Under the usual textbook interpretation of its rating, the intact fuse remains intact at the first branch current of 1.8 A, below 5 A."
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T5876 specifies a 6 V cell, whereas the other added-cell variants specify 3 V, violating the requirement that variants preserve the number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and all six individual additions admit the answers reported above. The validity defect concerns the required matching of quantities across variants: T5876 changes both the cell's attachment and its emf. TC157 and T1402 give a total source emf of 12 V and power 144(1/5 + 1/15) = 38.4 W. Both fuse sentences describe operation below the rated current; neither exact-threshold behavior nor a detailed fuse response curve affects the answer here.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "started_at": "2026-11-14T05:48:49+00:00",
+  "completed_at": "2026-11-14T05:49:20+00:00",
+  "minutes_spent": 0.52,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "55838c184d6899f14cd5748f4a87a8cc31349c4c463fa8baac941dbfe18b48d1",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch03",
+  "item_id": "F-788",
+  "pass_number": 1,
+  "started_at": "2026-11-14T10:09:00Z", "completed_at": "2026-11-14T10:14:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Constant-acceleration kinematics under gravity: v = v0 + g t", "assumptions": ["ball A starts from rest (v0 = 0) -- NOT stated in the item", "free fall: only gravity acts, no air resistance", "g = 9.8 m/s^2 as given"], "answer": 14.7, "unit": "m/s"},
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["insufficient_boundary_condition"],
+  "defect_reasons": {"insufficient_boundary_condition": "The item never states that ball A is released from rest; 'falls freely' fixes the acceleration but not the initial velocity, so v = v0 + 9.8*1.5 is not unique (e.g. thrown downward at 2 m/s gives 16.7 m/s)."},
+  "defect_severity": {"insufficient_boundary_condition": "high"},
+  "counterexamples": ["If ball A had an initial downward speed of 2.0 m/s when the 1.5 s interval began, the answer would be 16.7 m/s rather than 14.7 m/s; nothing in the text excludes this."],
+  "notes": "Under the intended reading (released from rest) v = 9.8 * 1.5 = 14.7 m/s in all four renderings; drone B's speed (6.0, 10.0, 14.7, 20.0 m/s) is explicitly non-interacting and structurally disconnected, and the renderings differ only in that value. The 14.7 m/s distractor coincides with the answer (a lure, not a defect). The item fails admission rule 1 because the starting-from-rest condition is missing, even though most readers would assume it."
+}

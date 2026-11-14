@@ -1,0 +1,85 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "R-836",
+  "pass_number": 2,
+  "started_at": "2026-11-14T05:46:53+00:00",
+  "completed_at": "2026-11-14T05:47:21+00:00",
+  "minutes_spent": 0.47,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For small oscillations, Iθ̈ = −mgℓθ with I = mℓ², giving T = 2π√(ℓ/g). The base length ℓ = 1.2 m gives T = 2.19866 s. An attached cord changes ℓ to 1.2 m + q.",
+    "assumptions": [
+      "The suspension point is fixed.",
+      "The small bob is treated as a point mass.",
+      "Strings and cords are light and inextensible.",
+      "Air resistance is negligible.",
+      "The amplitude is small and g is uniform."
+    ],
+    "answer": 2.19866,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T6565": {
+      "stratum": "C",
+      "answer_with_sentence": 2.19866,
+      "regime": null
+    },
+    "T0685": {
+      "stratum": "D",
+      "answer_with_sentence": 2.19866,
+      "regime": null
+    },
+    "TC51A": {
+      "stratum": "D",
+      "answer_with_sentence": 2.19866,
+      "regime": null
+    },
+    "T998A": {
+      "stratum": "C",
+      "answer_with_sentence": 2.19866,
+      "regime": null
+    },
+    "TE112": {
+      "stratum": "R",
+      "answer_with_sentence": 2.53879,
+      "regime": null
+    },
+    "T5DBD": {
+      "stratum": "R",
+      "answer_with_sentence": 2.53879,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All claims agree with the locked pass-1 review. Bob mass cancels between inertia and restoring torque at every listed mass. The wall and drawer cords have no mechanical connection to the pendulum. Attached cord lengths of 0.2, 0.4 and 0.6 m give periods of 2.37482, 2.53879 and 2.69279 s, respectively, confirming every certified answer. Both declared minimal pairs preserve the number, unit and light-cord description while changing its attachment. The restoring-torque relation is correctly understood as its magnitude; the torque acts opposite the angular displacement. The displayed numerical precision is adequate.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a2fcf1d21c9fbf5b50aed9164c5e9235b08357a43e003d935ae8c3f6e0fadfcd",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

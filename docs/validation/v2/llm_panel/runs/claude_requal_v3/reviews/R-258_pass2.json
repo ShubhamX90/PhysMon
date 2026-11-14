@@ -1,0 +1,49 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch06",
+  "item_id": "R-258",
+  "pass_number": 2,
+  "started_at": "2026-11-14T10:28:00Z",
+  "completed_at": "2026-11-14T10:38:00Z",
+  "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Kinetic theory of an ideal gas: v_rms = sqrt(3 R T / M)",
+    "assumptions": ["ideal classical gas in thermal equilibrium", "M = 0.032 kg/mol"],
+    "answer": 558.368,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T22C5": {"stratum": "C", "answer_with_sentence": 558.368, "regime": null},
+    "TB60B": {"stratum": "D", "answer_with_sentence": 558.368, "regime": null},
+    "T2519": {"stratum": "R", "answer_with_sentence": 624.27, "regime": null},
+    "T9BED": {"stratum": "C", "answer_with_sentence": 558.368, "regime": null},
+    "T9BF3": {"stratum": "D", "answer_with_sentence": 558.368, "regime": null},
+    "T0A89": {"stratum": "R", "answer_with_sentence": 624.27, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["failed_transformation_identity", "rendering_not_minimal"],
+  "defect_reasons": {
+    "failed_transformation_identity": "For the R sentences T0A89 and T2519 the certified answers (483.561, 522.306, 394.826 m/s at q = 100, 50, 200 K) are v_rms at T - q (300, 350, 200 K), contradicting the stated wiring T + q; heating the gas raises v_rms to 624.27, 592.24 and 683.86 m/s respectively.",
+    "rendering_not_minimal": "T2519 adds the clause 'held in a closed rigid container' that its D partner T9BF3 (and its R twin T0A89) lack, so the pair differs in an extra modelling statement beyond the attachment; it does not change v_rms."
+  },
+  "defect_severity": {
+    "failed_transformation_identity": "high",
+    "rendering_not_minimal": "low"
+  },
+  "counterexamples": [
+    "T0A89 at q = 100 K: gas at 500 K, v_rms = sqrt(3*8.314*500/0.032) = 624.27 m/s, not the certified 483.561 m/s (which is the 300 K value).",
+    "T2519 at q = 200 K: gas at 600 K, v_rms = 683.86 m/s, not 394.826 m/s (the 200 K value).",
+    "At q = 50 K: 450 K gives 592.24 m/s, not 522.306 m/s (the 350 K value)."
+  ],
+  "notes": "Agree with pass 1 on all strata and the base answer 558.368 m/s. The C claims for T22C5/T9BED are correct (n cancels between U = (3/2) n R T and m_total = n M) and the D claims for TB60B/T9BF3 are correct, with matching 100 K values in each minimal pair. The relations Ek = (3/2) R T and v_rms = sqrt(2 Ek / M) are consistent provided M is converted from g/mol to kg/mol, which the base answer shows was done. The defect is solely in the certified answers for both R sentences, which decrease with heating: the temperature rise was subtracted instead of added.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

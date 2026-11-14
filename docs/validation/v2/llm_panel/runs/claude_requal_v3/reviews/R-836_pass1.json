@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch07",
+  "item_id": "R-836",
+  "pass_number": 1,
+  "started_at": "2026-11-14T10:00:00Z",
+  "completed_at": "2026-11-14T10:06:00Z",
+  "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Small-angle simple pendulum: T = 2*pi*sqrt(L/g)",
+    "assumptions": ["point-mass (small) bob", "light inextensible string", "small amplitude (stated)", "negligible air resistance", "g = 9.8 m/s^2"],
+    "answer": 2.199,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T6565": {"stratum": "C", "answer_with_sentence": 2.199, "regime": null},
+    "T0685": {"stratum": "D", "answer_with_sentence": 2.199, "regime": null},
+    "TC51A": {"stratum": "D", "answer_with_sentence": 2.199, "regime": null},
+    "T998A": {"stratum": "C", "answer_with_sentence": 2.199, "regime": null},
+    "TE112": {"stratum": "R", "answer_with_sentence": 2.539, "regime": null},
+    "T5DBD": {"stratum": "R", "answer_with_sentence": 2.539, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: T = 2*pi*sqrt(1.2/9.8) = 2*pi*0.34993 = 2.1987 s. Bob mass (T6565, T998A) enters m*g and m*a and cancels: C, answer unchanged. Cords on the wall or in a drawer (T0685, TC51A) have no physical path to the pendulum: D. TE112 and T5DBD both lengthen the pendulum to 1.2 + 0.4 = 1.6 m: T = 2*pi*sqrt(1.6/9.8) = 2*pi*0.40406 = 2.5388 s. Variants check: T6565/T998A both state 0.5 kg (T6565 adds 'brass sphere', harmless descriptive wording); the four 0.4 m cord sentences all state 0.4 m and differ only in attachment. No contradiction between sentences and problem ('small bob' consistent with 'small brass sphere')."
+}

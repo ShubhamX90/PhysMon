@@ -1,0 +1,62 @@
+{
+  "item_id": "F-113",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For a perpendicular force, τ_A = r_A F_A = (0.8 m)(15.0 N) = 12.0 N·m.",
+    "assumptions": [
+      "The lever arm is measured about system A's intended pivot.",
+      "The target is the torque magnitude produced by the stated force."
+    ],
+    "answer": 12.0,
+    "unit": "N·m"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "relevant_variable_removed_from_equation",
+    "inconsistent_units"
+  ],
+  "defect_reasons": {
+    "relevant_variable_removed_from_equation": "The supplied SymPy expression, 1 * F_A, omits the relevant lever arm r_A and evaluates to 15.0 rather than the certified torque of 12.0.",
+    "inconsistent_units": "The supplied SymPy expression has dimensions of force, N, rather than the target torque dimensions, N·m."
+  },
+  "defect_severity": {
+    "relevant_variable_removed_from_equation": "high",
+    "inconsistent_units": "high"
+  },
+  "counterexamples": [
+    "At the stated r_A = 0.8 m and F_A = 15.0 N, the physical torque is 12.0 N·m, while the supplied SymPy expression returns 15.0 N."
+  ],
+  "notes": "The physical solution and all four variant answers agree with pass 1. System B's torque is structurally disconnected because B is mechanically isolated from A. The LaTeX equation and authors' proof text are correct, but the supplied SymPy equation contradicts them. This newly disclosed defect changes the overall verdict to invalid without changing the locked pass-1 assessment. The legacy renderings consistently vary only B's torque value and retain its units and attachment.",
+  "equation_consistent": false,
+  "units_consistent": false,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "started_at": "2026-11-14T05:48:54+00:00",
+  "completed_at": "2026-11-14T05:49:15+00:00",
+  "minutes_spent": 0.35,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "3c6eb0584928c7e6545de2c3d91b7558f9ed553c67eedc495c3a451b74ecb39e",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

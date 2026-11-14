@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch07",
+  "item_id": "R-836",
+  "pass_number": 2,
+  "started_at": "2026-11-14T10:06:00Z",
+  "completed_at": "2026-11-14T10:11:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Small-angle simple pendulum: T = 2*pi*sqrt(L/g)",
+    "assumptions": ["point-mass (small) bob", "light inextensible string", "small amplitude (stated)", "negligible air resistance", "g = 9.8 m/s^2"],
+    "answer": 2.19866,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T6565": {"stratum": "C", "answer_with_sentence": 2.19866, "regime": null},
+    "T0685": {"stratum": "D", "answer_with_sentence": 2.19866, "regime": null},
+    "TC51A": {"stratum": "D", "answer_with_sentence": 2.19866, "regime": null},
+    "T998A": {"stratum": "C", "answer_with_sentence": 2.19866, "regime": null},
+    "TE112": {"stratum": "R", "answer_with_sentence": 2.53879, "regime": null},
+    "T5DBD": {"stratum": "R", "answer_with_sentence": 2.53879, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All claims agree with pass 1. Checked certified answers: L=1.4 m -> 2*pi*0.377964 = 2.37482 s; L=1.6 m -> 2*pi*0.404061 = 2.53879 s; L=1.8 m -> 2*pi*0.428571 = 2.69279 s; base 2.19866 s. The cancellation expression 2*pi*sqrt(q*L^2/(q*g*L)) reduces to 2*pi*sqrt(L/g), so mass cancels for all listed masses. Minimal pairs T0685/T5DBD and TC51A/TE112 each state 0.4 m and differ only in what the cord is attached to. Units consistent (m, s, m/s^2). Small amplitude is stated, so the small-angle formula is valid.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

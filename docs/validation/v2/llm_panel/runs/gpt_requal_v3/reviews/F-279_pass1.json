@@ -1,0 +1,46 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "F-279",
+  "pass_number": 1,
+  "started_at": "2026-11-14T05:53:54+00:00",
+  "completed_at": "2026-11-14T05:54:15+00:00",
+  "minutes_spent": 0.36,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Coulomb's law: F = k|q1 q2|/r² = (8.99×10^9)(2×10^-6)(3×10^-6)/(0.1)² = 5.394 N.",
+    "assumptions": [
+      "The charges are point charges, as stated.",
+      "The stated vacuum approximation and fixed Coulomb constant apply at every listed temperature."
+    ],
+    "answer": 5.394,
+    "unit": "N"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All four variants give the same force, 5.394 N. Temperature is irrelevant under the explicitly imposed vacuum approximation; no temperature-dependent permittivity enters this model. The variants change only the temperature value and consistently use °C. No information outside the supplied packet was accessed.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "57cd6c881af1fce2e97e69a16dcb85d7a86398d245c6614da2c57476bd2e26d8",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

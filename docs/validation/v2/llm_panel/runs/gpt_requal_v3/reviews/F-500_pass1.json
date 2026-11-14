@@ -1,0 +1,46 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "F-500",
+  "pass_number": 1,
+  "started_at": "2026-11-14T05:45:23+00:00",
+  "completed_at": "2026-11-14T05:45:53+00:00",
+  "minutes_spent": 0.51,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law in vertical equilibrium: T - mg = 0, so T = 3.0 × 9.8 = 29.4 N.",
+    "assumptions": [
+      "The bucket's stated motionless condition implies zero acceleration.",
+      "Rope A supports the bucket vertically under standard textbook apparatus idealizations."
+    ],
+    "answer": 29.4,
+    "unit": "N"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "The crate's applied force is structurally disconnected (D) in every rendering because interaction with the bucket and rope is explicitly excluded. The tension is 29.4 N in all four variants. The variants consistently change only the disconnected force value, retaining its unit and attachment.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f08d6e1e1873d83f8c7331af62afc2b501dbb8c652b31dbc733392a2790220bb",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

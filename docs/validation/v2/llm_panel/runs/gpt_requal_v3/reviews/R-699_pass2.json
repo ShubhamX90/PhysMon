@@ -1,0 +1,81 @@
+{
+  "item_id": "R-699",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Snell's law gives theta2 = asin[(n1/n2) sin(theta1)]. For either relevant tilt, replace theta1 by 35° + q.",
+    "assumptions": [
+      "The stated refractive indices apply to the incident light.",
+      "The interface remains fixed while the incoming ray is tilted.",
+      "Angles are measured from the interface normal."
+    ],
+    "answer": 23.8834,
+    "unit": "deg"
+  },
+  "stratum_assignments": {
+    "TC4F8": {
+      "stratum": "R",
+      "answer_with_sentence": 29.9427,
+      "regime": null
+    },
+    "T7503": {
+      "stratum": "D",
+      "answer_with_sentence": 23.8834,
+      "regime": null
+    },
+    "T5F58": {
+      "stratum": "D",
+      "answer_with_sentence": 23.8834,
+      "regime": null
+    },
+    "T3636": {
+      "stratum": "R",
+      "answer_with_sentence": 29.9427,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "failed_transformation_identity"
+  ],
+  "defect_reasons": {
+    "failed_transformation_identity": "For both relevant sentences, every certified transformed answer uses incidence angle 35° − q, contradicting the stated outward tilt and the authors' correct wiring theta1 + q."
+  },
+  "defect_severity": {
+    "failed_transformation_identity": "high"
+  },
+  "counterexamples": [
+    "At q = 10°, either relevant sentence makes the incidence angle 45°, so Snell's law gives 29.9427°, whereas the authors certify 17.3567°, the result for incidence angle 25°."
+  ],
+  "notes": "The pass-1 conclusions stand. For both relevant sentences, the correct answers at q = 5°, 10°, and 15° are approximately 26.98°, 29.94°, and 32.73°, respectively. The base answer, disconnected-sentence invariances, stratum labels, governing relation, units, parameter domains, and minimal-pair claims are consistent. All displayed sentences use the same 10° tilt. The certified-answer errors are substantive sign errors, not inadequate rounding.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "started_at": "2026-11-14T05:47:24+00:00",
+  "completed_at": "2026-11-14T05:48:07+00:00",
+  "minutes_spent": 0.71,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "5e4f4f29503639de01f0d0890754d3bb24f19d6fa22d8bc3d24a6b2e6f7871b8",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

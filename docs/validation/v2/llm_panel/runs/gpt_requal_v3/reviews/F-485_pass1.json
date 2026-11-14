@@ -1,0 +1,52 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "F-485",
+  "pass_number": 1,
+  "started_at": "2026-11-14T05:55:21+00:00",
+  "completed_at": "2026-11-14T05:55:47+00:00",
+  "minutes_spent": 0.44,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Uniform circular motion requires inward acceleration a = v^2/r = 8.0 m/s^2. Newton's second law gives the signed inward force F = mv^2/r = -8.0 N by formal substitution.",
+    "assumptions": [
+      "Newtonian mechanics, with the inward radial direction positive.",
+      "The stated negative mass is used only for formal calculation; it is outside the ordinary physical domain of this textbook model."
+    ],
+    "answer": -8.0,
+    "unit": "N"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "invalid_parameter_domain"
+  ],
+  "defect_reasons": {
+    "invalid_parameter_domain": "Every variant assigns the object a mass of -1.0 kg, outside the physical domain of an ordinary massive object in the stated circular-motion problem."
+  },
+  "defect_severity": {
+    "invalid_parameter_domain": "high"
+  },
+  "counterexamples": [],
+  "notes": "The formal result -8.0 N denotes an outward force when inward is positive; it is not an ordinary inward centripetal-force magnitude. A hypothetical negative-inertial-mass model would require explicit specification. The separate, explicitly independent object C is structurally disconnected (D) in all four variants, so its force values do not affect the formal calculation. The variants consistently retain the same target mass, speed and radius.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "0acb96a6e338b26bed1e90e6f3a8707b9a30ebb48bb8a3089d4ca9c48c981dee",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

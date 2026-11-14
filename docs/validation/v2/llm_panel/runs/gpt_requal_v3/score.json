@@ -1,0 +1,150 @@
+{
+  "blind_stratum_agreement": {
+    "agree": 24,
+    "missing": 0,
+    "n": 24,
+    "rate": 1.0
+  },
+  "checks": {
+    "R1_detected_for_declared_reason": {
+      "detected": 21,
+      "min": 0.85,
+      "n": 22,
+      "pass": true,
+      "value": 0.9545454545454546
+    },
+    "R2_valid_accepted": {
+      "accepted": 10,
+      "min": 0.85,
+      "n": 10,
+      "pass": true,
+      "value": 1.0
+    },
+    "R3_retargeted_types_detected": {
+      "min_detected": 2,
+      "pass": true,
+      "per_type": {
+        "contradictory_distractor_statement": {
+          "detected": 3,
+          "n": 3
+        },
+        "insufficient_boundary_condition": {
+          "detected": 3,
+          "n": 3
+        },
+        "invalid_numerical_precision": {
+          "detected": 2,
+          "n": 3
+        },
+        "missing_assumption": {
+          "detected": 3,
+          "n": 3
+        }
+      }
+    },
+    "R4_no_type_with_3_or_more_items_missed": {
+      "missed_types": [],
+      "pass": true
+    },
+    "R5_false_claim_role_plants_detected": {
+      "detected": 6,
+      "items": {
+        "R-200": true,
+        "R-258": true,
+        "R-463": true,
+        "R-663": true,
+        "R-697": true,
+        "R-699": true
+      },
+      "min_detected": 5,
+      "n": 6,
+      "pass": true
+    }
+  },
+  "contested_items": {},
+  "flags_outside_vocabulary": {},
+  "missing_pass2_reviews": [],
+  "per_type": {
+    "contradictory_distractor_statement": {
+      "detected": 3,
+      "detected_exact_term": 3,
+      "flagged": 3,
+      "n": 3,
+      "pass1_detected": 3
+    },
+    "failed_transformation_identity": {
+      "detected": 3,
+      "detected_exact_term": 3,
+      "flagged": 3,
+      "n": 3,
+      "pass1_detected": 0
+    },
+    "hidden_coupling": {
+      "detected": 1,
+      "detected_exact_term": 1,
+      "flagged": 1,
+      "n": 1,
+      "pass1_detected": 0
+    },
+    "inconsistent_units": {
+      "detected": 1,
+      "detected_exact_term": 1,
+      "flagged": 1,
+      "n": 1,
+      "pass1_detected": 1
+    },
+    "insufficient_boundary_condition": {
+      "detected": 3,
+      "detected_exact_term": 2,
+      "flagged": 3,
+      "n": 3,
+      "pass1_detected": 3
+    },
+    "invalid_numerical_precision": {
+      "detected": 2,
+      "detected_exact_term": 0,
+      "flagged": 2,
+      "n": 3,
+      "pass1_detected": 0
+    },
+    "invalid_parameter_domain": {
+      "detected": 1,
+      "detected_exact_term": 1,
+      "flagged": 1,
+      "n": 1,
+      "pass1_detected": 1
+    },
+    "missing_assumption": {
+      "detected": 3,
+      "detected_exact_term": 3,
+      "flagged": 3,
+      "n": 3,
+      "pass1_detected": 3
+    },
+    "relevant_variable_removed_from_equation": {
+      "detected": 1,
+      "detected_exact_term": 1,
+      "flagged": 1,
+      "n": 1,
+      "pass1_detected": 0
+    },
+    "rendering_not_minimal": {
+      "detected": 3,
+      "detected_exact_term": 3,
+      "flagged": 3,
+      "n": 3,
+      "pass1_detected": 0
+    }
+  },
+  "protocol": "v3",
+  "review_errors": {},
+  "split": "requal",
+  "valid": {
+    "accepted": 10,
+    "legacy_accepted": 0,
+    "legacy_n": 0,
+    "n": 10,
+    "valid_but_high_severity_flag": 0
+  },
+  "verdict": "QUALIFIED"
+}

@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch04",
+  "item_id": "R-200",
+  "pass_number": 1,
+  "started_at": "2026-11-14T10:48:00Z", "completed_at": "2026-11-14T10:55:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "P = V^2 / R_eq for an ideal source across parallel resistors, R_eq = (5*15)/(5+15) = 3.75 ohm", "assumptions": ["ideal battery (internal resistance negligible, stated)", "ideal wires", "ohmic resistors"], "answer": 21.6, "unit": "W"},
+  "stratum_assignments": {
+    "TC157": {"stratum": "R", "answer_with_sentence": 38.4, "regime": null},
+    "T1402": {"stratum": "R", "answer_with_sentence": 38.4, "regime": null},
+    "T7126": {"stratum": "D", "answer_with_sentence": 21.6, "regime": null},
+    "T4F4D": {"stratum": "K", "answer_with_sentence": 21.6, "regime": "current in the 5 ohm branch is 9/5 = 1.8 A, below the 5 A at which the fuse blows"},
+    "T5876": {"stratum": "D", "answer_with_sentence": 21.6, "regime": null},
+    "TF3F1": {"stratum": "K", "answer_with_sentence": 21.6, "regime": "branch current 1.8 A is below the 5 A fuse rating"}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {
+    "rendering_not_minimal": "Sentence T5876 is about a cell's emf like TC157, T1402 and T7126 but states 6 V instead of 3 V, so if it is meant as a variant of them it differs in the number, not just in attachment."
+  },
+  "defect_severity": {"rendering_not_minimal": "medium"},
+  "counterexamples": [],
+  "notes": "Base: P = 81 * (1/5 + 1/15) = 81 * 4/15 = 21.6 W (branch powers 16.2 W and 5.4 W). With a 3 V aiding cell in series the emf across the parallel pair is 12 V: P = 144 * 4/15 = 38.4 W. Fuse branch current is 1.8 A (2.4 A even with the extra cell), below 5 A, so both fuse sentences are K. 'Blows only at currents above 5 A' and 'rated at 5 A' state the same threshold; minor nuance that a fuse rating is not always the exact blowing current, but 1.8 A is far from it. The 6 V vs 3 V mismatch is graded medium here because I do not yet know whether T5876 is claimed as a variant; if pass 2 claims it as a minimal pair with a 3 V sentence, that claim is false and would be high."
+}

@@ -1,0 +1,46 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "F-985",
+  "pass_number": 1,
+  "started_at": "2026-11-14T05:49:44+00:00",
+  "completed_at": "2026-11-14T05:50:10+00:00",
+  "minutes_spent": 0.42,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Rotational Newton's second law: |alpha| = |tau|/I = 9.0/1.5 = 6.0 rad/s².",
+    "assumptions": [
+      "The stated braking torque acts about the flywheel's rotation axis.",
+      "The flywheel's moment of inertia remains constant."
+    ],
+    "answer": 6.0,
+    "unit": "rad/s²"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All four variants give 6.0 rad/s². The force on lever system B is structurally disconnected (D) at every listed value because coupling to A is explicitly excluded. The variants preserve the force unit and attachment while varying its numerical value. The conspicuously unrelated lever system makes the presentation slightly artificial.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "be1038733ef016e8e9ef68176f1ba44d771207a07c51f92f3e88a6fda2b9de55",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

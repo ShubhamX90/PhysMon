@@ -1,0 +1,37 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch02",
+  "item_id": "F-779",
+  "pass_number": 1,
+  "started_at": "2026-11-14T10:18:30Z",
+  "completed_at": "2026-11-14T10:23:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Constant-acceleration kinematics: s = v0 t + (1/2) a t^2",
+    "assumptions": [
+      "acceleration constant at 2.0 m/s^2 along a straight line",
+      "cart starts from rest (v0 = 0) -- NOT stated in the problem",
+      "non-relativistic motion"
+    ],
+    "answer": 9.0,
+    "unit": "m"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["insufficient_boundary_condition"],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The initial velocity of cart A is not stated; s = v0 t + a t^2/2 gives 9.0 m only if the cart starts from rest, and any other v0 gives a materially different displacement."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "If cart A is already moving at 1.0 m/s along the acceleration direction at the start of the interval, s = 1.0*3.0 + 0.5*2.0*9.0 = 12.0 m, not 9.0 m."
+  ],
+  "notes": "Across the four renderings the added statement (transport duration of 5, 10, 20, 50 minutes later that day) is structurally disconnected from the displacement during the earlier 3.0 s interval; the answer is the same in all renderings. Assuming a start from rest, the answer is 9.0 m. The added statement is somewhat artificial. The item fails rule 1 because the initial condition is missing. Also 'accelerates at 2.0 m/s^2' does not explicitly say the acceleration is constant or along the direction of motion, though that is the natural reading."
+}

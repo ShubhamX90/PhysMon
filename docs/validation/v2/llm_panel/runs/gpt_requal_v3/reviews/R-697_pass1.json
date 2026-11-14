@@ -1,0 +1,83 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "R-697",
+  "pass_number": 1,
+  "started_at": "2026-11-14T05:54:18+00:00",
+  "completed_at": "2026-11-14T05:54:56+00:00",
+  "minutes_spent": 0.63,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The thin-lens equation is 1/f = 1/u + 1/v, giving v = fu/(u-f) = (10)(35)/(35-10) = 14 cm behind the lens.",
+    "assumptions": [
+      "The standard thin-lens, paraxial model applies.",
+      "Moving the object's stand moves the mounted object by the stated distance while preserving its axial placement."
+    ],
+    "answer": 14,
+    "unit": "cm"
+  },
+  "stratum_assignments": {
+    "TE3BF": {
+      "stratum": "D",
+      "answer_with_sentence": 14,
+      "regime": null
+    },
+    "TAD1B": {
+      "stratum": "R",
+      "answer_with_sentence": 12.5,
+      "regime": null
+    },
+    "T2924": {
+      "stratum": "C",
+      "answer_with_sentence": 14,
+      "regime": null
+    },
+    "T97EB": {
+      "stratum": "C",
+      "answer_with_sentence": 14,
+      "regime": null
+    },
+    "T1331": {
+      "stratum": "R",
+      "answer_with_sentence": 12.5,
+      "regime": null
+    },
+    "TF673": {
+      "stratum": "D",
+      "answer_with_sentence": 14,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The stand-displacement variants fail the required same-number constraint: TF673 specifies 25 cm, whereas TE3BF, TAD1B and T1331 specify 15 cm."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and each individual rendering have determinate answers. Moving the object's stand increases u to 50 cm, giving v = 500/40 = 12.5 cm. Moving either unrelated stand leaves u unchanged. Object height enters the similar-triangle ray relations but cancels when deriving the image-distance equation; both height variants consistently specify 4 cm. The invalid verdict concerns the required numerical matching between displacement variants.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "df13f136c5283093de879abd1e460dd8d95fdfb213afb35394599e92b20d98fb",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

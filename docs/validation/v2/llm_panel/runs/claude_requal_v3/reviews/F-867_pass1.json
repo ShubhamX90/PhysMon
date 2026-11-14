@@ -1,0 +1,30 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch05",
+  "item_id": "F-867",
+  "pass_number": 1,
+  "started_at": "2026-11-14T10:24:00Z",
+  "completed_at": "2026-11-14T10:30:00Z",
+  "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Linear momentum p = M v",
+    "assumptions": ["non-relativistic motion (4.0 m/s)", "'3.0 m' read as 3.0 times an undefined reference mass m (the text gives no mass unit)", "magnitude of momentum asked"],
+    "answer": 12.0,
+    "unit": "m * (m/s), i.e. 12.0 times the undefined reference mass m times metres per second"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["inconsistent_units", "other"],
+  "defect_reasons": {
+    "inconsistent_units": "The mass is written '3.0 m', where 'm' is the metre symbol (used as such in '4.0 m/s' and in the distractor '3 m') or an undefined mass symbol, so the mass has no valid unit and the momentum cannot be given in SI units.",
+    "other": "The added sentence refers to 'the cart', which is never introduced; the reader must guess that object A is the cart."
+  },
+  "defect_severity": {"inconsistent_units": "high", "other": "medium"},
+  "counterexamples": ["Reading '3.0 m' as a symbolic mass gives p = 12.0 m (m/s) with m undefined; reading it as a typo for 3.0 kg gives 12.0 kg m/s; the text does not decide between these, and 'm' as metres is dimensionally impossible for a mass."],
+  "notes": "Physics: p = 3.0 x 4.0 = 12.0 in units of (mass unit) x m/s. The distance the cart was rolled earlier (3, 12, 24 or 48 m) has no bearing on its present momentum, which depends only on its present mass and velocity; the distractor is irrelevant. The renderings differ only in the distractor distance. The item fails on the mass unit: within one sentence 'm' is used both as a metre symbol (m/s) and apparently as a mass, so the stated mass is not dimensionally a mass."
+}

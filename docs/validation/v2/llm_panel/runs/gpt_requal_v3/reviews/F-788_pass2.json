@@ -1,0 +1,59 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "F-788",
+  "pass_number": 2,
+  "started_at": "2026-11-14T05:52:07+00:00",
+  "completed_at": "2026-11-14T05:52:28+00:00",
+  "minutes_spent": 0.35,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Taking downward as positive, v_A = v_A_initial + g t_A = v_A_initial + 14.7 m/s.",
+    "assumptions": [
+      "Ball A has constant downward acceleration g = 9.8 m/s² during the stated interval.",
+      "The certified answer requires zero initial velocity, which is not stated."
+    ],
+    "answer": null,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "Every variant omits ball A's initial velocity, so the claimed equation and certified final velocity require an unstated initial condition."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "A ball initially moving downward at 5.0 m/s falls freely for 1.5 s and reaches 19.7 m/s downward, satisfying every stated condition while contradicting the certified answer."
+  ],
+  "notes": "The pass-1 finding stands. Free fall specifies acceleration, not release from rest. The authors correctly identify drone B's speed as structurally disconnected in every variant, but its absence from their expression does not establish that the expression includes all necessary inputs. The value 14.7 m/s is the downward velocity change and is the final downward velocity only for zero initial velocity. Units and numerical precision are adequate. The legacy renderings vary only the disconnected drone speed; no minimal-pair claim is supplied.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "6948599434bf7d7ff0aad935f3b1f6003dc403e3cb81c70184b1cdee1c344d06",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

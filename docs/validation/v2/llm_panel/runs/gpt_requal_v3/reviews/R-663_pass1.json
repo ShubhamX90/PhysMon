@@ -1,0 +1,94 @@
+{
+  "item_id": "R-663",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Archimedes' principle and vertical static equilibrium give T = F_b - mg = (rho_liquid - rho_cube) g a^3. With a = 0.15 m, T = (1100 - 450)(9.8)(0.15)^3 = 21.49875 N.",
+    "assumptions": [
+      "The liquid is hydrostatic with the stated uniform density.",
+      "The fully submerged cube displaces its stated geometric volume.",
+      "The light vertical string exerts a downward force on the cube."
+    ],
+    "answer": 21.49875,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T0525": {
+      "stratum": "K",
+      "answer_with_sentence": 21.49875,
+      "regime": "The required static tension is below the breaking threshold: 21.49875 N < 50 N, so the string remains intact."
+    },
+    "T2228": {
+      "stratum": "D",
+      "answer_with_sentence": 21.49875,
+      "regime": null
+    },
+    "T09D4": {
+      "stratum": "D",
+      "answer_with_sentence": 21.49875,
+      "regime": null
+    },
+    "T3CB6": {
+      "stratum": "R",
+      "answer_with_sentence": 26.46,
+      "regime": null
+    },
+    "T9EB4": {
+      "stratum": "R",
+      "answer_with_sentence": 26.46,
+      "regime": null
+    },
+    "TCC45": {
+      "stratum": "C",
+      "answer_with_sentence": 21.49875,
+      "regime": null
+    },
+    "T2CF7": {
+      "stratum": "K",
+      "answer_with_sentence": 21.49875,
+      "regime": "The required static tension is below the rated capacity: 21.49875 N < 50 N."
+    },
+    "T3FD8": {
+      "stratum": "C",
+      "answer_with_sentence": 21.49875,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The density variants do not preserve the required common number: T2228 states 1350 kg/m³, whereas T09D4, T3CB6 and T9EB4 state 1250 kg/m³."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and each independently augmented problem have consistent physics and unique tensions. The invalid verdict concerns the required matching of density variants. Both strength sentences match at 50 N, and both depth sentences match at 50 cm. Depth enters the hydrostatic pressures on the upper and lower faces but cancels from their difference: F_b = rho g a^2[(h+a)-h]. Replacing the tank liquid gives T = (1250-450)(9.8)(0.15)^3 = 26.46 N. The original and replacement densities describe successive states, so they do not contradict one another.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "started_at": "2026-11-14T05:54:12+00:00",
+  "completed_at": "2026-11-14T05:55:13+00:00",
+  "minutes_spent": 1.01,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "bc5a3930a15c929f069c0546e36e092343ccc15ac724ba5a4e3533a05ee1a4d6",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

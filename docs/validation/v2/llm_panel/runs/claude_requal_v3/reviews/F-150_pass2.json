@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch05",
+  "item_id": "F-150",
+  "pass_number": 2,
+  "started_at": "2026-11-14T10:19:00Z",
+  "completed_at": "2026-11-14T10:23:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Joule heating in a resistor: P = V^2 / R",
+    "assumptions": ["ohmic resistor (standard idealisation)", "steady (DC) potential difference of 12.0 V across the resistor"],
+    "answer": 24.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_numerical_precision"],
+  "defect_reasons": {"invalid_numerical_precision": "The certified answer is displayed as 20 W, but P = (12.0 V)^2 / 6.0 Ohm = 24 W; 20 W is 24 W rounded to one significant figure, which is wrong at the two- and three-significant-figure precision of the given data."},
+  "defect_severity": {"invalid_numerical_precision": "high"},
+  "counterexamples": ["With V = 12.0 V and R = 6.0 Ohm, V^2/R = 144/6.0 = 24.0 W, not 20 W; a solver answering 24 W would be scored against a wrong key."],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": false,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "The governing equation P = V^2/R, the parameters (12.0 V, 6.0 Ohm), the units and the invariance argument (the disconnected device's power has no path to the target) are all correct, and the four renderings differ only in the distractor value. The single defect is the certified answer display of 20 W, which disagrees with the equation evaluated at the stated parameters (24 W) and with my pass-1 answer. Agrees with pass 1 on the physics; the item is invalid only because of the authors' answer."
+}

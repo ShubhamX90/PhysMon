@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "R-972",
+  "pass_number": 2,
+  "started_at": "2026-11-14T05:53:39+00:00",
+  "completed_at": "2026-11-14T05:54:12+00:00",
+  "minutes_spent": 0.55,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law along the incline gives a = g(sin(40°) - 0.1 cos(40°)) = 5.548595 m/s². From rest, v² = 2as. For s = 5 m, v = 7.448889 m/s. An additional uninterrupted earlier slide of q metres on the same incline gives s = 5 + q.",
+    "assumptions": [
+      "The block undergoes the sliding motion explicitly stated.",
+      "The incline angle and kinetic friction coefficient are constant throughout the slide.",
+      "Gravitational acceleration is the stated uniform constant.",
+      "Release from rest sets the initial speed to zero."
+    ],
+    "answer": 7.448889,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T1CCB": {
+      "stratum": "D",
+      "answer_with_sentence": 7.448889,
+      "regime": null
+    },
+    "T6528": {
+      "stratum": "R",
+      "answer_with_sentence": 8.813645,
+      "regime": null
+    },
+    "T00F7": {
+      "stratum": "R",
+      "answer_with_sentence": 8.813645,
+      "regime": null
+    },
+    "TFF8B": {
+      "stratum": "C",
+      "answer_with_sentence": 7.448889,
+      "regime": null
+    },
+    "T3E20": {
+      "stratum": "C",
+      "answer_with_sentence": 7.448889,
+      "regime": null
+    },
+    "T6FC4": {
+      "stratum": "D",
+      "answer_with_sentence": 7.448889,
+      "regime": null
+    },
+    "TC3E8": {
+      "stratum": "K",
+      "answer_with_sentence": 7.448889,
+      "regime": "μ_s < tan(40°) ≈ 0.83910 ensures sliding begins upon release; subsequent motion is governed by kinetic friction."
+    },
+    "TE4AF": {
+      "stratum": "K",
+      "answer_with_sentence": 7.448889,
+      "regime": "μ_s < tan(40°) ≈ 0.83910 ensures sliding begins upon release; subsequent motion is governed by kinetic friction."
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "No revision to pass 1 is needed. For either relevant sentence, earlier distances of 1, 2 and 3 m give speeds of 8.15985, 8.81364 and 9.42218 m/s, matching every certified answer at the displayed precision. Earlier floor or bench motion is disconnected because placement and release from rest reset the initial condition. The supplied force and energy relations correctly show mass cancellation for all listed positive masses. Every listed static friction coefficient is below tan(40°), so each permits release into sliding and leaves the subsequent speed unchanged. Both declared minimal pairs preserve the distance value and unit while changing its attachment from continuous incline motion to a separate earlier event. Units, parameter domains, assumptions and target unit are consistent.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "0bc3ac4b2ee4d7abbc2b79885c4b9cf627f138ed895f848639e5f0ca253af7ac",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

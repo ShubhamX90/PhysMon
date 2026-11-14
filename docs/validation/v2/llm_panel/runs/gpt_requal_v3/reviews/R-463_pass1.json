@@ -1,0 +1,86 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "R-463",
+  "pass_number": 1,
+  "started_at": "2026-11-14T05:49:53+00:00",
+  "completed_at": "2026-11-14T05:50:42+00:00",
+  "minutes_spent": 0.82,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "In hydrostatic equilibrium in a nonaccelerating tank, p = p_surface + rho*g*h = 100 + (850*9.8*20)/1000 = 266.6 kPa.",
+    "assumptions": [
+      "The liquid is in hydrostatic equilibrium in a nonaccelerating tank; this is needed but unstated.",
+      "The stated density is uniform over the depth.",
+      "The stated surface pressure is absolute."
+    ],
+    "answer": 266.6,
+    "unit": "kPa"
+  },
+  "stratum_assignments": {
+    "T9F45": {
+      "stratum": "D",
+      "answer_with_sentence": 266.6,
+      "regime": null
+    },
+    "TDFFF": {
+      "stratum": "C",
+      "answer_with_sentence": 266.6,
+      "regime": null
+    },
+    "TDCA5": {
+      "stratum": "C",
+      "answer_with_sentence": 266.6,
+      "regime": null
+    },
+    "TADA3": {
+      "stratum": "R",
+      "answer_with_sentence": 286.6,
+      "regime": null
+    },
+    "T7DFA": {
+      "stratum": "R",
+      "answer_with_sentence": 286.6,
+      "regime": null
+    },
+    "TB5A2": {
+      "stratum": "D",
+      "answer_with_sentence": 266.6,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The problem does not state hydrostatic equilibrium in a nonaccelerating tank, which is required for the stated gravitational pressure gradient to determine a unique answer."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    "A tank accelerating vertically upward at 1 m/s², with liquid at rest relative to it and surface pressure maintained at 100 kPa absolute, satisfies the stated data but gives p = 100 + 850*(9.8 + 1)*20/1000 = 283.6 kPa."
+  ],
+  "notes": "All numerical answers and role assignments assume hydrostatic equilibrium in a nonaccelerating tank; the relevant additions are evaluated after equilibrium is restored and at 20 m below the resulting surface. Horizontal area enters the pressure-force balance but cancels from pressure. The four pressure-rise sentences consistently specify 20 kPa, and both area sentences consistently specify 2 m². No added sentence contradicts the base problem.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "d20a8f83bc6e30bf87d93125dab8fc51a8c10bbfc6bfd302fffebc0c55329f25",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

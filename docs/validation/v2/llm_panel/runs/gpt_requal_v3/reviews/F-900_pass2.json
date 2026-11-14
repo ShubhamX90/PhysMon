@@ -1,0 +1,63 @@
+{
+  "item_id": "F-900",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For constant signed acceleration, v_f = v_0 + at; the requested final speed is |v_f|. Choosing the initial direction as positive gives |4.0 + 3.0 × 2.0| = 10.0 m/s for aligned acceleration, or |4.0 - 3.0 × 2.0| = 2.0 m/s for opposed acceleration.",
+    "assumptions": [
+      "Acceleration is constant throughout the interval.",
+      "The certified answer additionally requires acceleration in the initial direction of motion, which the problem does not explicitly state."
+    ],
+    "answer": 10.0,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "contradictory_distractor_statement",
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "Each rendering gives incompatible values for B's same constant speed: 1.0 and 5, 2.5 and 12.5, 5.0 and 25, or 8.0 and 40 m/s.",
+    "insufficient_boundary_condition": "The direction of acceleration relative to the initial velocity is unspecified, so the final speed is not uniquely determined."
+  },
+  "defect_severity": {
+    "contradictory_distractor_statement": "high",
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "With initial velocity +4.0 m/s and constant acceleration -3.0 m/s², the final velocity is -2.0 m/s and the final speed is 2.0 m/s, contradicting an unconditional certified speed of 10.0 m/s.",
+    "In the first rendering, B's same constant speed cannot simultaneously equal 1.0 m/s and 5 m/s."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "Pass 1 remains unchanged. The authors correctly identify the free symbols and B's structural disconnection: changing B's speed cannot affect A. However, this does not excuse contradictory statements about B. The governing equation is correct for signed velocity under constant acceleration, and its dimensions and numerical evaluation are correct. It yields the certified speed only with the unstated direction condition; speed generally requires an absolute value. The metadata calls the target final_velocity, whereas the question asks for final speed. No parameter-domain or rounding defect is present. These legacy renderings are not explicitly claimed to be same-value minimal pairs, so their differing B speeds do not warrant rendering_not_minimal.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "started_at": "2026-11-14T05:48:02+00:00",
+  "completed_at": "2026-11-14T05:48:34+00:00",
+  "minutes_spent": 0.52,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "bddd2a4569cc39a7de041cfc2d78c49948e08fa01de7fac24982ebd6c364e67c",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

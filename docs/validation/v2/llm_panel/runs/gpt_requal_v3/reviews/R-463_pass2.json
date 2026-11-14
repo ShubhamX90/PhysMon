@@ -1,0 +1,100 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "R-463",
+  "pass_number": 2,
+  "started_at": "2026-11-14T05:50:42+00:00",
+  "completed_at": "2026-11-14T05:51:49+00:00",
+  "minutes_spent": 1.11,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Hydrostatic equilibrium gives p = p0 + rho*g*h. Converting the hydrostatic increment to kPa gives p = 100 + 850*9.8*20/1000 = 266.6 kPa. A surface pressure rise q gives p = 266.6 + q kPa.",
+    "assumptions": [
+      "The liquid is in hydrostatic equilibrium in a nonaccelerating tank; the problem text does not state this.",
+      "The density is uniform.",
+      "The stated surface pressure is absolute.",
+      "For the pressure-rise additions, the target remains 20 m below the resulting surface and equilibrium has been established."
+    ],
+    "answer": 266.6,
+    "unit": "kPa"
+  },
+  "stratum_assignments": {
+    "T9F45": {
+      "stratum": "D",
+      "answer_with_sentence": 266.6,
+      "regime": null
+    },
+    "TDFFF": {
+      "stratum": "C",
+      "answer_with_sentence": 266.6,
+      "regime": null
+    },
+    "TDCA5": {
+      "stratum": "C",
+      "answer_with_sentence": 266.6,
+      "regime": null
+    },
+    "TADA3": {
+      "stratum": "R",
+      "answer_with_sentence": 286.6,
+      "regime": null
+    },
+    "T7DFA": {
+      "stratum": "R",
+      "answer_with_sentence": 286.6,
+      "regime": null
+    },
+    "TB5A2": {
+      "stratum": "D",
+      "answer_with_sentence": 266.6,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption",
+    "failed_transformation_identity",
+    "other"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The problem text omits hydrostatic equilibrium in a nonaccelerating tank, although that condition is needed for its claimed pressure calculation; listing equilibrium among the authors' assumptions does not state it in the problem.",
+    "failed_transformation_identity": "Both relevant sentences have certified answers equal to 266.6 minus q, whereas their pressure-rise wording and the authors' own wiring require 266.6 plus q.",
+    "other": "For TDCA5, a flat base alone does not justify identifying the liquid-column mass as rho*A*h using the tank's base area or balancing its weight without sidewall forces; the claimed cancellation derivation requires additional geometry."
+  },
+  "defect_severity": {
+    "missing_assumption": "high",
+    "failed_transformation_identity": "high",
+    "other": "high"
+  },
+  "counterexamples": [
+    "For either TADA3 or T7DFA with q = 20 kPa, the final surface pressure is 120 kPa and the pressure at depth is 286.6 kPa, contradicting the certified 246.6 kPa.",
+    "A tank accelerating vertically upward at 1 m/s², with liquid stationary relative to it and surface pressure maintained at 100 kPa absolute, gives 283.6 kPa at 20 m depth rather than 266.6 kPa.",
+    "A tank shaped as a conical frustum, with a flat base of area 2 m², surface area 8 m² and liquid depth 20 m, satisfies TDCA5 but contains 93.333 m³ rather than A*h = 40 m³; the stated whole-column mass and weight balance therefore do not apply."
+  ],
+  "notes": "The pass-1 solution and numerical role assignments remain unchanged. For each relevant pressure-rise sentence, the correct answers at q = 10, 20 and 40 kPa are respectively 276.6, 286.6 and 306.6 kPa. All disconnected and area-invariant certified numerical answers are correct under hydrostatic conditions. The pressure sentences consistently use 20 kPa, the area sentences consistently use 2 m², and the declared minimal pairs preserve the quantity, value and unit. TDFFF supports the stated constant-area column derivation. TDCA5 remains area-invariant, but its supplied derivation is not generally justified by a flat base; local hydrostatic balance establishes the invariance without assuming the tank is prismatic. Pressure equations are dimensionally consistent when evaluated in a common pressure unit, with conversion from Pa to kPa. No additional item information was accessed.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "190318d456f1bc489b6149f77b8d9eb8fdeebd1a6199a9ddd909d77a14ae7397",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

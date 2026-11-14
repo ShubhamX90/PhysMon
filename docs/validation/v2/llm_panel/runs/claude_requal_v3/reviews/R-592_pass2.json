@@ -1,0 +1,30 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch04",
+  "item_id": "R-592",
+  "pass_number": 2,
+  "started_at": "2026-11-14T10:37:00Z", "completed_at": "2026-11-14T10:47:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "a = (m2 - m1) g / (m1 + m2 + I/R^2), with I = M R^2/2 for a uniform disc", "assumptions": ["pulley is a uniform solid disc (authors' assumption, absent from the item text)", "frictionless axle", "light inextensible non-slipping string"], "answer": 2.17778, "unit": "m/s^2"},
+  "stratum_assignments": {
+    "T59AF": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "T3426": {"stratum": "K", "answer_with_sentence": 2.17778, "regime": "max(m1(g+a), m2(g-a)) = 38.1 N < breaking rating"},
+    "TB300": {"stratum": "K", "answer_with_sentence": 2.17778, "regime": "max(m1(g+a), m2(g-a)) = 38.1 N < tension limit"},
+    "T7D27": {"stratum": "D", "answer_with_sentence": 2.17778, "regime": null},
+    "T3BAA": {"stratum": "C", "answer_with_sentence": 2.17778, "regime": null},
+    "T5F33": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "TF5D9": {"stratum": "D", "answer_with_sentence": 2.17778, "regime": null},
+    "TF030": {"stratum": "C", "answer_with_sentence": 2.17778, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "The authors' certified answers rely on 'the pulley is a uniform solid disc', which appears only in their assumptions and inputs and nowhere in the item text; a thin-hoop pulley gives 1.96 m/s^2 instead of 2.178 m/s^2, so the item has no unique answer as written."
+  },
+  "defect_severity": {"missing_assumption": "high"},
+  "counterexamples": ["Hoop pulley (I = MR^2): base a = 19.6/10 = 1.96 m/s^2; with the 0.8 kg block attached to the left block a = 11.76/10.8 = 1.089 m/s^2; certified values are 2.17778 and 1.2."],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "Agrees with pass 1. Under the authors' disc assumption all certified answers check: q = 0.4 kg gives 1.6(9.8)/9.4 = 1.66809; q = 0.8 kg gives 11.76/9.8 = 1.2; q = 1.2 kg gives 7.84/10.2 = 0.768627 m/s^2. The K regime is right: the larger tension is the right-hand one, 5(9.8 - 2.178) = 38.1 N, below every listed rating (120, 200, 300 N). The radius cancels for any fixed pulley shape, so the C claims hold. Minimal pairs T7D27/T59AF and TF5D9/T5F33 state the same 0.8 kg and differ only in attachment. answer_correct is true only conditionally on the unstated disc model; the item fails admission rule 1 because that model is not stated."
+}

@@ -1,0 +1,77 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "R-258",
+  "pass_number": 1,
+  "started_at": "2026-11-14T05:49:59+00:00",
+  "completed_at": "2026-11-14T05:50:33+00:00",
+  "minutes_spent": 0.57,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Translational equipartition gives (1/2)m<v²> = (3/2)k_B T, so v_rms = sqrt(3RT/M). With M = 0.032 kg/mol and T = 400 K, v_rms = sqrt(311775) m/s.",
+    "assumptions": [
+      "Classical ideal-gas thermal motion, with speeds measured in the gas rest frame.",
+      "For sentences that heat the sample, its temperature at measurement is 500 K."
+    ],
+    "answer": 558.37,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T22C5": {
+      "stratum": "C",
+      "answer_with_sentence": 558.37,
+      "regime": null
+    },
+    "TB60B": {
+      "stratum": "D",
+      "answer_with_sentence": 558.37,
+      "regime": null
+    },
+    "T2519": {
+      "stratum": "R",
+      "answer_with_sentence": 624.27,
+      "regime": null
+    },
+    "T9BED": {
+      "stratum": "C",
+      "answer_with_sentence": 558.37,
+      "regime": null
+    },
+    "T9BF3": {
+      "stratum": "D",
+      "answer_with_sentence": 558.37,
+      "regime": null
+    },
+    "T0A89": {
+      "stratum": "R",
+      "answer_with_sentence": 624.27,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "The amount n cancels between total translational kinetic energy (3/2)nRT and total mass nM. Both amount sentences specify 2 mol. All four heating sentences specify the same temperature increase, 100 K; heating the sample changes its temperature to 500 K, whereas the unrelated block and separate oven have no specified coupling to it. Holding the heated sample in a closed rigid container adds no dependency to the rms-speed formula. The remote heating statements make the presentation slightly artificial.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "64b4a00ffa47efc98f103771539945118809a3a7b2551052bf34a423c5cc7c98",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

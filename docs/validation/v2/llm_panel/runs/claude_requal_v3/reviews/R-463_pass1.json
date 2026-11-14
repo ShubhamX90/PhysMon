@@ -1,0 +1,21 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch08",
+  "item_id": "R-463",
+  "pass_number": 1,
+  "started_at": "2026-11-14T00:07:00Z", "completed_at": "2026-11-14T00:13:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Hydrostatics: P = P_surface + rho g h", "assumptions": ["liquid at rest", "incompressible liquid of uniform density", "g uniform, g = 9.8 m/s^2", "tank at least 20 m deep below the free surface"], "answer": 266600.0, "unit": "Pa"},
+  "stratum_assignments": {
+    "T9F45": {"stratum": "D", "answer_with_sentence": 266600.0, "regime": null},
+    "TDFFF": {"stratum": "C", "answer_with_sentence": 266600.0, "regime": null},
+    "TDCA5": {"stratum": "C", "answer_with_sentence": 266600.0, "regime": null},
+    "TADA3": {"stratum": "R", "answer_with_sentence": 286600.0, "regime": null},
+    "T7DFA": {"stratum": "R", "answer_with_sentence": 286600.0, "regime": null},
+    "TB5A2": {"stratum": "D", "answer_with_sentence": 266600.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: 100 kPa + 850*9.8*20 Pa = 100000 + 166600 = 266600 Pa (266.6 kPa). The 20 kPa sentences: piston on the free surface (TADA3) and pump-pressurised sealed air space (T7DFA) raise the surface pressure to 120 kPa, giving 286.6 kPa by Pascal's principle; the tyre (T9F45) and football (TB5A2) are disconnected. The area sentences (TDFFF, TDCA5) enter a force balance on a liquid column (P A = P0 A + rho g h A) but cancel; I assign C. All 20 kPa sentences state the same number and unit, and the two area sentences both state 2 m^2. T9F45 says the rise is 'measured' while the others say 'produced/applied', a small wording difference only. The phrase 'then' makes the added surface pressure consistent with the earlier 100 kPa rather than contradictory."
+}

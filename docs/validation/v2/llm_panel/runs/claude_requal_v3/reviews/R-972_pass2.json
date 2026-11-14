@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch07",
+  "item_id": "R-972",
+  "pass_number": 2,
+  "started_at": "2026-11-14T10:49:00Z",
+  "completed_at": "2026-11-14T10:57:00Z",
+  "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law along the incline with kinetic friction: a = g(sin(theta) - mu_k cos(theta)); kinematics v^2 = 2 a d from rest",
+    "assumptions": ["block released from rest (stated)", "Coulomb kinetic friction with constant mu_k = 0.1", "rigid planar incline, block does not tip", "negligible air resistance", "g = 9.8 m/s^2"],
+    "answer": 7.44889,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T1CCB": {"stratum": "D", "answer_with_sentence": 7.44889, "regime": null},
+    "T6528": {"stratum": "R", "answer_with_sentence": 8.81364, "regime": null},
+    "T00F7": {"stratum": "R", "answer_with_sentence": 8.81364, "regime": null},
+    "TFF8B": {"stratum": "C", "answer_with_sentence": 7.44889, "regime": null},
+    "T3E20": {"stratum": "C", "answer_with_sentence": 7.44889, "regime": null},
+    "T6FC4": {"stratum": "D", "answer_with_sentence": 7.44889, "regime": null},
+    "TC3E8": {"stratum": "K", "answer_with_sentence": 7.44889, "regime": "mu_s < tan(40 deg) = 0.839"},
+    "TE4AF": {"stratum": "K", "answer_with_sentence": 7.44889, "regime": "mu_s < tan(40 deg) = 0.839"}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All claims agree with pass 1. a = 5.5486 m/s^2. Checked R answers: d+q = 6, 7, 8 m give sqrt(66.583) = 8.15985, sqrt(77.680) = 8.81364, sqrt(88.778) = 9.42218 m/s. Base 7.44889 m/s. Mass cancellation expression reduces to sqrt(2 d g (sin(theta) - mu cos(theta))), independent of q. K regime q < tan(theta) = 0.839 contains all listed values 0.25, 0.35, 0.45 (each also exceeds mu_k = 0.1, so physically consistent); reference expression 0 outside the regime (block stays at rest) is correct. Minimal pairs T1CCB/T6528 and T6FC4/T00F7 each state 2 m and differ only in where the earlier sliding happened. Units consistent.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

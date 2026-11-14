@@ -1,0 +1,35 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch05",
+  "item_id": "F-867",
+  "pass_number": 2,
+  "started_at": "2026-11-14T10:31:00Z",
+  "completed_at": "2026-11-14T10:36:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Linear momentum p = M v",
+    "assumptions": ["non-relativistic motion", "mass intended as 3.0 kg (authors' parameter), although the text writes '3.0 m'", "magnitude of momentum asked"],
+    "answer": 12.0,
+    "unit": "kg m/s (only if the mass is read as 3.0 kg, which the text does not say)"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["inconsistent_units", "other"],
+  "defect_reasons": {
+    "inconsistent_units": "The authors' parameter is a mass of 3.0 kg, but every rendering states the mass as '3.0 m' (the metre symbol, or the authors' symbol name leaked into the text), so the value and unit as they appear in the text do not match the certified parameter and the certified answer 12.0 kg*m/s does not follow from the stated text.",
+    "other": "The added sentence refers to 'the cart', which is never introduced; object A is never said to be a cart."
+  },
+  "defect_severity": {"inconsistent_units": "high", "other": "medium"},
+  "counterexamples": ["A solver reading the text literally has a 'mass' of 3.0 metres, which is dimensionally impossible; reading 'm' as a symbolic mass gives 12.0 m (m/s), not 12.0 kg m/s. Only by guessing the hidden unit kg does one reach the certified answer."],
+  "equation_consistent": true,
+  "units_consistent": false,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "The governing equation p = m v, the parameter values (3.0 kg, 4.0 m/s) and the certified answer 12.0 kg*m/s are internally consistent, and the invariance claim holds: the earlier displacement during maintenance has no effect on the present momentum. answer_correct is true relative to the authors' parameters, but the item as rendered states the mass with the wrong unit ('m' instead of 'kg'), which is a false value/unit in the text and makes the item invalid. Also the distractor's 'the cart' has no antecedent. Consistent with pass 1, which identified the same unit defect before seeing the authors' parameters."
+}

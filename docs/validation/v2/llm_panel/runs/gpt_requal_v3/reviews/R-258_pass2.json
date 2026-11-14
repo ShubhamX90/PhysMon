@@ -1,0 +1,92 @@
+{
+  "item_id": "R-258",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Translational equipartition gives v_rms = sqrt(3RT/M), with M = 0.032 kg/mol. Heating the sample by q gives v_rms = sqrt(3R(400 + q)/M).",
+    "assumptions": [
+      "Classical ideal-gas thermal equilibrium, with molecular speeds measured in the gas rest frame.",
+      "The heated sample reaches thermal equilibrium at its increased temperature before measurement."
+    ],
+    "answer": 558.368,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T22C5": {
+      "stratum": "C",
+      "answer_with_sentence": 558.368,
+      "regime": null
+    },
+    "TB60B": {
+      "stratum": "D",
+      "answer_with_sentence": 558.368,
+      "regime": null
+    },
+    "T2519": {
+      "stratum": "R",
+      "answer_with_sentence": 624.275,
+      "regime": null
+    },
+    "T9BED": {
+      "stratum": "C",
+      "answer_with_sentence": 558.368,
+      "regime": null
+    },
+    "T9BF3": {
+      "stratum": "D",
+      "answer_with_sentence": 558.368,
+      "regime": null
+    },
+    "T0A89": {
+      "stratum": "R",
+      "answer_with_sentence": 624.275,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "failed_transformation_identity"
+  ],
+  "defect_reasons": {
+    "failed_transformation_identity": "For both T0A89 and T2519, every certified heating answer uses T - q instead of the stated and physically required T + q."
+  },
+  "defect_severity": {
+    "failed_transformation_identity": "high"
+  },
+  "counterexamples": [
+    "For either sample-heating sentence, q = 50 K gives T_final = 450 K and v_rms = 592.239 m/s, rather than 522.306 m/s.",
+    "For either sample-heating sentence, q = 100 K gives T_final = 500 K and v_rms = 624.275 m/s, rather than 483.561 m/s.",
+    "For either sample-heating sentence, q = 200 K gives T_final = 600 K and v_rms = 683.859 m/s, rather than 394.826 m/s."
+  ],
+  "notes": "The pass-1 solution and classifications stand. The authors' heating wiring correctly specifies T + q, but their certified heating answers correspond to cooling by q. The base answer, amount cancellation, disconnected heating answers, and governing relations are correct. In the governing relations, Ek is translational kinetic energy per mole, and M must be converted from g/mol to kg/mol for an answer in m/s. Paired sentences preserve the stated numerical values and units; their attachment changes support the claimed role differences. The closed rigid container does not change the speed at a specified final temperature. The numerical failures are substantive sign errors, not inadequate rounding.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "started_at": "2026-11-14T05:50:33+00:00",
+  "completed_at": "2026-11-14T05:51:22+00:00",
+  "minutes_spent": 0.82,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "511a36a08ad9a5c701754b5ef94ce0c462133f1ec542c0f96730102fa1d996d5",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

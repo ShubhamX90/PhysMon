@@ -1,0 +1,54 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "F-779",
+  "pass_number": 1,
+  "started_at": "2026-11-14T05:48:07+00:00",
+  "completed_at": "2026-11-14T05:48:33+00:00",
+  "minutes_spent": 0.44,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Constant-acceleration kinematics: Δx = v₀t + ½at² = (3.0 s)v₀ + 9.0 m. The initial velocity is unspecified, so no unique numerical displacement follows.",
+    "assumptions": [
+      "The stated acceleration is constant during the 3.0 s interval.",
+      "For the signed displacement, the positive axis points along the acceleration."
+    ],
+    "answer": null,
+    "unit": "m"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "Every variant omits cart A's initial velocity, which is required to determine its displacement during the accelerated interval."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "Starting from rest gives a displacement of 9.0 m; starting at 1.0 m/s along the acceleration gives 12.0 m. Both satisfy every variant."
+  ],
+  "notes": "The later apparatus-transport duration is structurally disconnected (D) in all four variants: subsequent transport cannot affect the cart's earlier displacement. Its values consistently use minutes. These are legacy renderings with different distractor values, so stratum_assignments is empty. The conditional answer of 9.0 m requires an unstated start-from-rest condition.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "fd67f44f1f3aae62e2985f326b3fc9d96bd45a0baa0d902d142b5ad2f84ab87b",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

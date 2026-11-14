@@ -1,0 +1,54 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "F-788",
+  "pass_number": 1,
+  "started_at": "2026-11-14T05:51:49+00:00",
+  "completed_at": "2026-11-14T05:52:07+00:00",
+  "minutes_spent": 0.31,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Taking downward as positive, v = v_initial + gt = v_initial + 14.7 m/s.",
+    "assumptions": [
+      "Free fall gives constant downward acceleration g = 9.8 m/s².",
+      "The initial velocity is unspecified; an initial velocity of zero would be needed to obtain 14.7 m/s."
+    ],
+    "answer": null,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "All four variants omit the ball's initial velocity, so its velocity after 1.5 s is not uniquely determined."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "Starting from rest gives a downward velocity of 14.7 m/s; starting with a downward velocity of 5.0 m/s gives 19.7 m/s, and both satisfy the stated free-fall description."
+  ],
+  "notes": "Free fall specifies acceleration, not release from rest. Drone B's speed is structurally disconnected (D) in every variant because it never interacts with ball A. The four renderings differ only in that disconnected speed.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "6b4de34bb71dc322afeba32605ff8645a4bd86267748a2e0ee66431068828cc7",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

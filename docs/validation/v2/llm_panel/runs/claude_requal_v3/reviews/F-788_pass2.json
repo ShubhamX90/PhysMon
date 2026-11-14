@@ -1,0 +1,22 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch03",
+  "item_id": "F-788",
+  "pass_number": 2,
+  "started_at": "2026-11-14T10:15:00Z", "completed_at": "2026-11-14T10:19:00Z", "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {"law": "v = v0 + g t (constant acceleration g)", "assumptions": ["v0 = 0 (release from rest) -- assumed by the authors' equation but not stated in the text", "no air resistance", "g = 9.8 m/s^2"], "answer": 14.7, "unit": "m/s"},
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["insufficient_boundary_condition"],
+  "defect_reasons": {"insufficient_boundary_condition": "The authors' equation v_A = g t_A presupposes v0 = 0, but no rendering states that ball A starts from rest, so the downward velocity after 1.5 s is not uniquely determined by the text."},
+  "defect_severity": {"insufficient_boundary_condition": "high"},
+  "counterexamples": ["Ball A already moving downward at 2.0 m/s at the start of the 1.5 s interval: v = 2.0 + 14.7 = 16.7 m/s, not the certified 14.7 m/s; the text permits this."],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "Given the unstated release-from-rest condition, g*t_A = 9.8*1.5 = 14.7 m/s is correct, units (m/s^2 * s = m/s) are consistent, parameters match the text, and drone B's speed v_B is genuinely disconnected (all four renderings differ only in v_B). equation_consistent and answer_correct are marked true only conditionally on v0 = 0. The item still fails admission rule 1: the initial condition that decides the answer is missing. Consistent with pass 1; no change of view."
+}

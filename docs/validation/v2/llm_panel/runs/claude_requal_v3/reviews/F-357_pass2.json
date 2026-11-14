@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch02",
+  "item_id": "F-357",
+  "pass_number": 2,
+  "started_at": "2026-11-14T10:51:30Z",
+  "completed_at": "2026-11-14T10:55:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Q_A = C_A V_A",
+    "assumptions": [
+      "capacitor A fully charged across the ideal 9.0 V source",
+      "C2 disconnected from A"
+    ],
+    "answer": 0.0009,
+    "unit": "C"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["contradictory_distractor_statement"],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "Each rendering states two different values for the same distractor quantity (C2's charge, e.g. 3e-4 C and 0.0006 C), so the item contradicts itself even though Q_A = 9.0e-4 C is unaffected."
+  },
+  "defect_severity": {
+    "contradictory_distractor_statement": "high"
+  },
+  "counterexamples": [
+    "Rendering 3: C2 'holds a charge of 9e-4 C' and the later note reports 'this same quantity as 0.0018 C instead'."
+  ],
+  "notes": "Authors' equation, parameters and certified answer (9.0e-4 C) are correct, and the disconnection claim holds in every rendering. Minor naming inconsistency: the authors' proof refers to 'capacitor B' / symbol Q_B while the text calls it C2 (also a symbol clash with capacitance notation); not answer-affecting. The defect from pass 1 stands: the rendered text is self-contradictory about C2's charge, which fails rule 2.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

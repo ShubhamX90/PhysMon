@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch04",
+  "item_id": "R-592",
+  "pass_number": 1,
+  "started_at": "2026-11-14T10:26:00Z", "completed_at": "2026-11-14T10:36:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Newton's second law for each block plus rotational dynamics of the pulley (no slip): a = (m2 - m1) g / (m1 + m2 + I/R^2)", "assumptions": ["pulley is a uniform solid disc, I = (1/2) M R^2 (NOT stated in the item)", "frictionless pulley axle", "light inextensible string, no slip (stated)", "string stays taut"], "answer": 2.1778, "unit": "m/s^2"},
+  "stratum_assignments": {
+    "T59AF": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "T3426": {"stratum": "K", "answer_with_sentence": 2.1778, "regime": "string tensions (about 35.9 N and 38.1 N) are below the 200 N breaking rating, so the string stays intact"},
+    "TB300": {"stratum": "K", "answer_with_sentence": 2.1778, "regime": "string tensions (about 35.9 N and 38.1 N) are below the 200 N limit"},
+    "T7D27": {"stratum": "D", "answer_with_sentence": 2.1778, "regime": null},
+    "T3BAA": {"stratum": "C", "answer_with_sentence": 2.1778, "regime": null},
+    "T5F33": {"stratum": "R", "answer_with_sentence": 1.2, "regime": null},
+    "TF5D9": {"stratum": "D", "answer_with_sentence": 2.1778, "regime": null},
+    "TF030": {"stratum": "C", "answer_with_sentence": 2.1778, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "The pulley's mass distribution is not stated: a uniform disc (I = MR^2/2) gives a = 19.6/9 = 2.178 m/s^2, while a thin hoop (I = MR^2) gives 19.6/10 = 1.96 m/s^2, so competing standard models give materially different answers."
+  },
+  "defect_severity": {"missing_assumption": "high"},
+  "counterexamples": ["Base problem with a hoop-shaped pulley: a = 1.96 m/s^2 instead of 2.178 m/s^2; with the 0.8 kg block attached to the left block: 11.76/10.8 = 1.089 m/s^2 instead of 1.2 m/s^2."],
+  "notes": "Disc model: a = (5-3)(9.8)/(3+5+1) = 19.6/9 = 2.1778 m/s^2. With 0.8 kg attached to the left block (glued or tied beneath): m1 = 3.8 kg, a = (1.2)(9.8)/(3.8+5+1) = 11.76/9.8 = 1.2 m/s^2. Tensions (disc model): T_left = 3(9.8+2.178) = 35.93 N, T_right = 5(9.8-2.178) = 38.11 N; with the extra block T_left = 3.8(11.0) = 41.8 N, T_right = 5(8.6) = 43.0 N, all far below 200 N. The radius cancels because I/R^2 = kM is independent of R for any fixed shape. Variant groups are consistent: the four 0.8 kg sentences, the two 200 N sentences ('break only above 200 N' and 'withstand up to 200 N' state the same threshold) and the two 12 cm sentences ('from axle to rim' = radius). The initial state of the blocks does not affect the magnitude of the acceleration while the string stays taut."
+}

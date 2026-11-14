@@ -1,0 +1,87 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "R-972",
+  "pass_number": 1,
+  "started_at": "2026-11-14T05:52:56+00:00",
+  "completed_at": "2026-11-14T05:53:39+00:00",
+  "minutes_spent": 0.72,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Along the incline, ma = mg sin(40°) - μ_k mg cos(40°), giving a = 5.548595 m/s². From rest, v² = 2as, so after 5 m the speed is 7.448889 m/s.",
+    "assumptions": [
+      "The block undergoes the sliding motion explicitly stated in the problem.",
+      "The incline angle and kinetic friction coefficient remain constant over the motion."
+    ],
+    "answer": 7.448889,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T1CCB": {
+      "stratum": "D",
+      "answer_with_sentence": 7.448889,
+      "regime": null
+    },
+    "T6528": {
+      "stratum": "R",
+      "answer_with_sentence": 8.813645,
+      "regime": null
+    },
+    "T00F7": {
+      "stratum": "R",
+      "answer_with_sentence": 8.813645,
+      "regime": null
+    },
+    "TFF8B": {
+      "stratum": "C",
+      "answer_with_sentence": 7.448889,
+      "regime": null
+    },
+    "T3E20": {
+      "stratum": "C",
+      "answer_with_sentence": 7.448889,
+      "regime": null
+    },
+    "T6FC4": {
+      "stratum": "D",
+      "answer_with_sentence": 7.448889,
+      "regime": null
+    },
+    "TC3E8": {
+      "stratum": "K",
+      "answer_with_sentence": 7.448889,
+      "regime": "For spontaneous sliding from rest, μ_s < tan(40°) ≈ 0.83910. The stated 0.35 satisfies this condition; subsequent motion uses kinetic friction."
+    },
+    "TE4AF": {
+      "stratum": "K",
+      "answer_with_sentence": 7.448889,
+      "regime": "For spontaneous sliding from rest, μ_s < tan(40°) ≈ 0.83910. The stated 0.35 satisfies this condition; subsequent motion uses kinetic friction."
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "The relevant earlier-slide sentences explicitly place the additional 2 m between release and the stated 5 m segment, giving 7 m of total travel from rest and v = sqrt(2a × 7). The floor and bench histories precede placement and release from rest, so they do not affect the target. Mass cancels between the gravitational, frictional and inertial terms. All distance variants specify 2 m, both mass variants specify 2 kg, and both static-friction variants specify the dimensionless value 0.35. The wooden-block wording adds a material description but does not alter the supplied friction model. The base statement that the block slides supplies the occurrence of motion without requiring a numerical static-friction coefficient.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "4942ea5f62be44a246f8c62631b5ffea8dd86c8d4b8be23153eefd7ad9490df9",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch06",
+  "item_id": "F-246",
+  "pass_number": 1,
+  "started_at": "2026-11-14T10:00:00Z",
+  "completed_at": "2026-11-14T10:05:00Z",
+  "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "tau = r F sin(theta); with the force perpendicular to the wrench, tau = r F",
+    "assumptions": ["force applied perpendicular to the wrench handle (not stated)", "lever system B is mechanically independent and does not act on the wrench"],
+    "answer": 15.0,
+    "unit": "N*m"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "The direction of the 30.0 N force relative to the wrench is not stated; 'at a distance 0.5 m from its pivot' gives the distance to the point of application, not the moment arm, so the torque r F sin(theta) can be anything from 0 to 15 N*m."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": ["If the force acts at 30 degrees to the handle, torque = 0.5*30*sin30 = 7.5 N*m; if along the handle, torque = 0."],
+  "notes": "All four renderings differ only in the torque of the independent lever system B (5, 12, 20, 40 N*m), which is structurally disconnected from the wrench (D); under the perpendicular-force reading the answer is 15.0 N*m in every rendering. The only defect is the unstated perpendicularity of the force."
+}

@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch01",
+  "item_id": "F-352",
+  "pass_number": 2,
+  "started_at": "2026-11-14T10:20:00Z", "completed_at": "2026-11-14T10:24:00Z", "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {"law": "v_A = u_A + a_A t_A", "assumptions": ["acceleration along the initial velocity", "non-relativistic straight-line motion"], "answer": 11.0, "unit": "m/s"},
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["failed_transformation_identity", "other"],
+  "defect_reasons": {
+    "failed_transformation_identity": "The certified answer 10 m/s does not follow from the authors' own equation u_A + a_A t_A = 3.0 + 2.0*4.0 = 11.0 m/s.",
+    "other": "The direction of the acceleration relative to the initial velocity is not stated explicitly, though 'accelerates' conventionally means speeding up."
+  },
+  "defect_severity": {"failed_transformation_identity": "high", "other": "low"},
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "counterexamples": ["With u_A = 3.0 m/s, a_A = 2.0 m/s^2, t_A = 4.0 s the stated equation gives 11.0 m/s, not the certified 10 m/s."],
+  "notes": "Governing equation, parameters and units are correct, and the disconnection argument for scooter B's speed is sound (B's speed is absent from the governing relation and B never interacts with A). The certified answer display '10 m/s' is wrong; the correct answer is 11.0 m/s, agreeing with my pass 1. Note that one rendering uses v_B = 11.0 m/s, numerically equal to the correct answer, which may act as a lure but is not a defect."
+}

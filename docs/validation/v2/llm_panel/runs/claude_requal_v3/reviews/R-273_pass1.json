@@ -1,0 +1,44 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch02",
+  "item_id": "R-273",
+  "pass_number": 1,
+  "started_at": "2026-11-14T10:28:30Z",
+  "completed_at": "2026-11-14T10:37:00Z",
+  "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy balance: P t = m c dT, so t = m c dT / P",
+    "assumptions": [
+      "all the heater's electrical energy goes into the water (no heat loss, negligible heat capacity of container and heater) -- NOT stated",
+      "heater delivers its rated 1500 W throughout",
+      "no phase change (water stays liquid) and c constant over the range"
+    ],
+    "answer": 223.2533,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T581F": {"stratum": "R", "answer_with_sentence": 334.88, "regime": null},
+    "TD5BB": {"stratum": "R", "answer_with_sentence": 334.88, "regime": null},
+    "T249D": {"stratum": "K", "answer_with_sentence": 223.2533, "regime": "no phase change: initial temperature such that T0 + 40 K stays below the boiling point (373 K at 1 atm); 293 K -> 333 K is inside"},
+    "T4D81": {"stratum": "D", "answer_with_sentence": 223.2533, "regime": null},
+    "T1489": {"stratum": "K", "answer_with_sentence": 223.2533, "regime": "no phase change: T0 + 40 K below 373 K; 293 K is inside"},
+    "T808E": {"stratum": "D", "answer_with_sentence": 223.2533, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "The item does not state that all of the heater's output goes into the water (no heat losses to surroundings or container, 100% efficiency); with any loss the time is materially longer, so the modelling condition that decides the answer is missing."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    "If 80% of the heater's output reaches the water, t = 334880 J / 1200 W = 279.1 s instead of 223.3 s."
+  ],
+  "notes": "Base: t = 2*4186*40/1500 = 334880/1500 = 223.25 s. With the 1 kg jug mixed in before heating (same starting temperature, so no mixing temperature change): t = 3*4186*40/1500 = 502320/1500 = 334.88 s. All four jug sentences state 1 kg at the same starting temperature and both temperature sentences state 293 K, so paired variants are consistent. The starting temperature is K (only matters if the 40 K rise would cross the boiling point). TD5BB says 'emptied into the heated water' before heating starts; 'heated water' means the water to be heated, slightly awkward wording but not misleading. The missing heat-loss/efficiency assumption is the only rule-1 concern; I flag it high under the strict reading of rule 1 (a modelling condition whose absence permits materially different answers, even if most would assume it), with moderate confidence because many textbook problems leave it implicit. The base problem also does not state the initial temperature; a 40 K rise could cross boiling for a hot start, but the question presupposes the rise occurs, so I do not flag this."
+}

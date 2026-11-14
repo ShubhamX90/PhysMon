@@ -1,0 +1,58 @@
+{
+  "item_id": "F-867",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Momentum magnitude is p = mv. The rendered mass, '3.0 m', has length units, so no numerical momentum follows. If the intended mass were 3.0 kg, p = (3.0 kg)(4.0 m/s) = 12 kg·m/s.",
+    "assumptions": [
+      "The question asks for momentum magnitude.",
+      "The stated speed is the current speed.",
+      "A numerical mass with valid mass units is required."
+    ],
+    "answer": null,
+    "unit": "kg·m/s"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "inconsistent_units"
+  ],
+  "defect_reasons": {
+    "inconsistent_units": "Every rendering gives mass as '3.0 m', contradicting the parameter specification of 3.0 kg and preventing the certified momentum from following from the problem as written."
+  },
+  "defect_severity": {
+    "inconsistent_units": "high"
+  },
+  "counterexamples": [],
+  "notes": "The pass-1 conclusion stands. The governing equation and the authors' dependency argument are correct, and the certified value is numerically correct for the metadata's mass of 3.0 kg, but that mass is not correctly rendered in any variant. Earlier rolling distance does not affect momentum at the specified current speed. The legacy distance changes introduce no additional defect. The displayed answer's extra trailing zero does not materially affect numerical correctness.",
+  "equation_consistent": true,
+  "units_consistent": false,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "started_at": "2026-11-14T05:51:38+00:00",
+  "completed_at": "2026-11-14T05:52:01+00:00",
+  "minutes_spent": 0.39,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "2c72b35301fe1d0a2870d17d889f1b5b10003a168afb2d9faf78ab7565636c6d",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

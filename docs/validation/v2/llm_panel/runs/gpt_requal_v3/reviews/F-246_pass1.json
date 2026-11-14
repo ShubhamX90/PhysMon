@@ -1,0 +1,56 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "F-246",
+  "pass_number": 1,
+  "started_at": "2026-11-14T05:52:01+00:00",
+  "completed_at": "2026-11-14T05:52:30+00:00",
+  "minutes_spent": 0.48,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The torque magnitude about the pivot is tau = r F sin(theta) = 15 sin(theta) N*m, where theta is the angle between the force and the pivot-to-application-point vector. The stated information gives no unique numerical answer.",
+    "assumptions": [
+      "The stated distance is the distance from the pivot to the force application point.",
+      "A torque magnitude of 15 N*m requires an additional assumption that the force acts perpendicular to that vector."
+    ],
+    "answer": null,
+    "unit": "N*m"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "Every variant omits the force direction or an explicit perpendicular moment arm, so the wrench torque cannot be determined uniquely."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    "A force perpendicular to the pivot-to-application-point vector produces 15 N*m.",
+    "A force parallel to that vector produces zero torque.",
+    "A force at 30 degrees to that vector produces 7.5 N*m."
+  ],
+  "notes": "The torque of mechanically independent lever system B is structurally disconnected (D) in all four variants. Changing its value leaves the wrench torque relation unchanged. These legacy variants differ only in B's torque value; the missing force direction affects every variant.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f19ab5ce6aea5d690c97c740ceed2bca5dd8db3ae7996b0a4f30e526084d96d1",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

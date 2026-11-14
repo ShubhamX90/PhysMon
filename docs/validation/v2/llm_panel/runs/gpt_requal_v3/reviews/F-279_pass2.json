@@ -1,0 +1,51 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "F-279",
+  "pass_number": 2,
+  "started_at": "2026-11-14T05:54:15+00:00",
+  "completed_at": "2026-11-14T05:54:33+00:00",
+  "minutes_spent": 0.3,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Coulomb's law: F = k|q1 q2|/r² = (8.99×10^9)(2×10^-6)(3×10^-6)/(0.1)² = 5.394 N.",
+    "assumptions": [
+      "The charges are point charges, as stated.",
+      "The explicitly stated vacuum approximation and fixed Coulomb constant apply to all four temperature variants."
+    ],
+    "answer": 5.394,
+    "unit": "N"
+  },
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "The authors' equation, parameters, units, numerical answer and invariance argument agree with the locked pass-1 review. The equation gives a force magnitude because both supplied charges are positive. All four variants yield 5.394 N; temperature does not enter the explicitly imposed vacuum approximation. The legacy renderings differ only in the intended temperature value. No revision of the pass-1 conclusions is needed. No outside information was accessed.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "5bdf33ebef535cb784440a8ab368032b01e70edad998d1d8f23718d582986684",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

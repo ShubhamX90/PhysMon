@@ -1,0 +1,20 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch04",
+  "item_id": "F-900",
+  "pass_number": 1,
+  "started_at": "2026-11-14T10:15:00Z", "completed_at": "2026-11-14T10:20:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "constant-acceleration kinematics v = v0 + a t", "assumptions": ["acceleration is along the direction of motion ('accelerates' read as speeding up)", "acceleration constant over the 2.0 s"], "answer": 10.0, "unit": "m/s"},
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["contradictory_distractor_statement", "other"],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "Every rendering gives object B's constant speed one value (1.0, 2.5, 5.0, 8.0 m/s) and then a 'later note' reports the same quantity as a different value (5, 12.5, 25, 40 m/s), so each item contradicts itself.",
+    "other": "The parenthetical 'this same quantity' has an unclear referent and the direction of the 3.0 m/s^2 acceleration relative to the initial velocity is not stated explicitly, though 'accelerates' conventionally means speeding up."
+  },
+  "defect_severity": {"contradictory_distractor_statement": "high", "other": "low"},
+  "counterexamples": ["Rendering 1: B's speed is stated as 1.0 m/s and then as 5 m/s; both cannot hold for an object moving at constant speed."],
+  "notes": "Answer for A is 4.0 + 3.0*2.0 = 10 m/s in all renderings; B is disconnected and the answer survives, but under admission rule 2 a contradiction about a distractor quantity still makes the item invalid. If 'this same quantity' were read as A's final speed, the note would instead contradict the computed answer (10 m/s), which is also a defect."
+}

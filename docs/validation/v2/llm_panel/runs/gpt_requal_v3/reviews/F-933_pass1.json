@@ -1,0 +1,52 @@
+{
+  "item_id": "F-933",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For a capacitor, Q = CV. Thus Q_A = (2.0e-4 F)(3.0 V) = 6.0e-4 C in every variant.",
+    "assumptions": [
+      "The source maintains the stated potential difference across capacitor A.",
+      "Stored charge means the magnitude of the charge on either plate."
+    ],
+    "answer": 0.0006,
+    "unit": "C"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "contradictory_distractor_statement"
+  ],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "Every variant assigns two incompatible values to the same charge on C2, with the later note doubling the initially stated value and no physical change described."
+  },
+  "defect_severity": {
+    "contradictory_distractor_statement": "high"
+  },
+  "counterexamples": [],
+  "notes": "The conflicting C2 charge values are respectively 0.0002 versus 0.0004 C, 0.0004 versus 0.0008 C, 0.0006 versus 0.0012 C, and 0.0008 versus 0.0016 C. C2 is structurally disconnected from the target in the stated circuit model, so capacitor A still stores 0.0006 C in all four variants. Nevertheless, each variant violates admission rule 2. The variants consistently use coulombs; their different numerical values are a legacy parameter sweep.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "started_at": "2026-11-14T05:49:15+00:00",
+  "completed_at": "2026-11-14T05:49:40+00:00",
+  "minutes_spent": 0.42,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "af0e6c80ff27fd8c97af450d96c66280f7ac0599954c5f95a0b7291221ec78ef",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

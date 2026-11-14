@@ -1,0 +1,44 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch02",
+  "item_id": "R-663",
+  "pass_number": 1,
+  "started_at": "2026-11-14T10:00:00Z",
+  "completed_at": "2026-11-14T10:08:00Z",
+  "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Static equilibrium of the cube: T + m g = F_b, with Archimedes F_b = rho_liquid V g, so T = (rho_liquid - rho_cube) V g, V = a^3",
+    "assumptions": [
+      "cube fully submerged and at rest; liquid at rest (hydrostatic)",
+      "string light and vertical, pulling the cube straight down",
+      "g = 9.8 m/s^2; V = (0.15 m)^3 = 3.375e-3 m^3"
+    ],
+    "answer": 21.49875,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T0525": {"stratum": "K", "answer_with_sentence": 21.49875, "regime": "string tension below its 50 N breaking rating (T = 21.5 N < 50 N), so the string does not break and the static answer holds"},
+    "T2228": {"stratum": "D", "answer_with_sentence": 21.49875, "regime": null},
+    "T09D4": {"stratum": "D", "answer_with_sentence": 21.49875, "regime": null},
+    "T3CB6": {"stratum": "R", "answer_with_sentence": 26.46, "regime": null},
+    "T9EB4": {"stratum": "R", "answer_with_sentence": 26.46, "regime": null},
+    "TCC45": {"stratum": "C", "answer_with_sentence": 21.49875, "regime": null},
+    "T2CF7": {"stratum": "K", "answer_with_sentence": 21.49875, "regime": "string tension below its 50 N limit (T = 21.5 N < 50 N)"},
+    "T3FD8": {"stratum": "C", "answer_with_sentence": 21.49875, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {
+    "rendering_not_minimal": "The disconnected liquid-density sentence T2228 states 1350 kg/m^3 while its apparent counterparts (T09D4, T3CB6, T9EB4) state 1250 kg/m^3; if T2228 is meant as a variant of them, the number differs."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "medium"
+  },
+  "counterexamples": [],
+  "notes": "Base: W = 450*3.375e-3*9.8 = 14.884 N; F_b = 1100*3.375e-3*9.8 = 36.383 N; T = 21.499 N (about 21.5 N). With 1250 kg/m^3 replacing the liquid: T = (1250-450)*3.375e-3*9.8 = 26.46 N, still below 50 N. Depth of the top face cancels from the buoyant force (pressure difference between bottom and top faces is rho g a regardless of depth), so the depth sentences are C. The two string-limit sentences (T0525, T2CF7) both state 50 N and are consistent variants; both are K with the answer inside the regime. The T2228 1350 vs 1250 mismatch is flagged medium pending whether it is claimed to be a minimal pair; it may be intended as an independent distractor. No condition that decides the answer appears missing."
+}

@@ -1,0 +1,52 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "F-357",
+  "pass_number": 1,
+  "started_at": "2026-11-14T05:50:28+00:00",
+  "completed_at": "2026-11-14T05:50:49+00:00",
+  "minutes_spent": 0.37,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Q = CV = (1.0e-4 F)(9.0 V) = 9.0e-4 C.",
+    "assumptions": [
+      "Capacitor A has the stated capacitance and the source maintains 9.0 V across it.",
+      "Stored charge means the magnitude of the charge on either capacitor plate."
+    ],
+    "answer": 0.0009,
+    "unit": "C"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "contradictory_distractor_statement"
+  ],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "Every variant reports two incompatible values for the same charge on C2, without stating a physical change or explicitly correcting the first value."
+  },
+  "defect_severity": {
+    "contradictory_distractor_statement": "high"
+  },
+  "counterexamples": [],
+  "notes": "All four variants give Q_A = 0.00090 C. C2 is structurally disconnected (D), so its charge does not affect this result. Nevertheless, the respective charge reports for C2 contradict each other: 0.0003 versus 0.0006 C; 0.0006 versus 0.0012 C; 0.0009 versus 0.0018 C; and 0.0012 versus 0.0024 C. These contradictions invalidate every variant under admission rule 2. Across variants the distractor values change, but their wording, units, and attachment remain the same.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f7b9a6d0577b00a6b640d9cf233f9e0f59a375e00b82f57e971ac458dd5bc934",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

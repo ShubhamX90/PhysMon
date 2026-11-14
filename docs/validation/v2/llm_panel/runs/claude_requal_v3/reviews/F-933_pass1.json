@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch06",
+  "item_id": "F-933",
+  "pass_number": 1,
+  "started_at": "2026-11-14T10:10:00Z",
+  "completed_at": "2026-11-14T10:14:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Q = C V",
+    "assumptions": ["capacitor A is fully charged (steady state) across an ideal 3.0 V source", "C2 is disconnected and has no influence on A"],
+    "answer": 0.0006,
+    "unit": "C"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["contradictory_distractor_statement"],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "Every rendering gives the charge on C2 two different values (e.g. 2e-4 C and then 'this same quantity as 0.0004 C instead'), so the item contradicts itself even though C2 cannot affect the answer."
+  },
+  "defect_severity": {
+    "contradictory_distractor_statement": "high"
+  },
+  "counterexamples": [],
+  "notes": "Q_A = 2.0e-4 F * 3.0 V = 6.0e-4 C in all four renderings; the C2 charge is structurally disconnected (D). The conflicting 'later note' doubles the C2 value in each rendering and is a self-contradiction under rule 2."
+}

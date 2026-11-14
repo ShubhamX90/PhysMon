@@ -1,0 +1,53 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch02",
+  "item_id": "R-663",
+  "pass_number": 2,
+  "started_at": "2026-11-14T10:08:30Z",
+  "completed_at": "2026-11-14T10:18:00Z",
+  "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Static equilibrium of the cube: T = F_b - m g = (rho_l - rho_s) g a^3",
+    "assumptions": [
+      "cube fully submerged and at rest; liquid incompressible, uniform and at rest",
+      "string light, vertical and taut",
+      "g = 9.8 m/s^2 uniform"
+    ],
+    "answer": 21.49875,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T0525": {"stratum": "K", "answer_with_sentence": 21.49875, "regime": "T < breaking strength (21.5 N < 30, 50, 80 N)"},
+    "T2228": {"stratum": "D", "answer_with_sentence": 21.49875, "regime": null},
+    "T09D4": {"stratum": "D", "answer_with_sentence": 21.49875, "regime": null},
+    "T3CB6": {"stratum": "R", "answer_with_sentence": 26.46, "regime": null},
+    "T9EB4": {"stratum": "R", "answer_with_sentence": 26.46, "regime": null},
+    "TCC45": {"stratum": "C", "answer_with_sentence": 21.49875, "regime": null},
+    "T2CF7": {"stratum": "K", "answer_with_sentence": 21.49875, "regime": "T < breaking strength (21.5 N < 30, 50, 80 N)"},
+    "T3FD8": {"stratum": "C", "answer_with_sentence": 21.49875, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal", "other"],
+  "defect_reasons": {
+    "rendering_not_minimal": "T2228 is claimed to be a minimal pair with T9EB4, but T2228's text states 1350 kg/m^3 while T9EB4 states 1250 kg/m^3, so the pair differs in the number, not only in attachment.",
+    "other": "The claim for T2228 gives value_shown = 1250 kg/m^3, but the sentence text actually shows 1350 kg/m^3; the authors' claim about the value as it appears in the text is false."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high",
+    "other": "high"
+  },
+  "counterexamples": [
+    "T2228 text: 'A liquid whose density is 1350 kg/m³ fills a beaker on the next bench.' vs claimed value_shown '1250' and claimed minimal partner T9EB4 which states 1250 kg/m³."
+  ],
+  "notes": "All physics and numbers otherwise check: base T = (1100-450)*9.8*3.375e-3 = 21.49875 N (21.4988 certified); R answers for replacement liquid 1150/1250/1350 give 23.1525/26.46/29.7675 N, all correct and all below the K-limits so no interaction. K regime T < q holds for 30, 50, 80 N. Depth cancellation expression is correct and dimensionally consistent (q and a both lengths); 20 cm depth is a valid placement of a 15 cm cube. T09D4 (1250, bottle) and T3CB6 (1250, tank) form a correct minimal pair. The only defect is T2228: its displayed number (1350) does not match the claimed value_shown (1250) or its claimed partner T9EB4 (1250). This confirms and upgrades my pass-1 medium flag: since the authors explicitly claim the minimal pair and the shown value, the claim is false and the item is invalid under rule 3. Minor (not flagged): the D quantity is labelled 'a replacement liquid', which is a misleading description for liquids in a beaker or bottle elsewhere, but it does not affect any answer.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID"
+}

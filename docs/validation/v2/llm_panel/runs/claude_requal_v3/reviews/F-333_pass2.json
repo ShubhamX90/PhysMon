@@ -1,0 +1,38 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch07",
+  "item_id": "F-333",
+  "pass_number": 2,
+  "started_at": "2026-11-14T10:15:00Z",
+  "completed_at": "2026-11-14T10:19:00Z",
+  "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Wave relation v = f * lambda",
+    "assumptions": ["the stated frequency and wavelength refer to the same travelling wave on the string"],
+    "answer": 18.0,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {},
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_numerical_precision"],
+  "defect_reasons": {
+    "invalid_numerical_precision": "The certified answer is displayed as 20 m/s, but v = 6.0 Hz * 3.0 m = 18 m/s; with two-significant-figure inputs, 20 m/s is rounded so far that it is wrong (an 11% error)."
+  },
+  "defect_severity": {
+    "invalid_numerical_precision": "high"
+  },
+  "counterexamples": [
+    "Any rendering: f * lambda = 6.0 * 3.0 = 18.0 m/s, not the certified 20 m/s."
+  ],
+  "notes": "Governing equation v = f*lambda, parameters (6.0 Hz, 3.0 m), units (Hz*m = m/s) and the invariance argument (cable age has no path to the target) are all correct and agree with pass 1. The only defect is the certified answer display of 20 m/s; the correct value at the stated precision is 18 m/s. Whether this arose from one-significant-figure rounding or an arithmetic slip, the displayed certified answer is wrong, so the item cannot be admitted as certified.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": false,
+  "admission_category": "SOLVER_INVALID"
+}

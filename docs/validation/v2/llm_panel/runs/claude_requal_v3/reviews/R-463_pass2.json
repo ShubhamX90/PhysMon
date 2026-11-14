@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch08",
+  "item_id": "R-463",
+  "pass_number": 2,
+  "started_at": "2026-11-14T00:13:00Z", "completed_at": "2026-11-14T00:19:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Hydrostatics: P = P_surface + rho g h", "assumptions": ["liquid at rest", "incompressible liquid of uniform density", "g uniform, g = 9.8 m/s^2"], "answer": 266.6, "unit": "kPa"},
+  "stratum_assignments": {
+    "T9F45": {"stratum": "D", "answer_with_sentence": 266.6, "regime": null},
+    "TDFFF": {"stratum": "C", "answer_with_sentence": 266.6, "regime": null},
+    "TDCA5": {"stratum": "C", "answer_with_sentence": 266.6, "regime": null},
+    "TADA3": {"stratum": "R", "answer_with_sentence": 286.6, "regime": null},
+    "T7DFA": {"stratum": "R", "answer_with_sentence": 286.6, "regime": null},
+    "TB5A2": {"stratum": "D", "answer_with_sentence": 266.6, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["failed_transformation_identity"],
+  "defect_reasons": {"failed_transformation_identity": "For the R sentences T7DFA and TADA3 the wiring says the surface pressure becomes p0 + q, but the certified answers (256.6, 246.6, 226.6 kPa for q = 10, 20, 40 kPa) are p0 - q + rho g h; the correct answers are 276.6, 286.6 and 306.6 kPa."},
+  "defect_severity": {"failed_transformation_identity": "high"},
+  "counterexamples": [
+    "T7DFA / TADA3 at q = 20 kPa: p = 100 + 20 + 850*9.8*20/1000 = 120 + 166.6 = 286.6 kPa, not the certified 246.6 kPa.",
+    "q = 10 kPa: correct 276.6 kPa vs certified 256.6 kPa; q = 40 kPa: correct 306.6 kPa vs certified 226.6 kPa."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "Pass 2 agrees with pass 1 (pass 1 gave 286.6 kPa for both R sentences). Base answer 266.6 kPa, the D claims for the tyre and football (266.6 kPa at all q) and the C claims for both area sentences (266.6 kPa at all A) are correct, and the minimal pairs (T9F45/T7DFA and TB5A2/TADA3) share the same number and unit, differing in attachment and some verb wording only. The cancellation relation m = rho A h strictly assumes a uniform cross-section; for TDCA5 ('flat base') the tank need not be uniform, but hydrostatic pressure is independent of vessel shape, so the C stratum and answers still hold. The sign error in the R answers is the only defect, but it makes the certified answers wrong."
+}

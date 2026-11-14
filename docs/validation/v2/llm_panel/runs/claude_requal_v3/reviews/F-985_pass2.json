@@ -1,0 +1,19 @@
+{
+  "reviewer_id": "claude-opus-5-5:claude_requal_v3:batch03",
+  "item_id": "F-985",
+  "pass_number": 2,
+  "started_at": "2026-11-14T10:05:00Z", "completed_at": "2026-11-14T10:08:00Z", "minutes_spent": 3,
+  "blinding_attestation": true,
+  "own_solution": {"law": "tau = I * alpha for rotation about a fixed axis; |alpha| = tau_A / I_A", "assumptions": ["the braking torque is the net torque on flywheel A", "rigid flywheel, fixed axis"], "answer": 6.0, "unit": "rad/s^2"},
+  "stratum_assignments": {},
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Authors' equation alpha = tau_A/I_A matches my pass-1 solution; (N*m)/(kg*m^2) = 1/s^2 = rad/s^2. Parameters (9.0 N*m, 1.5 kg*m^2) match the text; certified 6.0 rad/s^2 is correct at the stated two-significant-figure precision. F_B is absent from the governing expression and the text explicitly says lever system B never couples to A, so the invariance claim holds for all four renderings, which differ only in the F_B value. No disagreement with pass 1."
+}

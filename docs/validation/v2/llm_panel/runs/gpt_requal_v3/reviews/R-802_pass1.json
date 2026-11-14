@@ -1,0 +1,67 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_requal_v3",
+  "item_id": "R-802",
+  "pass_number": 1,
+  "started_at": "2026-11-14T05:55:33+00:00",
+  "completed_at": "2026-11-14T05:56:00+00:00",
+  "minutes_spent": 0.45,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The de Broglie relation is lambda = h/p. Non-relativistically, K = p²/(2m), so lambda = hc/sqrt(2(mc²)K). With mc² = 511000 eV and K = 54 eV, lambda = 1240/sqrt(2 × 511000 × 54) nm = 0.1669165 nm.",
+    "assumptions": [
+      "The electron starts from rest, as stated, so its final kinetic energy is 54 eV.",
+      "Use non-relativistic mechanics, as explicitly instructed."
+    ],
+    "answer": 0.1669,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "T8B18": {
+      "stratum": "D",
+      "answer_with_sentence": 0.1669,
+      "regime": null
+    },
+    "T70DC": {
+      "stratum": "D",
+      "answer_with_sentence": 0.1669,
+      "regime": null
+    },
+    "T6C4C": {
+      "stratum": "R",
+      "answer_with_sentence": 0.09884,
+      "regime": null
+    },
+    "TB699": {
+      "stratum": "R",
+      "answer_with_sentence": 0.09884,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All four sentences specify the same additional kinetic energy, 100 eV, and vary its attachment and wording. The separate ion beam and remote proton have no stated physical connection to the electron. Either additional accelerating stage acting on this electron raises its kinetic energy to 154 eV, giving lambda = 1240/sqrt(2 × 511000 × 154) nm = 0.0988407 nm. The word 'further' makes this energy cumulative and does not contradict the initial 54 eV acceleration.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "61b20e0acf94673aed387dbbccd0a45308f743a22907997886efc24c2c046582",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}
