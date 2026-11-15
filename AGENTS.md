@@ -41,6 +41,16 @@ Work normally happens directly on Sharanga (Claude Code via Remote SSH) in
 maintained laptop mirror and no sync step; do not use the `make sync-*` targets
 or `scripts/ops/` lease helpers unless the user explicitly asks.
 
+## Required journaling and handoff
+
+Every session (the user, a teammate, or any agent main session) follows
+`skills/physmon-journaling/SKILL.md`: read `docs/status/HANDOFF.md` and the latest journal
+entries before acting; write a journal entry, refresh `HANDOFF.md`, commit and push at each
+checkpoint it defines (before submissions, when results arrive, at decisions and freezes, when
+accepting an agent's work, on failures, on new user instructions, at session end and before a
+long session nears its context limit). Delegated subagents never write the journal or the
+handoff; the main session does after reviewing their output.
+
 ## Required Sharanga routing
 
 Before **any** task involving Sharanga, Slurm, GPU/CPU allocation, scratch

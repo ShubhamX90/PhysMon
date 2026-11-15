@@ -14,3 +14,6 @@ skills/physmon-sharanga/SKILL.md
 Do not bypass a task-level prohibition on remote access, scheduler submission,
 GPU work, or follow-up experiments. Preserve all partial and failed evidence;
 zero evaluable rows are not a measured zero effect.
+
+At session start and at every checkpoint, follow `skills/physmon-journaling/SKILL.md`
+(read `docs/status/HANDOFF.md` first; journal, refresh the handoff, commit and push at checkpoints).
