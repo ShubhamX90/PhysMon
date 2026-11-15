@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch05",
+  "item_id": "M0V2-S15",
+  "pass_number": 1,
+  "started_at": "2026-11-15T10:00:00Z", "completed_at": "2026-11-15T10:06:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Parallel resistors: R_eq = R1 R2/(R1+R2) = 4 ohm; P = E^2/R_eq (equivalently sum of V^2/R_i).",
+    "assumptions": ["Ideal battery (stated negligible internal resistance)", "Ideal wires, ohmic resistors", "DC steady state"],
+    "answer": 36.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T4C52": {"stratum": "K", "answer_with_sentence": 36.0, "regime": "Fuse remains intact while its branch current (12 V / 6 ohm = 2 A) is below the 5 A rating; it would matter only if the branch current exceeded 5 A."},
+    "TFA19": {"stratum": "K", "answer_with_sentence": 36.0, "regime": "Fuse blows only above 5 A; branch current is 2 A, inside the intact regime."},
+    "T4B22": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T0290": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "TE56F": {"stratum": "R", "answer_with_sentence": 56.25, "regime": null},
+    "T0C53": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T9809": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T916E": {"stratum": "R", "answer_with_sentence": 56.25, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: R_eq = 4 ohm, P = 144/4 = 36 W (24 W + 12 W). With a 3 V cell in series aiding, emf = 15 V, P = 225/4 = 56.25 W. Removed cells (T4B22, T9809) are temporally disconnected from the final circuit; bench cells (T0290, T0C53) are structurally disconnected. Variants: TE56F/T9809/T916E/T0C53 all state 3 V consistently and differ only in attachment or whether the cell remains. T4B22 and T0290 state no value ('small cell') and appear to be value-free phrasings of T9809 and T0C53 respectively; if they are meant as minimal pairs with the 3 V sentences they differ in the presence of the number. T4C52 and TFA19 both state 5 A; 'rated at 5 A' and 'blows only above 5 A' are equivalent for this purpose."
+}

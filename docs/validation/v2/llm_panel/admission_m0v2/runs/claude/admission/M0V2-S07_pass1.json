@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch02",
+  "item_id": "M0V2-S07",
+  "pass_number": 1,
+  "started_at": "2026-11-15T10:18:00Z", "completed_at": "2026-11-15T10:30:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {"law": "RC charging: V_C(t) = E (1 - exp(-t/RC)), tau = RC = 5000*20e-6 = 0.1 s", "assumptions": ["ideal battery and wires", "ideal capacitor with no leakage", "capacitor initially uncharged (stated)"], "answer": 6.608, "unit": "V"},
+  "stratum_assignments": {
+    "TE931": {"stratum": "R", "answer_with_sentence": 5.414, "regime": null},
+    "TC38C": {"stratum": "D", "answer_with_sentence": 6.608, "regime": null},
+    "T3BCA": {"stratum": "K", "answer_with_sentence": 6.608, "regime": "the disconnection time matters only if it is earlier than 80 ms; 400 ms is later"},
+    "T0ED4": {"stratum": "R", "answer_with_sentence": 4.504, "regime": null},
+    "T68E7": {"stratum": "D", "answer_with_sentence": 6.608, "regime": null},
+    "T3ED2": {"stratum": "K", "answer_with_sentence": 6.608, "regime": "the disconnection time matters only if it is earlier than 80 ms; 400 ms is later"},
+    "T8648": {"stratum": "R", "answer_with_sentence": 5.414, "regime": null},
+    "T61C2": {"stratum": "D", "answer_with_sentence": 6.608, "regime": null},
+    "TE7F1": {"stratum": "R", "answer_with_sentence": 4.504, "regime": null},
+    "T4C87": {"stratum": "D", "answer_with_sentence": 6.608, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TE931 ('cut off from the battery') does not say whether the circuit is left open (capacitor holds 5.414 V) or the battery is replaced by a conducting path (capacitor discharges through the resistor), though the open-circuit reading is the natural one."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: 12(1 - e^-0.8) = 12(1 - 0.44933) = 6.608 V. Disconnected at 60 ms with an ideal capacitor held open: 12(1 - e^-0.6) = 12(0.45119) = 5.414 V. Extra 3.5 kOhm in series: tau = 8500*20e-6 = 0.17 s, 12(1 - e^-0.4706) = 12(1 - 0.62464) = 4.504 V. Resistors inserted and removed before the connection (TC38C, T61C2) leave no trace on an uncharged capacitor, so no path to the target in the experiment as run; I class them D (could also be viewed as a temporal invariance). Variant check: T0ED4, T61C2, TE7F1, T68E7 all 3.5 kOhm; TE931 and T8648 both 60 ms; T3ED2 and T3BCA both 400 ms; the 60 ms and 400 ms sentences differ in number (presumably R vs K versions of the same timing quantity). TC38C and T4C87 say 'small resistor' with no number. Assumed the capacitor does not leak after the circuit is opened (standard idealisation)."
+}

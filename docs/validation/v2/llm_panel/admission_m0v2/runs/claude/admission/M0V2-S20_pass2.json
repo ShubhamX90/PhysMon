@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch04",
+  "item_id": "M0V2-S20",
+  "pass_number": 2,
+  "started_at": "2026-11-15T10:08:30Z", "completed_at": "2026-11-15T10:15:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Thin-lens equation di = f*do/(do - f)", "assumptions": ["thin lens, paraxial rays", "real object on the axis beyond f"], "answer": 17.142857, "unit": "cm"},
+  "stratum_assignments": {
+    "T996B": {"stratum": "C", "answer_with_sentence": 17.142857, "regime": null},
+    "T658E": {"stratum": "R", "answer_with_sentence": 15.130435, "regime": null},
+    "T7555": {"stratum": "D", "answer_with_sentence": 17.142857, "regime": null},
+    "T7BDF": {"stratum": "D", "answer_with_sentence": 17.142857, "regime": null},
+    "TEEE6": {"stratum": "C", "answer_with_sentence": 17.142857, "regime": null},
+    "T2B13": {"stratum": "D", "answer_with_sentence": 17.142857, "regime": null},
+    "TDEA7": {"stratum": "D", "answer_with_sentence": 17.142857, "regime": null},
+    "T816D": {"stratum": "R", "answer_with_sentence": 15.130435, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All claims agree with my pass 1. Checked R answers: do = 46 -> 12*46/34 = 16.2353; do = 58 -> 696/46 = 15.1304; do = 70 -> 840/58 = 14.4828 cm. C cancellation checks: h_i = q f/(do - f), di = do*h_i/q = f do/(do - f), so the height q drops out exactly; all values (2.5-4.5 cm at 40 cm) are comfortably paraxial. D claims: the microphone stand has no optical path to the image; the pre-placement slide leaves the stated 40 cm distance unchanged. Minimal pairs: T7555/T658E share '18 cm' and differ only in what the stand holds; T2B13/T816D share '18 cm' and differ in timing/direction (before placement along the bench vs after placement directly away), which is the intended attachment difference. T7BDF and TDEA7 are declared numeral-free twins (not minimal pairs), so their 'a little' wording is as claimed. Base answer 17.1429 is 120/7 rounded within precision."
+}

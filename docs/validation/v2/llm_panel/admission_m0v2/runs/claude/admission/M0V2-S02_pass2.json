@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch01",
+  "item_id": "M0V2-S02",
+  "pass_number": 2,
+  "started_at": "2026-11-15T10:13:00Z", "completed_at": "2026-11-15T10:24:00Z", "minutes_spent": 11,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "a = g(sin theta - mu_k cos theta); v = sqrt(2 a d) from rest.",
+    "assumptions": ["block starts from rest (stated)", "constant kinetic friction coefficient 0.15", "fixed incline", "negligible air resistance"],
+    "answer": 5.387,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T9653": {"stratum": "K", "answer_with_sentence": 5.387, "regime": "mu_s < tan 30 deg = 0.577"},
+    "TADA9": {"stratum": "C", "answer_with_sentence": 5.387, "regime": null},
+    "TF933": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null},
+    "T77D8": {"stratum": "R", "answer_with_sentence": 6.919, "regime": null},
+    "TCAEB": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null},
+    "T9762": {"stratum": "R", "answer_with_sentence": 6.919, "regime": null},
+    "T26C9": {"stratum": "C", "answer_with_sentence": 5.387, "regime": null},
+    "T52D8": {"stratum": "K", "answer_with_sentence": 5.387, "regime": "mu_s < tan 30 deg = 0.577"},
+    "T9FC8": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null},
+    "T04B5": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The 'quantity' label 'an earlier stretch of sliding' attached to TF933 and TCAEB (a second block's release-point distance on a neighbouring incline) is a loose description; it does not affect any answer or stratum."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All strata agree with my pass 1. Numerical checks: a = 9.8*(0.5 - 0.15*0.866025) = 3.62694 m/s^2. Base v = sqrt(2*3.62694*4) = 5.3866 (certified 5.38661). R answers with d + q: q = 1.2 -> sqrt(2*3.62694*5.2) = sqrt(37.720) = 6.1417 (6.14168); q = 2.6 -> sqrt(47.876) = 6.9192 (6.91922); q = 3.4 -> sqrt(53.679) = 7.3266 (7.32658). All agree. K regime mu_s < tan(30 deg) = 0.5774 holds for 0.25, 0.35, 0.45; outside the regime the block would not start and the speed would be 0, consistent with the reference expression. C: mass cancels from the stated relations; expression_with_q reduces to sqrt(2 d g (sin - mu cos)) independent of q. D rationales correct: the bench slide ends before the block is placed and released from rest, and a second block on another incline has no link to this block. Minimal pairs: T04B5/T77D8 share 2.6 m and differ in attachment (bench vs this incline); TF933/T9762 share 2.6 m and differ in attachment, with a changed subject that the authors disclose in pair_note, which I accept as the intended difference. The 'a short way' sentences (T9FC8, TCAEB) are declared numeral-free twins rather than minimal pairs, which resolves the possible rendering_not_minimal concern I raised in pass 1; their wording matches their numeric twins except for the number. Number consistency across variants holds (0.35, 2.5 kg, 2.6 m)."
+}

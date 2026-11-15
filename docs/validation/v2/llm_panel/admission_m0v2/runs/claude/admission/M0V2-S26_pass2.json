@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch06",
+  "item_id": "M0V2-S26",
+  "pass_number": 2,
+  "started_at": "2026-11-15T00:20:00Z", "completed_at": "2026-11-15T00:26:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law: theta2 = asin(n1 sin(theta1)/n2) = asin(sin 40 deg / 1.5)",
+    "assumptions": ["flat interface", "light passes from the first medium into the second", "angles from the normal"],
+    "answer": 25.374,
+    "unit": "deg"
+  },
+  "stratum_assignments": {
+    "TE869": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "T6C87": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "T63FD": {"stratum": "R", "answer_with_sentence": 31.2047, "regime": null},
+    "T5D6B": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "TE795": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "TB677": {"stratum": "R", "answer_with_sentence": 31.2047, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "TE869 is claimed as the minimal pair of TB677 but differs in subject and reference direction (ceiling lamp / vertical vs incoming ray / normal) as well as attachment; the number and unit (11 deg) match and the authors disclose the difference in pair_note, so the claim is not false."},
+  "defect_severity": {"rendering_not_minimal": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked certified answers: base asin(0.642788/1.5 = 0.428525) = 25.374 deg; 46 deg: sin = 0.719340, /1.5 = 0.479560, asin = 28.657 deg; 51 deg: 0.777146/1.5 = 0.518097, asin = 31.205 deg; 54 deg: 0.809017/1.5 = 0.539345, asin = 32.639 deg. All match. No total internal reflection is possible going from n = 1 to n = 1.5, so all values are in domain. T63FD/TE795 form a clean minimal pair (same 11 deg, 'left there' vs 'tilted back again'). Numeral-free twins T5D6B and T6C87 match their numeric twins in wording. In pass 1 I labelled the tilt-and-return sentences C; the authors label them D. Since the final geometry carries no trace of the tilt, D is defensible and the answer is the same; this is a labelling difference, not a physics error."
+}

@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch03",
+  "item_id": "M0V2-S55",
+  "pass_number": 2,
+  "started_at": "2026-11-15T10:31:00Z", "completed_at": "2026-11-15T10:42:00Z", "minutes_spent": 11,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "v_rms = sqrt(3 R T / M)",
+    "assumptions": ["ideal classical gas in equilibrium at 300 K", "M = 0.004 kg/mol", "R = 8.314 J/(mol K)"],
+    "answer": 1367.72,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TA729": {"stratum": "C", "answer_with_sentence": 1367.72, "regime": null},
+    "T62B1": {"stratum": "C", "answer_with_sentence": 1367.72, "regime": null},
+    "T58F9": {"stratum": "C", "answer_with_sentence": 1367.72, "regime": null},
+    "T0B42": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null},
+    "T84A9": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "T4B0A": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null},
+    "T2DEA": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "T60E8": {"stratum": "C", "answer_with_sentence": 1367.72, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": false,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "validity": "invalid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other", "inconsistent_units"],
+  "defect_reasons": {
+    "other": "T58F9 and its numeral-free twin T62B1 are claimed D with 'no causal path from q to the target', but the heating and cooling act on this very sample and enter its temperature (T = 300 + q - q), so the correct stratum is C (cancelling), not D; the answers are right but the stratum and invariance claim are false.",
+    "inconsistent_units": "The relation vrms = sqrt(2*Ek/M) is listed with input M in g/mol, which gives sqrt(J/g) rather than m/s unless M is converted to kg/mol; the certified answers use the conversion, so this is a presentation slip only."
+  },
+  "defect_severity": {"other": "high", "inconsistent_units": "low"},
+  "counterexamples": ["T58F9 with the cooling clause removed gives 1579.3 m/s, showing q reaches the sample's temperature through the governing relation; it is not structurally disconnected, it cancels."],
+  "notes": "Numerical checks: base sqrt(3*8.314*300/0.004) = sqrt(1,870,650) = 1367.72 m/s; q = 50 K: sqrt(2,182,425) = 1477.30; q = 100 K: sqrt(2,494,200) = 1579.30; q = 200 K: sqrt(3,117,750) = 1765.72 m/s; all certified answers correct. TA729/T60E8 correctly C, the cancellation expression sqrt(2*(3qRT/2)/(qM)) is correct, and both state 2 mol. T0B42/T4B0A correctly D. T84A9 and T2DEA correctly R. Minimal pairs T0B42-T2DEA (this sample in its flask vs a second sample in another flask, both 100 K) and T58F9-T84A9 (cools back vs held, both 100 K) differ only in the intended way. T2DEA does not say the sample is held at the raised temperature while measured; the natural reading (and the authors') is that it is measured at 400 K, which I consider acceptable wording (no flag). My pass 1 assigned C to T58F9/T62B1 and I still hold that; under the admission standard a false authors' claim is high severity even when the answers survive. If stratum labels are treated as non-answer metadata this would be medium and the item valid."
+}

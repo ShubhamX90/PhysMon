@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch06",
+  "item_id": "M0V2-S26",
+  "pass_number": 1,
+  "started_at": "2026-11-15T00:13:00Z", "completed_at": "2026-11-15T00:19:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law n1 sin(theta1) = n2 sin(theta2): sin(theta2) = sin(40 deg)/1.5 = 0.642788/1.5 = 0.428525",
+    "assumptions": ["flat interface, isotropic media", "angles measured from the normal (stated)", "ray in the plane of incidence; question refers to the final configuration"],
+    "answer": 25.37,
+    "unit": "degree"
+  },
+  "stratum_assignments": {
+    "TE869": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "T6C87": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "T63FD": {"stratum": "R", "answer_with_sentence": 31.20, "regime": null},
+    "T5D6B": {"stratum": "C", "answer_with_sentence": 25.37, "regime": null},
+    "TE795": {"stratum": "C", "answer_with_sentence": 25.37, "regime": null},
+    "TB677": {"stratum": "R", "answer_with_sentence": 31.20, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: asin(0.428525) = 25.37 deg. With the incidence angle increased to 51 deg (T63FD, TB677): sin(51 deg) = 0.777146, /1.5 = 0.518097, asin = 31.20 deg. Going from rarer to denser medium, there is no total internal reflection at any angle, so no regime limit. T5D6B/TE795: the laser is tilted and returned, final incidence angle 40 + 11 - 11 = 40 deg, so the tilt cancels (it could also be read as D since it leaves no trace on the final geometry). The lamp sentences (TE869, T6C87) concern an unrelated light source: D. The numeric sentences all state 11 degrees consistently; T6C87 and T5D6B replace the number with 'a little', which I read as intended numeral-free versions."
+}

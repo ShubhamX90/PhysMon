@@ -1,4 +1,4 @@
-# Handoff · 2026-11-15 · Claude Opus 5.5 main session (user: Shubham Mishra)
+# Handoff · 2026-11-15 (judges running) · Claude Opus 5.5 main session (user: Shubham Mishra)
 
 Format and rules: `skills/physmon-journaling/SKILL.md`. Overwrite at every checkpoint.
 
@@ -11,13 +11,9 @@ M0 v2 dataset, 454 cells (`data/v2/dataset/m0_v2/`, J15.1-032); vLLM parity PASS
 M0 pilot (`data/v2/runs/s15_m0pilot_*`, old wording) stays sealed.
 
 ## Running now
-* Agent (Sonnet): M0 v2 LLM-panel packets, naturalness packets and admission scorer: `scripts/v2/s190*`,
-  `docs/validation/v2/llm_panel/admission_m0v2/`, `/scratch/pabitra/physmon/judge/m0v2_{admission,naturalness}/`. When done:
-  review, commit, then run fresh Claude judge instances (prompt v3 verbatim + assignment; audit with `s180`), score with `s190b`.
-* Agent (Sonnet): non-physics control set, 16 structures: `src/physmon/benchmark/v2/nonphysics*.py`, `scripts/v2/s191*`,
-  `data/v2/dataset/nonphysics_v1/`. When done: review every sentence and gold, commit, then panel review like M0 v2.
-* Slurm: 449313 G0 extended HF-vs-TL parity (H200, pending); PhysMon generic workers 448194/448195 (A100, pending; no
-  registered work left for them unless new runs are registered).
+* Claude Opus 5.5 judge instances on M0 v2 (started 2026-11-15): 6 admission batches (`/scratch/pabitra/physmon/judge/m0v2_admission/batchNN/out/`, prompt v3 copied as `instructions.md` in each batch dir, sha256 55585308...) and 9 naturalness batches (`.../m0v2_naturalness/`, prompt `naturalness_prompt_v1.md`, sha256 5f6acb71...). Agent-id-to-batch maps for the `s180` transcript audit: session scratchpad `m0v2_admission_agents.json`, `m0v2_naturalness_agents.json`. When done: audit (allowed dir = batch dir), copy outputs to `docs/validation/v2/llm_panel/admission_m0v2/runs/claude/`, score with `s190b_score_m0v2_admission.py --min-judges 1` (Claude only, labelled; GPT later).
+* Agent (Sonnet): non-physics control set, 16 structures: `src/physmon/benchmark/v2/nonphysics*.py`, `scripts/v2/s191*`, `data/v2/dataset/nonphysics_v1/`. When done: review every sentence and gold, commit, then panel review like M0 v2.
+* Slurm: 449313 G0 extended HF-vs-TL parity (H200, pending); generic workers 448194/448195 (A100, pending).
 
 ## Next steps, in order
 1. Review and commit the two agents' outputs.

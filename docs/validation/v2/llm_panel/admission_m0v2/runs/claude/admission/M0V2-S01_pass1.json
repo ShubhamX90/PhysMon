@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch01",
+  "item_id": "M0V2-S01",
+  "pass_number": 1,
+  "started_at": "2026-11-15T10:25:00Z", "completed_at": "2026-11-15T10:36:00Z", "minutes_spent": 11,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law for each block plus rotational second law for the pulley (I = M R^2 / 2, no slip a = alpha R): a = (m2 - m1) g / (m1 + m2 + M/2).",
+    "assumptions": ["light inextensible string", "no slip on pulley (stated)", "frictionless pulley axle", "pulley is a uniform solid disc (stated)", "air resistance negligible"],
+    "answer": 2.178,
+    "unit": "m/s^2"
+  },
+  "stratum_assignments": {
+    "T30EB": {"stratum": "R", "answer_with_sentence": 1.0889, "regime": null},
+    "TD249": {"stratum": "D", "answer_with_sentence": 2.178, "regime": null},
+    "T0DBD": {"stratum": "D", "answer_with_sentence": 2.178, "regime": null},
+    "T399B": {"stratum": "C", "answer_with_sentence": 2.178, "regime": null},
+    "T1FFD": {"stratum": "K", "answer_with_sentence": 2.178, "regime": "the breaking strength matters only if a string tension reaches it; the tensions are about 35.9 N and 38.1 N, far below 250 N, so the string holds."},
+    "T12E1": {"stratum": "C", "answer_with_sentence": 2.178, "regime": null},
+    "TDF61": {"stratum": "D", "answer_with_sentence": 2.178, "regime": null},
+    "TB3E4": {"stratum": "K", "answer_with_sentence": 2.178, "regime": "same as T1FFD: irrelevant while both tensions stay below 250 N (they are about 35.9 N and 38.1 N)."},
+    "T2D3E": {"stratum": "R", "answer_with_sentence": 1.0889, "regime": null},
+    "T3FF0": {"stratum": "D", "answer_with_sentence": 2.178, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: a = (5 - 3)*9.8 / (3 + 5 + 2/2) = 19.6/9 = 2.17778 m/s^2. Tensions: T_left = 3*(9.8 + 2.17778) = 35.93 N; T_right = 5*(9.8 - 2.17778) = 38.11 N. With the 0.9 kg block attached to the left block (T30EB, T2D3E): left mass 3.9 kg, a = 1.1*9.8/(3.9 + 5 + 1) = 10.78/9.9 = 1.08889 m/s^2. Radius (T399B, T12E1) cancels: I/R^2 = M/2 for a uniform disc. Block hung and taken down before release (TDF61, TD249) is history with no effect; a block on the bench (T0DBD, T3FF0) is disconnected. Variants agree in number and unit: 0.9 kg (T30EB, T0DBD, TDF61, T2D3E), 12 cm (T399B, T12E1), 250 N (T1FFD, TB3E4). 'A small block' sentences (TD249, T3FF0) carry no number; if they are meant as minimal-pair variants of numeric sentences they would differ in the number. Frictionless axle is not stated but is a listed standard idealisation."
+}

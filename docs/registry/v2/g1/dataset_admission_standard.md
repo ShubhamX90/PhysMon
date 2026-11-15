@@ -34,7 +34,7 @@ REPLACED, never edited after any model output on it exists. Planning: 1.3-1.5 ge
 | # | Check | Pass condition |
 |---|---|---|
 | 3.1 | Pairs | two phrasing pairs (r0,d0), (r1,d1); same frame, numeral and unit within a pair; differ only in the attachment phrase; word counts within 3 |
-| 3.2 | D kinds | d0 co-present (other object, same scene, same time); d1 other event of the target object; `d_rationale` for each |
+| 3.2 | D kinds | d0 co-present (other object in the same scene, introduced in the base context of every cell of the structure); d1 an other event of the target object that leaves no state behind (never a change applied to the target and then reversed: that is cancellation, plan revision G1); `d_rationale` for each |
 | 3.3 | Lexicons | every phrasing `marker_free` and `consequence_free` (lexicons frozen with G1; additions only by a dated amendment before any model run on the affected items) |
 | 3.4 | Conditions untouched | no added sentence changes a stated condition (initial state, regime, model) |
 | 3.5 | Value hygiene | no study value equals a displayed input numeral; digit overlap with inputs and gold recorded |
@@ -57,7 +57,7 @@ REPLACED, never edited after any model output on it exists. Planning: 1.3-1.5 ge
 ## 6. Naturalness and composition (judge and machine)
 | # | Check | Pass condition |
 |---|---|---|
-| 6.1 | Blind naturalness | each role sentence rated by a judge instance that sees only the problem plus the sentence (no role label): `natural` or `slightly_artificial`; `artificial` = rewrite before admission (allowed: no model output exists yet) |
+| 6.1 | Blind naturalness (`naturalness_prompt_v2.md`) | each role sentence rated by a judge instance that sees only the problem plus the sentence (no role label): no sentence `artificial`, and every D sentence no worse than its R twin by more than one level (natural > slightly_artificial > artificial); failures are rewritten before admission (allowed: no model output exists yet). Amended 2026-11-15, plan revision section G3 |
 | 6.2 | Familiarity | each C quantity tagged famous / standard / uncommon; at most half "famous" across the admitted set at each milestone |
 | 6.3 | Composition (reported, not forced) | at least 10 domains, none above 25%; at least 20% upper-university or multi-step; C feasible in at least 50% and K in at least 30% of new structures |
 

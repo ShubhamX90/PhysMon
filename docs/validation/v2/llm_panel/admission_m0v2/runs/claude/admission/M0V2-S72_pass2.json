@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch03",
+  "item_id": "M0V2-S72",
+  "pass_number": 2,
+  "started_at": "2026-11-15T10:09:00Z", "completed_at": "2026-11-15T10:20:00Z", "minutes_spent": 11,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "lambda = hc / sqrt(2 (mc^2) K), non-relativistic de Broglie",
+    "assumptions": ["electron from rest to K = 150 eV", "non-relativistic (stated)", "hc = 1240 eV nm, mc^2 = 511 keV"],
+    "answer": 100.15,
+    "unit": "pm"
+  },
+  "stratum_assignments": {
+    "T786D": {"stratum": "R", "answer_with_sentence": 79.1755, "regime": null},
+    "T1637": {"stratum": "R", "answer_with_sentence": 79.1755, "regime": null},
+    "TC109": {"stratum": "C", "answer_with_sentence": 100.15, "regime": null},
+    "T7D56": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null},
+    "TAE5F": {"stratum": "C", "answer_with_sentence": 100.15, "regime": null},
+    "T5212": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "validity": "invalid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "TC109 and its numeral-free twin TAE5F are claimed D with 'no causal path from q to the target', but the gain and the retarding loss both act on the electron itself and enter its kinetic-energy bookkeeping (K = Ke + q - q), so the correct stratum is C (cancelling), not D; the answers are right but the stratum and invariance claim are false."
+  },
+  "defect_severity": {"other": "high"},
+  "counterexamples": ["TC109 with only the retarding gap removed (keep the gain) gives 79.18 pm, showing q does reach the electron's momentum through the governing relation; it is not structurally disconnected, it cancels."],
+  "notes": "Numerical checks (all agree with certified answers): base 1240/sqrt(2*511000*150) = 0.10015 nm = 100.15 pm; q = 40 eV (K = 190): 1240/13934.85 = 88.9855 pm; q = 90 (K = 240): 1240/15661.42 = 79.1755 pm; q = 180 (K = 330): 1240/18364.64 = 67.521 pm; all K << 511 keV so the non-relativistic treatment holds. T786D and T1637 both correctly R. T7D56 (proton) correctly D and a valid minimal pair with T786D (same 90 eV, attachment changed electron -> proton). TC109 is a valid minimal pair with T1637 (same 90 eV, keeps vs loses). T5212 and TAE5F are numeral-free twins as claimed; my pass-1 remark about their missing number is resolved by the stated numeral_free design. The only disagreement is the stratum label of TC109/TAE5F: my pass 1 assigned C and I still hold that; under the admission standard a false authors' claim is a high-severity defect even though the answers survive. If the benchmark treats stratum labels as non-answer metadata, this would downgrade to medium and the item would be valid. Target unit pm vs my pass-1 nm is a unit choice only."
+}

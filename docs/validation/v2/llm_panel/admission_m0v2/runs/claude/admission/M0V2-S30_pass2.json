@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch06",
+  "item_id": "M0V2-S30",
+  "pass_number": 2,
+  "started_at": "2026-11-15T00:07:00Z", "completed_at": "2026-11-15T00:12:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy balance P t = m c dT, t = m c dT / P",
+    "assumptions": ["all 1500 W delivered to the water (stated in the problem)", "constant c", "water stays liquid"],
+    "answer": 223.253,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T6174": {"stratum": "D", "answer_with_sentence": 223.253, "regime": null},
+    "TE9F3": {"stratum": "D", "answer_with_sentence": 223.253, "regime": null},
+    "TCD20": {"stratum": "C", "answer_with_sentence": 223.253, "regime": null},
+    "T4F3A": {"stratum": "R", "answer_with_sentence": 379.531, "regime": null},
+    "T2A67": {"stratum": "D", "answer_with_sentence": 223.253, "regime": null},
+    "TF28B": {"stratum": "C", "answer_with_sentence": 223.253, "regime": null},
+    "T160B": {"stratum": "D", "answer_with_sentence": 223.253, "regime": null},
+    "T26CB": {"stratum": "R", "answer_with_sentence": 379.531, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked certified answers: base 2*4186*40/1500 = 223.253 s; m = 2.8 kg -> 468832/1500 = 312.555 s; 3.4 kg -> 569296/1500 = 379.531 s; 4.6 kg -> 770224/1500 = 513.483 s. All match. Minimal pairs hold: T2A67/T26CB and TE9F3/T4F3A share 1.4 kg and differ only in attachment. My pass-1 low rendering_not_minimal flag is withdrawn: T6174 and T160B are declared numeral-free twins of T2A67 and TE9F3, not minimal-pair variants, so the missing number is intended. Stratum differences from my pass 1 are labelling, not physics: TE9F3/T160B (add then scoop out the same mass) I called C, the authors call D; since the jug water is removed before heating it leaves no path to the heated mass, so D is defensible. TCD20/TF28B I called K (liquid regime), the authors call C via (q+dT)-q; the cancellation is correct, and all listed start temperatures 278-308 K keep the end temperature (318-348 K) below boiling, so the liquid regime is never left. The no-loss assumption is covered by the problem's wording 'delivers 1500 W to 2 kg of water'."
+}

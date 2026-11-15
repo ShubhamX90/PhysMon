@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch05",
+  "item_id": "M0V2-S13",
+  "pass_number": 2,
+  "started_at": "2026-11-15T10:22:00Z", "completed_at": "2026-11-15T10:28:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Simple pendulum, small-angle limit: T = 2 pi sqrt(L/g).",
+    "assumptions": ["Point-mass bob", "Light, inextensible string and cord", "Small amplitude", "Negligible air resistance"],
+    "answer": 1.7952,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T4ED9": {"stratum": "C", "answer_with_sentence": 1.7952, "regime": null},
+    "T7CC8": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null},
+    "TBDC6": {"stratum": "R", "answer_with_sentence": 2.28843, "regime": null},
+    "T3996": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null},
+    "TEA47": {"stratum": "C", "answer_with_sentence": 1.7952, "regime": null},
+    "TC99A": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null},
+    "T04E5": {"stratum": "R", "answer_with_sentence": 2.28843, "regime": null},
+    "T2FBC": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The authors' quantity is 'a light cord', but no sentence states that the cord is light; for a cord tied in series with the bob its mass would shift the effective length, though treating it as light is the standard textbook idealisation."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All strata agree with pass 1. Checked R answers: L = 1.1 m gives sqrt(0.112245) = 0.335030, T = 2.10505 s; L = 1.3 m gives 2.28843 s; L = 1.5 m gives sqrt(0.153061) = 0.391230, T = 2.45817 s. Base 4 pi/7 = 1.79520 s. The mass cancellation (I = m L^2, torque = m g L theta) is correct. Minimal pairs T2FBC/TBDC6 and T3996/T04E5 share '0.5 m' and differ only in attachment or whether the cord remains; numeral-free twins T7CC8 and TC99A replace only '0.5 m' with 'short'. The brass-sphere size note from pass 1 still applies: at 2 kg a brass sphere has radius ~3.8 cm, but 'small bob' fixes the point-mass model, so the C claim holds. No disagreement with pass 1."
+}

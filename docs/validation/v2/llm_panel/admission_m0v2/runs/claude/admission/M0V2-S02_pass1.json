@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch01",
+  "item_id": "M0V2-S02",
+  "pass_number": 1,
+  "started_at": "2026-11-15T10:00:00Z", "completed_at": "2026-11-15T10:12:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law along the incline with kinetic friction: a = g(sin theta - mu_k cos theta); kinematics from rest v^2 = 2 a d (equivalently work-energy theorem).",
+    "assumptions": ["block starts from rest (stated)", "Coulomb kinetic friction with constant mu_k = 0.15", "incline plane is fixed", "air resistance negligible", "the 4 m is measured from the release point"],
+    "answer": 5.387,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T9653": {"stratum": "K", "answer_with_sentence": 5.387, "regime": "mu_s only decides whether the block starts to slide; it matters only if mu_s >= tan 30 deg = 0.577. 0.35 < 0.577, so the block slides and the answer is unchanged."},
+    "TADA9": {"stratum": "C", "answer_with_sentence": 5.387, "regime": null},
+    "TF933": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null},
+    "T77D8": {"stratum": "R", "answer_with_sentence": 6.919, "regime": null},
+    "TCAEB": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null},
+    "T9762": {"stratum": "R", "answer_with_sentence": 6.919, "regime": null},
+    "T26C9": {"stratum": "C", "answer_with_sentence": 5.387, "regime": null},
+    "T52D8": {"stratum": "K", "answer_with_sentence": 5.387, "regime": "same as T9653: irrelevant while mu_s < tan 30 deg = 0.577; 0.35 is inside that regime."},
+    "T9FC8": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null},
+    "T04B5": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: a = 9.8*(0.5 - 0.15*0.866025) = 9.8*0.370096 = 3.62694 m/s^2; v^2 = 2*3.62694*4 = 29.016; v = 5.387 m/s. With T77D8 or T9762 the block is already moving when the 4 m begins: total distance from rest 6.6 m, v^2 = 2*3.62694*6.6 = 47.876, v = 6.919 m/s. Mass (TADA9, T26C9) cancels from a = g(sin - mu_k cos). Lab-bench history (T9FC8, T04B5): the block is then placed and released from rest on the incline, so its earlier motion has no path to the answer. Second block on neighbouring incline (TF933, TCAEB): disconnected. Variant checks: T9653/T52D8 both 0.35; TADA9/T26C9 both 2.5 kg; T77D8/T9762/TF933/T04B5 all 2.6 m. TCAEB and T9FC8 state 'a short way' instead of 2.6 m, so if they are meant as variants of the 2.6 m sentences they differ in the number (would be rendering_not_minimal); I cannot tell from pass 1 whether they are so intended. Mild wording note: with T77D8/T9762 the base phrase 'released from rest ... slides 4 m' reads as if the 4 m starts at release, but the sentence explicitly redefines the start, so no contradiction."
+}

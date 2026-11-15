@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch03",
+  "item_id": "M0V2-S72",
+  "pass_number": 1,
+  "started_at": "2026-11-15T10:00:00Z", "completed_at": "2026-11-15T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "de Broglie relation lambda = h/p with non-relativistic p = sqrt(2 m K), i.e. lambda = hc / sqrt(2 (mc^2) K)",
+    "assumptions": ["electron starts from rest, final kinetic energy 150 eV", "non-relativistic (stated; K/mc^2 ~ 3e-4)", "hc = 1240 eV nm, mc^2 = 511 keV"],
+    "answer": 0.10015,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "T786D": {"stratum": "R", "answer_with_sentence": 0.079176, "regime": null},
+    "T1637": {"stratum": "R", "answer_with_sentence": 0.079176, "regime": null},
+    "TC109": {"stratum": "C", "answer_with_sentence": 0.10015, "regime": null},
+    "T7D56": {"stratum": "D", "answer_with_sentence": 0.10015, "regime": null},
+    "TAE5F": {"stratum": "C", "answer_with_sentence": 0.10015, "regime": null},
+    "T5212": {"stratum": "D", "answer_with_sentence": 0.10015, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: lambda = 1240 / sqrt(2*511000*150) = 1240/12381.44 = 0.10015 nm. With a further 90 eV kept (K = 240 eV): lambda = 1240/sqrt(2*511000*240) = 1240/15661.42 = 0.079176 nm; still non-relativistic. T786D and T1637 both state 90 eV and both leave the electron at 240 eV, so they are consistent variants. TC109 states the same 90 eV attached to the electron but gained and then lost, net zero change, so it enters the energy bookkeeping and cancels. T7D56 attaches the same 90 eV to a separate proton: no physical path to the electron wavelength. TAE5F and T5212 state no number ('a further small amount'); they are qualitative counterparts of TC109 and T7D56 and do not change the answer, but if they are intended as minimal-pair variants of the 90 eV sentences they do not state the same number and unit. Sentences are slightly artificial in the phrase 'Before the wavelength is determined'."
+}

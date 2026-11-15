@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch02",
+  "item_id": "M0V2-S27",
+  "pass_number": 1,
+  "started_at": "2026-11-15T10:00:00Z", "completed_at": "2026-11-15T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Hydrostatic pressure: P = P_surface + rho g h", "assumptions": ["static, incompressible liquid", "uniform g", "pressure at free surface stays 101 kPa"], "answer": 218600.0, "unit": "Pa"},
+  "stratum_assignments": {
+    "T8558": {"stratum": "C", "answer_with_sentence": 218600.0, "regime": null},
+    "T4031": {"stratum": "R", "answer_with_sentence": 233600.0, "regime": null},
+    "TECE9": {"stratum": "C", "answer_with_sentence": 218600.0, "regime": null},
+    "TB26D": {"stratum": "D", "answer_with_sentence": 218600.0, "regime": null},
+    "T5D28": {"stratum": "D", "answer_with_sentence": 218600.0, "regime": null},
+    "T1799": {"stratum": "R", "answer_with_sentence": 233600.0, "regime": null},
+    "T2A78": {"stratum": "C", "answer_with_sentence": 218600.0, "regime": null},
+    "T9E55": {"stratum": "C", "answer_with_sentence": 218600.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T1799 (and T4031) raise the surface pressure while the problem states the free-surface pressure is 101 kPa; T4031 says 'then', but T1799 has no temporal marker, so a reader may see tension with the stated 101 kPa; T8558/TECE9 leave implicit that the question refers to the time after the rise is released."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base answer 101000 + 1000*9.8*12 = 218600 Pa = 218.6 kPa. With a sustained 15 kPa rise: 233.6 kPa. The transient pump sentences (T8558, TECE9) produce a rise that is removed, so the net effect on the final state is zero; I classed them C (belongs to the system, appears in the surface-pressure relation, net contribution cancels). Base area sentences (T2A78, T9E55): area enters a force balance on a liquid column and cancels from the pressure, so C. Variant check: T8558, T4031, T5D28, T1799 all state 15 kPa; TECE9 and TB26D state 'a small pressure rise' with no number, so if they are meant as variants of the 15 kPa sentences they differ in the number (deliberate non-numeric versions presumably). T2A78 and T9E55 both 2 m^2."
+}

@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch02",
+  "item_id": "M0V2-S27",
+  "pass_number": 2,
+  "started_at": "2026-11-15T10:09:00Z", "completed_at": "2026-11-15T10:17:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Hydrostatic pressure: P = P_surface + rho g h; Pascal's principle for added surface pressure", "assumptions": ["static, incompressible liquid", "uniform g", "pressure at free surface 101 kPa unless a sustained rise is applied"], "answer": 218.6, "unit": "kPa"},
+  "stratum_assignments": {
+    "T8558": {"stratum": "C", "answer_with_sentence": 218.6, "regime": null},
+    "T4031": {"stratum": "R", "answer_with_sentence": 233.6, "regime": null},
+    "TECE9": {"stratum": "C", "answer_with_sentence": 218.6, "regime": null},
+    "TB26D": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null},
+    "T5D28": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null},
+    "T1799": {"stratum": "R", "answer_with_sentence": 233.6, "regime": null},
+    "T2A78": {"stratum": "C", "answer_with_sentence": 218.6, "regime": null},
+    "T9E55": {"stratum": "C", "answer_with_sentence": 218.6, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T1799 states a sustained 15 kPa rise above the liquid without a temporal marker while the problem states the free-surface pressure is 101 kPa (and the listed assumption says the surface pressure is the stated value), which a reader may take as tension rather than a sequence; separately, the D label for the released-pump sentences T8558/TECE9 is debatable, since the pump acts on this tank's air (a physical path exists while it runs) and the invariance is temporal (net zero after release) rather than structural."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "All certified answers check: 101 + 1000*9.8*12/1000 = 218.6 kPa; +7.5 -> 226.1, +15 -> 233.6, +35 -> 253.6 kPa. Area cancellation (m = rho A h, p = p0 + m g/A) is correct; both area sentences state 2 m^2. Minimal pairs: T5D28/T4031 both 15 kPa, differ only in 'this tank' vs 'a second tank'; T8558/T1799 both 15 kPa, differ only in 'lets it out again' vs 'holds it there'. Numeral-free twins TB26D/TECE9 match their twins with the number replaced by 'small'. Disagreement with my pass 1: none on answers; in pass 1 I classed T8558/TECE9 as C, the authors class them D. I still think the path exists (same tank, same air) and the irrelevance comes from the rise being removed, so D is a loose label; I rate this medium because the answers and invariance are correct and the stratum boundary between D and C here is a matter of taxonomy, not a physics error. The assumption 'pressure at the free surface is the stated value' is strictly inconsistent with the R wiring p0 -> p0 + q for T1799/T4031; it is presumably meant as the base assumption."
+}

@@ -1,0 +1,30 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch04",
+  "item_id": "M0V2-S92",
+  "pass_number": 2,
+  "started_at": "2026-11-15T10:24:30Z", "completed_at": "2026-11-15T10:31:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "T = (rho_l - rho_s) g a^3 (Archimedes plus static equilibrium)", "assumptions": ["cube fully submerged and at rest", "light vertical taut string", "incompressible uniform liquid"], "answer": 3.92, "unit": "N"},
+  "stratum_assignments": {
+    "T5F99": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "TA7EC": {"stratum": "K", "answer_with_sentence": 3.92, "regime": "string intact: T = 3.92 N < 50 N breaking strength"},
+    "T9121": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null},
+    "T3A96": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null},
+    "T6B9F": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "TDFD7": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T57C2": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T95C8": {"stratum": "K", "answer_with_sentence": 3.92, "regime": "string intact: T = 3.92 N < 50 N limit"},
+    "T4230": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T2249": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All claims agree with my pass 1. R answers checked: (1150-600)*1e-3*9.8 = 5.39, (1250-600)*1e-3*9.8 = 6.37, (1350-600)*1e-3*9.8 = 7.35 N; the wiring explicitly assumes the string still holds the cube fully submerged, which is the natural reading of 'replaces'/'refilled'. C cancellation: (rho_l g (q+a) - rho_l g q) a^2 = rho_l g a^3, independent of depth q, so T = 3.92 N at 20, 50, 80 cm. K: listed strengths 30, 50, 80 N all exceed 3.92 N; counter-regime example q = 2 N < 3.92 N is correct; no exact boundary is reached. D claims (second tank, earlier rinse) are sound. Minimal pairs: TDFD7/T5F99 and T57C2/T6B9F each share 1250 kg/m^3 and differ only in attachment (other tank or past rinse vs this tank's current liquid); T2249/T4230 are declared numeral-free twins. Input a listed in cm is converted to SI in the relations; no unit inconsistency in the answer."
+}

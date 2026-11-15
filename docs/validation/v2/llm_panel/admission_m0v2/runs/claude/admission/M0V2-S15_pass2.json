@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch05",
+  "item_id": "M0V2-S15",
+  "pass_number": 2,
+  "started_at": "2026-11-15T10:07:00Z", "completed_at": "2026-11-15T10:12:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "P = V^2 (1/R1 + 1/R2) for an ideal source across a parallel pair.",
+    "assumptions": ["Ideal battery and wires", "Ohmic resistors", "DC steady state"],
+    "answer": 36.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T4C52": {"stratum": "K", "answer_with_sentence": 36.0, "regime": "V/R1 = 2 A < fuse rating q"},
+    "TFA19": {"stratum": "K", "answer_with_sentence": 36.0, "regime": "V/R1 = 2 A < fuse rating q"},
+    "T4B22": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T0290": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "TE56F": {"stratum": "R", "answer_with_sentence": 56.25, "regime": null},
+    "T0C53": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T9809": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T916E": {"stratum": "R", "answer_with_sentence": 56.25, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All claims agree with pass 1. Checked R answers: (13.5)^2/4 = 45.5625 W, 15^2/4 = 56.25 W, 16^2/4 = 64 W. K regime: branch current 12/6 = 2 A, below every listed rating (3, 5, 10 A); outside-regime reference V^2/R2 = 12 W (fuse open) is correct. Minimal pairs T0C53/T916E and T9809/TE56F share '3 V' and differ only in attachment or whether the cell remains; numeral-free twins T0290 (of T0C53) and T4B22 (of T9809) replace only the number with 'small', as claimed. The relation P = V^2(1/R1+1/R2) is correct. No disagreement with pass 1."
+}

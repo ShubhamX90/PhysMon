@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch04",
+  "item_id": "M0V2-S20",
+  "pass_number": 1,
+  "started_at": "2026-11-15T10:00:00Z", "completed_at": "2026-11-15T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Thin-lens equation 1/f = 1/d_o + 1/d_i (real-is-positive): 1/d_i = 1/12 - 1/40 = 7/120", "assumptions": ["thin lens, paraxial rays", "object at 40 cm on the axis at the time the image is asked for", "real object in air"], "answer": 17.142857, "unit": "cm"},
+  "stratum_assignments": {
+    "T996B": {"stratum": "C", "answer_with_sentence": 17.142857, "regime": null},
+    "T658E": {"stratum": "R", "answer_with_sentence": 15.130435, "regime": null},
+    "T7555": {"stratum": "D", "answer_with_sentence": 17.142857, "regime": null},
+    "T7BDF": {"stratum": "D", "answer_with_sentence": 17.142857, "regime": null},
+    "TEEE6": {"stratum": "C", "answer_with_sentence": 17.142857, "regime": null},
+    "T2B13": {"stratum": "D", "answer_with_sentence": 17.142857, "regime": null},
+    "TDEA7": {"stratum": "D", "answer_with_sentence": 17.142857, "regime": null},
+    "T816D": {"stratum": "R", "answer_with_sentence": 15.130435, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: d_i = 120/7 = 17.142857 cm. With object moved 18 cm farther (d_o = 58 cm): 1/d_i = 1/12 - 1/58 = 46/696, d_i = 696/46 = 15.130435 cm (T658E, T816D). Object height (T996B, TEEE6) enters only the magnification/image-height relation h_i = -(d_i/d_o) h_o, not the image distance; I labelled it C (part of the system, in the optics relations, drops out of d_i); D would also be defensible since it does not appear in the thin-lens equation itself. 3.5 cm at 40 cm is well within the paraxial regime. T2B13/TDEA7 describe the object's history before it reached its stated 40 cm position, so the final geometry is unchanged. Variant checks: T658E/T7555 state the same 18 cm and differ only in attachment (object stand vs microphone stand); T816D shares 18 cm with T2B13 and differs in timing (after vs before placement). T7BDF and TDEA7 replace '18 cm' with 'a little'; if they are claimed as minimal-pair variants of the 18 cm sentences they would not state the same number, which I will check against claims in pass 2."
+}

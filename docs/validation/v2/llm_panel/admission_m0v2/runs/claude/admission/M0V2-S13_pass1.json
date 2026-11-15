@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch05",
+  "item_id": "M0V2-S13",
+  "pass_number": 1,
+  "started_at": "2026-11-15T10:13:00Z", "completed_at": "2026-11-15T10:21:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Simple pendulum, small-angle limit: T = 2 pi sqrt(L/g).",
+    "assumptions": ["Point-mass bob (stated 'small bob')", "Light, inextensible string (stated light)", "Small amplitude (stated)", "Negligible air resistance", "Pendulum length equals string length"],
+    "answer": 1.7952,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T4ED9": {"stratum": "C", "answer_with_sentence": 1.7952, "regime": null},
+    "T7CC8": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null},
+    "TBDC6": {"stratum": "R", "answer_with_sentence": 2.2884, "regime": null},
+    "T3996": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null},
+    "TEA47": {"stratum": "C", "answer_with_sentence": 1.7952, "regime": null},
+    "TC99A": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null},
+    "T04E5": {"stratum": "R", "answer_with_sentence": 2.2884, "regime": null},
+    "T2FBC": {"stratum": "D", "answer_with_sentence": 1.7952, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The added cord (TBDC6, T04E5) is not stated to be light, and the knot-and-cut-out sentences leave implicit that the string is restored to 0.8 m with negligible knot length; these are standard idealisations but slightly less explicit than the base string's 'light'."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base: L/g = 0.8/9.8 = 4/49, sqrt = 2/7, T = 4 pi/7 = 1.7952 s. With the 0.5 m cord in series, L = 1.3 m: 1.3/9.8 = 0.132653, sqrt = 0.364216, T = 2.2884 s. Mass cancels from m L theta'' = -m g theta, so T4ED9 and TEA47 are C. A 0.5 kg brass sphere has radius about 2.4 cm (density ~8500 kg/m^3), about 3% of 0.8 m; if the length were measured to the sphere's surface the period would shift by ~1.5%, but the problem's 'small bob' fixes the point-mass idealisation, so I treat TEA47 as C. Variant checks: T4ED9/TEA47 both 0.5 kg; TBDC6/T3996/T04E5/T2FBC all 0.5 m; T7CC8 and TC99A are value-free ('short cord') versions of T2FBC and T3996."
+}

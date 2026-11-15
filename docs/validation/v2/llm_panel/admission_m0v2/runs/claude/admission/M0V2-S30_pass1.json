@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch06",
+  "item_id": "M0V2-S30",
+  "pass_number": 1,
+  "started_at": "2026-11-15T00:00:00Z", "completed_at": "2026-11-15T00:06:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy balance Q = P t = m c dT, so t = m c dT / P = 2*4186*40/1500",
+    "assumptions": ["all 1500 W is delivered to the water (stated)", "constant c over the range", "no phase change (water stays liquid)", "constant power"],
+    "answer": 223.25,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T6174": {"stratum": "D", "answer_with_sentence": 223.25, "regime": null},
+    "TE9F3": {"stratum": "C", "answer_with_sentence": 223.25, "regime": null},
+    "TCD20": {"stratum": "K", "answer_with_sentence": 223.25, "regime": "liquid water: start and end temperatures (288 K to 328 K) between 273 K and 373 K at 1 atm, so no phase change"},
+    "T4F3A": {"stratum": "R", "answer_with_sentence": 379.53, "regime": null},
+    "T2A67": {"stratum": "D", "answer_with_sentence": 223.25, "regime": null},
+    "TF28B": {"stratum": "K", "answer_with_sentence": 223.25, "regime": "liquid water: 288 K to 328 K, below boiling at 1 atm"},
+    "T160B": {"stratum": "C", "answer_with_sentence": 223.25, "regime": null},
+    "T26CB": {"stratum": "R", "answer_with_sentence": 379.53, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "The jug quantity is given as 1.4 kg in four sentences but as 'a small amount' in T6174 and T160B, so if these are meant as variants of the 1.4 kg sentences they differ in the stated value."},
+  "defect_severity": {"rendering_not_minimal": "low"},
+  "counterexamples": [],
+  "notes": "Base: t = 2*4186*40/1500 = 334880/1500 = 223.253 s. With 1.4 kg mixed in (T4F3A, T26CB): t = 3.4*4186*40/1500 = 569296/1500 = 379.531 s. TE9F3/T160B: water at the same temperature is added and the same mass removed, so the mass returns to 2 kg and the temperature is unchanged; the jug mass enters the balance and cancels. The base problem does not state a start temperature, so it relies implicitly on the water remaining liquid; this is a standard assumption for water heated by 40 K, and TCD20/TF28B (288 K) confirm the regime. TCD20 and TF28B agree in value and unit. Whether the 'small amount' sentences are intended as variants of the 1.4 kg sentences is not visible in pass 1; graded low."
+}

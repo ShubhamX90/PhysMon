@@ -149,3 +149,34 @@ Applied the rule written in B1 before the results existed.
   for S07 (reasons in `certificates.json`). S02 pair 0 cannot share one frame (`pair_frame_matched: false`).
 * **Sealed m0_pilot rebuild:** after decision 26 (commit 86977b3) s177 adds the `digit_copy` foil, so a rebuild differs
   from the sealed files by that foil only (tested row by row); the sealed files are unchanged and remain the record.
+
+## G. M0 v2 panel review findings and decisions (2026-11-15; `docs/validation/v2/llm_panel/admission_m0v2/runs/claude/`)
+Claude Opus 5.5, prompt v3, 6 admission batches and 9 naturalness batches; transcript audits clean. Physics: 10 of 12
+structures admitted, 2 rejected (S55, S72). Naturalness (blind, frozen prompt v1): D 20 of 24 and N 22 of 24 rated
+`artificial`; R 3 of 24 artificial (18 slightly artificial); C 0 of 16 and K 0 of 10 artificial.
+
+* **G1. "Undone event" is not disconnection (decision).** The judge rejected S55 and S72 and flagged S27: a change applied
+  to the target and then reversed ("warms this gas sample by 50 K and then lets it cool back") acts on the target and
+  cancels (T = T0 + q - q), which is cancellation, not the absence of a path required for stratum D; in pass 1 the judge
+  assigned C to most of these sentences blind. The kind `same_object_undone_event` (section F) is withdrawn. Pair-1 D is
+  a genuine **other event of the target object that leaves no state behind** (e.g. history before the stated
+  experiment), or, where none is honest, a second co-present object of a different type. Undone sentences are not kept.
+* **G2. Scene integration of co-present D (decision).** An object that appears from nowhere reads as a planted distractor,
+  a style cue that could let a model ignore D without physics. The co-present object of d0 is therefore introduced in
+  the base context of the structure, in every cell of that structure including no-cue (one clause, no number, e.g. "A
+  second, identical block rests on a neighbouring incline of the same angle."), so the D sentence refers to an object
+  already in the scene, as R refers to the target. Constant across cells, so no contrast is affected.
+* **G3. Naturalness standard corrected (decision).** Prompt v1 asked whether a textbook author would write the sentence;
+  authors rarely include unneeded information, so v1 penalised irrelevance itself, which is the manipulation.
+  `naturalness_prompt_v2.md` (frozen before any re-rating) asks whether the sentence reads as a plausible, ordinary part
+  of the described scene, stating that problems may contain information not needed for the asked quantity. Admission
+  6.1 becomes: no sentence rated `artificial`, and each D sentence rated no worse than its R twin by more than one level
+  (natural > slightly_artificial > artificial), so that D is not recognisable by style alone.
+* **G4. Wording fixes from the review:** S27 r1 (a sustained rise "held" over a stated 101 kPa surface pressure read as a
+  contradiction: give it a time marker); S07 K ("broken again" implies an earlier break); S13 ("light cord" not stated);
+  S55 relation listed with M in g/mol (state the conversion).
+* **G5. Supporting evidence for A1:** C and K sentences, which are properties of the system itself, read as natural; D
+  and N do not. The physically defined strata are also the most natural ones, a further reason for C/K in the core.
+* M0 v2 is rebuilt as **M0 v2.1** (new directory; M0 v2 stays as the record of this review) and re-reviewed by fresh
+  judge instances: physics on the changed structures and all D/N sentences, naturalness with prompt v2 on every role
+  sentence. The non-physics control set follows the same rules.

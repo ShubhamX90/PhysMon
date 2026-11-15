@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch03",
+  "item_id": "M0V2-S55",
+  "pass_number": 1,
+  "started_at": "2026-11-15T10:21:00Z", "completed_at": "2026-11-15T10:30:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "kinetic theory of an ideal gas: v_rms = sqrt(3 R T / M)",
+    "assumptions": ["ideal gas (stated) in thermal equilibrium at T = 300 K", "M = 4 g/mol = 0.004 kg/mol", "R = 8.314 J/(mol K)"],
+    "answer": 1367.7,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TA729": {"stratum": "C", "answer_with_sentence": 1367.7, "regime": null},
+    "T62B1": {"stratum": "C", "answer_with_sentence": 1367.7, "regime": null},
+    "T58F9": {"stratum": "C", "answer_with_sentence": 1367.7, "regime": null},
+    "T0B42": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null},
+    "T84A9": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "T4B0A": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null},
+    "T2DEA": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "T60E8": {"stratum": "C", "answer_with_sentence": 1367.7, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: v_rms = sqrt(3*8.314*300/0.004) = sqrt(1,870,650) = 1367.7 m/s. At 400 K: sqrt(2,494,200) = 1579.3 m/s. TA729/T60E8 (2 mol, same number and unit, consistent variants): n enters the energy relation (1/2) n M v_rms^2 = (3/2) n R T and cancels, so C. T58F9 (100 K up and back down) and its numeral-free counterpart T62B1: the temperature change acts on the sample but returns, so C. T0B42/T4B0A: heating a separate sample in another flask, D. T84A9 (held at +100 K during measurement) R. T2DEA says the sample is warmed by 100 K before measurement without saying whether it is held; the natural reading is that it is at 400 K when measured (R), but it is slightly less explicit than T84A9. T84A9, T58F9, T0B42 and T2DEA all state 100 K consistently."
+}

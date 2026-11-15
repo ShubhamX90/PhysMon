@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v2_admission:batch04",
+  "item_id": "M0V2-S92",
+  "pass_number": 1,
+  "started_at": "2026-11-15T10:16:00Z", "completed_at": "2026-11-15T10:24:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Static equilibrium with Archimedes' principle: T = (rho_L - rho_c) V g, V = (0.10 m)^3 = 1.0e-3 m^3; T = 400 * 1.0e-3 * 9.8", "assumptions": ["cube fully submerged and at rest", "string vertical and light", "incompressible liquid of uniform density"], "answer": 3.92, "unit": "N"},
+  "stratum_assignments": {
+    "T5F99": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "TA7EC": {"stratum": "K", "answer_with_sentence": 3.92, "regime": "the string remains intact (tension below its 50 N breaking limit); required tension 3.92 N < 50 N"},
+    "T9121": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null},
+    "T3A96": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null},
+    "T6B9F": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "TDFD7": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T57C2": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T95C8": {"stratum": "K", "answer_with_sentence": 3.92, "regime": "the string remains intact (tension at most 50 N); required tension 3.92 N < 50 N"},
+    "T4230": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T2249": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base T = (1000 - 600)(1.0e-3)(9.8) = 3.92 N. With liquid density 1250 kg/m^3 in the tank (T5F99, T6B9F): T = 650 * 1.0e-3 * 9.8 = 6.37 N, still below 50 N; this assumes the cube is still held fully submerged by the same string, which 'refilled' in T6B9F implies but does not state explicitly (minor wording point, not flagged). Depth of the top face (T9121, T3A96): the pressure on top and bottom faces both contain rho g d, which cancels in the buoyant force for an incompressible liquid, so C. String rating 50 N (TA7EC, T95C8): K, matters only if tension exceeded 50 N. Second-tank and past-rinse sentences (TDFD7, T57C2, T4230, T2249) have no path to the tension. Variant checks: T9121/T3A96 both 50 cm; TA7EC/T95C8 both 50 N; T5F99/T6B9F/TDFD7/T57C2 all 1250 kg/m^3; T4230/T2249 are numeral-free counterparts."
+}
