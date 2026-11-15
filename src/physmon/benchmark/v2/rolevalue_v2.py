@@ -35,6 +35,10 @@ MAX_WORD_DIFF = 3  # R and D sentences of a pair: word counts differ by at most 
 D_KIND_CO_PRESENT = "other_object_same_scene"
 D_KINDS_SAME_OBJECT = ("same_object_other_event", "same_object_undone_event")
 D_KINDS = (D_KIND_CO_PRESENT, *D_KINDS_SAME_OBJECT)
+# M0 v2.1 (plan revision v2.2, section G1): `same_object_undone_event` is withdrawn; a same-object D is a genuine other event.
+D_KIND_OTHER_EVENT = "same_object_other_event"
+D_KINDS_V21 = (D_KIND_CO_PRESENT, D_KIND_OTHER_EVENT)
+VERSION_V21 = "v2.1"
 PAIR_IDS = ("p0", "p1")
 FAMILIARITY = ("famous", "standard", "uncommon")
 COPY_FOILS = ("copy", "digit_copy")
@@ -60,6 +64,18 @@ MARKER_WORDS_V2 = (*rv.MARKER_WORDS, "unconnected", "disconnected", "unused", "i
                    "not related", "not relevant", "no link", "on its own", "by itself", "does not matter", "ignore",
                    "stand-alone", "standalone", "not linked", "does not interact", "never touches", "not touching",
                    "independently")
+# M0 v2.1: a D phrasing may not undo a change it applies (a change applied and then reversed acts on the target and cancels: that is
+# stratum C, not D; plan revision G1). Matched case-blind on the whole sentence.
+REVERSAL_PATTERNS = (
+    r"\bagain\b", r"\bback\b", r"\bremoved\b", r"\bremoves?\b", r"\btaken (?:out|off|down|away|apart)\b",
+    r"\btakes (?:out|off|down|away)\b", r"\bcut (?:out|off)\b", r"\bloses?\b", r"\blost\b", r"\bgives? (?:it|them|the \w+) (?:up|back)\b",
+    r"\blets? (?:it|them|the \w+)\b.*\b(?:out|go|back|cool|fall|drop|drain)\b", r"\bundone\b", r"\bundo(?:es|ne)?\b",
+    r"\breturn(?:s|ed|ing)?\b", r"\brevers(?:e|ed|es|ing)\b", r"\brestor(?:e|ed|es|ing)\b", r"\bdrained\b", r"\bscooped\b",
+    r"\bwithdr(?:aw|awn|ew)\b", r"\bdetach(?:ed|es)?\b", r"\bunhook(?:ed|s)?\b", r"\buntie[sd]?\b", r"\bswitched off\b",
+    r"\bcancel(?:s|led|ed)?\b", r"\bnet (?:zero|change)\b", r"\bleft there\b", r"\bleaves? it there\b", r"\bholds? it there\b",
+)
+# A same-object D must be anchored in time away from the stated situation (so that it is history or a later event, not a lasting change).
+PRIOR_MARKERS = ("earlier", "previous", "previously", "after the", "beforehand", "last week", "last time")
 # Place or time remoteness used as the only signal of irrelevance in the M0 wording.
 REMOTENESS_TERMS = ("next room", "another room", "other room", "different room", "another building", "another kitchen",
                     "yesterday", "far wall", "far end", "drawer", "elsewhere", "across the floor", "next building")
@@ -73,6 +89,16 @@ def consequence_hits(text: str) -> list[str]:
 def marker_hits(text: str) -> list[str]:
     lowered = text.lower()
     return [w for w in MARKER_WORDS_V2 if w in lowered]
+
+
+def reversal_hits(text: str) -> list[str]:
+    lowered = text.lower()
+    return [p for p in REVERSAL_PATTERNS if re.search(p, lowered)]
+
+
+def prior_marker_hits(text: str) -> list[str]:
+    lowered = text.lower()
+    return [m for m in PRIOR_MARKERS if m in lowered]
 
 
 def remoteness_hits(text: str) -> list[str]:
@@ -96,6 +122,7 @@ class PhrasePair:
     frame_mismatch_reason: str = ""
     before_context_ok: bool = False  # the pair-0 sentences read correctly placed before the context
     before_context_reason: str = ""
+    d_kind_note: str = ""  # M0 v2.1: why a pair-1 D that is `other_object_same_scene` has no honest same-object event
 
     @property
     def frame_matched(self) -> bool:
@@ -141,6 +168,19 @@ class RoleSpecV2:
     conditional: ConditionalV2 | None = None
     author: str = "agent"
     notes: str = ""
+    # M0 v2.1 (all empty / "v2" for the M0 v2 specs, whose certificate and build are unchanged)
+    version: str = "v2"
+    scene_clause: str = ""  # one clause, no number: the co-present object of d0, part of the base context of every cell
+    scene_object_rationale: str = ""  # why the clause leaves the target's physics unchanged
+    scene_refs: tuple[str, ...] = ()  # substrings that the scene clause and the pair-0 D sentence both contain
+    target_terms: tuple[str, ...] = ()  # words that name the target in the base text: a co-present D attachment may not use them
+
+
+def with_scene(structure: gr.Structure, clause: str) -> gr.Structure:
+    """The structure with the scene clause appended to its base context (before any added sentence and the question)."""
+
+    render = dataclasses.replace(structure.render, context=f"{structure.render.context} {clause}")
+    return dataclasses.replace(structure, render=render)
 
 
 def to_legacy(spec: RoleSpecV2) -> rv.RoleSpec:
@@ -396,8 +436,15 @@ def certify_v2(structure: gr.Structure, spec: RoleSpecV2) -> dict[str, Any]:
     check("exactly_two_pairs", [p.pair_id for p in spec.pairs] == list(PAIR_IDS), [p.pair_id for p in spec.pairs])
     if len(spec.pairs) != 2 or "per_instance" not in numeric["checks"]:
         return {"passed": False, "failed": [k for k, v in checks.items() if not v["ok"]], "checks": checks, "numeric": numeric}
-    check("d_kinds", spec.pairs[0].d_kind == D_KIND_CO_PRESENT and spec.pairs[1].d_kind in D_KINDS_SAME_OBJECT,
-          [p.d_kind for p in spec.pairs])
+    v21 = spec.version == VERSION_V21
+    if v21:
+        second = spec.pairs[1]
+        check("d_kinds", spec.pairs[0].d_kind == D_KIND_CO_PRESENT and (
+            second.d_kind == D_KIND_OTHER_EVENT or (second.d_kind == D_KIND_CO_PRESENT and len(second.d_kind_note) >= MIN_RATIONALE)),
+              [p.d_kind for p in spec.pairs])
+    else:
+        check("d_kinds", spec.pairs[0].d_kind == D_KIND_CO_PRESENT and spec.pairs[1].d_kind in D_KINDS_SAME_OBJECT,
+              [p.d_kind for p in spec.pairs])
     context = dg.context_text(structure, dict(structure.instances[0]))
     pair_records = []
     for pair in spec.pairs:
@@ -431,7 +478,31 @@ def certify_v2(structure: gr.Structure, spec: RoleSpecV2) -> dict[str, Any]:
             [rv._assemble(structure, 0, x, "after_context") for x in sentences["R"]], spec.values, strict=True)) and all(
             _prompt_numerals_ok(structure, 0, s, v) for s, v in zip(
                 [rv._assemble(structure, 0, x, "after_context") for x in sentences["D"]], spec.values, strict=True))
+        if v21:
+            d_texts = sentences["D"] + sentences["N"]
+            record["d_kind_note"] = pair.d_kind_note
+            record["reversal_hits"] = sorted({h for t in d_texts for h in reversal_hits(t)})
+            record["reversal_free"] = not record["reversal_hits"]
+            if pair.d_kind == D_KIND_CO_PRESENT:
+                used = [t for t in spec.target_terms if t.lower() in pair.d_attach.lower()]
+                record["d_attach_target_terms"] = used
+                record["d_not_on_target"] = bool(spec.target_terms) and not used
+            else:
+                record["d_prior_markers"] = prior_marker_hits(pair.d_attach)
+                record["d_not_on_target"] = bool(record["d_prior_markers"])
         pair_records.append(record)
+    if v21:
+        for key in ("reversal_free", "d_not_on_target"):
+            check(key, all(p[key] for p in pair_records), [p[key] for p in pair_records])
+        scene = spec.scene_clause
+        check("scene_clause_ok", bool(scene) and not re.search(r"\d", scene) and not marker_hits(scene) and not consequence_hits(scene)
+              and len(spec.scene_object_rationale.strip()) >= MIN_RATIONALE and scene.endswith("."),
+              {"clause": scene, "rationale": spec.scene_object_rationale, "marker_hits": marker_hits(scene),
+               "consequence_hits": consequence_hits(scene)})
+        check("scene_clause_in_base_context", bool(scene) and context.count(scene) == 1 and context.endswith(scene), context)
+        d0 = pair_records[0]["d_sentence"]
+        check("d0_refers_to_scene_object", bool(spec.scene_refs) and all(r in scene and r in d0 for r in spec.scene_refs),
+              {"scene_refs": list(spec.scene_refs), "d0": d0})
     for key in ("word_count_ok", "attach_has_no_digit", "d_rationale_ok", "conditions_listed", "conditions_in_base_text",
                 "numerals_ok", "remoteness_free_d", "frame_mismatch_reason_ok"):
         check(key, all(p[key] for p in pair_records), [p[key] for p in pair_records])

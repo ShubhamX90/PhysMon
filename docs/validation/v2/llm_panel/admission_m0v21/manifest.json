@@ -1,0 +1,42 @@
+{
+  "claim_answer_rounding": "6 significant figures (as in the role bank)",
+  "inputs": {
+    "data/v2/dataset/m0_v21/cells.jsonl": "2e87df13aca9215583a93f9ca7b6a2860aa546c28583764bd7997b227fda158c",
+    "data/v2/dataset/m0_v21/certificates.json": "e39bad63ec37ac77770aa2baeaa25c19cdbe2b5a45bf7ce025e760743fecf514",
+    "docs/validation/v2/llm_panel/judge_prompt_v3.md": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "docs/validation/v2/llm_panel/naturalness_prompt_v2.md": "044912a712344d7dc667eb81633bb4b92a7dc8996e216d0cf9cd382820630089"
+  },
+  "instructions_md": "each batch directory holds an exact copy of its frozen prompt file as instructions.md",
+  "n_admission_batches": 6,
+  "n_admission_items": 12,
+  "n_naturalness_batches": 9,
+  "n_naturalness_sentences": 100,
+  "naturalness_batch_sizes": [
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    4
+  ],
+  "outputs": {
+    "key_RESTRICTED.json": "06426776f539dad5f0fc5e090bf27f816c3c0b8e596f9d41e9f608e33f937b44",
+    "naturalness_key_RESTRICTED.json": "059da3e3b9753c388a3984642881511bea14f529d07986c86f577e0f4be21aa8",
+    "naturalness_packets.jsonl": "201d996a529f4a92d8ab17155c02aa221d56d16b32a0d9b9a4817c1bf0ec8f84",
+    "pass1_packets.jsonl": "a35c1c2f7537c9f99418249433a54fa1d12dbce1ad514728338165b91f8218a9",
+    "pass2_packets.jsonl": "db7d8cbc9a0633dc77e86eddb650f3e05067fe8adc6068b8a6f82d180354c226"
+  },
+  "seed": 190,
+  "sentences_per_stratum": {
+    "C": 16,
+    "D": 24,
+    "K": 10,
+    "K_out": 2,
+    "N": 24,
+    "R": 24
+  },
+  "split": "admission"
+}

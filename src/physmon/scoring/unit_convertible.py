@@ -22,6 +22,23 @@ ALIASES = {
     "farads": "F", "henries": "H", "teslas": "T", "coulombs": "C", "days": "d",
 }
 
+# Count and money units (Stage 15, non-physics control set). Each counted noun is its OWN dimension, so "12 cookies" never grades
+# as "12 students" and no count is convertible to another noun or to a physical unit. `dollars` is the money dimension. `times`
+# (a scale factor) is its own dimension as well: a bare `1` stays excluded from conversion exactly as for physical units, so a
+# bare number is never accepted for a unit-bearing target. The registry is deliberately closed: an unlisted noun is an UNKNOWN_UNIT
+# (wrong under every view, flagged), and a new noun is added here by dated amendment. Kept apart from `ALIASES` because the H4
+# trace extractor reads `ALIASES` to recognise unit words.
+COUNT_UNITS = {
+    "dollars": "money", "cookies": "cookies", "pencils": "pencils", "seats": "seats", "stickers": "stickers",
+    "sandwiches": "sandwiches", "students": "students", "rooms": "rooms", "points": "points", "books": "books",
+    "seedlings": "seedlings", "buses": "buses", "sheets": "sheets", "times": "times",
+}  # canonical (plural) form -> dimension key; every factor is 1 (money has only dollars)
+COUNT_ALIASES = {
+    "dollar": "dollars", "$": "dollars", "usd": "dollars", "cookie": "cookies", "pencil": "pencils", "seat": "seats",
+    "sticker": "stickers", "sandwich": "sandwiches", "student": "students", "room": "rooms", "point": "points", "book": "books",
+    "seedling": "seedlings", "bus": "buses", "sheet": "sheets", "time": "times",
+}
+
 
 def canonical_unit(unit: str) -> str:
     from physmon.benchmark.v2 import dimensions as dm
@@ -29,7 +46,12 @@ def canonical_unit(unit: str) -> str:
     cleaned = vs.normalise_unit(unit).replace("µ", "μ")
     if cleaned in dm.UNITS:
         return cleaned
-    return ALIASES.get(cleaned.lower(), cleaned)
+    lowered = cleaned.lower()
+    if lowered in ALIASES:
+        return ALIASES[lowered]
+    if lowered in COUNT_UNITS:
+        return lowered
+    return COUNT_ALIASES.get(lowered, cleaned)
 
 
 def conversion_ratio(from_unit: str, to_unit: str) -> float | None:
@@ -38,6 +60,8 @@ def conversion_ratio(from_unit: str, to_unit: str) -> float | None:
     from physmon.benchmark.v2 import dimensions as dm
 
     a, b = canonical_unit(from_unit), canonical_unit(to_unit)
+    if a in COUNT_UNITS or b in COUNT_UNITS:
+        return 1.0 if a in COUNT_UNITS and b in COUNT_UNITS and COUNT_UNITS[a] == COUNT_UNITS[b] else None
     if a == "1" or b == "1" or a not in dm.UNITS or b not in dm.UNITS:
         return None
     ua, ub = dm.UNITS[a], dm.UNITS[b]

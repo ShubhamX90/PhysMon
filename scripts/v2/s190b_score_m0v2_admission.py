@@ -5,7 +5,8 @@ Input: for each judge, one or more directories holding `<item_id>_pass1.json` / 
 naturalness, directories of JSON files holding a rating object or a list of them (`{"item_id","rating","reason"}`).
 Per structure: ADMIT when every judge's pass-2 validity is `valid` and carries no `high` flag; REJECT when any judge's
 pass 2 is `invalid`, `uncertain` or carries a `high` flag (every flag is listed with its reason); INCOMPLETE when evidence is
-missing (a missing review is not a verdict). Per sentence: any `artificial` rating means REWRITE. The restricted keys give
+missing (a missing review is not a verdict). Per sentence (6.1 as amended 2026-11-15): any `artificial` rating means REWRITE, and so does a D sentence rated more than one level
+worse than its R twin (natural > slightly_artificial > artificial). The restricted keys give
 the structure of every item and the role of every sentence; they never go to a judge.
 """
 
@@ -21,6 +22,16 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 ADMISSION_DIR = "docs/validation/v2/llm_panel/admission_m0v2"
 VALIDITY = ("valid", "invalid", "uncertain")
 RATINGS = ("natural", "slightly_artificial", "artificial")
+RANK = {r: i for i, r in enumerate(RATINGS)}  # natural 0 > slightly_artificial 1 > artificial 2 (higher is worse)
+MAX_D_GAP = 1  # admission 6.1 (amended 2026-11-15): a D sentence may be at most this many levels worse than its R twin
+
+
+def twin_violation(d_rating: str | None, r_rating: str | None) -> bool:
+    """True when a D sentence is rated worse than its R twin by more than one level (natural > slightly_artificial > artificial)."""
+
+    if d_rating not in RANK or r_rating not in RANK:
+        return False
+    return RANK[d_rating] - RANK[r_rating] > MAX_D_GAP
 EXPECTED_BLIND = {"R": "R", "D": "D", "N": "D", "C": "C", "K": "K"}  # K_out has no blind expectation in the vocabulary
 
 
@@ -105,7 +116,7 @@ def blind_agreement(item_id: str, strata: dict[str, str], reviews: dict[tuple[st
 
 
 def score(key: dict[str, Any], nat_key: dict[str, Any], judges: dict[str, list[Path]],
-          nat_judges: dict[str, list[Path]], min_judges: int = 2) -> dict[str, Any]:
+          nat_judges: dict[str, list[Path]], min_judges: int = 2, title: str = "M0 v2 admission report") -> dict[str, Any]:
     loaded = {j: load_admission_reviews(d) for j, d in judges.items()}
     rated = {j: load_ratings(d) for j, d in nat_judges.items()}
     structures: dict[str, Any] = {}
@@ -158,7 +169,24 @@ def score(key: dict[str, Any], nat_key: dict[str, Any], judges: dict[str, list[P
             status = "OK"
         sentences[nat_id] = {**{k: nat_key[nat_id][k] for k in ("structure_id", "label", "stratum")},
                              "status": status, "ratings": by_judge,
-                             "slightly_artificial": "slightly_artificial" in ratings}
+                             "slightly_artificial": "slightly_artificial" in ratings, "twin_gap": []}
+    # amended 6.1: each D sentence no worse than its R twin (same structure, same pair) by more than one level, per rater
+    by_label = {(v["structure_id"], v["label"]): nat_id for nat_id, v in sentences.items()}
+    for nat_id, v in sentences.items():
+        if v["stratum"] != "D":
+            continue
+        twin_label = nat_key[nat_id].get("twin_label") or "R" + v["label"][1:]
+        twin_id = by_label.get((v["structure_id"], twin_label))
+        if twin_id is None:
+            continue
+        for j, d in v["ratings"].items():
+            r = sentences[twin_id]["ratings"].get(j, {})
+            if twin_violation(d["rating"], r.get("rating")):
+                v["twin_gap"].append({"rater": j, "d": d["rating"], "r_twin": r["rating"], "twin_label": twin_label})
+            elif d["rating"] is not None and r.get("rating") is None and v["status"] == "OK":
+                v["status"] = "PENDING"  # the R twin is not rated yet, so the comparison cannot be made
+        if v["twin_gap"]:
+            v["status"] = "REWRITE"
     for item_id, s in structures.items():
         mine = [v for v in sentences.values() if v["structure_id"] == s["structure_id"]]
         s["naturalness"] = {"sentences": len(mine), "rewrite": [v["label"] for v in mine if v["status"] == "REWRITE"],
@@ -168,18 +196,21 @@ def score(key: dict[str, Any], nat_key: dict[str, Any], judges: dict[str, list[P
     counts: dict[str, int] = {}
     for s in structures.values():
         counts[s["status"]] = counts.get(s["status"], 0) + 1
-    return {"standard": "docs/registry/v2/g1/dataset_admission_standard.md sections 5.2, 5.3, 6.1",
+    return {"standard": "docs/registry/v2/g1/dataset_admission_standard.md sections 5.2, 5.3, 6.1 (6.1 as amended 2026-11-15)",
+            "title": title,
             "judges": sorted(judges), "naturalness_judges": sorted(nat_judges), "min_judges": min_judges,
             "structure_counts": counts, "structures": structures, "sentences": sentences}
 
 
 def render_markdown(report: dict[str, Any]) -> str:
-    lines = ["# M0 v2 admission report", "",
+    lines = [f"# {report.get('title', 'M0 v2 admission report')}", "",
              "Applies admission standard 5.2-5.3 (physics, qualified LLM panel) and 6.1 (naturalness) to the panel's reviews.",
              f"Judges: {', '.join(report['judges']) or 'none'}. Naturalness raters: "
              f"{', '.join(report['naturalness_judges']) or 'none'}. Judges required per structure: {report['min_judges']}.",
              "", "A structure is ADMITTED only if every judge calls it valid with no high flag. Missing reviews make it "
-             "INCOMPLETE (a missing review is not a verdict). A sentence rated artificial must be rewritten.", "",
+             "INCOMPLETE (a missing review is not a verdict). A sentence rated artificial must be rewritten, and so must a D sentence "
+             "rated more than one level worse than its R twin (natural > slightly_artificial > artificial; standard 6.1 as amended "
+             "2026-11-15).", "",
              "Structures: " + ", ".join(f"{k} {v}" for k, v in sorted(report["structure_counts"].items())), ""]
     for item_id, s in report["structures"].items():
         lines += [f"## {item_id}: {s['status']}" + ("  (ready: admitted and natural)" if s["ready"] else ""), ""]
@@ -207,6 +238,9 @@ def render_markdown(report: dict[str, Any]) -> str:
                 for j, r in v["ratings"].items():
                     if r["rating"] == "artificial":
                         lines.append(f"  - REWRITE {v['label']} ({v['stratum']}): {j}: {r['reason']}")
+                for g in v.get("twin_gap", []):
+                    lines.append(f"  - REWRITE {v['label']} (D): {g['rater']}: rated {g['d']} while its R twin {g['twin_label']} is "
+                                 f"{g['r_twin']} (more than one level worse)")
         lines.append("")
     return "\n".join(lines) + "\n"
 
@@ -228,6 +262,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--bank", default=ADMISSION_DIR)
     parser.add_argument("--out-dir", default=ADMISSION_DIR)
     parser.add_argument("--min-judges", type=int, default=2)
+    parser.add_argument("--title", default="M0 v2 admission report")
     args = parser.parse_args(argv)
     bank = Path(args.bank) if Path(args.bank).is_absolute() else REPO_ROOT / args.bank
     out = Path(args.out_dir) if Path(args.out_dir).is_absolute() else REPO_ROOT / args.out_dir
@@ -237,7 +272,7 @@ def main(argv: list[str] | None = None) -> int:
         return 2
     key = json.loads((bank / "key_RESTRICTED.json").read_text(encoding="utf-8"))
     nat_key = json.loads((bank / "naturalness_key_RESTRICTED.json").read_text(encoding="utf-8"))
-    report = score(key, nat_key, parse_judges(args.judge), parse_judges(args.naturalness), args.min_judges)
+    report = score(key, nat_key, parse_judges(args.judge), parse_judges(args.naturalness), args.min_judges, args.title)
     out.mkdir(parents=True, exist_ok=True)
     targets[0].write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     targets[1].write_text(render_markdown(report), encoding="utf-8")

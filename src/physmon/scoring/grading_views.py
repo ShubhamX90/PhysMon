@@ -50,7 +50,7 @@ def to_gold_unit(parsed: vs.ParsedOutput, gold_unit: str) -> Converted:
         return Converted("CONVERTED", parsed.value * ratio, ratio)
     from physmon.benchmark.v2 import dimensions as dm
 
-    known = {uc.canonical_unit(parsed.unit or ""), uc.canonical_unit(gold_unit)} <= set(dm.UNITS)
+    known = {uc.canonical_unit(parsed.unit or ""), uc.canonical_unit(gold_unit)} <= (set(dm.UNITS) | set(uc.COUNT_UNITS))
     return Converted("WRONG_DIMENSION" if known else "UNKNOWN_UNIT", None, None)
 
 

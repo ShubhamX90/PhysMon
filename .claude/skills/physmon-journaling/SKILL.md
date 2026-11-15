@@ -83,7 +83,7 @@ next session needs, not a narrative of the session.
 
 Every agent brief states: the goal; the authority documents to read (plan sections, decision files); the files it may
 create or edit and the files it must not touch (other agents' files, sealed or immutable data, frozen protocols);
-"do not commit or push" and "no Slurm/GPU" unless explicitly granted; "keep every file you create lint-clean at all times" (the commit hook lints the whole tree, so one in-progress lint error blocks every other commit in the shared worktree); the tests and checks to run; and the report it
+"do not commit or push" and "no Slurm/GPU" unless explicitly granted; "run Python as `PYTHONNOUSERSITE=1 PYTHONPATH=src ~/.conda/envs/physmon/bin/python` (a user-level huggingface-hub 2.2.0 in ~/.local breaks transformers otherwise)"; "keep every file you create lint-clean at all times" (the commit hook lints the whole tree, so one in-progress lint error blocks every other commit in the shared worktree); the tests and checks to run; and the report it
 must return (files changed, verbatim key content, every rule not met and why, every uncertain judgement, test results).
 Model split (user preference): implementation agents use Sonnet; the main session (Opus) plans, reviews and decides;
 Opus workers only when Sonnet is unavailable. Agents never write the journal or HANDOFF; the main session does,
