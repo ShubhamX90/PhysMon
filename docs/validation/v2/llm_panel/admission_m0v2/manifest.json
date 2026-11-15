@@ -1,0 +1,41 @@
+{
+  "claim_answer_rounding": "6 significant figures (as in the role bank)",
+  "inputs": {
+    "data/v2/dataset/m0_v2/cells.jsonl": "9d7cfd692d87cfce9c311ce96fd29312bb4bdd9929a662efd0fdf1d4554a75bd",
+    "data/v2/dataset/m0_v2/certificates.json": "b1171368f140f6368c760b07926f08f773395c34c727542c1949cc1e0c0205a5",
+    "docs/validation/v2/llm_panel/judge_prompt_v3.md": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "docs/validation/v2/llm_panel/naturalness_prompt_v1.md": "5f6acb71ef75256c487ba48cac1f9f5515effd4af6862b22a33a9cb4d4719c6a"
+  },
+  "n_admission_batches": 6,
+  "n_admission_items": 12,
+  "n_naturalness_batches": 9,
+  "n_naturalness_sentences": 100,
+  "naturalness_batch_sizes": [
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    4
+  ],
+  "outputs": {
+    "key_RESTRICTED.json": "59f9df566d04aa334e9ac0e80f5247049628edeceefc14b61a41f0a33399f545",
+    "naturalness_key_RESTRICTED.json": "23cfce31f2221ea9144dbf6c60cad61bd5b9b6f876de980fd02d39e1330abb01",
+    "naturalness_packets.jsonl": "6509d30b400f826632063040e3fa890d74c1446bfa726081fb1c0217b2bd42c4",
+    "pass1_packets.jsonl": "278e03c71d6a234823b29f43c6dfbe2bad5f965a4b39b016aa1ae14912560fd6",
+    "pass2_packets.jsonl": "0a07f19ef3ff824de58ec3816f8778b3643f6eab18db9d2b4311dfbd2f0bba94"
+  },
+  "seed": 190,
+  "sentences_per_stratum": {
+    "C": 16,
+    "D": 24,
+    "K": 10,
+    "K_out": 2,
+    "N": 24,
+    "R": 24
+  },
+  "split": "admission"
+}
