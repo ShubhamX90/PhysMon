@@ -1,0 +1,128 @@
+{
+  "backend": "vllm",
+  "batch_size": 8,
+  "contract_version": "reasoning-v2",
+  "created_utc": "2026-11-16T09:18:22Z",
+  "data_role": "EXPLORATION",
+  "dataset_dir": "data/v2/dataset/m0_v22/cells.jsonl",
+  "dataset_files_sha256": {
+    "cells.jsonl": "201e50379b14c6b52f9e6c47643d6370bd120cf39cb1d6bb4aeb79dfde7437e7"
+  },
+  "dtype": "bfloat16",
+  "env": "physmon-vllm",
+  "env_expected": {
+    "python": "3.12.16",
+    "tokenizers": "0.23.3",
+    "torch": "2.14.0+cu130",
+    "transformers": "5.20.2",
+    "vllm": "0.33.0"
+  },
+  "env_prefix": "/scratch/pabitra/physmon/envs/physmon-vllm",
+  "est_shard_s": 1800.0,
+  "family": "qwen3",
+  "ids_file": null,
+  "max_model_len": 8192,
+  "max_new_tokens": 4096,
+  "max_prompt_tokens": 219,
+  "model_files": {
+    ".gitattributes": {
+      "sha256": "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930",
+      "size": 1570
+    },
+    "LICENSE": {
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "size": 11343
+    },
+    "README.md": {
+      "sha256": "0f36caaff9c2516411a7738db384606263ba653c1e63e61d72f511606164d5a6",
+      "size": 16660
+    },
+    "config.json": {
+      "sha256": "f7c4eadfbbf522470667b797a3c89be2524832d2d599797248dc304fff447c30",
+      "size": 728
+    },
+    "generation_config.json": {
+      "sha256": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2",
+      "size": 239
+    },
+    "merges.txt": {
+      "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+      "size": 1671853
+    },
+    "model-00001-of-00005.safetensors": {
+      "sha256": "31d6a825ae35f11fb85b195b4c42c146c051e446433125a215336abdf95cbf5f",
+      "size": 3996250744
+    },
+    "model-00002-of-00005.safetensors": {
+      "sha256": "5991236cea6fe21f3d43cab0f0e84448734fbbe0789816202989f2ddc9d18282",
+      "size": 3993160032
+    },
+    "model-00003-of-00005.safetensors": {
+      "sha256": "c5185c4794be2d8a9784d5753c9922db38df478ce11f9ed0b415b7304d896836",
+      "size": 3959604768
+    },
+    "model-00004-of-00005.safetensors": {
+      "sha256": "b5ee7de71fbf17db3d5704e0c8f2bc7d005ca9e1d7ca2aeb19827b0cfcaa917a",
+      "size": 3187841392
+    },
+    "model-00005-of-00005.safetensors": {
+      "sha256": "20c2d6366ab85c90786ccdd829cd2b9e7d30ef3b2ebbb998280e7e4014b542ff",
+      "size": 1244659840
+    },
+    "model.safetensors.index.json": {
+      "sha256": "f9fdbcb91c23971c13ec5d5f2573d2349e8f61f2f049371ec699281748fdb1bc",
+      "size": 32878
+    },
+    "tokenizer.json": {
+      "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+      "size": 11422654
+    },
+    "tokenizer_config.json": {
+      "sha256": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+      "size": 9732
+    },
+    "vocab.json": {
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+      "size": 2776833
+    }
+  },
+  "model_key": "qwen3_8b",
+  "model_name": "Qwen/Qwen3-8B",
+  "model_path": "${PHYSMON_MODEL_ROOT}/Qwen3-8B",
+  "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "n_jobs": 411,
+  "n_pairs": 9864,
+  "n_samples": 24,
+  "phase_id": "stage15",
+  "purpose": "G2 design-validation pilot on M0 v2.2 (11 structures, 411 cells), k=24 (Qwen3-8B, thinking off); plan docs/registry/v2/g2/design_validation_pilot_plan.md",
+  "reasoning_contract_fingerprint": "3cab848f55d3f044af9cdc858fb0265cc41ce908f77a91bcb6bd89ad0e068b9c",
+  "run_id": "s15_g2pilot_m0v22_qwen3_8b_nothink",
+  "sample_offset": 0,
+  "sampling": {
+    "do_sample": true,
+    "min_p": 0.0,
+    "repetition_penalty": 1.0,
+    "source": "qwen3-model-card:non-thinking",
+    "temperature": 0.7,
+    "top_k": 20,
+    "top_p": 0.8
+  },
+  "scoring_contract_fingerprint": "bb6bbec489ef185850a40c2d83955b4371a22b2343196135f2db885e6dabca81",
+  "seed_base": 20261112,
+  "shard_size": 1000,
+  "shards": {
+    "shard_0000": "9e71061b45c79b31a291322f59379a101a75e08374098b1e2c4657b125321e76",
+    "shard_0001": "a3704cbb8f5d7b2559b2e233b9297a1d7dbd786513b0deaad9ab6a2bd1bd9d65",
+    "shard_0002": "432b4932b6d07824c5358a542ce29fcd17e428937cd41d7ccf32edacddca4113",
+    "shard_0003": "87d78826791815dd416051122ec871b429d09f004d6341c42f777fe00df17853",
+    "shard_0004": "74ea0b43a67afcccdbccb916076a9034c13998d58ed7a5bad9a13d9d547ebf14",
+    "shard_0005": "20d7514e652d4073fd25df32b55e670556e199a0a37d0d242837648641428ea4",
+    "shard_0006": "c9aff9a8044f17bd96bfe2a9b35b6bdc77db8c05091595990c84d60a82ebd299",
+    "shard_0007": "ede14a514541c56be011e225f0779c71c8993a19eba66390e3b4a95c325e09f7",
+    "shard_0008": "67e92f22a59c8617870f7753bc4dedb0438b352a06b8e07b204f6373e7c6e49e",
+    "shard_0009": "f071a52a8057f9fdcd082f2180c325befc4d9a0a877eef7e53bf8438753778aa"
+  },
+  "source": "role_cells",
+  "state_unit": true,
+  "thinking": "off"
+}
