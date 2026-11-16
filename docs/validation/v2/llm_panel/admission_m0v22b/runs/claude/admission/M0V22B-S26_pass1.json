@@ -1,0 +1,35 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v22b_admission:batch01",
+  "item_id": "M0V22B-S26",
+  "pass_number": 1,
+  "started_at": "2026-11-16T00:00:00Z", "completed_at": "2026-11-16T00:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law n1 sin(theta1) = n2 sin(theta2); theta2 = arcsin(1.0*sin40/1.5) = arcsin(0.42853)",
+    "assumptions": ["Flat interface, isotropic media", "Angles measured from the normal", "Camera has no physical influence on the ray"],
+    "answer": 25.37,
+    "unit": "degree"
+  },
+  "stratum_assignments": {
+    "TB680": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "T6894": {"stratum": "R", "answer_with_sentence": 31.2, "regime": null},
+    "T85A3": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "T4914": {"stratum": "R", "answer_with_sentence": 31.2, "regime": null},
+    "TE753": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "T0BCD": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other", "rendering_not_minimal"],
+  "defect_reasons": {
+    "other": "For T6894 and especially T4914 it is not fully explicit whether the stated 40 degree incidence is the angle before or after the 11 degree tilt; the natural reading (tilt from 40 to 51 degrees, question about the resulting state) gives 31.2 degrees, but a reader could take 40 degrees as the observed angle.",
+    "rendering_not_minimal": "If TE753 is meant as a variant of T85A3 (and TB680 of T0BCD), they do not state the same number: 'a little' versus 11 degrees."
+  },
+  "defect_severity": {"other": "medium", "rendering_not_minimal": "low"},
+  "counterexamples": [],
+  "notes": "Base: sin(theta2) = 0.642788/1.5 = 0.428525, theta2 = 25.37 deg. With incidence 51 deg: sin51/1.5 = 0.777146/1.5 = 0.518097, theta2 = 31.21 deg. Earlier-experiment laser tilt and camera tilt have no physical path to the present refraction angle (D). The rendering_not_minimal flag is provisional pending the authors' pairing claims; vague-quantity variants may be intentional."
+}

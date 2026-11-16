@@ -1,0 +1,24 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v22_admission:batch02",
+  "item_id": "M0V22-S26",
+  "pass_number": 1,
+  "started_at": "2026-11-16T10:00:00Z", "completed_at": "2026-11-16T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Snell's law n1 sin(theta1) = n2 sin(theta2)", "assumptions": ["isotropic homogeneous media", "flat interface", "angles measured from the normal"], "answer": 25.37, "unit": "degree"},
+  "stratum_assignments": {
+    "TFE92": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "T9D43": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "T9E5A": {"stratum": "R", "answer_with_sentence": 31.20, "regime": null},
+    "T8752": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "T103F": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "TC1CF": {"stratum": "R", "answer_with_sentence": 31.20, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "TFE92 and T8752 say 'a little' with no number or unit, whereas their apparent variants T9D43 and T103F state 11 degrees, so the variants do not all state the same number and unit."},
+  "defect_severity": {"rendering_not_minimal": "medium"},
+  "counterexamples": [],
+  "notes": "Base: sin(theta2) = sin40/1.5 = 0.64279/1.5 = 0.42852, theta2 = 25.37 deg. With incidence 51 deg: sin51/1.5 = 0.77715/1.5 = 0.51810, theta2 = 31.20 deg. The earlier-experiment laser tilts (TFE92, T9D43) concern a past configuration and do not affect the current ray; the camera tilts only change the observer. T9E5A and TC1CF change the current angle of incidence to 51 deg; the question then reads naturally as asking about the current (post-tilt) state, though one could ask whether the stated 40 deg should still be used. TC1CF is very close to T9D43 in wording but differs in timing (after vs earlier), which changes its role from D to R."
+}

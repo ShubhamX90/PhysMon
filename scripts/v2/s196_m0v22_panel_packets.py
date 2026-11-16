@@ -9,6 +9,7 @@ The eight unchanged structures keep their M0 v2.1 verdicts. Deterministic; refus
 
 from __future__ import annotations
 
+import argparse
 import importlib.util
 import sys
 from pathlib import Path
@@ -42,8 +43,22 @@ s193.OUT_DIR = "docs/validation/v2/llm_panel/admission_m0v22"
 s193.ADMISSION_RUN, s193.NATURALNESS_RUN = "m0v22_admission", "m0v22_naturalness"
 
 
+def configure(items: tuple[str, ...], tag: str) -> None:
+    """Restrict the run to `items` under run tag `tag` (second round: `--items S26 --tag m0v22b`, journal J15.1-039)."""
+
+    s193.roles_m0v21.ROLE_SPECS = {sid: roles_m0v22.ROLE_SPECS[sid] for sid in items}
+    s193.ITEM_PREFIX = tag.upper() + "-"
+    s193.OUT_DIR = f"docs/validation/v2/llm_panel/admission_{tag}"
+    s193.ADMISSION_RUN, s193.NATURALNESS_RUN = f"{tag}_admission", f"{tag}_naturalness"
+
+
 def main(argv: list[str] | None = None) -> int:
-    return s193.main(["--out", s193.OUT_DIR, *(argv or [])])
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--items", nargs="+", default=list(CHANGED))
+    parser.add_argument("--tag", default="m0v22")
+    args = parser.parse_args(argv)
+    configure(tuple(args.items), args.tag)
+    return s193.main(["--out", s193.OUT_DIR])
 
 
 if __name__ == "__main__":

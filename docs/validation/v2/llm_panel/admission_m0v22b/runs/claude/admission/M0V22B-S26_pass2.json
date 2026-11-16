@@ -1,0 +1,40 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v22b_admission:batch01",
+  "item_id": "M0V22B-S26",
+  "pass_number": 2,
+  "started_at": "2026-11-16T00:08:00Z", "completed_at": "2026-11-16T00:15:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law n1 sin(theta1) = n2 sin(theta2); theta2 = arcsin(1.0*sin40/1.5)",
+    "assumptions": ["Flat interface, isotropic media", "Angles measured from the normal", "Camera has no physical influence on the ray"],
+    "answer": 25.374,
+    "unit": "degree"
+  },
+  "stratum_assignments": {
+    "TB680": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "T6894": {"stratum": "R", "answer_with_sentence": 31.205, "regime": null},
+    "T85A3": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "T4914": {"stratum": "R", "answer_with_sentence": 31.205, "regime": null},
+    "TE753": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "T0BCD": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "With T4914 (and to a lesser degree T6894) the text does not say explicitly whether the stated 40 degree angle of incidence is the angle before or after the 11 degree tilt; the intended reading (tilt from 40 to 51 degrees) gives the certified 31.2047 degrees, but a reader could take 40 degrees as the angle at observation."
+  },
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Checked certified answers independently: base arcsin(sin40/1.5)=arcsin(0.428525)=25.374; q=6: arcsin(sin46/1.5)=arcsin(0.479560)=28.657; q=11: arcsin(sin51/1.5)=arcsin(0.518097)=31.205; q=14: arcsin(sin54/1.5)=arcsin(0.539345)=32.639. All match; all transmitted angles are well below any total-internal-reflection concern (light goes into the denser medium). D claims hold: the camera and an earlier, finished experiment have no causal path to the refraction angle. T85A3/T4914 are a true minimal pair (same 11 degrees, same laser and plane-of-incidence wording, differing only in 'in an earlier experiment' vs 'before the refraction was observed'). T0BCD/T6894 are correctly not claimed as a minimal pair. TB680 and TE753 are declared numeral-free twins of T0BCD and T85A3, which resolves my provisional pass-1 rendering_not_minimal flag; I withdraw it here. Scene clause (camera on tripod) is consistent with the base problem."
+  ,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS"
+}

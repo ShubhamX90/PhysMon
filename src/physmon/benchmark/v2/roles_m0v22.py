@@ -11,7 +11,8 @@ on M0 v2.1, so rewriting is allowed (admission standard, opening paragraph). Cha
 * S92 pair 1: the R sentence now states the change of liquid as an event before the measurement, in the same tank with the same
   string (the judge's high flag: "Afterwards, the cube was held ..." left open which state the question asks about).
 * S20 pair 0: the co-present object is a lamp that lights the object (adjusting a lamp is an ordinary action); the stool is gone.
-* S26 pair 0: the co-present object is a camera that films the interface (re-aiming a camera is an ordinary action).
+* S26 pair 0: the co-present object is a camera that films the interface (re-aiming a camera is an ordinary action); pair 1 R
+  attachment "before the refraction was observed" (re-review: "after the angle of incidence was set" read as a contradiction).
 
 Every other structure keeps its M0 v2.1 spec unchanged (it was admitted as is).
 """
@@ -74,14 +75,19 @@ S26_P0 = dataclasses.replace(
                           "be the stated angle of incidence.",
 )
 
+# M0 v2.2 re-review (J15.1-039): a blind rater read "after the angle of incidence was set" as contradicting the stated angle
+# (rated artificial); the R attachment now names the observation the tilt precedes, not the setting it overrides.
+S26_P1 = dataclasses.replace(OLD["S26"].pairs[1], r_attach="before the refraction was observed")
+
 S26 = _spec(
     "S26",
     scene_clause="A camera on a tripod films the interface.",
     scene_object_rationale="A camera only records the light that reaches it; it emits no ray and does not touch the media, so the "
                            "ray, its angle of incidence and the indices at the interface are unchanged.",
     scene_refs=("camera",), target_terms=("ray", "normal", "incidence", "laser"),
-    pairs=(S26_P0, OLD["S26"].pairs[1]),
-    notes="M0 v2.2: the desk lamp (rated artificial when tilted) is replaced by a camera that films the interface; pair 1 unchanged.")
+    pairs=(S26_P0, S26_P1),
+    notes="M0 v2.2: the desk lamp (rated artificial when tilted) is replaced by a camera that films the interface; R1 attachment "
+          "reworded after the re-review.")
 
 S92_P1 = Pair(
     "p1",

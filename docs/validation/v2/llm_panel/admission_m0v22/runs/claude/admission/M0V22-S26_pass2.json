@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v22_admission:batch02",
+  "item_id": "M0V22-S26",
+  "pass_number": 2,
+  "started_at": "2026-11-16T10:08:00Z", "completed_at": "2026-11-16T10:15:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Snell's law n1 sin(theta1) = n2 sin(theta2)", "assumptions": ["isotropic homogeneous media", "flat interface", "angles measured from the normal"], "answer": 25.374, "unit": "degree"},
+  "stratum_assignments": {
+    "TFE92": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "T9D43": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "T9E5A": {"stratum": "R", "answer_with_sentence": 31.205, "regime": null},
+    "T8752": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "T103F": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "TC1CF": {"stratum": "R", "answer_with_sentence": 31.205, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Strata agree with my pass 1. Certified answers checked: 40 deg -> asin(0.64279/1.5)=25.374; 46 deg -> asin(0.71934/1.5)=asin(0.47956)=28.657; 51 deg -> asin(0.51810)=31.205; 54 deg -> asin(0.80902/1.5)=asin(0.53934)=32.639. All match. T9D43/TC1CF form a valid minimal pair (same 11 deg, same laser/normal/plane-of-incidence attachment, differing only in timing: earlier experiment vs after the angle was set). T103F is honestly declared not a minimal pair with T9E5A. In pass 1 I flagged rendering_not_minimal (medium) for TFE92 and T8752 saying 'a little' instead of 11 deg; the authors explicitly declare these as numeral-free twins, not same-number variants, so the claim is accurate and I withdraw that flag. Minor wording point (not a defect): with TC1CF the base text's present-tense 'The angle of incidence ... is 40 degrees' is followed by a later tilt; reading the question as asking about the current state gives 31.2 deg, which is the natural reading."
+}

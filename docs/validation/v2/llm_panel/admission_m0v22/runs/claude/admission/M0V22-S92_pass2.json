@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v22_admission:batch01",
+  "item_id": "M0V22-S92",
+  "pass_number": 2,
+  "started_at": "2026-11-16T10:07:00Z", "completed_at": "2026-11-16T10:13:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Static equilibrium of the fully submerged cube: T = (rho_l - rho_s) g a^3",
+    "assumptions": ["cube fully submerged and at rest", "string light, vertical and taut", "liquid static, incompressible and uniform"],
+    "answer": 3.92,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "TE161": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null},
+    "T183D": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null},
+    "T96F5": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "T70A2": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T98F1": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T1B91": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T2320": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "T5065": {"stratum": "K", "answer_with_sentence": 3.92, "regime": "string intact: T = 3.92 N below the breaking strength"},
+    "TBB34": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T7A01": {"stratum": "K", "answer_with_sentence": 3.92, "regime": "string intact: T = 3.92 N below the breaking strength"}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TBB34/T1B91 say a liquid 'now fills' the second tank that the base calls empty, and T98F1/T70A2 leave implicit that the original liquid was restored after the earlier experiment; both read naturally as stated but are slightly awkward wording."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All certified answers check: (rho_l - 600)*1e-3*9.8 gives 3.92 (1000), 5.39 (1150), 6.37 (1250), 7.35 (1350) N. Depth cancellation relations are correct ((p_bottom - p_top) a^2 = rho_l g a^3, independent of q); all depth values 20-80 cm keep the cube submerged. K regime T < q holds for 30, 50, 80 N (T = 3.92 N), and the counter-regime example q = 2 N is correctly outside it. Minimal pairs: T98F1/T96F5 both 1250 kg/m^3, differing only in 'earlier experiment' vs 'before the tension was measured'; TBB34/T2320 both 1250 kg/m^3, differing only in second tank vs this tank. Numeral-free twins T1B91 (of TBB34) and T70A2 (of T98F1) are declared as such and match their twins' wording with the number replaced, which resolves my pass-1 note about their missing number; they are not claimed as minimal pairs of numbered sentences. Agreement with pass 1 on every stratum and answer."
+}

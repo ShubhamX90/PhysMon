@@ -1,0 +1,142 @@
+{
+  "judges": [
+    "claude"
+  ],
+  "min_judges": 1,
+  "naturalness_judges": [
+    "claude"
+  ],
+  "sentences": {
+    "NAT-0DC8AB85": {
+      "label": "R1",
+      "ratings": {
+        "claude": {
+          "rating": "slightly_artificial",
+          "reason": "Adjusting the laser is a plausible lab action, but the precise 11\u00b0 tilt reported 'before the refraction was observed' sits awkwardly beside an already stated 40\u00b0 incidence angle and reads as contrived."
+        }
+      },
+      "slightly_artificial": true,
+      "status": "OK",
+      "stratum": "R",
+      "structure_id": "S26",
+      "twin_gap": []
+    },
+    "NAT-59073C77": {
+      "label": "D0",
+      "ratings": {
+        "claude": {
+          "rating": "slightly_artificial",
+          "reason": "Tilting the filming camera is a plausible action, but the clunky repeated phrase 'the camera that films the interface' and the precise 11-degree tilt make the sentence feel somewhat contrived."
+        }
+      },
+      "slightly_artificial": true,
+      "status": "OK",
+      "stratum": "D",
+      "structure_id": "S26",
+      "twin_gap": []
+    },
+    "NAT-8A49251F": {
+      "label": "N1",
+      "ratings": {
+        "claude": {
+          "rating": "slightly_artificial",
+          "reason": "Mentioning how the laser was tilted in an unspecified earlier experiment is plausible but an oddly vague, out-of-place historical aside for this setup."
+        }
+      },
+      "slightly_artificial": true,
+      "status": "OK",
+      "stratum": "N",
+      "structure_id": "S26",
+      "twin_gap": []
+    },
+    "NAT-9294DFE2": {
+      "label": "R0",
+      "ratings": {
+        "claude": {
+          "rating": "natural",
+          "reason": "Tilting the ray by a stated angle in the plane of incidence is an ordinary step in a refraction experiment, described in plain wording."
+        }
+      },
+      "slightly_artificial": false,
+      "status": "OK",
+      "stratum": "R",
+      "structure_id": "S26",
+      "twin_gap": []
+    },
+    "NAT-C24B86F0": {
+      "label": "D1",
+      "ratings": {
+        "claude": {
+          "rating": "slightly_artificial",
+          "reason": "A laser setting from an earlier experiment is a plausible lab detail, but bringing up a past tilt angle in a description of the current setup feels out of place and contrived."
+        }
+      },
+      "slightly_artificial": true,
+      "status": "OK",
+      "stratum": "D",
+      "structure_id": "S26",
+      "twin_gap": []
+    },
+    "NAT-FFD919C4": {
+      "label": "N0",
+      "ratings": {
+        "claude": {
+          "rating": "natural",
+          "reason": "Re-angling a camera on a tripod to film the interface is an ordinary, plausible action described in plain wording."
+        }
+      },
+      "slightly_artificial": false,
+      "status": "OK",
+      "stratum": "N",
+      "structure_id": "S26",
+      "twin_gap": []
+    }
+  },
+  "standard": "docs/registry/v2/g1/dataset_admission_standard.md sections 5.2, 5.3, 6.1 (6.1 as amended 2026-11-15)",
+  "structure_counts": {
+    "ADMIT": 1
+  },
+  "structures": {
+    "M0V22B-S26": {
+      "blind_stratum_agreement": {
+        "claude": {
+          "available": true,
+          "checked": 6,
+          "mismatches": []
+        }
+      },
+      "judges": {
+        "claude": {
+          "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+          "flags": [
+            {
+              "flag": "other",
+              "reason": "With T4914 (and to a lesser degree T6894) the text does not say explicitly whether the stated 40 degree angle of incidence is the angle before or after the 11 degree tilt; the intended reading (tilt from 40 to 51 degrees) gives the certified 31.2047 degrees, but a reader could take 40 degrees as the angle at observation.",
+              "severity": "medium"
+            }
+          ],
+          "status": "PASS",
+          "validity": "valid",
+          "warnings": []
+        }
+      },
+      "naturalness": {
+        "pending": 0,
+        "rewrite": [],
+        "sentences": 6,
+        "slightly_artificial": [
+          "R1",
+          "D0",
+          "N1",
+          "D1"
+        ]
+      },
+      "notes": [],
+      "ready": true,
+      "reasons": [],
+      "status": "ADMIT",
+      "structure_id": "S26"
+    }
+  },
+  "title": "M0 v2.2 S26 round 2 (Claude judge)"
+}

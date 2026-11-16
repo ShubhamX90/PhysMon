@@ -93,6 +93,7 @@ def test_changed_sentences_are_the_reviewed_fixes(built):
     assert "with the string still holding the cube under it" in sentences[("S92", "D", "p1")]
     assert sentences[("S20", "D", "p0")].startswith("The lamp that stands beside the bench is then pushed")
     assert sentences[("S26", "D", "p0")].startswith("The camera that films the interface is then tilted")
+    assert sentences[("S26", "R", "p1")].endswith("in the plane of incidence before the refraction was observed.")
 
 
 def test_unchanged_structures_equal_m0_v21_except_the_version(built):

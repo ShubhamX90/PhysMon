@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v22_admission:batch01",
+  "item_id": "M0V22-S20",
+  "pass_number": 1,
+  "started_at": "2026-11-16T10:14:00Z", "completed_at": "2026-11-16T10:19:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Thin-lens equation 1/f = 1/u + 1/v (real-is-positive), v = u f / (u - f)",
+    "assumptions": ["thin lens, paraxial rays", "object distance 40 cm on the axis", "focal length 12 cm"],
+    "answer": 17.14,
+    "unit": "cm"
+  },
+  "stratum_assignments": {
+    "TEA6C": {"stratum": "D", "answer_with_sentence": 17.14, "regime": null},
+    "TB8B6": {"stratum": "C", "answer_with_sentence": 17.14, "regime": null},
+    "TC4DB": {"stratum": "D", "answer_with_sentence": 17.14, "regime": null},
+    "TAA0A": {"stratum": "D", "answer_with_sentence": 17.14, "regime": null},
+    "TFD9D": {"stratum": "R", "answer_with_sentence": 15.13, "regime": null},
+    "T2449": {"stratum": "C", "answer_with_sentence": 17.14, "regime": null},
+    "TD9DC": {"stratum": "D", "answer_with_sentence": 17.14, "regime": null},
+    "TA3AF": {"stratum": "R", "answer_with_sentence": 15.13, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: v = 40*12/28 = 120/7 = 17.14 cm. With the object moved 18 cm farther (u = 58 cm): v = 58*12/46 = 696/46 = 15.13 cm. Object height (TB8B6/T2449, both 3.5 cm) enters the magnification relation h'/h = -v/u but not the image distance, so it drops out (C; arguably D since it never enters the distance relation). The lamp sentences (TC4DB 18 cm, TAA0A no number) concern illumination only; the lamp's position does not change the image location, so D. TEA6C (no number) and TD9DC (18 cm) describe an earlier experiment and leave the current 40 cm placement unchanged, so D. TFD9D (stand moved, carrying the object) and TA3AF move the object itself, so R. Number-and-unit consistency: 18 cm in TC4DB, TFD9D, TD9DC, TA3AF; 3.5 cm in both height sentences; TAA0A and TEA6C use 'a little' without a number. Note that the base question is 'the real image', and 18 cm farther keeps u > f, so a real image still exists."
+}

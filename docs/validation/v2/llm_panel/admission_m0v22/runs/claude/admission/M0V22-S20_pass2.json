@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v22_admission:batch01",
+  "item_id": "M0V22-S20",
+  "pass_number": 2,
+  "started_at": "2026-11-16T10:20:00Z", "completed_at": "2026-11-16T10:25:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Thin-lens equation, di = f do / (do - f)",
+    "assumptions": ["thin lens, paraxial rays", "object on the axis beyond the focal length", "do = 40 cm, f = 12 cm"],
+    "answer": 17.14,
+    "unit": "cm"
+  },
+  "stratum_assignments": {
+    "TEA6C": {"stratum": "D", "answer_with_sentence": 17.14, "regime": null},
+    "TB8B6": {"stratum": "C", "answer_with_sentence": 17.14, "regime": null},
+    "TC4DB": {"stratum": "D", "answer_with_sentence": 17.14, "regime": null},
+    "TAA0A": {"stratum": "D", "answer_with_sentence": 17.14, "regime": null},
+    "TFD9D": {"stratum": "R", "answer_with_sentence": 15.13, "regime": null},
+    "T2449": {"stratum": "C", "answer_with_sentence": 17.14, "regime": null},
+    "TD9DC": {"stratum": "D", "answer_with_sentence": 17.14, "regime": null},
+    "TA3AF": {"stratum": "R", "answer_with_sentence": 15.13, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The claimed quantity label 'a shift of a stand' is applied to the lamp sentences too, though the lamp is not described as a stand; this is a cosmetic labelling issue that does not affect any stratum or answer."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Certified answers check: di = 12 do/(do - 12) gives 17.1429 (40), 16.2353 (46), 15.1304 (58), 14.4828 (70) cm. All shifted object distances stay beyond f, so a real image exists throughout. The height cancellation expression do*(q f/(do - f))/q = f do/(do - f) is correct: the object height enters both ray relations and cancels. Minimal pairs hold: TC4DB/TFD9D both 18 cm, differing only in lamp vs object stand; TD9DC/TA3AF both 18 cm, differing only in 'in an earlier experiment' vs 'after it was placed on the axis'. Numeral-free twins TAA0A (of TC4DB) and TEA6C (of TD9DC) match their twins' wording with the number replaced. Height variants TB8B6/T2449 both 3.5 cm. TA3AF and TFD9D read naturally as a shift along the axis (the stand 'holds the object on the axis'), so R is correct. Agreement with pass 1 on every stratum and answer."
+}

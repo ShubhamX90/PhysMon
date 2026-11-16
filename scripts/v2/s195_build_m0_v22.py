@@ -9,8 +9,7 @@ unchanged as the record of the review. What changes (reasons in `roles_m0v22.py`
 * S20 and S26 pair 0: co-present objects rated artificial (a stool pushed, a desk lamp tilted) replaced by a lamp that lights
   the object and a camera that films the interface.
 
-Deterministic; refuses to overwrite. Status: solver-certified; the changed items are NOT yet re-reviewed by the panel (the
-nine unchanged structures were admitted on M0 v2.1). Data role: EXPLORATION.
+Deterministic; refuses to overwrite. Status: solver-certified and admitted by the Claude judge (J15.1-038, J15.1-039). Data role: EXPLORATION.
 """
 
 from __future__ import annotations
@@ -39,8 +38,9 @@ def _load_s192():
 s192 = _load_s192()
 s192.roles_m0v21 = roles_m0v22  # the builder reads ROLE_SPECS and structure() from this name at call time
 s192.VERSION = VERSION = "m0_v2.2"
-s192.STATUS = STATUS = ("solver-certified; S20, S26 and S92 changed after the M0 v2.1 panel review and NOT yet re-reviewed; the "
-                        "other eight structures admitted by the Claude judge on M0 v2.1 (not yet reviewed by GPT or a human)")
+s192.STATUS = STATUS = ("solver-certified; all 11 structures ADMITTED by the qualified Claude judge (prompt v3) with no sentence "
+                        "rated artificial (M0 v2.1 review, J15.1-038; S20, S26, S92 re-reviewed, J15.1-039); not yet reviewed by "
+                        "GPT or a human")
 
 
 def readme(counts: dict[str, Any], certificates: dict[str, Any], excluded: list, rows: list[dict[str, Any]]) -> str:
@@ -59,7 +59,7 @@ def readme(counts: dict[str, Any], certificates: dict[str, Any], excluded: list,
         "(S26), replacing a stool pushed and a desk lamp tilted, which blind raters called pointless actions (rated artificial).",
         "", f"D cells by kind: {kinds}. By stratum: {counts['by_stratum']}.", "",
         "## What has not been done", "",
-        "The changed items (S20, S26, S92) need a fresh panel and naturalness review before admission; no model has seen the cells.",
+        "No GPT or human review yet (evidence class LLM_PANEL, one judge); no model has seen the cells.",
         ""]
     if excluded:
         lines += ["## Excluded structures", "", json.dumps(excluded), ""]
