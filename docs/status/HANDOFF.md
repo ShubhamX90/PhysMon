@@ -23,19 +23,20 @@ audited, no defect (J15.1-041).
 1. 17:10: resume the 7 M250 workers; launch the two new Sonnet workers.
 2. Review/commit each worker's output (re-run tests; read specs against the five wording rules).
 3. M250 build (s198), then panel review of ~118 structures: Claude judges (Opus, fresh instances, batches of 4) AND GPT
-   (needed for M250: the user must log in to Codex, `CODEX_HOME=/scratch/pabitra/physmon/codex_home codex login --device-auth`).
+   (s182 runner with kits from s183; login present).
 4. When pilot records arrive: collect, report, audit, decide per the pilot plan's rules.
 5. One structure to replace S02 in the M250 pool (S251), and the 120 sealed INTERNAL_CONFIRMATION structures.
 
 ## Open decisions
-* User action needed for M250 admission: Codex login for the GPT judge (log out and delete afterwards).
+* None (Codex login done 2026-11-16).
 
 ## Do not
 * Modify any file in `g1_frozen_files_sha256.json` without a dated amendment; `data/v2/dataset/*`, `data/v2/runs/*`, banks.
 * Edit files an active agent owns (listed above).
 
 ## Credentials and external state
-* Codex/ChatGPT login: none present.
+* Codex/ChatGPT login: PRESENT since 2026-11-16 21:20 IST in `/scratch/pabitra/physmon/codex_home` (mode 700). The user asked
+  that it STAYS (no logout, no deletion). Never copy `auth.json` anywhere. Codex needs `/scratch/pabitra/physmon/envs/node/bin` on PATH.
 
 ## Last journal entry and last commit
 J15.1-041 in `docs/journal/stage15/15.1_runner_and_batch1.md`; commit 32beaab.
