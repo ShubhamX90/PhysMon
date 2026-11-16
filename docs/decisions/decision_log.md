@@ -3369,3 +3369,13 @@ Five generic workers ran early; every vLLM run failed at engine start (CUDA touc
 ## G1 decisions delegated to the agent — 2026-11-13
 
 The user approved the agent's three LLM-judge standards (J1: an answer depending on an unstated assumption makes the item invalid; J2: a contradiction inside a distractor makes it invalid; J3: `high` severity only for wrong answers or physics claims) and delegated every open G1 question to the agent, asking for the highest research quality at a steady pace. The 33 questions and 9 plan inconsistencies are decided in `docs/registry/v2/g1/decisions_2026-11-13.md`, each with its reason. Three departures from the drafted recommendations: the R-tracking criterion is 0.40, not 0.50 (in-band no-cue accuracy is 0.53-0.60, so 0.50 would decide by chance); mechanism SESOIs are deferred to each G5-G7 card's gate; N and no-cue are both sampled 6k (fully balanced). Next: judge prompt v2 and requalification on a fresh planted set; extended HF-vs-TL parity and vLLM parity for Llama-3.1-8B and Qwen3-8B; the statistics and scorecard code.
+
+## G1 frozen — 2026-11-16
+
+Gate G1 passed and the physics construct is frozen: `docs/registry/v2/g1/freeze/G1_FREEZE_RECORD.md` with 50 file hashes at
+commit 20f9752 (`g1_frozen_files_sha256.json`); full test suite 1,782 passed; LLM panel qualified (Claude Opus 5.5, GPT-6.1 Sol;
+prompt v3); M0 v2.2 (11 structures) admitted by the Claude judge. Frozen: strata and certificates, generator v2.1 rules, grading
+views and O3, reasoning-v2, analysis and power scripts, scorecard, R-tracking criterion (T_R >= 0.40 on >= 16 structures),
+k = 24 and agreement rule B, SESOIs, cards, H4 extractor h4-v1, admission standard. Consequences: (1) the G2 design-validation pilot
+on M0 v2.2 is planned (`docs/registry/v2/g2/design_validation_pilot_plan.md`) and queued; (2) the sealed October-wording M0 pilot
+(`s15_m0pilot_*`) may be collected as a pipeline and grading check only, never pooled with M0 v2.2 records. Journal J15.1-040.
