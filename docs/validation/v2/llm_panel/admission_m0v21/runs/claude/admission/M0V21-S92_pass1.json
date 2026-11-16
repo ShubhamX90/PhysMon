@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch03",
+  "item_id": "M0V21-S92",
+  "pass_number": 1,
+  "started_at": "2026-11-16T10:00:00Z", "completed_at": "2026-11-16T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Static equilibrium of the cube: T + m g = F_b, with Archimedes F_b = rho_liquid V g and m = rho_cube V; T = (rho_liquid - rho_cube) V g = (1000 - 600)(0.1^3)(9.8) = 3.92 N",
+    "assumptions": ["cube fully submerged and at rest", "liquid incompressible and uniform, so buoyancy independent of depth", "string light and vertical", "cube not touching tank walls or bottom"],
+    "answer": 3.92,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T2EAF": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T5B91": {"stratum": "K", "answer_with_sentence": 3.92, "regime": "string intact: tension below breaking threshold (3.92 N < 50 N)"},
+    "TA799": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "TB226": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "T8EC5": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "TF251": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null},
+    "T0853": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T7B0C": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "TF230": {"stratum": "K", "answer_with_sentence": 3.92, "regime": "string intact: tension below its 50 N limit (3.92 N < 50 N)"},
+    "TACF8": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TA799 ('Afterwards, the cube was held completely under a liquid of 1250 kg/m^3') is ambiguous in time: it can be read as a later, separate event (D, answer 3.92 N) or as the situation now being asked about (R, answer 6.37 N); the tense makes the D reading most likely but it is less clean than T0853."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base: V = 1.0e-3 m^3, buoyancy 9.8 N, weight 5.88 N, T = 3.92 N. TB226 (replacement liquid 1250 kg/m^3): T = (1250-600)(1e-3)(9.8) = 6.37 N. Depth sentences TF251/TACF8: pressure at top and bottom faces depends on depth but the net (buoyant) force does not for an incompressible liquid, so C. Breaking-strength sentences T5B91/TF230 are K with regime T < 50 N, same number and unit. Density sentences T2EAF/TA799/TB226/T0853 all state 1250 kg/m^3; T8EC5 and T7B0C state no number ('different from the original's'), so they are not same-number variants of the 1250 kg/m^3 sentences if they are claimed as such. TF251 and TACF8 both state 50 cm and differ only in wording (top face below free surface vs at a depth)."
+}

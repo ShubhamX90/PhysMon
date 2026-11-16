@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch05",
+  "item_id": "M0V21-S26",
+  "pass_number": 1,
+  "started_at": "2026-11-16T10:00:00Z", "completed_at": "2026-11-16T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Snell's law n1 sin(theta1) = n2 sin(theta2)", "assumptions": ["flat interface, isotropic media", "angles measured from the normal"], "answer": 25.37, "unit": "degree"},
+  "stratum_assignments": {
+    "TE499": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "T7C68": {"stratum": "R", "answer_with_sentence": 31.21, "regime": null},
+    "T2A20": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "T5C47": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "T0CA4": {"stratum": "R", "answer_with_sentence": 31.21, "regime": null},
+    "T200C": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal", "other"],
+  "defect_reasons": {
+    "rendering_not_minimal": "T5C47 and T200C say 'a little' with no number, while their apparent counterparts TE499 and T2A20 state 11 degrees, so they do not state the same number and unit.",
+    "other": "T7C68 says the laser was tilted 11 degrees farther after the angle of incidence was set, which makes the incidence 51 degrees and sits awkwardly with the earlier present-tense 'is 40 degrees'."
+  },
+  "defect_severity": {"rendering_not_minimal": "medium", "other": "low"},
+  "counterexamples": [],
+  "notes": "Base: sin r = sin40/1.5 = 0.64279/1.5 = 0.42853, r = 25.37 deg. With incidence 51 deg (T7C68, T0CA4): sin r = 0.77715/1.5 = 0.51810, r = 31.21 deg. The desk lamp sentences (TE499, T5C47) are about an object with no path to the ray: D. The earlier-experiment sentences (T2A20, T200C) are about a past configuration and do not affect the present ray: D. If T7C68 were read as describing the history before the stated 40 deg, it would be D; I read 'after the angle of incidence was set' as changing the current incidence to 51 deg."
+}

@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch06",
+  "item_id": "M0V21-S20",
+  "pass_number": 1,
+  "started_at": "2026-11-16T00:24:00Z", "completed_at": "2026-11-16T00:33:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Thin-lens equation 1/f = 1/d_o + 1/d_i (real-is-positive)",
+    "assumptions": ["thin lens, paraxial rays", "object distance 40 cm > f so the image is real"],
+    "answer": 17.1429,
+    "unit": "cm"
+  },
+  "stratum_assignments": {
+    "T1FC2": {"stratum": "R", "answer_with_sentence": 15.1304, "regime": null},
+    "T8485": {"stratum": "D", "answer_with_sentence": 17.1429, "regime": null},
+    "T4362": {"stratum": "D", "answer_with_sentence": 17.1429, "regime": null},
+    "TC901": {"stratum": "K", "answer_with_sentence": 17.1429, "regime": "paraxial: object height small compared with object distance and focal length (3.5 cm vs 40 cm), so image distance is independent of height"},
+    "T0929": {"stratum": "R", "answer_with_sentence": 15.1304, "regime": null},
+    "TA05F": {"stratum": "D", "answer_with_sentence": 17.1429, "regime": null},
+    "T01F5": {"stratum": "D", "answer_with_sentence": 17.1429, "regime": null},
+    "T58E8": {"stratum": "K", "answer_with_sentence": 17.1429, "regime": "paraxial: h = 3.5 cm small compared with 40 cm"}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: 1/d_i = 1/12 - 1/40 = 7/120, d_i = 17.1429 cm. With object at 58 cm: 1/d_i = 1/12 - 1/58 = 46/696, d_i = 15.1304 cm. Object height does not enter the thin-lens equation (it enters only the magnification), so the image distance is unchanged; I label it K (irrelevant within the paraxial regime the thin-lens model assumes), though D-like or C-like labels could also be argued. Variant pairs T1FC2/T8485/T0929/TA05F all state 18 cm; T4362/T01F5 are numeral-free twins; TC901/T58E8 both state 3.5 cm. 'Then pushed' / 'was moved after it was placed' are read as the final configuration before the image is formed."
+}

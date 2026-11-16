@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch04",
+  "item_id": "M0V21-S15",
+  "pass_number": 1,
+  "started_at": "2026-11-16T00:00:00Z", "completed_at": "2026-11-16T00:06:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Parallel resistors: R_eq = R1 R2/(R1+R2) = 6*12/18 = 4 ohm; P = E^2/R_eq = 144/4 (equivalently 144/6 + 144/12 = 24 + 12)",
+    "assumptions": ["ideal battery (stated negligible internal resistance)", "ideal wires", "ohmic resistors", "fan circuit electrically separate from resistor circuit"],
+    "answer": 36.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T003B": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T4B24": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T9064": {"stratum": "R", "answer_with_sentence": 56.25, "regime": null},
+    "T6182": {"stratum": "K", "answer_with_sentence": 36.0, "regime": "fuse branch current (6 ohm branch, 12/6 = 2 A) at or below 5 A, so the fuse stays intact"},
+    "T7EC8": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "TD47C": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T164F": {"stratum": "K", "answer_with_sentence": 36.0, "regime": "branch current 2 A below the 5 A rating; fuse intact"},
+    "T6E3A": {"stratum": "R", "answer_with_sentence": 56.25, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "T003B and T7EC8 say 'a small cell' with no emf value while the other cell sentences (T4B24, T9064, TD47C, T6E3A) state 3 V; if they are meant as variants of the 3 V sentences they differ in the number, though the answers are unaffected since both are D."},
+  "defect_severity": {"rendering_not_minimal": "medium"},
+  "counterexamples": [],
+  "notes": "With a 3 V cell aiding the first battery the EMF is 15 V, P = 225/4 = 56.25 W. Cells in series with the second (fan) battery or in an earlier experiment have no path to the resistors in this experiment. Fuse sentences: 6 ohm branch carries 2 A < 5 A; 'rated at 5 A' (T164F) is slightly less precise than 'blows only above 5 A' but the 2 A current is well inside either reading. Severity of the rendering flag is provisional pending the authors' minimal-pair claims."
+}

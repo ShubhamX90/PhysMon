@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch05",
+  "item_id": "M0V21-S72",
+  "pass_number": 2,
+  "started_at": "2026-11-16T10:24:30Z", "completed_at": "2026-11-16T10:31:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "de Broglie lambda = h/p with non-relativistic p = sqrt(2 m K), so lambda = hc / sqrt(2 mc^2 K)", "assumptions": ["non-relativistic electron (stated)", "starts from rest (stated)", "hc = 1240 eV nm, mc^2 = 511 keV (stated)"], "answer": 100.15, "unit": "pm"},
+  "stratum_assignments": {
+    "TD0E0": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null},
+    "TC8A0": {"stratum": "R", "answer_with_sentence": 79.18, "regime": null},
+    "TF42A": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null},
+    "T3B16": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null},
+    "TE877": {"stratum": "R", "answer_with_sentence": 79.18, "regime": null},
+    "TCF3D": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "TF42A and T3B16 say 'the proton' without naming the other apparatus and tie it to 'before the wavelength is determined', and the D sentences use a definite article for particles introduced only in the plural; minor wording, the referent is still unambiguous since protons exist only in the other apparatus."
+  },
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Checked certified answers: K = 150 eV gives 1240/sqrt(1.533e8) = 1240/12381.4 = 0.10015 nm = 100.15 pm; 190 eV gives 1240/13934.85 = 88.986 pm; 240 eV gives 1240/15661.4 = 79.176 pm; 330 eV gives 1240/18364.6 = 67.521 pm. All match (my pass-1 answers in nm agree after conversion to the target unit pm). Strata agree with pass 1. Minimal pairs: TF42A/TC8A0 differ only in 'proton' vs 'electron' with the same 90 eV; TCF3D/TE877 differ only in the particle and apparatus attachment with the same 90 eV: both hold. Numeral-free twins T3B16 and TD0E0 match their D twins' wording. Max KE 330 eV << 511 keV, so the non-relativistic regime holds. The authors' assumption mentioning 'every photon energy and wavelength' is boilerplate not needed here but harmless."
+}

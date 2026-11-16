@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch02",
+  "item_id": "M0V21-S30",
+  "pass_number": 1,
+  "started_at": "2026-11-16T00:00:00Z", "completed_at": "2026-11-16T00:06:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Energy balance Q = P t = m c dT, so t = m c dT / P", "assumptions": ["all 1500 W goes into the water (stated as delivered to the water)", "no phase change over the 40 K rise", "c constant over the range"], "answer": 223.25, "unit": "s"},
+  "stratum_assignments": {
+    "T70ED": {"stratum": "D", "answer_with_sentence": 223.25, "regime": null},
+    "T1B6E": {"stratum": "K", "answer_with_sentence": 223.25, "regime": "water remains liquid throughout: start + 40 K below boiling point (start below about 333 K at 1 atm); 288 K -> 328 K is inside"},
+    "T3560": {"stratum": "R", "answer_with_sentence": 379.53, "regime": null},
+    "T2703": {"stratum": "R", "answer_with_sentence": 379.53, "regime": null},
+    "TF8E6": {"stratum": "D", "answer_with_sentence": 223.25, "regime": null},
+    "TF75A": {"stratum": "D", "answer_with_sentence": 223.25, "regime": null},
+    "TB2BC": {"stratum": "D", "answer_with_sentence": 223.25, "regime": null},
+    "T7137": {"stratum": "K", "answer_with_sentence": 223.25, "regime": "water remains liquid throughout: start + 40 K below boiling point (start below about 333 K at 1 atm); 288 K -> 328 K is inside"}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {"missing_assumption": "The base problem does not state the starting temperature or that the water stays liquid; a 40 K rise presupposes no boiling, which is the conventional reading, so this is minor."},
+  "defect_severity": {"missing_assumption": "low"},
+  "counterexamples": [],
+  "notes": "Base: t = 2*4186*40/1500 = 334880/1500 = 223.25 s. With 1.4 kg mixed in before heating: m = 3.4 kg, t = 3.4*4186*40/1500 = 569296/1500 = 379.53 s. Mixing after heating ended does not affect the elapsed heating time (D; arguably 'the water' later refers to a mixture but the time is already fixed). TF75A and TB2BC say 'a small amount' with no number, so they are not number-matched variants of the 1.4 kg sentences; if they are meant as minimal-pair variants of those, that would be rendering_not_minimal. T1B6E and T7137 state the same 288 K and differ only in wording. T3560 (past tense) and T2703 (present tense) are variants with the same 1.4 kg."
+}

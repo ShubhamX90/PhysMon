@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch03",
+  "item_id": "M0V21-S55",
+  "pass_number": 1,
+  "started_at": "2026-11-16T10:21:00Z", "completed_at": "2026-11-16T10:30:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Kinetic theory of an ideal gas: v_rms = sqrt(3 R T / M) = sqrt(3 * 8.314 * 300 / 0.004) = sqrt(1.87065e6) = 1367.7 m/s",
+    "assumptions": ["ideal gas in thermal equilibrium (Maxwell-Boltzmann distribution)", "molar mass 4 g/mol = 0.004 kg/mol", "non-relativistic classical molecules"],
+    "answer": 1367.7,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TA59B": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null},
+    "T181D": {"stratum": "C", "answer_with_sentence": 1367.7, "regime": null},
+    "TAE95": {"stratum": "C", "answer_with_sentence": 1367.7, "regime": null},
+    "T5F7E": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null},
+    "TB33A": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "T5266": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null},
+    "T9888": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null},
+    "TC501": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TB33A is in the past tense ('A heater warmed this gas sample by 100 K before its molecular speeds were measured') while the problem says the gas 'is' at 300 K, so it can also be read as the 300 K being the temperature after heating (answer 1367.7 m/s) rather than before (1579.3 m/s); TC501 is clearer."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: 3RT/M = 3*8.314*300/0.004 = 1.87065e6 m^2/s^2, v_rms = 1367.7 m/s. With T = 400 K: 2.4942e6, v_rms = 1579.3 m/s. Amount of gas (T181D, TAE95, both 2 mol, wording-only variants): n enters e.g. v_rms = sqrt(3pV/(nM)) via pV = nRT, but cancels, so C. Heating of the other flask (TA59B, T5266) is D: separate flask, no thermal contact stated. Earlier-experiment heating (T5F7E, T9888) is D: gas is now stated to be in equilibrium at 300 K. Number check: TA59B and T5F7E say 'a few kelvin' while T5266, T9888, TB33A, TC501 say '100 K'; if the 'few kelvin' sentences are claimed as same-number variants of 100 K sentences they are not. Clarity is otherwise good; my medium flag concerns the TB33A temporal reading."
+}

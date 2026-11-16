@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch01",
+  "item_id": "M0V21-S07",
+  "pass_number": 1,
+  "started_at": "2026-11-16T00:00:00Z", "completed_at": "2026-11-16T00:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "RC charging: V_C(t) = E (1 - exp(-t/(R C))), tau = R C",
+    "assumptions": ["ideal battery (no internal resistance)", "ideal capacitor (no leakage)", "capacitor initially uncharged (stated)", "lamp circuit is a separate circuit with no electrical connection to the RC circuit"],
+    "answer": 6.608,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "TB645": {"stratum": "D", "answer_with_sentence": 6.608, "regime": null},
+    "TF284": {"stratum": "D", "answer_with_sentence": 6.608, "regime": null},
+    "T7A5D": {"stratum": "R", "answer_with_sentence": 5.414, "regime": null},
+    "T0C95": {"stratum": "R", "answer_with_sentence": 4.504, "regime": null},
+    "TF1CE": {"stratum": "D", "answer_with_sentence": 6.608, "regime": null},
+    "T3314": {"stratum": "R", "answer_with_sentence": 5.414, "regime": null},
+    "T6259": {"stratum": "K", "answer_with_sentence": 6.608, "regime": "break time >= 80 ms (the asked instant); 400 ms is inside, so the circuit is still charging at 80 ms"},
+    "TFA31": {"stratum": "K", "answer_with_sentence": 6.608, "regime": "break time >= 80 ms; 400 ms is inside"},
+    "TC6E4": {"stratum": "R", "answer_with_sentence": 4.504, "regime": null},
+    "TB2B5": {"stratum": "D", "answer_with_sentence": 6.608, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: tau = 20e-6 F x 5000 ohm = 0.1 s; V = 12(1 - e^-0.8) = 12 x 0.550671 = 6.608 V. Break at 60 ms (switch or cut off from battery): the isolated ideal capacitor holds its 60 ms voltage, 12(1 - e^-0.6) = 12 x 0.451188 = 5.414 V. Extra 3.5 kOhm in series (this experiment): R = 8.5 kOhm, tau = 0.17 s, t/tau = 0.470588, V = 12(1 - 0.624635) = 4.504 V. Breaks at 400 ms are after the asked instant (K, regime break time >= 80 ms). Observations: TB645 and TF1CE say 'small resistor' with no number, while their apparent counterparts (TB2B5, TF284) state 3.5 kOhm; if these are intended as variants of the 3.5 kOhm sentences they would not be minimal (number/unit missing), but pass 1 cannot tell the intended pairing. T0C95 uses past tense 'was also connected ... in this experiment', slightly awkward but readable as the present circuit having 8.5 kOhm total. Holding of the capacitor voltage after the break assumes no leakage, a standard idealisation."
+}

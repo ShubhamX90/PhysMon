@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch02",
+  "item_id": "M0V21-S30",
+  "pass_number": 2,
+  "started_at": "2026-11-16T00:06:00Z", "completed_at": "2026-11-16T00:11:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Energy balance P t = m c dT, t = m c dT / P", "assumptions": ["all heater power goes into the water, no losses", "no phase change", "constant c"], "answer": 223.253, "unit": "s"},
+  "stratum_assignments": {
+    "T70ED": {"stratum": "D", "answer_with_sentence": 223.253, "regime": null},
+    "T1B6E": {"stratum": "C", "answer_with_sentence": 223.253, "regime": null},
+    "T3560": {"stratum": "R", "answer_with_sentence": 379.531, "regime": null},
+    "T2703": {"stratum": "R", "answer_with_sentence": 379.531, "regime": null},
+    "TF8E6": {"stratum": "D", "answer_with_sentence": 223.253, "regime": null},
+    "TF75A": {"stratum": "D", "answer_with_sentence": 223.253, "regime": null},
+    "TB2BC": {"stratum": "D", "answer_with_sentence": 223.253, "regime": null},
+    "T7137": {"stratum": "C", "answer_with_sentence": 223.253, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The d_kind for TF8E6 says the event 'leaves no state behind', but emptying the jug after heating does change the final mass and temperature of the water; it only leaves no state that affects the elapsed heating time, so the label is loosely worded."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked: base 2*4186*40/1500 = 223.253 s; R answers (2+q)*4186*40/1500: q=0.8 -> 312.555, 1.4 -> 379.531, 2.6 -> 513.483, all match. Initial temperature: in pass 1 I labelled it K (regime: no boiling). The authors' C is also defensible since T_initial enters Q = m c (T_final - T_initial) and cancels; all listed values 278, 288, 308 K give finals 318-348 K, below 373 K, so liquid throughout and both readings give the same answer. Correction to my pass-1 regime note: the bound is start below about 333 K (boiling 373 K at 1 atm), which I wrote correctly; all values satisfy it. Minimal pairs T70ED/T2703 and TF8E6/T3560 share 1.4 kg and differ only in what happens to the jug; T1B6E/T7137 share 288 K. TB2BC and TF75A are declared numeral-free twins, not number-matched variants, which resolves my pass-1 concern. Starting temperature unstated in the base is a low-level omission since the stated 40 K rise in liquid water presupposes no boiling; I keep it out of the flags here as the given assumptions and conventional reading suffice."
+}

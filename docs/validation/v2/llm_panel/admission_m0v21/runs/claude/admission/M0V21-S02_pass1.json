@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch06",
+  "item_id": "M0V21-S02",
+  "pass_number": 1,
+  "started_at": "2026-11-16T00:00:00Z", "completed_at": "2026-11-16T00:12:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law along the incline (or work-energy): a = g(sin theta - mu_k cos theta); v^2 = 2 a d from rest",
+    "assumptions": ["block starts from rest and slides (stated)", "constant kinetic friction coefficient 0.15", "no air resistance", "rigid fixed incline"],
+    "answer": 5.387,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TF2E8": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null},
+    "TA3BB": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null},
+    "TB9DC": {"stratum": "C", "answer_with_sentence": 5.387, "regime": null},
+    "T867C": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null},
+    "T9812": {"stratum": "C", "answer_with_sentence": 5.387, "regime": null},
+    "TB9E2": {"stratum": "K", "answer_with_sentence": 5.387, "regime": "mu_s < tan(30 deg) = 0.577, so the block released from rest does start to slide; static friction would matter only if mu_s >= tan theta"},
+    "T2055": {"stratum": "R", "answer_with_sentence": 6.919, "regime": null},
+    "T2977": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null},
+    "T635D": {"stratum": "K", "answer_with_sentence": 5.387, "regime": "mu_s < tan(30 deg) = 0.577"},
+    "TA3DC": {"stratum": "D", "answer_with_sentence": 5.387, "regime": null}
+  },
+  "validity": "uncertain",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 3,
+  "uncertain_fields": ["T2055 reading (along-incline vs vertical 'above'; whether the 4 m is measured from the mark)", "TA3DC reading (prior separate run vs continuous motion)"],
+  "defect_flags": ["other", "rendering_not_minimal"],
+  "defect_reasons": {
+    "other": "T2055 ('let go 2.6 m above the mark where its slide begins') sits awkwardly with the base statement that the block is released from rest and slides 4 m: read as 2.6 m along the incline before the 4 m measured from the mark, v = sqrt(2*3.6269*6.6) = 6.92 m/s; read as 2.6 m vertical height, the extra run is 5.2 m and v = 8.17 m/s; TA3DC ('just before that slide') could be read as continuous motion rather than a separate earlier run.",
+    "rendering_not_minimal": "TA3BB and T2977 say 'a short way' with no number while their apparent counterparts (T867C, TF2E8) state 2.6 m; if these are meant as variants of one quantity they do not state the same number."
+  },
+  "defect_severity": {"other": "medium", "rendering_not_minimal": "low"},
+  "counterexamples": [],
+  "notes": "Base: a = 9.8*(0.5 - 0.15*0.866025) = 3.6269 m/s^2; v^2 = 2*3.6269*4 = 29.016; v = 5.387 m/s. Mass cancels (C). Static friction 0.35 < tan30 = 0.577, so the released block does start to slide (K). Earlier-trial and second-block sentences have no physical path to this slide (D), given the base states this slide starts from rest. T2055 answer of 6.919 m/s assumes 2.6 m along the incline added before the 4 m measured from the mark; whether this reading is intended depends on the authors' claim, hence 'uncertain'."
+}

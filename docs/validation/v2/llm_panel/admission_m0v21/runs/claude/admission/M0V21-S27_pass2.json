@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch01",
+  "item_id": "M0V21-S27",
+  "pass_number": 2,
+  "started_at": "2026-11-16T00:26:00Z", "completed_at": "2026-11-16T00:33:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Hydrostatics: P = P_surface + rho g h (Pascal's principle for added surface pressure)",
+    "assumptions": ["liquid at rest", "incompressible liquid of uniform density", "the tank is at least 12 m deep (implied by the question)"],
+    "answer": 218.6,
+    "unit": "kPa"
+  },
+  "stratum_assignments": {
+    "TCA9B": {"stratum": "C", "answer_with_sentence": 218.6, "regime": null},
+    "TEFB3": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null},
+    "T2AA8": {"stratum": "C", "answer_with_sentence": 218.6, "regime": null},
+    "TB1D1": {"stratum": "R", "answer_with_sentence": 233.6, "regime": null},
+    "TD7C4": {"stratum": "R", "answer_with_sentence": 233.6, "regime": null},
+    "T4B9C": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null},
+    "T319B": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null},
+    "TE571": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "For T2AA8 the authors label the quantity 'the tank's cross-sectional area' and use the column relation p = p0 + rho A h g / A, but the sentence states only a flat base area without saying the tank is prismatic; the answer (shape-independent hydrostatic pressure) and the C/irrelevant role still hold, so this is a labelling/derivation looseness, not a wrong answer."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Certified answers check: 101 + 117.6 = 218.6 kPa; with surface rise 7.5/15/35 kPa: 226.1/233.6/253.6 kPa. All D answers 218.6 kPa. Minimal pairs hold: T319B/TB1D1 are identical except 'the second tank' vs 'this tank'; TE571/TD7C4 both state a 15 kPa pump rise to the air above this liquid and differ in 'In an earlier experiment' vs 'Afterwards'. Numeral-free twins TEFB3 and T4B9C are worded as their numbered twins with '15 kPa' replaced by 'small'. Agree with all strata from pass 1. Minor points (not defects): the R sentences rely on reading the question as referring to the state after the 'then'/'afterwards' rise, which is the natural reading; the tank being at least 12 m deep is implied by the question; with a piston resting on it the surface is no longer strictly 'free', but the meaning is clear."
+}

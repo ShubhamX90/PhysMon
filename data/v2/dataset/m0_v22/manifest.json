@@ -1,0 +1,144 @@
+{
+  "base_gold_unchanged": true,
+  "base_prompt_is_october_problem_plus_scene_clause": true,
+  "by_condition_supporting": {
+    "instr_relevance": 55,
+    "nongov_convertible_unit_same_magnitude": 11,
+    "nongov_incompatible_unit_same_digits": 11,
+    "nongov_same_unit_exact": 11,
+    "nongov_same_unit_far": 11,
+    "nongov_same_unit_moderate": 11,
+    "nongov_same_unit_near_high_overlap": 11,
+    "nongov_same_unit_near_low_overlap": 11,
+    "nonnumeric_extra": 11,
+    "numeric_metadata": 11,
+    "relevant_edit": 11,
+    "role_reversal": 11
+  },
+  "by_d_kind_by_structure": {
+    "S01": [
+      "other_object_same_scene",
+      "same_object_other_event"
+    ],
+    "S07": [
+      "other_object_same_scene",
+      "same_object_other_event"
+    ],
+    "S13": [
+      "other_object_same_scene",
+      "same_object_other_event"
+    ],
+    "S15": [
+      "other_object_same_scene",
+      "same_object_other_event"
+    ],
+    "S20": [
+      "other_object_same_scene",
+      "same_object_other_event"
+    ],
+    "S26": [
+      "other_object_same_scene",
+      "same_object_other_event"
+    ],
+    "S27": [
+      "other_object_same_scene",
+      "same_object_other_event"
+    ],
+    "S30": [
+      "other_object_same_scene",
+      "same_object_other_event"
+    ],
+    "S55": [
+      "other_object_same_scene",
+      "same_object_other_event"
+    ],
+    "S72": [
+      "other_object_same_scene"
+    ],
+    "S92": [
+      "other_object_same_scene",
+      "same_object_other_event"
+    ]
+  },
+  "by_d_kind_d_cells": {
+    "other_object_same_scene": 36,
+    "same_object_other_event": 30
+  },
+  "by_family": {
+    "role_by_value": 235,
+    "supporting": 176
+  },
+  "by_family_and_stratum": {
+    "role_by_value/C": 42,
+    "role_by_value/D": 66,
+    "role_by_value/K": 24,
+    "role_by_value/K_out": 4,
+    "role_by_value/N": 22,
+    "role_by_value/R": 66,
+    "role_by_value/none": 11,
+    "supporting/support": 176
+  },
+  "by_stratum": {
+    "C": 42,
+    "D": 66,
+    "K": 24,
+    "K_out": 4,
+    "N": 22,
+    "R": 66,
+    "none": 11,
+    "support": 176
+  },
+  "by_structure": {
+    "S01": 43,
+    "S07": 41,
+    "S13": 37,
+    "S15": 37,
+    "S20": 37,
+    "S26": 31,
+    "S27": 37,
+    "S30": 37,
+    "S55": 37,
+    "S72": 31,
+    "S92": 43
+  },
+  "data_role": "EXPLORATION",
+  "excluded": [],
+  "file_sha256": {
+    "README.md": "be21a0675e59fa8e61e42009be0c5562a395fc0fc288dc7a7b4935449feadaad",
+    "cells.jsonl": "29226f8267b25a28c80baeaad78863a4cbd0448e0af487c05d25b04ce6798004",
+    "certificates.json": "6e662177341494afd396c0f56f30a19d6d82fa19167b33e0e2070bc12dd73043",
+    "traces.jsonl": "83692d3c379400673da1f10778bef9f65bd4b4dff135457591d492a501edf35c"
+  },
+  "instance": 0,
+  "k_out_feasible": {
+    "S01": false,
+    "S07": true,
+    "S13": null,
+    "S15": false,
+    "S20": null,
+    "S26": null,
+    "S27": null,
+    "S30": null,
+    "S55": null,
+    "S72": null,
+    "S92": false
+  },
+  "n_cells": 411,
+  "n_infeasible_conditions": 25,
+  "n_structures": 11,
+  "scene_clauses": {
+    "S01": "A small cart stands on the floor beside the pulley.",
+    "S07": "Beside the circuit, a small lamp is connected to a second battery.",
+    "S13": "A hook is fixed to the wall nearby.",
+    "S15": "A small fan, driven by a second battery, stands beside the circuit.",
+    "S20": "A lamp that stands beside the bench lights the object from one side.",
+    "S26": "A camera on a tripod films the interface.",
+    "S27": "A second tank, filled with the same liquid, stands beside it.",
+    "S30": "A jug stands on the bench beside the heater.",
+    "S55": "The sample is in a flask, and a sample of a different gas is in another flask beside it.",
+    "S72": "A second apparatus beside this one accelerates protons and alpha particles.",
+    "S92": "A second, empty tank stands beside it."
+  },
+  "status": "solver-certified; S20, S26 and S92 changed after the M0 v2.1 panel review and NOT yet re-reviewed; the other eight structures admitted by the Claude judge on M0 v2.1 (not yet reviewed by GPT or a human)",
+  "version": "m0_v2.2"
+}

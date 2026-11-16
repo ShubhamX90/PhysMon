@@ -1,0 +1,47 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch06",
+  "item_id": "M0V21-S02",
+  "pass_number": 2,
+  "started_at": "2026-11-16T00:12:00Z", "completed_at": "2026-11-16T00:24:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law along the incline: a = g(sin theta - mu_k cos theta); v = sqrt(2 a d) from rest",
+    "assumptions": ["block starts from rest", "constant kinetic friction coefficient 0.15", "no air resistance", "fixed rigid incline"],
+    "answer": 5.38661,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TF2E8": {"stratum": "D", "answer_with_sentence": 5.38661, "regime": null},
+    "TA3BB": {"stratum": "D", "answer_with_sentence": 5.38661, "regime": null},
+    "TB9DC": {"stratum": "C", "answer_with_sentence": 5.38661, "regime": null},
+    "T867C": {"stratum": "D", "answer_with_sentence": 5.38661, "regime": null},
+    "T9812": {"stratum": "C", "answer_with_sentence": 5.38661, "regime": null},
+    "TB9E2": {"stratum": "K", "answer_with_sentence": 5.38661, "regime": "mu_s < tan(30 deg) = 0.577"},
+    "T2055": {"stratum": "R", "answer_with_sentence": 6.91922, "regime": null},
+    "T2977": {"stratum": "D", "answer_with_sentence": 5.38661, "regime": null},
+    "T635D": {"stratum": "K", "answer_with_sentence": 5.38661, "regime": "mu_s < tan(30 deg) = 0.577"},
+    "TA3DC": {"stratum": "R", "answer_with_sentence": 6.91922, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["insufficient_boundary_condition", "other"],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TA3DC ('Just before that slide, the block slid 2.6 m down this incline from rest') does not state that the earlier 2.6 m and the 4 m slide are one continuous motion; read as a separate run after which the block was stopped (as I read it blind, and as the base 'released from rest' suggests), the answer is 5.387 m/s, read as continuous it is the certified 6.919 m/s.",
+    "other": "T2055 says the block is let go 2.6 m 'above' the mark; on an incline 'above' can be read as vertical height (extra run 5.2 m, v = 8.17 m/s) rather than 2.6 m along the incline (certified 6.919 m/s), so the wording should say 'further up the incline'."
+  },
+  "defect_severity": {"insufficient_boundary_condition": "high", "other": "medium"},
+  "counterexamples": [
+    "TA3DC read as a separate prior run (block stopped, then released from rest for the 4 m slide): v = 5.387 m/s, not the certified 6.919 m/s.",
+    "T2055 with 2.6 m read as vertical height above the mark: total run 4 + 5.2 = 9.2 m, v = sqrt(2*3.6269*9.2) = 8.17 m/s."
+  ],
+  "notes": "Checked all certified numbers: a = 3.62694 m/s^2; base sqrt(29.0155) = 5.38661; d+q = 5.2, 6.6, 7.4 m give 6.14168, 6.91922, 7.32658 m/s, all correct. Mass cancels (C) correctly; K regime mu_s < tan30 = 0.577 holds for 0.25, 0.35, 0.45. Numeral-free twins and the non-paired TF2E8/T2055 note are fine. Disagreement with my pass 1: I had TA3DC as D (separate earlier run, since the base says the block is released from rest at the start of its 4 m slide); the authors intend continuous motion (R). On reflection the continuous reading is plausible (a block on this incline cannot stop by itself), but the sentence does not state it, and the claimed minimal pair T867C (D) / TA3DC (R) hinges entirely on 'On an earlier trial' versus 'Just before that slide', which a solver can reasonably read as the same kind of prior event. That ambiguity changes the answer, so I flag it high. T2055's 'above' ambiguity is medium since along-incline is the more natural reading given the authors' 'mark where its slide begins' frame."
+}

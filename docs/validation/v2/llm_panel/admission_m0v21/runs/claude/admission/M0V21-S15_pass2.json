@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch04",
+  "item_id": "M0V21-S15",
+  "pass_number": 2,
+  "started_at": "2026-11-16T00:06:00Z", "completed_at": "2026-11-16T00:11:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "P = V^2 (1/R1 + 1/R2) = 144 (1/6 + 1/12)",
+    "assumptions": ["ideal battery", "ideal wires", "ohmic resistors", "fan circuit electrically separate"],
+    "answer": 36.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T003B": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T4B24": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T9064": {"stratum": "R", "answer_with_sentence": 56.25, "regime": null},
+    "T6182": {"stratum": "K", "answer_with_sentence": 36.0, "regime": "V/R1 = 2 A < fuse threshold q"},
+    "T7EC8": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "TD47C": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T164F": {"stratum": "K", "answer_with_sentence": 36.0, "regime": "V/R1 = 2 A < fuse rating q"},
+    "T6E3A": {"stratum": "R", "answer_with_sentence": 56.25, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All strata agree with my pass 1. Checked R answers: (13.5)^2/4 = 45.5625, 15^2/4 = 56.25, 16^2/4 = 64.0 W. K: 6 ohm branch carries 2 A, below every listed rating (3, 5, 10 A); outside the regime only R2 dissipates, V^2/R2 = 12 W, consistent with the reference expression. Minimal pairs T4B24/T6E3A and TD47C/T9064 state the same 3 V and differ only in attachment (second vs first battery; earlier vs this experiment). In pass 1 I provisionally flagged rendering_not_minimal for the numberless 'small cell' sentences; the authors declare T003B and T7EC8 as numeral-free twins (not minimal-pair variants), which they are, so I withdraw that flag here; pass 1 is left unchanged. Minor wording: 'rated at 5 A' is slightly less precise than 'blows only above 5 A', but 2 A is far from either threshold."
+}

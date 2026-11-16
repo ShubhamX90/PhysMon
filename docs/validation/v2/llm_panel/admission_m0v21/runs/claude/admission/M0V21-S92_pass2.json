@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch03",
+  "item_id": "M0V21-S92",
+  "pass_number": 2,
+  "started_at": "2026-11-16T10:09:00Z", "completed_at": "2026-11-16T10:20:00Z", "minutes_spent": 11,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "T = (rho_l - rho_s) a^3 g (Archimedes plus static equilibrium)",
+    "assumptions": ["cube fully submerged and at rest", "incompressible uniform liquid", "light vertical taut string"],
+    "answer": 3.92,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T2EAF": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T5B91": {"stratum": "K", "answer_with_sentence": 3.92, "regime": "T < 50 N (string intact)"},
+    "TA799": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "TB226": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "T8EC5": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "TF251": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null},
+    "T0853": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T7B0C": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "TF230": {"stratum": "K", "answer_with_sentence": 3.92, "regime": "T < 50 N (string intact)"},
+    "TACF8": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["insufficient_boundary_condition"],
+  "defect_reasons": {"insufficient_boundary_condition": "TA799 ('Afterwards, the cube was held completely under a liquid of 1250 kg/m^3') does not say whether the present-tense question refers to the original state (T = 3.92 N) or the later one, nor that the later holding is by the same string in this tank, yet it is certified R with the unique answer 6.37 N; the wiring's 'the tank's liquid is replaced and the string still holds the cube' is not stated in the sentence."},
+  "defect_severity": {"insufficient_boundary_condition": "high"},
+  "counterexamples": ["TA799 read as a later event after the stated configuration (mirroring T0853, 'In an earlier experiment...'): the question 'What is the tension in the string?' about the stated setup gives 3.92 N, not the certified 6.37 N; read as a later event held some other way (by hand, a rod), the string tension is not defined by the sentence at all."],
+  "notes": "Verified: base T = (1000-600)(1e-3)(9.8) = 3.92 N. R answers for TB226: (1150-600)*0.0098 = 5.39, (1250-600)*0.0098 = 6.37, (1350-600)*0.0098 = 7.35 N, correct. K regime T < q holds for 30, 50, 80 N (3.92 N < 30 N); counter-regime q = 2 N correct. C cancellation for depth: (rho_l g (q+a) - rho_l g q) a^2 = rho_l g a^3, independent of q, correct; depths 20-80 cm are plausible though tank depth is unstated (not answer-deciding). D claims for T2EAF, T8EC5 (second tank) and T0853, T7B0C (earlier experiment) hold. Numeral-free twins T7B0C and T8EC5 differ from their twins only by replacing '1250 kg/m^3' with 'different from the original's', as declared. Minimal pairs T0853/TA799 and T2EAF/TB226 share 1250 kg/m^3 and differ only in attachment, as intended. Disagreement with my pass 1: in pass 1 I assigned TA799 as D (later separate event) and flagged it low; having seen the authors intend it as the configuration the question asks about, I accept R is one defensible reading but the sentence does not fix it, so the item's certified answer for TA799 is not unique; I now rate this high under rule 1. TB226 is unambiguous R. Everything else in the item is correct."
+}

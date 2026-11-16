@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch01",
+  "item_id": "M0V21-S27",
+  "pass_number": 1,
+  "started_at": "2026-11-16T00:18:00Z", "completed_at": "2026-11-16T00:25:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Hydrostatics: P = P_surface + rho g h (Pascal's principle for added surface pressure)",
+    "assumptions": ["liquid at rest", "incompressible liquid of uniform density", "the tank is at least 12 m deep (implied by the question)"],
+    "answer": 218.6,
+    "unit": "kPa"
+  },
+  "stratum_assignments": {
+    "TCA9B": {"stratum": "C", "answer_with_sentence": 218.6, "regime": null},
+    "TEFB3": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null},
+    "T2AA8": {"stratum": "C", "answer_with_sentence": 218.6, "regime": null},
+    "TB1D1": {"stratum": "R", "answer_with_sentence": 233.6, "regime": null},
+    "TD7C4": {"stratum": "R", "answer_with_sentence": 233.6, "regime": null},
+    "T4B9C": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null},
+    "T319B": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null},
+    "TE571": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: 101 kPa + 1000 x 9.8 x 12 Pa = 101000 + 117600 = 218600 Pa = 218.6 kPa. Area sentences (cross-section, base area 2 m^2): the area enters a force balance on the column (P = P0 + rho g A h / A) and cancels, so C; pressure at depth is independent of vessel shape anyway. 15 kPa added to this tank by piston or pump (later in time): Pascal's principle raises pressure everywhere by 15 kPa, 233.6 kPa, assuming the question refers to the final state, which 'then'/'afterwards' implies; a reader could ask whether the question refers to before or after, a minor wording point. Rises in the second tank or in an earlier experiment (surface pressure now stated as 101 kPa) are D. Paired sentences state the same 15 kPa; the 'small pressure rise' sentences have no number. The tank depth of at least 12 m is implied rather than stated."
+}

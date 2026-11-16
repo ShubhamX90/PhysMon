@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch01",
+  "item_id": "M0V21-S07",
+  "pass_number": 2,
+  "started_at": "2026-11-16T00:09:00Z", "completed_at": "2026-11-16T00:17:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "RC charging: V_C(t) = E (1 - exp(-t/(R C))), tau = R C",
+    "assumptions": ["ideal battery (no internal resistance)", "ideal capacitor (no leakage)", "capacitor initially uncharged (stated)", "lamp circuit is a separate circuit"],
+    "answer": 6.608,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "TB645": {"stratum": "D", "answer_with_sentence": 6.60805, "regime": null},
+    "TF284": {"stratum": "D", "answer_with_sentence": 6.60805, "regime": null},
+    "T7A5D": {"stratum": "R", "answer_with_sentence": 5.41426, "regime": null},
+    "T0C95": {"stratum": "R", "answer_with_sentence": 4.50438, "regime": null},
+    "TF1CE": {"stratum": "D", "answer_with_sentence": 6.60805, "regime": null},
+    "T3314": {"stratum": "R", "answer_with_sentence": 5.41426, "regime": null},
+    "T6259": {"stratum": "K", "answer_with_sentence": 6.60805, "regime": "break time q >= t = 80 ms"},
+    "TFA31": {"stratum": "K", "answer_with_sentence": 6.60805, "regime": "break time q >= t = 80 ms"},
+    "TC6E4": {"stratum": "R", "answer_with_sentence": 4.50438, "regime": null},
+    "TB2B5": {"stratum": "D", "answer_with_sentence": 6.60805, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {"missing_assumption": "For the 60 ms break sentences (T7A5D, T3314) the answer relies on the capacitor not leaking, which the problem text does not state; this is a standard idealisation of an ideal capacitor and is listed in the authors' assumptions, so it does not make the item wrong."},
+  "defect_severity": {"missing_assumption": "low"},
+  "counterexamples": [],
+  "notes": "Checked all certified answers independently: base tau = 0.1 s, 12(1-e^-0.8) = 6.60805 V. Extra series R: 1.5 kOhm -> tau 0.13 s, x = 0.61538, 12(1-0.540433) = 5.5148 V; 3.5 kOhm -> tau 0.17 s, 4.50438 V; 7 kOhm -> tau 0.24 s, x = 1/3, 12(1-0.716531) = 3.40163 V. Break at 30 ms: 12(1-e^-0.3) = 3.11018 V; at 60 ms: 12(1-e^-0.6) = 5.41426 V. K values 250/400/750 ms all exceed 80 ms, answer unchanged. The regime predicate 'q > t' excludes the boundary q = t, at which the answer is also unchanged; no listed value reaches it, so this is immaterial. Minimal pairs hold: TB2B5/T0C95 share '3.5 kOhm resistor ... in series with the capacitor' and differ in 'earlier experiment' vs 'also ... this experiment'; TF284/TC6E4 share 3.5 kOhm in series and differ in attachment (lamp loop vs charging loop). TB645 and TF1CE are declared numeral-free twins of TB2B5 and TF284 rather than variants of the numbered sentences, which resolves my pass-1 observation about the missing numbers; no disagreement with my pass-1 strata or answers. T0C95's past tense ('was also connected ... in this experiment') is slightly awkward but unambiguous."
+}

@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch03",
+  "item_id": "M0V21-S55",
+  "pass_number": 2,
+  "started_at": "2026-11-16T10:31:00Z", "completed_at": "2026-11-16T10:40:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "v_rms = sqrt(3 R T / M)",
+    "assumptions": ["ideal classical gas in thermal equilibrium", "M = 0.004 kg/mol"],
+    "answer": 1367.72,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TA59B": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null},
+    "T181D": {"stratum": "C", "answer_with_sentence": 1367.72, "regime": null},
+    "TAE95": {"stratum": "C", "answer_with_sentence": 1367.72, "regime": null},
+    "T5F7E": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null},
+    "TB33A": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "T5266": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null},
+    "T9888": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null},
+    "TC501": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TB33A's past tense ('warmed ... before its molecular speeds were measured') next to the problem's present-tense 'is in thermal equilibrium at 300 K' admits a minority reading in which 300 K is already the post-heating temperature (1367.72 m/s); the intended reading (300 K then +100 K, 1579.3 m/s) is the more natural one because the heating is tied to the measurement, and TC501 states it unambiguously."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Verified numbers: base 3*8.314*300/0.004 = 1.87065e6, sqrt = 1367.72 m/s. R answers: T = 350 K gives sqrt(2.182425e6) = 1477.30; 400 K gives sqrt(2.4942e6) = 1579.30; 500 K gives sqrt(3.11775e6) = 1765.72 m/s; all correct. C claim for amount of gas: sqrt(2*(3/2)qRT/(qM)) = sqrt(3RT/M), q cancels, correct; T181D and TAE95 both state 2 mol and differ only in wording. D claims: other flask (T5266, TA59B) has no stated thermal contact, and earlier-experiment heating (T9888, T5F7E) leaves the sample at the stated 300 K; correct. The 'a few kelvin' sentences are declared numeral-free twins of the 100 K sentences, which resolves my pass-1 number concern; they differ from their twins only in that phrase. Minimal pairs T5266/TC501 (other sample vs this sample) and T9888/TB33A (earlier experiment vs before measurement) share 100 K and differ only in attachment, as intended. Relations and unit handling (M in kg/mol) are consistent. No disagreement with pass 1 strata; I keep the TB33A wording concern at medium."
+}

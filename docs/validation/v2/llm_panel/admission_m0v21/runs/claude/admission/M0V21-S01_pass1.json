@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch02",
+  "item_id": "M0V21-S01",
+  "pass_number": 1,
+  "started_at": "2026-11-16T00:11:00Z", "completed_at": "2026-11-16T00:18:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Newton's second law for each block plus rotational dynamics of the pulley (I = M R^2/2, no slip a = alpha R): a = (m2 - m1) g / (m1 + m2 + M/2)", "assumptions": ["light inextensible string", "frictionless pulley axle, fixed axle", "uniform solid disc pulley", "no slip"], "answer": 2.1778, "unit": "m/s^2"},
+  "stratum_assignments": {
+    "TB678": {"stratum": "K", "answer_with_sentence": 2.1778, "regime": "string intact: tensions (about 35.9 N and 38.1 N) are below the 250 N breaking limit"},
+    "T03FB": {"stratum": "R", "answer_with_sentence": 1.0889, "regime": null},
+    "T04F9": {"stratum": "C", "answer_with_sentence": 2.1778, "regime": null},
+    "T1DC5": {"stratum": "C", "answer_with_sentence": 2.1778, "regime": null},
+    "T3A22": {"stratum": "K", "answer_with_sentence": 2.1778, "regime": "string intact: tensions below 250 N"},
+    "TADCF": {"stratum": "D", "answer_with_sentence": 2.1778, "regime": null},
+    "T74F8": {"stratum": "R", "answer_with_sentence": 1.0889, "regime": null},
+    "T16A5": {"stratum": "D", "answer_with_sentence": 2.1778, "regime": null},
+    "T19E4": {"stratum": "D", "answer_with_sentence": 2.1778, "regime": null},
+    "T775F": {"stratum": "D", "answer_with_sentence": 2.1778, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: a = 2*9.8/(3+5+1) = 19.6/9 = 2.1778 m/s^2. Tensions: T_left = 3(9.8+2.178) = 35.93 N, T_right = 5(9.8-2.178) = 38.11 N. With 0.9 kg added to the left side: a = 1.1*9.8/(3.9+5+1) = 10.78/9.9 = 1.0889 m/s^2; tensions about 42.5 N and 43.6 N, still under 250 N. Radius cancels since torque (T2-T1)R = (M R^2/2)(a/R). Variant checks: TB678/T3A22 both 250 N; T04F9/T1DC5 both 12 cm; T03FB/TADCF/T74F8/T19E4 all 0.9 kg; T16A5/T775F carry no number (presumably numeral-free twins). Frictionless axle is a standard idealisation and is not stated."
+}

@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch05",
+  "item_id": "M0V21-S26",
+  "pass_number": 2,
+  "started_at": "2026-11-16T10:08:30Z", "completed_at": "2026-11-16T10:15:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Snell's law n1 sin(theta1) = n2 sin(theta2)", "assumptions": ["flat interface, isotropic media", "angles measured from the normal"], "answer": 25.374, "unit": "degree"},
+  "stratum_assignments": {
+    "TE499": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "T7C68": {"stratum": "R", "answer_with_sentence": 31.205, "regime": null},
+    "T2A20": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "T5C47": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "T0CA4": {"stratum": "R", "answer_with_sentence": 31.205, "regime": null},
+    "T200C": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "T7C68 is in the past tense ('was tilted ... after the angle of incidence was set') next to the present-tense 'is 40 degrees', which is slightly awkward, though the intended reading (incidence now 51 degrees) is clear."
+  },
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Checked certified answers: theta1 = 46 deg gives asin(0.71934/1.5) = 28.657 deg; 51 deg gives asin(0.77715/1.5) = 31.205 deg; 54 deg gives asin(0.80902/1.5) = 32.639 deg; base 40 deg gives 25.374 deg. All match. Strata match my pass 1. The minimal pair T2A20/T7C68 shares number and unit (11 deg) and differs only in timing/attachment ('in an earlier experiment' vs 'after the angle of incidence was set'): holds. TE499 is correctly declared not a minimal pair with T0CA4. T5C47 and T200C are declared numeral-free twins rather than minimal pairs, so the rendering_not_minimal concern from my pass 1 does not apply; I drop it here. All values stay below the critical-angle issue (light goes into the denser medium, so there is no total internal reflection)."
+}

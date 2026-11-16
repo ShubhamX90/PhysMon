@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v21_admission:batch05",
+  "item_id": "M0V21-S72",
+  "pass_number": 1,
+  "started_at": "2026-11-16T10:16:00Z", "completed_at": "2026-11-16T10:24:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "de Broglie lambda = h/p with non-relativistic p = sqrt(2 m K), so lambda = hc / sqrt(2 mc^2 K)", "assumptions": ["non-relativistic electron (stated)", "starts from rest so total KE equals energy gained (stated)", "hc = 1240 eV nm, mc^2 = 511 keV (stated)"], "answer": 0.10015, "unit": "nm"},
+  "stratum_assignments": {
+    "TD0E0": {"stratum": "D", "answer_with_sentence": 0.10015, "regime": null},
+    "TC8A0": {"stratum": "R", "answer_with_sentence": 0.07918, "regime": null},
+    "TF42A": {"stratum": "D", "answer_with_sentence": 0.10015, "regime": null},
+    "T3B16": {"stratum": "D", "answer_with_sentence": 0.10015, "regime": null},
+    "TE877": {"stratum": "R", "answer_with_sentence": 0.07918, "regime": null},
+    "TCF3D": {"stratum": "D", "answer_with_sentence": 0.10015, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "TF42A, T3B16, TD0E0 and TCF3D refer to 'the proton' / 'the alpha particle' with a definite article although the problem only says the second apparatus accelerates protons and alpha particles (plural); minor wording."
+  },
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base: sqrt(2 x 511000 eV x 150 eV) = sqrt(1.533e8) = 12381.4 eV; lambda = 1240/12381.4 = 0.10015 nm. With 150 + 90 = 240 eV: sqrt(2.4528e8) = 15661.4 eV; lambda = 1240/15661.4 = 0.07918 nm. Both energies are far below 511 keV, so the non-relativistic treatment is fine. The proton and alpha sentences concern particles in a separate apparatus: D. Numbered variants all state 90 eV; T3B16 and TD0E0 are numeral-free versions."
+}
