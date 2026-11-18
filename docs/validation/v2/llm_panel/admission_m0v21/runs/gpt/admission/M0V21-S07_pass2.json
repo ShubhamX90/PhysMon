@@ -1,0 +1,112 @@
+{
+  "item_id": "M0V21-S07",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For an initially uncharged ideal capacitor, VC(t) = V0[1 - exp(-t/(RC))]. Here RC = 0.100 s, giving VC(0.080 s) = 6.60805 V. An added series resistor replaces R by R + q. Opening the charging loop at time q makes the ideal capacitor retain V0[1 - exp(-min(t,q)/(RC))].",
+    "assumptions": [
+      "The capacitor is initially uncharged and does not leak.",
+      "The battery and wires are ideal and the resistors are ohmic.",
+      "Opening or disconnecting the circuit introduces no discharge path.",
+      "The voltage measurement does not load the capacitor."
+    ],
+    "answer": 6.60805,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "TB645": {
+      "stratum": "D",
+      "answer_with_sentence": 6.60805,
+      "regime": null
+    },
+    "TF284": {
+      "stratum": "D",
+      "answer_with_sentence": 6.60805,
+      "regime": null
+    },
+    "T7A5D": {
+      "stratum": "R",
+      "answer_with_sentence": 5.41426,
+      "regime": null
+    },
+    "T0C95": {
+      "stratum": "R",
+      "answer_with_sentence": 4.50438,
+      "regime": null
+    },
+    "TF1CE": {
+      "stratum": "D",
+      "answer_with_sentence": 6.60805,
+      "regime": null
+    },
+    "T3314": {
+      "stratum": "R",
+      "answer_with_sentence": 5.41426,
+      "regime": null
+    },
+    "T6259": {
+      "stratum": "K",
+      "answer_with_sentence": 6.60805,
+      "regime": "Opening occurs after observation: q > 80 ms."
+    },
+    "TFA31": {
+      "stratum": "K",
+      "answer_with_sentence": 6.60805,
+      "regime": "Disconnection occurs after observation: q > 80 ms."
+    },
+    "TC6E4": {
+      "stratum": "R",
+      "answer_with_sentence": 4.50438,
+      "regime": null
+    },
+    "TB2B5": {
+      "stratum": "D",
+      "answer_with_sentence": 6.60805,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "other"
+  ],
+  "defect_reasons": {
+    "other": "The explanations for T3314 and T7A5D falsely claim that the in-regime answer does not need a non-leaking capacitor: leakage changes the charging voltage before disconnection as well."
+  },
+  "defect_severity": {
+    "other": "high"
+  },
+  "counterexamples": [
+    "To test the claim that the in-regime answer does not require a non-leaking capacitor, model leakage by a 5 kΩ resistance across the 20 μF capacitor, retaining the 5 kΩ charging resistor and 12 V ideal battery. With disconnection at 400 ms, the voltage at 80 ms is 6[1-exp(-0.080/0.050)] = 4.78862 V, rather than 6.60805 V."
+  ],
+  "notes": "All certified numerical answers at every listed value, the wiring descriptions, units, strata, and stated timing regimes agree with my pass-1 work. The numerical resistor minimal pairs preserve 3.5 kΩ and change the intended attachment; the numeral-free twins also match their claims. My pass-1 physics conclusions remain unchanged. The pass-2 invalid verdict concerns only the newly disclosed false claim about the non-leakage assumption. Future disconnection remains temporally irrelevant when leakage is present, but the certified in-regime voltage does require the stated non-leakage assumption. The strict timing predicate omits the exact boundary q = t, which affects no listed value.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v21_admission",
+  "started_at": "2026-11-16T15:52:46+00:00",
+  "completed_at": "2026-11-16T15:55:21+00:00",
+  "minutes_spent": 2.59,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a367ff9dfd3021c5759a1ef9348fb084b692980f640ab4e54757fef858e922f7",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

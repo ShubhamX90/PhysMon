@@ -1,0 +1,112 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v21_admission",
+  "item_id": "M0V21-S13",
+  "pass_number": 2,
+  "started_at": "2026-11-16T15:52:46+00:00",
+  "completed_at": "2026-11-16T15:55:21+00:00",
+  "minutes_spent": 2.58,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The small-angle equation is m L_eff² θ̈ = −m g L_eff θ, giving T = 2π√(L_eff/g). The base length 0.8 m gives 1.7952 s. A retained series cord of length q gives L_eff = 0.8 m + q and periods 2.10505, 2.28843 and 2.45817 s for q = 0.3, 0.5 and 0.7 m, respectively.",
+    "assumptions": [
+      "The small bob is treated as a point mass.",
+      "The suspension point is fixed and the suspension remains taut.",
+      "The light string and any series cord are inextensible, with negligible damping.",
+      "An earlier cord must have been removed for the historical sentences to leave the current period unchanged; its removal is not stated."
+    ],
+    "answer": 1.7952,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TF6EE": {
+      "stratum": "R",
+      "answer_with_sentence": 2.28843,
+      "regime": null
+    },
+    "T0341": {
+      "stratum": "R",
+      "answer_with_sentence": 2.28843,
+      "regime": null
+    },
+    "TB108": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "TAEF3": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T3F01": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T6F5A": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T36E7": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "TC778": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [
+    "Whether the cords in TB108 and T6F5A remain attached during the current oscillation."
+  ],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "hidden_coupling",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TB108 and T6F5A do not establish whether the earlier cord was removed, so the current pivot-to-bob distance and period are not uniquely determined.",
+    "hidden_coupling": "The claimed historical-event disconnection fails if the earlier cord remains attached, because its length then contributes directly to the current pendulum length.",
+    "rendering_not_minimal": "TB108 and T36E7 replace 0.5 m with 'short', so the full cord-variant set does not preserve the same number and unit, although the packet explicitly identifies these as numeral-free controls."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "hidden_coupling": "high",
+    "rendering_not_minimal": "low"
+  },
+  "counterexamples": [
+    "For T6F5A at q = 0.5 m, removing the cord after the earlier experiment gives 1.7952 s, while retaining it gives 2.28843 s; both histories satisfy the sentence.",
+    "For T6F5A with the earlier cord retained, the periods at q = 0.3, 0.5 and 0.7 m are 2.10505, 2.28843 and 2.45817 s, contradicting the claimed invariance.",
+    "For TB108, retaining a short 0.1 m cord gives approximately 1.9041 s, whereas removing it gives 1.7952 s."
+  ],
+  "notes": "The base relation, series-length wiring, mass cancellation, dimensions and numerical calculations are correct under the intended simple-pendulum model. The wall-cord sentences are disconnected under the stated scene interpretation. The D assignments for TB108 and T6F5A record the authors' intended interpretation and require cord removal; the sentences alone also permit an R interpretation. An earlier experiment being over does not establish that its apparatus was dismantled. Relative to pass 1, I downgrade the numeral-omission flag to low because pass 2 explicitly declares those sentences numeral-free controls rather than falsely claiming that they preserve the numerical value and unit. Both explicitly claimed numerical minimal pairs retain 0.5 m. All displayed answers have adequate numerical precision; answer_correct is false because the historical sentences do not guarantee their certified answers.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "b0128a5e424727bcfa242aaf767e8184dc21fcacb49c982a9affec15a109e24b",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

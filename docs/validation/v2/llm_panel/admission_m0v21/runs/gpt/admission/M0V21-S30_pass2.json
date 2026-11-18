@@ -1,0 +1,110 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v21_admission",
+  "item_id": "M0V21-S30",
+  "pass_number": 2,
+  "started_at": "2026-11-16T15:58:00+00:00",
+  "completed_at": "2026-11-16T16:06:04+00:00",
+  "minutes_spent": 8.06,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation gives Pt = mcΔT under the intended lossless, constant-specific-heat model. The base time is 2×4186×40/1500 = 223.253333 s. Adding a mass q before heating gives t = (2+q)×4186×40/1500.",
+    "assumptions": [
+      "The heater supplies constant power.",
+      "There is no heat loss or energy absorbed by the vessel.",
+      "The water undergoes sensible heating without a phase transition, with constant specific heat.",
+      "Water added before heating starts has the same initial temperature and becomes part of the heated mass.",
+      "The elapsed time ends when the heated water first reaches the specified temperature increase."
+    ],
+    "answer": 223.2533333333,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T70ED": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "T1B6E": {
+      "stratum": "C",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "T3560": {
+      "stratum": "R",
+      "answer_with_sentence": 379.5306666667,
+      "regime": null
+    },
+    "T2703": {
+      "stratum": "R",
+      "answer_with_sentence": 379.5306666667,
+      "regime": null
+    },
+    "TF8E6": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "TF75A": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "TB2BC": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "T7137": {
+      "stratum": "C",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The rendered problem does not state negligible heat losses or exclude a phase transition during the temperature rise; these answer-determining restrictions appear only in the authors' supporting model."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    {
+      "case": "The heater delivers 1500 W to the water while the water transfers 500 W to its surroundings throughout heating.",
+      "result": "The net heating power is 1000 W, giving 334.88 s for 2 kg and a 40 K rise."
+    },
+    {
+      "case": "The initial water temperature is 350 K in an open vessel at ordinary atmospheric pressure.",
+      "result": "The requested rise to 390 K crosses boiling; the liquid-water specific heat alone does not determine the required heating time."
+    }
+  ],
+  "notes": "All certified numerical answers are correct under the authors' intended assumptions. For added masses 0.8, 1.4 and 2.6 kg, the times are respectively 312.554667, 379.530667 and 513.482667 s, agreeing with the displayed rounding. Initial temperatures 278, 288 and 308 K give final temperatures 318, 328 and 348 K, all within the ordinary liquid-water range. I revise my pass-1 temperature classifications from K to C because the declared constant-specific-heat, lossless model explicitly contains the initial temperature and cancels it through (q+ΔT)-q. This classification presupposes that model. I also withdraw the pass-1 rendering_not_minimal flag: the two unquantified sentences are explicitly identified as intentional numeral-free twins, whereas both explicitly claimed minimal pairs preserve 1.4 kg and change the intended timing or participation. The supporting assumptions explain the intended solution but are not included in the problem presented to the solver. equation_consistent and answer_correct refer to correctness under those supporting assumptions, rather than uniqueness from the rendered problem alone.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "841352131d158278aa0004edff39d29b8206a64c91d65aa68a5cad62f6823e3d",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

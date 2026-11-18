@@ -1,0 +1,129 @@
+{
+  "judges": [
+    "claude",
+    "gpt"
+  ],
+  "min_judges": 2,
+  "naturalness_judges": [],
+  "sentences": {
+    "NAT-0DC8AB85": {
+      "label": "R1",
+      "ratings": {},
+      "slightly_artificial": false,
+      "status": "PENDING",
+      "stratum": "R",
+      "structure_id": "S26",
+      "twin_gap": []
+    },
+    "NAT-59073C77": {
+      "label": "D0",
+      "ratings": {},
+      "slightly_artificial": false,
+      "status": "PENDING",
+      "stratum": "D",
+      "structure_id": "S26",
+      "twin_gap": []
+    },
+    "NAT-8A49251F": {
+      "label": "N1",
+      "ratings": {},
+      "slightly_artificial": false,
+      "status": "PENDING",
+      "stratum": "N",
+      "structure_id": "S26",
+      "twin_gap": []
+    },
+    "NAT-9294DFE2": {
+      "label": "R0",
+      "ratings": {},
+      "slightly_artificial": false,
+      "status": "PENDING",
+      "stratum": "R",
+      "structure_id": "S26",
+      "twin_gap": []
+    },
+    "NAT-C24B86F0": {
+      "label": "D1",
+      "ratings": {},
+      "slightly_artificial": false,
+      "status": "PENDING",
+      "stratum": "D",
+      "structure_id": "S26",
+      "twin_gap": []
+    },
+    "NAT-FFD919C4": {
+      "label": "N0",
+      "ratings": {},
+      "slightly_artificial": false,
+      "status": "PENDING",
+      "stratum": "N",
+      "structure_id": "S26",
+      "twin_gap": []
+    }
+  },
+  "standard": "docs/registry/v2/g1/dataset_admission_standard.md sections 5.2, 5.3, 6.1 (6.1 as amended 2026-11-15)",
+  "structure_counts": {
+    "REJECT": 1
+  },
+  "structures": {
+    "M0V22B-S26": {
+      "blind_stratum_agreement": {
+        "claude": {
+          "available": true,
+          "checked": 6,
+          "mismatches": []
+        },
+        "gpt": {
+          "available": true,
+          "checked": 6,
+          "mismatches": []
+        }
+      },
+      "judges": {
+        "claude": {
+          "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+          "flags": [
+            {
+              "flag": "other",
+              "reason": "With T4914 (and to a lesser degree T6894) the text does not say explicitly whether the stated 40 degree angle of incidence is the angle before or after the 11 degree tilt; the intended reading (tilt from 40 to 51 degrees) gives the certified 31.2047 degrees, but a reader could take 40 degrees as the angle at observation.",
+              "severity": "medium"
+            }
+          ],
+          "status": "PASS",
+          "validity": "valid",
+          "warnings": []
+        },
+        "gpt": {
+          "admission_category": "ANSWER_AMBIGUOUS",
+          "flags": [
+            {
+              "flag": "insufficient_boundary_condition",
+              "reason": "T4914 places the tilt before observation but does not establish whether the stated 40-degree incidence angle describes the ray before or after that tilt, leaving materially different refraction angles possible.",
+              "severity": "high"
+            }
+          ],
+          "status": "FAIL",
+          "validity": "invalid",
+          "warnings": []
+        }
+      },
+      "naturalness": {
+        "pending": 6,
+        "rewrite": [],
+        "sentences": 6,
+        "slightly_artificial": []
+      },
+      "notes": [
+        "judges disagree on medium flags (recorded, not a rejection): {\"claude\": [\"other\"], \"gpt\": []}"
+      ],
+      "ready": false,
+      "reasons": [
+        "gpt: validity is invalid",
+        "gpt: high flag insufficient_boundary_condition: T4914 places the tilt before observation but does not establish whether the stated 40-degree incidence angle describes the ray before or after that tilt, leaving materially different refraction angles possible."
+      ],
+      "status": "REJECT",
+      "structure_id": "S26"
+    }
+  },
+  "title": "m0v22b admission, Claude + GPT"
+}

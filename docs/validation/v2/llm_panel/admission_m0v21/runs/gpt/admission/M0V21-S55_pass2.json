@@ -1,0 +1,111 @@
+{
+  "item_id": "M0V21-S55",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Equipartition gives (1/2)nM v_rms^2 = (3/2)nRT, so v_rms = sqrt(3RT/M). Using M = 0.004 kg/mol gives sqrt(1870650) = 1367.72 m/s.",
+    "assumptions": [
+      "Classical thermal equilibrium, with molecular speeds measured in the flask's rest frame.",
+      "For the authors' heating answers, 300 K is the initial temperature and the sample reaches equilibrium at 300 K plus the stated temperature rise before measurement.",
+      "For the authors' other-flask invariance, heating the other flask transfers no heat to the target sample."
+    ],
+    "answer": 1367.72,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TA59B": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T181D": {
+      "stratum": "C",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "TAE95": {
+      "stratum": "C",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "T5F7E": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "TB33A": {
+      "stratum": "R",
+      "answer_with_sentence": 1579.3,
+      "regime": null
+    },
+    "T5266": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T9888": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "TC501": {
+      "stratum": "R",
+      "answer_with_sentence": 1579.3,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TB33A does not establish whether its completed heating event precedes or follows the stated 300 K equilibrium, so the measurement temperature is not uniquely specified.",
+    "missing_assumption": "The rendered problem does not state thermal isolation between the adjacent flasks, although the authors' D classifications require heating the other sample to leave the target sample's temperature unchanged."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "TB33A",
+      "description": "Heating from 200 K to the stated present equilibrium temperature of 300 K before measurement satisfies the past-tense statement and gives 1367.72 m/s; heating from the stated initial 300 K to 400 K gives 1579.30 m/s."
+    },
+    {
+      "sentence_id": "T5266",
+      "description": "If the adjacent flasks exchange heat, holding the other sample at 400 K after its 100 K warming can bring the target sample from 300 K toward 400 K before measurement, changing its rms speed toward 1579.30 m/s."
+    }
+  ],
+  "notes": "All certified numerical values follow from the intended model: temperatures of 350, 400 and 500 K give 1477.30, 1579.30 and 1765.72 m/s, respectively. The cancellation relations are correct for every listed positive amount, and the molar-energy relations correctly require M in kg/mol. The declared numerical minimal pairs preserve 100 K and change the attachment as intended. Pass 2 explicitly identifies TA59B and T5F7E as numeral-free controls, so I withdraw pass 1's rendering_not_minimal objection. On reconsideration, pass 1's other-flask D assignments assumed thermal isolation that the rendered problem never states; their R assignments here indicate a possible thermal dependency, with null answers because heat transfer is unspecified. Under explicit thermal isolation both would be D with answer 1367.72 m/s. TB33A's displayed R answer uses the authors' intended chronology, but its alternative chronology remains possible. The authors' explanatory notes establish their intent without supplying the missing conditions in the problem presented to a solver.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v21_admission",
+  "started_at": "2026-11-16T16:07:07+00:00",
+  "completed_at": "2026-11-16T16:08:31+00:00",
+  "minutes_spent": 1.39,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "dbfe90a9fbde5c8b21c322c551d4ea432455fc75eaff7bc0d740c4753d913d45",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

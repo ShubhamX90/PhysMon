@@ -1,0 +1,108 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v21_admission",
+  "item_id": "M0V21-S30",
+  "pass_number": 1,
+  "started_at": "2026-11-16T15:55:21+00:00",
+  "completed_at": "2026-11-16T15:57:59+00:00",
+  "minutes_spent": 2.63,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For constant specific heat and net heating power, Pt = mcΔT. Thus t = (2)(4186)(40)/1500 = 223.2533 s. Adding 1.4 kg before heating gives t = (3.4)(4186)(40)/1500 = 379.5307 s.",
+    "assumptions": [
+      "The heater supplies constant power throughout heating.",
+      "All delivered energy increases the water's sensible heat; heat losses and vessel heat capacity are negligible.",
+      "The water remains liquid throughout the temperature increase, with the stated constant specific heat.",
+      "Water added before heating starts has the same initial temperature and joins the heated mass.",
+      "The target temperature increase is reached before any explicitly post-heating addition."
+    ],
+    "answer": 223.2533333333,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T70ED": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "T1B6E": {
+      "stratum": "K",
+      "answer_with_sentence": 223.2533333333,
+      "regime": "Constant specific heat, negligible heat loss, and no phase transition throughout the 40 K rise; 288–328 K lies within the liquid-water range at ordinary atmospheric pressure."
+    },
+    "T3560": {
+      "stratum": "R",
+      "answer_with_sentence": 379.5306666667,
+      "regime": null
+    },
+    "T2703": {
+      "stratum": "R",
+      "answer_with_sentence": 379.5306666667,
+      "regime": null
+    },
+    "TF8E6": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "TF75A": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "TB2BC": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "T7137": {
+      "stratum": "K",
+      "answer_with_sentence": 223.2533333333,
+      "regime": "Constant specific heat, negligible heat loss, and no phase transition throughout the 40 K rise; 288–328 K lies within the liquid-water range at ordinary atmospheric pressure."
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The stated heating time requires negligible heat losses and a temperature interval containing no phase transition, neither of which is specified in the base problem.",
+    "rendering_not_minimal": "TF75A and TB2BC replace the quantitative jug-water mass of 1.4 kg with an unspecified 'small amount', violating the requirement that variants retain the same number and unit."
+  },
+  "defect_severity": {
+    "missing_assumption": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    {
+      "case": "The heater supplies 1500 W while the water loses 500 W to its surroundings throughout heating.",
+      "result": "The net heating power is 1000 W, giving 334.88 s for the original 2 kg instead of 223.2533 s."
+    },
+    {
+      "case": "The initial water temperature is 350 K at ordinary atmospheric pressure.",
+      "result": "A 40 K rise crosses the boiling temperature; the supplied liquid specific heat alone cannot determine the time, and an open vessel cannot retain liquid water up to 390 K."
+    }
+  ],
+  "notes": "Numerical answers and stratum assignments use the explicitly listed ideal heating assumptions. Post-heating additions are classified D because they occur after the original heated water reaches the target; subsequent mixing would change its temperature but cannot change that earlier elapsed time. The two 288 K sentences preserve the same quantity and unit. The explicitly quantified jug sentences consistently use 1.4 kg, but the two 'small amount' renderings do not.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "d036f9d689ad7150b62a9f7a96af9d05cc0b52b574c725a1b8ee7d9bfac65273",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "item_id": "M0V22B-S26",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Snell's law: n1 sin(theta_i) = n2 sin(theta_r), so theta_r = arcsin(sin(40 degrees)/1.5).",
+    "assumptions": [
+      "Standard geometrical optics with refraction at the stated interface.",
+      "The stated 40-degree incidence angle describes the base problem's incident ray."
+    ],
+    "answer": 25.4,
+    "unit": "degrees"
+  },
+  "stratum_assignments": {
+    "TB680": {
+      "stratum": "D",
+      "answer_with_sentence": 25.4,
+      "regime": null
+    },
+    "T6894": {
+      "stratum": "R",
+      "answer_with_sentence": 31.2,
+      "regime": null
+    },
+    "T85A3": {
+      "stratum": "D",
+      "answer_with_sentence": 25.4,
+      "regime": null
+    },
+    "T4914": {
+      "stratum": "R",
+      "answer_with_sentence": 31.2,
+      "regime": null
+    },
+    "TE753": {
+      "stratum": "D",
+      "answer_with_sentence": 25.4,
+      "regime": null
+    },
+    "T0BCD": {
+      "stratum": "D",
+      "answer_with_sentence": 25.4,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "Whether T4914 places the laser tilt before or after the state described by the stated 40-degree incidence angle."
+  ],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T4914 does not establish whether the stated 40-degree incidence angle precedes or follows the historical 11-degree laser tilt, allowing different refraction angles.",
+    "rendering_not_minimal": "TB680 versus T0BCD and TE753 versus T85A3 replace an unspecified tilt ('a little') with 11 degrees, so these variants do not preserve the required numerical value and unit."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "T4914",
+      "case": "If 40 degrees is the incidence angle before the tilt, the observed incidence angle becomes 51 degrees and the refraction angle is 31.2 degrees; if the laser previously tilted from 29 degrees to the stated current 40 degrees, the refraction angle is 25.4 degrees."
+    }
+  ],
+  "notes": "The base problem is well-posed. For T6894, the explicit subsequent tilt gives theta_r = arcsin(sin(51 degrees)/1.5) = 31.2 degrees. The T4914 assignment records the reading in which the tilt follows the stated 40-degree state; its alternative reading remains unresolved. Camera orientation does not change the physical angle measured from the interface normal. Earlier-experiment tilts do not change the currently specified incidence angle.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v22b_admission",
+  "started_at": "2026-11-16T16:10:52+00:00",
+  "completed_at": "2026-11-16T16:11:54+00:00",
+  "minutes_spent": 1.02,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "0f8fac108e68aad5c56ac4930c6d55a38e542dad32bdc9d04d5f3cac08abe145",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "item_id": "M0V22B-S26",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Snell's law gives theta2 = asin(n1*sin(theta1)/n2). With the stated indices and incidence angle, theta2 = asin(sin(40 degrees)/1.5). A subsequent outward tilt q replaces theta1 by 40 degrees + q.",
+    "assumptions": [
+      "Standard geometrical optics at the flat interface, with angles measured from its normal.",
+      "For the authors' tilted-ray answers, the stated 40-degree incidence angle must precede the tilt."
+    ],
+    "answer": 25.374,
+    "unit": "deg"
+  },
+  "stratum_assignments": {
+    "TB680": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    },
+    "T6894": {
+      "stratum": "R",
+      "answer_with_sentence": 31.2047,
+      "regime": null
+    },
+    "T85A3": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    },
+    "T4914": {
+      "stratum": "R",
+      "answer_with_sentence": 31.2047,
+      "regime": null
+    },
+    "TE753": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    },
+    "T0BCD": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "Whether T4914's laser tilt occurs before or after the state described by the stated 40-degree incidence angle."
+  ],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T4914 places the tilt before observation but does not establish whether the stated 40-degree incidence angle describes the ray before or after that tilt, leaving materially different refraction angles possible."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "T4914",
+      "case": "A laser initially producing a 29-degree incidence angle was tilted outward by 11 degrees before observation, producing the currently stated 40-degree incidence angle and a 25.374-degree refraction angle; alternatively, tilting outward from the stated 40-degree incidence angle produces 51-degree incidence and 31.2047-degree refraction."
+    }
+  ],
+  "notes": "The governing relation, dimensions, and numerical calculations are correct under the authors' intended chronology. Subsequent tilts of 6, 11, and 14 degrees give incidence angles of 46, 51, and 54 degrees and refraction angles of approximately 28.6567, 31.2047, and 32.639 degrees; all lie within the stated refraction model's domain. Camera orientation and completed earlier experiments do not change the specified current incidence angle. T4914's R assignment and numerical entry record the intended reading, but its text also permits the counterexample. Accordingly, answer_correct is false because that certified answer is not uniquely established, rather than because its arithmetic is wrong. I withdraw pass 1's rendering_not_minimal flag: the packet explicitly identifies TB680 and TE753 as numeral-free controls, not numerical minimal pairs. The declared minimal pair T85A3/T4914 preserves the number, unit, and spatial wording while changing temporal attachment; T0BCD/T6894 is explicitly not claimed to be minimal.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v22b_admission",
+  "started_at": "2026-11-16T16:11:54+00:00",
+  "completed_at": "2026-11-16T16:12:34+00:00",
+  "minutes_spent": 0.68,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "795484d21dc22af396f36318ff9db921e05f45642aeadee410f73891d6cedc77",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

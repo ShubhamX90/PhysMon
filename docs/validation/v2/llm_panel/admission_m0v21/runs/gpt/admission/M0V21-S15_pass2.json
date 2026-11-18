@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v21_admission",
+  "item_id": "M0V21-S15",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Parallel resistors share the source voltage: P = V²(1/R1 + 1/R2). Here 1/R1 + 1/R2 = 0.25 Ω⁻¹, giving P = 36 W. An aiding series cell gives P(q) = 0.25(12 + q)² W for q expressed in volts: 45.5625 W, 56.25 W and 64 W at 1.5 V, 3 V and 4 V respectively. The first branch normally carries 2 A, below every listed fuse rating.",
+    "assumptions": [
+      "The resistors are ohmic.",
+      "Negligible source, wire and intact-fuse resistances are treated as zero.",
+      "The separately powered fan has no electrical coupling to the resistor circuit.",
+      "The fuse operates normally and is intact below its rating."
+    ],
+    "answer": 36,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T003B": {
+      "stratum": "D",
+      "answer_with_sentence": 36,
+      "regime": null
+    },
+    "T4B24": {
+      "stratum": "D",
+      "answer_with_sentence": 36,
+      "regime": null
+    },
+    "T9064": {
+      "stratum": "R",
+      "answer_with_sentence": 56.25,
+      "regime": null
+    },
+    "T6182": {
+      "stratum": "K",
+      "answer_with_sentence": 36,
+      "regime": "The intact fuse has negligible resistance and V/R1 < q; the branch current is 2 A and all listed thresholds exceed it."
+    },
+    "T7EC8": {
+      "stratum": "D",
+      "answer_with_sentence": 36,
+      "regime": null
+    },
+    "TD47C": {
+      "stratum": "D",
+      "answer_with_sentence": 36,
+      "regime": null
+    },
+    "T164F": {
+      "stratum": "K",
+      "answer_with_sentence": 36,
+      "regime": "Normal intact-fuse operation with V/R1 < q; the branch current is 2 A and all listed ratings exceed it."
+    },
+    "T6E3A": {
+      "stratum": "R",
+      "answer_with_sentence": 56.25,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "I withdraw the pass-1 rendering_not_minimal finding because the packet explicitly identifies T003B and T7EC8 as numeral-free controls, rather than numerical minimal pairs. Their wording correctly replaces '3 V' with 'small'. The actual minimal_pair_with claims preserve the number and unit and change only the relevant attachment or experiment. All certified answers agree with the circuit equations. The earlier experiment leaves no specified change in the present circuit, and the second battery supplies the separate fan circuit. Both fuse claims hold throughout their stated regime; after the first branch opens, the remaining resistor dissipates V²/R2 = 12 W. No listed value reaches the threshold boundary.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "started_at": "2026-11-16T15:58:00+00:00",
+  "completed_at": "2026-11-16T16:05:50+00:00",
+  "minutes_spent": 7.84,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a8bf9c8bce23ce1ee84c68ea951f005d115e44e12e3abbb1781ce7856164a25f",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

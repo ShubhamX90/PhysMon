@@ -1,0 +1,98 @@
+{
+  "item_id": "M0V21-S07",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For charging an initially uncharged capacitor, V_C(t) = E[1 - exp(-t/(RC))]. Here RC = 0.100 s, so V_C(0.080 s) = 12[1 - exp(-0.8)].",
+    "assumptions": [
+      "Ideal capacitor, ideal battery and ohmic resistors.",
+      "The voltage measurement does not load the capacitor.",
+      "Disconnecting the battery opens the charging circuit without introducing a discharge path."
+    ],
+    "answer": 6.6081,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "TB645": {
+      "stratum": "D",
+      "answer_with_sentence": 6.6081,
+      "regime": null
+    },
+    "TF284": {
+      "stratum": "D",
+      "answer_with_sentence": 6.6081,
+      "regime": null
+    },
+    "T7A5D": {
+      "stratum": "R",
+      "answer_with_sentence": 5.4143,
+      "regime": null
+    },
+    "T0C95": {
+      "stratum": "R",
+      "answer_with_sentence": 4.5044,
+      "regime": null
+    },
+    "TF1CE": {
+      "stratum": "D",
+      "answer_with_sentence": 6.6081,
+      "regime": null
+    },
+    "T3314": {
+      "stratum": "R",
+      "answer_with_sentence": 5.4143,
+      "regime": null
+    },
+    "T6259": {
+      "stratum": "K",
+      "answer_with_sentence": 6.6081,
+      "regime": "The circuit opens after the observation time: t_open > 80 ms."
+    },
+    "TFA31": {
+      "stratum": "K",
+      "answer_with_sentence": 6.6081,
+      "regime": "Battery disconnection occurs after the observation time: t_disconnect > 80 ms."
+    },
+    "TC6E4": {
+      "stratum": "R",
+      "answer_with_sentence": 4.5044,
+      "regime": null
+    },
+    "TB2B5": {
+      "stratum": "D",
+      "answer_with_sentence": 6.6081,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Opening the circuit at 60 ms leaves the ideal capacitor holding 12[1-exp(-0.6)] V at 80 ms. Adding the 3.5 kΩ resistor to the charging circuit gives total resistance 8.5 kΩ and time constant 0.170 s. The separate lamp circuit and earlier experiment have no physical connection to the target. All numerical resistor variants specify 3.5 kΩ. The opening/disconnection wordings match within each timing pair; 60 ms and 400 ms are distinct timing cases. The two qualitative resistor descriptions both use 'small' without a numerical value.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v21_admission",
+  "started_at": "2026-11-16T15:49:15+00:00",
+  "completed_at": "2026-11-16T15:52:45+00:00",
+  "minutes_spent": 3.51,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "1ccf9c5dc15399b53689812a5b51279b437626b2dfa83f04a29f3df116b6a82e",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

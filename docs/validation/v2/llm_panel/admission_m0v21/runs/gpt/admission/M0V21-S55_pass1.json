@@ -1,0 +1,104 @@
+{
+  "item_id": "M0V21-S55",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For an ideal gas in thermal equilibrium, v_rms = sqrt(3RT/M). With M = 0.004 kg/mol, v_rms = sqrt(3 × 8.314 × 300 / 0.004) = 1367.72 m/s.",
+    "assumptions": [
+      "Classical equilibrium molecular velocities are measured in the flask's rest frame."
+    ],
+    "answer": 1367.72,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TA59B": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "T181D": {
+      "stratum": "C",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "TAE95": {
+      "stratum": "C",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "T5F7E": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "TB33A": {
+      "stratum": "R",
+      "answer_with_sentence": 1579.3,
+      "regime": null
+    },
+    "T5266": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "T9888": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "TC501": {
+      "stratum": "R",
+      "answer_with_sentence": 1579.3,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal",
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The heater-temperature variants alternate between an unspecified 'few kelvin' and 100 K, so they do not preserve the required numerical quantity.",
+    "insufficient_boundary_condition": "TB33A does not establish whether the stated 300 K equilibrium precedes or follows the completed heating event, allowing different measurement temperatures."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high",
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "TB33A",
+      "description": "If the sample starts at 300 K and is subsequently warmed by 100 K before measurement, its measurement temperature is 400 K and its rms speed is 1579.30 m/s."
+    },
+    {
+      "sentence_id": "TB33A",
+      "description": "If the completed heating raised the sample from 200 K to its stated present equilibrium temperature of 300 K, measurement gives 1367.72 m/s; the sentence does not explicitly exclude this chronology."
+    }
+  ],
+  "notes": "The base problem is well posed. The amount of gas cancels because (1/2)nM<v²> = (3/2)nRT. Earlier-experiment heating is classified D because the present equilibrium temperature fixes the current velocity distribution independently of that history. Other-flask heating is classified D under the ordinary reading that no heat transfer between the samples is introduced. TB33A's R assignment and numerical answer use the interpretation that heating follows the stated 300 K state; its alternative chronology is flagged above. TC501 naturally describes subsequent heating to 400 K. T181D and TAE95 preserve the same 2 mol quantity, whereas the heating statements do not all preserve the same temperature increment.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v21_admission",
+  "started_at": "2026-11-16T16:05:50+00:00",
+  "completed_at": "2026-11-16T16:07:07+00:00",
+  "minutes_spent": 1.29,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "e71bece7b6025c223e7bcbb5ca9b182a0100122d4d27c26166c7d18c001ba82e",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

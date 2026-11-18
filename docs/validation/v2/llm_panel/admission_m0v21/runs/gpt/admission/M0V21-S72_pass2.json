@@ -1,0 +1,91 @@
+{
+  "item_id": "M0V21-S72",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Using K = p²/(2m) and λ = h/p gives λ = hc/√(2mc²K). Convert mc² to 511000 eV and the resulting wavelength from nm to pm.",
+    "assumptions": [
+      "The electron starts from rest and is treated nonrelativistically, as stated.",
+      "The other apparatus has no specified interaction with the electron."
+    ],
+    "answer": 100.15,
+    "unit": "pm"
+  },
+  "stratum_assignments": {
+    "TD0E0": {
+      "stratum": "D",
+      "answer_with_sentence": 100.15,
+      "regime": null
+    },
+    "TC8A0": {
+      "stratum": "R",
+      "answer_with_sentence": 79.1755,
+      "regime": null
+    },
+    "TF42A": {
+      "stratum": "D",
+      "answer_with_sentence": 100.15,
+      "regime": null
+    },
+    "T3B16": {
+      "stratum": "D",
+      "answer_with_sentence": 100.15,
+      "regime": null
+    },
+    "TE877": {
+      "stratum": "R",
+      "answer_with_sentence": 79.1755,
+      "regime": null
+    },
+    "TCF3D": {
+      "stratum": "D",
+      "answer_with_sentence": 100.15,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TD0E0 and T3B16 omit the 90 eV specified in their quantified twins, violating the review requirement that variants of the same quantity preserve its number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "TD0E0 permits an additional alpha-particle kinetic energy of 10 eV, whereas its quantified twin TCF3D specifies 90 eV.",
+    "T3B16 permits an additional proton kinetic energy of 10 eV, whereas its quantified twin TF42A specifies 90 eV."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "All physical classifications and certified answers are correct. For electron energy increments of 40, 90 and 180 eV, the wavelengths are respectively 88.9855, 79.1755 and 67.5211 pm. The other-apparatus additions leave the wavelength at 100.15 pm. All energies remain comfortably nonrelativistic. The explicitly claimed minimal_pair_with pairs preserve 90 eV and change the physical attachment appropriately. Pass 2 explains that the two unquantified sentences are intentional numeral-free controls; nevertheless, the supplied review instructions provide no exception to their number-and-unit preservation requirement, so the pass-1 rendering defect remains. The pass-1 answers in nm agree with the packet's answers in pm after conversion.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v21_admission",
+  "started_at": "2026-11-16T16:06:40+00:00",
+  "completed_at": "2026-11-16T16:07:36+00:00",
+  "minutes_spent": 0.92,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "5892dd89fc6673e70ad8bb922086dbb7bdb149f7985094782d722083bf432d6e",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

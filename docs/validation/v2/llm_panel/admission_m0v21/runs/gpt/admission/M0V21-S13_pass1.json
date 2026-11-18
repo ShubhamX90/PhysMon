@@ -1,0 +1,103 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v21_admission",
+  "item_id": "M0V21-S13",
+  "pass_number": 1,
+  "started_at": "2026-11-16T15:49:15+00:00",
+  "completed_at": "2026-11-16T15:52:46+00:00",
+  "minutes_spent": 3.52,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For a simple pendulum at small amplitude, T = 2π√(L/g). With L = 0.8 m, T = 1.7952 s. An additional 0.5 m cord in series gives L = 1.3 m and T = 2.2884 s.",
+    "assumptions": [
+      "The small bob is approximated as a point mass.",
+      "The suspension has a fixed support and remains taut.",
+      "The light strings are inextensible, and damping is negligible.",
+      "A cord between the string and bob extends the pendulum in series."
+    ],
+    "answer": 1.7952,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TF6EE": {
+      "stratum": "R",
+      "answer_with_sentence": 2.2884,
+      "regime": null
+    },
+    "T0341": {
+      "stratum": "R",
+      "answer_with_sentence": 2.2884,
+      "regime": null
+    },
+    "TB108": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "TAEF3": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T3F01": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T6F5A": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T36E7": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "TC778": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "Whether the cords mentioned in TB108 and T6F5A remain attached during the current oscillation."
+  ],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TB108 and T6F5A specify an earlier attachment without establishing whether the cord remains attached during the current oscillation, leaving the current pendulum length undetermined.",
+    "rendering_not_minimal": "TB108 and T36E7 replace the numerical length 0.5 m with 'short', so the cord-length variants do not consistently retain the same number and unit."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "For T6F5A, removal of the earlier cord gives T = 1.7952 s, while retaining that cord gives T = 2.2884 s; both histories satisfy the added sentence.",
+    "For TB108, a retained 0.1 m cord gives T = 2π√(0.9/9.8) ≈ 1.9041 s, whereas removing it gives T = 1.7952 s."
+  ],
+  "notes": "The base problem is well-posed under standard simple-pendulum idealizations. The D assignments and numerical answers for TB108 and T6F5A use the historical-only interpretation in which the earlier cord is absent now; their wording does not establish that interpretation uniquely. Bob mass cancels from mLθ̈ = −mgθ, and brass composition adds no dependency in the point-bob model. TF6EE and T0341 retain the same numerical cord length, as do the two mass sentences.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "8628bcb9cd5947c211e5c2de982fb47b3b520fa15f8db6efad797fd55e8bf565",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

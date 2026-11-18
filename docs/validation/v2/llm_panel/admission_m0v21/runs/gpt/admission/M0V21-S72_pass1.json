@@ -1,0 +1,86 @@
+{
+  "item_id": "M0V21-S72",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For nonrelativistic motion, K = p²/(2m) and λ = h/p = hc/√(2mc²K). At K = 150 eV, λ = 1240/√(2 × 511000 × 150) nm.",
+    "assumptions": [
+      "The electron is treated nonrelativistically, as stated.",
+      "The separate apparatus has no specified interaction with the electron."
+    ],
+    "answer": 0.10015,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "TD0E0": {
+      "stratum": "D",
+      "answer_with_sentence": 0.10015,
+      "regime": null
+    },
+    "TC8A0": {
+      "stratum": "R",
+      "answer_with_sentence": 0.0791755,
+      "regime": null
+    },
+    "TF42A": {
+      "stratum": "D",
+      "answer_with_sentence": 0.10015,
+      "regime": null
+    },
+    "T3B16": {
+      "stratum": "D",
+      "answer_with_sentence": 0.10015,
+      "regime": null
+    },
+    "TE877": {
+      "stratum": "R",
+      "answer_with_sentence": 0.0791755,
+      "regime": null
+    },
+    "TCF3D": {
+      "stratum": "D",
+      "answer_with_sentence": 0.10015,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TD0E0 and T3B16 omit the numerical magnitude and unit supplied as 90 eV in their corresponding quantified variants, violating the stated requirement that variants preserve the same number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "TD0E0 permits an alpha-particle energy increment of 10 eV, whereas TCF3D specifies 90 eV; the sentences therefore do not preserve the same numerical information.",
+    "T3B16 permits a proton energy increment of 10 eV, whereas TF42A specifies 90 eV."
+  ],
+  "notes": "The base problem and all six individual additions have unique electron-wavelength answers. The invalid verdict concerns the explicit variant requirement. TC8A0 and TE877 raise the electron's final kinetic energy to 240 eV. The four statements concerning particles in the separate apparatus leave its wavelength unchanged. The quantified variants consistently use 90 eV.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v21_admission",
+  "started_at": "2026-11-16T16:06:04+00:00",
+  "completed_at": "2026-11-16T16:06:40+00:00",
+  "minutes_spent": 0.61,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "12c12e5f3ded5f6b4827cf988f84823a24c7c1b0474016db23da3fa4ca86cd7b",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

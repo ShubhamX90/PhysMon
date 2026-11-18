@@ -1,0 +1,105 @@
+{
+  "item_id": "M0V21-S27",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For hydrostatic equilibrium, p(h) = p_surface + rho*g*h = 101 + (1000*9.8*12)/1000 = 218.6 kPa.",
+    "assumptions": [
+      "The requested pressure is in the first tank.",
+      "The liquid is in hydrostatic equilibrium in a stationary tank.",
+      "The stated density is constant over the depth.",
+      "The two tanks have no hydraulic connection.",
+      "For subsequent pressure additions, the requested pressure is evaluated after equilibrium is restored, at 12 m below the resulting free surface."
+    ],
+    "answer": 218.6,
+    "unit": "kPa"
+  },
+  "stratum_assignments": {
+    "TCA9B": {
+      "stratum": "C",
+      "answer_with_sentence": 218.6,
+      "regime": null
+    },
+    "TEFB3": {
+      "stratum": "D",
+      "answer_with_sentence": 218.6,
+      "regime": null
+    },
+    "T2AA8": {
+      "stratum": "C",
+      "answer_with_sentence": 218.6,
+      "regime": null
+    },
+    "TB1D1": {
+      "stratum": "R",
+      "answer_with_sentence": 233.6,
+      "regime": null
+    },
+    "TD7C4": {
+      "stratum": "R",
+      "answer_with_sentence": 233.6,
+      "regime": null
+    },
+    "T4B9C": {
+      "stratum": "D",
+      "answer_with_sentence": 218.6,
+      "regime": null
+    },
+    "T319B": {
+      "stratum": "D",
+      "answer_with_sentence": 218.6,
+      "regime": null
+    },
+    "TE571": {
+      "stratum": "D",
+      "answer_with_sentence": 218.6,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption",
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "Hydrostatic equilibrium in a stationary tank is needed for the calculated pressure, but the problem does not state this governing condition.",
+    "insufficient_boundary_condition": "The question does not identify which tank contains the requested point, and the second tank's free-surface pressure is unspecified.",
+    "rendering_not_minimal": "TEFB3 versus TE571 and T4B9C versus T319B replace an unspecified 'small pressure rise' with 15 kPa, so these variants do not preserve the required number and unit."
+  },
+  "defect_severity": {
+    "missing_assumption": "high",
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "If the first tank accelerates upward at 1 m/s² while its liquid is at rest relative to it, the pressure at 12 m is 101 + 1000*(9.8 + 1)*12/1000 = 230.6 kPa.",
+    "A stationary second tank with a free-surface pressure of 201 kPa satisfies the stated description but has an absolute pressure of 318.6 kPa at 12 m."
+  ],
+  "notes": "Assignments and numerical answers use the intended first-tank hydrostatic interpretation. Cross-sectional area cancels between column weight and area; base area likewise cancels when converting the integrated base pressure force to pressure. Historical experiments are treated as disconnected from the presently specified surface pressure of 101 kPa. Subsequent 15 kPa additions in the first tank increase the answer by 15 kPa; additions in the separate second tank do not affect it. Both area statements preserve 2 m², but the pressure-rise statements do not all preserve an explicit numerical value and unit.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v21_admission",
+  "started_at": "2026-11-16T15:55:21+00:00",
+  "completed_at": "2026-11-16T15:58:06+00:00",
+  "minutes_spent": 2.75,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "8477583851ebe8e506813b20096b2ae8b84823efb0b9e7e2d5429fb306922823",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}
