@@ -1,0 +1,30 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v23_admission:batch03",
+  "item_id": "M0V23-S92",
+  "pass_number": 2,
+  "started_at": "2026-11-18T10:26:00Z", "completed_at": "2026-11-18T10:34:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Static equilibrium with Archimedes' principle: T = (rho_l - rho_s) a^3 g", "assumptions": ["cube fully submerged and at rest", "light vertical taut string", "incompressible uniform liquid", "a = 0.10 m"], "answer": 3.92, "unit": "N"},
+  "stratum_assignments": {
+    "T6B5A": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null},
+    "T7C7C": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "TB60F": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "TD7A9": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "T4F4E": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null},
+    "TB37E": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T5B30": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "TCBBB": {"stratum": "K", "answer_with_sentence": 3.92, "regime": "string intact: T = 3.92 N < 50 N"},
+    "TEE75": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T13C2": {"stratum": "K", "answer_with_sentence": 3.92, "regime": "string intact: T = 3.92 N < 50 N"}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked certified answers: (1150-600)(1e-3)(9.8) = 5.39 N; (1250-600) -> 6.37 N; (1350-600) -> 7.35 N; base 3.92 N. All agree with my pass 1. Depth cancellation expression reduces to (rho_l - rho_s) g a^3, independent of q; both depth sentences state 50 cm. K regime T < q holds for all listed breaking strengths (30, 50, 80 N) against T = 3.92 N; both strength sentences state 50 N. Minimal pairs hold: TB37E vs TD7A9 (both 1250 kg/m^3, earlier experiment vs before the measurement) and TEE75 vs T7C7C (both 1250 kg/m^3, second tank vs this tank). Numeral-free twins TB60F and T5B30 match their D twins' wording. Minor observation, not flagged: T7C7C does not repeat 'with the string still holding the cube under it' as TD7A9 does, but 'replaces the original liquid in this tank' naturally implies the same fill and the cube remains held submerged by the same string, so the reading is unique. Pouring liquid into the second tank (TEE75, T5B30) is a later event and does not contradict its being described as empty. No disagreement with pass 1."
+}

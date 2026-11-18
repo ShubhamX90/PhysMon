@@ -1,0 +1,97 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v23_admission",
+  "item_id": "M0V23-S30",
+  "pass_number": 1,
+  "started_at": "2026-11-18T18:29:57+00:00",
+  "completed_at": "2026-11-18T18:30:49+00:00",
+  "minutes_spent": 0.87,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation: Pt = mcΔT. Thus t = (2 kg)(4186 J/(kg·K))(40 K)/(1500 J/s) = 223.2533 s.",
+    "assumptions": [
+      "The stated heater power is constant and delivered to the water.",
+      "The stated specific heat capacity is constant during heating.",
+      "The water remains liquid, with no heat loss or phase change.",
+      "Water added before heating starts joins the heated mass at its initial temperature."
+    ],
+    "answer": 223.2533333333,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T7FCE": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "TBDE4": {
+      "stratum": "R",
+      "answer_with_sentence": 379.5306666667,
+      "regime": null
+    },
+    "T1E1C": {
+      "stratum": "R",
+      "answer_with_sentence": 379.5306666667,
+      "regime": null
+    },
+    "T846F": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "TB98F": {
+      "stratum": "C",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "T5BC7": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "T8D91": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "T6A76": {
+      "stratum": "C",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T846F and T8D91 replace the jug-water quantity '1.4 kg' with 'a small amount', violating the required preservation of the same number and unit across variants of that quantity."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "T7FCE specifies 1.4 kg, whereas T846F permits, for example, 0.1 kg; these variants therefore do not preserve the stated quantity."
+  ],
+  "notes": "The base heating problem and each individual augmented problem have a determinate answer; the invalid verdict concerns the required variant construction. Adding 1.4 kg before heating raises the heated mass to 3.4 kg. Additions explicitly made after heating ends cannot change the earlier time to reach the requested temperature rise. Initial temperature is classified C because Pt = mc[(Ti + 40 K) - Ti] cancels Ti under the stipulated constant-specific-heat, liquid-water model; 288 K gives a final temperature of 328 K. No outside information was consulted.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "765036d02e33ccce96de32310ca299e36b10796bf1cdd34b6ca5bbe771321c58",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v23_admission",
+  "item_id": "M0V23-S20",
+  "pass_number": 1,
+  "started_at": "2026-11-18T18:28:33+00:00",
+  "completed_at": "2026-11-18T18:29:21+00:00",
+  "minutes_spent": 0.8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The thin-lens equation gives 1/f = 1/u + 1/v, hence v = fu/(u-f) = 12(40)/(40-12) = 120/7 cm, on the opposite side of the lens from the object.",
+    "assumptions": [
+      "The standard thin-lens, paraxial model applies.",
+      "The stated object distance describes the current configuration unless an added sentence subsequently changes it.",
+      "Moving the stand carrying the object moves the object with it."
+    ],
+    "answer": 17.1428571429,
+    "unit": "cm"
+  },
+  "stratum_assignments": {
+    "TEEE0": {
+      "stratum": "C",
+      "answer_with_sentence": 17.1428571429,
+      "regime": null
+    },
+    "TAC83": {
+      "stratum": "D",
+      "answer_with_sentence": 17.1428571429,
+      "regime": null
+    },
+    "TFE5A": {
+      "stratum": "D",
+      "answer_with_sentence": 17.1428571429,
+      "regime": null
+    },
+    "T2DD0": {
+      "stratum": "C",
+      "answer_with_sentence": 17.1428571429,
+      "regime": null
+    },
+    "T12E1": {
+      "stratum": "R",
+      "answer_with_sentence": 15.1304347826,
+      "regime": null
+    },
+    "TD5B7": {
+      "stratum": "R",
+      "answer_with_sentence": 15.1304347826,
+      "regime": null
+    },
+    "T1C9D": {
+      "stratum": "D",
+      "answer_with_sentence": 17.1428571429,
+      "regime": null
+    },
+    "T3FBB": {
+      "stratum": "D",
+      "answer_with_sentence": 17.1428571429,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TFE5A and T3FBB replace the displacement '18 cm' in their corresponding quantified renderings with 'a little', violating the stipulated preservation of the same number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The individual physics problems are well-posed; the invalid verdict concerns the required matching of sentence variants. The two height statements preserve 3.5 cm: height enters the similar-triangle and magnification relations but cancels from image distance. Moving the object or its supporting stand makes u = 58 cm and v = 348/23 cm. Moving the illuminating lamp changes illumination, not the image plane. Movement during an earlier experiment does not change the explicitly stated current placement.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "7490db63cebf57f50711705e66dd24e9d7b8eaf47374f922d425b8c26e964321",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

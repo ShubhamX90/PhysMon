@@ -1,0 +1,83 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v23_admission",
+  "item_id": "M0V23-S26",
+  "pass_number": 1,
+  "started_at": "2026-11-18T18:26:58+00:00",
+  "completed_at": "2026-11-18T18:27:42+00:00",
+  "minutes_spent": 0.72,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law: n1 sin(theta_i) = n2 sin(theta_r). Thus theta_r = arcsin(sin(40 degrees)/1.5).",
+    "assumptions": [
+      "The stated scalar refractive indices describe ordinary refraction governed by Snell's law.",
+      "For sentences describing the current ray being tilted, 40 degrees is the reference incidence angle before the additional tilt."
+    ],
+    "answer": 25.374,
+    "unit": "degrees"
+  },
+  "stratum_assignments": {
+    "T77F8": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    },
+    "T8078": {
+      "stratum": "R",
+      "answer_with_sentence": 31.205,
+      "regime": null
+    },
+    "TF598": {
+      "stratum": "R",
+      "answer_with_sentence": 31.205,
+      "regime": null
+    },
+    "T0468": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    },
+    "TB841": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    },
+    "TA3DE": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T77F8 and T0468 specify only 'a little', whereas their numerical counterparts TB841 and TA3DE specify 11 degrees, so the variants do not preserve the same stated number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics problem has a unique answer. T8078 and TF598 increase the incidence angle to 51 degrees, giving arcsin(sin(51 degrees)/1.5) = 31.205 degrees. An earlier experiment does not change the current incidence angle, and camera orientation does not change an angle defined relative to the interface normal. The invalid verdict concerns the required numerical matching of sentence variants.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "57885c3f77cdd992b0c793eff941bcf606e1d20072f688caa1fb184163dad804",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

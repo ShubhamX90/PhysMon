@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -74,7 +75,20 @@ def flag_list(review: dict[str, Any]) -> list[dict[str, str]]:
     return out
 
 
-def judge_verdict(item_id: str, reviews: dict[tuple[str, int], dict[str, Any]]) -> dict[str, Any]:
+GUARD_53B_FLAGS = ("rendering_not_minimal",)
+SENTENCE_ID = re.compile(r"\bT[0-9A-F]{4}\b")
+
+
+def guarded_53b(flag: dict[str, str], n_sentence_ids: set[str]) -> bool:
+    """Amendment A1 (docs/registry/v2/g1/freeze/amendments.md, check 5.3b): a high `rendering_not_minimal` flag whose every named
+    sentence is a numeral-free control (N) sentence is a judge error. A flag naming no sentence, or any non-N sentence, counts."""
+
+    ids = set(SENTENCE_ID.findall(flag.get("reason", "")))
+    return flag["flag"] in GUARD_53B_FLAGS and bool(ids) and ids <= n_sentence_ids
+
+
+def judge_verdict(item_id: str, reviews: dict[tuple[str, int], dict[str, Any]],
+                  n_sentence_ids: set[str] | None = None) -> dict[str, Any]:
     p2 = reviews.get((item_id, 2))
     if p2 is None:
         return {"status": "MISSING", "reasons": ["no pass-2 review"], "flags": [], "warnings": []}
@@ -82,14 +96,20 @@ def judge_verdict(item_id: str, reviews: dict[tuple[str, int], dict[str, Any]]) 
         return {"status": "MALFORMED", "reasons": ["pass-2 review unreadable or without a valid `validity`"], "flags": [],
                 "warnings": []}
     flags = flag_list(p2)
-    reasons, warnings = [], []
-    if p2["validity"] != "valid":
-        reasons.append(f"validity is {p2['validity']}")
+    reasons, warnings, guarded = [], [], []
     for f in flags:
         if f["severity"] == "high":
-            reasons.append(f"high flag {f['flag']}: {f['reason']}")
+            if n_sentence_ids is not None and guarded_53b(f, n_sentence_ids):
+                guarded.append(f"5.3b judge error (not counted): high flag {f['flag']}: {f['reason']}")
+            else:
+                reasons.append(f"high flag {f['flag']}: {f['reason']}")
         elif f["severity"] == "unrated":
             warnings.append(f"flag {f['flag']} has no severity")
+    if p2["validity"] != "valid" and not (guarded and not reasons):
+        reasons.insert(0, f"validity is {p2['validity']}")
+    elif p2["validity"] != "valid":
+        warnings.append(f"validity {p2['validity']} rests only on 5.3b-guarded flags; the other judge decides")
+    warnings += guarded
     for field in ("equation_consistent", "units_consistent", "answer_correct", "precision_adequate"):
         if p2.get(field) is False and p2["validity"] == "valid":
             warnings.append(f"{field} is false although validity is valid")
@@ -116,12 +136,14 @@ def blind_agreement(item_id: str, strata: dict[str, str], reviews: dict[tuple[st
 
 
 def score(key: dict[str, Any], nat_key: dict[str, Any], judges: dict[str, list[Path]],
-          nat_judges: dict[str, list[Path]], min_judges: int = 2, title: str = "M0 v2 admission report") -> dict[str, Any]:
+          nat_judges: dict[str, list[Path]], min_judges: int = 2, title: str = "M0 v2 admission report",
+          guard_53b: bool = False) -> dict[str, Any]:
     loaded = {j: load_admission_reviews(d) for j, d in judges.items()}
     rated = {j: load_ratings(d) for j, d in nat_judges.items()}
     structures: dict[str, Any] = {}
     for item_id in sorted(key):
-        verdicts = {j: judge_verdict(item_id, r) for j, r in loaded.items()}
+        n_ids = ({sid for sid, s in key[item_id].get("sentence_strata", {}).items() if s == "N"} if guard_53b else None)
+        verdicts = {j: judge_verdict(item_id, r, n_ids) for j, r in loaded.items()}
         statuses = [v["status"] for v in verdicts.values()]
         reasons = [f"{j}: {r}" for j, v in verdicts.items() for r in v["reasons"]]
         if "FAIL" in statuses:
@@ -263,6 +285,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--out-dir", default=ADMISSION_DIR)
     parser.add_argument("--min-judges", type=int, default=2)
     parser.add_argument("--title", default="M0 v2 admission report")
+    parser.add_argument("--guard-53b", action="store_true",
+                        help="apply amendment A1 (check 5.3b): rendering_not_minimal flags on N sentences are judge errors")
     args = parser.parse_args(argv)
     bank = Path(args.bank) if Path(args.bank).is_absolute() else REPO_ROOT / args.bank
     out = Path(args.out_dir) if Path(args.out_dir).is_absolute() else REPO_ROOT / args.out_dir
@@ -272,7 +296,8 @@ def main(argv: list[str] | None = None) -> int:
         return 2
     key = json.loads((bank / "key_RESTRICTED.json").read_text(encoding="utf-8"))
     nat_key = json.loads((bank / "naturalness_key_RESTRICTED.json").read_text(encoding="utf-8"))
-    report = score(key, nat_key, parse_judges(args.judge), parse_judges(args.naturalness), args.min_judges, args.title)
+    report = score(key, nat_key, parse_judges(args.judge), parse_judges(args.naturalness), args.min_judges, args.title,
+                   guard_53b=args.guard_53b)
     out.mkdir(parents=True, exist_ok=True)
     targets[0].write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     targets[1].write_text(render_markdown(report), encoding="utf-8")

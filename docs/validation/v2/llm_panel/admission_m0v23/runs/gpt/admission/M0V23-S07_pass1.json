@@ -1,0 +1,98 @@
+{
+  "item_id": "M0V23-S07",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Kirchhoff's loop law gives R C dV_C/dt + V_C = E. With V_C(0)=0, V_C(t)=E[1-exp(-t/(RC))]. Here RC=0.100 s, so V_C(0.080 s)=12[1-exp(-0.8)].",
+    "assumptions": [
+      "The resistor and capacitor follow the standard lumped, constant-parameter circuit model.",
+      "The charging circuit remains connected through the observation time unless an added sentence specifies otherwise.",
+      "Opening the charging loop leaves the nonleaking capacitor holding its voltage."
+    ],
+    "answer": 6.60805243,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "T0285": {
+      "stratum": "D",
+      "answer_with_sentence": 6.60805243,
+      "regime": null
+    },
+    "T6DDA": {
+      "stratum": "K",
+      "answer_with_sentence": 6.60805243,
+      "regime": "The disconnection time is at or after the 80 ms observation time; 400 ms lies within this regime."
+    },
+    "T256B": {
+      "stratum": "R",
+      "answer_with_sentence": 5.41426037,
+      "regime": null
+    },
+    "TA030": {
+      "stratum": "R",
+      "answer_with_sentence": 4.50438326,
+      "regime": null
+    },
+    "T79DA": {
+      "stratum": "R",
+      "answer_with_sentence": 4.50438326,
+      "regime": null
+    },
+    "T492C": {
+      "stratum": "D",
+      "answer_with_sentence": 6.60805243,
+      "regime": null
+    },
+    "TE7C0": {
+      "stratum": "R",
+      "answer_with_sentence": 5.41426037,
+      "regime": null
+    },
+    "T83CD": {
+      "stratum": "K",
+      "answer_with_sentence": 6.60805243,
+      "regime": "The switch-opening time is at or after the 80 ms observation time; 400 ms lies within this regime."
+    },
+    "T120F": {
+      "stratum": "D",
+      "answer_with_sentence": 6.60805243,
+      "regime": null
+    },
+    "TF907": {
+      "stratum": "D",
+      "answer_with_sentence": 6.60805243,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "For either 60 ms interruption, the voltage subsequently remains 12[1-exp(-0.060/0.100)] V. Adding the 3.5 kΩ resistor to the charging loop gives total resistance 8.5 kΩ and time constant 0.170 s. The separate lamp circuit has no stated physical connection to the target circuit. An earlier experiment cannot alter the explicitly specified initially uncharged condition. All quantified resistor variants consistently specify 3.5 kΩ; timing wording variants match at each of 60 ms and 400 ms. The two unquantified 'small resistor' sentences are both disconnected and provide no numerical value to compare. No explicit minimal-pair links are supplied. The unrelated lamp makes the setup slightly artificial.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v23_admission",
+  "started_at": "2026-11-18T18:28:28+00:00",
+  "completed_at": "2026-11-18T18:29:16+00:00",
+  "minutes_spent": 0.8,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "093045e1a27c636f526304edee3d065005d8c2970fa3a69a88bb475cfdf8ab95",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v23_admission:batch01",
+  "item_id": "M0V23-S15",
+  "pass_number": 2,
+  "started_at": "2026-11-18T10:09:00Z", "completed_at": "2026-11-18T10:16:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "P = V^2 (1/R1 + 1/R2)",
+    "assumptions": ["ideal battery and wires", "ohmic resistors", "fan circuit shares no node with the resistor circuit"],
+    "answer": 36.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T9111": {"stratum": "R", "answer_with_sentence": 56.25, "regime": null},
+    "TA8E4": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "TC44B": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "TA887": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T15AD": {"stratum": "K", "answer_with_sentence": 36.0, "regime": "V/R1 = 2 A < fuse rating"},
+    "T7C74": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T2B41": {"stratum": "R", "answer_with_sentence": 56.25, "regime": null},
+    "T30BD": {"stratum": "K", "answer_with_sentence": 36.0, "regime": "V/R1 = 2 A < 5 A threshold"}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All claims agree with pass 1. Checked: base 144*(1/6+1/12) = 36 W; R answers (12+q)^2/4: q=1.5 -> 182.25/4 = 45.5625, q=3 -> 56.25, q=4 -> 64 W. K: 6 ohm branch current 2 A, below 3, 5 and 10 A, so the fuse stays intact; outside the regime only R2 dissipates, V^2/R2 = 12 W, matching the reference expression. D: cells on the fan's battery share no node with the resistors; 'earlier experiment only' cells leave no state. Minimal pairs: T7C74 vs T9111 differ only in first/second battery (same 3 V); TA8E4 vs T2B41 differ only in 'earlier experiment only' vs 'in this experiment' (same 3 V). The 'small cell' sentences TC44B and TA887 are declared numeral-free controls, twins of T7C74 and TA8E4 respectively, with identical wording apart from the number; this resolves my pass-1 concern about their missing number. Minor wording note: T2B41's past tense 'was connected' with 'In this experiment' is slightly awkward but not ambiguous enough to change the reading."
+}

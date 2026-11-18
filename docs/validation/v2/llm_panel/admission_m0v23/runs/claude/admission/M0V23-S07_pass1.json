@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v23_admission:batch05",
+  "item_id": "M0V23-S07",
+  "pass_number": 1,
+  "started_at": "2026-11-18T10:16:00Z", "completed_at": "2026-11-18T10:26:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "RC charging: V_C(t) = E (1 - exp(-t/RC)); after disconnection (open circuit) the non-leaking capacitor holds its voltage", "assumptions": ["capacitor initially uncharged (stated)", "ideal battery and wires (stated)", "no leakage (stated)", "tau = 5 kOhm * 20 uF = 100 ms"], "answer": 6.6081, "unit": "V"},
+  "stratum_assignments": {
+    "T0285": {"stratum": "D", "answer_with_sentence": 6.6081, "regime": null},
+    "T6DDA": {"stratum": "K", "answer_with_sentence": 6.6081, "regime": "disconnection time later than the 80 ms observation time"},
+    "T256B": {"stratum": "R", "answer_with_sentence": 5.4143, "regime": null},
+    "TA030": {"stratum": "R", "answer_with_sentence": 4.5044, "regime": null},
+    "T79DA": {"stratum": "R", "answer_with_sentence": 4.5044, "regime": null},
+    "T492C": {"stratum": "D", "answer_with_sentence": 6.6081, "regime": null},
+    "TE7C0": {"stratum": "R", "answer_with_sentence": 5.4143, "regime": null},
+    "T83CD": {"stratum": "K", "answer_with_sentence": 6.6081, "regime": "switch-opening time later than the 80 ms observation time"},
+    "T120F": {"stratum": "D", "answer_with_sentence": 6.6081, "regime": null},
+    "TF907": {"stratum": "D", "answer_with_sentence": 6.6081, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: tau = 0.1 s, V = 12(1 - e^-0.8) = 12*0.550671 = 6.6081 V. Disconnection at 60 ms: V = 12(1 - e^-0.6) = 12*0.451188 = 5.4143 V, held afterwards since the capacitor does not leak and the circuit is open. Added 3.5 kOhm in series: R = 8.5 kOhm, tau = 170 ms, V = 12(1 - e^-0.470588) = 12*0.375365 = 4.5044 V. Disconnection at 400 ms is after 80 ms (K). Resistors on the lamp circuit or in an earlier experiment are D. Variants check: the 3.5 kOhm sentences all state 3.5 kOhm; the time sentences pair 60 ms and 400 ms consistently. T0285 and T492C carry no number ('a small resistor'), presumably numeral-free controls. 'Cut off from the battery' (TE7C0) is read as opening the circuit (not replacing the battery by a short); under that reading the capacitor holds its charge. TA030's past tense 'was also connected ... in this experiment' is slightly awkward but clearly means the series resistance is 8.5 kOhm."
+}

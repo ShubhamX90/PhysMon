@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v23_admission:batch01",
+  "item_id": "M0V23-S01",
+  "pass_number": 1,
+  "started_at": "2026-11-18T10:17:00Z", "completed_at": "2026-11-18T10:26:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law for each block plus rotational dynamics of the disc pulley (I = M R^2/2, no slip): a = (m2 - m1) g / (m1 + m2 + M/2)",
+    "assumptions": ["light inextensible string", "frictionless pulley axle", "no slip (stated)", "uniform solid disc (stated)", "blocks hang freely, negligible air resistance"],
+    "answer": 2.1778,
+    "unit": "m/s^2"
+  },
+  "stratum_assignments": {
+    "T71F4": {"stratum": "D", "answer_with_sentence": 2.1778, "regime": null},
+    "TDEE0": {"stratum": "C", "answer_with_sentence": 2.1778, "regime": null},
+    "TFCD1": {"stratum": "R", "answer_with_sentence": 1.0889, "regime": null},
+    "T5FFC": {"stratum": "C", "answer_with_sentence": 2.1778, "regime": null},
+    "T7B5F": {"stratum": "D", "answer_with_sentence": 2.1778, "regime": null},
+    "T8642": {"stratum": "K", "answer_with_sentence": 2.1778, "regime": "string intact while both tensions (about 35.9 N and 38.1 N) are below 250 N"},
+    "TACE6": {"stratum": "K", "answer_with_sentence": 2.1778, "regime": "string intact while both tensions (about 35.9 N and 38.1 N) are below 250 N"},
+    "T6622": {"stratum": "D", "answer_with_sentence": 2.1778, "regime": null},
+    "T8383": {"stratum": "D", "answer_with_sentence": 2.1778, "regime": null},
+    "T43BC": {"stratum": "R", "answer_with_sentence": 1.0889, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: a = 2*9.8/(3+5+1) = 19.6/9 = 2.1778 m/s^2. The radius cancels because I = M R^2/2 and the torque (T2-T1)R gives (T2-T1) = (M/2)a. With 0.9 kg hung from the left block (present or 'before release', which leaves it attached): left mass 3.9 kg, a = 1.1*9.8/(3.9+5+1) = 10.78/9.9 = 1.0889 m/s^2. Earlier-experiment blocks leave no state (D); blocks on the cart have no path to the pulley system (D). Tensions: T_left = 3(9.8+2.1778) = 35.93 N, T_right = 5(9.8-2.1778) = 38.11 N, well below 250 N (K). Variant check: TDEE0 and T5FFC both state 12 cm; T7B5F/TFCD1/T6622/T43BC all state 0.9 kg; T8642/TACE6 both 250 N. T71F4 and T8383 say 'a small block' with no number, differing in the number from the 0.9 kg sentences."
+}

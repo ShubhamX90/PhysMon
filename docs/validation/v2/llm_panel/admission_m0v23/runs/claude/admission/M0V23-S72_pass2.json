@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v23_admission:batch05",
+  "item_id": "M0V23-S72",
+  "pass_number": 2,
+  "started_at": "2026-11-18T10:08:00Z", "completed_at": "2026-11-18T10:16:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "lambda = hc / sqrt(2 mc^2 K) (non-relativistic de Broglie)", "assumptions": ["electron starts from rest, K = 150 eV", "non-relativistic (stated)", "hc = 1240 eV nm, mc^2 = 511 keV"], "answer": 100.15, "unit": "pm"},
+  "stratum_assignments": {
+    "TEFE8": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null},
+    "T3024": {"stratum": "R", "answer_with_sentence": 79.1755, "regime": null},
+    "TB701": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null},
+    "T421A": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null},
+    "T42DA": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null},
+    "T6CB4": {"stratum": "R", "answer_with_sentence": 79.1755, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified: base 1240/sqrt(2*511000*150) = 1240/12381.44 = 0.100150 nm = 100.15 pm. R answers: K=190 eV -> 1240/13934.85 = 88.986 pm; K=240 eV -> 1240/15661.42 = 79.1755 pm; K=330 eV -> 1240/18364.64 = 67.521 pm; all match. Non-relativistic error at 330 eV is ~2e-4 relative and the model is stated. Minimal pairs hold: T421A vs T3024 differ only in 'proton' vs 'electron'; TEFE8 vs T6CB4 differ only in 'alpha particle in the other apparatus' vs 'electron in this apparatus'; same number and unit. Numeral-free controls TB701 and T42DA match their twins T421A and TEFE8 with only the number replaced by 'an amount', as designed; this resolves the possible concern I noted in pass 1. Agreement with pass 1 on all strata and values (pass 1 in nm). Minor: 'the proton' (singular, definite) when the scene mentions protons generically, and 'Before the wavelength is determined' attached to a proton stage, read slightly artificially but do not affect the answer."
+}

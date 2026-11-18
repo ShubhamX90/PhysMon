@@ -1,0 +1,30 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v23_admission:batch04",
+  "item_id": "M0V23-S27",
+  "pass_number": 2,
+  "started_at": "2026-11-18T10:26:30Z", "completed_at": "2026-11-18T10:34:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Hydrostatics p = p_surface + rho g h", "assumptions": ["liquid at rest", "incompressible liquid, uniform density", "tank at least 12 m deep", "g = 9.8 m/s^2 (stated)"], "answer": 218.6, "unit": "kPa"},
+  "stratum_assignments": {
+    "T3150": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null},
+    "T4A42": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null},
+    "T8B04": {"stratum": "C", "answer_with_sentence": 218.6, "regime": null},
+    "T355D": {"stratum": "R", "answer_with_sentence": 233.6, "regime": null},
+    "TE283": {"stratum": "C", "answer_with_sentence": 218.6, "regime": null},
+    "TC9DF": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null},
+    "T3306": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null},
+    "T391F": {"stratum": "R", "answer_with_sentence": 233.6, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "The question names no moment, and 'Afterwards' in T391F (and 'then' in T355D) has no explicit referent, so a reader can take the added pressure as acting after the asked state (218.6 kPa) rather than before it (233.6 kPa); 'this tank' in T355D also relies on the reader resolving it to the first tank after a second tank has been introduced."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "All claimed strata match my pass 1. Numbers checked: rho g h = 1000*9.8*12 = 117.6 kPa; base 101 + 117.6 = 218.6 kPa; R values 218.6 + 7.5/15/35 = 226.1/233.6/253.6 kPa, correct. Area C: p0 + rho A h g / A cancels, correct. Second-tank piston: separate liquid body; it does not change the shared air pressure, so D holds. Earlier-experiment pump leaves no state: D holds. Minimal pairs: T3150 vs T355D both 15 kPa, both 'then ... piston resting on its free surface', differ only in second tank vs this tank; TC9DF vs T391F both 15 kPa, differ only in 'In an earlier experiment' vs 'Afterwards'. T4A42 and T3306 are declared numeral-free controls, which resolves my pass-1 note on them. Physics and certified answers are correct; only the temporal reading is a wording issue."
+}

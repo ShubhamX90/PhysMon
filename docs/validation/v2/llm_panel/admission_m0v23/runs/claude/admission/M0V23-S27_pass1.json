@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v23_admission:batch04",
+  "item_id": "M0V23-S27",
+  "pass_number": 1,
+  "started_at": "2026-11-18T10:16:00Z", "completed_at": "2026-11-18T10:26:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Hydrostatics p = p_surface + rho g h", "assumptions": ["liquid at rest", "incompressible liquid, uniform density", "tank at least 12 m deep", "g = 9.8 m/s^2 (stated)"], "answer": 218.6, "unit": "kPa"},
+  "stratum_assignments": {
+    "T3150": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null},
+    "T4A42": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null},
+    "T8B04": {"stratum": "C", "answer_with_sentence": 218.6, "regime": null},
+    "T355D": {"stratum": "R", "answer_with_sentence": 233.6, "regime": null},
+    "TE283": {"stratum": "C", "answer_with_sentence": 218.6, "regime": null},
+    "TC9DF": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null},
+    "T3306": {"stratum": "D", "answer_with_sentence": 218.6, "regime": null},
+    "T391F": {"stratum": "R", "answer_with_sentence": 233.6, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "The question gives no time, and with T355D / T391F the base clause 'the pressure at the free surface is 101 kPa' then describes only the state before the 'then'/'afterwards' event; 'Afterwards' in T391F has no explicit referent, so a reader could take the pump as acting after the asked moment (D, 218.6 kPa) rather than before it (R, 233.6 kPa)."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: 101 kPa + 1000*9.8*12 Pa = 101 + 117.6 = 218.6 kPa. Piston on this tank's surface adds 15 kPa uniformly (Pascal): 233.6 kPa. Pump on the shared air above this liquid after the start: 233.6 kPa (I read the question as asking the current state after the event). Piston on the second tank: separate body of liquid, D. Earlier-experiment pump: no state left, D. Base area: p = p0 + (rho g h A)/A, area cancels (C); could also be read as D since it does not enter the usual relation. The tank depth (>= 12 m) is implied by the question. Variant check: T3150 vs T355D same 15 kPa, differ in attachment (second tank vs this tank); TC9DF vs T391F same 15 kPa, differ in earlier vs afterwards; T8B04 vs TE283 both 2 m^2; T4A42 and T3306 carry 'small' instead of 15 kPa, so they are not number-minimal with their 15 kPa counterparts."
+}

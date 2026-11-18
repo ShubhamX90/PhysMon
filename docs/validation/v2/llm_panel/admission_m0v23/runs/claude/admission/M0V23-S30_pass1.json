@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v23_admission:batch04",
+  "item_id": "M0V23-S30",
+  "pass_number": 1,
+  "started_at": "2026-11-18T10:00:00Z", "completed_at": "2026-11-18T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Energy balance P t = m c dT (no losses, no phase change, constant c)", "assumptions": ["all 1500 W goes into the water", "no heat loss (stated)", "no boiling (stated)", "constant specific heat", "heat capacity of the container neglected"], "answer": 223.25, "unit": "s"},
+  "stratum_assignments": {
+    "T7FCE": {"stratum": "D", "answer_with_sentence": 223.25, "regime": null},
+    "TBDE4": {"stratum": "R", "answer_with_sentence": 379.59, "regime": null},
+    "T1E1C": {"stratum": "R", "answer_with_sentence": 379.59, "regime": null},
+    "T846F": {"stratum": "D", "answer_with_sentence": 223.25, "regime": null},
+    "TB98F": {"stratum": "C", "answer_with_sentence": 223.25, "regime": "initial temperature enters as T_f - T_i and cancels since the rise is given; it would matter only if 288 K + 40 K reached boiling (373 K), which it does not (328 K)"},
+    "T5BC7": {"stratum": "D", "answer_with_sentence": 223.25, "regime": null},
+    "T8D91": {"stratum": "D", "answer_with_sentence": 223.25, "regime": null},
+    "T6A76": {"stratum": "C", "answer_with_sentence": 223.25, "regime": "as TB98F"}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "With TBDE4/T1E1C the base text still says the heater delivers 1500 W to 2 kg of water while the heated water is now 3.4 kg; read as 'the original 2 kg plus 1.4 kg added', the answer is 3.4*4186*40/1500 = 379.6 s, but the wording sits uneasily with '2 kg of water'."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: t = 2*4186*40/1500 = 334880/1500 = 223.25 s. With 1.4 kg added before heating: 3.4*4186*40/1500 = 569392/1500 = 379.59 s. Emptying after the heating ended cannot change the heating time (D, temporal disconnection). Initial temperature: C (cancels from dT); could also be argued K with the boiling regime, but the problem already states no boiling. Variant check: TBDE4 vs T1E1C differ only in tense, both 1.4 kg; T7FCE vs T1E1C same number, different attachment; TB98F vs T6A76 both 288 K. T846F and T8D91 say 'a small amount' rather than 1.4 kg, so if they are meant as variants of T7FCE/T5BC7 they are not minimal in the number; both remain D regardless."
+}

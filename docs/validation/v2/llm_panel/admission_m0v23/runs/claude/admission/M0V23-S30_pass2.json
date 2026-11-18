@@ -1,0 +1,30 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v23_admission:batch04",
+  "item_id": "M0V23-S30",
+  "pass_number": 2,
+  "started_at": "2026-11-18T10:08:30Z", "completed_at": "2026-11-18T10:15:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Energy balance P t = m c dT (no losses, no phase change, constant c)", "assumptions": ["all heater power goes into the water", "no heat loss (stated)", "no boiling (stated)", "constant specific heat", "container heat capacity neglected"], "answer": 223.253, "unit": "s"},
+  "stratum_assignments": {
+    "T7FCE": {"stratum": "D", "answer_with_sentence": 223.253, "regime": null},
+    "TBDE4": {"stratum": "R", "answer_with_sentence": 379.531, "regime": null},
+    "T1E1C": {"stratum": "R", "answer_with_sentence": 379.531, "regime": null},
+    "T846F": {"stratum": "D", "answer_with_sentence": 223.253, "regime": null},
+    "TB98F": {"stratum": "C", "answer_with_sentence": 223.253, "regime": null},
+    "T5BC7": {"stratum": "D", "answer_with_sentence": 223.253, "regime": null},
+    "T8D91": {"stratum": "D", "answer_with_sentence": 223.253, "regime": null},
+    "T6A76": {"stratum": "C", "answer_with_sentence": 223.253, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "For the R sentences the base text still says the heater 'delivers 1500 W to 2 kg of water' while the heated water is then 3.4 kg; the intended reading (original 2 kg plus the added 1.4 kg) is the natural one, so this is a wording issue only."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Checked: c*dT/P = 4186*40/1500 = 111.6267 s/kg; base 2 kg -> 223.253 s; R values m = 2.8, 3.4, 4.6 kg -> 312.555, 379.531, 513.483 s, all match. My pass-1 R value 379.59 was an arithmetic slip (3.4*167440 = 569296, not 569392); the certified 379.531 is correct. C cancellation for initial temperature holds; 278-308 K plus 40 K stays below boiling and above freezing, so the stated no-boiling condition is consistent across values. Minimal pairs: T5BC7 vs TBDE4 both 1.4 kg, same tense, differ only in before/after; T7FCE vs T1E1C both 1.4 kg, differ only in left on bench vs emptied in. T846F and T8D91 are declared numeral-free controls, which resolves my pass-1 note about them. Downgraded the 'other' flag from medium to low after seeing the wiring makes the additive-mass reading explicit."
+}

@@ -1,0 +1,103 @@
+{
+  "item_id": "M0V23-S13",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For a small-amplitude simple pendulum, T = 2π√(L/g). With L = 0.8 m and g = 9.8 m/s², T = 1.7952 s. A cord of length q inserted between the string and bob gives T = 2π√((L+q)/g). Bob mass cancels between inertia and restoring torque.",
+    "assumptions": [
+      "The small bob is approximated as a point mass.",
+      "The string and any inserted cord are taut and inextensible.",
+      "The suspension point is fixed.",
+      "The nearby hook and its hanging cord do not intercept the pendulum.",
+      "Oscillations have small amplitude and air resistance is negligible."
+    ],
+    "answer": 1.7952,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T374C": {
+      "stratum": "R",
+      "answer_with_sentence": 2.28843,
+      "regime": null
+    },
+    "T2DE4": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T6823": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "T850B": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "TCBDE": {
+      "stratum": "R",
+      "answer_with_sentence": 2.28843,
+      "regime": null
+    },
+    "T976A": {
+      "stratum": "C",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "TE52E": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    },
+    "TC89A": {
+      "stratum": "D",
+      "answer_with_sentence": 1.7952,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T2DE4 and TC89A replace the numerical length 0.5 m with 'short', contrary to the review instructions' requirement that variants of the same quantity preserve its number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A 0.1 m cord satisfies 'short' in T2DE4 or TC89A, whereas their numerical twins T850B and TE52E specify 0.5 m."
+  ],
+  "notes": "All physical classifications, cancellation relations, units and certified numerical answers check out. For inserted cord lengths 0.3, 0.5 and 0.7 m, the periods are respectively 2.10505, 2.28843 and 2.45817 s. Every listed positive bob mass gives 1.7952 s. Both explicit minimal_pair_with links preserve 0.5 m. Pass 2 reveals that the numeral-free controls are intentional and correctly described by their metadata; however, the review instructions provide no exemption from the requirement that same-quantity variants retain the same number and unit. I therefore retain the pass-1 defect on that requirement alone. No other information about the item was accessed.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v23_admission",
+  "started_at": "2026-11-18T18:30:37+00:00",
+  "completed_at": "2026-11-18T18:31:35+00:00",
+  "minutes_spent": 0.96,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "07d49fae2c2b2ce1cd2f56b2bdb6e9eb7820dfe78d420b61bd357d334c115f90",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

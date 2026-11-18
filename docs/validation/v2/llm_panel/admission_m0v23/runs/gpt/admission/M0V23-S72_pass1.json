@@ -1,0 +1,83 @@
+{
+  "item_id": "M0V23-S72",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For non-relativistic motion, K = p²/(2m) and λ = h/p = hc/√(2mc²K). With K = 150 eV and mc² = 511000 eV, λ = 1240/√(153300000) nm.",
+    "assumptions": [
+      "The electron is treated non-relativistically as specified.",
+      "The separate apparatus does not interact with the electron."
+    ],
+    "answer": 0.10015,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "TEFE8": {
+      "stratum": "D",
+      "answer_with_sentence": 0.10015,
+      "regime": null
+    },
+    "T3024": {
+      "stratum": "R",
+      "answer_with_sentence": 0.079176,
+      "regime": null
+    },
+    "TB701": {
+      "stratum": "D",
+      "answer_with_sentence": 0.10015,
+      "regime": null
+    },
+    "T421A": {
+      "stratum": "D",
+      "answer_with_sentence": 0.10015,
+      "regime": null
+    },
+    "T42DA": {
+      "stratum": "D",
+      "answer_with_sentence": 0.10015,
+      "regime": null
+    },
+    "T6CB4": {
+      "stratum": "R",
+      "answer_with_sentence": 0.079176,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TB701 and T42DA omit the numerical value and unit supplied as 90 eV in the other variants, so the sentences do not satisfy the required same-number-and-unit condition."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics is well-posed. T3024 and T6CB4 increase the electron's final kinetic energy to 240 eV, giving λ = 1240/√(2 × 511000 × 240) nm. All proton and alpha-particle additions are disconnected from the target. Their unspecified energy increments do not prevent determining the electron wavelength; the invalid verdict concerns the required variant matching.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v23_admission",
+  "started_at": "2026-11-18T18:28:08+00:00",
+  "completed_at": "2026-11-18T18:28:35+00:00",
+  "minutes_spent": 0.46,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "3f6c0d115361ee69e64f2d2b1c4fa5dfbaa188e2ebed37044e420091473edbd8",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

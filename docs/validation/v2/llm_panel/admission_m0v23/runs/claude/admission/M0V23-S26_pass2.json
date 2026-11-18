@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v23_admission:batch06",
+  "item_id": "M0V23-S26",
+  "pass_number": 2,
+  "started_at": "2026-11-18T10:13:00Z", "completed_at": "2026-11-18T10:25:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Snell's law n1 sin(theta1) = n2 sin(theta2)", "assumptions": ["flat interface, isotropic media", "light travels from medium 1 into medium 2; no total internal reflection since n2 > n1"], "answer": 25.374, "unit": "degree"},
+  "stratum_assignments": {
+    "T77F8": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "T8078": {"stratum": "R", "answer_with_sentence": 31.205, "regime": null},
+    "TF598": {"stratum": "R", "answer_with_sentence": 31.205, "regime": null},
+    "T0468": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "TB841": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "TA3DE": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "TF598 ('was tilted 11 deg farther ... before the refraction was observed') admits a reading in which the tilt was a prior state later undone, and it overrides the stated 40 deg incidence; the intended R reading (incidence 51 deg at observation) is the more natural one, parallel to T8078, so this is wording ambiguity rather than an error."
+  },
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Checked answers: base sin(theta2)=sin40/1.5=0.42853 -> 25.374 deg. R values: q=6 -> theta1=46, sin=0.71934/1.5=0.47956 -> 28.657; q=11 -> 51, 0.77715/1.5=0.51810 -> 31.205; q=14 -> 54, 0.80902/1.5=0.53934 -> 32.639. All match the certified answers. Relation, units (dimensionless indices, degrees) consistent. D claims for camera tilts (TA3DE, T0468) and earlier-experiment laser tilt (TB841, T77F8) hold. TB841/TF598 share the number and unit (11 deg) and differ only in the time attachment ('in an earlier experiment' vs 'before the refraction was observed'): the minimal-pair claim holds. TA3DE is honestly declared not a minimal pair of T8078. Disagreements with my pass 1: (1) I flagged rendering_not_minimal for T77F8/T0468 vs TB841/TA3DE; the authors declare these as numeral-free controls by design, not same-number variants, so this flag is withdrawn. (2) I flagged TF598 as a high-severity contradiction with the stated 40 deg; on reflection it is the same device as T8078 (a change applied to the stated set-up before observation), which I accepted as R, so treating one as a contradiction and not the other is inconsistent; I downgrade it to a medium wording ambiguity."
+,
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS"
+}

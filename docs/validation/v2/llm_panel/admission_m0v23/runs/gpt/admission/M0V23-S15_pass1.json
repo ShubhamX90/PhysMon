@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v23_admission",
+  "item_id": "M0V23-S15",
+  "pass_number": 1,
+  "started_at": "2026-11-18T18:26:58+00:00",
+  "completed_at": "2026-11-18T18:27:45+00:00",
+  "minutes_spent": 0.77,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Parallel resistors share the supply voltage. P_total = V^2(1/6 + 1/12) = 12^2/4 = 36 W. An additional series-aiding 3 V cell raises the voltage to 15 V, giving 56.25 W.",
+    "assumptions": [
+      "The resistors are ohmic with the stated resistances.",
+      "The fan circuit is electrically separate from the resistor circuit.",
+      "A fuse operates normally and remains intact below its rated current."
+    ],
+    "answer": 36,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T9111": {
+      "stratum": "R",
+      "answer_with_sentence": 56.25,
+      "regime": null
+    },
+    "TA8E4": {
+      "stratum": "D",
+      "answer_with_sentence": 36,
+      "regime": null
+    },
+    "TC44B": {
+      "stratum": "D",
+      "answer_with_sentence": 36,
+      "regime": null
+    },
+    "TA887": {
+      "stratum": "D",
+      "answer_with_sentence": 36,
+      "regime": null
+    },
+    "T15AD": {
+      "stratum": "K",
+      "answer_with_sentence": 36,
+      "regime": "The fuse remains intact: the 6 Ω branch carries 12/6 = 2 A, below its 5 A rating; fuse opening would change the total power."
+    },
+    "T7C74": {
+      "stratum": "D",
+      "answer_with_sentence": 36,
+      "regime": null
+    },
+    "T2B41": {
+      "stratum": "R",
+      "answer_with_sentence": 56.25,
+      "regime": null
+    },
+    "T30BD": {
+      "stratum": "K",
+      "answer_with_sentence": 36,
+      "regime": "The 6 Ω branch carries 2 A, below the stated 5 A opening threshold; an overcurrent that opens the fuse would change the total power."
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TC44B and TA887 omit the cell's emf, whereas the other cell variants specify 3 V, violating the required common number and unit across variants of that quantity."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and all individual augmented problems have determinate answers. The unspecified cell emf in TC44B and TA887 does not affect their answers because those cells are disconnected from the present resistor circuit, but it prevents the required numerical matching of variants. The two fuse sentences both specify 5 A; their distinction at the exact threshold does not affect the operating current here.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "3b9c204f843de464ecc82946cea5d59fe26f89d0cd9b677d933f60974efc5867",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

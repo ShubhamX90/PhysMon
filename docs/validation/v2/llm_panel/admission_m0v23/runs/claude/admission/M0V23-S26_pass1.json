@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v23_admission:batch06",
+  "item_id": "M0V23-S26",
+  "pass_number": 1,
+  "started_at": "2026-11-18T10:00:00Z", "completed_at": "2026-11-18T10:12:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Snell's law n1 sin(theta1) = n2 sin(theta2)", "assumptions": ["flat interface, isotropic media", "ray in medium 1 transmitted into medium 2 (no total internal reflection since n2 > n1)"], "answer": 25.37, "unit": "degree"},
+  "stratum_assignments": {
+    "T77F8": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "T8078": {"stratum": "R", "answer_with_sentence": 31.21, "regime": null},
+    "TF598": {"stratum": "R", "answer_with_sentence": 31.21, "regime": null},
+    "T0468": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "TB841": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "TA3DE": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["contradictory_distractor_statement", "rendering_not_minimal"],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "TF598 says the laser was tilted 11 degrees beyond the stated angle of incidence before the refraction was observed, so the observed incidence is 51 degrees, contradicting the problem's statement that the angle of incidence is 40 degrees (or, if read as a past setting later undone, it is ambiguous whether it is R or D).",
+    "rendering_not_minimal": "T77F8 and T0468 say 'a little' while their apparent variants TB841 and TA3DE say '11 degrees', so the variants do not state the same number and unit."
+  },
+  "defect_severity": {"contradictory_distractor_statement": "high", "rendering_not_minimal": "medium"},
+  "counterexamples": ["TF598 read literally: incidence during observation = 51 deg, refraction = arcsin(sin51/1.5) = 31.21 deg, but the problem text still states incidence 40 deg."],
+  "notes": "Base: sin(theta2) = sin40/1.5 = 0.64279/1.5 = 0.42853, theta2 = 25.37 deg. T8078 (now tilted 11 deg farther): incidence 51 deg, sin = 0.77715/1.5 = 0.51810, theta2 = 31.21 deg; this is a change of the stated condition ('then tilted'), acceptable as R. T77F8, TB841 refer to an earlier experiment: D. Camera tilts (T0468, TA3DE): D. TF598 wording conflicts with the stated 40 deg incidence."
+}

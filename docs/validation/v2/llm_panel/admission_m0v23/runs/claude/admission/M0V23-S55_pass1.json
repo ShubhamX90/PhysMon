@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v23_admission:batch02",
+  "item_id": "M0V23-S55",
+  "pass_number": 1,
+  "started_at": "2026-11-18T00:13:00Z", "completed_at": "2026-11-18T00:20:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Kinetic theory of an ideal gas: v_rms = sqrt(3 R T / M)",
+    "assumptions": ["ideal gas (stated)", "thermal equilibrium at 300 K (Maxwell-Boltzmann distribution)", "M = 0.004 kg/mol", "classical, non-relativistic translational motion"],
+    "answer": 1367.7,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T3D0E": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "T98EC": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null},
+    "TC187": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null},
+    "TEC8D": {"stratum": "C", "answer_with_sentence": 1367.7, "regime": null},
+    "T6A55": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "TE1DE": {"stratum": "C", "answer_with_sentence": 1367.7, "regime": null},
+    "TB1F2": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null},
+    "T20DC": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T98EC/TB1F2 ('From the stated temperature, a heater warmed this gas sample ... in an earlier experiment') leave implicit that the gas has since returned to 300 K, and T6A55 mixes past and present tense; the base text's present-tense 'is in thermal equilibrium at 300 K' resolves both, so the wording is awkward rather than wrong."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: 3*8.314*300/0.004 = 1,870,650 m^2/s^2; sqrt = 1367.7 m/s. Heated by 100 K to 400 K: 3*8.314*400/0.004 = 2,494,200; sqrt = 1579.3 m/s (R for T3D0E and T6A55). Heating the other, thermally insulated flask is D. Amount of substance n is C: it appears in total kinetic energy (3/2) n R T = (1/2) n M v_rms^2 and cancels (arguably D since v_rms = sqrt(3RT/M) never involves n). Earlier-experiment heating is D given the stated present temperature. Variants: T3D0E, T98EC, T6A55, T20DC all 100 K; TC187 and TB1F2 use 'a few kelvin' (no number); TEC8D and TE1DE both 2 mol."
+}

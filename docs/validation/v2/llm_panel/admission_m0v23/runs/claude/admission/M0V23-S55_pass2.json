@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v23_admission:batch02",
+  "item_id": "M0V23-S55",
+  "pass_number": 2,
+  "started_at": "2026-11-18T00:21:00Z", "completed_at": "2026-11-18T00:28:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Kinetic theory of an ideal gas: v_rms = sqrt(3 R T / M)",
+    "assumptions": ["ideal classical gas (stated)", "thermal equilibrium at 300 K", "M = 0.004 kg/mol", "translational motion only"],
+    "answer": 1367.72,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T3D0E": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "T98EC": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null},
+    "TC187": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null},
+    "TEC8D": {"stratum": "C", "answer_with_sentence": 1367.72, "regime": null},
+    "T6A55": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "TE1DE": {"stratum": "C", "answer_with_sentence": 1367.72, "regime": null},
+    "TB1F2": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null},
+    "T20DC": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T98EC/TB1F2 ('From the stated temperature ... in an earlier experiment') and the mixed tense of T6A55 are awkward, though the base's present-tense 'is in thermal equilibrium at 300 K' fixes the intended reading."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Verified certified answers: T = 300, 350, 400, 500 K give 3RT/M = 1,870,650; 2,182,425; 2,494,200; 3,117,750 m^2/s^2 and v_rms = 1367.72, 1477.30, 1579.30, 1765.72 m/s. Cancellation for n via U = (3/2) n R T = (1/2) n M v_rms^2 is correct. Unit handling (M in kg/mol) correct. Minimal pairs hold: T20DC/T3D0E differ only in 'the other sample' vs 'this gas sample' (both 100 K); T98EC/T6A55 differ only in 'in an earlier experiment' vs 'before the molecular speeds are measured' (both 100 K). Numeral-free twins TC187/TB1F2 are declared controls. Insulated other flask makes T20DC and TC187 D. Difference from pass 1: I lower the wording flag from medium to low and clarity from ambiguous to clear, because the reading in which the earlier heating persists would contradict the base's present-tense statement and is not a reasonable alternative reading; the item is valid in both passes."
+}

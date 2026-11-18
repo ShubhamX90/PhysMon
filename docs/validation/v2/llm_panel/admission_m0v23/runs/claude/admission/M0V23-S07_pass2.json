@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v23_admission:batch05",
+  "item_id": "M0V23-S07",
+  "pass_number": 2,
+  "started_at": "2026-11-18T10:26:00Z", "completed_at": "2026-11-18T10:36:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "RC charging: V_C(t) = E (1 - exp(-t/RC)); an open-circuited non-leaking capacitor holds its voltage", "assumptions": ["capacitor initially uncharged (stated)", "ideal battery and wires (stated)", "no leakage (stated)", "tau = 100 ms"], "answer": 6.60805, "unit": "V"},
+  "stratum_assignments": {
+    "T0285": {"stratum": "D", "answer_with_sentence": 6.60805, "regime": null},
+    "T6DDA": {"stratum": "K", "answer_with_sentence": 6.60805, "regime": "disconnection time q > 80 ms observation time"},
+    "T256B": {"stratum": "R", "answer_with_sentence": 5.41426, "regime": null},
+    "TA030": {"stratum": "R", "answer_with_sentence": 4.50438, "regime": null},
+    "T79DA": {"stratum": "R", "answer_with_sentence": 4.50438, "regime": null},
+    "T492C": {"stratum": "D", "answer_with_sentence": 6.60805, "regime": null},
+    "TE7C0": {"stratum": "R", "answer_with_sentence": 5.41426, "regime": null},
+    "T83CD": {"stratum": "K", "answer_with_sentence": 6.60805, "regime": "switch-opening time q > 80 ms observation time"},
+    "T120F": {"stratum": "D", "answer_with_sentence": 6.60805, "regime": null},
+    "TF907": {"stratum": "D", "answer_with_sentence": 6.60805, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified all certified answers: base 12(1-e^-0.8) = 6.60805 V. Extra series resistor: 1.5 kOhm -> tau 130 ms, 12(1-e^-0.61538) = 12*0.459567 = 5.5148 V; 3.5 kOhm -> tau 170 ms, 4.50438 V; 7 kOhm -> tau 240 ms, 12(1-e^-1/3) = 3.40163 V. Early break: 30 ms -> 12(1-e^-0.3) = 3.11018 V; 60 ms -> 5.41426 V (charge held, no leak and open circuit, stated). K values 250/400/750 ms all exceed 80 ms, regime correctly stated. Minimal pairs hold: T120F vs T79DA (lamp loop vs charging loop), TF907 vs TA030 (earlier experiment vs this experiment), both 3.5 kOhm; numeral-free controls T0285 and T492C match their twins T120F and TF907 with the number replaced by 'small'. K/R time pairs use matching wording (switch: T83CD/T256B; cut off: T6DDA/TE7C0), 400 ms vs 60 ms. Agrees with pass 1 throughout. Minor wording: 'cut off from the battery' is read as opening the loop (standard reading, also used by the authors); TA030's past tense 'was also connected ... in this experiment' is slightly awkward."
+}

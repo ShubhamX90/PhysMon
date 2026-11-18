@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v23_admission:batch02",
+  "item_id": "M0V23-S13",
+  "pass_number": 1,
+  "started_at": "2026-11-18T00:00:00Z", "completed_at": "2026-11-18T00:06:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Simple pendulum, small-angle: T = 2*pi*sqrt(L/g)",
+    "assumptions": ["point-like bob (small)", "light inextensible string", "small amplitude so sin(theta) ~ theta", "string top end fixed", "negligible air resistance"],
+    "answer": 1.795,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T374C": {"stratum": "R", "answer_with_sentence": 2.288, "regime": null},
+    "T2DE4": {"stratum": "D", "answer_with_sentence": 1.795, "regime": null},
+    "T6823": {"stratum": "C", "answer_with_sentence": 1.795, "regime": null},
+    "T850B": {"stratum": "D", "answer_with_sentence": 1.795, "regime": null},
+    "TCBDE": {"stratum": "R", "answer_with_sentence": 2.288, "regime": null},
+    "T976A": {"stratum": "C", "answer_with_sentence": 1.795, "regime": null},
+    "TE52E": {"stratum": "D", "answer_with_sentence": 1.795, "regime": null},
+    "TC89A": {"stratum": "D", "answer_with_sentence": 1.795, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T374C ('was tied ... before the swing began') does not say explicitly that the cord is still in place during the swing, though that is the natural reading; and the 'short' variants (T2DE4, TC89A) give no number, so they are not strict same-number variants of the 0.5 m sentences."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base: T = 2*pi*sqrt(0.8/9.8) = 2*pi*0.285714 = 1.7952 s. With the 0.5 m cord inserted, effective length 1.3 m: T = 2*pi*sqrt(1.3/9.8) = 2*pi*0.364216 = 2.2884 s. Mass sentences are C (mass appears in m g sin(theta) = m L theta'' and cancels). Hook-cord sentences are D. 'Earlier experiment only' sentences are D (cord not present now). Variants: T374C, TCBDE, TE52E, T850B share 0.5 m; T2DE4 and TC89A replace the number with 'short'."
+}

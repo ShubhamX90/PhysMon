@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v23_admission",
+  "item_id": "M0V23-S30",
+  "pass_number": 2,
+  "started_at": "2026-11-18T18:30:49+00:00",
+  "completed_at": "2026-11-18T18:31:22+00:00",
+  "minutes_spent": 0.54,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation gives Pt = mcΔT, so t = 2 × 4186 × 40 / 1500 = 223.2533333333 s. Adding q kilograms at the same initial temperature before heating gives t = (2 + q) × 4186 × 40 / 1500.",
+    "assumptions": [
+      "The heater delivers constant power to the heated water.",
+      "The stated specific heat capacity is constant over the temperature range.",
+      "No heat is lost and no phase change occurs.",
+      "Water added before heating joins the heated mass at the same initial temperature."
+    ],
+    "answer": 223.2533333333,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T7FCE": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "TBDE4": {
+      "stratum": "R",
+      "answer_with_sentence": 379.5306666667,
+      "regime": null
+    },
+    "T1E1C": {
+      "stratum": "R",
+      "answer_with_sentence": 379.5306666667,
+      "regime": null
+    },
+    "T846F": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "TB98F": {
+      "stratum": "C",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "T5BC7": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "T8D91": {
+      "stratum": "D",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    },
+    "T6A76": {
+      "stratum": "C",
+      "answer_with_sentence": 223.2533333333,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All certified answers agree with energy conservation to their displayed precision. For added masses 0.8, 1.4 and 2.6 kg, the times are respectively 312.554667, 379.530667 and 513.482667 s. Bench water and water added after heating have no causal effect on the requested heating time. Initial temperature cancels explicitly under the constant-specific-heat model; all listed temperatures are compatible with liquid water throughout the stated rise. Both declared numeric minimal pairs preserve the number and unit and change only the relevant attachment or timing. I withdraw the pass-1 rendering_not_minimal flag: pass 2 explicitly identifies T846F and T8D91 as numeral-free controls, rather than numeric minimal pairs, and their claimed wording transformations are accurate. Pass 1 remains unchanged.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "cfb73224905a496ffe78be6c6e30714a708db40ffc5e0b43fef81640b5f43e62",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}
