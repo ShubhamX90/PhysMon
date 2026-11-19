@@ -39,7 +39,7 @@ S73 = _spec(
     heldout_values=(0.7, 1.6),
     relevant=rv.RelevantWiring("L", "add", "Widening the well by q gives the width L + q, so the ground-state energy "
                                            "hc^2 / (8 mc2 (L + q)^2) and the energy difference of the two levels change."),
-    scene_clause="A quantum dot is grown on the same chip.",
+    scene_clause="A quantum dot is grown on the same chip. The electron stays in the well throughout.",
     scene_object_rationale="A quantum dot grown on the same chip is a separate confining region with its own electrons; it shares no "
                            "wall with the well, so the width of the well and the levels of its electron are unchanged.",
     scene_refs=("dot",), target_terms=("well",),
@@ -64,20 +64,20 @@ S77 = _spec(
     heldout_values=(7.4, 11.0),
     relevant=rv.RelevantWiring("U0", "replace", "The barrier is replaced by one of height q, so the decay constant "
                                                 "kappa = sqrt(2 m (q - E)) / hbar changes and the width ln(1/T) / (2 kappa) with it."),
-    scene_clause="A potential step is built on the same chip.",
+    scene_clause="A potential step is built on the same chip. Barrier heights are measured from the potential outside the barrier.",
     scene_object_rationale="A potential step built on the same chip is a different potential region; the electron approaches the "
                            "barrier only, so the height of the barrier and the width asked for are unchanged.",
     scene_refs=("step",), target_terms=("barrier",),
     pairs=(
-        Pair("p0", "Before the electron arrives, {relation} is replaced by one whose height is {value} {unit}.", "the barrier",
+        Pair("p0", "Before the electron arrives, {relation} is then replaced by one whose height is {value} {unit}.", "the barrier",
              "the step", CO,
              "The step is a different potential region that the electron does not approach; replacing it leaves the height of the "
              "barrier and the width asked for unchanged.", ("rectangular potential barrier", "kinetic energy"), "known",
              before_context_reason="The R sentence refers to 'the barrier' and to the electron's arrival before the context "
                                    "introduces them; placed first, it has no referent."),
-        Pair("p1", "The barrier was replaced by one whose height is {value} {unit} {relation}.", "before the electron approached it",
-             "in an earlier experiment", EVENT,
-             "The barrier was replaced in an earlier experiment, which is over; the electron of the stated problem approaches a "
+        Pair("p1", "The barrier was then replaced by one whose height is {value} {unit} {relation}.", "before the electron approached it",
+             "for an earlier experiment only", EVENT,
+             "The barrier was replaced for an earlier experiment only, which is over; the electron of the stated problem approaches a "
              "barrier of the stated height.", ("rectangular potential barrier", "kinetic energy"), "known"),
     ),
     notes="M250 batch d. U0 replaced by q (an additive wiring on U0 or Ee is confounded with the opposite misuse on the other input, "
@@ -116,7 +116,7 @@ S91 = _spec(
     relevant=rv.RelevantWiring("rho_m", "replace", "The U-tube liquid is replaced by one of density q at the stated reading, so "
                                                    "the pressure difference is (q - rho) g dh and the flow rate follows from "
                                                    "the Bernoulli balance with continuity."),
-    scene_clause="A mercury barometer hangs on the same wall.",
+    scene_clause="A mercury barometer hangs on the same wall. The liquid in the U-tube does not mix with the flowing liquid.",
     scene_object_rationale="A barometer hanging on the same wall is not joined to the pipe; it measures the air pressure of the room "
                            "and nothing in the pipe, so the pressure difference between the wide section and the throat is "
                            "unchanged.",
@@ -130,8 +130,8 @@ S91 = _spec(
              before_context_reason="The R sentence refers to 'the U-tube' and to the reading of its levels before the context "
                                    "introduces them; placed first, it has no referent."),
         Pair("p1", "The liquid in the U-tube was replaced by one whose density is {value} {unit} {relation}.",
-             "before the levels were read", "in an earlier experiment", EVENT,
-             "The liquid was replaced in an earlier experiment, which is over; the reading of the stated problem is made with the "
+             "before the levels were read", "for an earlier experiment only", EVENT,
+             "The liquid was replaced for an earlier experiment only, which is over; the reading of the stated problem is made with the "
              "stated liquid.", ("U-tube manometer", "incompressible and frictionless"), "known"),
     ),
     cancelling=r2.CancellingV2(
@@ -167,17 +167,17 @@ S93 = _spec(
     heldout_values=(0.5, 1.7),
     relevant=rv.RelevantWiring("d", "add", "Widening the hole by q gives the diameter d + q, so the hole area is pi (d + q)^2 / 4 "
                                            "and the draining time (A / a) sqrt(2 / g) (sqrt(h0) - sqrt(h1)) changes."),
-    scene_clause="A rain barrel with a hole in its bottom stands beside the tank.",
+    scene_clause="A rain barrel with a hole in its bottom stands beside the tank. Water leaves the tank only through its hole, and the hole stays circular.",
     scene_object_rationale="A rain barrel with its own hole drains through that hole; its water and its hole are not part of the "
                            "tank, so the draining of the tank is unchanged.",
     scene_refs=("barrel",), target_terms=("tank",),
     pairs=(
-        Pair("p0", "Before the level is timed, the hole in the bottom of {relation} is widened by {value} {unit}.", "the tank",
+        Pair("p0", "Before the level is timed, the hole in the bottom of {relation} is widened by a further {value} {unit}.", "the tank",
              "the barrel", CO,
              "The hole of the rain barrel is widened (to drain the barrel faster); the barrel drains through its own hole, so the "
              "hole of the tank and the time asked for are the stated ones.", ("small circular hole", "ideal"), "a small amount",
              before_context_reason="The R sentence refers to 'the tank' and 'the level' before the context introduces them."),
-        Pair("p1", "The hole in the bottom of the tank was widened by {value} {unit} {relation}.", "before the level was timed",
+        Pair("p1", "The hole in the bottom of the tank was widened by a further {value} {unit} {relation}.", "before the level was timed",
              "after the timing ended", EVENT,
              "The hole was widened after the timing had ended, an event after the stated process; the time for the level to fall "
              "between the stated heights was set by the stated hole.", ("small circular hole", "ideal"), "a small amount"),
@@ -205,16 +205,16 @@ S94 = _spec(
                            "length of the pipe and the power needed to drive its flow are unchanged.",
     scene_refs=("hose",), target_terms=("pipe",),
     pairs=(
-        Pair("p0", "Before the flow is started, a further {value} {unit} of tubing is joined to {relation}.", "the pipe",
+        Pair("p0", "Before the flow is started, a further {value} {unit} of tubing of the same bore is joined to {relation}.", "the pipe",
              "the hose", CO,
              "The extra tubing is joined to the hose (to reach the tap); the hose carries its own flow, so the length of the pipe "
              "and the power needed for its flow are the stated ones.", ("laminar", "straight horizontal"), "short length",
              before_context_reason="The R sentence refers to 'the pipe' and to the flow before the context introduces them; "
                                    "placed first, it has no referent."),
-        Pair("p1", "A further {value} {unit} of tubing was joined to the pipe {relation}.", "before the flow was started",
-             "after the flow was stopped", EVENT,
-             "The extra tubing is joined after the flow has stopped, an event after the stated process; the power needed to drive "
-             "the flow in the stated length is the stated one.", ("laminar", "straight horizontal"), "short length"),
+        Pair("p1", "A further {value} {unit} of tubing of the same bore was joined to the pipe {relation}.", "before the flow was started",
+             "for an earlier experiment only", EVENT,
+             "The extra tubing was joined for an earlier experiment only, which is over; the power needed to drive the flow in "
+             "the stated length is the stated one.", ("laminar", "straight horizontal"), "short length"),
     ),
     cancelling=r2.CancellingV2(
         rv.CancellingSpec(
@@ -237,7 +237,7 @@ S95 = _spec(
     relevant=rv.RelevantWiring("m", "add", "A further load of mass q on the large piston gives the load m + q, so the gauge "
                                            "pressure at the large piston is (m + q) g / A2 and the force on the small piston "
                                            "(pL + rho g h) A1 follows."),
-    scene_clause="A bottle jack stands beside the lift.",
+    scene_clause="A bottle jack stands beside the lift. The oil stays in the lift and is incompressible.",
     scene_object_rationale="A bottle jack standing beside the lift has its own oil and ram; it is not joined to the lift, so the "
                            "force needed on the small piston of the lift is unchanged.",
     scene_refs=("jack",), target_terms=("lift", "piston"),
@@ -249,8 +249,8 @@ S95 = _spec(
              before_context_reason="The R sentence refers to 'the large piston' and to the applied force before the context "
                                    "introduces them; placed first, it has no referent."),
         Pair("p1", "A further {value} {unit} load was placed on the large piston {relation}.",
-             "before the force was applied", "in an earlier experiment", EVENT,
-             "The load was placed in an earlier experiment, which is over; the lift of the stated problem carries the stated "
+             "before the force was applied", "for an earlier experiment only", EVENT,
+             "The load was placed for an earlier experiment only, which is over; the lift of the stated problem carries the stated "
              "load.", ("in equilibrium", "light"), "small"),
     ),
     cancelling=r2.CancellingV2(

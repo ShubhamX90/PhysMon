@@ -57,7 +57,7 @@ S231 = _spec(
     relevant=rv.RelevantWiring("v", "add", "A motor that adds q to the speed of the wall makes it v + q, and the beat is "
                                            "2 f (v + q) / (c - v - q)."),
     cancelling=S231_C,
-    scene_clause="A conveyor belt carries parcels along the floor beside the loudspeaker.",
+    scene_clause="A conveyor belt carries parcels along the floor beside the loudspeaker; it stirs no air, which stays still throughout.",
     scene_object_rationale="A conveyor belt on the floor is not the large flat wall that reflects the tone, so the tone, the echo "
                            "that the microphone records and the beat are those of the wall alone.",
     scene_refs=("conveyor belt",), target_terms=("the wall",),
@@ -68,7 +68,7 @@ S231 = _spec(
              before_context_reason="The R sentence refers to 'the wall' before the context introduces it, and a speed to be added "
                                    "to has not yet been stated."),
         Pair("p1", "A motor had added {value} {unit} to the speed of the wall {relation}.", "before the echo was recorded",
-             "in an earlier run", EVENT,
+             "for an earlier run only", EVENT,
              "The motor changed the speed of the wall in an earlier run, which is over; in the stated recording the wall moves at "
              "the stated constant speed.", ("at rest in still air", "constant speed"), "a little"),
     ),
@@ -92,7 +92,7 @@ S232 = _spec(
     relevant=rv.RelevantWiring("sigma", "subtract", "Detergent that reduces the surface tension by q makes it sigma - q, which changes "
                                                     "the term sigma k^3 / rho of the dispersion relation."),
     conditional=S232_K,
-    scene_clause="A washing-up bowl of water stands on the bench beside the tank.",
+    scene_clause="A washing-up bowl of water stands on the bench beside the tank, and no tube or channel joins them.",
     scene_object_rationale="A washing-up bowl is a vessel of its own with its own water; what is done to the water in the bowl does "
                            "not reach the water of the tank, so the ripples of the tank keep their stated properties.",
     scene_refs=("washing-up bowl",), target_terms=("the tank",),
@@ -104,7 +104,7 @@ S232 = _spec(
              "a little", before_context_reason="The R sentence refers to 'the tank' and to the surface tension of its water before the "
                                                 "context introduces either."),
         Pair("p1", "Detergent had reduced the surface tension of the water by {value} {unit} {relation}.", "before the ripples were made",
-             "in an earlier run", EVENT,
+             "for an earlier run only", EVENT,
              "Detergent was in the water in an earlier run, which is over; the water of the stated run has the stated surface "
              "tension when the ripples are made.", ("much deeper than the wavelength", "viscosity is negligible"), "a little"),
     ),
@@ -128,7 +128,7 @@ S233 = _spec(
     relevant=rv.RelevantWiring("P0", "add", "A booster that adds q to the power of the beam makes the incident power P0 + q, and the "
                                             "transmitted power is (P0 + q) (1 - R)."),
     cancelling=S233_C,
-    scene_clause="A laser pointer lies on the bench beside the block.",
+    scene_clause="A laser pointer lies on the bench beside the block and shines away from it. The beam is narrow and parallel.",
     scene_object_rationale="A laser pointer lying on the bench sends no light onto the block, so the power that strikes and enters "
                            "the block is that of the beam alone.",
     scene_refs=("laser pointer",), target_terms=("the beam",),
@@ -138,7 +138,7 @@ S233 = _spec(
              "glass is the stated one.", ("polarised with its electric field in the plane of incidence", "does not absorb light"),
              "a little", before_context_reason="The R sentence refers to 'the beam' and to its power before the context introduces them."),
         Pair("p1", "A booster had added {value} {unit} to the power of the beam {relation}.", "before it struck the glass",
-             "in an earlier run", EVENT,
+             "for an earlier run only", EVENT,
              "The booster added power to the beam in an earlier run, which is over; in the stated run the beam that strikes the glass "
              "has the stated power.", ("polarised with its electric field in the plane of incidence", "does not absorb light"),
              "a little"),
@@ -171,7 +171,7 @@ S234 = _spec(
     relevant=rv.RelevantWiring("L", "add", "A glass coupler that adds q of the same glass to the length of the rod makes it L + q, and the "
                                            "transit time is n (L + q) / (c cos(theta_r))."),
     cancelling=S234_C, conditional=S234_K,
-    scene_clause="A coil of optical cable lies on the bench beside the rod.",
+    scene_clause="A coil of optical cable lies on the bench beside the rod, and no light passes between them. The glass is not dispersive.",
     scene_object_rationale="A coil of optical cable on the bench carries no part of the pulse, so the pulse in the rod travels the length "
                            "and the glass that the problem states.",
     scene_refs=("optical cable",), target_terms=("the rod",),
@@ -181,7 +181,7 @@ S234 = _spec(
              "the stated one.", ("totally internally reflected", "in air"), "a little",
              before_context_reason="The R sentence refers to 'the rod' before the context introduces any rod."),
         Pair("p1", "A glass coupler had added {value} {unit} to the length of the rod {relation}.", "before the pulse was sent",
-             "in an earlier run", EVENT,
+             "for an earlier run only", EVENT,
              "The coupler lengthened the rod in an earlier run, which is over; in the stated run the pulse crosses a rod of the "
              "stated length.", ("totally internally reflected", "in air"), "a little"),
     ),
@@ -211,12 +211,12 @@ S235_K = r2.ConditionalV2(
     (1.7, 2.9))
 
 S235 = _spec(
-    "S235", quantity_phrase="an extra length of wood", quantity_type="length", unit="cm", values=(3.5, 8.5, 14.0),
-    heldout_values=(5.5, 11.0),
+    "S235", quantity_phrase="an extra length of wood", quantity_type="length", unit="cm", values=(3.5, 9.5, 14.0),
+    heldout_values=(5.5, 12.5),
     relevant=rv.RelevantWiring("h", "add", "A length q of the same wood glued on top of the cylinder makes its length h + q at the same "
                                            "density, so the submerged length is rho_b (h + q) / rho_l."),
     cancelling=S235_C, conditional=S235_K,
-    scene_clause="A small wooden raft also floats in the tank.",
+    scene_clause="A small wooden raft also floats in the tank, far from the cylinder. The liquid is otherwise at rest.",
     scene_object_rationale="A small raft floating in the large tank has its own draught and its own motion; it does not touch the "
                            "cylinder, so the cylinder's period is fixed by its own density and length.",
     scene_refs=("raft",), target_terms=("the cylinder",),
@@ -226,7 +226,7 @@ S235 = _spec(
              "down are the stated ones.", ("floats upright", "Neglect drag"), "short",
              before_context_reason="The R sentence refers to 'the cylinder' and to its wood before the context introduces them."),
         Pair("p1", "A {value} {unit} length of the same wood had been glued on top of the cylinder {relation}.",
-             "before it was pushed down", "in an earlier run", EVENT,
+             "before it was pushed down", "for an earlier run only", EVENT,
              "The extra wood was on the cylinder in an earlier run, which is over; in the stated run the cylinder that is pushed "
              "down has the stated length.", ("floats upright", "Neglect drag"), "short"),
     ),
@@ -259,7 +259,7 @@ S236 = _spec(
     relevant=rv.RelevantWiring("l", "add", "A glass tube of length q and the same bore attached to the end of the neck makes the neck "
                                            "length l + q at the same radius."),
     cancelling=S236_C, conditional=S236_K,
-    scene_clause="A laboratory funnel stands in a clamp beside the flask.",
+    scene_clause="A laboratory funnel stands in a clamp beside the flask, clear of the flask and its neck. The walls of the flask are rigid.",
     scene_object_rationale="A funnel in a clamp is a vessel of its own with its own stem; a tube attached to the stem leaves the neck, "
                            "the volume and the air of the flask as the problem states.",
     scene_refs=("funnel",), target_terms=("the flask",),
@@ -270,7 +270,7 @@ S236 = _spec(
              "stated length.", ("rigid plug", "adiabatically"), "short",
              before_context_reason="The R sentence refers to the neck of the flask before the context introduces the flask."),
         Pair("p1", "A {value} {unit} glass tube of the same bore had been attached to the neck of the flask {relation}.",
-             "before its resonance was measured", "in an earlier run", EVENT,
+             "before its resonance was measured", "for an earlier run only", EVENT,
              "The tube was on the neck in an earlier run, which is over; in the stated measurement the neck has the stated length.",
              ("rigid plug", "adiabatically"), "short"),
     ),
@@ -293,7 +293,7 @@ S237 = _spec(
     relevant=rv.RelevantWiring("h2", "add", "Dredging that adds q to the depth at the landward end makes it h2 + q, which changes the "
                                             "wave speed there."),
     conditional=S237_K,
-    scene_clause="A fishing harbour lies along the same coast.",
+    scene_clause="A fishing harbour lies along the same coast, well away from the sloping seabed. The sea is otherwise still.",
     scene_object_rationale="A fishing harbour has its own water and its own depths; dredging it leaves the slope that the tsunami "
                            "crosses unchanged, so the depths of the slope are the stated ones.",
     scene_refs=("harbour",), target_terms=("the slope",),
@@ -304,7 +304,7 @@ S237 = _spec(
              "the stated ones.", ("shallow-water wave", "neglect its height"), "a little",
              before_context_reason="The R sentence refers to 'the slope' before the context introduces it."),
         Pair("p1", "{relation}, dredging added {value} {unit} to the depth at the landward end of the slope.",
-             "Before the tsunami arrived", "In an earlier survey", EVENT,
+             "Before the tsunami arrived", "For an earlier survey only", EVENT,
              "The dredging belongs to an earlier survey, which is over; on the slope that the tsunami crosses the depths are the "
              "stated ones.", ("shallow-water wave", "neglect its height"), "a little"),
     ),
@@ -338,7 +338,7 @@ S238 = _spec(
     relevant=rv.RelevantWiring("rot", "add", "A motor that adds q to the rotation rate of the rotor makes it rot + q, and the power "
                                              "grows as the square of the rate."),
     cancelling=S238_C, conditional=S238_K,
-    scene_clause="A magnetic stirrer stands on the bench beside the cylinder.",
+    scene_clause="A magnetic stirrer stands on the bench beside the cylinder. The oil stays at one temperature, and its viscosity stays constant.",
     scene_object_rationale="A magnetic stirrer shares no oil, no cylinder and no motor with the rotor, so the rotor that is turned and "
                            "the oil around it are as the problem states.",
     scene_refs=("stirrer",), target_terms=("the rotor",),
@@ -348,7 +348,7 @@ S238 = _spec(
              "stated one.", ("steady and laminar", "end effects are negligible"), "a little",
              before_context_reason="The R sentence refers to 'the rotor' and to its rotation rate before the context introduces them."),
         Pair("p1", "A motor had added {value} {unit} to the rotation rate of the rotor {relation}.", "before the power was measured",
-             "in an earlier run", EVENT,
+             "for an earlier run only", EVENT,
              "The motor changed the rotation rate in an earlier run, which is over; in the stated measurement the rotor turns at "
              "the stated rate.", ("steady and laminar", "end effects are negligible"), "a little"),
     ),
@@ -372,7 +372,7 @@ S239 = _spec(
     relevant=rv.RelevantWiring("d", "subtract", "Polishing that thins the plate by q makes its thickness d - q at the same "
                                                 "birefringence."),
     conditional=S239_K,
-    scene_clause="A glass lens lies on the polishing bench beside the plate.",
+    scene_clause="A glass lens lies on the polishing bench beside the plate. Reflections at the surfaces of the plate are negligible.",
     scene_object_rationale="A glass lens on the polishing bench is not in the path of the light, so the light crosses only the plate "
                            "and its thickness and axes are the stated ones.",
     scene_refs=("lens",), target_terms=("the plate",),
@@ -415,7 +415,7 @@ S240 = _spec(
     relevant=rv.RelevantWiring("rho", "replace", "Replacing the liquid by one of density q makes the density rho = q, which changes "
                                                  "both the hydrostatic term and the dynamic term at the highest point."),
     cancelling=S240_C, conditional=S240_K,
-    scene_clause="A garden hose runs from a water butt along the ground beside the reservoir.",
+    scene_clause="A garden hose runs from a water butt along the ground beside the reservoir, and no liquid passes between the hose and the siphon or the reservoir.",
     scene_object_rationale="A garden hose from a water butt shares no tube, no liquid and no outlet with the siphon, so the pressure "
                            "in the siphon is fixed by its own heights and its own liquid.",
     scene_refs=("water butt",), target_terms=("the siphon",),
@@ -425,7 +425,7 @@ S240 = _spec(
              "pressure at the highest point are those of the stated liquid.", ("without friction", "incompressible"), "different",
              before_context_reason="The R sentence refers to 'the siphon' and to its liquid before the context introduces them."),
         Pair("p1", "The liquid in the siphon had been replaced by one of {value} {unit} density {relation}.",
-             "before the flow began", "in an earlier run", EVENT,
+             "before the flow began", "for an earlier run only", EVENT,
              "The liquid was replaced in an earlier run, which is over; in the stated flow the siphon carries the stated liquid.",
              ("without friction", "incompressible"), "different"),
     ),

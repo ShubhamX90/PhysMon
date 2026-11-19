@@ -82,13 +82,13 @@ S03 = r2.RoleSpecV2(
     relevant=rv.RelevantWiring("m1", "add", "A block loaded onto the first cart moves with it, so the first cart's mass in the "
                                             "collision becomes m1 + q; the collision stays perfectly elastic."),
     pairs=(
-        Pair("p0", "A {value} {unit} block is loaded onto {relation} before the collision.", "the first cart", "the third cart", CO,
+        Pair("p0", "A {value} {unit} block is fixed onto {relation} before the collision.", "the first cart", "the third cart", CO,
              "A block loaded onto a cart that waits at rest on a parallel track adds no mass to either colliding cart and takes "
              "no part in the collision, so the first cart's velocity afterwards is fixed by the stated masses and velocities.",
              ("frictionless track", "perfectly elastic"), "small", before_context_reason=BEFORE_NO),
-        Pair("p1", "A {value} {unit} block was loaded onto the first cart {relation}.", "just before the collision",
-             "in an earlier run", EVENT,
-             "The block was loaded onto the first cart in an earlier run, which is over; in the stated run the first cart carries "
+        Pair("p1", "A {value} {unit} block was fixed onto the first cart {relation}.", "just before the collision",
+             "for an earlier run only", EVENT,
+             "The block was loaded onto the first cart for an earlier run only, which is over; in the stated run the first cart carries "
              "only its stated mass.", ("frictionless track", "perfectly elastic"), "small"),
     ),
     scene_clause="A third cart waits at rest on a parallel track.",
@@ -110,8 +110,8 @@ S04 = r2.RoleSpecV2(
              "the block or the spring, so the block's maximum speed is fixed by the stated k, x and m.",
              ("horizontal frictionless table", "released from rest"), "small", before_context_reason=BEFORE_NO),
         Pair("p1", "A {value} {unit} weight was stuck on top of the block {relation}.", "before it was released",
-             "in an earlier trial", EVENT,
-             "The weight was stuck on the block in an earlier trial, which is over; in the stated trial the block carries only "
+             "for an earlier trial only", EVENT,
+             "The weight was stuck on the block for an earlier trial only, which is over; in the stated trial the block carries only "
              "its stated mass.", ("horizontal frictionless table", "released from rest"), "small"),
     ),
     cancelling=r2.CancellingV2(
@@ -134,7 +134,7 @@ S04 = r2.RoleSpecV2(
                        "of the block' has no certified answer without an added model of permanent deformation (the formula "
                        "q sqrt(k/m) assumes an elastic-perfectly-plastic spring, which the base problem does not state)."),
         (0.4, 0.48)),
-    scene_clause="A trolley stands on the floor beside the table.",
+    scene_clause="A trolley stands on the floor beside the table. The spring has negligible mass, and air resistance is negligible.",
     scene_object_rationale="A trolley on the floor beside the table is touched by neither the block nor the spring and exerts no "
                            "force on them, so the block's oscillation is unchanged.",
     scene_refs=("trolley",), target_terms=("the block", "the spring"), version=V21,
@@ -155,8 +155,8 @@ S05 = r2.RoleSpecV2(
              "moment of inertia and net torque are the stated ones.",
              ("central axis", "friction torque"), "small", before_context_reason=BEFORE_NO),
         Pair("p1", "A {value} {unit} disc of the same radius was bolted coaxially onto this disc {relation}.",
-             "before the torques were applied", "in an earlier run", EVENT,
-             "The extra disc was bolted onto this disc in an earlier run, which is over; in the stated run the disc has only its "
+             "before the torques were applied", "for an earlier run only", EVENT,
+             "The extra disc was bolted onto this disc for an earlier run only, which is over; in the stated run the disc has only its "
              "stated mass.", ("central axis", "friction torque"), "small"),
     ),
     cancelling=r2.CancellingV2(
@@ -197,9 +197,9 @@ S06 = r2.RoleSpecV2(
              "the network's resistances and the current through the second resistor are the stated ones.",
              ("negligible internal resistance", "in series"), "small", before_context_reason=BEFORE_NO),
         Pair("p1", "A {value} {unit} resistor was connected in series with the battery {relation}.", "in this circuit",
-             "in an earlier experiment", EVENT,
-             "The resistor was connected in an earlier experiment, which is over; the circuit of the stated experiment has only "
-             "its stated resistors.", ("negligible internal resistance", "in series"), "small"),
+             "for an earlier experiment only", EVENT,
+             "The resistor was connected for an earlier experiment only, which is over; the circuit of the stated experiment has "
+             "only its stated resistors.", ("negligible internal resistance", "in series"), "small"),
     ),
     conditional=r2.ConditionalV2(
         rv.ConditionalSpec(
@@ -211,7 +211,8 @@ S06 = r2.RoleSpecV2(
                        "a rating does not determine which, so the current through it has no certified answer outside the regime "
                        "(0 is the open-circuit case only)."),
         (14.0, 24.0)),
-    scene_clause="A small lamp, wired to its own cell, stands beside the circuit.",
+    scene_clause="A small lamp, wired to its own cell, stands beside the circuit. The connecting wires have negligible resistance and "
+                 "every resistor obeys Ohm's law.",
     scene_object_rationale="A lamp wired to its own cell closes a loop of its own that shares no node with the battery's network, "
                            "so the battery still drives only the stated resistors.",
     scene_refs=("lamp",), target_terms=("the battery", "parallel pair", "second resistor"), version=V21,
@@ -221,7 +222,7 @@ S06 = r2.RoleSpecV2(
 
 S08 = r2.RoleSpecV2(
     structure_id="S08", quantity_phrase="an extra capacitor", quantity_type="capacitance", unit="μF", values=(5.0, 7.5, 14.0),
-    heldout_values=(5.5, 8.5),
+    heldout_values=(5.5, 9.5),
     relevant=rv.RelevantWiring("C2", "add", "A capacitor in parallel with the second capacitor adds to its capacitance, so C2 "
                                             "becomes C2 + q and the series equivalent capacitance rises."),
     pairs=(
@@ -231,8 +232,8 @@ S08 = r2.RoleSpecV2(
              "capacitors, so their equivalent capacitance and stored energy are the stated ones.",
              ("fully charged", "in series"), "small", before_context_reason=BEFORE_NO),
         Pair("p1", "A {value} {unit} capacitor was connected in parallel with the second capacitor {relation}.",
-             "before charging began", "in an earlier experiment", EVENT,
-             "The capacitor was connected in an earlier experiment, which is over; the stated capacitors are charged alone.",
+             "before charging began", "for an earlier experiment only", EVENT,
+             "The capacitor was connected for an earlier experiment only, which is over; the stated capacitors are charged alone.",
              ("fully charged", "in series"), "small"),
     ),
     cancelling=r2.CancellingV2(
@@ -256,7 +257,8 @@ S08 = r2.RoleSpecV2(
                        "stored energy has no certified answer outside the regime (the formula C2 V^2/2 is the shorted-first-"
                        "capacitor case only)."),
         (145.0, 220.0)),
-    scene_clause="A small lamp, wired to its own cell, stands beside the circuit.",
+    scene_clause="A small lamp, wired to its own cell, stands beside the circuit. The capacitors start uncharged, the connecting wires "
+                 "have negligible resistance.",
     scene_object_rationale="A lamp wired to its own cell closes a loop of its own that shares no node with the capacitors, so the "
                            "capacitors and the battery are unchanged.",
     scene_refs=("lamp",), target_terms=("second capacitor", "first capacitor"), version=V21,
@@ -276,12 +278,14 @@ S09 = r2.RoleSpecV2(
              "Water poured into a second, separate container takes no heat from the copper block and adds no water to the "
              "first container, so the water's temperature rise there is the stated one.",
              ("perfectly insulated container", "placed in"), "small amount", before_context_reason=BEFORE_NO),
-        Pair("p1", "A further {value} {unit} of water at the same temperature was poured into this container {relation}.",
-             "before the block was added", "in an earlier experiment", EVENT,
-             "The water was poured into this container in an earlier experiment, which is over; in the stated experiment the "
+        Pair("p1", "A further {value} {unit} of water at the same temperature was {relation}.",
+             "poured into this container before the block was added",
+             "poured into this container for an earlier experiment only", EVENT,
+             "The water was poured into this container for an earlier experiment only, which is over; in the stated experiment the "
              "container holds only its stated water.", ("perfectly insulated container", "placed in"), "small amount"),
     ),
-    scene_clause="A second insulated container with some water stands beside it.",
+    scene_clause="A second insulated container with some water stands beside it. The first container absorbs no heat itself, its "
+                 "contents are stirred to one temperature, and no water boils or evaporates.",
     scene_object_rationale="A second insulated container with its own water exchanges no heat with the first container or the "
                            "block, so the first container's mixing is unchanged.",
     scene_refs=("second",), target_terms=("this container", "the container"), version=V21,
@@ -295,13 +299,13 @@ S10 = r2.RoleSpecV2(
     relevant=rv.RelevantWiring("h0", "add", "A stand under the platform raises the launch point by q, so the platform height "
                                             "becomes h0 + q."),
     pairs=(
-        Pair("p0", "Before the ball is launched, a {value} {unit} stand is placed under the {relation}.", "platform", "table", CO,
+        Pair("p0", "Before the ball is launched, a further {value} {unit} stand is placed under the {relation}.", "platform", "table", CO,
              "A stand under a table beside the platform does not raise the platform, so the launch height is the stated "
              "platform height.", ("platform 5 m above level ground", "Neglect air resistance"), "small",
              before_context_reason=BEFORE_NO),
-        Pair("p1", "A {value} {unit} stand was placed under the platform {relation}.", "before the ball was launched",
-             "in an earlier experiment", EVENT,
-             "The stand was placed under the platform in an earlier experiment, which is over; in the stated experiment the "
+        Pair("p1", "A further {value} {unit} stand was placed under the platform {relation}.", "before the ball was launched",
+             "for an earlier experiment only", EVENT,
+             "The stand was placed under the platform for an earlier experiment only, which is over; in the stated experiment the "
              "platform is at its stated height.", ("platform 5 m above level ground", "Neglect air resistance"), "small"),
     ),
     cancelling=r2.CancellingV2(
@@ -321,7 +325,7 @@ S10 = r2.RoleSpecV2(
                        "ceiling height, which is the stated number: a copy of the stated value would be a correct answer, so the "
                        "cell would be source-ambiguous (and the question would then be about the ceiling, not the trajectory)."),
         (31.0, 34.0)),
-    scene_clause="A table stands beside the platform.",
+    scene_clause="A table stands beside the platform. The ball is launched from the top of the platform.",
     scene_object_rationale="A table beside the platform is not under it and does not touch the ball, so the launch point and the "
                            "trajectory are unchanged.",
     scene_refs=("table",), target_terms=("platform",), version=V21,
@@ -350,7 +354,7 @@ S11 = r2.RoleSpecV2(
             "v0**2/(2*((q*mu*g)/q))", ("normal force: N = m g", "friction force: f = mu N", "deceleration: a = f / m"),
             "v0**2*q/(2*mu*g)", nonnumeric_fill="a known mass"),
         "famous", "Mass independence of the braking distance is a familiar classroom statement.", (1100.0, 1200.0)),
-    scene_clause="A bus drives along the same road.",
+    scene_clause="A bus drives along the same road. The car travels in a straight line, air resistance is negligible, and the distance is measured from where braking begins.",
     scene_object_rationale="A bus on the road is another vehicle that is not in the car's way and exerts no force on it, so the "
                            "car's braking is unchanged.",
     scene_refs=("bus",), target_terms=("car",), version=V21,
@@ -380,7 +384,7 @@ S12 = r2.RoleSpecV2(
             "sqrt((q*mu*g*r)/q)", ("maximum friction force: f = mu m g", "centripetal force: m v^2 / r"),
             "sqrt(q*mu*g*r)", nonnumeric_fill="a known mass"),
         "famous", "Mass independence of the maximum cornering speed is a familiar classroom statement.", (1100.0, 1200.0)),
-    scene_clause="A cyclist rides along a path beside the road.",
+    scene_clause="A cyclist rides along a path beside the road. The road surface is flat with the same friction everywhere.",
     scene_object_rationale="A cyclist on a path beside the road is another road user that exerts no force on the car and does not "
                            "change the road under it, so the car's curve is unchanged.",
     scene_refs=("cyclist",), target_terms=("car",), version=V21,
@@ -389,17 +393,17 @@ S12 = r2.RoleSpecV2(
 # --- S14: lifting power --------------------------------------------------------------------------------------------------------------
 
 S14 = r2.RoleSpecV2(
-    structure_id="S14", quantity_phrase="an extra box", quantity_type="mass", unit="kg", values=(7.0, 11.0, 28.0),
+    structure_id="S14", quantity_phrase="an extra box", quantity_type="mass", unit="kg", values=(7.0, 12.0, 28.0),
     heldout_values=(13.0, 24.0),
     relevant=rv.RelevantWiring("m", "add", "A box placed on the load is lifted with it, so the lifted mass becomes m + q."),
     pairs=(
-        Pair("p0", "Before the lift begins, a {value} {unit} box is placed on {relation}.", "the load", "the crate", CO,
+        Pair("p0", "Before the lift begins, a {value} {unit} box is strapped onto {relation}.", "the load", "the crate", CO,
              "A box placed on a crate that rests on the floor beside the motor is not lifted by the motor, so the lifted "
              "mass is the stated load.", ("constant speed", "load of 80 kg"), "small",
              before_context_reason=BEFORE_NO),
-        Pair("p1", "A {value} {unit} box was placed on the load {relation}.", "before the lift began", "in an earlier lift",
+        Pair("p1", "A {value} {unit} box was strapped onto the load {relation}.", "before the lift began", "for an earlier lift only",
              EVENT,
-             "The box was placed on the load in an earlier lift, which is over; in the stated lift the motor raises only the "
+             "The box was placed on the load for an earlier lift only, which is over; in the stated lift the motor raises only the "
              "stated load.", ("constant speed", "load of 80 kg"), "small"),
     ),
     cancelling=r2.CancellingV2(
@@ -429,8 +433,8 @@ S14 = r2.RoleSpecV2(
 # --- S16: RL circuit ----------------------------------------------------------------------------------------------------------------
 
 S16 = r2.RoleSpecV2(
-    structure_id="S16", quantity_phrase="an extra series resistor", quantity_type="resistance", unit="Ω", values=(4.0, 11.5, 17.0),
-    heldout_values=(8.5, 13.5),
+    structure_id="S16", quantity_phrase="an extra series resistor", quantity_type="resistance", unit="Ω", values=(4.0, 10.5, 17.0),
+    heldout_values=(9.5, 13.5),
     relevant=rv.RelevantWiring("R", "add", "A resistor in series with the coil adds to the series resistance, so R becomes R + q "
                                            "and both the time constant L/R and the final current V/R change."),
     pairs=(
@@ -440,11 +444,11 @@ S16 = r2.RoleSpecV2(
              "coil's current is fixed by the stated emf, resistance and inductance.",
              ("negligible resistance", "in series"), "small", before_context_reason=BEFORE_NO),
         Pair("p1", "A {value} {unit} resistor was connected in series with the coil {relation}.", "before the circuit was closed",
-             "in an earlier experiment", EVENT,
-             "The resistor was connected in an earlier experiment, which is over; the circuit of the stated experiment has only "
+             "for an earlier experiment only", EVENT,
+             "The resistor was connected for an earlier experiment only, which is over; the circuit of the stated experiment has only "
              "its stated resistor.", ("negligible resistance", "in series"), "small"),
     ),
-    scene_clause="A small lamp, wired to its own cell, stands beside the circuit.",
+    scene_clause="A small lamp, wired to its own cell, stands beside the circuit. The battery has negligible internal resistance and the connecting wires have negligible resistance.",
     scene_object_rationale="A lamp wired to its own cell closes a loop of its own that shares no node with the coil's circuit, so the "
                            "battery still drives only the stated coil and resistor.",
     scene_refs=("lamp",), target_terms=("the coil", "the battery"), version=V21,
@@ -458,11 +462,11 @@ S17 = r2.RoleSpecV2(
     relevant=rv.RelevantWiring("dT", "add", "Warming the hotter outer surface by q with the colder one unchanged raises the "
                                             "temperature difference across the layers to dT + q."),
     pairs=(
-        Pair("p0", "The hotter surface of {relation} is warmed by {value} {unit}.", "the wall", "the partition", CO,
+        Pair("p0", "The hotter surface of {relation} is then warmed by a further {value} {unit}.", "the wall", "the partition", CO,
              "Warming the hotter surface of a partition beside the wall changes the partition's temperatures, not the wall's, so "
              "the wall's temperature difference and heat flow are the stated ones.",
              ("two layers in series", "steady"), "a few kelvin", before_context_reason=BEFORE_NO),
-        Pair("p1", "The hotter surface of the wall was warmed by {value} {unit} {relation}.", "before the test began",
+        Pair("p1", "The hotter surface of the wall was warmed by a further {value} {unit} {relation}.", "before the test began",
              "in an earlier test", EVENT,
              "The hotter surface was warmed in an earlier test, which is over; in the stated test the temperature difference is "
              "the stated one.", ("two layers in series", "steady"), "a few kelvin"),
@@ -477,7 +481,7 @@ S17 = r2.RoleSpecV2(
             "(q + dT)/(Ra + Rb)", nonnumeric_fill="a known temperature"),
         "standard", "That conduction depends only on the temperature difference, not on the absolute temperatures, is standard in "
                     "treatments of Fourier's law but is not a headline fact.", (265.0, 275.0)),
-    scene_clause="A partition stands beside the wall.",
+    scene_clause="A partition stands beside the wall. No heat leaves through the edges of the wall.",
     scene_object_rationale="A partition beside the wall is not in series with its layers and carries no part of the heat flow, so "
                            "the wall's flow is unchanged.",
     scene_refs=("partition",), target_terms=("the wall",), version=V21,
@@ -509,7 +513,8 @@ S18 = r2.RoleSpecV2(
             "p1*V1*log(rho)*(1 + q/273)", nonnumeric_fill="a known temperature"),
         "standard", "That the isothermal work p1 V1 ln(V2/V1) does not depend on the temperature once pV is known is standard in "
                     "the derivation W = n R T ln(V2/V1) but is not a headline fact.", (315.0, 345.0)),
-    scene_clause="A second cylinder, in which a gas also expands slowly, stands beside the first.",
+    scene_clause="A second cylinder, in which a gas also expands slowly, stands beside the first. The gas in the first cylinder is "
+                 "ideal, its piston moves without friction, and the work asked for covers the whole expansion.",
     scene_object_rationale="A second cylinder with its own gas and piston shares no gas with the first cylinder, so the first gas's "
                            "pressure, volume and expansion are unchanged.",
     scene_refs=("second cylinder",), target_terms=("this cylinder", "the cylinder"), version=V21,
@@ -523,16 +528,16 @@ S19 = r2.RoleSpecV2(
     relevant=rv.RelevantWiring("theta", "subtract", "Lowering the launch direction by q towards the horizontal makes the launch "
                                                     "angle theta - q."),
     pairs=(
-        Pair("p0", "The {relation} is lowered by {value} {unit}.", "launch direction", "ramp", CO,
+        Pair("p0", "The {relation} is then lowered by a further {value} {unit}.", "launch direction", "ramp", CO,
              "A ramp on the field beside the launch point does not change the direction in which the ball is launched, so "
              "the launch angle is the stated one.", ("level ground", "Neglect air resistance"), "a few degrees",
              before_context_reason=BEFORE_NO),
-        Pair("p1", "The launch direction was lowered by {value} {unit} {relation}.", "before the ball was launched",
+        Pair("p1", "The launch direction was lowered by a further {value} {unit} {relation}.", "before the ball was launched",
              "in an earlier trial", EVENT,
              "The launch direction was lowered in an earlier trial, which is over; in the stated trial the ball is launched at "
              "the stated angle.", ("level ground", "Neglect air resistance"), "a few degrees"),
     ),
-    scene_clause="A ramp stands on the field beside the launch point.",
+    scene_clause="A ramp stands on the field beside the launch point. The ball lands on the level ground.",
     scene_object_rationale="A ramp beside the launch point is not in the ball's path and does not touch it, so the trajectory and "
                            "the landing point are unchanged.",
     scene_refs=("ramp",), target_terms=("launch direction", "the ball"), version=V21,
@@ -546,11 +551,11 @@ S21 = r2.RoleSpecV2(
     relevant=rv.RelevantWiring("f", "add", "Tuning the siren up by q raises the frequency it emits to f + q, and the heard frequency "
                                            "is (f + q) c / (c - vs)."),
     pairs=(
-        Pair("p0", "The {relation} is tuned up by {value} {unit}.", "siren", "horn", CO,
+        Pair("p0", "The {relation} is then tuned up by a further {value} {unit}.", "siren", "horn", CO,
              "The horn of the van is another sound source; tuning it changes the sound of the horn, not the frequency the siren "
              "emits or the frequency the listener hears from the siren.", ("steady tone", "stationary listener"),
              "a small amount", before_context_reason=BEFORE_NO),
-        Pair("p1", "The siren was tuned up by {value} {unit} {relation}.", "before the tone was measured", "on an earlier run",
+        Pair("p1", "The siren was tuned up by a further {value} {unit} {relation}.", "before the tone was measured", "on an earlier run",
              EVENT,
              "The siren was tuned up on an earlier run, which is over; on the stated run it emits its stated tone.",
              ("steady tone", "stationary listener"), "a small amount"),
@@ -567,7 +572,7 @@ S21 = r2.RoleSpecV2(
             "1/(1/f + (q - vs/f)/c)", nonnumeric_fill="a known distance"),
         "standard", "That the heard frequency does not depend on the distance is part of the standard derivation of the Doppler "
                     "shift from wavefront arrival times, but is rarely stated as a fact.", (240.0, 580.0)),
-    scene_clause="A van with a horn stands on a road nearby.",
+    scene_clause="A van with a horn stands on a road nearby. The air is still, and the question concerns only the sound of the siren.",
     scene_object_rationale="A van with a horn on a nearby road is another sound source; it neither changes the siren's tone nor the "
                            "relative motion of the siren and the listener.",
     scene_refs=("horn",), target_terms=("siren",), version=V21,
@@ -581,11 +586,11 @@ S22 = r2.RoleSpecV2(
     relevant=rv.RelevantWiring("T", "add", "Increasing the tension of the string by q makes the tension T + q while its mass and "
                                            "length are unchanged."),
     pairs=(
-        Pair("p0", "The tension in {relation} is increased by {value} {unit}.", "this string", "the second string", CO,
+        Pair("p0", "The tension in {relation} is then increased by a further {value} {unit}.", "this string", "the second string", CO,
              "Tightening a second string on the frame does not change the tension in this string, so its fundamental frequency "
              "is fixed by its stated tension, mass and length.", ("fixed at both ends", "uniform string"), "a small amount",
              before_context_reason=BEFORE_NO),
-        Pair("p1", "The tension in this string was increased by {value} {unit} {relation}.", "before it was set vibrating",
+        Pair("p1", "The tension in this string was increased by a further {value} {unit} {relation}.", "before it was set vibrating",
              "in an earlier experiment", EVENT,
              "The tension was increased in an earlier experiment, which is over; in the stated experiment the string is stretched "
              "to its stated tension.", ("fixed at both ends", "uniform string"), "a small amount"),

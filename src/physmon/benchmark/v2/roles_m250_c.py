@@ -39,7 +39,8 @@ S46 = _spec(
     heldout_values=(0.9, 1.8),
     relevant=rv.RelevantWiring("R", "add", "A resistor in series with the resistor that joins the rails adds to the only resistance "
                                            "in the loop, so the loop resistance becomes R + q."),
-    scene_clause="A small lamp, wired to its own battery, stands beside the rails.",
+    scene_clause="A small lamp, wired to its own battery, stands beside the rails. The rails are long enough for the rod to approach "
+                 "its terminal speed, and the self-inductance of the loop is negligible.",
     scene_object_rationale="A lamp wired to a battery of its own closes a loop that shares no node with the rails or the resistor "
                            "and exerts no force on the rod, so the rod's terminal speed is fixed by the rod, the rails, the field "
                            "and the resistor alone.",
@@ -53,8 +54,8 @@ S46 = _spec(
              before_context_reason="The R sentence refers to 'the resistor at the lower end' before the context introduces any "
                                    "resistor, and 'the lamp' only exists once the scene clause has been read."),
         Pair("p1", "{relation}, a {value} {unit} resistor was wired in series with the resistor that joins the rails.",
-             "For this run", "In an earlier run", EVENT,
-             "The resistor was in the rod's loop in an earlier run, which is over; the loop of the stated run has only its stated "
+             "For this run", "For an earlier run only", EVENT,
+             "The resistor was in the rod's loop for an earlier run only, which is over; the loop of the stated run has only its stated "
              "resistor, and the field, the rails and the rod are those of the problem.", ("without friction", "have no other resistance"),
              "small"),
     ),
@@ -89,7 +90,8 @@ S47 = _spec(
     relevant=rv.RelevantWiring("Rs", "add", "A resistor in series with the generator adds to its internal resistance, so the "
                                             "series resistance in the primary loop becomes Rs + q."),
     cancelling=S47_C, conditional=S47_K,
-    scene_clause="A small heater, supplied by a second generator, stands beside the transformer.",
+    scene_clause="A small heater, supplied by a second generator, stands beside the transformer. The connecting wires and the coils "
+                 "have negligible resistance, and the generator has a constant rms emf.",
     scene_object_rationale="A heater supplied by a second generator closes a loop of its own that shares no node with the primary "
                            "circuit or the load, so the voltages and currents of the transformer's circuits are unchanged.",
     scene_refs=("heater",), target_terms=("generator that feeds", "primary coil", "the transformer", "the load"),
@@ -102,8 +104,8 @@ S47 = _spec(
              before_context_reason="The R sentence refers to 'the generator that feeds the primary coil' before the context introduces "
                                    "a generator or a primary coil."),
         Pair("p1", "{relation}, a {value} {unit} resistor was connected in series with the generator.", "For this run",
-             "In an earlier run", EVENT,
-             "The resistor was in series with the generator in an earlier run, which is over; the primary loop of the stated run "
+             "For an earlier run only", EVENT,
+             "The resistor was in series with the generator for an earlier run only, which is over; the primary loop of the stated run "
              "has only the generator's stated internal resistance and the reflected load.", ("ideal transformer", "purely resistive load"),
              "small"),
     ),
@@ -129,7 +131,8 @@ S48 = _spec(
     relevant=rv.RelevantWiring("C", "add", "A capacitor in parallel with the capacitor adds to its capacitance, so the capacitance "
                                            "of the loop becomes C + q; the circuit stays underdamped for every study value."),
     cancelling=S48_C,
-    scene_clause="A second circuit, with a coil and a capacitor of its own, is built on another board.",
+    scene_clause="A second circuit, with a coil and a capacitor of its own, is built on another board. The connecting wires have "
+                 "negligible resistance.",
     scene_object_rationale="A second circuit on another board has its own coil and capacitor and shares no wire with the first loop; "
                            "the first loop's resistance, inductance and capacitance are unchanged by it.",
     scene_refs=("second circuit",), target_terms=("this circuit", "this loop"),
@@ -142,8 +145,8 @@ S48 = _spec(
              before_context_reason="The R sentence refers to 'the capacitor of this circuit' before the context introduces a circuit "
                                    "or a capacitor."),
         Pair("p1", "{relation}, a {value} {unit} capacitor was connected in parallel with the capacitor.", "For this run",
-             "In an earlier run", EVENT,
-             "The capacitor was in parallel with the loop's capacitor in an earlier run, which is over; the loop of the stated run "
+             "For an earlier run only", EVENT,
+             "The capacitor was in parallel with the loop's capacitor for an earlier run only, which is over; the loop of the stated run "
              "has only its stated capacitor.", ("in series in a closed loop", "with no source"), "small"),
     ),
     notes="M250 phase 1: C is the initial charge (linearity); no K (the initial charge is not given, so no regime predicate can be "
@@ -182,15 +185,15 @@ S51 = _spec(
                            "is compressed is the first cylinder's alone.",
     scene_refs=("second cylinder",), target_terms=("the cylinder", "this cylinder"),
     pairs=(
-        Pair("p0", "Before the compression begins, a further {value} {unit} of gas at the same temperature is {relation}.",
+        Pair("p0", "Before the compression begins, a further {value} {unit} of the same gas at the same temperature is {relation}.",
              "let into the cylinder", "let into the second cylinder", CO,
              "Gas let into a second cylinder is not in the first; the amount of gas that the first piston compresses is the stated "
              "one.", ("compressed slowly and adiabatically", "ideal gas"), "small amount",
              before_context_reason="The R sentence refers to 'the cylinder' before the context introduces it, and 'at the same "
                                    "temperature' has no referent until the stated temperature has been read."),
-        Pair("p1", "{relation}, the cylinder also held a further {value} {unit} of gas at the same temperature.", "In this run",
-             "In an earlier run", EVENT,
-             "The cylinder held the further gas in an earlier run, which is over; the cylinder of the stated run holds only its "
+        Pair("p1", "{relation}, the cylinder also held a further {value} {unit} of the same gas at the same temperature.", "In this run",
+             "For an earlier run only", EVENT,
+             "The cylinder held the further gas for an earlier run only, which is over; the cylinder of the stated run holds only its "
              "stated amount of gas.", ("compressed slowly and adiabatically", "ideal gas"), "small amount"),
     ),
     notes="M250 phase 1: C is the initial volume (p1 V1 = n R T1 fixes the product), K is the piston's compression limit.")
@@ -203,7 +206,7 @@ S52 = _spec(
     relevant=rv.RelevantWiring("dTw", "add", "Warming the water by q before the ice is added makes its starting temperature above "
                                              "the melting point dTw + q, so the heat it can give up grows (all of the ice still "
                                              "melts)."),
-    scene_clause="A second container, also perfectly insulated, holds warm water beside the first one.",
+    scene_clause="A second container, also perfectly insulated, holds warm water beside the first one. The water in the first container is stirred to one temperature and does not boil or evaporate.",
     scene_object_rationale="A second insulated container with its own warm water exchanges no heat with the first, so the starting "
                            "temperature of the first water and the heat it gives up are fixed by its stated values.",
     scene_refs=("second container",), target_terms=("the water in the container", "this container"),
@@ -252,7 +255,8 @@ S53 = _spec(
     relevant=rv.RelevantWiring("dT", "add", "A temperature difference raised across the outer surfaces of the wall by q makes the "
                                             "difference dT + q, and the steady heat current is proportional to it."),
     cancelling=S53_C, conditional=S53_K,
-    scene_clause="A shed with a wooden wall of its own stands nearby.",
+    scene_clause="A shed with a wooden wall of its own stands nearby. The two layers of the wall are in perfect thermal contact, and "
+                 "no heat leaves through the edges of the wall.",
     scene_object_rationale="A shed's wooden wall is a different wall with its own surfaces and temperatures; it exchanges no heat "
                            "with the wall of the problem, whose surfaces keep their stated temperature difference.",
     scene_refs=("shed",), target_terms=("this wall", "the wall"),
@@ -330,7 +334,7 @@ S56 = _spec(
     relevant=rv.RelevantWiring("Pc", "add", "A lamp that stays lit inside the refrigerator gives its electrical power to the "
                                             "interior as heat, so the rate at which heat must be removed becomes Pc + q."),
     cancelling=S56_C, conditional=S56_K,
-    scene_clause="A chest freezer stands beside the refrigerator.",
+    scene_clause="A chest freezer stands beside the refrigerator. The refrigerator runs steadily.",
     scene_object_rationale="A chest freezer has its own interior and compressor; a lamp inside it adds heat to the freezer's "
                            "interior, not to the refrigerator's, and the kitchen stays a reservoir at its stated temperature.",
     scene_refs=("freezer",), target_terms=("the refrigerator",),
@@ -341,8 +345,8 @@ S56 = _spec(
              "small",
              before_context_reason="The R sentence refers to 'the refrigerator' before the context introduces it."),
         Pair("p1", "A {value} {unit} lamp was kept lit inside the refrigerator {relation}.", "during this test",
-             "during an earlier test", EVENT,
-             "The lamp was lit inside the refrigerator in an earlier test, which is over; the heat the refrigerator removes in "
+             "for an earlier test only", EVENT,
+             "The lamp was lit inside the refrigerator for an earlier test only, which is over; the heat the refrigerator removes in "
              "the stated test is the stated steady rate.", ("steady rate", "reversible (Carnot) refrigerator"), "small"),
     ),
     notes="M250 phase 1: C is the length of the test (power = energy / time), K is the compressor's continuous rating.")
@@ -365,8 +369,8 @@ S57 = _spec(
              "the stated mass of water.", ("reversible heat engine", "well-insulated tank"), "small amount",
              before_context_reason="The R sentence refers to 'the tank' and to the engine before the context introduces them."),
         Pair("p1", "{relation}, the tank also held a further {value} {unit} of water at the same temperature.", "In this experiment",
-             "In an earlier experiment", EVENT,
-             "The tank held the further water in an earlier experiment, which is over; in the stated experiment the engine cools "
+             "For an earlier experiment only", EVENT,
+             "The tank held the further water for an earlier experiment only, which is over; in the stated experiment the engine cools "
              "only the stated mass of water.", ("reversible heat engine", "well-insulated tank"), "small amount"),
     ),
     notes="M250 phase 1: no C or K (see NO_C, NO_K).")
@@ -377,17 +381,17 @@ S61 = _spec(
     "S61", quantity_phrase="a shift of the screen", quantity_type="length", unit="cm", values=(35.0, 70.0, 150.0),
     heldout_values=(55.0, 110.0),
     relevant=rv.RelevantWiring("D", "add", "Moving the screen q farther from the slits raises the slit-to-screen distance to D + q."),
-    scene_clause="A lab stool stands near the slits.",
-    scene_object_rationale="A stool near the slits is not in the light path and does not touch the screen or the slits, so the "
+    scene_clause="A camera on a tripod stands near the slits to photograph the pattern. The screen is parallel to the slits.",
+    scene_object_rationale="A camera near the slits is not in the light path and does not touch the screen or the slits, so the "
                            "slit-to-screen distance and the fringe positions are unchanged.",
-    scene_refs=("stool",), target_terms=("screen", "slits", "pattern"),
+    scene_refs=("camera",), target_terms=("screen", "slits", "pattern"),
     pairs=(
-        Pair("p0", "The {relation} is then moved {value} {unit} farther from the slits.", "screen", "lab stool", CO,
-             "A stool moved away from the slits leaves the screen where the problem put it, so the slit-to-screen distance is "
+        Pair("p0", "The {relation} is then moved a further {value} {unit} away from the slits.", "screen", "camera", CO,
+             "A camera moved away from the slits leaves the screen where the problem put it, so the slit-to-screen distance is "
              "the stated one.", ("small-angle approximation", "normal incidence"), "a little",
              before_context_reason="The R sentence refers to 'the screen' and 'the slits' before the context introduces them, and "
                                    "'then' presupposes their stated placement."),
-        Pair("p1", "The screen was moved {value} {unit} farther from the slits {relation}.", "before the pattern was recorded",
+        Pair("p1", "The screen was moved a further {value} {unit} away from the slits {relation}.", "before the pattern was recorded",
              "in an earlier experiment", EVENT,
              "The screen was moved farther from the slits in an earlier experiment, which is over; in the stated experiment it "
              "stands at its stated distance.", ("small-angle approximation", "normal incidence"), "a little"),
@@ -423,13 +427,13 @@ S62 = _spec(
     relevant=rv.RelevantWiring("P0", "add", "A rise of the laser output by q before the beam reaches the first polariser makes the "
                                             "incident power P0 + q, and the transmitted power is proportional to it."),
     cancelling=S62_C, conditional=S62_K,
-    scene_clause="A second laser, aimed at a wall, stands beside the first.",
-    scene_object_rationale="A second laser aimed at a wall sends no light through the three polarisers, so the power that "
-                           "reaches them and the power that emerges are fixed by the first laser alone.",
-    scene_refs=("second laser",), target_terms=("laser beam", "polariser", "the laser"),
+    scene_clause="A lamp, aimed at a wall, stands beside the laser.",
+    scene_object_rationale="A lamp aimed at a wall sends no light through the three polarisers, so the power that "
+                           "reaches them and the power that emerges are fixed by the laser alone.",
+    scene_refs=("lamp",), target_terms=("laser beam", "polariser", "the laser"),
     pairs=(
-        Pair("p0", "The output of the {relation} is then increased by {value} {unit}.", "laser", "second laser", CO,
-             "A change of the output of a laser aimed at a wall sends no light through the polarisers; the incident power of "
+        Pair("p0", "The output of the {relation} is then increased by {value} {unit}.", "laser", "lamp", CO,
+             "A change of the output of a lamp aimed at a wall sends no light through the polarisers; the incident power of "
              "the stack is the stated one.", ("three ideal polarisers", "unpolarised laser beam"), "a small amount",
              before_context_reason="The R sentence refers to 'the laser' before the context introduces it, and 'then' presupposes "
                                    "the stated power."),
@@ -505,17 +509,17 @@ S64 = _spec(
     relevant=rv.RelevantWiring("sep", "add", "Moving the second lens q farther from the first lens makes the lens separation "
                                              "sep + q, so the first image is farther in front of the second lens."),
     cancelling=S64_C,
-    scene_clause="A tripod stands on the bench beside the lenses.",
-    scene_object_rationale="A tripod standing beside the lenses is not in the light path and does not touch either lens, so the "
+    scene_clause="A lamp on the bench lights the object. The lenses and the object stay on one common axis.",
+    scene_object_rationale="A lamp on the bench that lights the object is not in the light path and does not touch either lens, so the "
                            "lens separation and the image positions are unchanged.",
-    scene_refs=("tripod",), target_terms=("second lens", "first lens", "object"),
+    scene_refs=("lamp",), target_terms=("second lens", "first lens", "object"),
     pairs=(
-        Pair("p0", "The {relation} is then moved {value} {unit} farther from the first lens.", "second lens", "tripod", CO,
-             "A tripod moved away from the first lens leaves the second lens where the problem put it, so the lens separation is "
+        Pair("p0", "The {relation} is then moved a further {value} {unit} away from the first lens.", "second lens", "lamp", CO,
+             "A lamp moved away from the first lens leaves the second lens where the problem put it, so the lens separation is "
              "the stated one.", ("thin converging lens", "on the axis"), "a little",
              before_context_reason="The R sentence refers to 'the second lens' and 'the first lens' before the context introduces "
                                    "them, and 'then' presupposes their stated placement."),
-        Pair("p1", "The second lens was moved {value} {unit} farther from the first lens {relation}.", "before the image was located",
+        Pair("p1", "The second lens was moved a further {value} {unit} away from the first lens {relation}.", "before the image was located",
              "in an earlier experiment", EVENT,
              "The second lens was moved farther from the first lens in an earlier experiment, which is over; in the stated "
              "experiment it stands at its stated distance.", ("thin converging lens", "on the axis"), "a little"),
@@ -529,20 +533,20 @@ S65 = _spec(
     heldout_values=(1.26, 1.36),
     relevant=rv.RelevantWiring("n0", "replace", "A liquid in front of the fibre end replaces the air as the medium that the rays "
                                                 "enter from, so the outside index n0 becomes q."),
-    scene_clause="A glass trough stands beside the fibre.",
+    scene_clause="A glass trough, which is empty, stands beside the fibre.",
     scene_object_rationale="A glass trough beside the fibre is not in front of the end face and does not touch the fibre, so the "
                            "medium that the rays enter the fibre from is still the stated one.",
     scene_refs=("trough",), target_terms=("the air", "fibre end", "end face", "end of the fibre"),
     pairs=(
-        Pair("p0", "A liquid whose refractive index is {value} {unit} {relation}.", "now replaces the air in front of the fibre end",
-             "now fills the trough beside the fibre", CO,
-             "A liquid in a trough beside the fibre is not in front of the fibre's end face; the rays still enter the fibre from "
+        Pair("p0", "A clear liquid whose refractive index is {value} {unit} {relation}.", "now replaces the air in front of the fibre end",
+             "is now poured into the trough beside the fibre", CO,
+             "A liquid poured into a trough beside the fibre is not in front of the fibre's end face; the rays still enter the fibre from "
              "the stated air.", ("flat end", "plane containing the axis"), "a known value",
              before_context_reason="The R sentence refers to 'the air in front of the fibre end' before the context introduces them, "
                                    "and 'now' presupposes the stated air."),
         Pair("p1", "{relation}, the end of the fibre was dipped into a liquid whose refractive index is {value} {unit}.",
-             "For this experiment", "In an earlier experiment", EVENT,
-             "The fibre end was dipped into the liquid in an earlier experiment, which is over; in the stated experiment the "
+             "For this experiment", "For an earlier experiment only", EVENT,
+             "The fibre end was dipped into the liquid for an earlier experiment only, which is over; in the stated experiment the "
              "rays enter from the stated air.", ("flat end", "plane containing the axis"), "a known value"),
     ),
     notes="M250 phase 1: R uses replace on the outside index as the M0 S92 liquid; no C or K (see NO_C, NO_K).")
@@ -565,7 +569,7 @@ S66 = _spec(
     relevant=rv.RelevantWiring("lam1", "replace", "Light of wavelength q replaces the shorter wavelength of the beam, so lam1 "
                                                   "becomes q and the separation is measured between q and the longer wavelength."),
     cancelling=S66_C,
-    scene_clause="A second spectrometer stands beside the grating.",
+    scene_clause="A second spectrometer stands beside the grating. The beam consists of just the two wavelengths described.",
     scene_object_rationale="A second spectrometer beside the grating receives no light from the grating, so the beam, the grating "
                            "and the two wavelengths of the problem are unchanged.",
     scene_refs=("spectrometer",), target_terms=("shorter wavelength", "the beam"),
@@ -577,8 +581,8 @@ S66 = _spec(
              before_context_reason="The R sentence refers to 'the shorter wavelength in the beam' before the context introduces "
                                    "the beam, and 'now' presupposes its stated wavelengths."),
         Pair("p1", "{relation}, light of {value} {unit} wavelength replaced the shorter wavelength in the beam.", "For this measurement",
-             "In an earlier measurement", EVENT,
-             "The light replaced the shorter wavelength in an earlier measurement, which is over; the beam of the stated "
+             "For an earlier measurement only", EVENT,
+             "The light replaced the shorter wavelength for an earlier measurement only, which is over; the beam of the stated "
              "measurement has its two stated wavelengths.", ("normal incidence", "transmission diffraction grating"),
              "a certain"),
     ),
@@ -601,12 +605,12 @@ S67 = _spec(
     relevant=rv.RelevantWiring("P0", "add", "A rise of the source output by q before the beam reaches the plate makes the incident "
                                             "power P0 + q, and the transmitted power is proportional to it."),
     conditional=S67_K,
-    scene_clause="A second lamp, aimed at a wall, stands beside the plate.",
-    scene_object_rationale="A second lamp aimed at a wall sends no light onto the plate, so the power that falls on the plate and "
-                           "the power it transmits are fixed by the first source alone.",
-    scene_refs=("second lamp",), target_terms=("source of the beam", "plate", "beam"),
+    scene_clause="A lamp, aimed at a wall, stands beside the plate.",
+    scene_object_rationale="A lamp aimed at a wall sends no light onto the plate, so the power that falls on the plate and "
+                           "the power it transmits are fixed by the source of the beam alone.",
+    scene_refs=("lamp",), target_terms=("source of the beam", "plate", "beam"),
     pairs=(
-        Pair("p0", "The output of the {relation} is then increased by {value} {unit}.", "source of the beam", "second lamp", CO,
+        Pair("p0", "The output of the {relation} is then increased by {value} {unit}.", "source of the beam", "lamp", CO,
              "A change of the output of a lamp aimed at a wall sends no light onto the plate; the incident power is the stated "
              "one.", ("does not absorb light", "normal incidence"), "a small amount",
              before_context_reason="The R sentence refers to 'the source of the beam' before the context introduces a beam, and "
@@ -637,7 +641,7 @@ S71 = _spec(
     relevant=rv.RelevantWiring("lam", "subtract", "Shortening the wavelength of the light on the surface by q makes the "
                                                   "wavelength lam - q and the photon energy hc / (lam - q)."),
     cancelling=S71_C,
-    scene_clause="A second lamp, of a different colour, shines on a screen nearby.",
+    scene_clause="A second lamp, of a different colour, shines on a screen nearby. No electric or magnetic field acts on the emitted electrons.",
     scene_object_rationale="A second lamp that shines on a screen sends no light onto the metal surface, so the photons that reach "
                            "the surface have the stated wavelength.",
     scene_refs=("second lamp",), target_terms=("metal surface", "the light"),

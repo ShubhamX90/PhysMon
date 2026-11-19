@@ -11,6 +11,7 @@ from __future__ import annotations
 import dataclasses
 import json
 import math
+import re
 import sys
 from pathlib import Path
 
@@ -373,3 +374,98 @@ def test_with_changes_helper_and_structure_are_consistent():
     spec = m.with_changes("S73", values=(1.1, 2.8, 3.2))
     assert spec.values == (1.1, 2.8, 3.2) and spec.structure_id == "S73"
     assert m.structure("S73").render.context.endswith(m.SPECS["S73"].scene_clause)
+
+
+# --- wording rules 6-8 and article agreement (retrofit, journal J15.1-046) ---------------------------------------------------------
+# Rule 6 (every answer-determining condition stated number-free) is a judgement made in the scene clause and cannot be pattern-checked;
+# these tests pin the parts that can be: rules 7 and 8, article agreement, and that the two pairs read as different sentences.
+
+ATTACHING_P1 = ("S77", "S91", "S94", "S95")
+
+
+def _rule_sentences(spec: r2.RoleSpecV2) -> list[tuple[str, str, str]]:
+    """(role, pair id, sentence) for every R, D and N sentence of both pairs at every study and held-out value."""
+
+    out = []
+    for pair in spec.pairs:
+        for value in (*spec.values, *spec.heldout_values):
+            out.append(("R", pair.pair_id, r2.pair_sentence(pair, "R", value, spec.unit)))
+            out.append(("D", pair.pair_id, r2.pair_sentence(pair, "D", value, spec.unit)))
+        out.append(("N", pair.pair_id, r2.pair_sentence(pair, "D", None, spec.unit)))
+    return out
+
+
+def _all_numeric_sentences(spec: r2.RoleSpecV2) -> list[str]:
+    texts = [s for _, _, s in _rule_sentences(spec)]
+    for sub in (spec.cancelling, spec.conditional):
+        if sub is not None:
+            texts += [rv._sentence(sub.spec.frame, v, sub.spec.unit, p.relation, sub.spec.nonnumeric_fill)
+                      for v in (*sub.spec.values, *sub.heldout_values) for p in sub.spec.phrasings]
+    return texts
+
+
+def _vowel_sound_number(token: str) -> bool:
+    """True when the numeral `token` (digits, optional decimal part) is read with a vowel sound: eight, eleven, eighteen, eighty..."""
+
+    whole = token.split(".")[0].replace(",", "")
+    if whole.startswith("8"):
+        return True
+    return whole[:2] in ("11", "18") and len(whole) in (2, 4, 5)
+
+
+@pytest.mark.parametrize("sid", SIDS)
+def test_article_agrees_with_the_number_that_follows_it_in_every_rendered_sentence(sid):
+    spec = m.SPECS[sid]
+    for text in (*_all_numeric_sentences(spec), spec.scene_clause):
+        for article, token in re.findall(r"\b([Aa]n?) (\d[\d.,]*)", text):
+            assert article.lower() == ("an" if _vowel_sound_number(token) else "a"), (sid, text)
+
+
+@pytest.mark.parametrize("sid", SIDS)
+def test_a_pair_1_d_that_attaches_something_says_it_was_there_for_that_experiment_only(sid):
+    spec = m.SPECS[sid]
+    p1 = spec.pairs[1]
+    if p1.d_kind != r2.D_KIND_OTHER_EVENT:
+        return
+    d_attach = p1.d_attach.lower()
+    assert "earlier" in d_attach or "previous" in d_attach or "after the" in d_attach, (sid, p1.d_attach)
+    if sid in ATTACHING_P1:
+        assert d_attach.endswith(" only") and "earlier" in d_attach, (sid, p1.d_attach)
+        for value in spec.values:
+            assert " only" in r2.pair_sentence(p1, "D", value, spec.unit), sid
+        assert " only" in r2.pair_sentence(p1, "D", None, spec.unit), sid
+        assert " only" not in p1.r_attach.lower(), (sid, p1.r_attach)
+    else:
+        assert not d_attach.endswith(" only"), (sid, p1.d_attach)  # nothing is attached: "in an earlier experiment" suffices
+
+
+@pytest.mark.parametrize("sid", SIDS)
+def test_no_d_or_n_sentence_states_a_condition_that_contradicts_the_scene_clause(sid):
+    spec = m.SPECS[sid]
+    scene = spec.scene_clause.lower()
+    for role, pair_id, text in _rule_sentences(spec):
+        if role == "R":
+            continue
+        lowered = text.lower()
+        if "empty" in scene and pair_id == "p0":  # an empty object may be filled by an action, never described as holding something
+            assert not re.search(r"\b(?:now )?(?:fills?|filled|holds?|contains?)\b", lowered), (sid, text)
+        # a D/N sentence never restates the scene object as lacking what the scene clause gives it, or as already changed
+        assert not re.search(r"\b(?:now|already) (?:fills?|holds?|contains?|is empty)\b", lowered), (sid, text)
+        assert "no longer" not in lowered and "instead of" not in lowered, (sid, text)
+
+
+@pytest.mark.parametrize("sid", SIDS)
+def test_the_two_pairs_give_different_r_sentences_and_different_d_sentences(sid):
+    spec = m.SPECS[sid]
+    p0, p1 = spec.pairs
+    for value in (*spec.values, *spec.heldout_values):
+        assert r2.pair_sentence(p0, "R", value, spec.unit) != r2.pair_sentence(p1, "R", value, spec.unit), sid
+        assert r2.pair_sentence(p0, "D", value, spec.unit) != r2.pair_sentence(p1, "D", value, spec.unit), sid
+    assert r2.pair_sentence(p0, "D", None, spec.unit) != r2.pair_sentence(p1, "D", None, spec.unit), sid
+
+
+@pytest.mark.parametrize("sid", SIDS)
+def test_scene_clause_has_no_meta_wording_about_given_or_stated_values(sid):
+    clause = m.SPECS[sid].scene_clause.lower()
+    for phrase in ("given", "stated", "before any", "anything", "any water", "wherever", "onto a", "stays fixed", "joined to"):
+        assert phrase not in clause, (sid, phrase, clause)

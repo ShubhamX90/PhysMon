@@ -71,7 +71,8 @@ S221 = _spec(
     relevant=rv.RelevantWiring("n", "add", "Further nitrogen at the same temperature in the cylinder when the heating begins adds to the "
                                            "amount of gas that is heated, so n becomes n + q."),
     cancelling=S221_C, conditional=S221_K,
-    scene_clause="A steel gas bottle with a regulator stands beside the cylinder.",
+    scene_clause="A steel gas bottle with a regulator stands beside the cylinder, with no pipe between them. The cylinder does not "
+                 "leak, and its piston moves without friction.",
     scene_object_rationale="A gas bottle with a regulator is a store of gas outside the cylinder; gas let into it is not in the "
                            "cylinder, so the amount of gas that is heated is the stated one.",
     scene_refs=("gas bottle",), target_terms=("the cylinder", "piston", "nitrogen"),
@@ -84,7 +85,7 @@ S221 = _spec(
              before_context_reason="The R sentence refers to 'the cylinder' and to 'the same temperature' before the context "
                                    "introduces the cylinder or any temperature."),
         Pair("p1", "{relation} a further {value} {unit} of nitrogen at the same temperature.",
-             "When the heating begins, the cylinder also holds", "In an earlier run, the cylinder also held", EVENT,
+             "When the heating begins, the cylinder also holds", "For an earlier run only, the cylinder also held", EVENT,
              "The cylinder held the further nitrogen in an earlier run, which is over; in the stated run the cylinder holds only its "
              "stated amount of gas.", ("heated slowly at constant pressure", "vibrational motion is not excited"), "small amount"),
     ),
@@ -110,7 +111,8 @@ S222 = _spec(
     relevant=rv.RelevantWiring("Ph", "add", "Further heat that the furnace supplies to the engine adds to the rate at which the engine "
                                             "takes heat, so P_h becomes P_h + q."),
     cancelling=S222_C,
-    scene_clause="A hot-water tank with an electric element stands in the plant room.",
+    scene_clause="A hot-water tank with an electric element stands in the plant room. No heat passes between the tank and the machines, "
+                 "the furnace or the cold room.",
     scene_object_rationale="A hot-water tank with its own element is a store of heat outside the machines; heat supplied to it does "
                            "not reach the engine, so the rate at which the engine takes heat is the stated one.",
     scene_refs=("hot-water tank",), target_terms=("engine", "furnace", "refrigerator", "cold room", "machines"),
@@ -122,7 +124,7 @@ S222 = _spec(
              ("reversible heat engine", "Both machines run steadily"), "small amount",
              before_context_reason="The R sentence refers to 'the engine' and 'the furnace' before the context introduces them."),
         Pair("p1", "{relation} a further {value} {unit} of heat from the furnace.",
-             "While the machines run steadily, the engine takes", "In an earlier test, the engine took", EVENT,
+             "While the machines run steadily, the engine takes", "For an earlier test only, the engine took", EVENT,
              "The engine took the further heat in an earlier test, which is over; in the stated run it takes heat at its stated "
              "rate.", ("reversible heat engine", "Both machines run steadily"), "small amount"),
     ),
@@ -155,7 +157,8 @@ S223 = _spec(
     relevant=rv.RelevantWiring("m", "add", "Further ice at its melting point in the block when the heating begins adds to the mass that "
                                            "melts and warms, so m becomes m + q."),
     cancelling=S223_C, conditional=S223_K,
-    scene_clause="A water dispenser stands in the corridor outside the laboratory.",
+    scene_clause="A water dispenser stands in the corridor outside the laboratory, with no pipe to the block. No water evaporates "
+                 "from the block.",
     scene_object_rationale="A water dispenser is a store of water and ice outside the laboratory; ice put into it is not part of the "
                            "block that is heated, so the mass of ice that melts is the stated one.",
     scene_refs=("dispenser",), target_terms=("block", "meltwater", "heated slowly"),
@@ -166,7 +169,7 @@ S223 = _spec(
              "temperature of the problem are those stated.", ("heated slowly", "melted completely"), "small amount",
              before_context_reason="The R sentence refers to 'the block' and 'the heating' before the context introduces them."),
         Pair("p1", "{relation} a further {value} {unit} of ice at its melting point.",
-             "When the heating begins, the block also includes", "In an earlier run, the block also included", EVENT,
+             "When the heating begins, the block also includes", "For an earlier run only, the block also included", EVENT,
              "The block included the further ice in an earlier run, which is over; in the stated run the block has only its "
              "stated mass.", ("heated slowly", "melted completely"), "small amount"),
     ),
@@ -191,7 +194,7 @@ S224 = _spec(
     relevant=rv.RelevantWiring("n1", "add", "Further helium in the helium compartment before the gases mix adds to the amount "
                                             "of helium (the sliding partition keeps the pressures equal), so n1 becomes n1 + q."),
     cancelling=S224_C,
-    scene_clause="A balloon hangs from a hook beside the container.",
+    scene_clause="A balloon hangs from a hook beside the container, with no tube to it. The gases do not react.",
     scene_object_rationale="A balloon on a hook is a separate store of gas outside the container; helium let into it is not in "
                            "the container, so the amounts of the two gases that mix are the stated ones.",
     scene_refs=("balloon",), target_terms=("helium compartment", "partition", "container", "argon"),
@@ -204,7 +207,7 @@ S224 = _spec(
              before_context_reason="The R sentence refers to 'the helium compartment' and 'the partition' before the context "
                                    "introduces them."),
         Pair("p1", "{relation} a further {value} {unit} of helium.",
-             "Before the gases are allowed to mix, the helium compartment also holds", "In an earlier run, the helium compartment also held",
+             "Before the gases are allowed to mix, the helium compartment also holds", "For an earlier run only, the helium compartment also held",
              EVENT,
              "The compartment held the further helium in an earlier run, which is over; in the stated run it holds only its stated "
              "amount of helium.", ("thermally insulated", "mix completely"), "small amount"),
@@ -230,7 +233,8 @@ S225 = _spec(
     relevant=rv.RelevantWiring("r2", "add", "A further layer of the same insulation wrapped round the layer puts the outer surface at "
                                             "r2 + q, the outermost surface staying at the stated temperature."),
     cancelling=S225_C,
-    scene_clause="A hot-water tank stands beside the pipe.",
+    scene_clause="A hot-water tank stands beside the pipe, clear of the pipe and its insulation. The thermal conductivity of the "
+                 "insulation does not vary with temperature.",
     scene_object_rationale="A hot-water tank is lagged separately from the pipe; insulation wrapped round the tank leaves the "
                            "insulation on the pipe, its radii and its surface temperatures as stated.",
     scene_refs=("hot-water tank",), target_terms=("pipe", "layer", "axis"),
@@ -241,7 +245,7 @@ S225 = _spec(
              "stated radius and the stated surface temperatures.", ("purely radial", "uniform layer of insulation"), "small thickness",
              before_context_reason="The R sentence refers to 'the layer' and 'the pipe' before the context introduces them."),
         Pair("p1", "{relation} a further {value} {unit} of the same insulation.",
-             "While the temperatures are held, the layer is wrapped in", "In an earlier survey, the layer was wrapped in", EVENT,
+             "While the temperatures are held, the layer is wrapped in", "For an earlier survey only, the layer was wrapped in", EVENT,
              "The layer was wrapped in the further insulation in an earlier survey, which is over; in the stated survey it extends "
              "out to the stated radius.", ("purely radial", "uniform layer of insulation"), "small thickness"),
     ),
@@ -266,7 +270,8 @@ S226 = _spec(
     values=(35.0, 70.0, 140.0), heldout_values=(50.0, 105.0),
     relevant=rv.RelevantWiring("T1", "add", "A heater that warms the hot plate by q makes its temperature T1 + q."),
     cancelling=S226_C,
-    scene_clause="A kettle stands on a hob in the corner of the laboratory.",
+    scene_clause="A kettle stands on a hob in the corner of the laboratory. No heat passes between the kettle and the plates or the "
+                 "shields, and the plates and the shields are opaque.",
     scene_object_rationale="A kettle on a hob is a store of hot water outside the vacuum between the plates; warming its water does "
                            "not change the temperature of either plate or of a shield.",
     scene_refs=("kettle",), target_terms=("plate", "shield"),
@@ -288,7 +293,7 @@ S227 = _spec(
     "S227", quantity_phrase="a further warming of the gas", quantity_type="temperature_change", unit="K",
     values=(22.0, 38.0, 70.0), heldout_values=(25.0, 50.0),
     relevant=rv.RelevantWiring("T", "add", "A heater that warms the gas by q makes its temperature T + q."),
-    scene_clause="A water bath stands on the bench in the laboratory.",
+    scene_clause="A water bath stands on the bench in the laboratory, and no heat passes between it and the gas.",
     scene_object_rationale="A water bath is a vessel of water with its own thermometer; warming its water does not change the "
                            "temperature of the gas, whose temperature is stated.",
     scene_refs=("water bath",), target_terms=("gas", "molecule", "level"),
@@ -322,7 +327,8 @@ S228 = _spec(
     heldout_values=(11.0, 19.0),
     relevant=rv.RelevantWiring("h", "add", "A fan that adds q to the heat transfer coefficient of each face makes it h + q."),
     cancelling=S228_C,
-    scene_clause="A finned heat sink for a furnace controller stands on the bench.",
+    scene_clause="A finned heat sink for a furnace controller stands on the bench. The surrounding air stays at a constant temperature, "
+                 "and the heat transfer coefficient does not depend on the temperature of the plate.",
     scene_object_rationale="A finned heat sink is cooled by its own fan; the fan changes the heat transfer of the heat sink and "
                            "leaves the coefficient of each face of the plate at its stated value.",
     scene_refs=("heat sink",), target_terms=("plate", "face"),
@@ -333,7 +339,7 @@ S228 = _spec(
              "stated value.", ("convection", "the same throughout"), "a little",
              before_context_reason="The R sentence refers to 'each face of the plate' before the context introduces the plate."),
         Pair("p1", "{relation} {value} {unit} to the heat transfer coefficient of each face of the plate.",
-             "While the plate cools, a fan is adding", "In an earlier run, a fan added", EVENT,
+             "While the plate cools, a fan is adding", "For an earlier run only, a fan added", EVENT,
              "A fan added to the coefficient in an earlier run, which is over; in the stated run each face has its stated "
              "coefficient.", ("convection", "the same throughout"), "a little"),
     ),
@@ -365,17 +371,17 @@ S229 = _spec(
     relevant=rv.RelevantWiring("T0", "add", "Sunshine that has warmed the bullet by q before the shot makes the temperature at the "
                                             "impact T0 + q."),
     cancelling=S229_C, conditional=S229_K,
-    scene_clause="A steel target frame stands on the range.",
+    scene_clause="A steel target frame stands on the range. The bullet loses no heat to the air in flight.",
     scene_object_rationale="A steel target frame is a structure beside the plate that the bullet hits; sunshine that warms it does "
                            "not warm the bullet, so the temperature of the bullet is the stated one.",
     scene_refs=("target frame",), target_terms=("bullet", "plate"),
     pairs=(
-        Pair("p0", "Sunshine has warmed {relation} by {value} {unit}.", "the bullet", "the target frame", CO,
+        Pair("p0", "After the loading, sunshine warms {relation} by {value} {unit} before the shot.", "the bullet", "the target frame", CO,
              "Sunshine that has warmed the target frame leaves the bullet at its stated temperature and its speed and fraction of "
              "kinetic energy as stated.", ("stops in it", "stays solid"), "a few kelvin",
              before_context_reason="The R sentence refers to 'the bullet' before the context introduces it."),
         Pair("p1", "{relation} the bullet by {value} {unit}.",
-             "Before the shot, sunshine has warmed", "On an earlier day, sunshine warmed", EVENT,
+             "Between the loading and the shot, sunshine has warmed", "On an earlier day, sunshine warmed", EVENT,
              "Sunshine warmed the bullet on an earlier day, which is over; at the stated shot the bullet is at its stated "
              "temperature.", ("stops in it", "stays solid"), "a few kelvin"),
     ),
@@ -388,7 +394,7 @@ S230 = _spec(
     heldout_values=(0.8, 1.7),
     relevant=rv.RelevantWiring("m1", "add", "Further metal of the same kind at the temperature of the hotter block joined to that block "
                                             "adds to its mass, so m1 becomes m1 + q."),
-    scene_clause="A casting mould stands beside the enclosure.",
+    scene_clause="A casting mould stands beside the enclosure, and no heat passes between the mould and the enclosure.",
     scene_object_rationale="A casting mould is a vessel for metal outside the enclosure; metal poured into it is not part of either "
                            "block, so the masses and temperatures of the two blocks are the stated ones.",
     scene_refs=("mould",), target_terms=("hotter block", "colder block", "enclosure"),
@@ -399,7 +405,7 @@ S230 = _spec(
              "temperatures.", ("rigid, perfectly insulated enclosure", "common temperature"), "small amount",
              before_context_reason="The R sentence refers to 'the hotter block' before the context introduces the blocks."),
         Pair("p1", "{relation} a further {value} {unit} of the same metal.",
-             "Before the blocks touch, the hotter block also includes", "In an earlier run, the hotter block also included", EVENT,
+             "Before the blocks touch, the hotter block also includes", "For an earlier run only, the hotter block also included", EVENT,
              "The hotter block included the further metal in an earlier run, which is over; in the stated run it has only its "
              "stated mass.", ("rigid, perfectly insulated enclosure", "common temperature"), "small amount"),
     ),

@@ -474,3 +474,96 @@ def test_scene_clause_leaves_the_base_gold_graph_and_prompt_unchanged(sid, v1_ro
     assert all(spec.scene_clause in c.prompt for c in cells)
     # the unit text of every sentence is a unit the prompt grammar knows
     assert spec.unit in dm.UNITS
+
+
+# --- (f) wording rules 6-8 and article agreement (retrofit of J15.1-046) ---------------------------------------------------------------
+
+ATTACHING_P1 = {"S28", "S32", "S33", "S42", "S43", "S44", "S45"}  # the pair-1 event adds or attaches something to the target
+
+
+def vowel_sound_number(s: str) -> bool:
+    """True when the numeral reads with a vowel sound (eight, eleven, eighteen, ...)."""
+    whole = s.split(".")[0].lstrip("+-")
+    return whole[:1] == "8" or (whole[:2] in ("11", "18") and len(whole) in (2, 4, 5))
+
+
+def article_violations(sentence: str) -> list[str]:
+    return [mt.group(0) for mt in re.finditer(r"\b[Aa] (\d[\d.]*)", sentence) if vowel_sound_number(mt.group(1))]
+
+
+def all_rendered_sentences(sid: str) -> list[str]:
+    spec, structure = sd(sid), m.structure(sid)
+    out = [c.sentence for c in r2.role_cells_v2(structure, spec, 0, include_heldout=True)]
+    if spec.cancelling is not None:
+        sub = spec.cancelling.spec
+        out += [rv._sentence(sub.frame, v, sub.unit, p.relation, sub.nonnumeric_fill)
+                for v in (*sub.values, *spec.cancelling.heldout_values) for p in sub.phrasings]
+    if spec.conditional is not None:
+        sub = spec.conditional.spec
+        vals = (*sub.values, *spec.conditional.heldout_values, *spec.conditional.k_out.values)
+        out += [rv._sentence(sub.frame, v, sub.unit, p.relation, sub.nonnumeric_fill) for v in vals for p in sub.phrasings]
+    return out
+
+
+def test_article_checker_catches_planted_violations():
+    assert article_violations("A 18 V cell was added.") == ["A 18"]
+    assert article_violations("Before it, a 8.5 uF capacitor and a 11 kg mass and a 85 N force.") == ["a 8.5", "a 11", "a 85"]
+    assert not article_violations("A 16 V cell, a 0.8 kg mass, a 118 N force, a 3.5 V cell and an 18 V cell.")
+
+
+@pytest.mark.parametrize("sid", SIDS)
+def test_no_rendered_sentence_has_a_wrong_article_before_a_number(sid):
+    for sentence in all_rendered_sentences(sid):
+        assert not article_violations(sentence), (sid, sentence)
+
+
+@pytest.mark.parametrize("sid", SIDS)
+def test_rule_7_attaching_pair_1_d_says_for_an_earlier_experiment_only(sid):
+    spec = sd(sid)
+    p1 = spec.pairs[1]
+    d_sentence = r2.pair_sentence(p1, "D", spec.values[0], spec.unit)
+    n_sentence = r2.pair_sentence(p1, "D", None, spec.unit)
+    r_sentence = r2.pair_sentence(p1, "R", spec.values[0], spec.unit)
+    if sid in ATTACHING_P1:
+        for text in (d_sentence, n_sentence):
+            assert re.search(r"\bfor an earlier (experiment|run|trial|test) only\b", text, re.IGNORECASE), text
+    else:
+        assert "earlier" in d_sentence and "only" not in d_sentence.lower()
+    assert "only" not in r_sentence.lower()
+
+
+@pytest.mark.parametrize("sid", SIDS)
+def test_rule_8_no_d_or_n_sentence_states_a_state_that_the_scene_clause_contradicts(sid):
+    spec = sd(sid)
+    scene = spec.scene_clause.lower()
+    for pair in spec.pairs:
+        for value in (spec.values[0], None):
+            text = r2.pair_sentence(pair, "D", value, spec.unit).lower()
+            assert not re.search(r"\b(now (fills|stands|lies|hangs|sits)|no longer|instead|already)\b", text), text
+    # the co-present D acts on the scene object the clause introduces, as an action (present tense), not as a changed state
+    p0 = spec.pairs[0]
+    assert all(r in scene and r in r2.pair_sentence(p0, "D", spec.values[0], spec.unit).lower() for r in spec.scene_refs)
+    # every condition the scene clause adds is stated in the clause itself, not contradicted by the base text
+    context = dg.context_text(m.structure(sid), dict(m.structure(sid).instances[0])).lower()
+    assert scene in context
+
+
+@pytest.mark.parametrize("sid", SIDS)
+def test_r_and_d_sentences_differ_within_each_pair(sid):
+    spec = sd(sid)
+    for pair in spec.pairs:
+        for value in (*spec.values, *spec.heldout_values):
+            r_sentence = r2.pair_sentence(pair, "R", value, spec.unit)
+            d_sentence = r2.pair_sentence(pair, "D", value, spec.unit)
+            assert r_sentence != d_sentence
+    r0, r1 = (r2.pair_sentence(p, "R", spec.values[0], spec.unit) for p in spec.pairs)
+    d0, d1 = (r2.pair_sentence(p, "D", spec.values[0], spec.unit) for p in spec.pairs)
+    assert r0 != r1 and d0 != d1
+
+
+FORBIDDEN_SCENE_WORDS = r"\b(given|stated|before any|after any|anything|any water|any liquid|wherever|onto a|joined to)\b"
+
+
+@pytest.mark.parametrize("sid", SIDS)
+def test_scene_clause_has_only_physical_conditions_no_meta_or_hypothetical_wording(sid):
+    assert not re.search(FORBIDDEN_SCENE_WORDS, sd(sid).scene_clause.lower()), sd(sid).scene_clause

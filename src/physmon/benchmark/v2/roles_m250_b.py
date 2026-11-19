@@ -116,7 +116,7 @@ S28 = r2.RoleSpecV2(
              before_context_reason="The R sentence refers to 'the car', which the context introduces, with an acceleration the "
                                    "context has not yet stated; placed first it reads as a fact about a car not yet in the scene."),
         Pair("p1", "{relation}, a tuning kit added {value} {unit} to the acceleration of the car.", "Before the start",
-             "In an earlier run", EVENT,
+             "For an earlier run only", EVENT,
              "The kit was fitted to the car in an earlier run, which is over; in the stated run the car's constant acceleration is "
              "the stated one.", ("constant", "from rest"), "a little"),
     ),
@@ -215,7 +215,7 @@ S32 = r2.RoleSpecV2(
              before_context_reason="The R sentence refers to 'the block', which the context introduces afterwards, and says nothing "
                                    "of the spring that the context describes."),
         Pair("p1", "A {value} {unit} weight was fixed to the block {relation}.", "before it was released",
-             "in an earlier experiment", EVENT,
+             "for an earlier experiment only", EVENT,
              "The weight was fixed to the block in an earlier experiment, which is over; in the stated experiment the block has "
              "only its stated mass.", ("spring constant", "coefficient of kinetic friction"), "small"),
     ),
@@ -244,7 +244,7 @@ S33 = r2.RoleSpecV2(
              "unchanged.", ("rigid wall", "coefficient of restitution"), "small",
              before_context_reason="The R sentence refers to 'the ball' before the context introduces it."),
         Pair("p1", "A {value} {unit} lump of clay was stuck to the ball {relation}.", "before it hit the wall",
-             "in an earlier experiment", EVENT,
+             "for an earlier experiment only", EVENT,
              "The clay was stuck to the ball in an earlier experiment, which is over; in the stated experiment the ball has only "
              "its stated mass.", ("rigid wall", "coefficient of restitution"), "small"),
     ),
@@ -456,7 +456,7 @@ S41 = r2.RoleSpecV2(
 # --- S42: stretched wire ----------------------------------------------------------------------------------------------------------------------
 
 S42 = r2.RoleSpecV2(
-    structure_id="S42", quantity_phrase="an extra cell", quantity_type="voltage", unit="V", values=(3.5, 7.5, 18.0),
+    structure_id="S42", quantity_phrase="an extra cell", quantity_type="voltage", unit="V", values=(3.5, 7.5, 16.0),
     heldout_values=(5.5, 14.0),
     relevant=rv.RelevantWiring("V", "add", "An ideal cell in series with the battery, facing the same way, gives an emf V + q across "
                                            "the drawn-out wire."),
@@ -468,7 +468,7 @@ S42 = r2.RoleSpecV2(
              before_context_reason="The R sentence refers to 'the battery', which the context introduces afterwards, and 'facing "
                                    "the same way' has no reference yet."),
         Pair("p1", "{relation}, a {value} {unit} cell of negligible internal resistance was connected in series with the battery, "
-                   "facing the same way.", "Before the power was measured", "In an earlier experiment", EVENT,
+                   "facing the same way.", "Before the power was measured", "For an earlier experiment only", EVENT,
              "The cell was in series with the battery in an earlier experiment, which is over; in the stated experiment the wire "
              "is across the stated battery alone.", ("ideal battery", "drawn out"), "small"),
     ),
@@ -499,7 +499,7 @@ S43 = r2.RoleSpecV2(
              before_context_reason="The R sentence refers to 'the battery', which the context introduces afterwards, and 'facing "
                                    "the same way' has no reference yet."),
         Pair("p1", "{relation}, a {value} {unit} cell of negligible internal resistance was connected in series with the battery, "
-                   "facing the same way.", "Before the slab was inserted", "In an earlier experiment", EVENT,
+                   "facing the same way.", "Before the slab was inserted", "For an earlier experiment only", EVENT,
              "The cell was in series with the battery in an earlier experiment, which is over; in the stated experiment the "
              "capacitor is across the stated battery alone.", ("dielectric constant", "still connected"), "small"),
     ),
@@ -520,7 +520,7 @@ S44 = r2.RoleSpecV2(
              "stated one.", ("whole rod is in the field", "points upward"), "a little",
              before_context_reason="The R sentence refers to 'the rod', which the context introduces afterwards."),
         Pair("p1", "A pair of coils added {value} {unit} to the field around the rod {relation}.", "before the current was set",
-             "in an earlier experiment", EVENT,
+             "for an earlier experiment only", EVENT,
              "The coils added field in an earlier experiment, which is over; in the stated experiment the field is the stated "
              "field.", ("whole rod is in the field", "points upward"), "a little"),
     ),
@@ -549,7 +549,7 @@ S45 = r2.RoleSpecV2(
              before_context_reason="The R sentence refers to 'the accelerating gap' before the context introduces the bead and its "
                                    "acceleration."),
         Pair("p1", "An extra {value} {unit} was applied across the accelerating gap {relation}.", "before the bead was released",
-             "in an earlier experiment", EVENT,
+             "for an earlier experiment only", EVENT,
              "The extra potential was applied in an earlier experiment, which is over; in the stated experiment the bead is "
              "accelerated through the stated potential difference.", ("from rest", "vacuum"), "voltage"),
     ),
@@ -559,56 +559,56 @@ S45 = r2.RoleSpecV2(
 # Scene clauses, rationales and target terms per structure (one place, so the specs above stay readable). -----------------------------------
 
 SCENES: dict[str, tuple[str, str, tuple[str, ...], tuple[str, ...]]] = {
-    "S24": ("A kettle of water stands nearby.",
+    "S24": ("A kettle of water stands nearby, and no heat passes between it and the engine or its reservoirs.",
             "A kettle of water on a burner of its own exchanges no heat with the engine's reservoirs, so the work done by the "
             "engine per cycle is still fixed by its stated heat and reservoir temperatures.",
             ("kettle",), ("the engine", "hot reservoir")),
-    "S25": ("A small lamp, wired to its own battery, stands beside the coil.",
+    "S25": ("A small lamp, wired to its own battery, stands beside the coil; neither current nor magnetic flux passes between the lamp's circuit and the coil.",
             "A lamp on its own battery closes a loop of its own and shares no node with the coil, so the coil's steady current "
             "and stored energy are unchanged.", ("lamp",), ("the coil", "coil")),
-    "S28": ("A motorbike waits at the roadside.",
+    "S28": ("A motorbike waits at the roadside, off the road and clear of the car and the truck.",
             "A motorbike waiting at the roadside is not on the road section where the car and the truck move, so the "
             "kinematics of the chase are unchanged.", ("motorbike",), ("the car", "the truck")),
-    "S29": ("A small crane stands beside the sled.",
+    "S29": ("A small crane stands beside the sled and touches neither the sled nor the rope.",
             "A crane beside the sled does not touch the sled or its rope, so the power of the rope is unchanged.",
             ("crane",), ("the sled", "the rope")),
-    "S31": ("A surveyor stands further along the cliff edge.",
+    "S31": ("A surveyor stands further along the cliff edge, clear of the stone's path.",
             "A surveyor standing along the cliff edge is not on the stone's path and exerts no force on the stone, so the "
             "stone's flight is unchanged.", ("surveyor",), ("thrower", "the stone", "the cliff edge")),
-    "S32": ("A trolley stands on a neighbouring table.",
+    "S32": ("A trolley stands on a neighbouring table. The spring is ideal and its mass is negligible.",
             "A trolley on a neighbouring table is not touched by the spring, the block or its table, so the block's slide is "
             "unchanged.", ("trolley",), ("the block",)),
-    "S33": ("A toy cart stands on the floor beside the wall.",
+    "S33": ("A toy cart stands on the floor beside the wall, clear of the ball's path.",
             "A toy cart beside the wall is not in the line of the impact and does not touch the ball, so the impact is unchanged.",
             ("cart",), ("the ball",)),
-    "S34": ("A solar panel stands beside the incline.",
+    "S34": ("A solar panel stands beside the incline. Air resistance and rolling resistance are negligible, and the incline is long enough for the sphere to come to rest on it.",
             "A solar panel beside the incline does not touch the sphere or the incline, so the sphere's roll is unchanged.",
             ("solar panel",), ("the incline", "the sphere")),
-    "S35": ("A fishing reel lies on the bench.",
+    "S35": ("A fishing reel lies on the bench, apart from the bob and its string. The string does not stretch.",
             "A fishing reel on the bench does not touch the bob or its string, so the motion of the bob is unchanged.",
             ("reel",), ("the string", "the bob")),
-    "S36": ("A see-saw stands nearby.",
+    "S36": ("A see-saw stands nearby, clear of the rod and its axis.",
             "A see-saw nearby does not touch the rod or its pivot, so the rod's oscillation is unchanged.",
             ("see-saw",), ("the rod",)),
-    "S37": ("A space station orbits in a different plane.",
+    "S37": ("A space station orbits in a different plane and never comes close to the satellite.",
             "A space station in another plane exerts a negligible force on the satellite (the problem neglects the gravity of "
             "other bodies), so the satellite's orbit is unchanged.", ("space station",), ("the satellite",)),
-    "S38": ("A hinged shutter is propped open beside the ladder.",
+    "S38": ("A hinged shutter is propped open beside the ladder. The person stands still on the ladder.",
             "A shutter propped open beside the ladder does not touch the ladder, the wall surface it leans on or the ground "
             "under it, so the forces on the ladder are unchanged.", ("shutter",), ("the ladder",)),
-    "S41": ("A pair of bar magnets lies on the bench.",
+    "S41": ("A pair of bar magnets lies on the bench. The spheres are insulated from their surroundings, and no other charges are near them.",
             "Bar magnets exert no electrostatic force on conducting spheres, so the force between the spheres is unchanged.",
             ("magnets",), ("the spheres are", "the spheres")),
-    "S42": ("A small lamp, wired to a battery of its own, stands beside the circuit.",
+    "S42": ("A small lamp, wired to a battery of its own, stands beside the circuit. The leads have negligible resistance, and the wire stays at a constant temperature.",
             "A lamp on a battery of its own closes a loop of its own and shares no node with the wire, so the wire still sees "
             "only the stated battery.", ("lamp",), ("the battery", "the wire")),
-    "S43": ("A small lamp, wired to a battery of its own, stands beside the capacitor.",
+    "S43": ("A small lamp, wired to a battery of its own, stands beside the capacitor. The leads have negligible resistance, and edge effects at the plates are negligible.",
             "A lamp on a battery of its own closes a loop of its own and shares no node with the capacitor, so the capacitor "
             "still sees only the stated battery and its charge is unchanged.", ("lamp",), ("the battery", "the capacitor")),
-    "S44": ("A small compass lies on the bench nearby.",
+    "S44": ("A small compass lies on the bench nearby. The wires that carry current to the rod exert no force on it.",
             "A compass lying on the bench does not touch the rod and is not in the magnet's field at the rod, so the force "
             "balance on the rod is unchanged.", ("compass",), ("in which the rod lies", "the rod")),
-    "S45": ("A small bulb is wired to a supply of its own beside the apparatus.",
+    "S45": ("A small bulb is wired to a supply of its own beside the apparatus. No electric field acts on the bead outside the gap.",
             "A bulb on a supply of its own does not change the potential difference across the bead's gap, so the bead's speed "
             "and path are unchanged.", ("bulb",), ("the accelerating gap", "the bead")),
 }
