@@ -383,8 +383,11 @@ S239 = _spec(
              before_context_reason="The R sentence refers to 'the plate' before the context introduces it."),
         Pair("p1", "Polishing had thinned the plate by {value} {unit} {relation}.", "before the light was sent through it",
              "in an earlier run", EVENT,
-             "The polishing belongs to an earlier run, which is over; in the stated run the light crosses a plate of the stated "
-             "thickness.", ("thin birefringent plate", "does not absorb light"), "a little"),
+             "The plate was measured in an earlier run, which is over; the measurement leaves the plate as it was, so the light "
+             "crosses a plate of the stated thickness.", ("thin birefringent plate", "does not absorb light"), "a small margin",
+             d_frame="A micrometer had measured the thickness of the plate to within {value} {unit} {relation}.",
+             frame_mismatch_reason="The R event is a thinning, which leaves a lasting change; the D event is a measurement of the same "
+                                   "plate that leaves none, so the two cannot share one frame."),
     ),
     notes="M250 phase 2: R is a thinning of the plate by polishing; K is the coherence length of the light; no C (see NO_C).")
 

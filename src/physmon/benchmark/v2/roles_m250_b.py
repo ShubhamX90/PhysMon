@@ -180,12 +180,12 @@ S31 = r2.RoleSpecV2(
     relevant=rv.RelevantWiring("h", "add", "A thrower on a platform q above the cliff edge launches the stone from a height h + q, "
                                            "so the fall time is sqrt(2 (h + q) / g)."),
     pairs=(
-        Pair("p0", "The {relation} stands on a platform {value} {unit} above the cliff edge.", "thrower", "surveyor", CO,
+        Pair("p0", "The {relation} then climbs onto a platform {value} {unit} above the cliff edge.", "thrower", "surveyor", CO,
              "A surveyor who stands further along the cliff edge on a platform is not the thrower; the stone's launch height is the "
              "stated height of the cliff.", ("horizontally", "level ground"), "a little",
              before_context_reason="The R sentence refers to 'the thrower' and 'the cliff edge' before the context introduces the "
                                    "throw and the cliff."),
-        Pair("p1", "The thrower stood on a platform {value} {unit} above the cliff edge {relation}.", "when the stone was thrown",
+        Pair("p1", "The thrower climbed onto a platform {value} {unit} above the cliff edge {relation}.", "before the stone was thrown",
              "in an earlier experiment", EVENT,
              "The thrower stood on a platform in an earlier experiment, which is over; in the stated experiment the stone leaves "
              "from the stated height.", ("horizontally", "level ground"), "a little"),
