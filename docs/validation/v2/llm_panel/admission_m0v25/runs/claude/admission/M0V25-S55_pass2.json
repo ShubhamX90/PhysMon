@@ -1,0 +1,42 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v25_admission:batch01",
+  "item_id": "M0V25-S55",
+  "pass_number": 2,
+  "started_at": "2026-11-19T10:26:00Z", "completed_at": "2026-11-19T10:33:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Kinetic theory of an ideal gas: v_rms = sqrt(3RT/M)",
+    "assumptions": ["ideal classical gas in thermal equilibrium (stated)", "non-relativistic molecular speeds", "M = 4 g/mol = 0.004 kg/mol"],
+    "answer": 1367.72,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TB146": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "TB16B": {"stratum": "C", "answer_with_sentence": 1367.72, "regime": null},
+    "T424E": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null},
+    "TC1EA": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null},
+    "T852B": {"stratum": "C", "answer_with_sentence": 1367.72, "regime": null},
+    "T2283": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "TD47F": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null},
+    "T0AD1": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "TB146 ('Just before the molecular speeds were measured, a heater warmed this gas sample by 100 K') admits a minority reading in which the stated 300 K is the temperature at measurement; the certified reading (300 K before heating, 400 K at measurement) is the natural one, so this is a wording issue only."
+  },
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Checked certified answers: T=300 K: sqrt(3*8.314*300/0.004) = sqrt(1870650) = 1367.72 m/s; T=350: sqrt(2182425) = 1477.30; T=400: sqrt(2494200) = 1579.30; T=500: sqrt(3117750) = 1765.715, certified 1765.72 (rounding at the half, within precision). Relations and unit handling (M in kg/mol, Ek in J/mol) are consistent. The cancellation of n for TB16B/T852B is correct: sqrt(2*(3/2)nRT/(nM)) = sqrt(3RT/M); both state 2 mol. Minimal pairs hold: T424E/T2283 differ only in 'the other sample' vs 'this gas sample', same 100 K; TD47F/TB146 differ only in 'In an earlier experiment' vs 'Just before the molecular speeds were measured', same 100 K. TC1EA and T0AD1 are declared numeral-free controls, consistent with my pass-1 reading. The thermally insulated second flask is correctly D. Agreement with pass 1 on all strata and answers."
+  ,
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS"
+}

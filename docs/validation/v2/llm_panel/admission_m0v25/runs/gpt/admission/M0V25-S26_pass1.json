@@ -1,0 +1,83 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v25_admission",
+  "item_id": "M0V25-S26",
+  "pass_number": 1,
+  "started_at": "2026-11-19T14:03:26+00:00",
+  "completed_at": "2026-11-19T14:04:48+00:00",
+  "minutes_spent": 1.36,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law: n1 sin(theta_i) = n2 sin(theta_r). Thus theta_r = arcsin(sin(40 degrees)/1.5).",
+    "assumptions": [
+      "Ordinary geometrical refraction between media described by the stated refractive indices.",
+      "For the sentences describing an increase in the present experiment, 40 degrees is the incidence angle before the increase."
+    ],
+    "answer": 25.37,
+    "unit": "degrees"
+  },
+  "stratum_assignments": {
+    "TE757": {
+      "stratum": "R",
+      "answer_with_sentence": 31.2,
+      "regime": null
+    },
+    "T2905": {
+      "stratum": "D",
+      "answer_with_sentence": 25.37,
+      "regime": null
+    },
+    "T43D0": {
+      "stratum": "R",
+      "answer_with_sentence": 31.2,
+      "regime": null
+    },
+    "T5A16": {
+      "stratum": "D",
+      "answer_with_sentence": 25.37,
+      "regime": null
+    },
+    "T7ECD": {
+      "stratum": "D",
+      "answer_with_sentence": 25.37,
+      "regime": null
+    },
+    "T5D5A": {
+      "stratum": "D",
+      "answer_with_sentence": 25.37,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T2905 and T5A16 specify only 'a little', whereas their respective numerical variants T5D5A and T7ECD specify 11°, so the variants do not preserve the required number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem is well-posed. Increasing the incidence angle from 40° to 51° gives arcsin(sin(51°)/1.5) = 31.20°. Tilting the camera does not change the physical refraction angle measured from the normal. Changes in an earlier experiment do not alter the stated incidence angle in the present experiment. TE757 is interpreted as describing an increase from the initially stated 40° before observation. The invalid verdict concerns the required numerical matching of sentence variants.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "ed8ddcee542ba85ca088aaf2e7242d86ff632c9314f070081afa493e5a6e5f4a",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v25_admission:batch01",
+  "item_id": "M0V25-S26",
+  "pass_number": 2,
+  "started_at": "2026-11-19T10:09:00Z", "completed_at": "2026-11-19T10:16:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law n1 sin(theta1) = n2 sin(theta2)",
+    "assumptions": ["flat interface, isotropic media", "angles measured from the normal", "light goes from n=1 into n=1.5, so no total internal reflection"],
+    "answer": 25.374,
+    "unit": "degree"
+  },
+  "stratum_assignments": {
+    "TE757": {"stratum": "R", "answer_with_sentence": 31.205, "regime": null},
+    "T2905": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "T43D0": {"stratum": "R", "answer_with_sentence": 31.205, "regime": null},
+    "T5A16": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "T7ECD": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "T5D5A": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "TE757's 'Before the refraction was observed ... had grown by 11 degrees' admits a minority reading in which 40 degrees is the incidence at observation (answer 25.37) rather than the pre-tilt value (answer 31.20, as certified); the intended reading is the more natural one, so this is a wording issue rather than a wrong claim."
+  },
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Checked certified answers: theta1=46 deg: sin46/1.5 = 0.47956, theta2 = 28.657 deg; theta1=51: 0.51810, theta2 = 31.205; theta1=54: sin54/1.5 = 0.53934, theta2 = 32.639; base 40: 25.374. All match. Relation, inputs and units are consistent; all values stay below the incidence limit of 90 deg and no TIR arises (n1<n2). Strata agree with my pass 1. T7ECD/TE757 form a proper minimal pair (same 11 deg, attached to an earlier experiment vs to the present one before observation). T5D5A vs T43D0 are correctly declared not a minimal pair. In pass 1 I flagged rendering_not_minimal for T5A16 and T2905 lacking a number; the pass-2 claims declare these as numeral-free controls by design (twins of T7ECD and T5D5A), not as same-number variants, so I withdraw that flag here. The scene clause (camera) is harmless and has no physical path to the target."
+  ,
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS"
+}

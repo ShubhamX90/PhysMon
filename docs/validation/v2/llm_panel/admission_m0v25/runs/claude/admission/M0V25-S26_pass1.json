@@ -1,0 +1,35 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v25_admission:batch01",
+  "item_id": "M0V25-S26",
+  "pass_number": 1,
+  "started_at": "2026-11-19T10:00:00Z", "completed_at": "2026-11-19T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law n1 sin(theta1) = n2 sin(theta2)",
+    "assumptions": ["flat interface, isotropic media", "angles measured from the normal", "going from lower to higher index so no total internal reflection"],
+    "answer": 25.37,
+    "unit": "degree"
+  },
+  "stratum_assignments": {
+    "TE757": {"stratum": "R", "answer_with_sentence": 31.20, "regime": null},
+    "T2905": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "T43D0": {"stratum": "R", "answer_with_sentence": 31.20, "regime": null},
+    "T5A16": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "T7ECD": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "T5D5A": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null}
+  },
+  "validity": "uncertain",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 3,
+  "uncertain_fields": ["TE757"],
+  "defect_flags": ["other", "rendering_not_minimal"],
+  "defect_reasons": {
+    "other": "TE757 ('Before the refraction was observed, the laser ... was tilted until the angle of incidence had grown by 11 degrees') can be read either as the 40 degrees being the pre-tilt value (observed incidence 51 degrees, answer 31.20) or as 40 degrees being the incidence at observation after the tilt (answer 25.37), so the sentence does not fix the answer uniquely.",
+    "rendering_not_minimal": "T5A16 and T2905 say 'a little' where their apparent counterparts T7ECD and T5D5A state 11 degrees, so if they are meant as variants of the same quantity they do not state the same number and unit."
+  },
+  "defect_severity": {"other": "medium", "rendering_not_minimal": "medium"},
+  "counterexamples": [],
+  "notes": "Base: sin(theta2) = sin40/1.5 = 0.64279/1.5 = 0.42853, theta2 = 25.37 deg. With incidence 51 deg: sin51/1.5 = 0.77715/1.5 = 0.51810, theta2 = 31.20 deg. T43D0 is clearly R (tilt happens after the stated configuration, 'then'). T7ECD and T5A16 concern an earlier experiment, not the configuration asked about, so D. Camera tilts (T2905, T5D5A) have no physical path to the refraction angle, D. The 11 deg value is shared by TE757, T43D0, T7ECD, T5D5A; T5A16 and T2905 have no number. Severity of the TE757 ambiguity is the main uncertainty: if it is read as permitting two materially different answers, the item would be invalid."
+}

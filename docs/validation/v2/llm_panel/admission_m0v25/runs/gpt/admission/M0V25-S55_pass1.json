@@ -1,0 +1,94 @@
+{
+  "item_id": "M0V25-S55",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For an equilibrium ideal gas, (1/2)nM<v²> = (3/2)nRT, so v_rms = sqrt(3RT/M). With M = 0.004 kg/mol and T = 300 K, v_rms = sqrt(1870650) = 1367.72 m/s.",
+    "assumptions": [
+      "The molecular motion is classical and nonrelativistic.",
+      "Heating this sample before measurement raises its measurement temperature from 300 K to 400 K.",
+      "An earlier experiment is historical; the explicitly stated current equilibrium temperature remains 300 K."
+    ],
+    "answer": 1367.72,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TB146": {
+      "stratum": "R",
+      "answer_with_sentence": 1579.3,
+      "regime": null
+    },
+    "TB16B": {
+      "stratum": "C",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "T424E": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "TC1EA": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "T852B": {
+      "stratum": "C",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "T2283": {
+      "stratum": "R",
+      "answer_with_sentence": 1579.3,
+      "regime": null
+    },
+    "TD47F": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "T0AD1": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The temperature-increment variants do not preserve the required number: TC1EA and T0AD1 say 'a few kelvin', whereas the other heating sentences specify 100 K."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics is well-posed. Amount of gas cancels between total kinetic energy and total mass. Heating the thermally insulated neighboring sample does not change the target sample's temperature. Earlier-experiment sentences are classified as disconnected historical information because the current temperature is explicitly specified. The two amount variants both state 2 mol. The heating variants fail the packet's same-number requirement; notably, T424E/TC1EA and TD47F/T0AD1 change the increment while retaining the same attachment.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v25_admission",
+  "started_at": "2026-11-19T14:03:26+00:00",
+  "completed_at": "2026-11-19T14:04:24+00:00",
+  "minutes_spent": 0.96,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "4511d1c7a3af48fc5e94cf194095b51a29e71034a0e9bc3c20ed331ae8bdf22c",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v25_admission:batch01",
+  "item_id": "M0V25-S55",
+  "pass_number": 1,
+  "started_at": "2026-11-19T10:17:00Z", "completed_at": "2026-11-19T10:25:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Kinetic theory of an ideal gas: v_rms = sqrt(3RT/M)",
+    "assumptions": ["ideal gas in thermal equilibrium (stated)", "non-relativistic molecular speeds", "M = 4 g/mol = 0.004 kg/mol"],
+    "answer": 1367.7,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TB146": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "TB16B": {"stratum": "C", "answer_with_sentence": 1367.7, "regime": null},
+    "T424E": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null},
+    "TC1EA": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null},
+    "T852B": {"stratum": "C", "answer_with_sentence": 1367.7, "regime": null},
+    "T2283": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "TD47F": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null},
+    "T0AD1": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "TB146 ('Just before the molecular speeds were measured, a heater warmed this gas sample by 100 K') admits a minority reading in which the stated 300 K is the temperature at measurement, though the natural reading is 300 K before heating, giving 400 K at measurement."
+  },
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: v_rms = sqrt(3*8.314*300/0.004) = sqrt(1.87065e6) = 1367.7 m/s. At 400 K: sqrt(2.4942e6) = 1579.3 m/s. Amount of gas (TB16B, T852B, same 2 mol) enters total kinetic energy (3/2)nRT and (1/2)nM<v^2> but cancels from v_rms, so C. Heating the other, thermally insulated sample (T424E, TC1EA) has no path to this gas, D. Heating in an earlier experiment (TD47F, T0AD1) leaves no state behind given the stated equilibrium at 300 K, D. TB146 and T2283 both heat this sample before measurement, R. 100 K is used consistently; TC1EA and T0AD1 replace it with 'a few kelvin' (apparently numeral-free counterparts)."
+}

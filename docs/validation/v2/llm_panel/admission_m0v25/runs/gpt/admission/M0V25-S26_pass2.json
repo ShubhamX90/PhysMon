@@ -1,0 +1,83 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v25_admission",
+  "item_id": "M0V25-S26",
+  "pass_number": 2,
+  "started_at": "2026-11-19T14:04:48+00:00",
+  "completed_at": "2026-11-19T14:05:47+00:00",
+  "minutes_spent": 0.98,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law gives theta2 = arcsin(n1 sin(theta1)/n2). Increasing the incidence angle by q replaces theta1 with 40 degrees + q.",
+    "assumptions": [
+      "Ordinary geometrical refraction between the stated media.",
+      "The present-experiment increases occur after the initially stated incidence angle of 40 degrees.",
+      "Angles are measured from the interface normal."
+    ],
+    "answer": 25.374,
+    "unit": "degrees"
+  },
+  "stratum_assignments": {
+    "TE757": {
+      "stratum": "R",
+      "answer_with_sentence": 31.2047,
+      "regime": null
+    },
+    "T2905": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    },
+    "T43D0": {
+      "stratum": "R",
+      "answer_with_sentence": 31.2047,
+      "regime": null
+    },
+    "T5A16": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    },
+    "T7ECD": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    },
+    "T5D5A": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All certified answers agree with Snell's law: incidence increases of 6, 11 and 14 degrees give refraction angles 28.6567, 31.2047 and 32.639 degrees, respectively. Camera orientation and the earlier experiment do not affect the present refraction. The claimed minimal pair TE757/T7ECD preserves the number and unit and changes the temporal attachment. I withdraw the pass-1 rendering objection: the authors explicitly identify the numeral-free sentences as controls with the numerical phrase deliberately removed, and explicitly disclaim minimal pairing for T43D0/T5D5A. These are not false claims of numerical minimality.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "e84b58faadf313a37fd7291799aa2a08c54b9d36fce30d542c827466f8a0dd89",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

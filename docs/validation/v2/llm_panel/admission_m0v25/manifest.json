@@ -1,0 +1,37 @@
+{
+  "claim_answer_rounding": "6 significant figures (as in the role bank)",
+  "inputs": {
+    "/home/pabitra/PhysMons/data/v2/dataset/m0_v25/cells.jsonl": "e3e26f24b77ffc62c42374eb3f5634291f095056b16f957a213249deb6d8671b",
+    "/home/pabitra/PhysMons/data/v2/dataset/m0_v25/certificates.json": "d6ced3da59a88e17525b3f78be2aab510aeac1537a244978610f40c7e2e50b99",
+    "docs/validation/v2/llm_panel/judge_prompt_v3.md": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "docs/validation/v2/llm_panel/naturalness_prompt_v2.md": "044912a712344d7dc667eb81633bb4b92a7dc8996e216d0cf9cd382820630089"
+  },
+  "instructions_md": "each batch directory holds an exact copy of its frozen prompt file as instructions.md",
+  "n_admission_batches": 1,
+  "n_admission_items": 2,
+  "n_naturalness_batches": 4,
+  "n_naturalness_sentences": 14,
+  "naturalness_batch_sizes": [
+    4,
+    4,
+    4,
+    2
+  ],
+  "outputs": {
+    "key_RESTRICTED.json": "d35a0ecc2f19ad83b29ab4116cb9e8687d6519ade0883f10c373b51535c302a0",
+    "naturalness_key_RESTRICTED.json": "486cf6327450b322af7538cf2dc7dc46ad98ad47a17d87536fff6e6cdb9d222a",
+    "naturalness_packets.jsonl": "a0fbd500617320381206d633221b6363129a796eba5c1e6d9a8d3afc230f3d99",
+    "pass1_packets.jsonl": "953f5642ae74a5d2bb344d02fcbd774953bca8b688947d01a066fea5b00d3cfd",
+    "pass2_packets.jsonl": "e10cb87402de505b6555ad1072e39ae4a2afcb44f53a11c6493c13c5e8d2650b"
+  },
+  "seed": 190,
+  "sentences_per_stratum": {
+    "C": 2,
+    "D": 4,
+    "K": 0,
+    "K_out": 0,
+    "N": 4,
+    "R": 4
+  },
+  "split": "admission"
+}
