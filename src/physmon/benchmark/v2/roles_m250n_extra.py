@@ -117,8 +117,8 @@ S253_C = r2.CancellingV2(
                 "but is not a headline fact.", (310.0, 880.0))
 
 S253 = _spec(
-    "S253", quantity_phrase="a further sound intensity", quantity_type="intensity", unit="W/m^2", values=(0.008, 0.021, 0.036),
-    heldout_values=(0.011, 0.027),
+    "S253", quantity_phrase="a further sound intensity", quantity_type="intensity", unit="W/m^2", values=(0.003, 0.006, 0.009),
+    heldout_values=(0.004, 0.0075),
     relevant=rv.RelevantWiring("Ii", "add", "A further sound intensity falling on the water surface adds to the intensity of the incident wave, "
                                             "so Ii becomes Ii + q."),
     cancelling=S253_C,
@@ -428,7 +428,7 @@ S261 = _spec(
 
 S262_K = r2.ConditionalV2(
     rv.ConditionalSpec(
-        "the Reynolds number up to which the flow stays laminar", "reynolds_number", "1", (1800.0, 2100.0, 2500.0),
+        "the Reynolds number up to which the flow stays laminar", "reynolds_number", "1", (1800.0, 2100.0, 2400.0),
         "The flow in the tube {relation} {value} {unit}.",
         (P("k0", "stays laminar up to a Reynolds number of"), P("k1", "remains laminar below a Reynolds number of")),
         "rho*(rho*g*h0*r**2/(8*eta*Lc))*2*r/eta < q", "tc*q/1000", 0.05, nonnumeric_fill="a known limit"),

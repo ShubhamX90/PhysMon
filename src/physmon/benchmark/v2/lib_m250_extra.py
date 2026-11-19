@@ -502,7 +502,7 @@ def s262_capillary_drain_time() -> Structure:
          _in("Lc", "length", "cm", "length of the tube", 50.0, (30.0, 80.0)),
          _in("A", "area", "cm^2", "cross-sectional area of the tank", 100.0, (60.0, 200.0)),
          _in("h0", "length", "cm", "initial depth of the oil in the tank", 40.0, (30.0, 60.0)),
-         _in("h1", "length", "cm", "final depth of the oil in the tank", 10.0, (5.0, 20.0)),
+         _in("h1", "length", "cm", "final depth of the oil in the tank", 25.0, (5.0, 40.0)),
          _in("g", "acceleration", "m/s^2", "gravitational acceleration, a stated constant", 9.8, (9.7, 9.9), provenance="assumed"),
          _co("tau", "time", "s", "time constant of the draining", "8*eta*Lc*A/(pi*rho*g*r**4)"),
          _co("lr", "ratio", "1", "natural logarithm of the ratio of the depths", "log(h0/h1)"),
@@ -522,10 +522,10 @@ def s262_capillary_drain_time() -> Structure:
         ("h0", 1.3), _solve_capillary_drain, 8,
         "the time as the integral of the tank area times dh over the Poiseuille flow rate at each depth, by adaptive quadrature, instead of the exponential decay of the depth",
         solver_rel_tol=1e-8,
-        instances=({"eta": 0.12, "rho": 900.0, "r": 3.0, "Lc": 50.0, "A": 100.0, "h0": 40.0, "h1": 10.0, "g": 9.8},
-                   {"eta": 0.1, "rho": 880.0, "r": 3.2, "Lc": 60.0, "A": 120.0, "h0": 50.0, "h1": 15.0, "g": 9.8},
-                   {"eta": 0.15, "rho": 920.0, "r": 2.8, "Lc": 40.0, "A": 80.0, "h0": 35.0, "h1": 8.0, "g": 9.81},
-                   {"eta": 0.09, "rho": 870.0, "r": 3.4, "Lc": 70.0, "A": 150.0, "h0": 45.0, "h1": 12.0, "g": 9.8}))
+        instances=({"eta": 0.12, "rho": 900.0, "r": 3.0, "Lc": 50.0, "A": 100.0, "h0": 40.0, "h1": 25.0, "g": 9.8},
+                   {"eta": 0.1, "rho": 880.0, "r": 3.2, "Lc": 60.0, "A": 120.0, "h0": 50.0, "h1": 28.0, "g": 9.8},
+                   {"eta": 0.15, "rho": 920.0, "r": 2.8, "Lc": 40.0, "A": 80.0, "h0": 35.0, "h1": 22.0, "g": 9.81},
+                   {"eta": 0.09, "rho": 870.0, "r": 3.4, "Lc": 70.0, "A": 150.0, "h0": 45.0, "h1": 26.0, "g": 9.8}))
 
 
 ALL = (s251_vertical_launch_from_moon, s252_orbit_raising_work, s253_air_water_transmission, s254_siren_intensity_with_absorption,

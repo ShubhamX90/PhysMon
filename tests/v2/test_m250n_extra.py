@@ -196,7 +196,7 @@ def _s261(q: float) -> float:  # cm/s
 
 def _s262(q: float) -> float:  # min
     tau = 8 * 0.12 * 0.5 * 100e-4 / (math.pi * 900.0 * 9.8 * (3e-3) ** 4)
-    return tau * math.log((40.0 + q) / 10.0) / 60.0
+    return tau * math.log((40.0 + q) / 25.0) / 60.0
 
 
 # the answer with the role quantity q in the R role (display unit of q), instance 0

@@ -414,7 +414,7 @@ S240_K = r2.ConditionalV2(
 
 S240 = _spec(
     "S240", quantity_phrase="another liquid", quantity_type="density", unit="kg/m^3", values=(760.0, 1180.0, 1340.0),
-    heldout_values=(810.0, 1260.0),
+    heldout_values=(720.0, 1260.0),
     relevant=rv.RelevantWiring("rho", "replace", "Replacing the liquid by one of density q makes the density rho = q, which changes "
                                                  "both the hydrostatic term and the dynamic term at the highest point."),
     cancelling=S240_C, conditional=S240_K,
