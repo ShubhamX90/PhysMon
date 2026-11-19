@@ -1,0 +1,24 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v24_admission:batch02",
+  "item_id": "M0V24-S26",
+  "pass_number": 1,
+  "started_at": "2026-11-19T10:00:00Z", "completed_at": "2026-11-19T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Snell's law n1 sin(theta1) = n2 sin(theta2)", "assumptions": ["flat interface, isotropic media", "angles measured from the normal"], "answer": 25.37, "unit": "degree"},
+  "stratum_assignments": {
+    "T46FD": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "T6487": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "TAC39": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null},
+    "TF8B2": {"stratum": "R", "answer_with_sentence": 31.20, "regime": null},
+    "T568E": {"stratum": "R", "answer_with_sentence": 31.20, "regime": null},
+    "T5AAC": {"stratum": "D", "answer_with_sentence": 25.37, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": ["TF8B2"],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TF8B2 says the angle of incidence grew by 11 degrees before the refraction was observed, which can be read either as the observed angle being 51 degrees (answer 31.20 deg) or as the 40 degrees already being the post-tilt value (answer 25.37 deg), so the item has no unique answer with that sentence."},
+  "defect_severity": {"other": "high"},
+  "counterexamples": ["With TF8B2: reading 1 (40 deg is the pre-tilt angle) gives theta_i = 51 deg, theta_r = arcsin(sin51/1.5) = 31.20 deg; reading 2 (40 deg is the angle at observation) gives 25.37 deg."],
+  "notes": "Base: sin(theta_r) = sin40/1.5 = 0.64279/1.5 = 0.42853, theta_r = 25.37 deg. With 51 deg: sin51/1.5 = 0.77715/1.5 = 0.51810, theta_r = 31.20 deg. Camera sentences (T46FD, T6487) are structurally disconnected. 'Earlier experiment' sentences (TAC39, T5AAC) describe a different experiment and do not change the present angle, so D. T568E ('then tilted') clearly changes the angle to 51 deg (R). TF8B2 is temporally ambiguous; I took its more natural reading (the tilt happens before the observation, so the observed angle is 51 deg) but flag it. Variant consistency: the numeric sentences all state 11 degrees; T6487 and TAC39 both say 'a little', consistent with each other."
+}

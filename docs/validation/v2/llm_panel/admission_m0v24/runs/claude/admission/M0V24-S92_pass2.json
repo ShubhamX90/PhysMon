@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v24_admission:batch01",
+  "item_id": "M0V24-S92",
+  "pass_number": 2,
+  "started_at": "2026-11-19T10:26:00Z", "completed_at": "2026-11-19T10:33:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "T = (rho_l - rho_s) a^3 g (Archimedes + static equilibrium)", "assumptions": ["cube fully submerged, at rest, string light, vertical and taut (stated)", "incompressible uniform liquid", "g = 9.8 m/s^2 (stated)"], "answer": 3.92, "unit": "N"},
+  "stratum_assignments": {
+    "TF165": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "TE487": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "T4BB4": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null},
+    "T89EB": {"stratum": "K", "answer_with_sentence": 3.92, "regime": "string tension below the breaking strength: T < q (3.92 N < 30, 50, 80 N)"},
+    "T8E2E": {"stratum": "K", "answer_with_sentence": 3.92, "regime": "string tension below the breaking strength: T < q (3.92 N < 30, 50, 80 N)"},
+    "TE6F5": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "TDA2C": {"stratum": "R", "answer_with_sentence": 6.37, "regime": null},
+    "T1BC9": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "TD461": {"stratum": "D", "answer_with_sentence": 3.92, "regime": null},
+    "T7863": {"stratum": "C", "answer_with_sentence": 3.92, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Verified: base T = (1000-600)*1e-3*9.8 = 3.92 N; R answers (1150-600)*9.8e-3 = 5.39, (1250-600)*9.8e-3 = 6.37, (1350-600)*9.8e-3 = 7.35 N, all correct. C cancellation: (rho_l g (q+a) - rho_l g q) a^2 = rho_l g a^3, independent of depth q for 20, 50, 80 cm (all larger than zero, so the cube stays fully submerged). K: all listed breaking strengths (30, 50, 80 N) exceed 3.92 N, so the string is intact; counter-regime at q = 2 N is correct. Minimal pairs TD461~TDA2C and TF165~TE487 state the same 1250 kg/m^3 and differ only in attachment (second tank vs this tank; earlier experiment vs before measurement). Numeral-free twins TE6F5 and T1BC9 match their D twins except for the number. TD461 pouring liquid into the 'empty' second tank is an event, not a contradiction. Relations and units consistent (a in cm converted to 0.1 m). Agrees with my pass 1 throughout."
+}

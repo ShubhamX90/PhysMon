@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v24_admission:batch02",
+  "item_id": "M0V24-S26",
+  "pass_number": 2,
+  "started_at": "2026-11-19T10:09:00Z", "completed_at": "2026-11-19T10:16:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Snell's law n1 sin(theta1) = n2 sin(theta2)", "assumptions": ["flat interface, isotropic media", "angles measured from the normal"], "answer": 25.374, "unit": "degree"},
+  "stratum_assignments": {
+    "T46FD": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "T6487": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "TAC39": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null},
+    "TF8B2": {"stratum": "R", "answer_with_sentence": 31.205, "regime": null},
+    "T568E": {"stratum": "R", "answer_with_sentence": 31.205, "regime": null},
+    "T5AAC": {"stratum": "D", "answer_with_sentence": 25.374, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TF8B2 ('Before the refraction was observed ... had grown by 11 deg') admits a minority reading in which the stated 40 deg is already the post-tilt angle; the intended reading (observed angle 51 deg) is the more natural one and matches the certified R answers."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Verified certified answers: base sin40/1.5 = 0.42853 -> 25.374 deg; q=6: sin46/1.5 = 0.47956 -> 28.657 deg; q=11: sin51/1.5 = 0.51810 -> 31.205 deg; q=14: sin54/1.5 = 0.53934 -> 32.639 deg. All match. Strata agree with my pass 1 for all six sentences. T5AAC/TF8B2 minimal pair: identical except the temporal clause ('In an earlier experiment' vs 'Before the refraction was observed'), same number and unit, so the pair claim holds. T46FD/T568E are correctly declared not a minimal pair. Numeral-free twins T6487 (of T46FD) and TAC39 (of T5AAC) match their twins' wording with the number replaced. Camera scene clause has no causal path. Disagreement with pass 1: in pass 1 I rated the TF8B2 temporal ambiguity high and the item invalid; on reflection the sentence places the tilt before the observation the question asks about, so the R reading is the primary one and the alternative reading is a wording issue rather than a missing condition, so I now rate it medium and the item valid (pass 1 left unchanged)."
+}

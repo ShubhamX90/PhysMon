@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v24_admission:batch02",
+  "item_id": "M0V24-S72",
+  "pass_number": 2,
+  "started_at": "2026-11-19T10:26:00Z", "completed_at": "2026-11-19T10:33:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "lambda = hc / sqrt(2 mc^2 K) (non-relativistic de Broglie)", "assumptions": ["non-relativistic electron (stated)", "electron starts from rest", "hc = 1240 eV nm, mc^2 = 511 keV as given"], "answer": 100.15, "unit": "pm"},
+  "stratum_assignments": {
+    "T75EF": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null},
+    "TA9C4": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null},
+    "T4ACE": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null},
+    "TB50C": {"stratum": "D", "answer_with_sentence": 100.15, "regime": null},
+    "TFC9E": {"stratum": "R", "answer_with_sentence": 79.176, "regime": null},
+    "T0058": {"stratum": "R", "answer_with_sentence": 79.176, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TA9C4 and T4ACE say 'the proton' although the problem introduces only protons in general in the second apparatus; the referent is clear but the definite article is loose."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Verified certified answers: K=150 eV: sqrt(2x511000x150)=12381.4 eV, lambda = 0.10015 nm = 100.15 pm; K=190: sqrt(1.9418e8)=13934.9, 1240/13934.9 = 88.985 pm; K=240: sqrt(2.4528e8)=15661.4, 79.176 pm; K=330: sqrt(3.3726e8)=18364.6, 67.521 pm. All match the claims. Non-relativistic treatment is stated and accurate (K/mc^2 <= 6.5e-4). Strata agree with my pass 1. Minimal pairs hold: TA9C4/T0058 differ only in proton vs electron; TB50C/TFC9E differ only in 'after the wavelength has been determined' vs 'before the wavelength is determined', same 90 eV. Numeral-free twins T4ACE (of TA9C4) and T75EF (of TB50C) match their twins' wording. My pass-1 answers were in nm; the target unit pm is equivalent."
+}

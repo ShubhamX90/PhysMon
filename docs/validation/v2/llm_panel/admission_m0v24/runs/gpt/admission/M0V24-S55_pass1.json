@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v24_admission",
+  "item_id": "M0V24-S55",
+  "pass_number": 1,
+  "started_at": "2026-11-19T13:49:52+00:00",
+  "completed_at": "2026-11-19T13:50:53+00:00",
+  "minutes_spent": 1.01,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For an ideal gas in thermal equilibrium, (1/2)nM<v²> = (3/2)nRT, so v_rms = sqrt(3RT/M). With M = 0.004 kg/mol and T = 300 K, v_rms = sqrt(1870650) = 1367.72 m/s. Heating the target sample by 100 K gives T = 400 K and v_rms = 1579.30 m/s.",
+    "assumptions": [
+      "The requested speed concerns the first gas sample.",
+      "A stated warming denotes the sample's temperature increase.",
+      "An earlier experiment is historical; the explicitly stated present temperature remains 300 K."
+    ],
+    "answer": 1367.72,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T7597": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "TB20F": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "T13F3": {
+      "stratum": "R",
+      "answer_with_sentence": 1579.3,
+      "regime": null
+    },
+    "T8C84": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "T65F9": {
+      "stratum": "D",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "TED48": {
+      "stratum": "C",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "T0734": {
+      "stratum": "C",
+      "answer_with_sentence": 1367.72,
+      "regime": null
+    },
+    "T2D57": {
+      "stratum": "R",
+      "answer_with_sentence": 1579.3,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The heating variants change the temperature increment between an unspecified 'few kelvin' and 100 K, violating the requirement that variants of the same quantity preserve its number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and individual numerical answers are sound. Kelvin and K are equivalent units, but 'a few' does not specify the same number as 100. The two amount-of-gas sentences both specify 2 mol and preserve their value and unit. Historical heating is classified D because the present temperature is independently specified as 300 K; heating the other insulated sample is disconnected spatially. The amount n belongs to the target system but cancels between total translational kinetic energy and total mass.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "8aff0487a5550936d98806fd88659ebe1817a6a189dd25975f623b323a63f4dc",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

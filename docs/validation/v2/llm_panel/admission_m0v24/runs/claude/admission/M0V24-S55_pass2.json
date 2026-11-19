@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v24_admission:batch01",
+  "item_id": "M0V24-S55",
+  "pass_number": 2,
+  "started_at": "2026-11-19T10:09:00Z", "completed_at": "2026-11-19T10:16:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "v_rms = sqrt(3RT/M)", "assumptions": ["ideal classical gas in equilibrium (stated)", "M = 4e-3 kg/mol", "R = 8.314 J/(mol K)"], "answer": 1367.72, "unit": "m/s"},
+  "stratum_assignments": {
+    "T7597": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null},
+    "TB20F": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null},
+    "T13F3": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "T8C84": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null},
+    "T65F9": {"stratum": "D", "answer_with_sentence": 1367.72, "regime": null},
+    "TED48": {"stratum": "C", "answer_with_sentence": 1367.72, "regime": null},
+    "T0734": {"stratum": "C", "answer_with_sentence": 1367.72, "regime": null},
+    "T2D57": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T8C84/T65F9 ('Once the sample was in equilibrium, a heater warmed it ... in an earlier experiment') rely on the reader inferring that the sample is back at 300 K for the stated experiment, and T13F3 leaves implicit that the gas re-equilibrates at 400 K before the measurement; wording only."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Checked all certified answers: T=300 K -> sqrt(24.942*300/0.004)=sqrt(1870650)=1367.72; T=350 K -> sqrt(2182425)=1477.30; T=400 K -> sqrt(2494200)=1579.30; T=500 K -> sqrt(3117750)=1765.72 m/s. All match. The C cancellation (U=(3/2)nRT, m_total=nM, U=(1/2)m_total v^2) is correct; n cancels for 0.5, 2, 5 mol. Claimed minimal pairs T8C84~T13F3 and TB20F~T2D57 each state the same 100 K and differ only in attachment (earlier experiment vs just before measurement; other sample vs this sample): minimal. The 'few kelvin' sentences (T7597, T65F9) are declared numeral-free twins of TB20F and T8C84 rather than minimal-pair variants, which resolves the concern I raised in pass 1; no rendering_not_minimal flag. The other flask is insulated, so TB20F/T7597 are genuinely D. Relations and units (M in kg/mol, Ek in J/mol) are consistent. No disagreement with my pass 1 strata or values."
+}

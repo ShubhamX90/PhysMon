@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m0v24_admission:batch01",
+  "item_id": "M0V24-S55",
+  "pass_number": 1,
+  "started_at": "2026-11-19T10:00:00Z", "completed_at": "2026-11-19T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Kinetic theory of an ideal gas: v_rms = sqrt(3RT/M) = sqrt(3*8.314*300/0.004) = sqrt(1.87065e6)", "assumptions": ["ideal gas (stated)", "equilibrium Maxwell-Boltzmann distribution at T = 300 K", "M = 4 g/mol = 0.004 kg/mol", "classical, non-relativistic molecules"], "answer": 1367.7, "unit": "m/s"},
+  "stratum_assignments": {
+    "T7597": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null},
+    "TB20F": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null},
+    "T13F3": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null},
+    "T8C84": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null},
+    "T65F9": {"stratum": "D", "answer_with_sentence": 1367.7, "regime": null},
+    "TED48": {"stratum": "C", "answer_with_sentence": 1367.7, "regime": null},
+    "T0734": {"stratum": "C", "answer_with_sentence": 1367.7, "regime": null},
+    "T2D57": {"stratum": "R", "answer_with_sentence": 1579.3, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T8C84/T65F9 ('Once the sample was in equilibrium, a heater warmed it ... in an earlier experiment') are awkward: they leave implicit that the sample has returned to 300 K before the measurement, and T13F3 leaves implicit that the gas re-equilibrates at 400 K before measurement."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Heated cases: T = 400 K, v_rms = sqrt(3*8.314*400/0.004) = sqrt(2.4942e6) = 1579.3 m/s. The other flask is thermally insulated, so heating it (by a few K or 100 K) has no path to the target: D. The amount 2 mol enters pV = nRT and pV = (1/3) n M v_rms^2 but cancels: C. TED48/T0734 state the same number and unit and are proper variants. T7597 ('a few kelvin') and TB20F ('100 K') do not state the same number; if they are claimed to be variants of each other that would be rendering_not_minimal; likewise T65F9 vs T8C84 and T7597 vs T2D57. I will check which pairs are claimed in pass 2."
+}

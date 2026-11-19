@@ -1,0 +1,84 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v24_admission",
+  "item_id": "M0V24-S26",
+  "pass_number": 1,
+  "started_at": "2026-11-19T13:49:52+00:00",
+  "completed_at": "2026-11-19T13:50:46+00:00",
+  "minutes_spent": 0.91,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law: n1 sin(theta_i) = n2 sin(theta_r). Thus theta_r = arcsin(sin(40 degrees)/1.5).",
+    "assumptions": [
+      "The stated refractive indices apply to the incident ray under the standard geometrical-optics model.",
+      "Tilting the camera does not alter the ray or interface.",
+      "An earlier experiment does not change the explicitly stated incidence angle in the present experiment."
+    ],
+    "answer": 25.374,
+    "unit": "degrees"
+  },
+  "stratum_assignments": {
+    "T46FD": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    },
+    "T6487": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    },
+    "TAC39": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    },
+    "TF8B2": {
+      "stratum": "R",
+      "answer_with_sentence": 31.205,
+      "regime": null
+    },
+    "T568E": {
+      "stratum": "R",
+      "answer_with_sentence": 31.205,
+      "regime": null
+    },
+    "T5AAC": {
+      "stratum": "D",
+      "answer_with_sentence": 25.374,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T6487 and TAC39 specify an increase of 'a little' rather than 11°, so the sentence variants do not preserve the required stated numerical magnitude."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem is physically well-posed. For TF8B2 and T568E, the incidence angle increases from 40° to 51°, giving arcsin(sin(51°)/1.5) = 31.205°. The earlier-experiment statements concern a separate historical event and leave the present incidence angle at 40°. The unspecified camera tilt also leaves the answer unique because camera orientation has no physical path to the refraction angle. Invalidity concerns the required numerical matching between variants.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "0e2943873b7bc5ac593950e7e40cfdc66db0e8806887d59bfabcacebe23e125c",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

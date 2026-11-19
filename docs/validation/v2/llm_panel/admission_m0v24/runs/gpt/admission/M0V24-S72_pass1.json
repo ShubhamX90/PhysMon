@@ -1,0 +1,84 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m0v24_admission",
+  "item_id": "M0V24-S72",
+  "pass_number": 1,
+  "started_at": "2026-11-19T13:51:18+00:00",
+  "completed_at": "2026-11-19T13:51:47+00:00",
+  "minutes_spent": 0.48,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For nonrelativistic motion, K = p²/(2m) and λ = h/p = hc/√(2mc²K). Thus λ = 1240/√(2 × 511000 × 150) nm.",
+    "assumptions": [
+      "Use the stated nonrelativistic model.",
+      "Evaluate the wavelength at the specified determination time.",
+      "The separate proton and alpha-particle apparatus does not interact with the electron."
+    ],
+    "answer": 0.10015,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "T75EF": {
+      "stratum": "D",
+      "answer_with_sentence": 0.10015,
+      "regime": null
+    },
+    "TA9C4": {
+      "stratum": "D",
+      "answer_with_sentence": 0.10015,
+      "regime": null
+    },
+    "T4ACE": {
+      "stratum": "D",
+      "answer_with_sentence": 0.10015,
+      "regime": null
+    },
+    "TB50C": {
+      "stratum": "D",
+      "answer_with_sentence": 0.10015,
+      "regime": null
+    },
+    "TFC9E": {
+      "stratum": "R",
+      "answer_with_sentence": 0.079176,
+      "regime": null
+    },
+    "T0058": {
+      "stratum": "R",
+      "answer_with_sentence": 0.079176,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T75EF and T4ACE omit the numerical amount and unit supplied as 90 eV in their otherwise corresponding variants TB50C and TA9C4, violating the required preservation of number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The physics problems have unique answers; invalidity concerns the required variant construction. Energy supplied to the electron after wavelength determination has no causal path to the earlier target, so T75EF and TB50C are D. Extra proton energy in the separate apparatus is also D. Either sentence supplying 90 eV to the electron before determination raises its kinetic energy to 240 eV, giving λ = 1240/√(2 × 511000 × 240) nm. No C or K sentence is present.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "83d42731608b96976b8d063f8c21508f0ca694b77d73784acf7ee7af60dbf218",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}
