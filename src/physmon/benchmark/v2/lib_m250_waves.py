@@ -342,7 +342,7 @@ def s237_tsunami_slope_crossing() -> Structure:
         "S237", "Crossing time of a tsunami over a uniformly sloping continental shelf", "waves", "shallow_water_wave_travel_time_over_slope",
         (_in("D", "length", "km", "horizontal length of the slope", 60.0, (10.0, 200.0)),
          _in("h1", "length", "m", "depth of the sea at the seaward end", 200.0, (100.0, 1000.0)),
-         _in("h2", "length", "m", "depth of the sea at the landward end", 20.0, (5.0, 100.0)),
+         _in("h2", "length", "m", "depth of the sea at the landward end", 60.0, (5.0, 100.0)),
          _g(),
          _co("c1", "speed", "m/s", "wave speed at the seaward end", "sqrt(g*h1)"),
          _co("c2", "speed", "m/s", "wave speed at the landward end", "sqrt(g*h2)"),
@@ -361,11 +361,11 @@ def s237_tsunami_slope_crossing() -> Structure:
               "A separate swell B in another ocean needs {v} {u} to cross, but it is unrelated to this tsunami.",
               "A reference wave B takes {v} {u} for the same slope.",
               "A separate lamp B is rated at {v} {u}, but it plays no part in the crossing.", "W", equivalent="s"),
-        ("h2", 2.0), _solve_slope_crossing, 4,
+        ("h2", 0.5), _solve_slope_crossing, 4,
         "the travel time as the quadrature of dx / c(x) along the sloping seabed, with the local depth linear in x",
         solver_rel_tol=1e-9,
-        instances=({"D": 60.0, "h1": 200.0, "h2": 20.0, "g": 9.8}, {"D": 40.0, "h1": 150.0, "h2": 15.0, "g": 9.8},
-                   {"D": 90.0, "h1": 300.0, "h2": 25.0, "g": 9.8}, {"D": 50.0, "h1": 250.0, "h2": 30.0, "g": 9.8}))
+        instances=({"D": 60.0, "h1": 200.0, "h2": 60.0, "g": 9.8}, {"D": 40.0, "h1": 150.0, "h2": 50.0, "g": 9.8},
+                   {"D": 90.0, "h1": 250.0, "h2": 70.0, "g": 9.8}, {"D": 50.0, "h1": 220.0, "h2": 80.0, "g": 9.8}))
 
 
 def s238_couette_viscometer_power() -> Structure:

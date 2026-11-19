@@ -281,7 +281,7 @@ S236 = _spec(
 
 S237_K = r2.ConditionalV2(
     rv.ConditionalSpec(
-        "the wavelength of the tsunami", "length", "km", (110.0, 170.0, 260.0), "The wavelength of the tsunami {relation} {value} {unit}.",
+        "the wavelength of the tsunami", "length", "km", (110.0, 170.0, 300.0), "The wavelength of the tsunami {relation} {value} {unit}.",
         (P("k0", "is"), P("k1", "has been measured as")),
         "q > 20*h1", "D/sqrt(g*q/(2*pi))", 2.0, nonnumeric_fill="a known length"),
     _ko("The problem states that the wavelength is very long and that the wave is a shallow-water wave; a wavelength comparable with "
@@ -289,7 +289,7 @@ S237_K = r2.ConditionalV2(
     (140.0, 210.0))
 
 S237 = _spec(
-    "S237", quantity_phrase="a dredged depth", quantity_type="length", unit="m", values=(13.0, 27.0, 52.0), heldout_values=(19.0, 37.0),
+    "S237", quantity_phrase="a dredged depth", quantity_type="length", unit="m", values=(9.0, 33.0, 47.0), heldout_values=(14.0, 38.0),
     relevant=rv.RelevantWiring("h2", "add", "Dredging that adds q to the depth at the landward end makes it h2 + q, which changes the "
                                             "wave speed there."),
     conditional=S237_K,
@@ -414,7 +414,7 @@ S240_K = r2.ConditionalV2(
 
 S240 = _spec(
     "S240", quantity_phrase="another liquid", quantity_type="density", unit="kg/m^3", values=(760.0, 1180.0, 1340.0),
-    heldout_values=(850.0, 1260.0),
+    heldout_values=(810.0, 1260.0),
     relevant=rv.RelevantWiring("rho", "replace", "Replacing the liquid by one of density q makes the density rho = q, which changes "
                                                  "both the hydrostatic term and the dynamic term at the highest point."),
     cancelling=S240_C, conditional=S240_K,

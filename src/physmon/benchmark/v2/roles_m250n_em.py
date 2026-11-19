@@ -144,8 +144,8 @@ S213 = _spec(
              "A potential difference that accelerates the oscilloscope's electrons acts on them in their own tube; the ions are "
              "accelerated through the stated potential difference only.", ("accelerated from rest", "deflecting plates"), "small",
              before_context_reason="The R sentence refers to 'the ions' and 'the plates' before the context introduces them."),
-        Pair("p1", "A further {value} {unit} potential difference {relation}.", "is applied across an extra gap that the ions cross before reaching the plates",
-             "was applied across an extra gap that the ions crossed for an earlier run only", EVENT,
+        Pair("p1", "The ions crossed a further {value} {unit} potential difference {relation}.", "before reaching the plates",
+             "for an earlier run only", EVENT,
              "The further potential difference acted on the ions in an earlier run, which is over; in the stated run the ions "
              "start from rest and cross only the stated potential difference.", ("accelerated from rest", "deflecting plates"),
              "small"),

@@ -115,7 +115,10 @@ def test_composition_counts_and_familiarity():
     c = [s for s in m.SPECS.values() if s.cancelling is not None]
     k = [s for s in m.SPECS.values() if s.conditional is not None]
     assert sorted(s.structure_id for s in c) == ["S91", "S93", "S94", "S95"]
-    assert sorted(s.structure_id for s in k) == ["S91"] and set(m.NO_K) == {"S94"} and len(m.NO_K["S94"]) >= 200
+    assert sorted(s.structure_id for s in k) == ["S91"] and set(m.NO_K) == {"S73", "S77", "S82", "S93", "S94", "S95"}
+    assert all(len(r) >= 20 for r in (*m.NO_K.values(), *m.NO_C.values())) and len(m.NO_K["S94"]) >= 200
+    assert set(m.NO_C) == {"S73", "S77", "S82"} and not set(m.NO_C) & {s.structure_id for s in c}
+    assert not set(m.NO_K) & {s.structure_id for s in k}
     assert sum(s.cancelling.familiarity == "famous" for s in c) <= len(c) / 2
     assert all(s.cancelling.familiarity in r2.FAMILIARITY for s in c)
 

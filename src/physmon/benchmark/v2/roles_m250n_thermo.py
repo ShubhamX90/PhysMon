@@ -228,8 +228,8 @@ S225_C = r2.CancellingV2(
                 "for the plane wall; for a cylinder it is stated less often.", (0.085, 0.12))
 
 S225 = _spec(
-    "S225", quantity_phrase="a further layer of insulation", quantity_type="length", unit="cm", values=(2.5, 4.0, 7.5),
-    heldout_values=(3.5, 6.5),
+    "S225", quantity_phrase="a further layer of insulation", quantity_type="length", unit="cm", values=(1.2, 1.8, 2.5),
+    heldout_values=(1.5, 2.2),
     relevant=rv.RelevantWiring("r2", "add", "A further layer of the same insulation wrapped round the layer puts the outer surface at "
                                             "r2 + q, the outermost surface staying at the stated temperature."),
     cancelling=S225_C,

@@ -594,3 +594,19 @@ def test_a_changed_value_set_breaks_hygiene_and_a_broken_cancellation_or_regime_
     assert not spec_cert("S205", dataclasses.replace(s205, conditional=bad_k))["passed"]
     low_k = dataclasses.replace(s205.conditional, spec=dataclasses.replace(s205.conditional.spec, values=(10.0, 20.0, 30.0)))
     assert not spec_cert("S205", dataclasses.replace(s205, conditional=low_k))["passed"]  # the friction needed exceeds these limits
+
+
+def _vowel_sound_number_w(token: str) -> bool:
+    whole = token.split(".")[0]
+    return whole.startswith("8") or (whole[:2] in ("11", "18") and len(whole) in (2, 4, 5))
+
+
+@pytest.mark.parametrize("sid", SIDS)
+def test_article_agrees_with_the_number_in_every_pair_sentence(sid):
+    spec = SPECS[sid]
+    for pair in spec.pairs:
+        for value in (*spec.values, *spec.heldout_values):
+            for role in ("R", "D"):
+                text = r2.pair_sentence(pair, role, value, spec.unit)
+                for article, token in re.findall(r"\b([Aa]n?) (\d[\d.,]*)", text):
+                    assert article.lower() == ("an" if _vowel_sound_number_w(token) else "a"), (sid, text)

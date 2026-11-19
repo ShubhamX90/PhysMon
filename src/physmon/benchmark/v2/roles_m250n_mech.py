@@ -71,7 +71,7 @@ S201_K = r2.ConditionalV2(
     (4.2, 6.8))
 
 S201 = _spec(
-    "S201", quantity_phrase="a lump of clay", quantity_type="mass", unit="g", values=(120.0, 420.0, 850.0), heldout_values=(170.0, 650.0),
+    "S201", quantity_phrase="a lump of clay", quantity_type="mass", unit="g", values=(120.0, 420.0, 900.0), heldout_values=(170.0, 650.0),
     relevant=rv.RelevantWiring("m", "add", "A lump of clay stuck to the block adds to its mass, so the mass in the equation of motion "
                                            "becomes m + q; the natural frequency and the amplitude change."),
     cancelling=S201_C, conditional=S201_K,
@@ -166,7 +166,7 @@ S203 = _spec(
 # --- S204 ------------------------------------------------------------------------------------------------------------------------
 
 S204 = _spec(
-    "S204", quantity_phrase="a bag", quantity_type="mass", unit="kg", values=(3.5, 11.0, 15.0), heldout_values=(8.5, 13.0),
+    "S204", quantity_phrase="a bag", quantity_type="mass", unit="kg", values=(3.5, 12.0, 15.0), heldout_values=(9.5, 13.0),
     relevant=rv.RelevantWiring("m1", "add", "A bag picked up by the eastbound skater travels with the skater, so the mass that moves east "
                                             "becomes m1 + q in the momentum balance and in the energies."),
     scene_clause="A coach stands beside the rink.",

@@ -60,8 +60,8 @@ S73 = _spec(
           "infinite by statement.")
 
 S77 = _spec(
-    structure_id="S77", quantity_phrase="a replacement barrier", quantity_type="energy", unit="eV", values=(6.3, 9.6, 12.4),
-    heldout_values=(7.4, 11.0),
+    structure_id="S77", quantity_phrase="a replacement barrier", quantity_type="energy", unit="eV", values=(6.0, 7.2, 9.6),
+    heldout_values=(7.6, 11.0),
     relevant=rv.RelevantWiring("U0", "replace", "The barrier is replaced by one of height q, so the decay constant "
                                                 "kappa = sqrt(2 m (q - E)) / hbar changes and the width ln(1/T) / (2 kappa) with it."),
     scene_clause="A potential step is built on the same chip. Barrier heights are measured from the potential outside the barrier.",
@@ -272,7 +272,31 @@ SPECS: dict[str, r2.RoleSpecV2] = {s.structure_id: s for s in (
 
 # Structures of the batch that cannot honestly carry the design, with the reason (never a forced spec).
 # Quantities that look like a K candidate but are not an honest regime (never forced into a spec).
+NO_C: dict[str, str] = {
+    "S73": "A uniform shift of the potential inside the well would cancel in the transition energy, but it contradicts the "
+           "stated assumption that the potential inside the well is zero; no other quantity enters the levels hc^2 n^2 / (8 mc2 L^2) "
+           "and then drops out, so a C quantity would have to be forced.",
+    "S77": "The only cancelling candidate is a shift of the zero of potential energy, which moves the barrier height and the "
+           "kinetic energy together; it contradicts the stated barrier height unless that height is declared relative to the near "
+           "side, and no other quantity of the exponential transmission formula cancels.",
+    "S82": "The peak wavelength comes from the Wien displacement law fixed by the first star, and the photon energy is hc over it. "
+           "A star's radius or luminosity would cancel, but neither is a node of the graph (no Stefan-Boltzmann relation is part "
+           "of the problem), so a C built on it would be forced, not physical.",
+}
 NO_K: dict[str, str] = {
+    "S73": "The walls are infinite by statement, so there is no finite-wall regime with a value; the only candidate, a finite "
+           "wall height, would change the question to a finite well that the base problem does not state and has no certified "
+           "closed form here.",
+    "S77": "The exponential form of the transmission probability is stated for the problem; the regime quantity (a barrier thin "
+           "enough that the exponential approximation fails) is the answer itself, and the out-of-regime transmission law "
+           "is not stated, so no K quantity with a certified counter-regime answer exists.",
+    "S82": "Both stars are blackbodies by statement and Wien's law holds for every temperature; there is no regime quantity "
+           "(such as an emissivity or an optical-depth threshold) in the problem with a certified out-of-regime law.",
+    "S93": "The regime (ideal liquid, small hole, negligible surface speed) is stated as assumptions without a free value; the "
+           "quantities that could define it, the tank and hole diameters, are already inputs, and a viscosity or surface-speed "
+           "correction would change the law without a certified out-of-regime answer for this question.",
+    "S95": "The oil is incompressible by statement, and a compressibility effect would be far below the grading tolerance; the "
+           "pistons are light and frictionless by statement, so no regime quantity with a counter-regime answer exists.",
     "S94": "The only candidate is the density of the liquid with the laminar regime Re < 2000. Every real liquid satisfies that "
            "regime in this pipe at the stated speed and diameter, and the counter-regime value would have to be about 40,000 "
            "kg/m^3, which no liquid has. A regime that real values cannot leave is not an honest K (plan wants a regime that "

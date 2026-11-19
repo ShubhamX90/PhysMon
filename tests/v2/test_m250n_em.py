@@ -711,3 +711,13 @@ def test_a_changed_value_set_breaks_hygiene_and_a_broken_cancellation_or_regime_
     s217 = SPECS["S217"]
     low_static = dataclasses.replace(s217.conditional, spec=dataclasses.replace(s217.conditional.spec, values=(0.35, 0.55, 1.4)))
     assert not spec_cert("S217", dataclasses.replace(s217, conditional=low_static))["passed"]  # 1.4 exceeds the drive on instance 2
+
+
+def test_s213_pairs_have_different_frames_and_the_earlier_attachment_is_for_that_run_only():
+    spec = SPECS["S213"]
+    p0, p1 = spec.pairs
+    assert p0.frame != p1.frame
+    assert p1.d_attach.endswith("only") and "earlier" in p1.d_attach
+    for v in (*spec.values, *spec.heldout_values):
+        assert r2.pair_sentence(p0, "R", v, spec.unit) != r2.pair_sentence(p1, "R", v, spec.unit)
+        assert r2.pair_sentence(p0, "D", v, spec.unit) != r2.pair_sentence(p1, "D", v, spec.unit)

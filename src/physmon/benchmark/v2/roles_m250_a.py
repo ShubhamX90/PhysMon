@@ -491,7 +491,7 @@ S17 = r2.RoleSpecV2(
 
 S18 = r2.RoleSpecV2(
     structure_id="S18", quantity_phrase="a further expansion", quantity_type="ratio", unit="1", values=(2.6, 3.4, 4.5),
-    heldout_values=(3.0, 3.9),
+    heldout_values=(3.2, 3.9),
     relevant=rv.RelevantWiring("rho", "replace", "If the expansion continues until the volume is q times the initial volume, the "
                                                  "final volume is q V1, so rho becomes q and the work is p1 V1 ln(q)."),
     pairs=(
