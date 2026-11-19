@@ -465,11 +465,11 @@ S17 = r2.RoleSpecV2(
         Pair("p0", "The hotter surface of {relation} is then warmed by a further {value} {unit}.", "the wall", "the partition", CO,
              "Warming the hotter surface of a partition beside the wall changes the partition's temperatures, not the wall's, so "
              "the wall's temperature difference and heat flow are the stated ones.",
-             ("two layers in series", "steady"), "a few kelvin", before_context_reason=BEFORE_NO),
+             ("two layers in series", "steady"), "few kelvin", before_context_reason=BEFORE_NO),
         Pair("p1", "The hotter surface of the wall was warmed by a further {value} {unit} {relation}.", "before the test began",
              "in an earlier test", EVENT,
              "The hotter surface was warmed in an earlier test, which is over; in the stated test the temperature difference is "
-             "the stated one.", ("two layers in series", "steady"), "a few kelvin"),
+             "the stated one.", ("two layers in series", "steady"), "few kelvin"),
     ),
     cancelling=r2.CancellingV2(
         rv.CancellingSpec(
@@ -530,12 +530,12 @@ S19 = r2.RoleSpecV2(
     pairs=(
         Pair("p0", "The {relation} is then lowered by a further {value} {unit}.", "launch direction", "ramp", CO,
              "A ramp on the field beside the launch point does not change the direction in which the ball is launched, so "
-             "the launch angle is the stated one.", ("level ground", "Neglect air resistance"), "a few degrees",
+             "the launch angle is the stated one.", ("level ground", "Neglect air resistance"), "few degrees",
              before_context_reason=BEFORE_NO),
         Pair("p1", "The launch direction was lowered by a further {value} {unit} {relation}.", "before the ball was launched",
              "in an earlier trial", EVENT,
              "The launch direction was lowered in an earlier trial, which is over; in the stated trial the ball is launched at "
-             "the stated angle.", ("level ground", "Neglect air resistance"), "a few degrees"),
+             "the stated angle.", ("level ground", "Neglect air resistance"), "few degrees"),
     ),
     scene_clause="A ramp stands on the field beside the launch point. The ball lands on the level ground.",
     scene_object_rationale="A ramp beside the launch point is not in the ball's path and does not touch it, so the trajectory and "
@@ -554,11 +554,11 @@ S21 = r2.RoleSpecV2(
         Pair("p0", "The {relation} is then tuned up by a further {value} {unit}.", "siren", "horn", CO,
              "The horn of the van is another sound source; tuning it changes the sound of the horn, not the frequency the siren "
              "emits or the frequency the listener hears from the siren.", ("steady tone", "stationary listener"),
-             "a small amount", before_context_reason=BEFORE_NO),
+             "small amount", before_context_reason=BEFORE_NO),
         Pair("p1", "The siren was tuned up by a further {value} {unit} {relation}.", "before the tone was measured", "on an earlier run",
              EVENT,
              "The siren was tuned up on an earlier run, which is over; on the stated run it emits its stated tone.",
-             ("steady tone", "stationary listener"), "a small amount"),
+             ("steady tone", "stationary listener"), "small amount"),
     ),
     cancelling=r2.CancellingV2(
         rv.CancellingSpec(
@@ -588,12 +588,12 @@ S22 = r2.RoleSpecV2(
     pairs=(
         Pair("p0", "The tension in {relation} is then increased by a further {value} {unit}.", "this string", "the second string", CO,
              "Tightening a second string on the frame does not change the tension in this string, so its fundamental frequency "
-             "is fixed by its stated tension, mass and length.", ("fixed at both ends", "uniform string"), "a small amount",
+             "is fixed by its stated tension, mass and length.", ("fixed at both ends", "uniform string"), "small amount",
              before_context_reason=BEFORE_NO),
         Pair("p1", "The tension in this string was increased by a further {value} {unit} {relation}.", "before it was set vibrating",
              "in an earlier experiment", EVENT,
              "The tension was increased in an earlier experiment, which is over; in the stated experiment the string is stretched "
-             "to its stated tension.", ("fixed at both ends", "uniform string"), "a small amount"),
+             "to its stated tension.", ("fixed at both ends", "uniform string"), "small amount"),
     ),
     cancelling=r2.CancellingV2(
         rv.CancellingSpec(

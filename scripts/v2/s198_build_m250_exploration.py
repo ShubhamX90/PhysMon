@@ -892,7 +892,8 @@ def evaluate(source: Source, sid: str, pool: Pool, admitted: list[Entry], datase
 # --- composition (6.2, 6.3) ---------------------------------------------------------------------------------------------------------------
 
 DOMAIN_SYNONYMS = {"nuclear": "nuclear physics", "atomic": "atomic physics", "relativity": "special relativity",
-                   "statistical mechanics": "statistical physics", "solid state physics": "solid state"}
+                   "statistical mechanics": "statistical physics", "solid state physics": "solid state",
+                   "quantum": "quantum mechanics"}
 
 
 def normalize_domain(label: str) -> str:

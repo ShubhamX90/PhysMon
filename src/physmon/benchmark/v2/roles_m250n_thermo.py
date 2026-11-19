@@ -280,12 +280,12 @@ S226 = _spec(
     pairs=(
         Pair("p0", "A heater is then warming {relation} by a further {value} {unit}.", "the hot plate", "the water in the kettle", CO,
              "Warming the water in the kettle leaves the hot plate, the cold plate and the shields at their stated temperatures "
-             "and surface properties.", ("diffuse and grey", "the situation is steady"), "a few kelvin",
+             "and surface properties.", ("diffuse and grey", "the situation is steady"), "few kelvin",
              before_context_reason="The R sentence refers to 'the hot plate' before the context introduces it."),
         Pair("p1", "{relation} the hot plate by a further {value} {unit}.",
              "Before the shields settle, a heater has warmed", "In an earlier run, a heater warmed", EVENT,
              "A heater warmed the hot plate in an earlier run, which is over; in the stated run the hot plate is at its stated "
-             "temperature.", ("diffuse and grey", "the situation is steady"), "a few kelvin"),
+             "temperature.", ("diffuse and grey", "the situation is steady"), "few kelvin"),
     ),
     notes="M250 phase 2: C is the common emissivity of the surfaces; no K (see NO_K).")
 
@@ -302,12 +302,12 @@ S227 = _spec(
     pairs=(
         Pair("p0", "A heater is then warming {relation} by a further {value} {unit}.", "the gas", "the water bath", CO,
              "Warming the water bath leaves the gas at its stated temperature and its levels, degeneracy and equilibrium as "
-             "stated.", ("thermal equilibrium", "so high that it is empty"), "a few kelvin",
+             "stated.", ("thermal equilibrium", "so high that it is empty"), "few kelvin",
              before_context_reason="The R sentence refers to 'the gas' before the context introduces it."),
         Pair("p1", "{relation} the gas by a further {value} {unit}.",
              "Before the molecules equilibrate, a heater has warmed", "In an earlier run, a heater warmed", EVENT,
              "A heater warmed the gas in an earlier run, which is over; in the stated run the gas is at its stated temperature.",
-             ("thermal equilibrium", "so high that it is empty"), "a few kelvin"),
+             ("thermal equilibrium", "so high that it is empty"), "few kelvin"),
     ),
     notes="M250 phase 2: no C or K (see NO_C, NO_K).")
 

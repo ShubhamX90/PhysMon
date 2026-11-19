@@ -388,13 +388,13 @@ S61 = _spec(
     pairs=(
         Pair("p0", "The {relation} is then moved a further {value} {unit} away from the slits.", "screen", "camera", CO,
              "A camera moved away from the slits leaves the screen where the problem put it, so the slit-to-screen distance is "
-             "the stated one.", ("small-angle approximation", "normal incidence"), "a little",
+             "the stated one.", ("small-angle approximation", "normal incidence"), "small distance",
              before_context_reason="The R sentence refers to 'the screen' and 'the slits' before the context introduces them, and "
                                    "'then' presupposes their stated placement."),
         Pair("p1", "The screen was moved a further {value} {unit} away from the slits {relation}.", "before the pattern was recorded",
              "in an earlier experiment", EVENT,
              "The screen was moved farther from the slits in an earlier experiment, which is over; in the stated experiment it "
-             "stands at its stated distance.", ("small-angle approximation", "normal incidence"), "a little"),
+             "stands at its stated distance.", ("small-angle approximation", "normal incidence"), "small distance"),
     ),
     notes="M250 phase 1: no C or K (see NO_C, NO_K).")
 
@@ -516,13 +516,13 @@ S64 = _spec(
     pairs=(
         Pair("p0", "The {relation} is then moved a further {value} {unit} away from the first lens.", "second lens", "lamp", CO,
              "A lamp moved away from the first lens leaves the second lens where the problem put it, so the lens separation is "
-             "the stated one.", ("thin converging lens", "on the axis"), "a little",
+             "the stated one.", ("thin converging lens", "on the axis"), "small distance",
              before_context_reason="The R sentence refers to 'the second lens' and 'the first lens' before the context introduces "
                                    "them, and 'then' presupposes their stated placement."),
         Pair("p1", "The second lens was moved a further {value} {unit} away from the first lens {relation}.", "before the image was located",
              "in an earlier experiment", EVENT,
              "The second lens was moved farther from the first lens in an earlier experiment, which is over; in the stated "
-             "experiment it stands at its stated distance.", ("thin converging lens", "on the axis"), "a little"),
+             "experiment it stands at its stated distance.", ("thin converging lens", "on the axis"), "small distance"),
     ),
     notes="M250 phase 1: C is the object's height (magnification relations); no K (see NO_K).")
 

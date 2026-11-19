@@ -175,12 +175,12 @@ S93 = _spec(
         Pair("p0", "Before the level is timed, the hole in the bottom of {relation} is widened by a further {value} {unit}.", "the tank",
              "the barrel", CO,
              "The hole of the rain barrel is widened (to drain the barrel faster); the barrel drains through its own hole, so the "
-             "hole of the tank and the time asked for are the stated ones.", ("small circular hole", "ideal"), "a small amount",
+             "hole of the tank and the time asked for are the stated ones.", ("small circular hole", "ideal"), "small amount",
              before_context_reason="The R sentence refers to 'the tank' and 'the level' before the context introduces them."),
         Pair("p1", "The hole in the bottom of the tank was widened by a further {value} {unit} {relation}.", "before the level was timed",
              "after the timing ended", EVENT,
              "The hole was widened after the timing had ended, an event after the stated process; the time for the level to fall "
-             "between the stated heights was set by the stated hole.", ("small circular hole", "ideal"), "a small amount"),
+             "between the stated heights was set by the stated hole.", ("small circular hole", "ideal"), "small amount"),
     ),
     cancelling=r2.CancellingV2(
         rv.CancellingSpec(
