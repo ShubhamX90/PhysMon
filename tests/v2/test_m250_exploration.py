@@ -24,7 +24,7 @@ from physmon.benchmark.v2 import roles_m250_a  # noqa: E402
 
 M0_SIDS = ("S01", "S13", "S72")
 V1 = REPO_ROOT / "data/v2/dataset/v1/dataset.jsonl"
-M0_REF = REPO_ROOT / "data/v2/dataset/m0_v22/cells.jsonl"
+M0_REF = REPO_ROOT / "data/v2/dataset/m0_v25/cells.jsonl"
 
 
 def _load(name: str, rel: str):
@@ -94,8 +94,12 @@ def test_every_check_is_recorded_for_every_admitted_structure(built):
         assert record["data_role"] == "EXPLORATION" and record["instance"] == 0
         assert record["lineage"]["kind"] in ("M0", "UPGRADED_V1")
     assert admission(out, "S04")["panel"]["status"] == "PENDING"
-    for sid in ("S01", "S13"):  # M0 is no longer an admitted pilot: PENDING like every other structure
-        assert admission(out, sid)["panel"]["status"] == "PENDING" and admission(out, sid)["judge_checks_pending"]
+    base = "docs/validation/v2/llm_panel"
+    for sid, run in (("S01", "admission_m0v23"), ("S13", "admission_m0v23"), ("S72", "admission_m0v24")):  # two-judge ADMITTED
+        panel = admission(out, sid)["panel"]
+        assert panel["status"] == "ADMITTED" and panel["records"] == [f"{base}/{run}/runs/score_two_judges/"]
+        assert (REPO_ROOT / panel["records"][0]).is_dir() and not admission(out, sid)["judge_checks_pending"]
+    assert admission(out, "S04")["judge_checks_pending"]
 
 
 def test_planted_exact_copy_is_caught_by_identity_and_overlap_checks(built):
@@ -137,11 +141,11 @@ def test_planted_failing_specs_are_rejected_without_cells_and_without_a_crash(bu
 
 
 def test_m0_v22_cells_are_identical_except_the_added_fields(tmp_path):
-    """Built from `roles_m0v22` explicitly (the M0 module of the real build may be a later one)."""
+    """Built from the M0 module of the real build (`roles_m0v25`); rows equal those of `m0_v25` but for the added fields."""
 
     ids = ("S01", "S72")
     out = tmp_path / "m0only"
-    manifest = s198.build(out, [restricted("m0", "roles_m0v22", "M0", ids)], V1, "2026-11-16")
+    manifest = s198.build(out, [restricted("m0", s198.M0_MODULE, "M0", ids)], V1, "2026-11-16")
     rows = [json.loads(x) for x in (out / "cells.jsonl").read_text(encoding="utf-8").splitlines()]
     reference = {json.loads(x)["job_id"]: json.loads(x) for x in M0_REF.read_text(encoding="utf-8").splitlines()}
     added = set(manifest["added_row_fields"])
@@ -183,7 +187,7 @@ def test_composition_matches_a_hand_count():
 
 def test_packets_are_written_without_key_leaks_and_never_overwrite(built, tmp_path):
     out, _, _ = built
-    assert s199.packet_structures(out) == sorted([*M0_SIDS, "S04"], key=s198.sid_key)
+    assert s199.packet_structures(out) == ["S04"]  # the M0 structures were reviewed already
     packets, scratch = tmp_path / "packets", tmp_path / "scratch"
     assert s199.main(["--dataset", str(out), "--out", str(packets), "--scratch", str(scratch)]) == 0
     for name in ("pass1_packets.jsonl", "pass2_packets.jsonl", "naturalness_packets.jsonl"):
@@ -192,7 +196,7 @@ def test_packets_are_written_without_key_leaks_and_never_overwrite(built, tmp_pa
         for packet in lines:
             assert s199.leak_scan(packet) == [], (name, packet.get("item_id"))
     pass1 = [json.loads(x) for x in (packets / "pass1_packets.jsonl").read_text(encoding="utf-8").splitlines()]
-    assert {p["item_id"] for p in pass1} == {f"M250-{sid}" for sid in (*M0_SIDS, "S04")}
+    assert {p["item_id"] for p in pass1} == {"M250-S04"}
     pass2 = [json.loads(x) for x in (packets / "pass2_packets.jsonl").read_text(encoding="utf-8").splitlines()]
     n_claims = [c for p in pass2 for c in p["authors_claims"] if c.get("numeral_free_twin_of")]
     assert n_claims and all(c["note"] == s199.N_NOTE for c in n_claims)
@@ -250,3 +254,13 @@ def test_pair_differing_only_by_also_fails_distinctness_but_tense_passes():
     tense = dataclasses.replace(spec, pairs=(p0, dataclasses.replace(p0, pair_id="p1", frame=p0.frame.replace(" is stuck", " was stuck"))))
     assert {c["id"]: c for c in s198.wording_checks(tense)}["3.8"]["status"] == "PASS"
     assert {c["id"]: c for c in s198.wording_checks(spec)}["3.8"]["status"] == "PASS"
+
+
+def test_extra_module_is_in_the_explicit_list_with_levels_and_domains():
+    assert s198.M0_MODULE == "roles_m0v25"
+    assert any(entry[1] == "roles_m250n_extra" and entry[3] == "lib_m250_extra" for entry in s198.SOURCES)
+    assert "lib_m250_extra" in s198.LIB_MODULES and "lib_m250_extra" in s198.PLAN_MODULES
+    source = s198.Source.load("m250n_extra", "roles_m250n_extra", "NEW", "lib_m250_extra")
+    assert not source.error and len(source.specs) >= 10
+    assert set(source.specs) <= set(source.levels), sorted(set(source.specs) - set(source.levels))
+    assert all(source.structure(sid).domain for sid in list(source.specs)[:3])

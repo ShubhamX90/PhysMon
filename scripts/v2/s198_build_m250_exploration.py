@@ -4,8 +4,8 @@ admission standard (`docs/registry/v2/g1/dataset_admission_standard.md`, checks 
 
 Inputs (explicit list `SOURCES`, no globbing; a module that is missing or fails to import is reported, never skipped silently):
 
-* `M0_MODULE`              the M0 structures: `roles_m0v23` when it exists, else `roles_m0v22`; their cells are those of
-                           `s192_build_m0_v21.py` (the builder the M0 datasets were made with); panel status PENDING like all others;
+* `M0_MODULE`              the M0 structures: `roles_m0v25` (else v23, v22); their cells are those of
+                           `s192_build_m0_v21.py` (the builder the M0 datasets were made with); panel status ADMITTED for roles_m0v25 (pointers to the two-judge runs);
 * `roles_m250_a` to `_d`   upgraded dataset-v1 structures (base problem = the v1 problem + the scene clause);
 * `roles_m250n_<domain>`   new structures from `lib_m250_<domain>` (no v1 text: the base-problem check is the rendered base problem + the
                            scene clause, with the gold from the independent solver route of the certifier).
@@ -14,8 +14,8 @@ Per structure the builder certifies the spec (`rolevalue_v2.certify_v2` on the v
 builds the cells and gold traces with the M0 v2.1 builder (`s192`, called per structure so that one failing structure cannot stop the
 build), runs the grading dry run (`s194`), the planted-mutation tests and the overlap detectors, and records every check with
 PASS / FAIL and its values in `admission/<structure_id>.json`. A structure failing any machine check is REJECTED: it keeps its
-admission record and certificate (failed evidence is preserved) and has no cells. Panel checks (5.x, 6.1) are `PENDING` for every
-structure (the GPT judge rejected 8 of the 11 M0 v2.2 structures, so M0 is not an admitted pilot). Dataset-level checks (6.2 familiarity, 6.3 composition) are reported in
+admission record and certificate (failed evidence is preserved) and has no cells. Panel checks (5.x, 6.1) are `PENDING` except for
+the M0 v2.5 structures, which are two-judge ADMITTED (pointers recorded). Dataset-level checks (6.2 familiarity, 6.3 composition) are reported in
 `composition.json`, not forced. Data role: EXPLORATION. Instance 0 of every structure, as in M0.
 
 Deterministic apart from the build date (`--date`, default today); refuses to overwrite an existing directory.
@@ -68,17 +68,19 @@ MIN_REASON = 20  # characters of a NO_C / NO_K reason
 KINDS = ("M0", "UPGRADED_V1", "NEW")
 UPPER_LEVEL = "upper_university"
 MULTI_STEP_NODES = 3  # a structure with at least this many computed relations counts as multi-step (6.3)
-PLAN_MODULES = ("lib_m250_mech", "lib_m250_em", "lib_m250_thermo", "lib_m250_waves", "lib_m250_modern")
+PLAN_MODULES = ("lib_m250_mech", "lib_m250_em", "lib_m250_thermo", "lib_m250_waves", "lib_m250_modern", "lib_m250_extra")
 PANEL_DIRS = "docs/validation/v2/llm_panel"
-# The M0 structures come from roles_m0v23 once it exists; until then from roles_m0v22 (the GPT judge rejected 8 of the 11 M0 v2.2
-# structures, so M0 is no longer an admitted pilot and its panel status is PENDING like every other structure).
-M0_MODULE_PREFERRED, M0_MODULE_FALLBACK = "roles_m0v23", "roles_m0v22"
-M0_MODULE = (M0_MODULE_PREFERRED if importlib.util.find_spec(f"physmon.benchmark.v2.{M0_MODULE_PREFERRED}") is not None
-             else M0_MODULE_FALLBACK)
+# The M0 structures come from roles_m0v25 (final: all 11 two-judge ADMITTED); older modules only as a fallback when it is absent.
+M0_MODULES = ("roles_m0v25", "roles_m0v23", "roles_m0v22")
+M0_MODULE = next((m for m in M0_MODULES if importlib.util.find_spec(f"physmon.benchmark.v2.{m}") is not None), M0_MODULES[-1])
+M0_VERSIONS = {"roles_m0v25": "m0_v2.5", "roles_m0v23": "m0_v2.3", "roles_m0v22": "m0_v2.2"}
+# two-judge panel admission of the M0 v2.5 structures: the run directory that holds each structure's final verdict
+M0_PANEL_RUN = {**dict.fromkeys(("S01", "S07", "S13", "S15", "S20", "S27", "S30"), "admission_m0v23"),
+                **dict.fromkeys(("S72", "S92"), "admission_m0v24"), **dict.fromkeys(("S26", "S55"), "admission_m0v25")}
 
 
 def m0_version(module_name: str) -> str:
-    return "m0_v2.3" if module_name == "roles_m0v23" else "m0_v2.2"
+    return M0_VERSIONS.get(module_name, "m0_v2.2")
 
 
 M0_VERSION = m0_version(M0_MODULE)
@@ -95,11 +97,12 @@ SOURCES: tuple[tuple[str, str, str, str | None], ...] = (
     ("m250n_thermo", "roles_m250n_thermo", "NEW", "lib_m250_thermo"),
     ("m250n_waves", "roles_m250n_waves", "NEW", "lib_m250_waves"),
     ("m250n_modern", "roles_m250n_modern", "NEW", "lib_m250_modern"),
+    ("m250n_extra", "roles_m250n_extra", "NEW", "lib_m250_extra"),
 )
 # every structure library (the pool of check 1.1 and 1.2): explicit, no globbing
 LIB_MODULES = ("library", "library_b", "library_c", "lib_mechanics", "lib_electromagnetism", "lib_thermodynamics", "lib_optics",
                "lib_quantum", "lib_modern", "lib_fluids", "lib_m250_mech", "lib_m250_em", "lib_m250_thermo", "lib_m250_waves",
-               "lib_m250_modern")
+               "lib_m250_modern", "lib_m250_extra")
 
 
 def _load_script(name: str, rel: str):
@@ -919,12 +922,13 @@ def composition(records: list[dict[str, Any]]) -> dict[str, Any]:
 # --- build ---------------------------------------------------------------------------------------------------------------------------------------
 
 def panel_record(result: Result) -> dict[str, Any]:
-    record = {"status": PENDING, "admission_5.x": PENDING, "naturalness_6.1": PENDING,
-              "packets": "scripts/v2/s199_m250_panel_packets.py"}
-    if result.source.kind == "M0":
-        record["note"] = ("M0 structures are re-reviewed with the M250 set: the earlier Claude-judge admission of M0 v2.2 is superseded "
-                          "(the GPT judge rejected 8 of its 11 structures)")
-    return record
+    if result.source.kind == "M0" and result.source.module_name == "roles_m0v25" and result.sid in M0_PANEL_RUN:
+        run = M0_PANEL_RUN[result.sid]
+        return {"status": "ADMITTED", "judges": "two-judge panel (Claude and GPT, prompt v3)",
+                "records": [f"{PANEL_DIRS}/{run}/runs/score_two_judges/"],
+                "note": "M0 v2.5 structure reviewed by the panel; not re-packaged"}
+    return {"status": PENDING, "admission_5.x": PENDING, "naturalness_6.1": PENDING,
+            "packets": "scripts/v2/s199_m250_panel_packets.py"}
 
 
 def order_key(item: tuple[Source, str]) -> tuple[int, int, str]:
@@ -943,7 +947,7 @@ def admission_record(res: Result) -> dict[str, Any]:
         "failed_checks": [{"id": c["id"], "name": c["name"], "why": c.get("why", "")} for c in res.failed],
         "checks": res.checks, "panel": panel_record(res), "n_cells": len(res.rows),
         "cells_by_stratum": dict(sorted(Counter(r["stratum"] for r in res.rows).items())),
-        "judge_checks_pending": ["5.1-5.4 panel review", "6.1 blind naturalness"]}
+        "judge_checks_pending": [] if panel_record(res)["status"] == "ADMITTED" else ["5.1-5.4 panel review", "6.1 blind naturalness"]}
 
 
 def write_json(path: Path, obj: Any, **kwargs: Any) -> None:
@@ -1053,7 +1057,7 @@ def readme(results: list[Result], sources: list[Source], not_built: list, comp: 
         "# M250 EXPLORATION integration set (machine checks)", "",
         f"Data role: **{DATA_ROLE}**. Built {build_date} by `{GENERATOR}` ({GENERATOR_VERSION}). Status: agent-authored, "
         "solver-certified, machine-admitted against the dataset admission standard (checks 1.1-1.3, 2.1-2.8, 2.7b, 3.1-3.5, 4.1, "
-        "4.2, 6.2, 6.3); **not** panel-reviewed (checks 5.x and 6.1 are PENDING for every structure, M0 included), not reviewed by a human. No model has "
+        "4.2, 6.2, 6.3); **not** panel-reviewed (checks 5.x and 6.1 are PENDING except for the M0 v2.5 structures, which are two-judge ADMITTED), not reviewed by a human. No model has "
         "seen these cells.", "",
         f"{len(rows)} cells (instance {INSTANCE} of each structure) on **{len(admitted)} admitted** structures; "
         f"**{len(rejected)} REJECTED**; {len(not_built)} recorded infeasible without a spec; "
@@ -1067,7 +1071,7 @@ def readme(results: list[Result], sources: list[Source], not_built: list, comp: 
     for r in admitted:
         lines.append(f"| {r.sid} | {r.source.kind} | {r.summary['domain']} | {'yes' if r.summary['has_c'] else 'no'} | "
                      f"{'yes' if r.summary['has_k'] else 'no'} | {len(r.rows)} | "
-                     f"{'ADMITTED (M0)' if r.source.kind == 'M0_V22' else PENDING} |")
+                     f"{panel_record(r)['status']} |")
     lines += ["", "## REJECTED", ""]
     if not rejected:
         lines.append("None.")
@@ -1112,8 +1116,8 @@ def readme(results: list[Result], sources: list[Source], not_built: list, comp: 
         "`lib_m250_<domain>.LEVELS`.",
         "7. **Provenance consistency** (`scripts/check_provenance_consistency.py`) is run once on this README text (dataset level), not "
         "per structure; its verdict is in `manifest.json`.",
-        "8. **Added row fields** against the M0 builder's rows: `dataset`, `data_role`, `m250_lineage`, `m250_source_module` (with `roles_m0v22` the M0 "
-        "rows are otherwise byte-identical to `data/v2/dataset/m0_v22/cells.jsonl`; M0 module this build: `" + M0_MODULE + "`). New structures also get `level` from "
+        "8. **Added row fields** against the M0 builder's rows: `dataset`, `data_role`, `m250_lineage`, `m250_source_module` (with `roles_m0v25` the M0 "
+        "rows are otherwise byte-identical to `data/v2/dataset/m0_v25/cells.jsonl`; M0 module this build: `" + M0_MODULE + "`). New structures also get `level` from "
         "`lib_m250_<domain>.LEVELS` (the M0 builder leaves it empty).", "",
         "## What has not been done", "",
         "No panel review (5.x), no blind naturalness rating (6.1) for the structures marked PENDING; no human review; no model run. Panel "

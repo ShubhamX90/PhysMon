@@ -4,7 +4,7 @@
 Exactly `s193_m0v21_panel_packets.py` (loaded and run, by the same patching pattern as `s196_m0v22_panel_packets.py`) with:
 
 * the input `data/v2/dataset/m250_explore_v1/` (built by `s198_build_m250_exploration.py`; read-only): the items are the structures whose
-  `admission/<id>.json` has status MACHINE_ADMITTED (M0 structures included: M0 is no longer an admitted pilot), item prefix `M250-`;
+  `admission/<id>.json` has status MACHINE_ADMITTED and a panel status that is not already ADMITTED (the M0 v2.5 structures were reviewed by the two-judge panel and are skipped), item prefix `M250-`;
 * run ids `m250_admission` and `m250_naturalness`; admission batches of 4 items; naturalness batches of up to 24 sentences, at most 2
   per structure and never two sentences of one group in one structure;
 * output `docs/validation/v2/llm_panel/admission_m250/` and scratch `/scratch/pabitra/physmon/judge/m250_*`.
@@ -47,12 +47,12 @@ leak_scan = s193.leak_scan
 
 
 def packet_structures(dataset: Path) -> list[str]:
-    """Structure ids with a MACHINE_ADMITTED record, in the order of the admission files."""
+    """Structure ids with a MACHINE_ADMITTED record and no panel admission yet (M0 v2.5 is skipped), sorted by number."""
 
     ids = []
     for path in sorted((dataset / "admission").glob("*.json")):
         record = json.loads(path.read_text(encoding="utf-8"))
-        if record.get("status") == s198.ADMITTED:
+        if record.get("status") == s198.ADMITTED and record.get("panel", {}).get("status") != "ADMITTED":
             ids.append(record["structure_id"])
     return sorted(ids, key=s198.sid_key)
 
