@@ -68,7 +68,8 @@ MIN_REASON = 20  # characters of a NO_C / NO_K reason
 KINDS = ("M0", "UPGRADED_V1", "NEW")
 UPPER_LEVEL = "upper_university"
 MULTI_STEP_NODES = 3  # a structure with at least this many computed relations counts as multi-step (6.3)
-PLAN_MODULES = ("lib_m250_mech", "lib_m250_em", "lib_m250_thermo", "lib_m250_waves", "lib_m250_modern", "lib_m250_extra")
+PLAN_MODULES = ("lib_m250_mech", "lib_m250_em", "lib_m250_thermo", "lib_m250_waves", "lib_m250_modern", "lib_m250_extra", "lib_m250_circ",
+                "lib_m250_qastro")
 PANEL_DIRS = "docs/validation/v2/llm_panel"
 # The M0 structures come from roles_m0v25 (final: all 11 two-judge ADMITTED); older modules only as a fallback when it is absent.
 M0_MODULES = ("roles_m0v25", "roles_m0v23", "roles_m0v22")
@@ -98,11 +99,13 @@ SOURCES: tuple[tuple[str, str, str, str | None], ...] = (
     ("m250n_waves", "roles_m250n_waves", "NEW", "lib_m250_waves"),
     ("m250n_modern", "roles_m250n_modern", "NEW", "lib_m250_modern"),
     ("m250n_extra", "roles_m250n_extra", "NEW", "lib_m250_extra"),
+    ("m250n_circ", "roles_m250n_circ", "NEW", "lib_m250_circ"),
+    ("m250n_qastro", "roles_m250n_qastro", "NEW", "lib_m250_qastro"),
 )
 # every structure library (the pool of check 1.1 and 1.2): explicit, no globbing
 LIB_MODULES = ("library", "library_b", "library_c", "lib_mechanics", "lib_electromagnetism", "lib_thermodynamics", "lib_optics",
                "lib_quantum", "lib_modern", "lib_fluids", "lib_m250_mech", "lib_m250_em", "lib_m250_thermo", "lib_m250_waves",
-               "lib_m250_modern", "lib_m250_extra")
+               "lib_m250_modern", "lib_m250_extra", "lib_m250_circ", "lib_m250_qastro")
 
 
 def _load_script(name: str, rel: str):
@@ -888,9 +891,29 @@ def evaluate(source: Source, sid: str, pool: Pool, admitted: list[Entry], datase
 
 # --- composition (6.2, 6.3) ---------------------------------------------------------------------------------------------------------------
 
+DOMAIN_SYNONYMS = {"nuclear": "nuclear physics", "atomic": "atomic physics", "relativity": "special relativity",
+                   "statistical mechanics": "statistical physics", "solid state physics": "solid state"}
+
+
+def normalize_domain(label: str) -> str:
+    """One canonical domain label: lower case, underscores and hyphens as spaces, then the synonym map."""
+
+    text = re.sub(r"[\s_-]+", " ", (label or "").strip().lower())
+    return DOMAIN_SYNONYMS.get(text, text)
+
+
+def normalize_level(label: str | None) -> str | None:
+    """One canonical level label: 'upper-university', 'upper university' and 'upper_university' are the same."""
+
+    return None if not label else re.sub(r"[\s-]+", "_", label.strip().lower())
+
+
 def composition(records: list[dict[str, Any]]) -> dict[str, Any]:
     """Dataset-level checks over admitted structures; each record has domain, level, n_computed, kind, has_c, has_k, familiarity."""
 
+    applied = {r["domain"]: normalize_domain(r["domain"]) for r in records if normalize_domain(r["domain"]) != r["domain"]}
+    levels_applied = {r["level"]: normalize_level(r["level"]) for r in records if r.get("level") and normalize_level(r["level"]) != r["level"]}
+    records = [{**r, "domain": normalize_domain(r["domain"]), "level": normalize_level(r.get("level"))} for r in records]
     n = len(records)
     domains = Counter(r["domain"] for r in records)
     top = max(domains.values(), default=0)
@@ -905,6 +928,10 @@ def composition(records: list[dict[str, Any]]) -> dict[str, Any]:
     c_share, k_share = share(sum(r["has_c"] for r in new), len(new)), share(sum(r["has_k"] for r in new), len(new))
     adv_share, fam_share, top_share = share(len(advanced), n), share(len(famous), len(with_c)), share(top, n)
     return {
+        "label_normalisation": {
+            "domain_rule": "lower case; underscores and hyphens read as spaces; synonyms mapped (DOMAIN_SYNONYMS)",
+            "domain_synonyms": DOMAIN_SYNONYMS, "domain_labels_changed": dict(sorted(applied.items())),
+            "level_rule": "lower case; hyphens and spaces read as underscores", "level_labels_changed": dict(sorted(levels_applied.items()))},
         "n_admitted_structures": n, "by_kind": dict(sorted(Counter(r["kind"] for r in records).items())),
         "6.3": {
             "domains": dict(sorted(domains.items())), "n_domains": len(domains), "largest_domain_share": top_share,

@@ -264,3 +264,26 @@ def test_extra_module_is_in_the_explicit_list_with_levels_and_domains():
     assert not source.error and len(source.specs) >= 10
     assert set(source.specs) <= set(source.levels), sorted(set(source.specs) - set(source.levels))
     assert all(source.structure(sid).domain for sid in list(source.specs)[:3])
+
+
+def test_new_modules_are_listed_and_a_missing_one_is_reported_not_fatal():
+    keys = {entry[0]: entry for entry in s198.SOURCES}
+    assert keys["m250n_circ"][3] == "lib_m250_circ" and keys["m250n_qastro"][3] == "lib_m250_qastro"
+    for lib in ("lib_m250_circ", "lib_m250_qastro", "lib_m250_extra"):
+        assert lib in s198.LIB_MODULES and lib in s198.PLAN_MODULES
+    gone = s198.discover((("x", "roles_no_such_module", "NEW", "lib_m250_circ"),))
+    assert gone[0].error and "not found" in gone[0].error
+
+
+def test_labels_are_normalised_before_composition():
+    assert s198.normalize_domain("Nuclear") == "nuclear physics" == s198.normalize_domain("nuclear_physics")
+    assert s198.normalize_domain("solid_state") == "solid state" == s198.normalize_domain("Solid-State")
+    assert s198.normalize_level("upper-university") == "upper_university" == s198.normalize_level("upper_university")
+    records = [{"domain": d, "kind": "NEW", "has_c": False, "has_k": False, "level": lv, "n_computed": 1, "familiarity": None}
+               for d, lv in (("nuclear", "upper-university"), ("nuclear physics", "upper_university"), ("solid_state", None))]
+    comp = s198.composition(records)
+    assert comp["6.3"]["domains"] == {"nuclear physics": 2, "solid state": 1}
+    assert comp["6.3"]["upper_university_or_multi_step"]["count"] == 2
+    norm = comp["label_normalisation"]
+    assert norm["domain_labels_changed"] == {"nuclear": "nuclear physics", "solid_state": "solid state"}
+    assert norm["level_labels_changed"] == {"upper-university": "upper_university"}
