@@ -220,6 +220,14 @@ class Source:
         return self.module.structure(sid)
 
 
+# Repair round 1 (J15.1-059): every spec module is replaced by its `roles_m250r1*` module (unchanged specs are the v1 objects).
+R1_SOURCES: tuple[tuple[str, str, str, str | None], ...] = tuple(
+    (key, module.replace("roles_m250", "roles_m250r1", 1) if module.startswith("roles_m250") else module, kind, lib)
+    for key, module, kind, lib in SOURCES)
+ROUNDS: dict[str, tuple[tuple[tuple[str, str, str, str | None], ...], str, str]] = {
+    "v1": (SOURCES, "m250_explore_v1", "s198 v1"), "r1": (R1_SOURCES, "m250_explore_v2", "s198 v2")}
+
+
 def discover(sources: tuple[tuple[str, str, str, str | None], ...] = SOURCES) -> list[Source]:
     return [Source.load(*entry) for entry in sources]
 
@@ -1154,16 +1162,31 @@ def readme(results: list[Result], sources: list[Source], not_built: list, comp: 
 
 
 def main(argv: list[str] | None = None) -> int:
+    global SOURCES, DATASET_ID, GENERATOR_VERSION
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--out", default=f"data/v2/dataset/{DATASET_ID}")
     parser.add_argument("--dataset", default=V1_DATASET)
     parser.add_argument("--date", default=datetime.date.today().isoformat())
+    parser.add_argument("--round", choices=sorted(ROUNDS), default="v1",
+                        help="v1: the original spec modules (m250_explore_v1); r1: the repair-round-1 modules (m250_explore_v2)")
+    parser.add_argument("--only", default="", help="comma-separated structure ids: build only these (a check build, never a dataset)")
     args = parser.parse_args(argv)
+    SOURCES, DATASET_ID, GENERATOR_VERSION = ROUNDS[args.round]
+    if args.out == f"data/v2/dataset/{ROUNDS['v1'][1]}" and args.round != "v1":
+        args.out = f"data/v2/dataset/{DATASET_ID}"
+    only = {x.strip() for x in args.only.split(",") if x.strip()}
     out = Path(args.out) if Path(args.out).is_absolute() else REPO_ROOT / args.out
+    if only and str(out.resolve()).startswith(str((REPO_ROOT / "data").resolve())):
+        print("--only is a check build: write it outside data/", file=sys.stderr)
+        return 2
     if out.exists():
         print(f"Refusing to overwrite {out}", file=sys.stderr)
         return 2
-    sources = discover()
+    sources = discover(SOURCES)
+    if only:
+        for source in sources:
+            source.specs = {sid: spec for sid, spec in source.specs.items() if sid in only}
+            source.infeasible = {sid: r for sid, r in source.infeasible.items() if sid in only}
     summary = build(out, sources, REPO_ROOT / args.dataset, args.date)
     print(json.dumps({k: summary[k] for k in ("n_cells", "n_structures", "admitted", "rejected", "not_built_infeasible",
                                               "missing_or_broken_modules", "composition")}, indent=2, default=str))
