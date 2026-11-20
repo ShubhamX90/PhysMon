@@ -330,12 +330,14 @@ def make_record(pair: dict[str, Any], result: gen.GenResult, spec: dict[str, Any
         "chat_template": ctx["chat_template_sha256"], "answer_wrapper_id": f"{rc2.CONTRACT_VERSION}:final-line",
         "target_answer_ids": None, "target_span_start": None, "target_span_end": None,
         "generated_answer_raw": result.text,
-        "parsed_answer": ({"value": completion.parsed.value, "unit": completion.parsed.unit}
+        "parsed_answer": ({"value": completion.parsed.value, "unit": completion.parsed.unit,
+                           "value_text": completion.parsed.value_text}
                           if completion.status == "COMPLETE" else None),
         "parse_status": completion.status, "completion_status": completion.status, "gold_logprob_raw": None,
         "gold_logprob_per_token": None, "alternative_scores": None,
-        "correctness": views["declared"], "correctness_rule": "declared (protocol 4b)",
-        "grade_declared": views["declared"], "grade_convertible": views["convertible"], "grade_rel1pct": views["rel1pct"],
+        "correctness": views["declared"], "correctness_rule": "declared (grader v2, amendment A2)",
+        "grade_declared": views["declared"], "grade_declared_v1": views["declared_v1"],
+        "grader_version": gv.GRADER_VERSION, "grade_convertible": views["convertible"], "grade_rel1pct": views["rel1pct"],
         "dimension_status": views["dimension_status"], "value_in_gold_unit": views["value_in_gold_unit"],
         "relative_error_dimchecked": views["relative_error_dimchecked"],
         "o2_source": "contract" if completion.status == "COMPLETE" else (recovery.status if recovery else "NONE"),

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Stage 15 G2 step 1: report of the design-validation pilot on M0 v2.2 (CPU only; numpy/scipy).
+"""Stage 15 G2 step 1: report of the design-validation pilot (dataset named by the cells file; CPU only; numpy/scipy).
 
 The analysis is fixed here, before any record of the pilot exists (plan: `docs/registry/v2/g2/design_validation_pilot_plan.md`). It
 computes, per model and per structure, the four design blocks of that plan, each number with its denominator:
@@ -388,8 +388,21 @@ def none_modal_cells(models: Mapping[str, Mapping[str, Any]]) -> dict[str, Any]:
     return flagged
 
 
+def dataset_label(cells_rows: Sequence[Mapping[str, Any]]) -> str:
+    """The dataset version named by the cells file (`m0_version`), e.g. `m0_v2.5`; never a hard-coded label."""
+
+    labels = sorted({str(r["m0_version"]) for r in cells_rows if r.get("m0_version")})
+    return "+".join(labels) if labels else "unknown dataset"
+
+
+def grader_versions(records: Sequence[Mapping[str, Any]]) -> list[str]:
+    """Grader versions carried by the records; records without the field were graded by v1 (before amendment A2)."""
+
+    return sorted({str(r.get("grader_version") or "v1") for r in records})
+
+
 def build_report(cells_rows: Sequence[Mapping[str, Any]], runs: Mapping[str, Sequence[Mapping[str, Any]]],
-                 k_expected: int = DEFAULT_K) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+                 k_expected: int = DEFAULT_K, title: str | None = None) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     cells = rs.cells_from_rows(cells_rows)
     base_golds = {base_prefix(r["job_id"]): float(r["gold_value"]) for r in cells_rows if r.get("stratum") == "none"}
     models = {name: analyse_model(recs, cells, base_golds, k_expected) for name, recs in runs.items()}
@@ -401,6 +414,8 @@ def build_report(cells_rows: Sequence[Mapping[str, Any]], runs: Mapping[str, Seq
     report = {
         "plan": "docs/registry/v2/g2/design_validation_pilot_plan.md", "evidence_class": "EXPLORATION",
         "no_hypothesis_status": "no F1-F3 label, no Holm, no model selection (plan, 'Not done here')",
+        "dataset": dataset_label(cells_rows), "title": title,
+        "grader_version_per_run": {name: grader_versions(recs) for name, recs in runs.items()},
         "k_expected_per_cell": k_expected, "primary_view": rs.PRIMARY_VIEW, "audit_seed": AUDIT_SEED,
         "models": models,
         "modal_none_in_every_model": none_modal_cells(models),
@@ -413,7 +428,10 @@ def build_report(cells_rows: Sequence[Mapping[str, Any]], runs: Mapping[str, Seq
 # --- markdown ----------------------------------------------------------------------------------------------------------------
 
 def render_markdown(report: Mapping[str, Any]) -> str:
-    lines = ["# G2 design-validation pilot report (M0 v2.2)", "",
+    versions = sorted({v for vs_ in report.get("grader_version_per_run", {}).values() for v in vs_}) or ["unknown"]
+    lines = [f"# {report.get('title') or 'G2 design-validation pilot report (' + str(report.get('dataset', 'unknown dataset')) + ')'}", "",
+             f"Dataset: {report.get('dataset', 'unknown')}. Grader version of the records: {', '.join(versions)} "
+             "(v2 = amendment A2 declared rule; `grade_declared_v1` stays in the records).", "",
              "EXPLORATION, sampled. Plan: `docs/registry/v2/g2/design_validation_pilot_plan.md`. No hypothesis status, no F1-F3 "
              "label, no Holm. Non-COMPLETE records are their own category, never wrong; missing records are NOT_EVALUATED. "
              f"Expected samples per cell: {report['k_expected_per_cell']}.", ""]
@@ -548,6 +566,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--cells", type=Path, required=True)
     parser.add_argument("--records", action="append", required=True, metavar="RUN_ID=PATH")
     parser.add_argument("--out-dir", type=Path, required=True)
+    parser.add_argument("--title", default=None, help="report title (default: from the dataset version in the cells file)")
     parser.add_argument("--k", type=int, default=DEFAULT_K, help="expected samples per cell (only for the NOT_EVALUATED table)")
     args = parser.parse_args(argv)
     runs: dict[str, list[dict[str, Any]]] = {}
@@ -560,7 +579,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     if existing:
         print(f"refusing to overwrite {', '.join(existing)} in {args.out_dir}", file=sys.stderr)
         return 2
-    report, sample = build_report(read_jsonl(args.cells), runs, args.k)
+    report, sample = build_report(read_jsonl(args.cells), runs, args.k, args.title)
     write_outputs(args.out_dir, report, sample)
     print(f"wrote {args.out_dir / 'report.json'}, report.md and audit_sample.jsonl ({len(runs)} model(s))")
     return 0
