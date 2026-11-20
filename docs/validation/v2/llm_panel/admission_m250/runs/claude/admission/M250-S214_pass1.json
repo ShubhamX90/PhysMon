@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch28",
+  "item_id": "M250-S214",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:30:00Z", "completed_at": "2026-11-20T10:36:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Faraday's law with Ohm's law: Q = integral I dt = N*dPhi/R = N*B*pi*r^2/R (self-inductance negligible)", "assumptions": ["coil fully inside uniform solenoid field", "negligible self-inductance", "total circuit resistance 12 ohm"], "answer": 3.770, "unit": "mC"},
+  "stratum_assignments": {
+    "T676D": {"stratum": "D", "answer_with_sentence": 3.770, "regime": null},
+    "TD305": {"stratum": "D", "answer_with_sentence": 3.770, "regime": null},
+    "TEA30": {"stratum": "R", "answer_with_sentence": 2.104, "regime": null},
+    "T3CB8": {"stratum": "C", "answer_with_sentence": 3.770, "regime": null},
+    "TD77D": {"stratum": "R", "answer_with_sentence": 2.104, "regime": null},
+    "TA07A": {"stratum": "K", "answer_with_sentence": 3.770, "regime": "solenoid radius >= coil radius (3 cm), so the whole coil area carries the field; 7 cm is inside this regime"},
+    "T451A": {"stratum": "D", "answer_with_sentence": 3.770, "regime": null},
+    "TE656": {"stratum": "K", "answer_with_sentence": 3.770, "regime": "same as TA07A"},
+    "TF32B": {"stratum": "D", "answer_with_sentence": 3.770, "regime": null},
+    "TC97A": {"stratum": "C", "answer_with_sentence": 3.770, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "N*B*A = 200*0.08*pi*(0.03)^2 = 0.0452389 Wb; Q = 0.0452389/12 = 3.770e-3 C; with 21.5 ohm Q = 2.104e-3 C. Fall time: EMF = N*dPhi/dt and I = EMF/R both scale with 1/t, so Q = I*t is independent of t (C). The problem already says the coil lies entirely inside the solenoid, so the solenoid radius 7 cm is consistent (it exceeds 3 cm). 'Wound on a tube of radius 7 cm' vs 'inner radius of 7 cm' differ slightly in what radius is meant, but both exceed the coil radius. T676D and TD305 are numeral-free controls."
+}

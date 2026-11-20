@@ -1,0 +1,24 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch16",
+  "item_id": "M250-S227",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:52:00Z", "completed_at": "2026-11-20T11:02:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Boltzmann distribution over two levels: U = E g exp(-E/RT) / (1 + g exp(-E/RT)) per mole, E = 6 kJ/mol, g = 3", "assumptions": ["thermal equilibrium at 300 K", "only two levels populated", "energy counted is the internal-level energy measured from the ground level (translational energy not included)", "independent molecules (dilute gas)"], "answer": 1278.0, "unit": "J/mol"},
+  "stratum_assignments": {
+    "T0EF9": {"stratum": "D", "answer_with_sentence": 1278.0, "regime": null},
+    "T9DAE": {"stratum": "D", "answer_with_sentence": 1278.0, "regime": null},
+    "TCA07": {"stratum": "D", "answer_with_sentence": 1278.0, "regime": null},
+    "T5974": {"stratum": "D", "answer_with_sentence": 1278.0, "regime": null},
+    "T4CBB": {"stratum": "R", "answer_with_sentence": 1570.9, "regime": null},
+    "T86F4": {"stratum": "D", "answer_with_sentence": 1278.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": ["T5974 stratum"],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T5974 ('Before the molecules equilibrate, a heater has warmed the gas by a further 38 K') is ambiguous: the stated equilibrium temperature of 300 K could already include the heating (answer unchanged) or the heating could add to it (338 K); also 'mean energy of the molecules' could be read to include translational energy, though 'measured from the ground level' points to the level energy."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "RT = 2494.2 J/mol; E/RT = 2.40558; exp(-2.40558) = 0.090213; 3x = 0.270639; fraction excited = 0.270639/1.270639 = 0.212994; U = 6000*0.212994 = 1278.0 J/mol. At 338 K: RT = 2810.13; E/RT = 2.135131; exp = 0.118229; 3x = 0.354687; fraction = 0.261823; U = 1570.9 J/mol. Water bath sentences D (no heat exchange stated); earlier-run sentences D. For T5974 I read the problem's stated equilibrium at 300 K as the state after any heating, so D; the alternative reading gives 1570.9 J/mol. Variants: all numeric heating sentences state 38 K; T9DAE/TCA07 non-numeric."
+}

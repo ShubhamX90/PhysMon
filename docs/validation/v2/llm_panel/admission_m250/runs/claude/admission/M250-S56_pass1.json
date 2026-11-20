@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch17",
+  "item_id": "M250-S56",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "COP_Carnot = T_c/(T_h - T_c) = 275/25 = 11; COP = 0.3*11 = 3.3; P = Q_c/COP = 200/3.3", "assumptions": ["steady state", "heat removal rate 200 W is the full cooling load", "COP fraction applies to the actual cycle"], "answer": 60.61, "unit": "W"},
+  "stratum_assignments": {
+    "T2CD6": {"stratum": "K", "answer_with_sentence": 60.61, "regime": "required electrical input (60.6 W) is below the 330 W motor limit; matters only if demand exceeded it"},
+    "TC1B7": {"stratum": "R", "answer_with_sentence": 77.27, "regime": null},
+    "T3A68": {"stratum": "D", "answer_with_sentence": 60.61, "regime": null},
+    "T0E77": {"stratum": "D", "answer_with_sentence": 60.61, "regime": null},
+    "T9447": {"stratum": "D", "answer_with_sentence": 60.61, "regime": null},
+    "T2BAE": {"stratum": "D", "answer_with_sentence": 60.61, "regime": null},
+    "TB1B6": {"stratum": "D", "answer_with_sentence": 60.61, "regime": null},
+    "T50E9": {"stratum": "K", "answer_with_sentence": 60.61, "regime": "required input below the 330 W rating"},
+    "T5601": {"stratum": "D", "answer_with_sentence": 60.61, "regime": null},
+    "T5F2C": {"stratum": "R", "answer_with_sentence": 77.27, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "T5F2C refers to 'this test' although the base problem never describes a test, so the reader must infer that the steady run is the test."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Lamp inside refrigerator adds 55 W to the cooling load: Q_c = 255 W, P = 255/3.3 = 77.27 W (still below 330 W, so the rating sentences stay K). Run/monitoring duration does not enter a power; I labelled it D (it could be argued C if one writes P = E/t). Variant groups (330 W; 55 W lamp; 90 min; small lamp) use matching numbers and units."
+}

@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch27",
+  "item_id": "M250-S261",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Terminal balance: m g = rho_L V g + 6 pi eta r v, so v = (m - rho_L (4/3) pi r^3) g / (6 pi eta r)", "assumptions": ["Stokes drag as stated", "sphere reaches terminal speed (deep tank)", "far from walls", "V = (4/3) pi (2 mm)^3 = 3.351e-8 m^3; buoyant mass 4.222e-5 kg"], "answer": 0.0540, "unit": "m/s"},
+  "stratum_assignments": {
+    "TB5DB": {"stratum": "R", "answer_with_sentence": 0.0774, "regime": null},
+    "T3D94": {"stratum": "D", "answer_with_sentence": 0.0540, "regime": null},
+    "T9846": {"stratum": "D", "answer_with_sentence": 0.0540, "regime": null},
+    "T122F": {"stratum": "R", "answer_with_sentence": 0.0774, "regime": null},
+    "TFAF0": {"stratum": "D", "answer_with_sentence": 0.0540, "regime": null},
+    "TDB09": {"stratum": "K", "answer_with_sentence": 0.0540, "regime": "Re = rho v d / eta < 1.4; here Re ~ 0.27 (0.39 with extra shot)"},
+    "T66F4": {"stratum": "K", "answer_with_sentence": 0.0540, "regime": "Re = rho v d / eta < 1.4; here Re ~ 0.27"},
+    "TEAB4": {"stratum": "D", "answer_with_sentence": 0.0540, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: m = 2.5e-4 kg, net mass 2.0778e-4 kg, net force 2.0362e-3 N, drag coefficient 6 pi eta r = 0.037699 N s/m, v = 0.05401 m/s. With extra 0.09 g: net mass 2.9778e-4 kg, v = 0.07741 m/s. Re checks pass. T3D94 and TEAB4 give 'a small amount' with no number while their apparent counterparts T9846 and TFAF0 state 0.09 g; if these are claimed minimal pairs that is a number difference, to be checked in pass 2. TFAF0/TEAB4 refer to an earlier release of the sphere, not the present one, so they do not affect this release (D). The 'it' in TFAF0/TEAB4 follows the float sentence but the float is not released, so the referent is the sphere."
+}

@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch06",
+  "item_id": "M250-S93",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:51:00Z", "completed_at": "2026-11-20T10:58:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Torricelli outflow v = sqrt(2 g h) with continuity A dh/dt = -a sqrt(2 g h) => t = (A/a) * 2 (sqrt(h1) - sqrt(h2)) / sqrt(2 g)",
+    "assumptions": ["ideal (inviscid) water, quasi-steady Bernoulli", "surface speed negligible, jet area = hole area (stated)", "A/a = (D/d)^2"],
+    "answer": 323.25,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T8938": {"stratum": "C", "answer_with_sentence": 323.25, "regime": null},
+    "T5A35": {"stratum": "D", "answer_with_sentence": 323.25, "regime": null},
+    "T1199": {"stratum": "D", "answer_with_sentence": 323.25, "regime": null},
+    "T5BC7": {"stratum": "R", "answer_with_sentence": 253.15, "regime": null},
+    "T5A43": {"stratum": "D", "answer_with_sentence": 323.25, "regime": null},
+    "T68EC": {"stratum": "D", "answer_with_sentence": 323.25, "regime": null},
+    "T1C18": {"stratum": "R", "answer_with_sentence": 253.15, "regime": null},
+    "T41BC": {"stratum": "C", "answer_with_sentence": 323.25, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "A measured water density of 962 kg/m^3 is unusual (it corresponds to water near 90 C) and slightly artificial, though not contradictory since no water density or temperature is stated."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "A/a = (400/10)^2 = 1600; 2(sqrt0.8 - sqrt0.2) = 0.894427; /sqrt(19.6) = 0.894427/4.427189 = 0.2020305; t = 323.25 s. Hole widened to 11.3 mm: A/a = (400/11.3)^2 = 1253.03; t = 253.15 s. Density cancels from Bernoulli (rho g h = rho v^2/2). Barrel-hole and after-timing sentences are D. Numbers agree within pairs (1.3 mm, 962 kg/m^3)."
+}

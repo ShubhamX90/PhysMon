@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch18",
+  "item_id": "M250-S223",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:59:00Z", "completed_at": "2026-11-20T11:08:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Entropy as a state function: dS = dQ_rev/T; Delta S = m L_f/T_m + m c ln(T_f/T_m) = 66800/273 + 0.2*4186*ln(313/273) = 244.69 + 837.2*0.13673 = 244.69 + 114.47",
+    "assumptions": ["melting at constant 273 K", "c constant (stated)", "no evaporation (stated)", "system ends in a uniform equilibrium state at 313 K"],
+    "answer": 359.2,
+    "unit": "J/K"
+  },
+  "stratum_assignments": {
+    "T51E5": {"stratum": "R", "answer_with_sentence": 592.6, "regime": null},
+    "TA643": {"stratum": "R", "answer_with_sentence": 592.6, "regime": null},
+    "T3730": {"stratum": "C", "answer_with_sentence": 359.2, "regime": null},
+    "T4A5B": {"stratum": "D", "answer_with_sentence": 359.2, "regime": null},
+    "T4B97": {"stratum": "D", "answer_with_sentence": 359.2, "regime": null},
+    "T8603": {"stratum": "C", "answer_with_sentence": 359.2, "regime": null},
+    "T6035": {"stratum": "K", "answer_with_sentence": 359.2, "regime": "boiling point above the final temperature: 371 K > 313 K, so no vaporisation term"},
+    "TF01D": {"stratum": "D", "answer_with_sentence": 359.2, "regime": null},
+    "T3F4A": {"stratum": "D", "answer_with_sentence": 359.2, "regime": null},
+    "T5693": {"stratum": "K", "answer_with_sentence": 359.2, "regime": "T_boil = 371 K > T_f = 313 K"}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "R: m = 0.33 kg scales Delta S by 1.65: 403.74 + 188.88 = 592.6 J/K. Heater power sets only the heating time (Q = P t) and drops out of the state-function entropy change; I class it C (it could also be argued D). Boiling point 371 K implies reduced pressure but is consistent with the water staying liquid. Variants consistent: 0.13 kg, 450 W, 371 K across their pairs."
+}

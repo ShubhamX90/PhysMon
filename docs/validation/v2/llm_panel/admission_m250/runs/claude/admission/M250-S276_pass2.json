@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch09",
+  "item_id": "M250-S276",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:37:00Z", "completed_at": "2026-11-20T10:46:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "I_p/I_d = exp(2 a (kappa_d - kappa_p)), kappa = sqrt(2 m V)/hbar", "assumptions": ["prescribed transmission formula, no prefactor", "equal particle rates, equal charge", "same V = 0.4 eV for both"], "answer": 31.42, "unit": "1"},
+  "stratum_assignments": {
+    "TC752": {"stratum": "C", "answer_with_sentence": 31.42, "regime": null},
+    "T2708": {"stratum": "K", "answer_with_sentence": 31.42, "regime": "thermal energy small compared with the 0.4 eV barrier excess"},
+    "TF273": {"stratum": "D", "answer_with_sentence": 31.42, "regime": null},
+    "TE9A5": {"stratum": "D", "answer_with_sentence": 31.42, "regime": null},
+    "TAEE0": {"stratum": "K", "answer_with_sentence": 31.42, "regime": "thermal energy small compared with the 0.4 eV barrier excess"},
+    "T7B68": {"stratum": "D", "answer_with_sentence": 31.42, "regime": null},
+    "T87E1": {"stratum": "R", "answer_with_sentence": 56.98, "regime": null},
+    "TEED5": {"stratum": "C", "answer_with_sentence": 31.42, "regime": null},
+    "TF88C": {"stratum": "R", "answer_with_sentence": 56.98, "regime": null},
+    "T1B32": {"stratum": "D", "answer_with_sentence": 31.42, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"], "defect_reasons": {"other": "The K regime predicate '8*q < V' is an unexplained heuristic threshold and the out-of-regime 'reference expression' sqrt(md/mp) has no evident physical meaning as a current ratio; both are outside the certified in-regime claim, which holds."}, "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified base exponent 2a(kd - kp) = 3.4476, ratio 31.42 (authors 31.4246). Bias R values: V = 0.47 eV exponent 3.7371 -> 41.98; 0.55 eV -> 4.0427 -> 56.98; 0.63 eV -> 4.3267 -> 75.69; all match. C: the incident current multiplies numerator and denominator and cancels; equal currents of singly charged particles are consistent with the stated equal particle rates, so no contradiction. Thermal energy K: under the prescribed model the thermal energy does not enter; all listed values (<= 0.032 eV) are well below 0.4 eV. Minimal pairs T7B68/TF88C (earlier run vs this run) and TF273/T87E1 (guard-electrode step vs barrier) keep 0.15 eV and differ only in attachment; TE9A5 and T1B32 are declared numeral-free controls. Agrees with pass 1 throughout."
+}

@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch03",
+  "item_id": "M250-S19",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:08:30Z", "completed_at": "2026-11-20T10:16:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Projectile range on level ground R = v^2 sin(2θ)/g", "assumptions": ["no air resistance", "same launch and landing height", "ramp not in the ball's path"], "answer": 38.3548, "unit": "m"},
+  "stratum_assignments": {
+    "T3E32": {"stratum": "R", "answer_with_sentence": 27.3115, "regime": null},
+    "T9D35": {"stratum": "D", "answer_with_sentence": 38.3548, "regime": null},
+    "TFDC7": {"stratum": "R", "answer_with_sentence": 27.3115, "regime": null},
+    "TFC29": {"stratum": "D", "answer_with_sentence": 38.3548, "regime": null},
+    "TC550": {"stratum": "D", "answer_with_sentence": 38.3548, "regime": null},
+    "T9417": {"stratum": "D", "answer_with_sentence": 38.3548, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "TFDC7 ('The launch direction is then lowered by a further 14°'), appended after 'The ball lands on the level ground', admits a reading in which the lowering happens after this flight, giving 38.3548 m instead of the certified R answer 27.3115 m."
+  },
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Checked certified answers: theta=28° -> 400*sin56°/9.8 = 400*0.82904/9.8 = 33.838 m; theta=21° -> 400*sin42°/9.8 = 27.311 m; theta=13° -> 400*sin26°/9.8 = 400*0.43837/9.8 = 17.893 m; base 38.355 m. All match. Pass-1 rendering_not_minimal withdrawn: the 'few degrees' sentences (T9D35, TC550) are declared numeral-free twins of TFC29 and T9417, so differing in number is by design; the declared minimal pairs (T9417-TFDC7, TFC29-T3E32) do share 14° and differ only in attachment/time. Minor: the claim for T9417/TC550 labels the quantity 'a lowering of the launch direction' although the sentence lowers the ramp; the d_rationale is correct, so I treat this as a labelling slip (low concern, not flagged). 'Further' presupposes an earlier lowering never mentioned (stylistic)."
+}

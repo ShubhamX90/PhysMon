@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch24",
+  "item_id": "M250-S228",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:37:00Z", "completed_at": "2026-11-20T10:45:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Lumped-capacitance Newton cooling from both faces: t = (rho c d / (2h)) ln((T0 - Ta)/(T - Ta))", "assumptions": ["uniform plate temperature", "edges and radiation negligible", "constant h and air temperature", "both faces cool"], "answer": 320.4, "unit": "s"},
+  "stratum_assignments": {
+    "T8CE2": {"stratum": "D", "answer_with_sentence": 320.4, "regime": null},
+    "TFDD1": {"stratum": "D", "answer_with_sentence": 320.4, "regime": null},
+    "TB45E": {"stratum": "R", "answer_with_sentence": 210.8, "regime": null},
+    "TD07A": {"stratum": "C", "answer_with_sentence": 320.4, "regime": null},
+    "T0E64": {"stratum": "R", "answer_with_sentence": 210.8, "regime": null},
+    "T826B": {"stratum": "D", "answer_with_sentence": 320.4, "regime": null},
+    "T797C": {"stratum": "C", "answer_with_sentence": 320.4, "regime": null},
+    "TED8F": {"stratum": "D", "answer_with_sentence": 320.4, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "rho c d = 14580 J/(m^2 K); tau = 14580/(2*25) = 291.6 s; t = 291.6 ln(150/50) = 320.36 s. With h = 38: tau = 191.84 s; t = 210.76 s. Face area cancels between heat capacity rho*A*d*c and loss 2hA (C). TFDD1 and T826B carry no number ('a little'), presumably numeral-free controls. T0E64 does not say 'while the plate cools' but in present tense reads as applying during the cooling."
+}

@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch17",
+  "item_id": "M250-S241",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:43:30Z", "completed_at": "2026-11-20T10:55:00Z", "minutes_spent": 11,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Eph = hc/lam = 3.1 eV; Ndot = P/Eph; I = eta e Ndot = eta P/(3.1 V)", "assumptions": ["monochromatic 400 nm light", "saturation collection", "Eph above work function", "stated hc and e used consistently"], "answer": 4.83871, "unit": "uA"},
+  "stratum_assignments": {
+    "T9477": {"stratum": "K", "answer_with_sentence": 4.83871, "regime": "work function < Eph = 3.1 eV"},
+    "TD93A": {"stratum": "R", "answer_with_sentence": 8.12903, "regime": null},
+    "TC8F7": {"stratum": "D", "answer_with_sentence": 4.83871, "regime": null},
+    "T306C": {"stratum": "D", "answer_with_sentence": 4.83871, "regime": null},
+    "T22AD": {"stratum": "R", "answer_with_sentence": 8.12903, "regime": null},
+    "TE41A": {"stratum": "D", "answer_with_sentence": 4.83871, "regime": null},
+    "TEBFE": {"stratum": "K", "answer_with_sentence": 4.83871, "regime": "work function < 3.1 eV"},
+    "TEB4A": {"stratum": "D", "answer_with_sentence": 4.83871, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "natural", "confidence": 3,
+  "uncertain_fields": [], "defect_flags": ["missing_assumption", "invalid_numerical_precision"],
+  "defect_reasons": {
+    "missing_assumption": "TD93A and T22AD add 3.4 mW from a second/further lamp without stating its wavelength or photon-to-electron probability; the authors' wiring (P -> P + q at 400 nm and eta = 0.003) silently assumes the extra light is identical to the beam, so the R answers are not determined by the text.",
+    "invalid_numerical_precision": "With the stated hc = 1240 eV nm and e = 1.602e-19 C, e cancels and I = 0.003*5 mW/3.1 V = 4.83871 uA, but the certified answers (4.83818, 8.12814, 6.48316, 10.8375 uA) are smaller by the factor 1.602/1.602176634, i.e. they mix the CODATA e (for eV to J) with the stated e (for the charge); the certified values are off in the fourth significant figure."
+  },
+  "defect_severity": {"missing_assumption": "high", "invalid_numerical_precision": "medium"},
+  "counterexamples": [
+    "Second lamp at 600 nm (2.07 eV > 1.9 eV) with the same yield: extra current 0.003*3.4 mW/2.067 V = 4.93 uA, total 9.77 uA, not 8.13 uA.",
+    "Second lamp at wavelengths longer than the threshold (about 650 nm for a 1.9-2.1 eV work function, or for an unspecified cathode): no extra current, total 4.84 uA.",
+    "Consistent use of the stated constants: base 4.83871 uA vs certified 4.83818 uA; 3.4 mW case 8.12903 uA vs certified 8.12814 uA."
+  ],
+  "notes": "Pass 1 already flagged the unstated wavelength of the added lamp; the authors' claims confirm the R answers rely on it being 400 nm with eta = 0.003 and do not state this in the sentences. The D and K claims are sound: dial lamp and earlier-measurement lamp have no path to the cathode current now; work functions 1.7-2.1 eV all lie below 3.1 eV. Minimal pairs TC8F7/TD93A and TEB4A/T22AD share 3.4 mW and differ only in attachment. The constant mismatch is small (0.011%) and likely within grading tolerance, hence medium.",
+  "equation_consistent": true, "units_consistent": true, "answer_correct": false, "precision_adequate": false,
+  "admission_category": "ANSWER_AMBIGUOUS"
+}

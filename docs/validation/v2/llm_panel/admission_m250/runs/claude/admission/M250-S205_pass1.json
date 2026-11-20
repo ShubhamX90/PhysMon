@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch13",
+  "item_id": "M250-S205",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:50:00Z", "completed_at": "2026-11-20T10:58:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Newton's second law in the horizontal plane for a coin in non-uniform circular motion: F = m r sqrt((omega^2)^2 + alpha^2), omega = alpha t", "assumptions": ["turntable starts from rest (stated)", "coin does not slip (stated), so it shares the turntable's motion", "static friction is the only horizontal force", "point coin at r = 8 cm"], "answer": 12.472, "unit": "mN"},
+  "stratum_assignments": {
+    "T93E5": {"stratum": "D", "answer_with_sentence": 12.472, "regime": null},
+    "TA974": {"stratum": "D", "answer_with_sentence": 12.472, "regime": null},
+    "T0819": {"stratum": "K", "answer_with_sentence": 12.472, "regime": "maximum static friction exceeds the required friction (12.47 mN at t = 4 s, the largest value up to then); 95 mN is inside"},
+    "TF803": {"stratum": "R", "answer_with_sentence": 18.707, "regime": null},
+    "T02AF": {"stratum": "R", "answer_with_sentence": 18.707, "regime": null},
+    "T47DA": {"stratum": "D", "answer_with_sentence": 12.472, "regime": null},
+    "T2F1F": {"stratum": "K", "answer_with_sentence": 12.472, "regime": "maximum static friction exceeds the required friction (12.47 mN); 95 mN is inside"},
+    "T8DDD": {"stratum": "D", "answer_with_sentence": 12.472, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "omega = 0.9*4 = 3.6 rad/s; a_c = 12.96*0.08 = 1.0368 m/s^2; a_t = 0.9*0.08 = 0.072 m/s^2; |a| = sqrt(1.07495 + 0.005184) = 1.03930 m/s^2; F = 0.012*1.03930 = 12.472 mN. With the 6 g tag on the coin (18 g): F = 18.707 mN, still below 95 mN. The friction limit is consistent with the stated no-slip condition since the required friction grows monotonically and stays below 95 mN; even with the tag it holds. Numeral-free sentences T93E5 and T8DDD lack the 6 g, presumably deliberate controls."
+}

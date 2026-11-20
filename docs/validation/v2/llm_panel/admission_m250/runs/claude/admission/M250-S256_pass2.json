@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch23",
+  "item_id": "M250-S256",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:08:00Z", "completed_at": "2026-11-20T10:15:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Q = (m/M) 3R (T2 - T1)", "assumptions": ["no heat loss", "constant molar heat capacity 3R", "no phase change"], "answer": 3.6113, "unit": "kJ"},
+  "stratum_assignments": {
+    "TA290": {"stratum": "D", "answer_with_sentence": 3.6113, "regime": null},
+    "T30A5": {"stratum": "C", "answer_with_sentence": 3.6113, "regime": null},
+    "TA856": {"stratum": "K", "answer_with_sentence": 3.6113, "regime": "T well above Theta_D (authors: T1 > 2 Theta_D); 300 K > 210 K"},
+    "TD22B": {"stratum": "D", "answer_with_sentence": 3.6113, "regime": null},
+    "TC49F": {"stratum": "R", "answer_with_sentence": 4.9114, "regime": null},
+    "T6CF0": {"stratum": "R", "answer_with_sentence": 4.9114, "regime": null},
+    "T85DA": {"stratum": "D", "answer_with_sentence": 3.6113, "regime": null},
+    "T9737": {"stratum": "K", "answer_with_sentence": 3.6113, "regime": "T well above Theta_D (authors: T1 > 2 Theta_D); 300 K > 210 K"},
+    "TBFB5": {"stratum": "C", "answer_with_sentence": 3.6113, "regime": null},
+    "TAA2E": {"stratum": "D", "answer_with_sentence": 3.6113, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "For TC49F, 'cast' suggests molten lead whose temperature is left implicit; the base statement that the block is at 300 K when heated covers it on the natural reading."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked certified answers: base 3.61129 kJ; m+q = 0.57, 0.68, 1.02 kg give 4.11687, 4.91136, 7.36704 kJ, all matching my arithmetic (1496.52 J/mol times n). C claim for heater power holds (power fixes only t = Q/P). K regime T1 > 2 Theta_D holds for 88, 105, 122 K (max 244 K < 300 K); at T/Theta_D >= 2.46 the Debye heat capacity is within about 1% of 3R, consistent with the stated equipartition model. The out-of-regime T^3 reference expression is only a rough low-T form, but it is labelled reference-only and not certified. Minimal pairs TA290/TC49F and TD22B/T6CF0 share 0.18 kg and differ only in attachment/time; numeral-free twins as described. Agrees with my pass 1."
+}

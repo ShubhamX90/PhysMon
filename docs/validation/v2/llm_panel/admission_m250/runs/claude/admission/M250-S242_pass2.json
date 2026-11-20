@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch27",
+  "item_id": "M250-S242",
+  "pass_number": 2,
+  "started_at": "2026-11-20T11:03:00Z", "completed_at": "2026-11-20T11:11:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "t = ln(A1/A2)/(lam1 - lam2) with lam = ln2/T", "assumptions": ["independent exponential decays", "equal efficiency", "negligible background"], "answer": 14.8126, "unit": "h"},
+  "stratum_assignments": {
+    "T922D": {"stratum": "C", "answer_with_sentence": 14.8126, "regime": null},
+    "T9D9A": {"stratum": "D", "answer_with_sentence": 14.8126, "regime": null},
+    "T84B6": {"stratum": "D", "answer_with_sentence": 14.8126, "regime": null},
+    "T7283": {"stratum": "R", "answer_with_sentence": 12.0489, "regime": null},
+    "TADA4": {"stratum": "D", "answer_with_sentence": 14.8126, "regime": null},
+    "TF3A2": {"stratum": "D", "answer_with_sentence": 14.8126, "regime": null},
+    "T6BE6": {"stratum": "C", "answer_with_sentence": 14.8126, "regime": null},
+    "T45EB": {"stratum": "R", "answer_with_sentence": 12.0489, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["insufficient_boundary_condition"],
+  "defect_reasons": {"insufficient_boundary_condition": "The certified wiring for T45EB assumes the extra 170 Bq batch is 'added at the moment of preparation', but the sentence ('Another 170 Bq batch of the longer-lived isotope is added to the sample') states neither when it is added nor at what moment it has 170 Bq, and a later addition gives a different crossing time."},
+  "defect_severity": {"insufficient_boundary_condition": "high"},
+  "counterexamples": ["T45EB with the batch added at t = 10 h and having 170 Bq then: equivalent preparation-time activity 170*2^(10/72) = 186.9 Bq, crossing at 72/11*log2(2400/686.9) = 11.82 h, not the certified 12.05 h."],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "Verified all certified numbers: base 14.8126 h; R at 110, 170, 360 Bq gives 12.9348, 12.0489, 9.6914 h. Efficiency cancellation correct (C). Waste-drum and earlier-sample sentences D; minimal pairs TADA4/T45EB and T84B6/T7283 keep 170 Bq and differ only in attachment; T9D9A and TF3A2 are declared numeral-free controls. T7283 is well posed ('at the moment of preparation of this sample'); the defect is confined to T45EB, whose timing is unstated though the authors' wiring relies on it. answer_correct=true refers to the arithmetic under the authors' reading. Same conclusion as pass 1."
+}

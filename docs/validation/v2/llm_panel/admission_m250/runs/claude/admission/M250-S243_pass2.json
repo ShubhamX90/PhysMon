@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch19",
+  "item_id": "M250-S243",
+  "pass_number": 2,
+  "started_at": "2026-11-20T00:08:00Z", "completed_at": "2026-11-20T00:14:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Rutherford closest approach for a fixed Coulomb centre: d = (D/2)(1 + 1/sin(theta/2)), D = 2 Z e^2/(4 pi eps0 K).",
+    "assumptions": ["fixed nucleus", "point Coulomb charges", "single scattering", "non-relativistic"],
+    "answer": 54.92,
+    "unit": "fm"
+  },
+  "stratum_assignments": {
+    "T9A84": {"stratum": "R", "answer_with_sentence": 31.93, "regime": null},
+    "TE67A": {"stratum": "D", "answer_with_sentence": 54.92, "regime": null},
+    "T850C": {"stratum": "R", "answer_with_sentence": 31.93, "regime": null},
+    "TA405": {"stratum": "K", "answer_with_sentence": 54.92, "regime": "closest approach d > nuclear radius"},
+    "T381B": {"stratum": "D", "answer_with_sentence": 54.92, "regime": null},
+    "TABD0": {"stratum": "D", "answer_with_sentence": 54.92, "regime": null},
+    "T5616": {"stratum": "D", "answer_with_sentence": 54.92, "regime": null},
+    "T69BD": {"stratum": "K", "answer_with_sentence": 54.92, "regime": "closest approach d > charge radius"}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_numerical_precision"],
+  "defect_reasons": {"invalid_numerical_precision": "The certified 54.9159 fm appears to convert MeV to joules with the CODATA e (1.602176634e-19) while the problem tells the solver to take e = 1.602e-19 C; using the stated e throughout gives 54.922 fm, a 0.011% difference well within the precision of the inputs."},
+  "defect_severity": {"invalid_numerical_precision": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Relations match my pass-1 solution. Certified values check: 54.9159*5/8 = 34.322, *5/8.6 = 31.928, *5/9.2 = 29.846 fm. K regime d > q holds for all listed radii (6.6-7.5 fm) and also under the R sentences (closest approach >= 29.8 fm). Minimal pairs TE67A/T9A84 and TABD0/T850C share number and unit and differ only in attachment; T381B and T5616 are declared numeral-free controls. Pass-1 agreement apart from the 0.01% constant-convention difference noted above."
+}

@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch32",
+  "item_id": "M250-S10",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:17:00Z", "completed_at": "2026-11-20T10:24:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Uniform-gravity projectile motion: H_max = h0 + (v0 sin theta)^2 / (2 g)",
+    "assumptions": ["no air resistance", "uniform g = 9.8 m/s^2", "launch point at platform top, 5 m above ground"],
+    "answer": 13.432,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "T2FDC": {"stratum": "D", "answer_with_sentence": 13.432, "regime": null},
+    "TB71A": {"stratum": "D", "answer_with_sentence": 13.432, "regime": null},
+    "T7618": {"stratum": "D", "answer_with_sentence": 13.432, "regime": null},
+    "TA325": {"stratum": "C", "answer_with_sentence": 13.432, "regime": null},
+    "T4C78": {"stratum": "K", "answer_with_sentence": 13.432, "regime": "Ball's peak (13.43 m) stays below the 26 m ceiling, so the ball does not hit it."},
+    "T3770": {"stratum": "C", "answer_with_sentence": 13.432, "regime": null},
+    "T2004": {"stratum": "R", "answer_with_sentence": 15.632, "regime": null},
+    "T161A": {"stratum": "R", "answer_with_sentence": 15.632, "regime": null},
+    "T55E8": {"stratum": "D", "answer_with_sentence": 13.432, "regime": null},
+    "T5047": {"stratum": "K", "answer_with_sentence": 13.432, "regime": "Peak below the 26 m ceiling."}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "vy0 = 20 sin40 = 12.8558 m/s; vy0^2/(2g) = 165.271/19.6 = 8.432 m; H = 13.432 m; with 2.2 m stand under platform H = 15.632 m (still below 26 m ceiling). Variants: 2.2 m sentences consistent (T2FDC, T2004, T161A, T55E8); mass 1.8 kg in TA325/T3770; ceiling 26 m in T4C78/T5047. TB71A and T7618 have 'small' with no number. Mass is C (cancels from m a = m g)."
+}

@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch18",
+  "item_id": "M250-S36",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:43:00Z", "completed_at": "2026-11-20T10:51:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Physical pendulum: T = 2 pi sqrt(I_p/(m g d)), I_p = m L^2/12 + m d^2 (parallel axis); T = 2 pi sqrt((0.12 + 0.09)/(9.8*0.3)) = 2 pi sqrt(0.071429) = 2 pi * 0.26726",
+    "assumptions": ["thin uniform rod", "small-angle approximation (stated)", "frictionless pivot, no air resistance (stated)"],
+    "answer": 1.679,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TA36F": {"stratum": "C", "answer_with_sentence": 1.679, "regime": null},
+    "TFD4F": {"stratum": "D", "answer_with_sentence": 1.679, "regime": null},
+    "T1443": {"stratum": "D", "answer_with_sentence": 1.679, "regime": null},
+    "TF2C6": {"stratum": "D", "answer_with_sentence": 1.679, "regime": null},
+    "T2919": {"stratum": "C", "answer_with_sentence": 1.679, "regime": null},
+    "T7714": {"stratum": "D", "answer_with_sentence": 1.679, "regime": null},
+    "TFE49": {"stratum": "R", "answer_with_sentence": 2.339, "regime": null},
+    "T1D34": {"stratum": "R", "answer_with_sentence": 2.339, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "R: d = 0.30 - 0.205 = 0.095 m; T = 2 pi sqrt((0.12 + 0.009025)/(9.8*0.095)) = 2 pi sqrt(0.129025/0.931) = 2 pi * 0.37227 = 2.339 s. Mass cancels (I and torque both proportional to m). See-saw and earlier-experiment sentences are D. Variants all carry 20.5 cm or 1.1 kg consistently. 'Is then moved' in T1D34 is read as before the swinging whose period is asked."
+}

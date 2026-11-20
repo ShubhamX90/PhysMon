@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch27",
+  "item_id": "M250-S25",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:25:00Z", "completed_at": "2026-11-20T10:31:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "U = (1/2) L I^2", "assumptions": ["ideal linear inductor", "steady current 3 A", "no coupling to the lamp circuit"], "answer": 1125.0, "unit": "mJ"},
+  "stratum_assignments": {
+    "T5F48": {"stratum": "D", "answer_with_sentence": 1125.0, "regime": null},
+    "TF595": {"stratum": "K", "answer_with_sentence": 1125.0, "regime": "linear core while I = 3 A < 9.5 A"},
+    "T8F25": {"stratum": "D", "answer_with_sentence": 1125.0, "regime": null},
+    "T9150": {"stratum": "K", "answer_with_sentence": 1125.0, "regime": "no saturation while I = 3 A < 9.5 A"},
+    "T9E75": {"stratum": "R", "answer_with_sentence": 4205.0, "regime": null},
+    "T7035": {"stratum": "D", "answer_with_sentence": 1125.0, "regime": null},
+    "TA5C2": {"stratum": "R", "answer_with_sentence": 4205.0, "regime": null},
+    "T1C85": {"stratum": "C", "answer_with_sentence": 1125.0, "regime": null},
+    "T80D0": {"stratum": "D", "answer_with_sentence": 1125.0, "regime": null},
+    "T3774": {"stratum": "C", "answer_with_sentence": 1125.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "In TA5C2 the past-tense 'Before the energy was measured, a rheostat increased the current by 2.8 A' leaves slight room to read the stated 3 A as the post-increase current."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified R answers: 0.125*(4.2)^2 = 2.205 J, 0.125*(5.8)^2 = 4.205 J, 0.125*(7.5)^2 = 7.03125 J; all final currents (max 7.5 A) are below the 9.5 A linear limit. C cancellation checked: (L I/T)(I/2)T = L I^2/2, independent of T. K predicate q > 3 A holds for 6.5, 9.5, 12 A. Minimal pairs T80D0/T9E75 (lamp vs coil) and T8F25/TA5C2 (earlier experiment vs before this measurement) keep 2.8 A and differ only in attachment. T5F48 and T7035 are declared numeral-free controls. Agrees with pass 1."
+}

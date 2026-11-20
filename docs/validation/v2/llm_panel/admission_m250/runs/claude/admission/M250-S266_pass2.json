@@ -1,0 +1,42 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch10",
+  "item_id": "M250-S266",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:08:00Z", "completed_at": "2026-11-20T10:14:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "I2 = P/V; I1 = I2*N2/N1; P_loss = I2^2 R2 + I1^2 R1",
+    "assumptions": ["ideal coupling, negligible magnetising current and core loss (stated)", "resistive load", "extra load drawn at the same 24 V"],
+    "answer": 32.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T2665": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null},
+    "TEC29": {"stratum": "R", "answer_with_sentence": 53.39, "regime": null},
+    "TA1EB": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null},
+    "T3C5C": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null},
+    "TDD45": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null},
+    "T9CFA": {"stratum": "K", "answer_with_sentence": 32.0, "regime": "B/Bsat well below 1 (authors: q < 0.8)"},
+    "T9010": {"stratum": "K", "answer_with_sentence": 32.0, "regime": "B/Bsat well below 1 (authors: q < 0.8)"},
+    "TD2EC": {"stratum": "R", "answer_with_sentence": 53.39, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption", "other"],
+  "defect_reasons": {
+    "missing_assumption": "The R sentences do not say the extra 140 W is drawn at the same 24 V, which the authors' wiring assumes; with a fixed primary supply the voltage would sag slightly, a small effect.",
+    "other": "The K threshold q < 0.8 and the reference expression Ploss*(1+q^2) are arbitrary modelling choices, not derived physics, though they are marked reference-only and every listed value (0.42-0.68) is plausibly in the linear regime."
+  },
+  "defect_severity": {"missing_assumption": "medium", "other": "low"},
+  "counterexamples": [],
+  "notes": "Checked certified answers: P_loss = (P/24)^2 * (0.05 + 3*0.01) = 0.08 (P/24)^2; P=480 -> 32.0, 545 -> 41.25, 620 -> 53.39, 790 -> 86.68 W, all match. D rationales (charger is a separate circuit; earlier run leaves no state) hold. Minimal pairs T2665/TEC29 and TDD45/TD2EC differ only in attachment/time with the same 140 W. Numeral-free twins as described. Agrees with pass 1."
+}

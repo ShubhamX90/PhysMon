@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch20",
+  "item_id": "M250-S264",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Series RLC phasor: tan(phi) = (X_L - X_C)/R, X_L = 2*pi*f*L, X_C = 1/(2*pi*f*C)", "assumptions": ["ideal L and C", "steady sinusoidal state", "fan circuit separate from RLC circuit"], "answer": 40.35, "unit": "degree"},
+  "stratum_assignments": {
+    "TA667": {"stratum": "C", "answer_with_sentence": 40.35, "regime": null},
+    "T2697": {"stratum": "D", "answer_with_sentence": 40.35, "regime": null},
+    "T0B12": {"stratum": "R", "answer_with_sentence": 30.08, "regime": null},
+    "T282F": {"stratum": "K", "answer_with_sentence": 40.35, "regime": "operating frequency 500 Hz far below self-resonance 140 kHz, parasitic capacitance negligible"},
+    "T9559": {"stratum": "K", "answer_with_sentence": 40.35, "regime": "operating frequency 500 Hz far below self-resonance 140 kHz"},
+    "T4415": {"stratum": "C", "answer_with_sentence": 40.35, "regime": null},
+    "TD7F0": {"stratum": "D", "answer_with_sentence": 40.35, "regime": null},
+    "TEEB4": {"stratum": "R", "answer_with_sentence": 30.08, "regime": null},
+    "T3337": {"stratum": "D", "answer_with_sentence": 40.35, "regime": null},
+    "T6DE7": {"stratum": "D", "answer_with_sentence": 40.35, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["contradictory_distractor_statement", "rendering_not_minimal"],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "The problem states the inductor is ideal, yet T282F/T9559 attribute a 140 kHz self-resonance (parasitic capacitance) to it, which an ideal inductor cannot have.",
+    "rendering_not_minimal": "T3337 and TD7F0 give 'a further small amount of resistance' with no value, while their apparent counterparts T2697 and T6DE7 state 14 ohm."
+  },
+  "defect_severity": {"contradictory_distractor_statement": "high", "rendering_not_minimal": "low"},
+  "counterexamples": [],
+  "notes": "omega = 3141.59 rad/s; X_L = 78.540 ohm; X_C = 53.052 ohm; X = 25.488 ohm; tan(phi) = 0.8496 -> phi = 40.35 deg (current lags). With R = 44 ohm: tan = 0.5793 -> 30.08 deg. Peak voltage cancels from the phase angle (C). T0B12 wording 'for one run only' is odd but says the extra resistance is present during the measurement, so R. The self-resonance contradiction with 'ideal inductor' is a judgment call; the regime itself (500 Hz << 140 kHz) is fine."
+}

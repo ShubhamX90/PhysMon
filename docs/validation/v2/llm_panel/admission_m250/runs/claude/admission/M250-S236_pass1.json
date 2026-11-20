@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch33",
+  "item_id": "M250-S236",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:39:00Z", "completed_at": "2026-11-20T10:49:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Helmholtz resonator: f = (c/2 pi) sqrt(A/(V L_eff)), A = pi r^2, L_eff = L + 2*0.85 r", "assumptions": ["lumped element (flask << wavelength)", "adiabatic compression", "rigid walls", "end correction 0.85 r at each end as stated"], "answer": 121.98, "unit": "Hz"},
+  "stratum_assignments": {
+    "TF775": {"stratum": "D", "answer_with_sentence": 121.98, "regime": null},
+    "TE665": {"stratum": "R", "answer_with_sentence": 98.63, "regime": null},
+    "T7D3B": {"stratum": "C", "answer_with_sentence": 121.98, "regime": null},
+    "TF909": {"stratum": "D", "answer_with_sentence": 121.98, "regime": null},
+    "TAA13": {"stratum": "K", "answer_with_sentence": 121.98, "regime": "lumped-element model valid while the flask dimension (20.5 cm) << wavelength (about 2.8 m)"},
+    "T19EB": {"stratum": "D", "answer_with_sentence": 121.98, "regime": null},
+    "TB582": {"stratum": "R", "answer_with_sentence": 98.63, "regime": null},
+    "T8378": {"stratum": "D", "answer_with_sentence": 121.98, "regime": null},
+    "T9C2F": {"stratum": "K", "answer_with_sentence": 121.98, "regime": "lumped-element model valid while the flask dimension (20.5 cm) << wavelength (about 2.8 m)"},
+    "T4554": {"stratum": "C", "answer_with_sentence": 121.98, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other", "invalid_parameter_domain"],
+  "defect_reasons": {
+    "other": "TE665 ('had been attached ... before its resonance was measured') does not state outright that the tube is still attached during the measurement; R is the natural reading.",
+    "invalid_parameter_domain": "Air with density 1.6 kg/m^3 and sound speed 343 m/s implies a pressure of rho c^2/gamma, about 134 kPa, which is unusual for a flask open to ambient air (about 1.2 kg/m^3 is expected); it does not change the answer because density cancels."
+  },
+  "defect_severity": {"other": "medium", "invalid_parameter_domain": "low"},
+  "counterexamples": [],
+  "notes": "A = pi*(0.012)^2 = 4.5239e-4 m^2; L_eff = 0.04 + 0.0204 = 0.0604 m; A/(V L) = 4.9933 m^-2; f = 54.590*2.23457 = 121.98 Hz. With the 3.2 cm tube, L_eff = 0.0924 m and f = 54.590*1.80665 = 98.63 Hz. Density enters both the plug mass and the stiffness rho c^2 A^2/V, so it cancels for a given c. Variant sentences share 3.2 cm, 1.6 kg/m^3 and 20.5 cm; the 'short' sentences are numeral-free."
+}

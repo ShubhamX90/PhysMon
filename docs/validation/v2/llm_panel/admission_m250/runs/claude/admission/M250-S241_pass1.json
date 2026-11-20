@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch17",
+  "item_id": "M250-S241",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:33:00Z", "completed_at": "2026-11-20T10:43:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "photon energy E = hc/lambda = 1240/400 = 3.1 eV; photon rate N = P/E; I = eta N e = eta P/(E/e) = 0.003 * 5e-3 W / 3.1 V", "assumptions": ["monochromatic light", "all light reaches the cathode", "all released electrons collected (saturation)", "photon energy exceeds the work function"], "answer": 4.8387e-6, "unit": "A"},
+  "stratum_assignments": {
+    "T9477": {"stratum": "K", "answer_with_sentence": 4.8387e-6, "regime": "work function below the photon energy 3.1 eV (photoemission possible); 1.9 eV is inside"},
+    "TD93A": {"stratum": "R", "answer_with_sentence": 8.1290e-6, "regime": null},
+    "TC8F7": {"stratum": "D", "answer_with_sentence": 4.8387e-6, "regime": null},
+    "T306C": {"stratum": "D", "answer_with_sentence": 4.8387e-6, "regime": null},
+    "T22AD": {"stratum": "R", "answer_with_sentence": 8.1290e-6, "regime": null},
+    "TE41A": {"stratum": "D", "answer_with_sentence": 4.8387e-6, "regime": null},
+    "TEBFE": {"stratum": "K", "answer_with_sentence": 4.8387e-6, "regime": "work function < 3.1 eV"},
+    "TEB4A": {"stratum": "D", "answer_with_sentence": 4.8387e-6, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "natural", "confidence": 3,
+  "uncertain_fields": [], "defect_flags": ["missing_assumption"],
+  "defect_reasons": {"missing_assumption": "The R sentences TD93A and T22AD add 3.4 mW from a second/further lamp without stating its wavelength (or that it is the same 400 nm light with the same 0.003 photon-to-electron probability), so the extra photon rate and hence the current are not determined; 8.129 uA holds only if the extra light is also 400 nm."},
+  "defect_severity": {"missing_assumption": "high"},
+  "counterexamples": ["If the second lamp emitted at 600 nm (2.07 eV > 1.9 eV) with the same yield, the extra current would be 0.003*3.4e-3/2.067 = 4.93 uA, total 9.77 uA instead of 8.13 uA; if it emitted beyond the threshold (>653 nm for 1.9 eV) it would add nothing."],
+  "notes": "e cancels: I = eta P e lambda/(hc) with hc in eV nm gives I = eta P/(3.1 V). Work function 1.9 eV: threshold 1240/1.9 = 652.6 nm > 400 nm, so K. Variant groups (3.4 mW; 1.9 eV; 'a little') consistent in number and unit."
+}

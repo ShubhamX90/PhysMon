@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch31",
+  "item_id": "M250-S273",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:50:00Z", "completed_at": "2026-11-20T10:58:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "E_photon = K + Z ke2/(2 r), r = n^2 a0/(Z mu), lambda = hc/E_photon", "assumptions": ["Reduced mass 185.84 m_e", "Point Coulomb nucleus, no recoil", "Non-relativistic"], "answer": 1585.4, "unit": "pm"},
+  "stratum_assignments": {
+    "TE47C": {"stratum": "D", "answer_with_sentence": 1585.4, "regime": null},
+    "T2E00": {"stratum": "D", "answer_with_sentence": 1585.4, "regime": null},
+    "T325A": {"stratum": "D", "answer_with_sentence": 1585.4, "regime": null},
+    "T3BDA": {"stratum": "K", "answer_with_sentence": 1585.4, "regime": "nuclear radius << muonic orbit radius (~1139 fm)"},
+    "TCB0F": {"stratum": "R", "answer_with_sentence": 1380.7, "regime": null},
+    "TBBAA": {"stratum": "K", "answer_with_sentence": 1585.4, "regime": "nuclear radius << muonic orbit radius (~1139 fm)"},
+    "TE652": {"stratum": "R", "answer_with_sentence": 1380.7, "regime": null},
+    "T4CEB": {"stratum": "D", "answer_with_sentence": 1585.4, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The nuclear radii 1.9-2.5 fm are unrealistic for a Z=1, 1836.15 m_e nucleus (a proton, ~0.84 fm), and the out-of-regime reference expression hc/(K + Z ke2/(2q)) is not the correct finite-size physics; neither affects the certified in-regime answers."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Verified (in pm): base 1240/782.12 = 1585.44; q=48 -> 1240/830.12 = 1493.77; q=116 -> 1380.67; q=240 -> 1240/1022.12 = 1213.17. Units: my pass-1 answer 1.5854 nm equals 1585.4 pm; no disagreement. K regime 10q < r holds for all listed radii (25 fm << 1139 fm). Minimal pairs T325A/TCB0F (electron beam vs muon) and TE47C/TE652 (earlier capture vs this capture) keep 116 eV; minor wording difference 'adds ... to' vs 'gives ... more' is within the pair structure. Numeral-free twins match."
+,
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

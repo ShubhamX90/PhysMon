@@ -1,0 +1,24 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch31",
+  "item_id": "M250-S16",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:22:00Z", "completed_at": "2026-11-20T10:28:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "I(t) = (E/R)(1 - exp(-R t / L))", "assumptions": ["Zero current at closing", "Ideal battery and wires", "Lamp loop uncoupled"], "answer": 0.4661, "unit": "A"},
+  "stratum_assignments": {
+    "TAEAE": {"stratum": "R", "answer_with_sentence": 0.3535, "regime": null},
+    "T582C": {"stratum": "D", "answer_with_sentence": 0.4661, "regime": null},
+    "T2DE4": {"stratum": "R", "answer_with_sentence": 0.3535, "regime": null},
+    "T20A0": {"stratum": "D", "answer_with_sentence": 0.4661, "regime": null},
+    "T40EA": {"stratum": "D", "answer_with_sentence": 0.4661, "regime": null},
+    "T9F10": {"stratum": "D", "answer_with_sentence": 0.4661, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Verified R answers: q=4 -> R=24, x=1.8, I=0.5(1-0.16530)=0.41735 A; q=10.5 -> 0.3535 A; q=17 -> R=37, x=2.775, I=0.32432(1-0.06235)=0.30410 A. Minimal pairs T20A0/T2DE4 (lamp vs coil) and T9F10/TAEAE (earlier experiment vs before closing) differ only in attachment, both 10.5 ohm. Numeral-free twins match. Zero initial current is implied by 'closed at the start'. Agrees with pass 1."
+,
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

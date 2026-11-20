@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch32",
+  "item_id": "M250-S231",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:31:00Z", "completed_at": "2026-11-20T10:40:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Doppler effect for a moving reflector with stationary source and receiver: f_echo = f (c+u)/(c-u); beat = f_echo - f = 2 u f/(c-u)",
+    "assumptions": ["air still", "source and microphone at rest and co-located", "wall moves directly towards source at constant u", "non-relativistic, u << c"],
+    "answer": 7.7647,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T2729": {"stratum": "R", "answer_with_sentence": 11.4353, "regime": null},
+    "T544D": {"stratum": "D", "answer_with_sentence": 7.7647, "regime": null},
+    "T811A": {"stratum": "D", "answer_with_sentence": 7.7647, "regime": null},
+    "T105F": {"stratum": "D", "answer_with_sentence": 7.7647, "regime": null},
+    "T72F4": {"stratum": "C", "answer_with_sentence": 7.7647, "regime": null},
+    "T7F76": {"stratum": "R", "answer_with_sentence": 11.4353, "regime": null},
+    "TAC5B": {"stratum": "C", "answer_with_sentence": 7.7647, "regime": null},
+    "T1B41": {"stratum": "D", "answer_with_sentence": 7.7647, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: 440*6/340 = 7.7647 Hz. With wall speed 4.4 m/s: 440*8.8/338.6 = 11.4353 Hz. The 90 m distance (T72F4/TAC5B) enters the wavefront-timing derivation (echo delay) but cancels from the frequency; it could also be read as K (regime: the wall has not yet reached the loudspeaker, i.e. within 30 s of the start), since it only bounds the time window in which an echo exists. Variants: 1.4 m/s in T2729, T811A, T105F, T7F76; 90 m in T72F4/TAC5B; T544D and T1B41 numeral-free ('a little')."
+}

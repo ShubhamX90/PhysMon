@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch17",
+  "item_id": "M250-S73",
+  "pass_number": 2,
+  "started_at": "2026-11-20T11:05:30Z", "completed_at": "2026-11-20T11:12:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "E1 = (hc)^2/(8 mc^2 L^2); dE = (16 - 1) E1; lambda = hc/dE = 8 mc^2 L^2/(15 hc)", "assumptions": ["infinite square well, non-relativistic", "one photon carries the whole energy difference"], "answer": 54.9462, "unit": "nm"},
+  "stratum_assignments": {
+    "T3D51": {"stratum": "R", "answer_with_sentence": 1848.39, "regime": null},
+    "TEDF7": {"stratum": "D", "answer_with_sentence": 54.9462, "regime": null},
+    "T8EF5": {"stratum": "R", "answer_with_sentence": 1848.39, "regime": null},
+    "T7B70": {"stratum": "D", "answer_with_sentence": 54.9462, "regime": null},
+    "T425C": {"stratum": "D", "answer_with_sentence": 54.9462, "regime": null},
+    "T6BE7": {"stratum": "D", "answer_with_sentence": 54.9462, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "TEDF7/T6BE7 ('The well was widened ... in an earlier experiment on it') do not say the widening was reversed, and widening is a lasting structural change, so a reader could take the present width as 2.9 nm (answer 1848 nm); the authors' 'leaves no state behind' reading relies on the stated 0.5 nm width taking precedence."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Certified answers verified: L = 0.5 nm gives 4088000*0.25/18600 = 54.9462 nm; L = 1.8, 2.9, 3.3 nm give 712.103, 1848.39, 2393.46 nm. Relation 'hc**2' is (hc)^2 with hc as one symbol, consistent. Energies (about 22.6 eV and below) are far below 511 keV, so the non-relativistic model is fine; 4->1 is dipole-allowed. Minimal pairs T7B70/T8EF5 and TEDF7/T3D51 share 2.4 nm and differ in attachment/timing; numeral-free twins match. Agreement with pass 1.",
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS"
+}

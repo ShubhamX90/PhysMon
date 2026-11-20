@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch22",
+  "item_id": "M250-S31",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:16:00Z", "completed_at": "2026-11-20T10:25:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Projectile motion: h = g t^2/2, x = v t, so x = v sqrt(2h/g)", "assumptions": ["horizontal launch from the cliff edge", "no air resistance", "uniform g = 9.8 m/s^2", "level ground"], "answer": 30.305, "unit": "m"},
+  "stratum_assignments": {
+    "TA87E": {"stratum": "C", "answer_with_sentence": 30.305, "regime": null},
+    "T09E8": {"stratum": "D", "answer_with_sentence": 30.305, "regime": null},
+    "T4ABD": {"stratum": "D", "answer_with_sentence": 30.305, "regime": null},
+    "TA0DB": {"stratum": "C", "answer_with_sentence": 30.305, "regime": null},
+    "T1E37": {"stratum": "D", "answer_with_sentence": 30.305, "regime": null},
+    "TFC1C": {"stratum": "D", "answer_with_sentence": 30.305, "regime": null},
+    "TA432": {"stratum": "R", "answer_with_sentence": 39.512, "regime": null},
+    "TE4A5": {"stratum": "D", "answer_with_sentence": 30.305, "regime": null}
+  },
+  "validity": "uncertain",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": ["T1E37 stratum", "TA432 launch height"],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "T1E37 ('The thrower then climbs...') does not say whether the climb happens before or after the throw, and TA432 places the thrower 14 m above the cliff edge before the throw while the problem says the stone is thrown from the edge of the cliff, so the launch height is not uniquely fixed."
+  },
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: t = sqrt(40/9.8) = 2.0203 s, x = 15*2.0203 = 30.305 m. If launched from the platform (34 m): t = sqrt(68/9.8) = 2.6342 s, x = 39.512 m. Mass enters m a = m g and cancels (C). I read 'then' in T1E37 as after the throw (D) since the throw is the narrative's prior event; if the throw is from the platform, it would be R with 39.512 m. TA432 I read as a throw from the platform (R), though it sits uneasily with 'thrown from the edge of a cliff'."
+}

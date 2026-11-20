@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch24",
+  "item_id": "M250-S260",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:12:00Z", "completed_at": "2026-11-20T10:20:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "z = sqrt(2) pi d^2 n vbar, n = p/(kT), vbar = sqrt(8kT/(pi m))", "assumptions": ["ideal gas", "hard spheres", "Maxwellian speeds", "vessel much larger than mean free path"], "answer": 5.595, "unit": "GHz"},
+  "stratum_assignments": {
+    "TE094": {"stratum": "D", "answer_with_sentence": 5.59458, "regime": null},
+    "T209B": {"stratum": "K", "answer_with_sentence": 5.59458, "regime": "10*lambda < width (lambda ~ 85 nm)"},
+    "T62EC": {"stratum": "D", "answer_with_sentence": 5.59458, "regime": null},
+    "T8E4F": {"stratum": "R", "answer_with_sentence": 7.90234, "regime": null},
+    "T5675": {"stratum": "C", "answer_with_sentence": 5.59458, "regime": null},
+    "TA9C7": {"stratum": "D", "answer_with_sentence": 5.59458, "regime": null},
+    "T4C04": {"stratum": "C", "answer_with_sentence": 5.59458, "regime": null},
+    "T7923": {"stratum": "D", "answer_with_sentence": 5.59458, "regime": null},
+    "T6ADA": {"stratum": "K", "answer_with_sentence": 5.59458, "regime": "10*lambda < width (lambda ~ 85 nm)"},
+    "TE998": {"stratum": "R", "answer_with_sentence": 7.90234, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T8E4F's 'for one run only' alongside 'Before the collisions are counted' is slightly awkward, though the intended reading (the counted run has p = 113 kPa) is the natural one."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "All certified answers agree with my pass-1 work: base 5.59458 GHz; R answers scale as (80+q)/80: 17 kPa -> 6.78343, 33 kPa -> 7.90234, 58 kPa -> 9.65065 GHz. Volume cancels (n = p/kT). Width K regime 10*lambda < q holds for 4.5-33 cm (lambda ~ 85 nm); counter-regime at 1e-5 cm (100 nm < 850 nm) correctly fails the predicate. Minimal pairs T7923/TE998 (cylinder vs vessel) and TA9C7/T8E4F (earlier experiment vs counted run) share 33 kPa and differ only in attachment/time frame. The number-free sentences TE094 and T62EC are declared numeral-free controls, which resolves my pass-1 note about them. No disagreement with pass 1.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

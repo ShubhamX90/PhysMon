@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch27",
+  "item_id": "M250-S248",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:43:00Z", "completed_at": "2026-11-20T10:51:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "f = g e B/(4 pi m)", "assumptions": ["Larmor precession independent of tilt", "cyclic frequency"], "answer": 14.8979, "unit": "MHz"},
+  "stratum_assignments": {
+    "T371E": {"stratum": "R", "answer_with_sentence": 17.1113, "regime": null},
+    "TCC2A": {"stratum": "D", "answer_with_sentence": 14.8979, "regime": null},
+    "T5536": {"stratum": "C", "answer_with_sentence": 14.8979, "regime": null},
+    "T5A0E": {"stratum": "C", "answer_with_sentence": 14.8979, "regime": null},
+    "TBE19": {"stratum": "R", "answer_with_sentence": 17.1113, "regime": null},
+    "T9574": {"stratum": "D", "answer_with_sentence": 14.8979, "regime": null},
+    "TA0E4": {"stratum": "D", "answer_with_sentence": 14.8979, "regime": null},
+    "TB34F": {"stratum": "D", "answer_with_sentence": 14.8979, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["contradictory_distractor_statement", "other"],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "The base text says the field at the sample is a uniform, constant 350 mT and 'no other magnetic field acts there', but the R sentences T371E ('during this measurement') and TBE19 add a second coil's 52 mT at the sample, so the problem plus either sentence contradicts itself and the certified 17.11 MHz is only one of two defensible readings.",
+    "other": "'Frequency' admits the angular reading (rad/s), though cyclic MHz is conventional and is the target unit."
+  },
+  "defect_severity": {"contradictory_distractor_statement": "high", "other": "low"},
+  "counterexamples": ["Base + TBE19: honouring 'no other magnetic field acts there' gives 14.90 MHz, honouring the added coil gives 17.11 MHz."],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "All numbers verified: base 14.8979 MHz; R at 44, 52, 60 mT gives 16.7708, 17.1113, 17.4519 MHz (proportional to B). C cancellation of sin(theta) correct; D sentences (compass coil, earlier measurement) correct; minimal pairs TA0E4/TBE19 and TB34F/T371E keep 52 mT and differ only in attachment; TCC2A and T9574 are declared numeral-free controls. answer_correct=true refers to the arithmetic under the authors' reading; the item fails rule 2 because the base clause 'no other magnetic field acts there' is contradicted by the R sentences. Removing that clause (or phrasing it as 'apart from any coil described below') would fix it. Same conclusion as pass 1."
+}

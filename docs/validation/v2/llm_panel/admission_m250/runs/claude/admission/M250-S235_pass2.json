@@ -1,0 +1,44 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch18",
+  "item_id": "M250-S235",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:13:00Z", "completed_at": "2026-11-20T10:22:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "T = 2 pi sqrt(d0/g), d0 = rho_b h/rho_l = 0.195 m",
+    "assumptions": ["cylinder upright, partly submerged throughout", "liquid motion and drag neglected"],
+    "answer": 0.886,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TFE49": {"stratum": "D", "answer_with_sentence": 0.886, "regime": null},
+    "T11DC": {"stratum": "C", "answer_with_sentence": 0.886, "regime": null},
+    "T30BA": {"stratum": "C", "answer_with_sentence": 0.886, "regime": null},
+    "T7F78": {"stratum": "D", "answer_with_sentence": 0.886, "regime": null},
+    "T7EFE": {"stratum": "D", "answer_with_sentence": 0.886, "regime": null},
+    "T0F32": {"stratum": "K", "answer_with_sentence": 0.886, "regime": "q < min(d0, h - d0) = 10.5 cm"},
+    "T315E": {"stratum": "R", "answer_with_sentence": 1.017, "regime": null},
+    "T4379": {"stratum": "R", "answer_with_sentence": 1.017, "regime": null},
+    "TCA2F": {"stratum": "K", "answer_with_sentence": 0.886, "regime": "q < min(d0, h - d0) = 10.5 cm"},
+    "TF10E": {"stratum": "D", "answer_with_sentence": 0.886, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_parameter_domain", "missing_assumption"],
+  "defect_reasons": {
+    "invalid_parameter_domain": "Every listed radius (2.5, 4.5, 7 cm) is far below the r > 20 cm needed (r^2 > 2 d0 (h - d0) = 0.041 m^2) for a 30 cm cylinder of relative density 0.65 to float upright stably, so the C sentences contradict the authors' own assumption that the cylinder floats upright and moves only vertically.",
+    "missing_assumption": "The cylinder is never called wooden, so 'the same wood' in T315E/T4379 may refer to the raft's wood of unstated density; the R answers silently assume density 650 kg/m^3."
+  },
+  "defect_severity": {"invalid_parameter_domain": "high", "missing_assumption": "medium"},
+  "counterexamples": ["r = 7 cm (largest listed): GM = d0/2 + r^2/(4 d0) - h/2 = 0.0975 + 0.0063 - 0.15 = -0.046 m < 0; the upright cylinder tips over, so no vertical bobbing occurs."],
+  "notes": "Numerical claims verified: base 2 pi sqrt(0.195/9.8) = 0.8863 s; R at 3.5, 9.5, 14 cm gives 0.9366, 1.0170, 1.0734 s; K regime min(19.5, 10.5) cm > 1.1, 3.2, 3.8 cm holds. D sentences (raft, earlier run) and minimal pairs (TF10E/T4379, TFE49/T315E, numeral-free twins) are as intended. The cancellation of the radius is algebraically right, but the radius values put the stated configuration outside the domain where an upright float exists; agreement with pass 1."
+}

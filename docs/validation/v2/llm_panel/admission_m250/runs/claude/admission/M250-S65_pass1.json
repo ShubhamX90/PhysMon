@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch12",
+  "item_id": "M250-S65",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:13:00Z", "completed_at": "2026-11-20T10:20:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Snell's law at entry face plus critical angle at core-cladding boundary: n0 sin(theta_max) = sqrt(n1^2 - n2^2)", "assumptions": ["meridional rays (stated)", "flat end face perpendicular to axis", "geometric optics"], "answer": 24.835, "unit": "degree"},
+  "stratum_assignments": {
+    "TBDB7": {"stratum": "D", "answer_with_sentence": 24.835, "regime": null},
+    "T5FB3": {"stratum": "D", "answer_with_sentence": 24.835, "regime": null},
+    "T55EF": {"stratum": "R", "answer_with_sentence": 20.487, "regime": null},
+    "T494E": {"stratum": "R", "answer_with_sentence": 20.487, "regime": null},
+    "T6797": {"stratum": "D", "answer_with_sentence": 24.835, "regime": null},
+    "T38EB": {"stratum": "D", "answer_with_sentence": 24.835, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "T55EF ('was dipped into a liquid' for this experiment) sits beside the base statement that light enters 'from air'; it does not explicitly say the liquid replaces the air, so the reader must infer that the liquid supersedes the air, unlike T494E which says so explicitly."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "NA = sqrt(2.25 - 2.0736) = sqrt(0.1764) = 0.42; theta = asin(0.42) = 24.835 deg in air; with n0 = 1.2, asin(0.35) = 20.487 deg. T5FB3 and T38EB carry no number (numeral-free). Trough liquid is disconnected (trough not in light path). Earlier-experiment sentences are D."
+}

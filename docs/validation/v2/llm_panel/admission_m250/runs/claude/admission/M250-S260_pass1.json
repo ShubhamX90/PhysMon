@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch24",
+  "item_id": "M250-S260",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:12:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Hard-sphere collision frequency z = sqrt(2) * pi d^2 * n * vbar, with n = P/(kT) and vbar = sqrt(8kT/(pi m))", "assumptions": ["ideal gas", "hard spheres d = 370 pm", "Maxwellian speeds (mean relative speed sqrt(2) vbar)", "1 u = 1.66054e-27 kg", "vessel much larger than mean free path"], "answer": 5.595e9, "unit": "s^-1"},
+  "stratum_assignments": {
+    "TE094": {"stratum": "D", "answer_with_sentence": 5.595e9, "regime": null},
+    "T209B": {"stratum": "K", "answer_with_sentence": 5.595e9, "regime": "vessel dimension (12 cm) >> mean free path (~85 nm); wall collisions negligible"},
+    "T62EC": {"stratum": "D", "answer_with_sentence": 5.595e9, "regime": null},
+    "T8E4F": {"stratum": "R", "answer_with_sentence": 7.902e9, "regime": null},
+    "T5675": {"stratum": "C", "answer_with_sentence": 5.595e9, "regime": null},
+    "TA9C7": {"stratum": "D", "answer_with_sentence": 5.595e9, "regime": null},
+    "T4C04": {"stratum": "C", "answer_with_sentence": 5.595e9, "regime": null},
+    "T7923": {"stratum": "D", "answer_with_sentence": 5.595e9, "regime": null},
+    "T6ADA": {"stratum": "K", "answer_with_sentence": 5.595e9, "regime": "vessel dimension (12 cm) >> mean free path (~85 nm); wall collisions negligible"},
+    "TE998": {"stratum": "R", "answer_with_sentence": 7.902e9, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T8E4F combines 'Before the collisions are counted' with 'for one run only', which leaves it slightly unclear whether the counted run is the one with the extra 33 kPa; read as the counted run, P = 113 kPa."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "n = P/kT = 1.931e25 m^-3; vbar = 476.4 m/s; sigma = pi d^2 = 4.301e-19 m^2; z = sqrt2*sigma*n*vbar = 5.595e9 s^-1. Mean free path ~ 85 nm. With 33 kPa more nitrogen at same T, P = 113 kPa and z scales with P: 5.595e9*113/80 = 7.902e9 s^-1. Volume cancels because n is fixed by P and T (C); width only matters if comparable to mean free path (K). TE094 and T62EC give no number ('a further small amount') while TA9C7 and T7923 give 33 kPa; if these are meant as variants of each other they differ in the stated quantity. Volume pair (T5675/T4C04) and width pair (T209B/T6ADA) state the same number and unit."
+}

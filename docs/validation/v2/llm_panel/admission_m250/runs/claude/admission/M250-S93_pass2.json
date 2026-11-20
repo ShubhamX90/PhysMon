@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch06",
+  "item_id": "M250-S93",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:58:30Z", "completed_at": "2026-11-20T11:04:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Torricelli with continuity: t = (A/a) sqrt(2/g) (sqrt(h0) - sqrt(h1))",
+    "assumptions": ["ideal water, quasi-steady", "surface speed negligible, jet area = hole area"],
+    "answer": 323.249,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T8938": {"stratum": "C", "answer_with_sentence": 323.249, "regime": null},
+    "T5A35": {"stratum": "D", "answer_with_sentence": 323.249, "regime": null},
+    "T1199": {"stratum": "D", "answer_with_sentence": 323.249, "regime": null},
+    "T5BC7": {"stratum": "R", "answer_with_sentence": 253.151, "regime": null},
+    "T5A43": {"stratum": "D", "answer_with_sentence": 323.249, "regime": null},
+    "T68EC": {"stratum": "D", "answer_with_sentence": 323.249, "regime": null},
+    "T1C18": {"stratum": "R", "answer_with_sentence": 253.151, "regime": null},
+    "T41BC": {"stratum": "C", "answer_with_sentence": 323.249, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "A water density of 962 kg/m^3 (water near 90 C) is unusual and slightly artificial, and 'its hole' in the scene clause follows the barrel sentence; neither affects the answer."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Verified: base 1600*0.2020305 = 323.249 s; d = 10.6 mm -> (400/10.6)^2 = 1424.0 -> 287.69 s; 11.3 mm -> 1253.03 -> 253.151 s; 11.9 mm -> 1129.86 -> 228.27 s. sqrt(2/g)(sqrt h0 - sqrt h1) equals my 2(sqrt h0 - sqrt h1)/sqrt(2g). Density cancellation correct. Minimal pairs T1199/T5BC7 (barrel vs tank, before timing, 1.3 mm) and T5A43/T1C18 (after vs before timing, 1.3 mm) hold; numeral-free twins match. Agrees with pass 1."
+}

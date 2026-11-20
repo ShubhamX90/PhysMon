@@ -1,0 +1,21 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch09",
+  "item_id": "M250-S57",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Reversible engine with finite hot body: dW = dQ_h (1 - T0/T); total W = m c [(T1 - T0) - T0 ln(T1/T0)] (entropy of universe constant)", "assumptions": ["engine reversible", "lake temperature fixed at 290 K", "constant c", "tank insulated so all heat leaving water goes through engine", "water stays liquid, constant mass"], "answer": 61076.0, "unit": "J"},
+  "stratum_assignments": {
+    "T9CCB": {"stratum": "R", "answer_with_sentence": 103830.0, "regime": null},
+    "T630C": {"stratum": "R", "answer_with_sentence": 103830.0, "regime": null},
+    "TE3D6": {"stratum": "D", "answer_with_sentence": 61076.0, "regime": null},
+    "TC03C": {"stratum": "D", "answer_with_sentence": 61076.0, "regime": null},
+    "T24C4": {"stratum": "D", "answer_with_sentence": 61076.0, "regime": null},
+    "T557D": {"stratum": "D", "answer_with_sentence": 61076.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["rendering_not_minimal"], "defect_reasons": {"rendering_not_minimal": "TC03C and T557D say 'a small amount' instead of '1.4 kg', so if they are meant as variants of TE3D6/T24C4 they differ in the stated quantity, not only attachment."}, "defect_severity": {"rendering_not_minimal": "low"},
+  "counterexamples": [],
+  "notes": "W = 8372 J/K x [70 - 290 ln(360/290)] = 8372 x (70 - 62.7047) = 8372 x 7.2953 = 61076 J (about 61.1 kJ). With 3.4 kg: 14232.4 x 7.2953 = 103830 J. 'Same temperature' for the second tank is presumably 360 K; irrelevant since that tank has no path to the engine. Whether the 'small amount' renderings are intended as vague-quantity variants is to be checked in pass 2."
+}

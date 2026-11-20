@@ -1,0 +1,24 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch07",
+  "item_id": "M250-S279",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:15:00Z", "completed_at": "2026-11-20T10:25:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Transverse Doppler effect (time dilation): photon path perpendicular to source velocity in the lab, f_abs = f0/gamma, so delta f = f0 (1 - 1/gamma) ~ f0 v^2/(2c^2); f0 = E/h, v = 2 pi r f_rot", "assumptions": ["absorber at rest on the axis so the lab photon direction is perpendicular to the source velocity", "leading order in v/c as stated", "special relativity, gravitational/centrifugal-potential effects of the absorber's position not considered beyond the time-dilation result"], "answer": 3.964e6, "unit": "Hz"},
+  "stratum_assignments": {
+    "T6166": {"stratum": "D", "answer_with_sentence": 3.964e6, "regime": null},
+    "TCFA7": {"stratum": "D", "answer_with_sentence": 3.964e6, "regime": null},
+    "TC381": {"stratum": "R", "answer_with_sentence": 6.7855e6, "regime": null},
+    "T1355": {"stratum": "R", "answer_with_sentence": 6.7855e6, "regime": null},
+    "TA7FF": {"stratum": "D", "answer_with_sentence": 3.964e6, "regime": null},
+    "TCAAF": {"stratum": "D", "answer_with_sentence": 3.964e6, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "f0 = 14400/4.1357e-15 = 3.48188e18 Hz; v = 2 pi (0.12)(600) = 452.39 m/s; v^2/(2c^2) = 204656/1.79760e17 = 1.13849e-12; delta f = 3.9641e6 Hz (about 3.96 MHz). With r = 15.7 cm the shift scales as r^2: factor (15.7/12)^2 = 1.71174, delta f = 6.7855e6 Hz. Wording 'the rotor ... has grown by 3.7 cm more in rim radius' is artificial but interpretable. T6166 and TA7FF carry no number ('a little more'); they cannot be numeric variants of TCFA7/TCAAF, which matters only if they are claimed as minimal pairs. T1355 has no timing clause; I read it as a present change, hence R."
+}

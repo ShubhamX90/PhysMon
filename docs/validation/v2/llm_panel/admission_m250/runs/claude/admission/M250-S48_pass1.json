@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch19",
+  "item_id": "M250-S48",
+  "pass_number": 1,
+  "started_at": "2026-11-20T00:51:00Z", "completed_at": "2026-11-20T00:57:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Series RLC free response L q'' + R q' + q/C = 0; underdamped angular frequency omega_d = sqrt(1/(LC) - (R/(2L))^2); f = omega_d/(2 pi).",
+    "assumptions": ["ideal lumped linear components", "underdamped (verified: 1/LC = 250000 s^-2 > (R/2L)^2 = 90000 s^-2)", "'frequency' read as cycles per second"],
+    "answer": 63.66,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T0F33": {"stratum": "R", "answer_with_sentence": 44.87, "regime": null},
+    "TBD03": {"stratum": "D", "answer_with_sentence": 63.66, "regime": null},
+    "T1D0F": {"stratum": "C", "answer_with_sentence": 63.66, "regime": null},
+    "TF60C": {"stratum": "D", "answer_with_sentence": 63.66, "regime": null},
+    "TE9E5": {"stratum": "R", "answer_with_sentence": 44.87, "regime": null},
+    "TA196": {"stratum": "D", "answer_with_sentence": 63.66, "regime": null},
+    "T4FBC": {"stratum": "D", "answer_with_sentence": 63.66, "regime": null},
+    "T1483": {"stratum": "C", "answer_with_sentence": 63.66, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "'Frequency' could be read as angular frequency (400 rad/s) rather than 63.66 Hz; the unit fixes this but the question does not name it."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "omega_d = sqrt(250000 - 90000) = 400 rad/s, f = 63.662 Hz. With 59 uF total: 1/LC = 169491.5, omega_d = sqrt(79491.5) = 281.94 rad/s, f = 44.872 Hz (still underdamped). Initial charge sets the amplitude only and drops out of the frequency (C). TA196 and T4FBC carry no number; they look like qualitative variants of TF60C and TBD03."
+}

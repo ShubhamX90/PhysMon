@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch14",
+  "item_id": "M250-S265",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:22:00Z", "completed_at": "2026-11-20T10:32:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Ideal transformer; bridge rectifier with two constant 0.7 V drops: V_avg = (2/pi)(Vp cos th0 - 2Vd(pi/2 - th0)), th0 = asin(2Vd/Vp), Vp = sqrt(2)*230/4", "assumptions": ["ideal transformer", "constant-drop diode model", "resistive load, no capacitor", "steady-state full-cycle average"], "answer": 50.3759, "unit": "V"},
+  "stratum_assignments": {
+    "T5D4E": {"stratum": "D", "answer_with_sentence": 50.3759, "regime": null},
+    "TAC9C": {"stratum": "D", "answer_with_sentence": 50.3759, "regime": null},
+    "T8158": {"stratum": "R", "answer_with_sentence": 53.5265, "regime": null},
+    "TF8ED": {"stratum": "D", "answer_with_sentence": 50.3759, "regime": null},
+    "T697F": {"stratum": "C", "answer_with_sentence": 50.3759, "regime": null},
+    "T4891": {"stratum": "R", "answer_with_sentence": 53.5265, "regime": null},
+    "T9978": {"stratum": "C", "answer_with_sentence": 50.3759, "regime": null},
+    "T644B": {"stratum": "D", "answer_with_sentence": 50.3759, "regime": null}
+  },
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Independently verified certified answers: q=8 V (238 V rms, Vp=84.1457 V): 52.1762 V; q=14 V (Vp=86.2670 V): 53.5265 V; q=21 V (Vp=88.7420 V): 55.1019 V; base 50.3759 V, all matching my pass-1 values. Load resistance cancellation is correct under the constant-drop model. Minimal pairs T5D4E/T8158 (lamp vs transformer) and TF8ED/T4891 (earlier experiment vs during measurement) carry the same 14 V and differ only in attachment/time; TAC9C and T644B are declared numeral-free controls. Minor naming point only: the input symbol Vm denotes the rms mains voltage, which conventionally suggests a peak value, but it is defined explicitly, so no flag. Agrees with pass 1."
+}

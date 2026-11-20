@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch18",
+  "item_id": "M250-S34",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:34:00Z", "completed_at": "2026-11-20T10:42:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "d = v0^2/(2a), a = (5/7) g sin(theta)",
+    "assumptions": ["rolling without slipping", "I = (2/5) m R^2", "no air or rolling resistance"],
+    "answer": 6.085,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TDEF6": {"stratum": "R", "answer_with_sentence": 4.177, "regime": null},
+    "T741D": {"stratum": "D", "answer_with_sentence": 6.085, "regime": null},
+    "T1332": {"stratum": "D", "answer_with_sentence": 6.085, "regime": null},
+    "T7B54": {"stratum": "D", "answer_with_sentence": 6.085, "regime": null},
+    "T96D5": {"stratum": "R", "answer_with_sentence": 4.177, "regime": null},
+    "TACA4": {"stratum": "C", "answer_with_sentence": 6.085, "regime": null},
+    "T4182": {"stratum": "D", "answer_with_sentence": 6.085, "regime": null},
+    "TD438": {"stratum": "K", "answer_with_sentence": 6.085, "regime": "mu_s > (2/7) tan 25 deg = 0.133"},
+    "T1F4F": {"stratum": "K", "answer_with_sentence": 6.085, "regime": "mu_s > (2/7) tan 25 deg = 0.133"},
+    "T55FE": {"stratum": "C", "answer_with_sentence": 6.085, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The out-of-regime reference expression for friction uses the static coefficient in a slipping formula and ignores that a slipping sphere would regain rolling; it is marked reference-only, and the sentence timing ('is then tilted') is slightly loose, so this is low severity."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Verified: base 25.2/(9.8 sin 25) = 6.0845 m; R at +7, +13, +18 deg gives 25.2/(9.8 sin 32) = 4.8525, 25.2/(9.8 sin 38) = 4.1767, 25.2/(9.8 sin 43) = 3.7704 m. K regime (2/7) tan 25 = 0.133 < 0.35, 0.45, 0.55. Radius cancels. Minimal pairs (T4182/TDEF6, T7B54/T96D5, numeral-free twins) differ only in attachment/time. The timing ambiguity I raised in pass 1 is mild; the authors' reading matches mine, so I rate clarity clear here."
+}

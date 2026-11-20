@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch20",
+  "item_id": "M250-S03",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:16:30Z", "completed_at": "2026-11-20T10:23:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "1-D perfectly elastic collision (momentum and kinetic energy conservation): v1' = ((m1 - m2) v1 + 2 m2 v2)/(m1 + m2)", "assumptions": ["frictionless track", "perfectly elastic", "1-D central collision", "non-relativistic"], "answer": 2.0, "unit": "m/s"},
+  "stratum_assignments": {
+    "T9B35": {"stratum": "R", "answer_with_sentence": 2.8254, "regime": null},
+    "T1828": {"stratum": "D", "answer_with_sentence": 2.0, "regime": null},
+    "TFB40": {"stratum": "D", "answer_with_sentence": 2.0, "regime": null},
+    "T2689": {"stratum": "D", "answer_with_sentence": 2.0, "regime": null},
+    "T8516": {"stratum": "R", "answer_with_sentence": 2.8254, "regime": null},
+    "T180A": {"stratum": "D", "answer_with_sentence": 2.0, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["insufficient_boundary_condition"],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "With T8516 ('was fixed onto the first cart just before the collision') the block's velocity before attachment is not stated: if the 6 m/s refers to the loaded cart the answer is 2.825 m/s, but if a block at rest was attached to the moving 3 kg cart, the cart slows to 4.186 m/s and the answer is 2.163 m/s."
+  },
+  "defect_severity": {"insufficient_boundary_condition": "high"},
+  "counterexamples": ["T8516 with the block initially at rest: v_before = 3*6/4.3 = 4.186 m/s; v1' = (2.3*4.186 + 2*2*1)/6.3 = 2.163 m/s, not 2.825 m/s."],
+  "notes": "Base: (1*6 + 4*1)/5 = 2.0 m/s. With m1 = 4.3 kg moving at 6 m/s: (2.3*6 + 4)/6.3 = 17.8/6.3 = 2.8254 m/s. T9B35 is read as the loaded cart moving at 6 m/s (natural). 'Head-on' for a same-direction overtaking collision is unusual wording (meaning central), low concern."
+}

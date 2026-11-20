@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch01",
+  "item_id": "M250-S203",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:57:30Z", "completed_at": "2026-11-20T11:05:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Bead on a hoop rotating about its vertical diameter: cos(theta0) = g/(Om^2 R), small-oscillation angular frequency Om sin(theta0), T = 2 pi/(Om sin theta0)",
+    "assumptions": ["frictionless point bead", "constant Om with Om^2 R > g", "g = 9.8 m/s^2"],
+    "answer": 1.0365,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T30AD": {"stratum": "C", "answer_with_sentence": 1.0365, "regime": null},
+    "TD316": {"stratum": "D", "answer_with_sentence": 1.0365, "regime": null},
+    "T9510": {"stratum": "D", "answer_with_sentence": 1.0365, "regime": null},
+    "T8E51": {"stratum": "D", "answer_with_sentence": 1.0365, "regime": null},
+    "T4B28": {"stratum": "R", "answer_with_sentence": 1.1296, "regime": null},
+    "T3B23": {"stratum": "C", "answer_with_sentence": 1.0365, "regime": null},
+    "T319B": {"stratum": "R", "answer_with_sentence": 1.1296, "regime": null},
+    "T9186": {"stratum": "D", "answer_with_sentence": 1.0365, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 4, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T4B28 ('was set rising with a constant upward acceleration ... before the oscillations were observed') does not state outright that the acceleration persists during the oscillations; the authors' R reading is the natural one but a past-phase reading is possible."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Certified answers verified: base T = 2 pi/(7 sin 60 deg) = 1.03646 s. With g_eff = g + q: q = 1.2 -> cos = 11/19.6, Om_s^2 = 33.566, T = 1.0845 s; q = 2.1 -> T = 1.12963 s; q = 5.6 -> cos = 15.4/19.6, Om_s^2 = 18.75, T = 1.45104 s. All listed q keep g_eff < Om^2 R = 19.6 m/s^2, so the off-axis equilibrium exists. Mass cancellation expression is correct. Minimal pairs T8E51/T4B28 and TD316/T319B share '2.1 m/s²' and differ only in timing/attachment; numeral-free twins T9186 and T9510 as declared. Agrees with pass 1."
+}

@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch02",
+  "item_id": "M250-S77",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "T = exp(-2 kappa a), hbar*kappa = sqrt(2 m (V - E)); a = ln(1/T) / (2 kappa), kappa = sqrt(2 mc^2 (V-E)) / (hbar c)",
+    "assumptions": ["Transmission model T = exp(-2 kappa a) as stated", "Non-relativistic kappa as defined", "V - E = 8 - 5 = 3 eV"],
+    "answer": 0.3892,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "TFB05": {"stratum": "D", "answer_with_sentence": 0.3892, "regime": null},
+    "T9848": {"stratum": "D", "answer_with_sentence": 0.3892, "regime": null},
+    "T6F0D": {"stratum": "D", "answer_with_sentence": 0.3892, "regime": null},
+    "T0D94": {"stratum": "D", "answer_with_sentence": 0.3892, "regime": null},
+    "TDA04": {"stratum": "R", "answer_with_sentence": 0.4545, "regime": null},
+    "T8282": {"stratum": "R", "answer_with_sentence": 0.4545, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T9848/T6F0D wording 'was then replaced ... for an earlier experiment only' mixes 'then' (after the setup) with 'earlier experiment', so the timing is awkward though the intended reading (the replacement does not apply to this electron) is recoverable."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "kappa(3 eV) = sqrt(2*511000*3)/197.3 = 1751.0/197.3 = 8.875 nm^-1; a = ln(1000)/(2*8.875) = 6.9078/17.750 = 0.3892 nm. With barrier 7.2 eV: V-E = 2.2 eV, kappa = 1499.47/197.3 = 7.5999 nm^-1, a = 6.9078/15.1999 = 0.4545 nm. The step is a separate structure with no path to the barrier transmission, so step sentences are D. TFB05 and T6F0D give no number ('known'), whereas T0D94/T9848/TDA04/T8282 state 7.2 eV; numberless sentences are presumably deliberate variants without a value, noted for pass 2. Barrier replaced before arrival does not contradict the 8 eV statement (it is a stated change)."
+}

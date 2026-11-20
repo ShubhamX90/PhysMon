@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch30",
+  "item_id": "M250-S270",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:13:00Z", "completed_at": "2026-11-20T10:24:00Z", "minutes_spent": 11,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Double Doppler shift: f2 = f(c-w)(c-v)/(c(c+w)); shift = f - f2 = f*7149/119707.",
+    "assumptions": ["still air, c = 343 m/s", "collinear constant-speed motion", "reflection with no frequency change in panel frame", "non-relativistic"],
+    "answer": 89.5812,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "TDC03": {"stratum": "C", "answer_with_sentence": 89.5812, "regime": null},
+    "T02E2": {"stratum": "D", "answer_with_sentence": 89.5812, "regime": null},
+    "TA134": {"stratum": "D", "answer_with_sentence": 89.5812, "regime": null},
+    "TA6A4": {"stratum": "D", "answer_with_sentence": 89.5812, "regime": null},
+    "T6307": {"stratum": "C", "answer_with_sentence": 89.5812, "regime": null},
+    "TBF04": {"stratum": "R", "answer_with_sentence": 114.067, "regime": null},
+    "T4BE2": {"stratum": "D", "answer_with_sentence": 89.5812, "regime": null},
+    "TA0C8": {"stratum": "R", "answer_with_sentence": 114.067, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TBF04/TA0C8 change the note near the time of pickup, which strictly admits a transient reading (crests picked up just after the change were emitted at the old pitch), though the intended steady reading is clear."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Verified crest-timing relations: t_h = (q + c t)/(c - w) and T_n = (q + (c+w) t_h)/(c - v) are correct for a recorder starting at the post and moving away from the lorry; T_(n+1)-T_n = c(c+w)/(f(c-w)(c-v)), so q cancels and the shift is f*7149/119707 = 89.5812 Hz. R values checked: 1670 Hz -> 99.7338, 1910 Hz -> 114.067, 2260 Hz -> 134.969. Disagreement with my pass 1: I labelled the 82 m distance D; the authors' C label is better justified, since q appears in the arrival-time relations of the system and cancels from the period; the answer is unchanged either way. Minimal pairs T02E2/TBF04 and T4BE2/TA0C8 share 410 Hz and differ only in attachment; TA134/TA6A4 are declared numeral-free controls. TDC03/T6307 differ only in 'stands'/'is'."
+}

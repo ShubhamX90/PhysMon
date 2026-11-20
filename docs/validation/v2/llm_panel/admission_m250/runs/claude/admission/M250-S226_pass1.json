@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch08",
+  "item_id": "M250-S226",
+  "pass_number": 1,
+  "started_at": "2026-11-20T00:32:00Z", "completed_at": "2026-11-20T00:42:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Radiative exchange between infinite parallel grey diffuse surfaces in series: q = sigma (T_i^4 - T_j^4)/(2/eps - 1) per gap; with equal emissivity every gap has the same resistance so T^4 is evenly spaced",
+    "assumptions": ["infinite parallel opaque diffuse grey surfaces", "same emissivity on every surface (both sides of each shield)", "steady state, radiation only, thin shields", "vacuum between surfaces"],
+    "answer": 724.66,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "TF3A9": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "T1186": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "T3B75": {"stratum": "C", "answer_with_sentence": 724.66, "regime": null},
+    "TAE28": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "TBE0E": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "T70E5": {"stratum": "C", "answer_with_sentence": 724.66, "regime": null},
+    "T0D5D": {"stratum": "R", "answer_with_sentence": 787.52, "regime": null},
+    "T7BAD": {"stratum": "R", "answer_with_sentence": 787.52, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T7BAD 'A heater is then warming the hot plate by a further 70 K' uses a progressive tense that sits awkwardly with the steady state, though the intended reading (hot plate held at 870 K) is clear enough."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Th^4 = 4.096e11, Tc^4 = 8.1e9 K^4; T1^4 = Th^4 - (Th^4 - Tc^4)/3 = 2.75767e11 K^4, T1 = 724.66 K. Emissivity cancels because all three gaps have identical resistance 2/eps - 1. With hot plate at 870 K: Th^4 = 5.72898e11, T1^4 = 3.84632e11, T1 = 787.52 K. Number-bearing variants all state 70 K; 'few kelvin' sentences are numeral-free versions; emissivity variants both state 0.6."
+}

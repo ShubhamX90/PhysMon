@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch09",
+  "item_id": "M250-S54",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:54:00Z", "completed_at": "2026-11-20T11:03:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "P2 = P1 (r2/r1)^2 (T2/T1)^4 (Stefan-Boltzmann, equal emissivity)", "assumptions": ["same constant emissivity", "absorption from surroundings negligible", "uniform surface temperature"], "answer": 12.4416, "unit": "kW"},
+  "stratum_assignments": {
+    "T298E": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "TA4B6": {"stratum": "R", "answer_with_sentence": 26.1585, "regime": null},
+    "TCB5F": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "TDB9C": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "T6222": {"stratum": "R", "answer_with_sentence": 26.1585, "regime": null},
+    "T4B8C": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [], "defect_flags": ["insufficient_boundary_condition", "other"], "defect_reasons": {"insufficient_boundary_condition": "With T6222 ('A 4.5 cm layer ... was plated onto the second sphere') the text never says whether the present-tense stated radius of 10 cm is the radius before or after the completed plating; the reading that it already includes the layer gives 12.44 kW, not the certified 26.16 kW.", "other": "A 4.5 cm (and up to 7.5 cm) 'plated layer' is physically implausible for plating, making the R sentences artificial."}, "defect_severity": {"insufficient_boundary_condition": "high", "other": "low"},
+  "counterexamples": ["T6222 read as: the sphere 'has a radius of 10 cm' now, after a layer 'was plated' onto it earlier, so r2 = 10 cm and P2 = 12.4416 kW, contradicting the certified 26.1585 kW."],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": false, "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "Arithmetic verified: base 12.4416 kW; r2 = 12.5 cm -> 19.44 kW; 14.5 cm -> 26.1585 kW; 17.5 cm -> 38.1024 kW; all D answers 12.4416 kW. The authors' own d_kind_note concedes that a layer plated on the second sphere earlier 'is still on it', which is exactly why the past-tense T6222 is ambiguous: the base problem gives the sphere's radius in the present tense, so a completed plating may already be included in it. For present-tense TA4B6 the additive reading is natural and I accept R 26.16 kW. In pass 1 I flagged this as medium; on reflection, because it yields materially different answers for a certified R sentence, it falls under the admission rule for a missing deciding condition, so I raise it to high here (pass 1 unchanged). Minimal pairs TCB5F/TA4B6 and T4B8C/T6222 keep 4.5 cm and differ only in attachment (bracket/disc vs sphere); T298E and TDB9C are declared numeral-free controls."
+}

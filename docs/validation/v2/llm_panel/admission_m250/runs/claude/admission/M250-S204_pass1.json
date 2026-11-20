@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch05",
+  "item_id": "M250-S204",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:15:00Z", "completed_at": "2026-11-20T10:22:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of momentum in a perfectly inelastic collision; KE lost = (1/2) mu v_rel^2 with mu = m1 m2/(m1+m2)",
+    "assumptions": ["frictionless ice, isolated two-particle system", "velocities perpendicular so v_rel^2 = 4^2 + 3^2 = 25 m^2/s^2", "perfectly inelastic (stated: they hold on)"],
+    "answer": 416.67,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "T3B70": {"stratum": "D", "answer_with_sentence": 416.67, "regime": null},
+    "T081E": {"stratum": "R", "answer_with_sentence": 459.18, "regime": null},
+    "T9E17": {"stratum": "D", "answer_with_sentence": 416.67, "regime": null},
+    "T3DB2": {"stratum": "D", "answer_with_sentence": 416.67, "regime": null},
+    "TAD96": {"stratum": "D", "answer_with_sentence": 416.67, "regime": null},
+    "T90B7": {"stratum": "R", "answer_with_sentence": 459.18, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "For T081E it is not stated whether the 4 m/s is the skater's speed after picking up the bag (giving 72 kg at 4 m/s, 459.18 J) or before (momentum conservation gives 3.33 m/s, loss 369.39 J); the present-tense description favours the former."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: mu = 60*75/135 = 33.333 kg, loss = 0.5*33.333*25 = 416.67 J (check: KE_i = 817.5 J, KE_f = 108225/270 = 400.83 J). With bag on the east skater (72 kg at 4 m/s): mu = 5400/147 = 36.735 kg, loss = 459.18 J. Coach and earlier-outing sentences are disconnected. Numbered sentences all state 12 kg; 'small bag' sentences carry no number."
+}

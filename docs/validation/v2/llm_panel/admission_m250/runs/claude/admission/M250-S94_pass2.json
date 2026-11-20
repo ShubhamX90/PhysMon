@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch07",
+  "item_id": "M250-S94",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:08:00Z", "completed_at": "2026-11-20T10:14:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Hagen-Poiseuille: dp = 128 eta L Q/(pi d^4), Q = pi d^2 v/4, P = dp Q", "assumptions": ["incompressible Newtonian liquid", "steady laminar fully developed flow, entrance effects neglected", "horizontal pipe"], "answer": 8.04248, "unit": "mW"},
+  "stratum_assignments": {
+    "TB900": {"stratum": "C", "answer_with_sentence": 8.04248, "regime": null},
+    "T1EF8": {"stratum": "D", "answer_with_sentence": 8.04248, "regime": null},
+    "T0EC4": {"stratum": "D", "answer_with_sentence": 8.04248, "regime": null},
+    "TC7C1": {"stratum": "D", "answer_with_sentence": 8.04248, "regime": null},
+    "TF825": {"stratum": "R", "answer_with_sentence": 28.5508, "regime": null},
+    "T0FF6": {"stratum": "R", "answer_with_sentence": 28.5508, "regime": null},
+    "T9141": {"stratum": "C", "answer_with_sentence": 8.04248, "regime": null},
+    "T4C1C": {"stratum": "D", "answer_with_sentence": 8.04248, "regime": null}
+  },
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "For the R sentences, 'the pressure drop along the pipe' could be read as along the original 2 m section only (unchanged answer) rather than along the extended pipe; the extended reading the authors certify is the more natural one."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Checked: base dp = 3200 Pa, Q = 2.5133e-6 m^3/s, P = 8.04248 mW. R values: L+q = 5.4, 7.1, 9.3 m give 8.04248*2.7 = 21.7147, *3.55 = 28.5508, *4.65 = 37.3975 mW, all match. C cancellation (p_out drops out of p_in - p_out) correct. Minimal pairs T1EF8/TF825 and TC7C1/T0FF6 share 5.1 m and differ only in attachment/timing. T0EC4 and T4C1C are declared numeral-free twins, which explains the 'short length' wording I noted in pass 1; not a minimal-pair defect. I lowered the ambiguity flag from medium (pass 1) to low because the joined-tubing reading is the natural one and is consistent across both R sentences."
+}

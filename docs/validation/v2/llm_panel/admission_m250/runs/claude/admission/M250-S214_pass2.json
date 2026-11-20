@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch28",
+  "item_id": "M250-S214",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:36:30Z", "completed_at": "2026-11-20T10:41:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Q = N*B*pi*r^2/R from Faraday and Ohm laws", "assumptions": ["coil fully inside uniform field", "negligible self-inductance"], "answer": 3.770, "unit": "mC"},
+  "stratum_assignments": {
+    "T676D": {"stratum": "D", "answer_with_sentence": 3.76991, "regime": null},
+    "TD305": {"stratum": "D", "answer_with_sentence": 3.76991, "regime": null},
+    "TEA30": {"stratum": "R", "answer_with_sentence": 2.10414, "regime": null},
+    "T3CB8": {"stratum": "C", "answer_with_sentence": 3.76991, "regime": null},
+    "TD77D": {"stratum": "R", "answer_with_sentence": 2.10414, "regime": null},
+    "TA07A": {"stratum": "K", "answer_with_sentence": 3.76991, "regime": "solenoid radius > coil radius 3 cm"},
+    "T451A": {"stratum": "D", "answer_with_sentence": 3.76991, "regime": null},
+    "TE656": {"stratum": "K", "answer_with_sentence": 3.76991, "regime": "solenoid radius > coil radius 3 cm"},
+    "TF32B": {"stratum": "D", "answer_with_sentence": 3.76991, "regime": null},
+    "TC97A": {"stratum": "C", "answer_with_sentence": 3.76991, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked: N*B*A = 0.0452389 Wb; Q = 3.76991 mC (R=12), 2.74175 (16.5), 2.10414 (21.5), 1.55996 (29). C cancellation of fall time is exact (Q = N*dPhi/R independent of time profile). K regime rc < q holds for all listed values; the counter-regime (q = 1 cm) would also contradict 'lies entirely inside the solenoid', but it is not a listed value. Minimal pairs TF32B/TEA30 and T451A/TD77D carry the same 9.5 ohm and differ only in attachment. Agrees with pass 1."
+}

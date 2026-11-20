@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch12",
+  "item_id": "M250-S230",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:36:00Z", "completed_at": "2026-11-20T10:44:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Tf = (m1 T1 + m2 T2)/(m1 + m2); Sg = c[m1 ln(Tf/T1) + m2 ln(Tf/T2)]", "assumptions": ["isolated rigid enclosure", "constant c", "negligible volume change"], "answer": 25.5655, "unit": "J/K"},
+  "stratum_assignments": {
+    "T04A3": {"stratum": "D", "answer_with_sentence": 25.5655, "regime": null},
+    "T33C5": {"stratum": "D", "answer_with_sentence": 25.5655, "regime": null},
+    "T7053": {"stratum": "D", "answer_with_sentence": 25.5655, "regime": null},
+    "TFF07": {"stratum": "D", "answer_with_sentence": 25.5655, "regime": null},
+    "TC78D": {"stratum": "R", "answer_with_sentence": 31.9753, "regime": null},
+    "T8625": {"stratum": "R", "answer_with_sentence": 31.9753, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "T8625 does not say when the further metal is added; the natural reading (before contact, at the hotter block's initial temperature) gives the certified answer, but adding it after contact had begun would change the entropy generated."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified all answers by hand: base 25.5655 J/K; q = 0.6 -> Tf = 322.5 K, 29.398 J/K; q = 1.1 -> Tf = 325.574 K, 31.975 J/K (my pass-1 31.9756 differs only by hand-rounding); q = 3.4 -> Tf = 335 K, 900[5.4 ln(67/72) + 3 ln(67/58)] = 39.6827 J/K. Minimal pairs T04A3/TC78D and T7053/T8625 share 1.1 kg and differ only in attachment; T33C5 and TFF07 are declared numeral-free twins. Agrees with pass 1."
+}

@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch23",
+  "item_id": "M250-S29",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:41:00Z", "completed_at": "2026-11-20T10:50:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "P = F . v = T v cos(theta)", "assumptions": ["sled moves horizontally at the stated speed", "rope tension 40 N along the rope at 30 degrees"], "answer": 103.92, "unit": "W"},
+  "stratum_assignments": {
+    "T7A7D": {"stratum": "R", "answer_with_sentence": 81.84, "regime": null},
+    "TF8CB": {"stratum": "K", "answer_with_sentence": 103.92, "regime": "rope intact while tension < breaking tension; 40 N < 210 N"},
+    "TD53D": {"stratum": "D", "answer_with_sentence": 103.92, "regime": null},
+    "TAAB5": {"stratum": "R", "answer_with_sentence": 81.84, "regime": null},
+    "TB8F6": {"stratum": "D", "answer_with_sentence": 103.92, "regime": null},
+    "T8FA9": {"stratum": "K", "answer_with_sentence": 103.92, "regime": "rope intact while tension < breaking tension; 40 N < 210 N"},
+    "T4A60": {"stratum": "D", "answer_with_sentence": 103.92, "regime": null},
+    "T3D43": {"stratum": "D", "answer_with_sentence": 103.92, "regime": null},
+    "T012E": {"stratum": "C", "answer_with_sentence": 103.92, "regime": null},
+    "TFC2B": {"stratum": "C", "answer_with_sentence": 103.92, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [], "defect_flags": ["missing_assumption"],
+  "defect_reasons": {"missing_assumption": "For the R sentences (T7A7D, TAAB5) the text does not say that the tension stays 40 N and the speed stays 3 m/s after the tilt; with ground friction, keeping constant speed at 47 degrees would generally need a different tension, so the answer 81.84 W rests on reading the stated tension and speed as still holding."},
+  "defect_severity": {"missing_assumption": "medium"},
+  "counterexamples": [],
+  "notes": "Base: 40*3*cos30 = 103.92 W. Tilted to 47 degrees with T = 40 N and v = 3 m/s as stated: 120*cos47 = 120*0.68200 = 81.84 W. I take the literal reading that all stated values (40 N, 3 m/s) still hold, which gives a unique answer; I rate the gap medium rather than high because no competing determinate answer is available from the given data. Duration of pulling (55 s) fixes only the work, not the power; I class it C (P = W/t), D would also be defensible. Variants: 17 degrees in T7A7D/TD53D/TAAB5/T4A60; 'a little' in TB8F6/T3D43; 210 N in TF8CB/T8FA9; 55 s in T012E/TFC2B. Consistent. T7A7D's 'then' leaves ambiguous whether the question refers to before or after the tilt; read as after."
+}

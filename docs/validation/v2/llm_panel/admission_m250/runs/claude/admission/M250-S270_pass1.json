@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch30",
+  "item_id": "M250-S270",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:12:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Doppler effect for sound in still air, applied twice: lorry panel as receding observer f1 = f(c-u)/c, then as receding source, recorder moving away from source along the propagation direction: f2 = f1(c-v)/(c+u). Shift = f[1 - (c-u)(c-v)/(c(c+u))] = f*7149/119707.",
+    "assumptions": ["still air, uniform c = 343 m/s", "collinear motion, steady state", "ideal reflection with no frequency change in panel frame", "non-relativistic speeds"],
+    "answer": 89.58,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "TDC03": {"stratum": "D", "answer_with_sentence": 89.58, "regime": null},
+    "T02E2": {"stratum": "D", "answer_with_sentence": 89.58, "regime": null},
+    "TA134": {"stratum": "D", "answer_with_sentence": 89.58, "regime": null},
+    "TA6A4": {"stratum": "D", "answer_with_sentence": 89.58, "regime": null},
+    "T6307": {"stratum": "D", "answer_with_sentence": 89.58, "regime": null},
+    "TBF04": {"stratum": "R", "answer_with_sentence": 114.07, "regime": null},
+    "T4BE2": {"stratum": "D", "answer_with_sentence": 89.58, "regime": null},
+    "TA0C8": {"stratum": "R", "answer_with_sentence": 114.07, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TBF04/TA0C8 change the emitted note around the time of pickup; strictly the reflected sound picked up just after a pitch change was emitted earlier at the old pitch, so the timing wording admits a transient reading, though the intended steady-state reading (note now 1910 Hz) is clear."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base: shift = 1500*7149/119707 = 89.581 Hz. With note 1910 Hz: 1910*7149/119707 = 114.067 Hz. The 82 m initial separation (TDC03/T6307) affects only arrival time, not the steady Doppler shift; I classify it D (it does not enter the frequency relations), though it is attached to the system geometry. TDC03 and T6307 state the same 82 m and differ only in 'stands' vs 'is'. T02E2/TBF04/T4BE2/TA0C8 all state 410 Hz and differ in attachment (earlier experiment, current note, violin). TA134 and TA6A4 state 'a further small amount' with no number; they are unquantified variants of the violin and earlier-experiment sentences and are D regardless of the amount. The busker/violin is structurally disconnected from the siren-lorry-recorder chain."
+}

@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch22",
+  "item_id": "M250-S281",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:59:00Z", "completed_at": "2026-11-20T11:09:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Energy conservation: v_esc = sqrt(2GM/R) = R sqrt(8 pi G rho/3), so v_p = v_E (R_p/R_E) sqrt(rho_p/rho_E)", "assumptions": ["uniform non-rotating sphere", "no atmosphere", "other bodies ignored", "Newtonian gravity", "scaling from Earth's stated escape speed"], "answer": 5.0285, "unit": "km/s"},
+  "stratum_assignments": {
+    "T3112": {"stratum": "D", "answer_with_sentence": 5.0285, "regime": null},
+    "TE270": {"stratum": "C", "answer_with_sentence": 5.0285, "regime": null},
+    "T09DC": {"stratum": "D", "answer_with_sentence": 5.0285, "regime": null},
+    "TC598": {"stratum": "D", "answer_with_sentence": 5.0285, "regime": null},
+    "TE752": {"stratum": "C", "answer_with_sentence": 5.0285, "regime": null},
+    "T39C4": {"stratum": "D", "answer_with_sentence": 5.0285, "regime": null},
+    "T3AA6": {"stratum": "R", "answer_with_sentence": 5.4884, "regime": null},
+    "T8A9F": {"stratum": "R", "answer_with_sentence": 5.4884, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_numerical_precision"],
+  "defect_reasons": {
+    "invalid_numerical_precision": "With G = 6.674e-11, Earth's stated radius and density give 11.18 km/s rather than the stated 11.19 km/s, so the Earth-ratio route (5.029 km/s) and the direct G route (5.025 km/s) differ by about 0.07%."
+  },
+  "defect_severity": {"invalid_numerical_precision": "low"},
+  "counterexamples": [],
+  "notes": "Ratio route: 11.19*(3390/6371)*sqrt(3.93/5.51) = 11.19*0.53210*0.84454 = 5.0285 km/s. With R = 3700 km: 5.0285*3700/3390 = 5.4884 km/s (direct G: 5.025 and 5.485). Moon: its pull is ignored and its size has no path to the planet's escape speed, so D. Probe mass cancels in (1/2) m v^2 = GMm/R, so C. 'Before the launch speed is found' sentence T3AA6 and T8A9F both change the planet's radius at fixed density, so R."
+}

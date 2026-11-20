@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch11",
+  "item_id": "M250-S247",
+  "pass_number": 2,
+  "started_at": "2026-11-20T11:09:00Z", "completed_at": "2026-11-20T11:18:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "v = (1 + Rf) cos^2(theta) I A t / (m c)",
+    "assumptions": ["I measured perpendicular to the beam", "absorbed fraction 0.1, specular fraction 0.9", "v << c", "only the normal force component acts along the rail"],
+    "answer": 114.989,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TE4B6": {"stratum": "R", "answer_with_sentence": 153.592, "regime": null},
+    "T532A": {"stratum": "C", "answer_with_sentence": 114.989, "regime": null},
+    "T76D3": {"stratum": "D", "answer_with_sentence": 114.989, "regime": null},
+    "T8261": {"stratum": "D", "answer_with_sentence": 114.989, "regime": null},
+    "TB1C7": {"stratum": "D", "answer_with_sentence": 114.989, "regime": null},
+    "TFEB0": {"stratum": "R", "answer_with_sentence": 153.592, "regime": null},
+    "T5DB2": {"stratum": "C", "answer_with_sentence": 114.989, "regime": null},
+    "T56A5": {"stratum": "D", "answer_with_sentence": 114.989, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "The R wiring I -> I + q requires the second lamp's light to travel along the beam at 30 degrees with q measured perpendicular to that direction, which TE4B6 and TFEB0 do not state ('illumination onto the mirror' could also be read as irradiance on the mirror surface or light from another direction)."
+  },
+  "defect_severity": {"missing_assumption": "medium"},
+  "counterexamples": ["Second-lamp light at normal incidence: v = 114.989 + 470*100*1.9*86400/(0.5*2.998e8) = 166.09 m/s rather than 153.592 m/s.", "470 W/m^2 read as irradiance on the mirror surface along the beam direction: added intensity 470/cos30 = 542.7 W/m^2, v = 114.989*1942.7/1400 = 159.57 m/s."],
+  "notes": "Verified base: F = 1400*100*0.75*1.9/2.998e8 = 6.6544e-4 N, v = 114.989 m/s. R values 114.989*(1400+q)/1400: q=260 -> 136.344, 470 -> 153.592, 880 -> 187.267 m/s. Photon energy cancels as claimed (C). Minimal pairs T56A5/TFEB0 and T76D3/TE4B6 share 470 W/m^2 and differ only in attachment; TB1C7 and T8261 are declared numeral-free controls. No conflict between the scene clause (screen lamps do not shine on the mirror) and the 'second lamp' sentences, since the second lamp is a different lamp. I keep the direction gap at medium, as in pass 1, because the natural reading of 'adds to the intensity of the light that reaches the mirror' is that the beam intensity rises; a strict rule-1 reading would make it high."
+}

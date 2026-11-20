@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch28",
+  "item_id": "M250-S212",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:48:30Z", "completed_at": "2026-11-20T10:53:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Unity power factor: C = L/(R^2 + omega^2 L^2)", "assumptions": ["ideal supply and capacitor", "steady state", "series R-L motor model"], "answer": 144.202, "unit": "uF"},
+  "stratum_assignments": {
+    "TED3D": {"stratum": "D", "answer_with_sentence": 144.2, "regime": null},
+    "T2A37": {"stratum": "D", "answer_with_sentence": 144.2, "regime": null},
+    "T81DD": {"stratum": "D", "answer_with_sentence": 144.2, "regime": null},
+    "T4D7F": {"stratum": "R", "answer_with_sentence": 90.4175, "regime": null},
+    "T4F5E": {"stratum": "R", "answer_with_sentence": 90.4175, "regime": null},
+    "T8C89": {"stratum": "C", "answer_with_sentence": 144.2, "regime": null},
+    "TB288": {"stratum": "D", "answer_with_sentence": 144.2, "regime": null},
+    "T62B7": {"stratum": "C", "answer_with_sentence": 144.2, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked: base C = 0.05/346.740 = 144.202 uF (certified 144.2, rounding within precision). q=3.5: 0.05/428.990 = 116.553 uF; q=7.5: 0.05/552.990 = 90.4175 uF; q=16: 0.05/922.740 = 54.1864 uF. All match. Voltage cancellation is exact. Minimal pairs T2A37/T4F5E and TB288/T4D7F carry the same 7.5 ohm and differ only in attachment. Agrees with pass 1."
+}

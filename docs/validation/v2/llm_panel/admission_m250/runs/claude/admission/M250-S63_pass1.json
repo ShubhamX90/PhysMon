@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch26",
+  "item_id": "M250-S63",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:13:00Z", "completed_at": "2026-11-20T10:21:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Adiabatic sound speed in ideal gas v = sqrt(gamma R T / M); closed-open pipe resonances f_n = (2n-1) v / (4L); second-lowest is 3v/(4L)",
+    "assumptions": ["ideal gas", "adiabatic sound", "no end correction", "uniform temperature in the pipe"],
+    "answer": 428.66,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T64F1": {"stratum": "C", "answer_with_sentence": 428.66, "regime": null},
+    "TD069": {"stratum": "R", "answer_with_sentence": 460.40, "regime": null},
+    "T653E": {"stratum": "K", "answer_with_sentence": 428.66, "regime": "the ideal-gas sound-speed relation holds only while the substance is a gas, i.e. T above 120 K; 293 K is inside that regime"},
+    "T3AD6": {"stratum": "D", "answer_with_sentence": 428.66, "regime": null},
+    "T0C9F": {"stratum": "D", "answer_with_sentence": 428.66, "regime": null},
+    "T3806": {"stratum": "D", "answer_with_sentence": 428.66, "regime": null},
+    "TDCFE": {"stratum": "K", "answer_with_sentence": 428.66, "regime": "gas phase (T above 120 K); 293 K is inside that regime"},
+    "T2E8F": {"stratum": "C", "answer_with_sentence": 428.66, "regime": null},
+    "T5640": {"stratum": "R", "answer_with_sentence": 460.40, "regime": null},
+    "T4C56": {"stratum": "D", "answer_with_sentence": 428.66, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "v = sqrt(1.4*8.314*293/0.029) = sqrt(117600) = 342.93 m/s; f2 = 3v/(4*0.6) = 428.66 Hz. Heated to 338 K: v = 342.93*sqrt(338/293) = 368.32 m/s; f2 = 460.40 Hz. Pressure cancels for an ideal gas (v depends on p/rho = RT/M). The heater sentences are read as warming the gas from the stated 293 K before measurement, which is consistent with 'at a temperature of 293 K' as the initial state; slight reading risk but not contradictory. Pairs: T64F1/T2E8F both 150 kPa; T653E/TDCFE both 120 K; heater sentences all 45 K except the numeral-free 'few kelvin' ones."
+}

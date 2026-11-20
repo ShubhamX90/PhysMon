@@ -1,0 +1,37 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch05",
+  "item_id": "M250-S204",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:22:30Z", "completed_at": "2026-11-20T10:27:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Momentum conservation in a perfectly inelastic collision; KE lost = (1/2) mu v_rel^2",
+    "assumptions": ["isolated two-particle system on frictionless ice", "perpendicular velocities", "perfectly inelastic"],
+    "answer": 416.67,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "T3B70": {"stratum": "D", "answer_with_sentence": 416.67, "regime": null},
+    "T081E": {"stratum": "R", "answer_with_sentence": 459.18, "regime": null},
+    "T9E17": {"stratum": "D", "answer_with_sentence": 416.67, "regime": null},
+    "T3DB2": {"stratum": "D", "answer_with_sentence": 416.67, "regime": null},
+    "TAD96": {"stratum": "D", "answer_with_sentence": 416.67, "regime": null},
+    "T90B7": {"stratum": "R", "answer_with_sentence": 459.18, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T081E does not say whether the stated 4 m/s holds after the bag is picked up; the authors' wiring keeps v1 = 4 m/s with mass m1+q (the natural reading of the present-tense description), but picking up a bag at rest from the ice would by momentum conservation lower the speed to 3.33 m/s and give 369.39 J."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Certified answers verified: q=3.5: mu=63.5*75/138.5=34.386, loss=429.83 J; q=12: 5400/147=36.735, 459.18 J; q=15: 37.5, 468.75 J; base 416.67 J. Minimal pairs T3B70/T90B7 (coach vs east skater) and T3DB2/T081E (earlier outing vs before this collision) both state 12 kg and differ only in attachment. Numeral-free twins consistent. Agrees with pass 1."
+}

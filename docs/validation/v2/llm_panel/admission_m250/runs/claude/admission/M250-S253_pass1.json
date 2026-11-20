@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch08",
+  "item_id": "M250-S253",
+  "pass_number": 1,
+  "started_at": "2026-11-20T00:15:00Z", "completed_at": "2026-11-20T00:25:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Normal-incidence acoustic transmission: p_t = [2 Z2/(Z1+Z2)] p_i, with Z = rho c and incident intensity I = p_i^2/(2 Z1)",
+    "assumptions": ["plane harmonic wave, linear acoustics", "lossless uniform fluids", "no wave returning from below", "continuity of pressure and normal velocity"],
+    "answer": 6.284,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {
+    "T9B4F": {"stratum": "R", "answer_with_sentence": 7.697, "regime": null},
+    "TCC99": {"stratum": "R", "answer_with_sentence": 7.697, "regime": null},
+    "T43F7": {"stratum": "C", "answer_with_sentence": 6.284, "regime": null},
+    "TF89B": {"stratum": "D", "answer_with_sentence": 6.284, "regime": null},
+    "TA783": {"stratum": "D", "answer_with_sentence": 6.284, "regime": null},
+    "TEFDB": {"stratum": "D", "answer_with_sentence": 6.284, "regime": null},
+    "TBD48": {"stratum": "D", "answer_with_sentence": 6.284, "regime": null},
+    "TC617": {"stratum": "C", "answer_with_sentence": 6.284, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The R sentences add 0.006 W/m^2 to the incident intensity without saying it is the same coherent plane wave; adding intensities and then quoting a single pressure amplitude presumes the extra intensity simply raises the incident wave to 0.018 W/m^2, and 'Before the pressure is measured ... falls on' could also be read as a past transient."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Z1 = 1.2*343 = 411.6 Pa s/m; Z2 = 998*1482 = 1 479 036 Pa s/m. p_i = sqrt(2*411.6*0.012) = 3.1430 Pa; t = 2*Z2/(Z1+Z2) = 1.99944; p_t = 6.2842 Pa. With I = 0.018 W/m^2: p_i = 3.8494 Pa, p_t = 7.6966 Pa. Frequency enters the harmonic wave form but not the impedances or transmission coefficient for lossless fluids, so it cancels (C). Number-bearing variants all state 0.006 W/m^2; 'small amount' sentences are numeral-free versions."
+}

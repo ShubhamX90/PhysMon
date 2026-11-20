@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch26",
+  "item_id": "M250-S257",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Bateman parent-daughter decay: A_D(t) = A_P0 * lambda_D/(lambda_D - lambda_P) * (exp(-lambda_P t) - exp(-lambda_D t)); lambda = ln2/T_half",
+    "assumptions": ["no daughter at t=0", "parent decays 100% to daughter", "closed column (no elution)", "activities refer to the column contents"],
+    "answer": 3144.7,
+    "unit": "Bq"
+  },
+  "stratum_assignments": {
+    "T5569": {"stratum": "D", "answer_with_sentence": 3144.7, "regime": null},
+    "T3269": {"stratum": "D", "answer_with_sentence": 3144.7, "regime": null},
+    "T0FDD": {"stratum": "R", "answer_with_sentence": 4166.7, "regime": null},
+    "T1787": {"stratum": "R", "answer_with_sentence": 4166.7, "regime": null},
+    "TCB75": {"stratum": "D", "answer_with_sentence": 3144.7, "regime": null},
+    "T3A18": {"stratum": "D", "answer_with_sentence": 3144.7, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "lambda_D/(lambda_D-lambda_P) = (1/6)/(1/6-1/66) = 1.1; 2^(-24/66)=0.777203; 2^(-4)=0.0625; A_D = 4000*1.1*0.714703 = 3144.7 Bq. With total parent 5300 Bq: 5300*0.786173 = 4166.7 Bq. Sentences T5569 and T3269 say 'a further small amount' with no number, while their apparent partners (T3A18, TCB75) state 1300 Bq; if these are intended as minimal-pair variants they differ in the number. Will check pairing claims in pass 2. Earlier-run sentences are disconnected because the current loading is fully specified (4000 Bq, no daughter at t=0)."
+}

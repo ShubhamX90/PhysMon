@@ -1,0 +1,38 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch01",
+  "item_id": "M250-S47",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:08:30Z", "completed_at": "2026-11-20T10:15:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Ideal transformer impedance reflection R' = a^2 R_L; I1 = E/(r + R'); P_L = I1^2 R'",
+    "assumptions": ["ideal lossless transformer, a = 3", "rms sinusoidal steady state", "negligible wire and coil resistance"],
+    "answer": 45.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "TF38E": {"stratum": "C", "answer_with_sentence": 45.0, "regime": null},
+    "T6C3A": {"stratum": "D", "answer_with_sentence": 45.0, "regime": null},
+    "T217D": {"stratum": "D", "answer_with_sentence": 45.0, "regime": null},
+    "T37F6": {"stratum": "D", "answer_with_sentence": 45.0, "regime": null},
+    "T0C77": {"stratum": "K", "answer_with_sentence": 45.0, "regime": "I1 = 0.5 A below the fuse rating"},
+    "T8AD6": {"stratum": "R", "answer_with_sentence": 43.465, "regime": null},
+    "T0A10": {"stratum": "D", "answer_with_sentence": 45.0, "regime": null},
+    "TD3C1": {"stratum": "C", "answer_with_sentence": 45.0, "regime": null},
+    "T16F3": {"stratum": "K", "answer_with_sentence": 45.0, "regime": "I1 = 0.5 A below 9 A"},
+    "TE158": {"stratum": "R", "answer_with_sentence": 43.465, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All claims check. R answers: q=1.5: 180*(100/201.5)^2 = 44.3325 W; q=3.5: 43.4654 W; q=7: 180*(100/207)^2 = 42.008 W. C expression reduces to a^2 Vs^2 RL/(Rs + a^2 RL)^2, independent of N2. K regime I1 < q holds for 6, 9, 14 A (I1 = 0.5 A); counter-regime q = 0.3 A is correct. Minimal pairs T37F6/TE158 and T6C3A/T8AD6 share '3.5 Ω' and differ only in attachment. In pass 1 I raised a low rendering_not_minimal flag on the no-number sentences; the authors declare T217D and T0A10 as deliberate numeral-free twins, not minimal-pair variants, so I withdraw that flag here (pass 1 left unchanged)."
+}

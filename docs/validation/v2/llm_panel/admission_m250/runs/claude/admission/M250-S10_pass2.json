@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch32",
+  "item_id": "M250-S10",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:25:00Z", "completed_at": "2026-11-20T10:30:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "H = h0 + (v sin theta)^2/(2g)",
+    "assumptions": ["no air resistance", "uniform g = 9.8 m/s^2", "launch from platform top 5 m above level ground"],
+    "answer": 13.4322,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "T2FDC": {"stratum": "D", "answer_with_sentence": 13.4322, "regime": null},
+    "TB71A": {"stratum": "D", "answer_with_sentence": 13.4322, "regime": null},
+    "T7618": {"stratum": "D", "answer_with_sentence": 13.4322, "regime": null},
+    "TA325": {"stratum": "C", "answer_with_sentence": 13.4322, "regime": null},
+    "T4C78": {"stratum": "K", "answer_with_sentence": 13.4322, "regime": "H < ceiling height"},
+    "T3770": {"stratum": "C", "answer_with_sentence": 13.4322, "regime": null},
+    "T2004": {"stratum": "R", "answer_with_sentence": 15.6322, "regime": null},
+    "T161A": {"stratum": "R", "answer_with_sentence": 15.6322, "regime": null},
+    "T55E8": {"stratum": "D", "answer_with_sentence": 13.4322, "regime": null},
+    "T5047": {"stratum": "K", "answer_with_sentence": 13.4322, "regime": "H < ceiling height"}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Certified answers check: 13.4322 base; +1.2/2.2/4.3 m give 14.6322/15.6322/17.7322 m. K regime H < q holds for 18, 26, 43 m (13.43 m peak; even with the R stand 15.63 m < 18 m). Mass cancellation correct. Minimal pairs T2FDC/T2004 and T55E8/T161A share 2.2 m and differ only in attachment/time; numeral-free twins as described. Agrees with pass 1."
+}

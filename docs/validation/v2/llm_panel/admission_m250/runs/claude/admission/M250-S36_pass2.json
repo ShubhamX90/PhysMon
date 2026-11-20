@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch18",
+  "item_id": "M250-S36",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:52:00Z", "completed_at": "2026-11-20T10:58:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "T = 2 pi sqrt((L^2/12 + d^2)/(g d))",
+    "assumptions": ["thin uniform rod", "small amplitude", "frictionless pivot"],
+    "answer": 1.679,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TA36F": {"stratum": "C", "answer_with_sentence": 1.679, "regime": null},
+    "TFD4F": {"stratum": "D", "answer_with_sentence": 1.679, "regime": null},
+    "T1443": {"stratum": "D", "answer_with_sentence": 1.679, "regime": null},
+    "TF2C6": {"stratum": "D", "answer_with_sentence": 1.679, "regime": null},
+    "T2919": {"stratum": "C", "answer_with_sentence": 1.679, "regime": null},
+    "T7714": {"stratum": "D", "answer_with_sentence": 1.679, "regime": null},
+    "TFE49": {"stratum": "R", "answer_with_sentence": 2.339, "regime": null},
+    "T1D34": {"stratum": "R", "answer_with_sentence": 2.339, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Verified certified answers: d = 0.12 m -> 2 pi sqrt(0.1344/1.176) = 2.1241 s; d = 0.095 m -> 2.3391 s; d = 0.08 m -> 2 pi sqrt(0.1264/0.784) = 2.5229 s; base 1.6793 s. Mass cancels exactly. All shifts keep d > 0. Minimal pairs (T1443/T1D34, TFD4F/TFE49, numeral-free twins) differ only in attachment or time. Agrees with pass 1."
+}

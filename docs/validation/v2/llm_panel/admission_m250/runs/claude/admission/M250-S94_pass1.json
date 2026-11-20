@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch07",
+  "item_id": "M250-S94",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Hagen-Poiseuille: dP = 32 mu L v_avg / D^2; Q = v_avg pi D^2/4; P = dP Q", "assumptions": ["incompressible Newtonian liquid", "steady laminar fully developed flow, entrance effects neglected", "horizontal pipe so no hydrostatic contribution"], "answer": 0.0080425, "unit": "W"},
+  "stratum_assignments": {
+    "TB900": {"stratum": "C", "answer_with_sentence": 0.0080425, "regime": null},
+    "T1EF8": {"stratum": "D", "answer_with_sentence": 0.0080425, "regime": null},
+    "T0EC4": {"stratum": "D", "answer_with_sentence": 0.0080425, "regime": null},
+    "TC7C1": {"stratum": "D", "answer_with_sentence": 0.0080425, "regime": null},
+    "TF825": {"stratum": "R", "answer_with_sentence": 0.028551, "regime": null},
+    "T0FF6": {"stratum": "R", "answer_with_sentence": 0.028551, "regime": null},
+    "T9141": {"stratum": "C", "answer_with_sentence": 0.0080425, "regime": null},
+    "T4C1C": {"stratum": "D", "answer_with_sentence": 0.0080425, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "With 5.1 m of tubing joined to the pipe (TF825, T0FF6), 'the pressure drop along the pipe' could be read as along the original 2 m (unchanged, 8.04 mW) or along the extended pipe (7.1 m, 28.55 mW); I take the extended reading."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: dP = 32*0.004*2*0.2/(0.004^2) = 3200 Pa; Q = 0.2*pi*(0.002)^2 = 2.5133e-6 m^3/s; P = 8.0425e-3 W. With L = 7.1 m: dP = 11360 Pa, P = 0.028551 W. Outlet pressure cancels since only the pressure difference enters (incompressible). Variant pairs: TB900/T9141 match (96 kPa). T0EC4 ('short length') and TC7C1 ('5.1 m') differ in quantity; likewise T4C1C vs T1EF8; if any of these are claimed minimal pairs they are not minimal in number. No 'short length joined to the pipe' sentence is present, so 'short length' has no defined value on the pipe side."
+}

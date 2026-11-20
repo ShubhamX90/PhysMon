@@ -1,0 +1,35 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch15",
+  "item_id": "M250-S08",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:48:00Z", "completed_at": "2026-11-20T10:59:00Z", "minutes_spent": 11,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Series capacitance C = C1 C2/(C1 + C2); stored energy U = (1/2) C V^2 at full charge",
+    "assumptions": ["capacitors start uncharged (stated)", "fully charged, i.e. steady state reached", "ideal capacitors and battery"],
+    "answer": 0.015,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "T12E2": {"stratum": "K", "answer_with_sentence": 0.015, "regime": "voltage across the 4 μF capacitor (75 V) below its 185 V rating, so no breakdown"},
+    "T18C0": {"stratum": "D", "answer_with_sentence": 0.015, "regime": null},
+    "T4707": {"stratum": "K", "answer_with_sentence": 0.015, "regime": "voltage across the 4 μF capacitor (75 V) below its 185 V limit"},
+    "TBA71": {"stratum": "D", "answer_with_sentence": 0.015, "regime": null},
+    "TF8B9": {"stratum": "R", "answer_with_sentence": 0.01551, "regime": null},
+    "TB824": {"stratum": "D", "answer_with_sentence": 0.015, "regime": null},
+    "TE79C": {"stratum": "K", "answer_with_sentence": 0.015, "regime": "full charge, t >> RC (stated 'fully charged'); R affects only the charging transient"},
+    "TFF02": {"stratum": "R", "answer_with_sentence": 0.01551, "regime": null},
+    "T52A3": {"stratum": "D", "answer_with_sentence": 0.015, "regime": null},
+    "TCCF3": {"stratum": "K", "answer_with_sentence": 0.015, "regime": "full charge, t >> RC; R affects only the transient"}
+  },
+  "validity": "uncertain",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": ["answer_with_sentence for TF8B9 and TFF02"],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "With a 7.5 μF capacitor added in parallel with the second (TF8B9, TFF02), 'energy stored in the two capacitors together' can mean the 4 μF and 12 μF only (0.01551 J) or the whole network including the added one (0.01660 J)."
+  },
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: C = 3 μF, Q = 300 μC, V1 = 75 V, V2 = 25 V, U = 0.5*3e-6*100^2 = 0.015 J. With 7.5 μF parallel to 12 μF: C2' = 19.5 μF, Ceq = 78/23.5 = 3.3191 μF, Q = 331.91 μC, V1 = 82.98 V, V2 = 17.02 V. Energy in 4 μF = 0.013771 J, in 12 μF = 0.001738 J, sum 0.01551 J; including the 7.5 μF (0.001086 J) total = 0.01660 J. I report the literal reading (the two named capacitors). Resistance sentences: R does not affect final stored energy given 'fully charged'; I classed them K (regime t >> RC), though C is defensible. There is a mild tension between 'the connecting wires have negligible resistance' and 'the charging circuit offers a resistance of 6.5 kΩ', not a contradiction since the resistance could be elsewhere. The voltage-rating sentences are K since 75 V < 185 V. The problem text has a comma splice ('start uncharged, the connecting wires...')."
+}

@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch05",
+  "item_id": "M250-S225",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:08:30Z", "completed_at": "2026-11-20T10:14:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Steady radial conduction in a cylindrical shell with constant k: drop to radius rm = (Tin-Tout) ln(rm/r1)/ln(r2/r1)",
+    "assumptions": ["steady state", "purely radial heat flow", "constant conductivity", "surface temperatures fixed"],
+    "answer": 55.797,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "T2495": {"stratum": "C", "answer_with_sentence": 55.797, "regime": null},
+    "T8870": {"stratum": "C", "answer_with_sentence": 55.797, "regime": null},
+    "T6641": {"stratum": "D", "answer_with_sentence": 55.797, "regime": null},
+    "T21B1": {"stratum": "R", "answer_with_sentence": 47.855, "regime": null},
+    "T26FA": {"stratum": "D", "answer_with_sentence": 55.797, "regime": null},
+    "T6E73": {"stratum": "D", "answer_with_sentence": 55.797, "regime": null},
+    "T15F5": {"stratum": "R", "answer_with_sentence": 47.855, "regime": null},
+    "T8754": {"stratum": "D", "answer_with_sentence": 55.797, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "For the R sentences the base text still says the outer surface of the insulation (at 9 cm) is held at 300 K; the authors' wiring (outermost surface at r2+q held at 300 K) is the natural reading, but a reader could keep the 9 cm surface clamped and get 55.80 K."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "All certified answers verified: q=1.2 cm: 120*ln(5/3)/ln(3.4)=50.090; q=1.8: 120*ln(5/3)/ln(3.6)=47.855; q=2.5: 120*ln(5/3)/ln(3.8333)=45.618; base and C/D answers 55.797. Conductivity cancellation correct. Minimal pairs T6641/T21B1 and T8754/T15F5 both state 1.8 cm and differ only in attachment (earlier survey vs now; tank vs pipe). Numeral-free twins T26FA/T6E73 are consistent. Agrees with pass 1."
+}

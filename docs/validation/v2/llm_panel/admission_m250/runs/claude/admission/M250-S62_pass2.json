@@ -1,0 +1,43 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch11",
+  "item_id": "M250-S62",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:32:00Z", "completed_at": "2026-11-20T10:39:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "P3 = (P0/2) cos^2(th1) cos^2(th2)",
+    "assumptions": ["ideal polarisers", "unpolarised uniform beam", "angles between successive axes"],
+    "answer": 8.80236,
+    "unit": "mW"
+  },
+  "stratum_assignments": {
+    "TAD42": {"stratum": "C", "answer_with_sentence": 8.80236, "regime": null},
+    "TBCDC": {"stratum": "D", "answer_with_sentence": 8.80236, "regime": null},
+    "TD8CF": {"stratum": "R", "answer_with_sentence": 16.5044, "regime": null},
+    "T0933": {"stratum": "D", "answer_with_sentence": 8.80236, "regime": null},
+    "T76BC": {"stratum": "K", "answer_with_sentence": 8.80236, "regime": "incident power P0 below the 250 mW rating"},
+    "T2E23": {"stratum": "D", "answer_with_sentence": 8.80236, "regime": null},
+    "T2171": {"stratum": "R", "answer_with_sentence": 16.5044, "regime": null},
+    "T86DB": {"stratum": "C", "answer_with_sentence": 8.80236, "regime": null},
+    "T9CCB": {"stratum": "D", "answer_with_sentence": 8.80236, "regime": null},
+    "T79E5": {"stratum": "K", "answer_with_sentence": 8.80236, "regime": "incident power P0 below the 250 mW damage threshold"}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "T2171 ('is then increased by 35 mW') does not say the increase precedes the measurement the question asks about, so a reader could answer for the original 40 mW; the certified after-increase reading is the natural one."
+  },
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Verified: 20*0.75*0.586824 = 8.80236 mW; R values (40+q)/2*0.75*0.586824: q=15 -> 12.1032, 35 -> 16.5044, 70 -> 24.2065. K regime P0 = 40 mW < 150, 250, 350 mW holds. Area: I said D in pass 1; the authors' C (intensity P0/A times A) is equally defensible and gives the same answer. Minimal pairs T2E23/TD8CF and T9CCB/T2171 share 35 mW and differ only in attachment; TBCDC and T0933 are declared numeral-free controls."
+}

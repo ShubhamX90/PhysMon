@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch20",
+  "item_id": "M250-S259",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:42:30Z", "completed_at": "2026-11-20T10:50:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Maxwell speed distribution tail: F = erfc(x) + (2/sqrt(pi)) x exp(-x^2), x = v/sqrt(2kT/m); amount = n F", "assumptions": ["ideal monatomic gas in equilibrium at 300 K", "1 u = 1.66054e-27 kg"], "answer": 0.0464826, "unit": "mol"},
+  "stratum_assignments": {
+    "T2124": {"stratum": "D", "answer_with_sentence": 0.0464826, "regime": null},
+    "TA6B3": {"stratum": "R", "answer_with_sentence": 0.0540434, "regime": null},
+    "TA645": {"stratum": "D", "answer_with_sentence": 0.0464826, "regime": null},
+    "T5A1D": {"stratum": "C", "answer_with_sentence": 0.0464826, "regime": null},
+    "T3034": {"stratum": "C", "answer_with_sentence": 0.0464826, "regime": null},
+    "T408F": {"stratum": "D", "answer_with_sentence": 0.0464826, "regime": null},
+    "T4B89": {"stratum": "D", "answer_with_sentence": 0.0464826, "regime": null},
+    "TA78B": {"stratum": "R", "answer_with_sentence": 0.0540434, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 4, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "The C cancellation for pressure is constructed (n_d = p/kT multiplied in and divided out) rather than a relation the solution actually uses; pressure is better described as not entering the speed distribution at fixed n and T, but the invariance claim itself is true."
+  },
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base 0.04648 mol and 317 K value 0.05404 mol match my pass-1 work; I also checked 309 K: x^2 = 3.11539, F = 0.10091, amount 0.05045 mol, matching 0.0504532. D sentences (earlier experiment, window frame) correct; minimal pairs T408F/TA78B and T4B89/TA6B3 differ only in attachment/time with same 17 K; T2124/TA645 are declared numeral-free controls. 62 kPa (and 35-150 kPa) is well inside the ideal-gas regime for helium at 300 K."
+}

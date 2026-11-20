@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch07",
+  "item_id": "M250-S202",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:39:00Z", "completed_at": "2026-11-20T10:44:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Tsiolkovsky rocket equation: vf = u ln(m0/m_final)", "assumptions": ["no external force", "constant exhaust speed relative to the rocket", "starts from rest", "non-relativistic"], "answer": 4.15888, "unit": "km/s"},
+  "stratum_assignments": {
+    "T5A37": {"stratum": "R", "answer_with_sentence": 3.69264, "regime": null},
+    "T2DD9": {"stratum": "C", "answer_with_sentence": 4.15888, "regime": null},
+    "T5460": {"stratum": "R", "answer_with_sentence": 3.69264, "regime": null},
+    "T3A6F": {"stratum": "D", "answer_with_sentence": 4.15888, "regime": null},
+    "TB855": {"stratum": "C", "answer_with_sentence": 4.15888, "regime": null},
+    "T357D": {"stratum": "D", "answer_with_sentence": 4.15888, "regime": null},
+    "T23F7": {"stratum": "D", "answer_with_sentence": 4.15888, "regime": null},
+    "T2E45": {"stratum": "D", "answer_with_sentence": 4.15888, "regime": null}
+  },
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Checked R answers: q = 50: 3 ln(3250/850) = 3*1.34117 = 4.02352; q = 190: 3 ln(3390/990) = 3.69264; q = 310: 3 ln(3510/1110) = 3*1.15126 = 3.45377 km/s; all match. The wiring text mentions only the final mass md + q, but the certified numbers correctly add q to the initial mass too. The burn-rate cancellation is correct (no external force). Minimal pairs T2E45/T5A37 and T3A6F/T5460 share 190 kg and differ only in attachment/timing; T23F7 and T357D are declared numeral-free twins. Agrees with pass 1."
+}

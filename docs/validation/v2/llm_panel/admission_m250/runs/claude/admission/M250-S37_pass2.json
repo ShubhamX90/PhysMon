@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch29",
+  "item_id": "M250-S37",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:08:00Z", "completed_at": "2026-11-20T10:15:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Newtonian circular orbit: T = 2*pi*sqrt(r^3/(g R^2)), r = R + h", "assumptions": ["circular orbit", "only Earth's gravity, uniform sphere", "satellite mass negligible vs Earth"], "answer": 92.51, "unit": "min"},
+  "stratum_assignments": {
+    "T829A": {"stratum": "D", "answer_with_sentence": 92.51, "regime": null},
+    "T4F19": {"stratum": "D", "answer_with_sentence": 92.51, "regime": null},
+    "TF747": {"stratum": "D", "answer_with_sentence": 92.51, "regime": null},
+    "TDE51": {"stratum": "R", "answer_with_sentence": 109.38, "regime": null},
+    "T2454": {"stratum": "R", "answer_with_sentence": 109.38, "regime": null},
+    "T5F43": {"stratum": "D", "answer_with_sentence": 92.51, "regime": null},
+    "TA5FD": {"stratum": "C", "answer_with_sentence": 92.51, "regime": null},
+    "T469A": {"stratum": "C", "answer_with_sentence": 92.51, "regime": null}
+  },
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TDE51 ('is then raised') does not say explicitly that the asked period is the one after the raise, unlike T2454; the R reading is the natural one but the base-orbit period is also a defensible reading."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "All strata agree with my pass 1. Verified certified answers: base r=6771 km gives 92.51 min; rise 300 km (r=7071 km) 98.73 min; 800 km (r=7571 km) 109.38 min; 1400 km (r=8171 km) 122.64 min. Mass cancellation relations correct. Minimal pairs T4F19/TDE51 (same 800 km, station vs satellite) and TF747/T2454 (same 800 km, earlier mission vs before measurement) hold. Numeral-free twins T829A/T5F43 are consistent controls. I lower my pass-1 'other' severity from medium to low: the R reading of TDE51 is the dominant one and the item's claims all hold."
+}

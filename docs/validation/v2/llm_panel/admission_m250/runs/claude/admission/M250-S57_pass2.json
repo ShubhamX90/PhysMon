@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch09",
+  "item_id": "M250-S57",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:08:00Z", "completed_at": "2026-11-20T10:14:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "W = m c [(T1 - T0) - T0 ln(T1/T0)] for a reversible engine cooling a finite body to the reservoir temperature", "assumptions": ["engine reversible", "lake temperature constant", "constant c", "insulated tank", "water stays liquid"], "answer": 61.076, "unit": "kJ"},
+  "stratum_assignments": {
+    "T9CCB": {"stratum": "R", "answer_with_sentence": 103.83, "regime": null},
+    "T630C": {"stratum": "R", "answer_with_sentence": 103.83, "regime": null},
+    "TE3D6": {"stratum": "D", "answer_with_sentence": 61.076, "regime": null},
+    "TC03C": {"stratum": "D", "answer_with_sentence": 61.076, "regime": null},
+    "T24C4": {"stratum": "D", "answer_with_sentence": 61.076, "regime": null},
+    "T557D": {"stratum": "D", "answer_with_sentence": 61.076, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified: base 8372 x 7.29530 = 61.076 kJ; m=2.7 kg: 82.453 kJ; m=3.4 kg: 103.83 kJ; m=5.3 kg: 161.85 kJ. All certified answers match. Minimal pairs T24C4/T630C (tank vs second tank) and TE3D6/T9CCB (earlier experiment only vs this experiment) carry the same number and unit and differ only in attachment. My pass-1 low rendering_not_minimal flag on TC03C/T557D is withdrawn: the pass-2 packet declares them as numeral-free controls by design, twins of TE3D6/T24C4, not number-bearing minimal pairs. The second tank being 'empty' in the base text and later receiving water 'before the engine is started' is a sequence in time, not a contradiction."
+}

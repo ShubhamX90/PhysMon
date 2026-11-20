@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch34",
+  "item_id": "M250-S234",
+  "pass_number": 1,
+  "started_at": "2026-11-20T00:26:00Z", "completed_at": "2026-11-20T00:33:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Snell's law at the end face (sin 40 = n sin r), ray path length L / cos r at speed c/n: t = n L / (c cos r)", "assumptions": ["sin r = 0.642788/1.8 = 0.357104, cos r = 0.934065", "TIR at the sides holds (n cos r = 1.681 > 1 for air)", "non-dispersive glass, group speed c/n", "c = 3.0e8 m/s"], "answer": 12.847, "unit": "ns"},
+  "stratum_assignments": {
+    "T51AF": {"stratum": "K", "answer_with_sentence": 12.847, "regime": "surrounding index below n cos r = 1.681, so total internal reflection at the sides still holds"},
+    "T97AD": {"stratum": "D", "answer_with_sentence": 12.847, "regime": null},
+    "TE2F0": {"stratum": "D", "answer_with_sentence": 12.847, "regime": null},
+    "TD2A3": {"stratum": "K", "answer_with_sentence": 12.847, "regime": "surrounding index below n cos r = 1.681, so total internal reflection at the sides still holds"},
+    "T2524": {"stratum": "R", "answer_with_sentence": 21.198, "regime": null},
+    "T507D": {"stratum": "D", "answer_with_sentence": 12.847, "regime": null},
+    "T29E2": {"stratum": "C", "answer_with_sentence": 12.847, "regime": null},
+    "TACC7": {"stratum": "D", "answer_with_sentence": 12.847, "regime": null},
+    "TB902": {"stratum": "R", "answer_with_sentence": 21.198, "regime": null},
+    "TF3EE": {"stratum": "C", "answer_with_sentence": 12.847, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The coupler sentences (T2524, TB902) do not state that the coupler has the same refractive index as the rod and joins it without an index step, which is needed for the 21.20 ns answer; the natural reading is that the rod simply becomes 3.3 m long."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Rod 3.3 m long: t = 12.847*3.3/2 = 21.198 ns. Diameter sets the number of side reflections (axial spacing d/tan r = 6.54 cm for 2.5 cm) but not the unfolded path length, so it cancels (C). Cladding index 1.37 < 1.681 keeps TIR (K). Numeral-free sentences T97AD and TACC7 carry no number."
+}

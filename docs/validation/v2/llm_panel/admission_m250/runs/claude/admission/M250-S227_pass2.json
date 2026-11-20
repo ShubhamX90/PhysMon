@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch16",
+  "item_id": "M250-S227",
+  "pass_number": 2,
+  "started_at": "2026-11-20T11:03:00Z", "completed_at": "2026-11-20T11:13:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "U = dE g exp(-dE/RT) / (1 + g exp(-dE/RT))", "assumptions": ["Boltzmann equilibrium at 300 K", "two accessible levels", "level energy only, measured from the ground level"], "answer": 1.27797, "unit": "kJ/mol"},
+  "stratum_assignments": {
+    "T0EF9": {"stratum": "D", "answer_with_sentence": 1.27797, "regime": null},
+    "T9DAE": {"stratum": "D", "answer_with_sentence": 1.27797, "regime": null},
+    "TCA07": {"stratum": "D", "answer_with_sentence": 1.27797, "regime": null},
+    "T5974": {"stratum": "D", "answer_with_sentence": 1.27797, "regime": null},
+    "T4CBB": {"stratum": "R", "answer_with_sentence": 1.57093, "regime": null},
+    "T86F4": {"stratum": "D", "answer_with_sentence": 1.27797, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["other", "inconsistent_units"],
+  "defect_reasons": {
+    "other": "T5974 is certified R (gas at 338 K, 1.57093 kJ/mol), but the problem states the gas 'is in thermal equilibrium at a temperature of 300 K', so heating that happened before the molecules equilibrated is naturally already included in that 300 K (1.27797 kJ/mol); read as the authors intend, the sentence contradicts the stated equilibrium temperature, so the certified R answer is not uniquely supported.",
+    "inconsistent_units": "The relation x = dE/(R*T) lists dE in kJ/mol and R in J/(mol*K) without a conversion factor; the certified numbers are right, so this is only a presentation slip in the stated relation."
+  },
+  "defect_severity": {"other": "high", "inconsistent_units": "low"},
+  "counterexamples": ["T5974: taking the stated equilibrium at 300 K as the state reached after the pre-equilibration heating gives U = 1.27797 kJ/mol, not the certified 1.57093 kJ/mol."],
+  "notes": "Checked answers: T=300: 1.27797; T=322: x=2.241243, w=0.318979, U=1.4510 kJ/mol; T=338: x=2.135131, w=0.354687, U=1.57093; T=370: x=1.950471, w=0.426621, U=1.7942. All certified values correct to within rounding. T4CBB ('then warming') R claim holds; water-bath and earlier-run D claims hold (no heat exchange is stated). Minimal pairs T86F4/T4CBB and T0EF9/T5974 all state 38 K; numeral-free twins correct. Also a medium-level wording point: 'mean energy of the molecules' could be read to include translational energy (3/2 RT), though 'measured from the ground level' and the level description point to the internal level energy only. Consistent with my pass 1, where I assigned T5974 to D and noted the ambiguity."
+}

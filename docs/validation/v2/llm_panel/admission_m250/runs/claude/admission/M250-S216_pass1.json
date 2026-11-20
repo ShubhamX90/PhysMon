@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch05",
+  "item_id": "M250-S216",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:40:00Z", "completed_at": "2026-11-20T10:48:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Lossless LC oscillation of transferred charge q about the equilibrium where V1 - q/C1 = V2 + q/C2; q_eq = (V1 - V2) C1C2/(C1+C2), starting at q = 0 with zero current so q swings to 2 q_eq; V2max = V2 + 2 q_eq/C2 (energy conservation checks)",
+    "assumptions": ["no resistance, no radiation", "ideal inductor", "zero initial current", "positive plates joined so the two capacitor voltages oppose round the loop"],
+    "answer": 148.0,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "T94A9": {"stratum": "D", "answer_with_sentence": 148.0, "regime": null},
+    "T3614": {"stratum": "D", "answer_with_sentence": 148.0, "regime": null},
+    "T6868": {"stratum": "R", "answer_with_sentence": 157.78, "regime": null},
+    "T47FC": {"stratum": "D", "answer_with_sentence": 148.0, "regime": null},
+    "TF693": {"stratum": "C", "answer_with_sentence": 148.0, "regime": null},
+    "T0EC0": {"stratum": "R", "answer_with_sentence": 157.78, "regime": null},
+    "T7B75": {"stratum": "C", "answer_with_sentence": 148.0, "regime": null},
+    "T3A64": {"stratum": "D", "answer_with_sentence": 148.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 4,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "In T3614/T3A64 'charged to the same voltage' has no clear referent (the first capacitor? the flash unit's battery?), harmless since the sentence is disconnected."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base: Cs = 40*10/50 = 8 uF, q_eq = 80 V * 8 uF = 640 uC, q_max = 1280 uC, V2max = 20 + 1280/10 = 148 V (energy check: initial 0.2020 J; at q_max V1 = 68 V, 0.09248 + 0.10952 = 0.2020 J). With 22 uF at 100 V in parallel with C1 (62 uF): Cs = 620/72 = 8.6111 uF, q_max = 2*80*8.6111 = 1377.78 uC, V2max = 20 + 137.78 = 157.78 V. Inductance sets only the period and cancels. Earlier-run and flash-unit sentences are disconnected. Variant groups consistent (22 uF; 120 mH)."
+}

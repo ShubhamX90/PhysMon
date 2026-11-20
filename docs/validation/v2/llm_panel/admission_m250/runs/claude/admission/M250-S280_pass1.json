@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch35",
+  "item_id": "M250-S280",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:12:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Hohmann transfer with GM = g R^2: v1 = sqrt(GM/r1), v2 = sqrt(GM/r2); dv1 = v1(sqrt(2 r2/(r1+r2)) - 1), dv2 = v2(1 - sqrt(2 r1/(r1+r2))); total = dv1 + dv2",
+    "assumptions": ["inverse-square gravity of a point-like planet, GM = 1.62 * (1.737e6)^2 = 4.8878e12 m^3/s^2", "impulsive tangential burns", "r1 = 1837 km, r2 = 4237 km", "relay satellite exerts no force"],
+    "answer": 534.2,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TE6AF": {"stratum": "D", "answer_with_sentence": 534.2, "regime": null},
+    "T1718": {"stratum": "D", "answer_with_sentence": 534.2, "regime": null},
+    "T4C56": {"stratum": "D", "answer_with_sentence": 534.2, "regime": null},
+    "T88D6": {"stratum": "D", "answer_with_sentence": 534.2, "regime": null},
+    "TA6B6": {"stratum": "K", "answer_with_sentence": 534.2, "regime": "burn duration much shorter than the orbital period (initial orbit period about 118 min; 3 min is about 2.5% of it), so the impulsive approximation holds"},
+    "T53EE": {"stratum": "R", "answer_with_sentence": 373.0, "regime": null},
+    "TCF66": {"stratum": "R", "answer_with_sentence": 373.0, "regime": null},
+    "TC95F": {"stratum": "C", "answer_with_sentence": 534.2, "regime": null},
+    "T70A4": {"stratum": "K", "answer_with_sentence": 534.2, "regime": "burn duration much shorter than the orbital period, impulsive approximation holds"},
+    "T6EC6": {"stratum": "C", "answer_with_sentence": 534.2, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "T4C56 ('a little higher') and T1718 ('a little more') appear to be variants of TE6AF/T88D6/TCF66 but state no number instead of 470 km; if they are claimed as minimal pairs with 470 km sentences, this is a mismatch (to be checked in pass 2)."},
+  "defect_severity": {"rendering_not_minimal": "medium"},
+  "counterexamples": [],
+  "notes": "Base: v1 = 1631.18 m/s, v2 = 1074.06 m/s, dv1 = 295.50, dv2 = 238.73, total 534.22 m/s. With initial altitude 570 km (r1 = 2307 km): v1 = 1455.57, dv1 = 200.79, dv2 = 172.19, total 372.98 m/s. Mass cancels from delta-v (C). 'Earlier flight only' sentences refer to a different flight, so D. Relay satellite altitude has no path to the answer since no other body acts. 'Weighed at 1400 kg' is colloquial for mass."
+}

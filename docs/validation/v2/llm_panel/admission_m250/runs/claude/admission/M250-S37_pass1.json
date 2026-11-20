@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch29",
+  "item_id": "M250-S37",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Newtonian circular orbit: T = 2*pi*sqrt(r^3/(g R^2)), r = R + h, GM = g R^2", "assumptions": ["circular orbit", "Earth uniform sphere (point-mass field outside)", "satellite mass negligible vs Earth", "non-relativistic"], "answer": 92.51, "unit": "min"},
+  "stratum_assignments": {
+    "T829A": {"stratum": "D", "answer_with_sentence": 92.51, "regime": null},
+    "T4F19": {"stratum": "D", "answer_with_sentence": 92.51, "regime": null},
+    "TF747": {"stratum": "D", "answer_with_sentence": 92.51, "regime": null},
+    "TDE51": {"stratum": "R", "answer_with_sentence": 109.38, "regime": null},
+    "T2454": {"stratum": "R", "answer_with_sentence": 109.38, "regime": null},
+    "T5F43": {"stratum": "D", "answer_with_sentence": 92.51, "regime": null},
+    "TA5FD": {"stratum": "C", "answer_with_sentence": 92.51, "regime": null},
+    "T469A": {"stratum": "C", "answer_with_sentence": 92.51, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TDE51 ('then raised') leaves open whether the asked period is before or after the raise, and TF747/T5F43 (earlier-mission raise) sit awkwardly beside the stated present 400 km altitude."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: r = 6771 km, GM = 9.8*(6.371e6)^2 = 3.9778e14 m^3/s^2, T = 5550.6 s = 92.51 min. Raised by 800 km: r = 7571 km, T = 6562.8 s = 109.38 min. Satellite mass cancels (C) since orbital period is independent of orbiter mass when m << M. Space-station sentences are D (different body, never close). TF747/T5F43 describe a past raise; the problem states the current altitude as 400 km, so I take them as disconnected history. TDE51 read as the period after the raise (R). TA5FD/T469A are proper variants (same 750 kg)."
+}

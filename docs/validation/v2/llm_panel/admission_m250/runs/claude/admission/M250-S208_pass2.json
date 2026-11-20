@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch34",
+  "item_id": "M250-S208",
+  "pass_number": 2,
+  "started_at": "2026-11-20T00:06:00Z", "completed_at": "2026-11-20T00:11:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Angular momentum conservation about the axle; Q = (1/2) [I1 I2/(I1+I2)] w0^2", "assumptions": ["I1 = 0.04 kg*m^2", "w0 = 20*pi rad/s", "second disc initially at rest", "frictionless axle"], "answer": 33.84, "unit": "J"},
+  "stratum_assignments": {
+    "T3181": {"stratum": "D", "answer_with_sentence": 33.84, "regime": null},
+    "T7B9A": {"stratum": "D", "answer_with_sentence": 33.84, "regime": null},
+    "T3F66": {"stratum": "C", "answer_with_sentence": 33.84, "regime": null},
+    "T145A": {"stratum": "R", "answer_with_sentence": 50.25, "regime": null},
+    "TE735": {"stratum": "D", "answer_with_sentence": 33.84, "regime": null},
+    "TBE70": {"stratum": "C", "answer_with_sentence": 33.84, "regime": null},
+    "T1AC4": {"stratum": "D", "answer_with_sentence": 33.84, "regime": null},
+    "T9108": {"stratum": "R", "answer_with_sentence": 50.25, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All certified answers verified: base 33.84 J; I2 = 0.045 -> 41.80 J, 0.07 -> 50.25 J, 0.105 -> 57.18 J. Friction-torque cancellation is correct (Q = q * (I1 I2 w0^2 / (2 q (I1+I2)))). Minimal pairs T7B9A/T9108 and TE735/T145A share 0.04 kg*m^2 and differ only in attachment. In pass 1 I flagged rendering_not_minimal (medium) for the 'a small amount' sentences T3181 and T1AC4; pass 2 shows they are declared numeral-free controls (twins of TE735 and T7B9A), not claimed minimal pairs, so I withdraw that flag; the phrasing 'is a small amount' is somewhat awkward, hence slightly_artificial."
+}

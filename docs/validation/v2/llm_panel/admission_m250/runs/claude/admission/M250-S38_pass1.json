@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch19",
+  "item_id": "M250-S38",
+  "pass_number": 1,
+  "started_at": "2026-11-20T00:15:00Z", "completed_at": "2026-11-20T00:24:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Static equilibrium of a rigid ladder: vertical force balance N = (m+M)g; horizontal balance friction f = wall reaction N_w; torques about the foot N_w L sin(theta) = (m/2 + 0.6 M) g L cos(theta); ground force = sqrt(N^2 + f^2).",
+    "assumptions": ["smooth wall (stated)", "uniform ladder (stated)", "no slipping, static (stated)", "rigid ladder"],
+    "answer": 841.62,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T4486": {"stratum": "K", "answer_with_sentence": 841.62, "regime": "Friction coefficient matters only if mu_s < f/N = 250.1/803.6 = 0.311 (the ladder would slip); 1.15 > 0.311."},
+    "T038B": {"stratum": "C", "answer_with_sentence": 841.62, "regime": null},
+    "TD573": {"stratum": "R", "answer_with_sentence": 939.71, "regime": null},
+    "T1EB2": {"stratum": "D", "answer_with_sentence": 841.62, "regime": null},
+    "TA81B": {"stratum": "D", "answer_with_sentence": 841.62, "regime": null},
+    "T49C6": {"stratum": "D", "answer_with_sentence": 841.62, "regime": null},
+    "T5690": {"stratum": "C", "answer_with_sentence": 841.62, "regime": null},
+    "TCE71": {"stratum": "D", "answer_with_sentence": 841.62, "regime": null},
+    "T5FAB": {"stratum": "K", "answer_with_sentence": 841.62, "regime": "mu_s >= 0.311 (no slip); 1.15 is inside."},
+    "TEA7A": {"stratum": "D", "answer_with_sentence": 841.62, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TCE71 ('Before the person stood on the ladder, the ladder was tilted 18 degrees closer to the ground') can be read as the ladder having been moved to 44 degrees before the person climbed, which would conflict with the stated 62 degrees; the intended reading (a past state that no longer holds) is the more natural one."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "W = 82*9.8 = 803.6 N. N_w = g cot(theta)(6 + 42) = 470.4 cot(theta). At 62 deg: cot = 0.53171, N_w = 250.12 N, |F| = sqrt(803.6^2 + 250.12^2) = 841.62 N. At 44 deg (TD573): cot = 1.03553, N_w = 487.11 N, |F| = 939.71 N; required mu = 0.606, so the no-slip statement remains physically possible (and is within 1.15 if both were given). Length cancels from the torque balance (C). T1EB2 and TA81B carry no number; they appear to be qualitative variants. Variants with 18 deg, 5.5 m and 1.15 state the same number and unit."
+}

@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch28",
+  "item_id": "M250-S224",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:16:00Z", "completed_at": "2026-11-20T10:23:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Ideal entropy of mixing at equal T and P: dS = -R sum n_i ln x_i (each gas expands isothermally from V_i to V, V_i/V = x_i)", "assumptions": ["ideal gases, distinct species", "rigid insulated container: Q = W = 0, so T unchanged", "equal initial T and P so V_i proportional to n_i"], "answer": 22.001, "unit": "J/K"},
+  "stratum_assignments": {
+    "TD9D8": {"stratum": "D", "answer_with_sentence": 22.001, "regime": null},
+    "TA337": {"stratum": "D", "answer_with_sentence": 22.001, "regime": null},
+    "T2667": {"stratum": "R", "answer_with_sentence": 30.472, "regime": null},
+    "T4FE0": {"stratum": "C", "answer_with_sentence": 22.001, "regime": null},
+    "TBB89": {"stratum": "D", "answer_with_sentence": 22.001, "regime": null},
+    "T7A1E": {"stratum": "C", "answer_with_sentence": 22.001, "regime": null},
+    "T6DA3": {"stratum": "R", "answer_with_sentence": 30.472, "regime": null},
+    "TA9C4": {"stratum": "D", "answer_with_sentence": 22.001, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "T6DA3/T2667 do not say the added helium is at the common temperature; the intended reading (same T, partition re-equalises pressure) is natural but implicit."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base: x_He = 0.375, x_Ar = 0.625; dS = 8.314*(1.5*0.980829 + 2.5*0.470004) = 8.314*2.646253 = 22.001 J/K. With 2.8 mol He: x_He = 0.528302, x_Ar = 0.471698; dS = 8.314*(2.8*0.638087 + 2.5*0.751416) = 8.314*3.665184 = 30.472 J/K. Container volume cancels (only V_i/V = x_i enters). Balloon helium and earlier-run helium have no path to the mixing. Numeral-free 'small amount' sentences are controls without a number."
+}

@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch11",
+  "item_id": "M250-S245",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:12:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Momentum conservation per absorption: N = p_atom / p_photon = sqrt(2 m K) / (h / lambda); spontaneous-emission recoil averages to zero",
+    "assumptions": ["m = 23 u with u = 1.66054e-27 kg", "1 eV = 1.602177e-19 J", "non-relativistic, one-dimensional", "each absorbed photon transfers h/lambda opposite to motion", "lambda = 589 nm throughout (sweep negligible for photon momentum)"],
+    "answer": 27163,
+    "unit": "photons (dimensionless)"
+  },
+  "stratum_assignments": {
+    "T0167": {"stratum": "D", "answer_with_sentence": 27163, "regime": null},
+    "T7F35": {"stratum": "D", "answer_with_sentence": 27163, "regime": null},
+    "T866E": {"stratum": "D", "answer_with_sentence": 27163, "regime": null},
+    "TAB0F": {"stratum": "D", "answer_with_sentence": 27163, "regime": null},
+    "TCE76": {"stratum": "R", "answer_with_sentence": 29056, "regime": null},
+    "TF60D": {"stratum": "D", "answer_with_sentence": 27163, "regime": null},
+    "T037E": {"stratum": "D", "answer_with_sentence": 27163, "regime": null},
+    "TC3E2": {"stratum": "R", "answer_with_sentence": 29056, "regime": null},
+    "T28D1": {"stratum": "D", "answer_with_sentence": 27163, "regime": null},
+    "T341F": {"stratum": "D", "answer_with_sentence": 27163, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal", "other"],
+  "defect_reasons": {
+    "rendering_not_minimal": "T7F35 and T037E say 'a little' instead of stating 0.011 eV, so they differ in the number from their apparent variants T28D1 and T341F/TC3E2.",
+    "other": "The 2.4 GHz sweep (T0167/T866E) exceeds the Doppler shift needed to stop one atom (v/lambda = 800 m/s / 589 nm = 1.36 GHz); not a contradiction since one atom need not use the whole sweep, but slightly odd; also TC3E2/TCE76 leave mildly open whether 0.0763 eV already includes the nozzle increment."
+  },
+  "defect_severity": {"rendering_not_minimal": "low", "other": "low"},
+  "counterexamples": [],
+  "notes": "p = sqrt(2*3.81924e-26 kg*1.22246e-20 J) = 3.0558e-23 kg m/s; h/lambda = 1.12496e-27 kg m/s; N = 2.7163e4. With 0.0873 eV: N = 27163*sqrt(0.0873/0.0763) = 27163*1.06966 = 2.9056e4. Initial speed ~800 m/s. Scattering rate affects only the slowing time, not N. I read TCE76/TC3E2 as adding 0.011 eV to the stated 0.0763 eV."
+}

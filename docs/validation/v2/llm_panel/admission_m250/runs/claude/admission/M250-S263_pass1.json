@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch15",
+  "item_id": "M250-S263",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Metre-bridge (Wheatstone) balance R_box/R_s = l/(100 cm - l); R_s = rho L / (pi d^2/4)",
+    "assumptions": ["uniform bridge wire so resistance per length is constant", "negligible strip/lead/contact resistance (stated)", "steady temperature (stated)", "lamp/rheostat circuit is separate from the bridge"],
+    "answer": 7.971e-7,
+    "unit": "Ω·m"
+  },
+  "stratum_assignments": {
+    "T0506": {"stratum": "D", "answer_with_sentence": 7.971e-7, "regime": null},
+    "T0CEE": {"stratum": "R", "answer_with_sentence": 1.4216e-6, "regime": null},
+    "T20A1": {"stratum": "C", "answer_with_sentence": 7.971e-7, "regime": null},
+    "TB13C": {"stratum": "C", "answer_with_sentence": 7.971e-7, "regime": null},
+    "T459C": {"stratum": "R", "answer_with_sentence": 1.4216e-6, "regime": null},
+    "TE5F9": {"stratum": "D", "answer_with_sentence": 7.971e-7, "regime": null},
+    "TD741": {"stratum": "D", "answer_with_sentence": 7.971e-7, "regime": null},
+    "TAB0A": {"stratum": "D", "answer_with_sentence": 7.971e-7, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: R_s = 12*58.5/41.5 = 16.916 Ω; A = pi(0.15e-3)^2 = 7.0686e-8 m^2; rho = 16.916*7.0686e-8/1.5 = 7.971e-7 Ω·m. With 21.4 Ω in the left gap at balance (T0CEE, T459C): R_s = 30.166 Ω, rho = 1.4216e-6 Ω·m. Bridge-wire diameter cancels from the length ratio (C). Rheostat is in a separate lamp circuit (D). Earlier-trial resistance does not act in the balance used (D). TE5F9 and TD741 say 'a small amount' rather than 9.4 Ω, so they are not same-number variants of T0506/TAB0A; if claimed as minimal pairs this would be a rendering mismatch. 'For one trial only' in T459C is slightly awkward but readable as the trial reported."
+}

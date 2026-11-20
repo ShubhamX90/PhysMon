@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch21",
+  "item_id": "M250-S220",
+  "pass_number": 1,
+  "started_at": "2026-11-20T00:11:00Z", "completed_at": "2026-11-20T00:18:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "At constant voltage F = (1/2) V^2 dC/dx with C(x) = C0[1 + (kappa - 1) x/L], so F = (1/2) V^2 C0 (kappa - 1)/L",
+    "assumptions": ["battery stays connected (constant V)", "fringe fields neglected", "slab fills the gap thickness and width", "slab edge well away from plate ends so force independent of x"],
+    "answer": 0.75,
+    "unit": "mN"
+  },
+  "stratum_assignments": {
+    "T9C5B": {"stratum": "D", "answer_with_sentence": 0.75, "regime": null},
+    "T09BD": {"stratum": "D", "answer_with_sentence": 0.75, "regime": null},
+    "TBFE0": {"stratum": "R", "answer_with_sentence": 2.1675, "regime": null},
+    "TABCB": {"stratum": "D", "answer_with_sentence": 0.75, "regime": null},
+    "TA3FF": {"stratum": "C", "answer_with_sentence": 0.75, "regime": null},
+    "TAC6D": {"stratum": "C", "answer_with_sentence": 0.75, "regime": null},
+    "TE652": {"stratum": "R", "answer_with_sentence": 2.1675, "regime": null},
+    "T8F88": {"stratum": "D", "answer_with_sentence": 0.75, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {"missing_assumption": "TE652 and TBFE0 add a 350 V battery 'in series with the battery' without saying which way it faces, so the emf could be 850 V (F = 2.17 mN) or 150 V (F = 0.0675 mN)."},
+  "defect_severity": {"missing_assumption": "high"},
+  "counterexamples": ["TE652 with the extra battery opposing: V = 150 V, F = 0.5 x 22500 x 6e-9 = 6.75e-5 N = 0.0675 mN instead of 2.1675 mN."],
+  "notes": "dC/dx = 200 pF x 3 / 0.10 m = 6e-9 F/m; F = 0.5 x 500^2 x 6e-9 = 7.5e-4 N = 0.75 mN. Aiding 350 V: 850 V gives 0.5 x 722500 x 6e-9 = 2.1675e-3 N. The insertion depth (4.5 cm of 10 cm) enters C(x) but cancels from dC/dx; it could also be read as K (force independent of x only while the slab's edge is away from the plate ends, and 4.5 cm is inside that regime). Numeral-free sentences T9C5B and T8F88 lack the 350 V of their counterparts."
+}

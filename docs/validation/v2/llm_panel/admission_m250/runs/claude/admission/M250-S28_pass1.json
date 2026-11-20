@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch17",
+  "item_id": "M250-S28",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:15:00Z", "completed_at": "2026-11-20T10:24:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "uniform motion x_T = v t; uniformly accelerated motion from rest x_C = a t^2/2; equate: t = 2v/a = 30/2", "assumptions": ["car starts from rest at the truck's position at t = 0", "straight road, constant velocities/accelerations", "non-relativistic kinematics"], "answer": 15.0, "unit": "s"},
+  "stratum_assignments": {
+    "TB52F": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "T9424": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "T56E0": {"stratum": "R", "answer_with_sentence": 18.375, "regime": null},
+    "T8C0C": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "T35DB": {"stratum": "K", "answer_with_sentence": 15.0, "regime": "top speed >= car speed at catch-up, 2v = 30 m/s; 46 m/s is above it"},
+    "T0812": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "T5651": {"stratum": "R", "answer_with_sentence": 18.375, "regime": null},
+    "T76A7": {"stratum": "K", "answer_with_sentence": 15.0, "regime": "top speed >= 30 m/s"},
+    "TE8F1": {"stratum": "R", "answer_with_sentence": 9.0909, "regime": null},
+    "TEA52": {"stratum": "R", "answer_with_sentence": 9.0909, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "The R acceleration sentences (TEA52, TE8F1) sit beside the base statement that the car accelerates at a constant 2 m/s^2, so a reader must take the kit as adding to that value; TE8F1's 'before the start' is a little less direct about the kit still being fitted."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Top speed 21 m/s: reached at t = 10.5 s, x = 110.25 m; then 110.25 + 21(t - 10.5) = 15 t gives t = 18.375 s. With a = 3.3 m/s^2: t = 30/3.3 = 9.0909 s. Variant groups (1.3 m/s^2; 21 m/s; 46 m/s; numeral-free 'a little') are consistent in number and unit."
+}

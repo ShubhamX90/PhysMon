@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch22",
+  "item_id": "M250-S262",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:36:00Z", "completed_at": "2026-11-20T10:48:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Hagen-Poiseuille Q = pi r^4 rho g h/(8 mu L) with A dh/dt = -Q, giving t = (8 mu L A/(pi r^4 rho g)) ln(h0/h1)", "assumptions": ["steady laminar Poiseuille flow at every instant (quasi-steady)", "driving pressure rho g h only", "end effects and outflow kinetic energy neglected", "constant cross-section tank"], "answer": 1005.2, "unit": "s"},
+  "stratum_assignments": {
+    "TD265": {"stratum": "R", "answer_with_sentence": 1607.0, "regime": null},
+    "TC2E8": {"stratum": "K", "answer_with_sentence": 1005.2, "regime": "laminar Poiseuille flow requires Re below about 2100; here Re = rho v d/mu is about 3 at 40 cm depth (about 4 at 53 cm)"},
+    "T3C55": {"stratum": "R", "answer_with_sentence": 1607.0, "regime": null},
+    "T7A3F": {"stratum": "D", "answer_with_sentence": 1005.2, "regime": null},
+    "T7B4A": {"stratum": "D", "answer_with_sentence": 1005.2, "regime": null},
+    "TFF4D": {"stratum": "D", "answer_with_sentence": 1005.2, "regime": null},
+    "T5EA0": {"stratum": "K", "answer_with_sentence": 1005.2, "regime": "laminar for Re below 2100; actual Re about 3"},
+    "T75EB": {"stratum": "D", "answer_with_sentence": 1005.2, "regime": null}
+  },
+  "validity": "uncertain",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": ["TD265 stratum"],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "TD265 says the tank is topped up 'before the draining starts' (present tense, this draining) yet adds 'for one experiment only', so it is unclear whether the asked draining is that one experiment; I read it as R (1607 s) but a D reading is possible."
+  },
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "k = pi r^4 rho g/(8 mu L A) = (pi*8.1e-11*900*9.8)/(8*0.12*0.5*0.01) = 2.2444e-6/0.0048 = 4.6759e-4 s^-1. t = ln(40/25)/k = 0.47000/4.6759e-4 = 1005.2 s. With h0 = 53 cm: ln(2.12)/k = 0.75142/4.6759e-4 = 1607.0 s. Reynolds check at 40 cm: Q = 1.870e-6 m^3/s, v = 0.0662 m/s, Re = 900*0.0662*0.006/0.12 = 3.0, deep in laminar regime. TC2E8 and T5EA0 state the same number and unit; they differ in wording ('up to' vs 'below'), fine."
+}

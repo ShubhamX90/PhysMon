@@ -1,0 +1,24 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch07",
+  "item_id": "M250-S45",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:45:00Z", "completed_at": "2026-11-20T10:51:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Energy conservation qV = m v^2/2, then magnetic force as centripetal force: r = m v/(q B) = sqrt(2 m V/q)/B", "assumptions": ["starts from rest (stated)", "non-relativistic (v = 10 m/s)", "field perpendicular to velocity (stated)", "gravity and radiation neglected (stated)"], "answer": 0.625, "unit": "m"},
+  "stratum_assignments": {
+    "TD92C": {"stratum": "D", "answer_with_sentence": 0.625, "regime": null},
+    "TD3A9": {"stratum": "R", "answer_with_sentence": 1.18585, "regime": null},
+    "TEE28": {"stratum": "R", "answer_with_sentence": 1.18585, "regime": null},
+    "T7686": {"stratum": "D", "answer_with_sentence": 0.625, "regime": null},
+    "T8562": {"stratum": "D", "answer_with_sentence": 0.625, "regime": null},
+    "TFFD3": {"stratum": "D", "answer_with_sentence": 0.625, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "'The gap' and 'the accelerating gap' are referred to without being introduced, and 'an extra 6.5 V' implicitly assumes the same polarity as the 2.5 V; both are wording issues that the natural reading resolves."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base: v = sqrt(2*2e-3*2.5/1e-4) = 10 m/s; r = 1e-4*10/(2e-3*0.8) = 0.625 m. With 9.0 V total: v = sqrt(360) = 18.974 m/s, r = 0.625*sqrt(9/2.5) = 1.18585 m. Numeric sentences all carry 6.5 V. TD92C and T8562 have no number ('an extra voltage'), so they are not numeric variants of TFFD3/T7686."
+}

@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch06",
+  "item_id": "M250-S271",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Longitudinal wave speed in a thin rod v_rod = sqrt(E/rho); free-free fundamental (clamped at middle) L = lambda_rod/2 so f = v_rod/(2L); in air lambda_air = v_air/f; dust heaps at nodes spaced lambda_air/2 = L*v_air/v_rod",
+    "assumptions": ["thin rod (diameter << wavelength, no Rayleigh lateral-inertia correction)", "light disc does not load the rod", "air column driven at rod frequency; node spacing independent of tube terminations"],
+    "answer": 0.08084,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TA297": {"stratum": "D", "answer_with_sentence": 0.08084, "regime": null},
+    "T94AF": {"stratum": "C", "answer_with_sentence": 0.08084, "regime": null},
+    "T641F": {"stratum": "C", "answer_with_sentence": 0.08084, "regime": null},
+    "TFBD6": {"stratum": "D", "answer_with_sentence": 0.08084, "regime": null},
+    "TD83B": {"stratum": "R", "answer_with_sentence": 0.10239, "regime": null},
+    "T9574": {"stratum": "C", "answer_with_sentence": 0.08084, "regime": null},
+    "T1BAE": {"stratum": "C", "answer_with_sentence": 0.08084, "regime": null},
+    "T3295": {"stratum": "R", "answer_with_sentence": 0.10239, "regime": null},
+    "T2604": {"stratum": "D", "answer_with_sentence": 0.08084, "regime": null},
+    "TFE55": {"stratum": "D", "answer_with_sentence": 0.08084, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T3295 ('When the clamp is fitted ... for one experiment only') is awkward: it most naturally applies to the present experiment (R), but 'for one experiment only' leaves room to read it as some other experiment."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "v_rod = sqrt(7e10/2700) = 5091.75 m/s; f = 5091.75/2.4 = 2121.6 Hz; spacing = 1.2*343/5091.75 = 0.080837 m. With 32 cm added before clamping (clamp then at middle of 1.52 m rod): 1.52*343/5091.75 = 0.102393 m. Cross-section/diameter cancel (area enters both stiffness EA and mass per length rho*A); could also be argued K (thin-rod regime, d << lambda_rod = 2.4 m, holds for 8.21 mm and for 14.3 mm equivalent of 1.6 cm^2). Diameter sentences pair T94AF/T9574 (8.21 mm), area sentences pair T641F/T1BAE (1.6 cm^2): consistent numbers within each pair. T641F attaches the area to the stock, which a rod cut from it shares; either way no effect."
+}

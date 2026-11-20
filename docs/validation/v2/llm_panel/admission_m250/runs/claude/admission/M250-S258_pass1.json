@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch21",
+  "item_id": "M250-S258",
+  "pass_number": 1,
+  "started_at": "2026-11-20T00:24:00Z", "completed_at": "2026-11-20T00:31:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "A = lambda N0 exp(-lambda t), lambda = ln2/T_half, N0 = m/(M u)",
+    "assumptions": ["1 u = 1.66054e-27 kg", "1 year = 365.25 d = 3.15576e7 s", "single-step decay to stable products"],
+    "answer": 5.849e10,
+    "unit": "Bq"
+  },
+  "stratum_assignments": {
+    "T5915": {"stratum": "R", "answer_with_sentence": 9.798e10, "regime": null},
+    "TBBB3": {"stratum": "D", "answer_with_sentence": 5.849e10, "regime": null},
+    "T0809": {"stratum": "D", "answer_with_sentence": 5.849e10, "regime": null},
+    "TF0FF": {"stratum": "D", "answer_with_sentence": 5.849e10, "regime": null},
+    "TA788": {"stratum": "R", "answer_with_sentence": 9.798e10, "regime": null},
+    "TEA82": {"stratum": "D", "answer_with_sentence": 5.849e10, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "N0 = 0.004 g / (59.93 x 1.66054e-24 g) = 4.0195e19; lambda = 0.693147/(5.27 x 3.15576e7 s) = 4.1678e-9 /s; A0 = 1.6752e11 Bq; 2^(-8/5.27) = 0.34916; A = 5.849e10 Bq. With 0.0067 g in the source the answer scales by 1.675 to 9.798e10 Bq. Using a 365-day year changes the answer by about 0.07%. Numeral-free sentences T0809 and TF0FF carry no number unlike their 0.0027 g counterparts."
+}

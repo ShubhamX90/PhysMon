@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch31",
+  "item_id": "M250-S05",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:08:00Z", "completed_at": "2026-11-20T10:15:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "tau - tau_f = I*alpha, I = (1/2) M R^2", "assumptions": ["Disc rotates in the sense of the driving torque", "Constant torques", "Flywheel uncoupled"], "answer": 36.0, "unit": "rad/s^2"},
+  "stratum_assignments": {
+    "TDFCA": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T3FE1": {"stratum": "C", "answer_with_sentence": 36.0, "regime": null},
+    "T8323": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "TADD2": {"stratum": "R", "answer_with_sentence": 24.0, "regime": null},
+    "TA851": {"stratum": "C", "answer_with_sentence": 36.0, "regime": null},
+    "T05A7": {"stratum": "K", "answer_with_sentence": 36.0, "regime": "disc already rotating (kinetic friction governs); also static friction < driving torque"},
+    "T5207": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T6122": {"stratum": "K", "answer_with_sentence": 36.0, "regime": "disc already rotating (kinetic friction governs); also static friction < driving torque"},
+    "TFEA1": {"stratum": "R", "answer_with_sentence": 24.0, "regime": null},
+    "TCF7E": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The K regime 'static friction < driving torque' is not the operative reason: the problem says the disc already rotates, so kinetic friction governs regardless of the static value; the certified in-regime answers are still correct."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Checked R answers: q=1 -> I=0.15625, alpha=28.8; q=2 -> I=0.1875, alpha=24; q=5.5 -> I=0.296875, alpha=15.158 rad/s^2; all correct. C cancellation via rho = m/(pi r^2 t) holds. Minimal pairs T5207/TADD2 and TCF7E/TFEA1 differ only in attachment, same 2 kg. Numeral-free twins TDFCA and T8323 match their D twins' wording, consistent with my pass-1 observation (they are not claimed as numeric variants, so no defect). Agree with pass 1; thickness labelled C as authors claim."
+,
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

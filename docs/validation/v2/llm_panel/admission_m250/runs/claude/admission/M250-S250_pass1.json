@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch25",
+  "item_id": "M250-S250",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:44:00Z", "completed_at": "2026-11-20T10:54:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Relativistic pc = sqrt(K^2 + 2 K mc^2); lambda = hc/pc; Bragg 2 d sin(theta) = n lambda with n = 1", "assumptions": ["electrons enter the crystal with the stated kinetic energy (vacuum, no refraction / inner potential)", "first order", "glancing angle measured from planes"], "answer": 2.4794, "unit": "degree"},
+  "stratum_assignments": {
+    "T6CF4": {"stratum": "D", "answer_with_sentence": 2.4794, "regime": null},
+    "TC57E": {"stratum": "D", "answer_with_sentence": 2.4794, "regime": null},
+    "T82C8": {"stratum": "D", "answer_with_sentence": 2.4794, "regime": null},
+    "T10ED": {"stratum": "R", "answer_with_sentence": 1.5081, "regime": null},
+    "TDC88": {"stratum": "R", "answer_with_sentence": 1.5081, "regime": null},
+    "TE72A": {"stratum": "D", "answer_with_sentence": 2.4794, "regime": null},
+    "T9FF8": {"stratum": "D", "answer_with_sentence": 2.4794, "regime": null},
+    "T0D3D": {"stratum": "D", "answer_with_sentence": 2.4794, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: pc = sqrt(25 + 5110) = 71.6589 keV; lambda = 1240/71658.9 nm = 17.3042 pm; sin(theta) = 17.3042/400 = 0.0432605; theta = 2.4794 deg. With K = 13.4 keV: pc = sqrt(179.56 + 13694.8) = 117.7895 keV; lambda = 10.5273 pm; sin(theta) = 0.0263182; theta = 1.5081 deg. Film distance does not enter the Bragg angle; I class it D (it would set a spot position, not the angle); one could argue C if the film geometry is considered part of the relations. The film is not introduced in the base problem, which is slightly abrupt. T82C8 and TE72A mix tenses ('gave ... before it reaches'), a minor wording issue. TC57E and TE72A carry no number ('a little'), unlike their 8.4 keV counterparts."
+}

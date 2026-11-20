@@ -1,0 +1,38 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch35",
+  "item_id": "M250-S206",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:32:30Z", "completed_at": "2026-11-20T10:40:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Paraboloid free surface of a rigidly rotating liquid with volume conservation: h_axis = h0 - w^2 R^2/(4 g_eff)",
+    "assumptions": ["incompressible", "steady solid-body rotation", "no spill, axis wet"],
+    "answer": 24.2602,
+    "unit": "cm"
+  },
+  "stratum_assignments": {
+    "TA93C": {"stratum": "C", "answer_with_sentence": 24.2602, "regime": null},
+    "T1EF3": {"stratum": "C", "answer_with_sentence": 24.2602, "regime": null},
+    "T70B1": {"stratum": "R", "answer_with_sentence": 25.8942, "regime": null},
+    "TE262": {"stratum": "K", "answer_with_sentence": 24.2602, "regime": "wall height above rim level hw = 35.74 cm"},
+    "T2913": {"stratum": "D", "answer_with_sentence": 24.2602, "regime": null},
+    "T80DF": {"stratum": "D", "answer_with_sentence": 24.2602, "regime": null},
+    "TAF0F": {"stratum": "D", "answer_with_sentence": 24.2602, "regime": null},
+    "T3820": {"stratum": "D", "answer_with_sentence": 24.2602, "regime": null},
+    "T4A32": {"stratum": "R", "answer_with_sentence": 25.8942, "regime": null},
+    "T499A": {"stratum": "K", "answer_with_sentence": 24.2602, "regime": "wall height above rim level hw = 35.74 cm"}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T70B1 says the platform 'was set rising' with constant acceleration before steady rotation; the intended reading that the acceleration continues during steady rotation is the natural one but less explicit than T4A32."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Verified: base 24.2602 cm; R answers at a = 1.9, 3.9, 5.6 m/s^2 (g_eff 11.7, 13.7, 15.4): 25.1923, 25.8942, 26.3474 cm, all matching. Density cancels as shown. K regime hw < q with hw = 35.74 cm holds for 55, 70, 90 cm. Minimal pairs T80DF/T4A32 (goods lift vs platform, same 3.9 m/s^2) and TAF0F/T70B1 (earlier run vs this run, same 3.9 m/s^2) differ only in attachment. T2913 and T3820 are numeral-free controls by design. Agrees with pass 1."
+}

@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch34",
+  "item_id": "M250-S208",
+  "pass_number": 1,
+  "started_at": "2026-11-20T00:00:00Z", "completed_at": "2026-11-20T00:06:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Conservation of angular momentum about the axle (I1 w0 = (I1+I2) w); heat Q = (1/2) I1 w0^2 - (1/2)(I1+I2) w^2 = (1/2) [I1 I2/(I1+I2)] w0^2", "assumptions": ["I1 = (1/2) M R^2 = 0.5*2*0.2^2 = 0.04 kg*m^2", "w0 = 600 rpm = 20*pi = 62.832 rad/s", "second disc initially at rest, frictionless axle so no external torque about the axle", "w0^2 = 3947.84 rad^2/s^2"], "answer": 33.84, "unit": "J"},
+  "stratum_assignments": {
+    "T3181": {"stratum": "D", "answer_with_sentence": 33.84, "regime": null},
+    "T7B9A": {"stratum": "D", "answer_with_sentence": 33.84, "regime": null},
+    "T3F66": {"stratum": "C", "answer_with_sentence": 33.84, "regime": null},
+    "T145A": {"stratum": "R", "answer_with_sentence": 50.25, "regime": null},
+    "TE735": {"stratum": "D", "answer_with_sentence": 33.84, "regime": null},
+    "TBE70": {"stratum": "C", "answer_with_sentence": 33.84, "regime": null},
+    "T1AC4": {"stratum": "D", "answer_with_sentence": 33.84, "regime": null},
+    "T9108": {"stratum": "R", "answer_with_sentence": 50.25, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "T3181 and T1AC4 state the ring's moment of inertia as 'a small amount' rather than 0.04 kg*m^2 as in their apparent counterparts TE735 and T7B9A, so if they are meant as variants they do not state the same number and unit; this reads as an unnatural non-numeric rendering."},
+  "defect_severity": {"rendering_not_minimal": "medium"},
+  "counterexamples": [],
+  "notes": "With ring glued (I2 = 0.07 kg*m^2): Q = 0.5*(0.04*0.07/0.11)*3947.84 = 50.25 J. Friction torque only sets the slip time; the dissipated energy is fixed by angular momentum conservation, so it cancels (C). Grinding-wheel ring and the 'earlier run only' ring have no path to the target. Initial KE 78.96 J; final KE 45.12 J. Whether the 'small amount' sentences are intended as a separate value of the quantity will be checked in pass 2."
+}

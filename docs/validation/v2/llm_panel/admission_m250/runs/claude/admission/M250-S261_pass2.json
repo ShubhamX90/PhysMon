@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch27",
+  "item_id": "M250-S261",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:09:00Z", "completed_at": "2026-11-20T10:16:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "v = (m - rho_L (4/3) pi r^3) g / (6 pi eta r) = 2 g r^2 (rho_s - rho_L)/(9 eta)", "assumptions": ["Stokes drag", "terminal speed reached", "far from walls"], "answer": 5.401, "unit": "cm/s"},
+  "stratum_assignments": {
+    "TB5DB": {"stratum": "R", "answer_with_sentence": 7.741, "regime": null},
+    "T3D94": {"stratum": "D", "answer_with_sentence": 5.401, "regime": null},
+    "T9846": {"stratum": "D", "answer_with_sentence": 5.401, "regime": null},
+    "T122F": {"stratum": "R", "answer_with_sentence": 7.741, "regime": null},
+    "TFAF0": {"stratum": "D", "answer_with_sentence": 5.401, "regime": null},
+    "TDB09": {"stratum": "K", "answer_with_sentence": 5.401, "regime": "Re = rho_L v (2r)/eta < limit; Re ~ 0.27 base, < 0.7 even at the 0.17 g R value (~0.49)"},
+    "T66F4": {"stratum": "K", "answer_with_sentence": 5.401, "regime": "Re = rho_L v (2r)/eta < limit; Re ~ 0.27"},
+    "TEAB4": {"stratum": "D", "answer_with_sentence": 5.401, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified certified answers: 0.04 g -> 6.441 cm/s, 0.09 g -> 7.741 cm/s, 0.17 g -> 9.820 cm/s, base 5.401 cm/s; agree with pass 1 (0.0540 and 0.0774 m/s). K predicate rf*vt*2r/eta = 0.272 < 0.7, 1.4, 2.6 holds for all listed values. Minimal pairs T9846/T122F (float vs sphere) and TFAF0/TB5DB (earlier release vs this release) keep 0.09 g and differ only in attachment. T3D94 and TEAB4 are declared numeral-free twins, so their lack of a number is by design and not a rendering defect. The wording 'When the sphere is released, it is also loaded' in TB5DB is slightly awkward but unambiguous."
+}

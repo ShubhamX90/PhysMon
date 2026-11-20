@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch04",
+  "item_id": "M250-S22",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:15:00Z", "completed_at": "2026-11-20T10:21:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Fundamental of a string fixed at both ends: f1 = (1/(2L)) sqrt(T/mu), mu = m/L",
+    "assumptions": ["ideal flexible string, small amplitude transverse vibration", "'the string' is the first string"],
+    "answer": 55.90,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T7728": {"stratum": "R", "answer_with_sentence": 66.38, "regime": null},
+    "TC81D": {"stratum": "K", "answer_with_sentence": 55.90, "regime": "Breaking strength matters only if the tension exceeds 240 N; 100 N is below it."},
+    "T9C9F": {"stratum": "D", "answer_with_sentence": 55.90, "regime": null},
+    "TE80D": {"stratum": "R", "answer_with_sentence": 66.38, "regime": null},
+    "T1B24": {"stratum": "C", "answer_with_sentence": 55.90, "regime": null},
+    "T72AC": {"stratum": "D", "answer_with_sentence": 55.90, "regime": null},
+    "T5C94": {"stratum": "C", "answer_with_sentence": 55.90, "regime": null},
+    "TF232": {"stratum": "D", "answer_with_sentence": 55.90, "regime": null},
+    "TA8BA": {"stratum": "K", "answer_with_sentence": 55.90, "regime": "Maximum tension matters only if exceeded; 100 N is below 240 N."},
+    "TD077": {"stratum": "D", "answer_with_sentence": 55.90, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "With a second string present, 'the string' in the question and in sentences such as TE80D ('this string ... then increased') is mildly ambiguous in reference and timing, though the natural reading is the first string with the increase applied before vibration."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "mu = 0.01/0.8 = 0.0125 kg/m; f = sqrt(100/0.0125)/1.6 = 89.443/1.6 = 55.90 Hz. With 141 N: sqrt(11280)/1.6 = 106.207/1.6 = 66.38 Hz. Cross-sectional area: with mass and length given, mu is fixed; if mu = rho A then rho = m/(A L) and A cancels, so I classify it C (D would also give the same answer). Breaking/withstand limits are K. Earlier-experiment and second-string sentences are D. T9C9F and T72AC use 'a small amount' instead of 41 N (numeral-free variants)."
+}

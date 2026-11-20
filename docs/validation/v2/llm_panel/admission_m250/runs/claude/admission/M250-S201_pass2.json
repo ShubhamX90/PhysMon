@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch33",
+  "item_id": "M250-S201",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:30:30Z", "completed_at": "2026-11-20T10:38:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Steady-state driven damped oscillator: A = F0 / sqrt((k - m w^2)^2 + (b w)^2)", "assumptions": ["linear spring", "viscous damping", "steady state reached", "frictionless track"], "answer": 2.334, "unit": "cm"},
+  "stratum_assignments": {
+    "TFDBF": {"stratum": "D", "answer_with_sentence": 2.334, "regime": null},
+    "T2C02": {"stratum": "C", "answer_with_sentence": 2.334, "regime": null},
+    "T275C": {"stratum": "D", "answer_with_sentence": 2.334, "regime": null},
+    "TB38B": {"stratum": "K", "answer_with_sentence": 2.334, "regime": "amplitude < Hooke limit"},
+    "TF594": {"stratum": "C", "answer_with_sentence": 2.334, "regime": null},
+    "T7725": {"stratum": "K", "answer_with_sentence": 2.334, "regime": "amplitude < Hooke limit"},
+    "T708C": {"stratum": "R", "answer_with_sentence": 0.9511, "regime": null},
+    "T2E9E": {"stratum": "D", "answer_with_sentence": 2.334, "regime": null},
+    "TDD8E": {"stratum": "D", "answer_with_sentence": 2.334, "regime": null},
+    "T0270": {"stratum": "R", "answer_with_sentence": 0.9511, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T708C says the clay 'was stuck to the block before the driving force was applied' but does not state outright that it is still on during the steady run; R is the natural reading."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Verified R answers: m = 0.62 kg gives sqrt(358^2 + 60^2) = 362.99, A = 1.653 cm; 0.92 kg gives 0.9511 cm; 1.4 kg gives sqrt(1060^2 + 60^2) = 1061.7, A = 0.5651 cm. All match. K: every amplitude (at most 2.334 cm) is below every listed limit (3.6, 5.4, 11 cm). The phase cancellation is correct. The minimal pairs (TFDBF/T708C, T2E9E/T0270, T2C02/TF594, T7725/TB38B) share number and unit. The numeral-free controls are by design."
+}

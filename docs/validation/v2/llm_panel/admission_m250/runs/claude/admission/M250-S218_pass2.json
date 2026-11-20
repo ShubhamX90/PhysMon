@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch30",
+  "item_id": "M250-S218",
+  "pass_number": 2,
+  "started_at": "2026-11-20T11:01:00Z", "completed_at": "2026-11-20T11:08:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "F = Q E/2 = C1 V^2/(2 d1) with C1 = C0 d0/d1.",
+    "assumptions": ["vacuum gap", "no edge effects", "ideal battery stays connected", "quasi-static"],
+    "answer": 3.24,
+    "unit": "mN"
+  },
+  "stratum_assignments": {
+    "TD5A9": {"stratum": "D", "answer_with_sentence": 3.24, "regime": null},
+    "T7BA3": {"stratum": "D", "answer_with_sentence": 3.24, "regime": null},
+    "T75D2": {"stratum": "K", "answer_with_sentence": 3.24, "regime": "V/d0 = 450 kV/m < breakdown field"},
+    "T0373": {"stratum": "R", "answer_with_sentence": 7.29, "regime": null},
+    "TDD7D": {"stratum": "D", "answer_with_sentence": 3.24, "regime": null},
+    "TD96B": {"stratum": "R", "answer_with_sentence": 7.29, "regime": null},
+    "T56FA": {"stratum": "K", "answer_with_sentence": 3.24, "regime": "V/d0 = 450 kV/m < breakdown field"},
+    "TAF23": {"stratum": "D", "answer_with_sentence": 3.24, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Relations C1 = C0 d0/d1, Q = C1 V, E = V/d1, F = Q E/2 give 40 pF x 900 V x 180 kV/m / 2 = 3.24 mN. R values: 1150 V -> 5.29 mN, 1350 V -> 7.29 mN, 1550 V -> 9.61 mN; all correct. K regime V/d0 < q: 450 kV/m is below 1200, 1900 and 2700 kV/m; the largest field indeed occurs at the initial 2 mm separation. Minimal pairs TD5A9/T0373 and TDD7D/TD96B share 450 V and differ only in attachment. Agrees with my pass 1."
+}

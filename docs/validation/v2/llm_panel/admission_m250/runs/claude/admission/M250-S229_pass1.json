@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch10",
+  "item_id": "M250-S229",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:45:00Z", "completed_at": "2026-11-20T10:51:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation: f (1/2) m v^2 = m c dT, so dT = f v^2/(2c); T = T0 + dT",
+    "assumptions": ["fraction 0.5 to the bullet, uniform (stated)", "constant c, no melting, no heat loss in flight (stated)", "bullet temperature at the shot equals loading temperature 293 K"],
+    "answer": 466.08,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "T4882": {"stratum": "K", "answer_with_sentence": 466.08, "regime": "final temperature below the melting point (466 K < 585 K)"},
+    "T6F14": {"stratum": "D", "answer_with_sentence": 466.08, "regime": null},
+    "T3479": {"stratum": "C", "answer_with_sentence": 466.08, "regime": null},
+    "TAAB8": {"stratum": "C", "answer_with_sentence": 466.08, "regime": null},
+    "T427C": {"stratum": "D", "answer_with_sentence": 466.08, "regime": null},
+    "T6215": {"stratum": "K", "answer_with_sentence": 466.08, "regime": "final temperature below the melting point (466 K < 585 K)"},
+    "T6E09": {"stratum": "D", "answer_with_sentence": 466.08, "regime": null},
+    "TAF75": {"stratum": "R", "answer_with_sentence": 483.08, "regime": null},
+    "TFFCD": {"stratum": "R", "answer_with_sentence": 483.08, "regime": null},
+    "T64CC": {"stratum": "D", "answer_with_sentence": 466.08, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "dT = 0.5*300^2/(2*130) = 22500/130 = 173.08 K; T = 293 + 173.08 = 466.08 K. With 17 K pre-warming: 483.08 K, still below 585 K. Mass cancels (C). Earlier-day warming is D because the bullet is loaded at 293 K. Variants consistently state 17 K, 8.2 g, 585 K."
+}

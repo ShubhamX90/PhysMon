@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch01",
+  "item_id": "M250-S21",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:39:30Z", "completed_at": "2026-11-20T10:46:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Moving-source Doppler shift: f' = f c/(c - v_s)",
+    "assumptions": ["still air", "listener at rest", "source approaching along the line of sight"],
+    "answer": 467.245,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T5688": {"stratum": "D", "answer_with_sentence": 467.245, "regime": null},
+    "TE5DD": {"stratum": "C", "answer_with_sentence": 467.245, "regime": null},
+    "TD410": {"stratum": "R", "answer_with_sentence": 484.235, "regime": null},
+    "TEDCB": {"stratum": "D", "answer_with_sentence": 467.245, "regime": null},
+    "T8B99": {"stratum": "R", "answer_with_sentence": 484.235, "regime": null},
+    "T4EE7": {"stratum": "C", "answer_with_sentence": 467.245, "regime": null},
+    "T62DC": {"stratum": "D", "answer_with_sentence": 467.245, "regime": null},
+    "TEE83": {"stratum": "D", "answer_with_sentence": 467.245, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T8B99 'The siren is then tuned up by a further 16 Hz' does not say whether the retuning precedes the listening asked about and sits awkwardly beside 'a steady tone of 440 Hz'; the authors' R reading (456 Hz emitted) is the most natural one but not the only one."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Certified answers verified: 440*343/323 = 467.245; q = 9: 449*343/323 = 476.802; q = 16: 484.235; q = 24: 464*343/323 = 492.731 Hz. The authors' C derivation for the initial distance is correct: heard period = 1/f - vs/(f c), so d cancels exactly (valid while the source is still approaching, which holds at 180-950 m for the wavefronts concerned). In pass 1 I called the distance K; I now accept C as the better label since d enters the wavefront arrival-time relations and cancels, but the answer is the same and pass 1 is unchanged. Minimal pairs T5688/T8B99 (horn vs siren) and TEE83/TD410 (earlier run vs this measurement) share '16 Hz' and differ only in attachment/timing. Numeral-free twins TEDCB and T62DC as declared. T8B99 ambiguity kept at medium only; it does not make the item wrong."
+}

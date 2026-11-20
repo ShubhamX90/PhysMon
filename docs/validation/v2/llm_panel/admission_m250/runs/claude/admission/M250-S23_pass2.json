@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch15",
+  "item_id": "M250-S23",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:21:30Z", "completed_at": "2026-11-20T10:25:00Z", "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "p2 = p1 V1 T2/(V2 T1)",
+    "assumptions": ["ideal gas", "fixed amount of gas", "equilibrium end states"],
+    "answer": 180.0,
+    "unit": "kPa"
+  },
+  "stratum_assignments": {
+    "T6EEF": {"stratum": "D", "answer_with_sentence": 180.0, "regime": null},
+    "TE55F": {"stratum": "D", "answer_with_sentence": 180.0, "regime": null},
+    "TB1B2": {"stratum": "D", "answer_with_sentence": 180.0, "regime": null},
+    "T20FE": {"stratum": "R", "answer_with_sentence": 199.0, "regime": null},
+    "T656C": {"stratum": "R", "answer_with_sentence": 199.0, "regime": null},
+    "T24F5": {"stratum": "D", "answer_with_sentence": 180.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "T656C could be read as describing the last stage of the heating to 360 K rather than an extra 38 K; the authors' (and the more natural) reading is the extra warming to 398 K."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Strata match pass 1. Checked R answers: 1.5*377/3 = 188.5, 1.5*398/3 = 199.0, 1.5*417/3 = 208.5 kPa. Minimal pairs TB1B2/T20FE (second piston vs this piston) and TE55F/T656C (earlier experiment vs just before reading) share 38 K and differ only in attachment. T6EEF and T24F5 are declared numeral-free controls. Low-severity wording note on T656C kept from pass 1."
+}

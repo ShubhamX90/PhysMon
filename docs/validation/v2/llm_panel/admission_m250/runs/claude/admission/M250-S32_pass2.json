@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch13",
+  "item_id": "M250-S32",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:08:00Z", "completed_at": "2026-11-20T10:15:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Work-energy theorem: (1/2) k x^2 = mu_k m g d", "assumptions": ["released from rest", "massless linear spring", "uniform kinetic friction over the whole path", "block separates at natural length with positive kinetic energy"], "answer": 3.265, "unit": "m"},
+  "stratum_assignments": {
+    "TDC1D": {"stratum": "D", "answer_with_sentence": 3.265, "regime": null},
+    "TFBC0": {"stratum": "D", "answer_with_sentence": 3.265, "regime": null},
+    "TB3C0": {"stratum": "R", "answer_with_sentence": 0.8163, "regime": null},
+    "T92B0": {"stratum": "K", "answer_with_sentence": 3.265, "regime": "linear-spring limit q > x = 10 cm"},
+    "T9B94": {"stratum": "K", "answer_with_sentence": 3.265, "regime": "elastic limit q > x = 10 cm"},
+    "T1533": {"stratum": "D", "answer_with_sentence": 3.265, "regime": null},
+    "T9D09": {"stratum": "D", "answer_with_sentence": 3.265, "regime": null},
+    "TC18C": {"stratum": "R", "answer_with_sentence": 0.8163, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "The claims for TFBC0 and TDC1D label the quantity 'a weight fixed to the block' although the sentences attach the weight to the trolley; this is a metadata label only and does not affect the answers."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked all certified answers: m = 1.2 kg -> 4/2.94 = 1.3605 m; m = 2.0 kg -> 4/4.9 = 0.8163 m; m = 2.7 kg -> 4/6.615 = 0.6047 m; in every case the block still has positive energy at separation (e.g. 4 - 6.615*0.1 = 3.34 J), so s = E/Ff holds. K values 22, 28, 36 cm all exceed the 10 cm compression. Minimal pairs TFBC0/TB3C0 and T9D09/TC18C share 1.5 kg and differ only in attachment/time. The pass-1 concern about the 'small weight' sentences is resolved: they are declared numeral-free controls (twins of TFBC0 and T9D09), not minimal-pair variants, and are D like their twins. 'Obeys Hooke's law up to' (proportional limit) and 'stays elastic up to' (elastic limit) are slightly different physical limits but both are K with the same regime here."
+}

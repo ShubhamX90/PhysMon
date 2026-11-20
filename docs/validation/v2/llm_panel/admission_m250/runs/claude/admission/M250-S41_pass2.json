@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch08",
+  "item_id": "M250-S41",
+  "pass_number": 2,
+  "started_at": "2026-11-20T00:08:00Z", "completed_at": "2026-11-20T00:15:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Coulomb's law with charge conservation and equal sharing between identical conductors",
+    "assumptions": ["point charges", "identical spheres share charge equally", "isolated system", "static magnets exert no force on charges at rest"],
+    "answer": 16.0,
+    "unit": "mN"
+  },
+  "stratum_assignments": {
+    "T162F": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "T0EF1": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "TCCA9": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "TAA47": {"stratum": "C", "answer_with_sentence": 16.0, "regime": null},
+    "T81A0": {"stratum": "C", "answer_with_sentence": 16.0, "regime": null},
+    "TA88E": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "T2BDE": {"stratum": "R", "answer_with_sentence": 7.788, "regime": null},
+    "TFAEF": {"stratum": "R", "answer_with_sentence": 7.788, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TFAEF ('Before the force was measured, ...') can be read as referring to the 80 mN measurement, where the 30 cm separation is stated, making it irrelevant history (16 mN) rather than the claimed R (7.788 mN)."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Checked certified answers: 64 mN*(30/74)^2 = 10.519, 64*(30/86)^2 = 7.788, 64*(30/105)^2 = 5.224 mN; base 16 mN agrees with pass 1. Minimal pairs T0EF1/TFAEF and TA88E/T2BDE share number and unit and differ only in attachment; T162F and TCCA9 are declared numeral-free controls, which resolves my pass-1 remark. The radius sentences: authors claim C (radius cancels from the equal-capacitance charge sharing); this is a valid reading and I accept it in place of my pass-1 K (point-charge regime), which also gives 16 mN. The TFAEF R reading is the authors' intended one and is plausible, but the other reading remains possible; kept as medium."
+}

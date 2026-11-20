@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch28",
+  "item_id": "M250-S212",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:42:00Z", "completed_at": "2026-11-20T10:48:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Unity power factor: Im(Y_total) = 0, omega*C = omega*L/(R^2 + omega^2 L^2), so C = L/(R^2 + omega^2 L^2)", "assumptions": ["ideal sinusoidal supply and ideal capacitor", "steady state", "series R-L model of the motor"], "answer": 144.202, "unit": "uF"},
+  "stratum_assignments": {
+    "TED3D": {"stratum": "D", "answer_with_sentence": 144.202, "regime": null},
+    "T2A37": {"stratum": "D", "answer_with_sentence": 144.202, "regime": null},
+    "T81DD": {"stratum": "D", "answer_with_sentence": 144.202, "regime": null},
+    "T4D7F": {"stratum": "R", "answer_with_sentence": 90.418, "regime": null},
+    "T4F5E": {"stratum": "R", "answer_with_sentence": 90.418, "regime": null},
+    "T8C89": {"stratum": "C", "answer_with_sentence": 144.202, "regime": null},
+    "TB288": {"stratum": "D", "answer_with_sentence": 144.202, "regime": null},
+    "T62B7": {"stratum": "C", "answer_with_sentence": 144.202, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "omega = 100*pi = 314.159 rad/s; omega*L = 15.708 ohm; R^2 + (omega L)^2 = 100 + 246.740 = 346.740 ohm^2; C = 0.05/346.740 = 1.44202e-4 F. With 17.5 ohm: 306.25 + 246.740 = 552.990; C = 9.0418e-5 F. Supply voltage scales both branch currents equally and cancels from the phase condition (C). Lamp resistors and earlier-test resistors have no path. TED3D and T81DD are numeral-free controls."
+}

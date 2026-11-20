@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch23",
+  "item_id": "M250-S95",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:35:00Z", "completed_at": "2026-11-20T10:41:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "F = A_s (Mg/A_L + rho g h)", "assumptions": ["static equilibrium, light frictionless pistons, incompressible oil, atmosphere on both outer faces"], "answer": 318.99, "unit": "N"},
+  "stratum_assignments": {
+    "TC4F6": {"stratum": "D", "answer_with_sentence": 318.99, "regime": null},
+    "T4EF7": {"stratum": "C", "answer_with_sentence": 318.99, "regime": null},
+    "T4338": {"stratum": "R", "answer_with_sentence": 456.19, "regime": null},
+    "T1A9B": {"stratum": "D", "answer_with_sentence": 318.99, "regime": null},
+    "TED46": {"stratum": "D", "answer_with_sentence": 318.99, "regime": null},
+    "TF1DC": {"stratum": "D", "answer_with_sentence": 318.99, "regime": null},
+    "T3BBA": {"stratum": "C", "answer_with_sentence": 318.99, "regime": null},
+    "T6417": {"stratum": "R", "answer_with_sentence": 456.19, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "The C cancellation relations call p_L the absolute pressure (p_atm + mg/A2) while the main relations list uses pL = mg/A2 as a gauge pressure; the notation is mixed but the physics and expression are correct."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified certified answers: base 318.99 N; m + q = 1540, 1760, 1910 kg give 402.29, 456.19, 492.94 N. Atmospheric-pressure cancellation correct. Minimal pairs T1A9B/T6417 and TED46/T4338 share 560 kg and differ only in time/attachment; numeral-free twins as described. Agrees with my pass 1."
+}

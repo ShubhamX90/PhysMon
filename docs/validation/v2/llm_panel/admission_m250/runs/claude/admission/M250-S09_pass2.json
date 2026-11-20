@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch22",
+  "item_id": "M250-S09",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:09:00Z", "completed_at": "2026-11-20T10:15:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Calorimetry energy balance: dT_w = m1 c1 (T1 - T2)/(m1 c1 + m2 c2)", "assumptions": ["insulated, container heat capacity zero", "no phase change", "constant specific heats", "uniform final temperature"], "answer": 8.249, "unit": "K"},
+  "stratum_assignments": {
+    "T128A": {"stratum": "D", "answer_with_sentence": 8.249, "regime": null},
+    "TD942": {"stratum": "D", "answer_with_sentence": 8.249, "regime": null},
+    "TC375": {"stratum": "D", "answer_with_sentence": 8.249, "regime": null},
+    "TDD5D": {"stratum": "R", "answer_with_sentence": 3.694, "regime": null},
+    "TCCED": {"stratum": "D", "answer_with_sentence": 8.249, "regime": null},
+    "T4800": {"stratum": "R", "answer_with_sentence": 3.694, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "T4800 ('is poured into this container') does not say whether the water is added before or after the exchange with the block; the intended reading (present during the exchange, at 293 K) is the natural one but not the only one."
+  },
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked: base 15400/1866.9 = 8.249 K; q=0.2: 15400/2704.1 = 5.695; q=0.55: 15400/4169.2 = 3.694; q=0.85: 15400/5425 = 2.839. All certified answers match. Minimal pairs T128A/TDD5D and TCCED/T4800 share 0.55 kg and differ only in attachment. TC375 and TD942 are declared numeral-free controls of T128A and TCCED, so the pass-1 rendering_not_minimal concern is withdrawn (they are not claimed as numeric variants). Strata agree with my pass 1."
+}

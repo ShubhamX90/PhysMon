@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch14",
+  "item_id": "M250-S06",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:06:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Ohm's law, series/parallel combination, current divider: R_par = 6*12/18 = 4 ohm, R_tot = 8 ohm, I = 1.5 A, V_par = 6 V, I_2 = V_par/12", "assumptions": ["ideal battery (stated)", "ideal wires (stated)", "ohmic resistors (stated)", "lamp circuit is separate and not connected"], "answer": 0.5, "unit": "A"},
+  "stratum_assignments": {
+    "TA527": {"stratum": "K", "answer_with_sentence": 0.5, "regime": "rating matters only if dissipated power exceeds 20 W; actual P = 0.5^2*12 = 3 W < 20 W"},
+    "T272F": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null},
+    "T3DE4": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null},
+    "T7E58": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null},
+    "T7719": {"stratum": "R", "answer_with_sentence": 0.3478, "regime": null},
+    "TBEF7": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null},
+    "T776D": {"stratum": "K", "answer_with_sentence": 0.5, "regime": "rating matters only if dissipated power exceeds 20 W; actual P = 3 W < 20 W"},
+    "T115C": {"stratum": "R", "answer_with_sentence": 0.3478, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "T272F and TBEF7 say 'a small resistor' while their apparent variants (T7E58, T3DE4, T115C) state 3.5 ohm, so the variant set does not carry the same number and unit throughout."},
+  "defect_severity": {"rendering_not_minimal": "low"},
+  "counterexamples": [],
+  "notes": "With a 3.5 ohm series resistor: R_tot = 11.5 ohm, I = 1.04348 A, V_par = 4.1739 V, I_2 = 0.34783 A. T7719 uses past tense 'was connected ... in this circuit', slightly awkward but readable as present in the circuit. Severity of the 'small resistor' mismatch is low pending pass-2 pairing claims (if those are claimed minimal pairs with the 3.5 ohm sentences, it would be a false claim)."
+}

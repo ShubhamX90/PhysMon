@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch10",
+  "item_id": "M250-S266",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "I2 = P_load/V_load; ideal transformer current ratio I1 = I2*N2/N1; copper loss P = I1^2 R1 + I2^2 R2 = I2^2 (R2 + R1 (N2/N1)^2)",
+    "assumptions": ["ideal coupling, no magnetising current or core loss (stated)", "resistive load so rms currents are in phase and P = V I", "rms quantities"],
+    "answer": 32.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T2665": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null},
+    "TEC29": {"stratum": "R", "answer_with_sentence": 53.39, "regime": null},
+    "TA1EB": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null},
+    "T3C5C": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null},
+    "TDD45": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null},
+    "T9CFA": {"stratum": "K", "answer_with_sentence": 32.0, "regime": "core below saturation (B/Bsat < 1), linear core so magnetising current stays negligible"},
+    "T9010": {"stratum": "K", "answer_with_sentence": 32.0, "regime": "core below saturation (B/Bsat < 1), linear core so magnetising current stays negligible"},
+    "TD2EC": {"stratum": "R", "answer_with_sentence": 53.39, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {"missing_assumption": "For TEC29/TD2EC the voltage at which the extra 140 W is drawn is not stated; the R answer 53.39 W assumes the load voltage stays 24 V (I2 = 620/24 A), whereas with a fixed primary supply the voltage would sag slightly."},
+  "defect_severity": {"missing_assumption": "medium"},
+  "counterexamples": [],
+  "notes": "Base: I2 = 480/24 = 20 A, I1 = 2 A; loss = 400*0.05 + 4*3 = 20 + 12 = 32 W. With 140 W extra at 24 V: I2 = 25.833 A, loss = 667.36*0.08 = 53.39 W. Earlier-run sentences describe a different time, so D. Minimal pairs: T2665/TEC29 both 140 W, TDD45/TD2EC both 140 W, T9CFA/T9010 both 0.57, TA1EB/T3C5C both 'small amount'; consistent."
+}

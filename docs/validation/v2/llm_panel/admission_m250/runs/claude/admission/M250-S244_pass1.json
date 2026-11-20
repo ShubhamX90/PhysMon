@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch32",
+  "item_id": "M250-S244",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:50:00Z", "completed_at": "2026-11-20T11:00:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Relativistic energy and momentum conservation for e+ e- -> 2 gamma collinear: E1 + E2 = K + 2mc^2, E1 - E2 = pc with (pc)^2 = K^2 + 2K mc^2; E_forward = (K + 2mc^2 + pc)/2",
+    "assumptions": ["positron annihilates in flight with its full 800 keV kinetic energy", "electron free and at rest", "exactly two collinear photons, forward and backward"],
+    "answer": 1514.66,
+    "unit": "keV"
+  },
+  "stratum_assignments": {
+    "TEB76": {"stratum": "D", "answer_with_sentence": 1514.66, "regime": null},
+    "TE76E": {"stratum": "R", "answer_with_sentence": 1649.68, "regime": null},
+    "TF0E4": {"stratum": "R", "answer_with_sentence": 1649.68, "regime": null},
+    "TF498": {"stratum": "D", "answer_with_sentence": 1514.66, "regime": null},
+    "TE53B": {"stratum": "D", "answer_with_sentence": 1514.66, "regime": null},
+    "TB9B8": {"stratum": "D", "answer_with_sentence": 1514.66, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 4,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "Tense mismatch in TEB76/TB9B8 ('gave ... before it annihilates'), and the base text implies but does not say outright that the positron still has its 800 keV when it annihilates (in-flight annihilation in the vacuum chamber is the evident intended reading)."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "K=800: E_tot = 1822 keV; (pc)^2 = 640000 + 817600 = 1457600, pc = 1207.31 keV; E_fwd = 1514.66 keV (E_back = 307.34 keV). K=930: E_tot = 1952 keV; (pc)^2 = 864900 + 950460 = 1815360, pc = 1347.35 keV; E_fwd = 1649.68 keV. Variants: 130 keV in TEB76, TE76E, TF0E4, TF498; TE53B and TB9B8 numeral-free ('a little'). TF0E4 refers to 'positrons' generally, which includes the annihilating one, hence R."
+}

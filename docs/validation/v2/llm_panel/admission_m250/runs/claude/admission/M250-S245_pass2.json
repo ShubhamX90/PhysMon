@@ -1,0 +1,43 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch11",
+  "item_id": "M250-S245",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:13:00Z", "completed_at": "2026-11-20T10:22:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "N = sqrt(2 M K) / (h / lambda)",
+    "assumptions": ["u = 1.66054e-27 kg", "1 eV = 1.602177e-19 J", "non-relativistic 1D", "emission recoil averages to zero"],
+    "answer": 27163.4,
+    "unit": "1"
+  },
+  "stratum_assignments": {
+    "T0167": {"stratum": "K", "answer_with_sentence": 27163.4, "regime": "sweep range q > v0/lambda = 1.36 GHz"},
+    "T7F35": {"stratum": "D", "answer_with_sentence": 27163.4, "regime": null},
+    "T866E": {"stratum": "K", "answer_with_sentence": 27163.4, "regime": "sweep range q > v0/lambda = 1.36 GHz"},
+    "TAB0F": {"stratum": "C", "answer_with_sentence": 27163.4, "regime": null},
+    "TCE76": {"stratum": "R", "answer_with_sentence": 29055.6, "regime": null},
+    "TF60D": {"stratum": "C", "answer_with_sentence": 27163.4, "regime": null},
+    "T037E": {"stratum": "D", "answer_with_sentence": 27163.4, "regime": null},
+    "TC3E2": {"stratum": "R", "answer_with_sentence": 29055.6, "regime": null},
+    "T28D1": {"stratum": "D", "answer_with_sentence": 27163.4, "regime": null},
+    "T341F": {"stratum": "D", "answer_with_sentence": 27163.4, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "TC3E2 ('adds 0.011 eV to the kinetic energy of the atoms') leaves mildly open whether the stated 0.0763 eV already includes the increment; the natural reading (K + q) is the certified one."
+  },
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Verified base 27163.4 and R answers: 0.009 -> 27163.4*sqrt(0.0853/0.0763)=28720.8; 0.011 -> 29055.6; 0.036 -> 27163.4*sqrt(0.1123/0.0763)=32954.3. K regime v0/lambda = 800 m/s / 589 nm = 1.36 GHz, below all listed sweep ranges (2.2, 2.4, 3 GHz); outside regime the photons absorbed while tracking would be M*q*lambda^2/h, which is correct. Scattering rate as C is correct (N = q * v0/((h/lambda) q / M)); in pass 1 I labelled it and the sweep D, which I now revise: the sweep is better described as K and the rate as C, with no change in answers. Pass-1 rendering_not_minimal flag withdrawn: T7F35 and T037E are declared numeral-free controls, and the numbered minimal pairs (T28D1/TCE76, T341F/TC3E2) share 0.011 eV. The 2.4 GHz sweep exceeding the needed 1.36 GHz is exactly the K regime, not a tension."
+}

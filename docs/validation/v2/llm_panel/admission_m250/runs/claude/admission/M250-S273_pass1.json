@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch31",
+  "item_id": "M250-S273",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:40:00Z", "completed_at": "2026-11-20T10:50:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Energy conservation in radiative capture: E_photon = K + |E_n|, with Bohr energy |E_n| = Z^2 (mu/m_e) (k e^2 / 2 a0) / n^2 and lambda = hc / E_photon", "assumptions": ["Reduced mass mu = m_mu M/(m_mu + M) = 185.84 m_e", "Point nucleus, Coulomb only, no recoil", "Non-relativistic"], "answer": 1.5854, "unit": "nm"},
+  "stratum_assignments": {
+    "TE47C": {"stratum": "D", "answer_with_sentence": 1.5854, "regime": null},
+    "T2E00": {"stratum": "D", "answer_with_sentence": 1.5854, "regime": null},
+    "T325A": {"stratum": "D", "answer_with_sentence": 1.5854, "regime": null},
+    "T3BDA": {"stratum": "K", "answer_with_sentence": 1.5854, "regime": "nuclear radius much smaller than the muonic n=2 orbit radius (about 1140 fm), so the point-nucleus Coulomb energy holds at the stated precision"},
+    "TCB0F": {"stratum": "R", "answer_with_sentence": 1.3807, "regime": null},
+    "TBBAA": {"stratum": "K", "answer_with_sentence": 1.5854, "regime": "nuclear radius much smaller than the muonic n=2 orbit radius (about 1140 fm)"},
+    "TE652": {"stratum": "R", "answer_with_sentence": 1.3807, "regime": null},
+    "T4CEB": {"stratum": "D", "answer_with_sentence": 1.5854, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "A nucleus of charge 1 and mass 1836.15 m_e is a proton, whose real radius is about 0.84 fm, so the stated 2.1 fm is physically unrealistic (though it does not affect the answer)."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "mu = 206.77*1836.15/2042.92 = 185.84 m_e. Rydberg from given constants: 1.44/(2*0.05292) = 13.605 eV. |E_2| = 185.84*13.605/4 = 632.12 eV. E_photon = 150 + 632.12 = 782.12 eV; lambda = 1240/782.12 = 1.5854 nm. With +116 eV: E = 898.12 eV, lambda = 1.3807 nm. Muonic n=2 radius = 4*0.05292 nm/185.84 = 1.139e-3 nm = 1139 fm >> 2.1 fm. Numeric sentences consistently state 116 eV and 2.1 fm; T2E00 and T4CEB carry no number."
+}

@@ -1,0 +1,40 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch15",
+  "item_id": "M250-S275",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:38:30Z", "completed_at": "2026-11-20T10:47:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "P = w/L - (sin(2 u2) - sin(2 u1))/(2 n pi), u = n pi x/L",
+    "assumptions": ["infinite well", "n = 2 stationary state", "ideal probe responding only within the slice"],
+    "answer": 0.3468,
+    "unit": "dimensionless"
+  },
+  "stratum_assignments": {
+    "TE83E": {"stratum": "D", "answer_with_sentence": 0.3468, "regime": null},
+    "T0018": {"stratum": "D", "answer_with_sentence": 0.3468, "regime": null},
+    "T1E15": {"stratum": "D", "answer_with_sentence": 0.3468, "regime": null},
+    "TE382": {"stratum": "D", "answer_with_sentence": 0.3468, "regime": null},
+    "T6A0A": {"stratum": "R", "answer_with_sentence": 0.3596, "regime": null},
+    "T3E63": {"stratum": "R", "answer_with_sentence": null, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["insufficient_boundary_condition", "other"],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T3E63 does not say at which edge the slice is widened; the certified answers (0.350678, 0.359585, 0.476585) assume the right edge with the left edge fixed at 0.6 nm, but widening at the left edge or symmetrically gives different probabilities (q = 0.24: 0.4594 left, 0.4137 symmetric), so the answer is not unique.",
+    "other": "'The coating ... is widened' is an odd way to say thickened, and the base text introduces 'a second chip' with no first chip mentioned; wording only."
+  },
+  "defect_severity": {"insufficient_boundary_condition": "high", "other": "low"},
+  "counterexamples": [
+    "T3E63, q = 0.24 nm added at the left edge (slice 0.36-1.50 nm): P = 0.5 - (0.12 - sin(0.48 pi)/(4 pi)) = 0.4594 vs certified 0.359585.",
+    "T3E63, q = 0.24 nm split equally (slice 0.48-1.62 nm): P = 0.5017 - 0.0880 = 0.4137 vs certified 0.359585."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "Verified certified answers under the right-edge reading: q=0.16 -> F(b)=0.55333 - sin(0.21333 pi)/(4 pi)=0.50390, P=0.35068; q=0.24 -> 0.35958; q=0.56 -> F(b)=0.68667 - sin(0.74667 pi)/(4 pi)=0.62981, P=0.47659. Base 0.346774 correct. D sentences correct. Change from pass 1: the declared minimal pairs are T1E15/T3E63 and TE83E/T6A0A, both of which are same-number variants differing only in attachment, so I withdraw my pass-1 rendering_not_minimal concern (I had guessed T3E63 paired with T6A0A). The T3E63 edge ambiguity remains and makes that sentence's certified answer non-unique; T6A0A, which names the right-hand edge, is fine."
+}

@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch32",
+  "item_id": "M250-S67",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Fresnel normal-incidence reflectance R = ((n2-n1)/(n2+n1))^2 at each face; incoherent multiple-beam sum T_total = (1-R)^2/(1-R^2) = (1-R)/(1+R); P_t = P0 (1-R)/(1+R)",
+    "assumptions": ["normal incidence", "no absorption", "incoherent addition of powers", "both faces identical glass-air interfaces"],
+    "answer": 46.154,
+    "unit": "mW"
+  },
+  "stratum_assignments": {
+    "T463C": {"stratum": "K", "answer_with_sentence": 46.154, "regime": "Beam power below the 350 mW damage threshold (50 mW < 350 mW); above it the plate would be damaged and the optical model could fail."},
+    "T65F1": {"stratum": "R", "answer_with_sentence": 78.462, "regime": null},
+    "TBD30": {"stratum": "R", "answer_with_sentence": 78.462, "regime": null},
+    "T146E": {"stratum": "K", "answer_with_sentence": 46.154, "regime": "Beam power within the 350 mW rating (50 mW < 350 mW)."},
+    "T094D": {"stratum": "D", "answer_with_sentence": 46.154, "regime": null},
+    "T60FB": {"stratum": "D", "answer_with_sentence": 46.154, "regime": null},
+    "T9EF0": {"stratum": "D", "answer_with_sentence": 46.154, "regime": null},
+    "T6E69": {"stratum": "D", "answer_with_sentence": 46.154, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TBD30 says the source output was increased by 35 mW before the beam reached the plate, which sits awkwardly with the base text's statement that a 50 mW beam falls on the plate; read as 50 mW being the original output it gives 85 mW incident, but the wording is slightly strained."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "R = (0.5/2.5)^2 = 0.04; (1-R)/(1+R) = 0.96/1.04 = 0.923077; 50 mW -> 46.154 mW; 85 mW -> 78.462 mW. Variants: T463C/T146E both 350 mW; T65F1, TBD30, T094D, T9EF0 all 35 mW. T60FB and T6E69 state 'a small amount' with no number, so they are not number-matched variants of the 35 mW sentences; harmless since both are D. T65F1 ('then increased') is read as the question applying after the increase. 85 mW remains below 350 mW so K sentences stay irrelevant for R sentences too."
+}

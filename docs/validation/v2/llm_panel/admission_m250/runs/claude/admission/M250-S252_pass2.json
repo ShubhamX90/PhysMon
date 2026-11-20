@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch13",
+  "item_id": "M250-S252",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:43:00Z", "completed_at": "2026-11-20T10:50:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "W = (g R^2 m/2)(1/r1 - 1/r2) from circular-orbit energy E = -GMm/(2r)", "assumptions": ["circular orbits", "GM = g R^2", "no drag or third bodies", "constant satellite mass"], "answer": 2638240.0, "unit": "kJ"},
+  "stratum_assignments": {
+    "T1748": {"stratum": "D", "answer_with_sentence": 2638240.0, "regime": null},
+    "TFABF": {"stratum": "R", "answer_with_sentence": 2933100.0, "regime": null},
+    "TB6C9": {"stratum": "D", "answer_with_sentence": 2638240.0, "regime": null},
+    "T6B07": {"stratum": "D", "answer_with_sentence": 2638240.0, "regime": null},
+    "TF8C4": {"stratum": "R", "answer_with_sentence": 2933100.0, "regime": null},
+    "T2ED2": {"stratum": "D", "answer_with_sentence": 2638240.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Target unit is kJ; my pass-1 value 2.6382e9 J = 2638240 kJ agrees. Linear scaling checks: 895/850*2638238 = 2777910 kJ; 945/850 -> 2933100 kJ; 1020/850 = 1.2 -> 3165886 kJ (certified 3165890, rounded within 6 significant figures). Minimal pairs T2ED2/TFABF (earlier flight vs this flight) and T6B07/TF8C4 (ship vs satellite) share 95 kg and differ only in attachment/time. Numeral-free controls T1748 and TB6C9 are D like their twins."
+}

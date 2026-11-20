@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch03",
+  "item_id": "M250-S44",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:25:30Z", "completed_at": "2026-11-20T10:33:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "BIL = mg, I = mg/(BL)", "assumptions": ["rod fully in uniform perpendicular field", "leads exert no force", "added coil field parallel to existing field"], "answer": 1.4, "unit": "A"},
+  "stratum_assignments": {
+    "T6EA8": {"stratum": "D", "answer_with_sentence": 1.4, "regime": null},
+    "TF1C5": {"stratum": "D", "answer_with_sentence": 1.4, "regime": null},
+    "T7DF7": {"stratum": "K", "answer_with_sentence": 1.4, "regime": "field extent along the rod > L = 50 cm"},
+    "TD1B3": {"stratum": "K", "answer_with_sentence": 1.4, "regime": "field extent along the rod > L = 50 cm"},
+    "T0982": {"stratum": "R", "answer_with_sentence": 0.960784, "regime": null},
+    "T679D": {"stratum": "D", "answer_with_sentence": 1.4, "regime": null},
+    "TE75E": {"stratum": "R", "answer_with_sentence": 0.960784, "regime": null},
+    "TDD25": {"stratum": "D", "answer_with_sentence": 1.4, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "The problem says only that the compass is 'nearby'; the D rationale for TF1C5 (the compass field is a region of its own) and the R wiring B + q (coil field parallel to the main field) rest on natural but unstated readings."
+  },
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Verified certified answers: q=90 mT -> 0.245/(0.44*0.5) = 1.11364 A; q=160 mT -> 0.245/(0.51*0.5) = 0.960784 A; q=240 mT -> 0.245/(0.59*0.5) = 0.830508 A; base 1.4 A. K regime q > L holds for 95, 125, 150 cm (L = 50 cm), and the counter-regime expression mg/(Bq) is correct for a field narrower than the rod. Declared minimal pairs (TDD25-T0982, TF1C5-TE75E) share 160 mT and differ only in attachment/time; numeral-free twins (T679D, T6EA8) are by design. Pass-1 'medium' ambiguity downgraded to low: 'the field in which the compass lies' vs 'the field in which the rod lies' reads as distinct regions, and 'adds 160 mT to the field' naturally means the magnitude rises by 160 mT. Minor: the K quantity is called 'width' though the sentence speaks of extent along the rod; harmless."
+}

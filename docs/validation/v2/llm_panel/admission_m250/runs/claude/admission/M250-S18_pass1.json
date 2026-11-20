@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch11",
+  "item_id": "M250-S18",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:40:00Z", "completed_at": "2026-11-20T10:47:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Isothermal quasi-static ideal-gas work W = p1 V1 ln(V2/V1)",
+    "assumptions": ["ideal gas", "quasi-static isothermal expansion", "work = integral of p dV"],
+    "answer": 693.15,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "TFCFF": {"stratum": "D", "answer_with_sentence": 693.15, "regime": null},
+    "TC41F": {"stratum": "R", "answer_with_sentence": 1223.78, "regime": null},
+    "TBCED": {"stratum": "D", "answer_with_sentence": 693.15, "regime": null},
+    "TEE4E": {"stratum": "D", "answer_with_sentence": 693.15, "regime": null},
+    "T6073": {"stratum": "R", "answer_with_sentence": 1223.78, "regime": null},
+    "T4C17": {"stratum": "D", "answer_with_sentence": 693.15, "regime": null},
+    "TC4FD": {"stratum": "C", "answer_with_sentence": 693.15, "regime": null},
+    "T37B6": {"stratum": "C", "answer_with_sentence": 693.15, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "TC41F and T6073 say the expansion continues to 3.4 times the initial volume after the problem says it goes to 2 times; read with 'the work covers the whole expansion' as a continuation of the same slow isothermal process (total 3.4x), but the wording sits close to a restatement of the end point and does not restate that the continued part is isothermal."
+  },
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "p1V1 = 200e3 Pa * 0.005 m^3 = 1000 J. Base W = 1000 ln 2 = 693.15 J. With 3.4x: W = 1000 ln 3.4 = 1223.78 J. Temperature enters W = nRT ln(V2/V1) but nRT = p1V1 is fixed, so it cancels. Second cylinder and earlier experiment are disconnected."
+}

@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch24",
+  "item_id": "M250-S277",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:30:00Z", "completed_at": "2026-11-20T10:37:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "f = exp(-L mc^2 / (pc c tau0))", "assumptions": ["loss only by decay", "constant speed", "same momentum"], "answer": 0.6395, "unit": "1"},
+  "stratum_assignments": {
+    "T86A1": {"stratum": "R", "answer_with_sentence": 0.549282, "regime": null},
+    "T456D": {"stratum": "D", "answer_with_sentence": 0.639466, "regime": null},
+    "TD9FC": {"stratum": "D", "answer_with_sentence": 0.639466, "regime": null},
+    "TA551": {"stratum": "R", "answer_with_sentence": 0.549282, "regime": null},
+    "TA31E": {"stratum": "D", "answer_with_sentence": 0.639466, "regime": null},
+    "T40C2": {"stratum": "C", "answer_with_sentence": 0.639466, "regime": null},
+    "T751A": {"stratum": "C", "answer_with_sentence": 0.639466, "regime": null},
+    "TFEF0": {"stratum": "D", "answer_with_sentence": 0.639466, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Certified answers verified: decay length 223.65 m; base exp(-0.44712) = 0.63947; +16 m: exp(-0.51866) = 0.59532; +34 m: exp(-0.59915) = 0.54928; +51 m: exp(-0.67516) = 0.50908. Spill count cancels in N/q. Minimal pairs T456D/TA551 (cooling line vs flight path, 'gets 34 m more pipe') and TD9FC/T86A1 (earlier run vs counted run, 'lengthened by 34 m more, at the downstream end') share number and unit and differ only in attachment. TA31E and TFEF0 are declared numeral-free controls, consistent with my pass-1 reading. No disagreement with pass 1.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

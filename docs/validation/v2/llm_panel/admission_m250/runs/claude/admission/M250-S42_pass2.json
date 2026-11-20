@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch25",
+  "item_id": "M250-S42",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:06:00Z", "completed_at": "2026-11-20T10:11:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "R' = k^2 R0 = 18 ohm at constant volume; P = V^2 / R'", "assumptions": ["ideal battery, negligible lead resistance", "uniform drawing, constant resistivity and temperature", "lamp circuit is separate"], "answer": 8.0, "unit": "W"},
+  "stratum_assignments": {
+    "TE42B": {"stratum": "D", "answer_with_sentence": 8.0, "regime": null},
+    "T4F86": {"stratum": "D", "answer_with_sentence": 8.0, "regime": null},
+    "TDA6F": {"stratum": "D", "answer_with_sentence": 8.0, "regime": null},
+    "T4B85": {"stratum": "R", "answer_with_sentence": 21.125, "regime": null},
+    "TC5BC": {"stratum": "C", "answer_with_sentence": 8.0, "regime": null},
+    "TC461": {"stratum": "R", "answer_with_sentence": 21.125, "regime": null},
+    "T903C": {"stratum": "C", "answer_with_sentence": 8.0, "regime": null},
+    "TF0E0": {"stratum": "D", "answer_with_sentence": 8.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T4B85 'Before the power was measured, ... was connected' relies on the reader inferring the cell is still in place during the measurement; the intended R reading is the natural one but the wording is slightly less explicit than TC461."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked certified answers: (12+3.5)^2/18 = 240.25/18 = 13.347 W; 19.5^2/18 = 21.125 W; 28^2/18 = 43.556 W; base 144/18 = 8 W. C cancellation of L0 is correct (R' = k^2 R0 independent of L0). Minimal pairs TDA6F/TC461 and TF0E0/T4B85 share 7.5 V and differ only in attachment. TE42B and T4F86 are numeral-free twins by design, which resolves my pass-1 remark about their missing value. Agree with all strata."
+}

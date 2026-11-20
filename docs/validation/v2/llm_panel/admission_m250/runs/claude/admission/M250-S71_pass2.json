@@ -1,0 +1,30 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch28",
+  "item_id": "M250-S71",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:08:30Z", "completed_at": "2026-11-20T10:15:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Einstein photoelectric equation K_max = hc/lambda - phi; non-relativistic v = c*sqrt(2K/(mc^2))", "assumptions": ["single-photon photoemission", "non-relativistic kinetic energy (as instructed)", "no fields act on electrons"], "answer": 967.98, "unit": "km/s"},
+  "stratum_assignments": {
+    "TB26A": {"stratum": "C", "answer_with_sentence": 967.981, "regime": null},
+    "TF3E8": {"stratum": "D", "answer_with_sentence": 967.981, "regime": null},
+    "TEF5E": {"stratum": "D", "answer_with_sentence": 967.981, "regime": null},
+    "TA8F1": {"stratum": "D", "answer_with_sentence": 967.981, "regime": null},
+    "T94D8": {"stratum": "R", "answer_with_sentence": 1195.73, "regime": null},
+    "TCF8E": {"stratum": "D", "answer_with_sentence": 967.981, "regime": null},
+    "T860D": {"stratum": "R", "answer_with_sentence": 1195.73, "regime": null},
+    "T5707": {"stratum": "C", "answer_with_sentence": 967.981, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other", "inconsistent_units"],
+  "defect_reasons": {
+    "other": "T860D ('shortened by 55 nm before it reached the metal surface') can be read as the 250 nm in the problem already being the wavelength arriving at the surface, in which case the answer would not change; the authors' R reading (250 nm is the original wavelength) is the more natural one but not the only one.",
+    "inconsistent_units": "The displayed relation v = c*sqrt(2*Kmax/mc2) lists Kmax in eV and mc2 in keV; numerically the certified answers use a consistent conversion, so this is only a presentation issue."
+  },
+  "defect_severity": {"other": "medium", "inconsistent_units": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "notes": "Verified certified answers: base 967.98 km/s; q=35 -> lambda=215 nm, K=3.46744 eV, v=1105.17; q=55 -> 1195.73; q=80 -> lambda=170 nm, K=4.99412 eV, v=1326.34. All match. Intensity: in pass 1 I labelled it K (irrelevant in the single-photon regime); the authors' C framing (intensity enters photon flux and cancels from energy per photon) is also defensible, so I accept C. Pass-1 rendering_not_minimal flag on TA8F1/TCF8E is withdrawn: they are declared numeral-free controls by design. Minimal pairs TF3E8/T860D and TEF5E/T94D8 carry the same 55 nm and differ only in attachment. v/c ~ 0.003-0.0044, so non-relativistic treatment is fine."
+}

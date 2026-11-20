@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch19",
+  "item_id": "M250-S243",
+  "pass_number": 1,
+  "started_at": "2026-11-20T00:00:00Z", "completed_at": "2026-11-20T00:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Rutherford (Coulomb) hyperbolic orbit with fixed centre: r_min = (d/2)(1 + 1/sin(theta/2)), d = (2)(79) e^2 / (4 pi eps0 K); energy and angular momentum conservation.",
+    "assumptions": ["nucleus fixed (stated)", "pure Coulomb repulsion, point charges (stated)", "single scattering, no electron screening (stated)", "non-relativistic (stated)", "alpha charge 2e"],
+    "answer": 5.492e-14,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "T9A84": {"stratum": "R", "answer_with_sentence": 3.193e-14, "regime": null},
+    "TE67A": {"stratum": "D", "answer_with_sentence": 5.492e-14, "regime": null},
+    "T850C": {"stratum": "R", "answer_with_sentence": 3.193e-14, "regime": null},
+    "TA405": {"stratum": "K", "answer_with_sentence": 5.492e-14, "regime": "Nuclear size matters only if the closest approach (54.9 fm) reaches the nuclear surface; 7.3 fm << 54.9 fm, so the point-Coulomb result holds."},
+    "T381B": {"stratum": "D", "answer_with_sentence": 5.492e-14, "regime": null},
+    "TABD0": {"stratum": "D", "answer_with_sentence": 5.492e-14, "regime": null},
+    "T5616": {"stratum": "D", "answer_with_sentence": 5.492e-14, "regime": null},
+    "T69BD": {"stratum": "K", "answer_with_sentence": 5.492e-14, "regime": "Charge radius matters only if the alpha penetrates the nuclear charge distribution; 7.3 fm << 54.9 fm."}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Working: e/(4 pi eps0) = 1.602e-19 * 8.98774e9 = 1.43984e-9 V m; d = 158 * 1.43984e-9 / 5e6 V = 4.5499e-14 m (45.50 fm); r_min = 22.749 fm * (1 + sqrt2) = 54.92 fm. With 8.6 MeV: 54.92 * 5/8.6 = 31.93 fm. T381B and T5616 state no number ('a little'); they are qualitative variants of TE67A and TABD0 and do not affect the answer either way. With 8.6 MeV the closest approach (31.9 fm) still exceeds 7.3 fm, so the K regime is also respected under the R sentences."
+}

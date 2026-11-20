@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch29",
+  "item_id": "M250-S215",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:40:00Z", "completed_at": "2026-11-20T10:46:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Lossless line step response: Z0 = sqrt(L/C), V+ = E Z0/(Z0+Rs), V_L = V+(1+Gamma_L)", "assumptions": ["uniform lossless line", "ideal step at t=0 on uncharged line", "resistive load"], "answer": 10.0, "unit": "V"},
+  "stratum_assignments": {
+    "TAB4E": {"stratum": "D", "answer_with_sentence": 10.0, "regime": null},
+    "TBEAE": {"stratum": "D", "answer_with_sentence": 10.0, "regime": null},
+    "T9B6E": {"stratum": "C", "answer_with_sentence": 10.0, "regime": null},
+    "T2129": {"stratum": "C", "answer_with_sentence": 10.0, "regime": null},
+    "T6BEA": {"stratum": "R", "answer_with_sentence": 6.410, "regime": null},
+    "TADD9": {"stratum": "R", "answer_with_sentence": 6.410, "regime": null},
+    "T0205": {"stratum": "D", "answer_with_sentence": 10.0, "regime": null},
+    "T8F3D": {"stratum": "D", "answer_with_sentence": 10.0, "regime": null}
+  },
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T2129 ('cut to a length') could suggest the stated totals no longer apply; the answer is unaffected because Z0 depends only on L/C, which is per-length invariant."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Agrees with pass 1. Checked: Rs+22 = 47 -> V+ = 500/97 = 5.155, V_L = 7.732 V; Rs+42 = 67 -> 6.410 V; Rs+65 = 90 -> 5.357 V; all match. Length cancellation correct. Minimal pairs TAB4E/T6BEA (42 ohm, lamp vs source) and T8F3D/TADD9 (42 ohm, earlier test vs before switch-on) hold; numeral-free twins consistent."
+}

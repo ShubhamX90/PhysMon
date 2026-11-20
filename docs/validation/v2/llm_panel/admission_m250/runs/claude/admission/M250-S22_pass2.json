@@ -1,0 +1,38 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch04",
+  "item_id": "M250-S22",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:21:30Z", "completed_at": "2026-11-20T10:26:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "f1 = (1/(2L)) sqrt(T L / m) = sqrt(T/(m L))/2",
+    "assumptions": ["ideal flexible uniform string fixed at both ends", "'the string' is the first string"],
+    "answer": 55.9017,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T7728": {"stratum": "R", "answer_with_sentence": 66.3796, "regime": null},
+    "TC81D": {"stratum": "K", "answer_with_sentence": 55.9017, "regime": "Irrelevant while tension 100 N < breaking strength."},
+    "T9C9F": {"stratum": "D", "answer_with_sentence": 55.9017, "regime": null},
+    "TE80D": {"stratum": "R", "answer_with_sentence": 66.3796, "regime": null},
+    "T1B24": {"stratum": "C", "answer_with_sentence": 55.9017, "regime": null},
+    "T72AC": {"stratum": "D", "answer_with_sentence": 55.9017, "regime": null},
+    "T5C94": {"stratum": "C", "answer_with_sentence": 55.9017, "regime": null},
+    "TF232": {"stratum": "D", "answer_with_sentence": 55.9017, "regime": null},
+    "TA8BA": {"stratum": "K", "answer_with_sentence": 55.9017, "regime": "Irrelevant while tension 100 N < maximum tension."},
+    "TD077": {"stratum": "D", "answer_with_sentence": 55.9017, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "With a second string in the scene, 'the string' and 'this string ... then increased' (TE80D) are mildly ambiguous in referent and timing, though the intended reading (first string, increase before vibration) is the natural one."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Verified: sqrt(100/0.008)/2 = 55.902 Hz; T=109 N: 58.363; T=141 N: 66.380; T=168 N: 72.457 Hz, all matching. Area cancellation via rho = m/(A L) is correct (C). K regime T < q holds for 160, 240, 370 N with T = 100 N. Minimal pairs TD077/T7728 and TF232/TE80D share 41 N and differ only in attachment. Numeral-free controls declared. Agrees with pass 1.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

@@ -1,0 +1,37 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch21",
+  "item_id": "M250-S43",
+  "pass_number": 2,
+  "started_at": "2026-11-20T00:06:00Z", "completed_at": "2026-11-20T00:11:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "C = C0/(1 - (t/d)(1 - 1/kappa)); dQ = (C - C0) V",
+    "assumptions": ["battery stays connected, ideal", "edge effects negligible", "linear dielectric, vacuum gap"],
+    "answer": 0.72,
+    "unit": "nC"
+  },
+  "stratum_assignments": {
+    "T27DA": {"stratum": "D", "answer_with_sentence": 0.72, "regime": null},
+    "T8799": {"stratum": "D", "answer_with_sentence": 0.72, "regime": null},
+    "T0DBA": {"stratum": "D", "answer_with_sentence": 0.72, "regime": null},
+    "T9341": {"stratum": "R", "answer_with_sentence": 1.17, "regime": null},
+    "T6AD3": {"stratum": "R", "answer_with_sentence": 1.17, "regime": null},
+    "T970C": {"stratum": "D", "answer_with_sentence": 0.72, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T9341 ('Before the slab was inserted, a 7.5 V cell ... was connected') does not state that the cell remains connected during the insertion, which the R certification (1.17 nC) requires; a reader could take it as removed, giving 0.72 nC."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Checked: C = 100/(1 - 0.5*0.75) = 160 pF; dQ = 60 pF x 12 V = 0.72 nC. R answers: 60 pF x 15.5 V = 0.93 nC, x 19.5 V = 1.17 nC, x 33 V = 1.98 nC, all match. Minimal pairs T8799/T9341 and T970C/T6AD3 share 7.5 V and wording, differing only in attachment. T27DA and T0DBA are declared numeral-free controls, which resolves my pass-1 concern about their missing number. Scene clause (lamp with own battery) is disconnected and consistent. Pass-1 agrees with all strata; only the T9341 wording ambiguity remains (medium)."
+}

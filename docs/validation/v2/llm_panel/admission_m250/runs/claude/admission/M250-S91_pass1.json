@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch20",
+  "item_id": "M250-S91",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:50:30Z", "completed_at": "2026-11-20T11:00:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Bernoulli + continuity for a horizontal Venturi with manometer: dp = (rho_m - rho) g h; Q = A2 sqrt(2 dp / (rho (1 - (A2/A1)^2)))", "assumptions": ["incompressible, inviscid, steady flow", "uniform speed over each section", "horizontal axis", "hydrostatic manometer lines filled with flowing liquid"], "answer": 0.011040, "unit": "m^3/s"},
+  "stratum_assignments": {
+    "T90FF": {"stratum": "D", "answer_with_sentence": 0.011040, "regime": null},
+    "T5A70": {"stratum": "D", "answer_with_sentence": 0.011040, "regime": null},
+    "TE588": {"stratum": "C", "answer_with_sentence": 0.011040, "regime": null},
+    "T6113": {"stratum": "D", "answer_with_sentence": 0.011040, "regime": null},
+    "T2A08": {"stratum": "C", "answer_with_sentence": 0.011040, "regime": null},
+    "T609E": {"stratum": "R", "answer_with_sentence": 0.0038090, "regime": null},
+    "T2C4F": {"stratum": "D", "answer_with_sentence": 0.011040, "regime": null},
+    "T3597": {"stratum": "R", "answer_with_sentence": 0.0038090, "regime": null},
+    "T6339": {"stratum": "C", "answer_with_sentence": 0.011040, "regime": null},
+    "T7E31": {"stratum": "C", "answer_with_sentence": 0.011040, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "dp = 12600*9.8*0.12 = 14817.6 Pa; A2 = pi*0.025^2 = 1.9635e-3 m^2; 1 - (A2/A1)^2 = 15/16; v2 = sqrt(2*14817.6/1000/(15/16)) = 5.6224 m/s; Q = 0.011040 m^3/s. With U-tube liquid 2500 kg/m^3 and the same 12 cm reading: dp = 1764 Pa, v2 = 1.9399 m/s, Q = 0.0038090 m^3/s. Absolute pressure 240 kPa: only the difference matters (throat pressure about 225 kPa, no cavitation); pipe height: both tappings at same elevation, so z cancels in Bernoulli. These could also be classed K (cavitation) or D respectively; I chose C. Variants: 2500 kg/m^3 consistent across U-tube/barometer/earlier-run sentences; T90FF/T5A70 carry no number (numeral-free); 240 kPa and 2.1 m pairs differ only in wording."
+}

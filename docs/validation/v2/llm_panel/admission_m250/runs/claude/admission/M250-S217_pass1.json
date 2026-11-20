@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch35",
+  "item_id": "M250-S217",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:41:00Z", "completed_at": "2026-11-20T10:50:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law along the slope with kinetic friction: m a = qE cos(th) - m g sin(th) - mu_k (m g cos(th) + qE sin(th)); v = sqrt(2 a d) from rest",
+    "assumptions": ["block starts from rest", "horizontal field component into the slope adds to the normal force", "charge constant, field uniform", "no air resistance"],
+    "answer": 6.154,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TFC7B": {"stratum": "R", "answer_with_sentence": 5.191, "regime": null},
+    "TEE2E": {"stratum": "D", "answer_with_sentence": 6.154, "regime": null},
+    "T349D": {"stratum": "D", "answer_with_sentence": 6.154, "regime": null},
+    "T7028": {"stratum": "D", "answer_with_sentence": 6.154, "regime": null},
+    "T5634": {"stratum": "R", "answer_with_sentence": 5.191, "regime": null},
+    "T5CCF": {"stratum": "K", "answer_with_sentence": 6.154, "regime": "static friction coefficient below (qE cos th - m g sin th)/N = 14.243/12.048 = 1.182, so the block does start to slide"},
+    "TA524": {"stratum": "K", "answer_with_sentence": 6.154, "regime": "static friction coefficient below about 1.18, so the block starts to slide"},
+    "T5A8D": {"stratum": "D", "answer_with_sentence": 6.154, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "qE = 18 N. Along slope: 18 cos25 = 16.3135 N; normal N = 0.5*9.8*cos25 + 18 sin25 = 4.4409 + 7.6071 = 12.0480 N; friction 2.4096 N; m g sin25 = 2.0708 N; net 11.8331 N; a = 23.666 m/s^2; v^2 = 37.866; v = 6.154 m/s. With m = 0.65 kg (charge unchanged): N = 13.3803, friction 2.6761, m g sin = 2.6921, net 10.9454, a = 16.839, v = 5.191 m/s. Toy-cart and earlier-trial sentences have no path to the target. T349D and T5A8D carry no number (numeral-free versions)."
+}

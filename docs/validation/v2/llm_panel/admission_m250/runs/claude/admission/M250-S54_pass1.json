@@ -1,0 +1,21 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch09",
+  "item_id": "M250-S54",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:46:00Z", "completed_at": "2026-11-20T10:54:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Stefan-Boltzmann: P = e sigma 4 pi r^2 T^4, so P2 = P1 (r2/r1)^2 (T2/T1)^4", "assumptions": ["same constant emissivity (stated)", "absorption from surroundings negligible (stated)", "uniform surface temperature"], "answer": 12.4416, "unit": "kW"},
+  "stratum_assignments": {
+    "T298E": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "TA4B6": {"stratum": "R", "answer_with_sentence": 26.1585, "regime": null},
+    "TCB5F": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "TDB9C": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "T6222": {"stratum": "R", "answer_with_sentence": 26.1585, "regime": null},
+    "T4B8C": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [], "defect_flags": ["other"], "defect_reasons": {"other": "For the past-tense T6222 ('was plated'), a reader could take the stated 10 cm radius as already including the layer, giving 12.44 kW rather than 26.16 kW; the present-tense TA4B6 is less open to this reading."}, "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "P2 = 1.5 kW x (10/5)^2 x (1200/1000)^4 = 1.5 x 4 x 2.0736 = 12.4416 kW. With a 4.5 cm layer on the second sphere, r = 14.5 cm: 1.5 x (14.5/5)^2 x 2.0736 = 1.5 x 8.41 x 2.0736 = 26.1585 kW, assuming the surface temperature remains 1200 K and the emissivity is unchanged (same metal, same finish as stated). A 4.5 cm 'plated layer' is physically unusual (plating is normally thin), hence slightly artificial. Bracket and disc have no path to the second sphere's emission. T298E and TDB9C use 'a thin layer' instead of 4.5 cm; they appear to be numeral-free versions."
+}

@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch11",
+  "item_id": "M250-S247",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:56:00Z", "completed_at": "2026-11-20T11:08:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Radiation pressure on a partly reflecting mirror, normal component: F = (I A cos^2(theta)/c)(1 + R); v = F t / m",
+    "assumptions": ["I measured perpendicular to the beam, so intercepted power is I A cos(theta)", "absorbed light transfers its normal momentum, specularly reflected light twice it", "v << c so Doppler and recoil-angle corrections are negligible", "constant force over 24 h, mirror starts at rest"],
+    "answer": 114.99,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TE4B6": {"stratum": "R", "answer_with_sentence": 153.59, "regime": null},
+    "T532A": {"stratum": "C", "answer_with_sentence": 114.99, "regime": null},
+    "T76D3": {"stratum": "D", "answer_with_sentence": 114.99, "regime": null},
+    "T8261": {"stratum": "D", "answer_with_sentence": 114.99, "regime": null},
+    "TB1C7": {"stratum": "D", "answer_with_sentence": 114.99, "regime": null},
+    "TFEB0": {"stratum": "R", "answer_with_sentence": 153.59, "regime": null},
+    "T5DB2": {"stratum": "C", "answer_with_sentence": 114.99, "regime": null},
+    "T56A5": {"stratum": "D", "answer_with_sentence": 114.99, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {
+    "missing_assumption": "TE4B6 and TFEB0 add light from a second lamp without saying it travels along the beam at 30 degrees (or how its 470 W/m^2 is measured); the answer 153.59 m/s assumes it simply raises the beam intensity to 1870 W/m^2, while light from another direction would give a different normal force."
+  },
+  "defect_severity": {"missing_assumption": "medium"},
+  "counterexamples": ["If the second lamp's 470 W/m^2 arrived at normal incidence, its added normal force would be 470*100*1.9/c instead of 470*100*0.75*1.9/c, giving v = 114.99 + 51.10 = 166.09 m/s instead of 153.59 m/s."],
+  "notes": "F = 1400*100*0.75*1.9/2.998e8 = 6.6544e-4 N; a = 1.33089e-3 m/s^2; v = a*86400 s = 114.99 m/s. With I = 1870 W/m^2 along the beam: v = 114.99*1870/1400 = 153.59 m/s. Photon energy cancels (photon momentum E/c times photon rate P/E). I grade the lamp-direction gap medium because 'adds to the intensity of the light that reaches the mirror' most naturally means the beam intensity rises; if a strict reading of rule 1 is applied it would be high. Earlier-exposure and projection-screen sentences are disconnected."
+}

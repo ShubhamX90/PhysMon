@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch03",
+  "item_id": "M250-S282",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:44:30Z", "completed_at": "2026-11-20T10:52:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "L/L_sun = (R/R_sun)² (λ_sun/λ_star)⁴ (Stefan-Boltzmann with Wien scaling)", "assumptions": ["black-body emission", "Wien scaling with the Sun as reference"], "answer": 25.5432, "unit": "1 (L_sun)"},
+  "stratum_assignments": {
+    "T3E50": {"stratum": "D", "answer_with_sentence": 25.5432, "regime": null},
+    "T14DF": {"stratum": "D", "answer_with_sentence": 25.5432, "regime": null},
+    "TE9FF": {"stratum": "R", "answer_with_sentence": 52.4343, "regime": null},
+    "TB343": {"stratum": "D", "answer_with_sentence": 25.5432, "regime": null},
+    "T37E0": {"stratum": "R", "answer_with_sentence": 52.4343, "regime": null},
+    "T6C97": {"stratum": "D", "answer_with_sentence": 25.5432, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "Wording 'gets 0.74 more, in solar radii' / 'swollen by 0.74 more' is awkward, though the intended additive reading is clear enough."
+  },
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Verified: (502/292)^4 = 8.73541; R=1.71 -> 2.9241*8.73541 = 25.5432; R=2.04 -> 4.1616*8.73541 = 36.3533; R=2.45 -> 6.0025*8.73541 = 52.4343; R=2.95 -> 8.7025*8.73541 = 76.0199. All certified answers match. Declared minimal pairs (T14DF-T37E0, TB343-TE9FF) share 0.74 solar radii and differ only in attachment/time; numeral-free twins (T3E50, T6C97) are by design. Sun data are self-consistent with Wien's constant. Agrees with pass 1."
+}

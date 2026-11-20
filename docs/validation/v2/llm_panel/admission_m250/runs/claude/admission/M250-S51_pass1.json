@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch06",
+  "item_id": "M250-S51",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:33:00Z", "completed_at": "2026-11-20T10:42:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Reversible adiabatic of ideal gas: T V^(gamma-1) = const; W_on = n Cv (T2 - T1) = n R T1 (r^(gamma-1) - 1)/(gamma - 1)",
+    "assumptions": ["quasi-static (slow) adiabatic, reversible", "ideal gas, constant gamma (stated)"],
+    "answer": 4044.97,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "T01D6": {"stratum": "R", "answer_with_sentence": 14561.9, "regime": null},
+    "T6088": {"stratum": "C", "answer_with_sentence": 4044.97, "regime": null},
+    "T6B54": {"stratum": "D", "answer_with_sentence": 4044.97, "regime": null},
+    "TF609": {"stratum": "D", "answer_with_sentence": 4044.97, "regime": null},
+    "T4224": {"stratum": "R", "answer_with_sentence": 14561.9, "regime": null},
+    "T75C2": {"stratum": "K", "answer_with_sentence": 4044.97, "regime": "the stop matters only if the intended compression ratio exceeds 15; the stated ratio 8 is below it"},
+    "T226E": {"stratum": "C", "answer_with_sentence": 4044.97, "regime": null},
+    "T6655": {"stratum": "K", "answer_with_sentence": 4044.97, "regime": "if read as a mechanical stop at ratio 15, irrelevant for the stated ratio 8; if read as the final ratio, it contradicts the stated ratio 8"},
+    "T108C": {"stratum": "D", "answer_with_sentence": 4044.97, "regime": null},
+    "T2C06": {"stratum": "D", "answer_with_sentence": 4044.97, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["contradictory_distractor_statement"],
+  "defect_reasons": {"contradictory_distractor_statement": "T6655 'The piston stops at a compression ratio of 15' most plainly says the piston comes to rest at ratio 15, contradicting the stated compression ratio of 8; unlike T75C2 it does not say this is only a limit."},
+  "defect_severity": {"contradictory_distractor_statement": "high"},
+  "counterexamples": ["With T6655 read as the final state: W = 1247.1*(15^0.4 - 1)/0.4 = 1247.1*(2.9542-1)/0.4 = 6093 J instead of 4045 J."],
+  "notes": "nRT1 = 0.5*8.314*300 = 1247.1 J; 8^0.4 = 2^1.2 = 2.29740; W = 1247.1*1.29740/0.4 = 4044.97 J. With 1.8 mol: 3.6x = 14561.9 J. Initial volume 17 L enters via P1V1 = nRT1 and cancels (P1 = 73.4 kPa, consistent). Earlier-run and second-cylinder sentences are D. Within pairs numbers agree (1.3 mol, 17 L, 15)."
+}

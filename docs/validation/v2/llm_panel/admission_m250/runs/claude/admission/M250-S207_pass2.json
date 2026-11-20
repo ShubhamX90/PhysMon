@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch01",
+  "item_id": "M250-S207",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:24:30Z", "completed_at": "2026-11-20T10:29:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Compound Atwood machine: a1 = g (m1 - mr)/(m1 + mr), mr = 4 m2 m3/(m2 + m3)",
+    "assumptions": ["light inextensible taut strings, light frictionless pulleys", "vertical motion", "g = 9.8 m/s^2"],
+    "answer": 5.2769,
+    "unit": "m/s^2"
+  },
+  "stratum_assignments": {
+    "T033D": {"stratum": "D", "answer_with_sentence": 5.2769, "regime": null},
+    "TDD9E": {"stratum": "D", "answer_with_sentence": 5.2769, "regime": null},
+    "T23F6": {"stratum": "R", "answer_with_sentence": 6.125, "regime": null},
+    "T8D42": {"stratum": "R", "answer_with_sentence": 6.125, "regime": null},
+    "T51F2": {"stratum": "D", "answer_with_sentence": 5.2769, "regime": null},
+    "T5576": {"stratum": "D", "answer_with_sentence": 5.2769, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Relations match my pass-1 derivation (mr = 2.4 kg). Certified R answers verified: q = 0.5 -> 9.8*6.1/10.9 = 5.4844; q = 2.4 -> 9.8*8/12.8 = 6.125; q = 3.8 -> 9.8*9.4/14.2 = 6.48732 m/s^2. D answers equal the base 5.27692. Minimal pairs T033D/T23F6 and T5576/T8D42 share '2.4 kg' and differ only in attachment/timing; numeral-free twins TDD9E and T51F2 are declared as such. Agrees fully with pass 1."
+}

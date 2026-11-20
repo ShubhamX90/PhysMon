@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch26",
+  "item_id": "M250-S257",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:08:00Z", "completed_at": "2026-11-20T10:13:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Bateman parent-daughter decay: A_D(t) = A_P0 * lambda_D/(lambda_D - lambda_P) * (exp(-lambda_P t) - exp(-lambda_D t))",
+    "assumptions": ["no daughter at t=0", "parent decays only to daughter", "closed column"],
+    "answer": 3144.69,
+    "unit": "Bq"
+  },
+  "stratum_assignments": {
+    "T5569": {"stratum": "D", "answer_with_sentence": 3144.69, "regime": null},
+    "T3269": {"stratum": "D", "answer_with_sentence": 3144.69, "regime": null},
+    "T0FDD": {"stratum": "R", "answer_with_sentence": 4166.72, "regime": null},
+    "T1787": {"stratum": "R", "answer_with_sentence": 4166.72, "regime": null},
+    "TCB75": {"stratum": "D", "answer_with_sentence": 3144.69, "regime": null},
+    "T3A18": {"stratum": "D", "answer_with_sentence": 3144.69, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Factor per Bq = 1.1*(2^(-24/66) - 2^(-4)) = 0.786173. Certified answers check: 4000 -> 3144.69; 4680 -> 3679.29; 5300 -> 4166.72; 6900 -> 5424.6. Relations and units consistent. Minimal pairs T3A18/T0FDD and TCB75/T1787 share number and unit and differ only in attachment (container vs column; earlier run vs this run). The 'small amount' sentences are declared numeral-free twins by design, which resolves my pass-1 concern; they are D. No contradiction: the added 1300 Bq is loaded 'at the start', consistent with 'nothing added afterwards'.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

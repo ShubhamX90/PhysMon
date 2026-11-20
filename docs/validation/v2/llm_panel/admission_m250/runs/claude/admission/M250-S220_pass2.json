@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch21",
+  "item_id": "M250-S220",
+  "pass_number": 2,
+  "started_at": "2026-11-20T00:18:00Z", "completed_at": "2026-11-20T00:24:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "F = (1/2) V^2 dC/dx, dC/dx = (kappa - 1) C0/ell",
+    "assumptions": ["battery ideal and connected", "fringe fields neglected", "slab edge away from plate ends"],
+    "answer": 0.75,
+    "unit": "mN"
+  },
+  "stratum_assignments": {
+    "T9C5B": {"stratum": "D", "answer_with_sentence": 0.75, "regime": null},
+    "T09BD": {"stratum": "D", "answer_with_sentence": 0.75, "regime": null},
+    "TBFE0": {"stratum": "R", "answer_with_sentence": 2.1675, "regime": null},
+    "TABCB": {"stratum": "D", "answer_with_sentence": 0.75, "regime": null},
+    "TA3FF": {"stratum": "K", "answer_with_sentence": 0.75, "regime": "inserted length strictly between 0 and the plate length (edge away from plate ends)"},
+    "TAC6D": {"stratum": "K", "answer_with_sentence": 0.75, "regime": "inserted length strictly between 0 and the plate length (edge away from plate ends)"},
+    "TE652": {"stratum": "R", "answer_with_sentence": 2.1675, "regime": null},
+    "T8F88": {"stratum": "D", "answer_with_sentence": 0.75, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {"missing_assumption": "TE652 and TBFE0 say only that the further 350 V battery is 'connected in series with the battery', not that it faces the same way; the certified wiring V + q assumes aiding polarity, while an opposing battery gives V - q (150 V, 0.0675 mN)."},
+  "defect_severity": {"missing_assumption": "high"},
+  "counterexamples": ["TE652 at q = 350 V with the further battery reversed: |V - q| = 150 V, F = 0.5 x 150^2 x 6e-9 N/V^2 = 0.0675 mN, not the certified 2.1675 mN; at q = 700 V reversed: 200 V, F = 0.12 mN, not 4.32 mN."],
+  "notes": "Arithmetic checked: dC/dx = 600 pF/0.1 m = 6e-9 F/m; F = 3e-9 V^2: 500 V -> 0.75 mN, 650 V -> 1.2675, 850 V -> 2.1675, 1200 V -> 4.32 mN; all certified values follow under aiding polarity. Unlike sibling items, these sentences omit 'facing the same way'. The authors label the inserted length K (irrelevant while 0 < q < ell); I called it C in pass 1; both readings give the same invariant answer and I accept K. Regime 'q < ell' should strictly also require the edge away from the far end and q > 0, but all listed values (2.5, 4.5, 6.5 cm) are well inside. Minimal pairs (T09BD/TBFE0, TABCB/TE652) share 350 V and differ in attachment. TBFE0 also implicitly requires the further battery to remain connected after insertion, which 'is connected ... before the slab is inserted' supports."
+}

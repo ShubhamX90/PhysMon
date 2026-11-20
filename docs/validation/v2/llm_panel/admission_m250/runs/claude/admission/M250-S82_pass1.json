@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch08",
+  "item_id": "M250-S82",
+  "pass_number": 1,
+  "started_at": "2026-11-20T00:50:00Z", "completed_at": "2026-11-20T00:57:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Wien's displacement law lambda_max T = constant (calibrated from the first star), E = hc/lambda",
+    "assumptions": ["both stars are blackbodies", "maximum taken per unit wavelength for both"],
+    "answer": 1.24,
+    "unit": "eV"
+  },
+  "stratum_assignments": {
+    "TEFF6": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "T80FF": {"stratum": "R", "answer_with_sentence": 1.6462, "regime": null},
+    "TF04F": {"stratum": "R", "answer_with_sentence": 1.6462, "regime": null},
+    "T099E": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "T2C66": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "TFD41": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "lambda2 = 500 nm * 5800/2900 = 1000 nm; E = 1240/1000 = 1.24 eV. With T2 = 3850 K: lambda = 753.25 nm, E = 1240*3850/(500*5800) = 1.6462 eV. T099E/TFD41 (earlier outburst) treated as history leaving the stated 2900 K; a reader could wonder whether the star is still at the raised temperature, but the problem states 2900 K. All number-bearing sentences state 950 K; 'small amount' sentences are numeral-free versions."
+}

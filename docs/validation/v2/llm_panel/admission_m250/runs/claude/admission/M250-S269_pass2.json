@@ -1,0 +1,38 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch35",
+  "item_id": "M250-S269",
+  "pass_number": 2,
+  "started_at": "2026-11-20T11:07:30Z", "completed_at": "2026-11-20T11:15:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Closed-open pipe f = c/(4 L_eff), c proportional to sqrt(T), L_eff fixed by tuning; beat = f (sqrt(T2/T1) - 1)",
+    "assumptions": ["L_eff and fork frequency independent of temperature", "uniform air temperature", "linear acoustics"],
+    "answer": 9.82095,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "TC352": {"stratum": "K", "answer_with_sentence": 9.82095, "regime": "600*amplitude < Leff = 0.1933 m (small-amplitude linear acoustics)"},
+    "T54B8": {"stratum": "D", "answer_with_sentence": 9.82095, "regime": null},
+    "T41CC": {"stratum": "D", "answer_with_sentence": 9.82095, "regime": null},
+    "T9D97": {"stratum": "R", "answer_with_sentence": 11.2048, "regime": null},
+    "T096C": {"stratum": "K", "answer_with_sentence": 9.82095, "regime": "600*amplitude < Leff = 0.1933 m"},
+    "TB3C1": {"stratum": "C", "answer_with_sentence": 9.82095, "regime": null},
+    "T8D37": {"stratum": "C", "answer_with_sentence": 9.82095, "regime": null},
+    "T3EBE": {"stratum": "D", "answer_with_sentence": 9.82095, "regime": null},
+    "T056D": {"stratum": "D", "answer_with_sentence": 9.82095, "regime": null},
+    "TFAFF": {"stratum": "R", "answer_with_sentence": 11.2048, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The R sentences ('before the pipe is tuned, the fork is pitched higher by a further 62 Hz') sit awkwardly beside the base text's 'exactly the frequency 440 Hz of a tuning fork'; read as an intervention on the fork it is consistent, but the wording is slightly artificial."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Verified: sqrt(301/288) - 1 = 0.0223203; base beat 440*0.0223203 = 9.8209 Hz; R answers 475, 502, 531 Hz times 0.0223203 = 10.602, 11.205, 11.852 Hz, all matching. End correction cancels since L_eff is fixed by tuning (C claim correct). K regime: Leff = c1/(4f) with c1 = 340.19 m/s gives 0.1933 m; 600*47 um = 0.028 m inside; 6e4 um outside, as claimed. Minimal pairs T056D/T9D97 (earlier experiment vs this tuning, fork) and T3EBE/TFAFF (guitar string vs fork) share 62 Hz and differ only in attachment. T41CC and T54B8 are numeral-free controls by design. Agrees with pass 1."
+}

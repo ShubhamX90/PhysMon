@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch01",
+  "item_id": "M250-S207",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:16:00Z", "completed_at": "2026-11-20T10:24:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law for each block with massless frictionless pulleys (compound Atwood machine); string constraints; tension doubling at the light movable pulley",
+    "assumptions": ["light inextensible strings, light frictionless pulleys", "strings taut", "vertical motion only", "g = 9.8 m/s^2"],
+    "answer": 5.2769,
+    "unit": "m/s^2"
+  },
+  "stratum_assignments": {
+    "T033D": {"stratum": "D", "answer_with_sentence": 5.2769, "regime": null},
+    "TDD9E": {"stratum": "D", "answer_with_sentence": 5.2769, "regime": null},
+    "T23F6": {"stratum": "R", "answer_with_sentence": 6.125, "regime": null},
+    "T8D42": {"stratum": "R", "answer_with_sentence": 6.125, "regime": null},
+    "T51F2": {"stratum": "D", "answer_with_sentence": 5.2769, "regime": null},
+    "T5576": {"stratum": "D", "answer_with_sentence": 5.2769, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Let a = downward acceleration of the 8 kg block = upward acceleration of the movable pulley; lower-string tension T' gives T'(1/m1 + 1/m2) - 2g = 2a, so T' = 1.2(a + g) and main tension T = 2T' = 2.4(a + g) (effective mass 4 m1 m2/(m1+m2) = 2.4 kg). Then 8g - 2.4(a+g) = 8a gives a = 5.6 g/10.4 = 5.2769 m/s^2. With a 2.4 kg sandbag on the single block (M = 10.4 kg): a = 8 g/12.8 = 6.125 m/s^2. 'Earlier run only' sandbags and toolbox sandbags are disconnected (D). T23F6 is read as the sandbag still hanging at release (R); a reader could wonder whether it stayed on, but 'hung ... before the blocks were released' most naturally means it was attached at release. All numbered sandbag sentences use 2.4 kg consistently; the numeral-free 'small sandbag' sentences carry no number. Coincidence: 2.4 kg equals the effective mass of the movable-pulley subsystem, which is harmless."
+}

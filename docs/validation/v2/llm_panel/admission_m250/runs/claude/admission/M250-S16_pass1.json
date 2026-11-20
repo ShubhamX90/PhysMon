@@ -1,0 +1,21 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch31",
+  "item_id": "M250-S16",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:15:00Z", "completed_at": "2026-11-20T10:22:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "RL charging: I(t) = (E/R)(1 - exp(-R t / L))", "assumptions": ["Current zero at closing (circuit open beforehand)", "Ideal battery and wires", "Lamp circuit uncoupled (no mutual inductance)"], "answer": 0.4661, "unit": "A"},
+  "stratum_assignments": {
+    "TAEAE": {"stratum": "R", "answer_with_sentence": 0.3535, "regime": null},
+    "T582C": {"stratum": "D", "answer_with_sentence": 0.4661, "regime": null},
+    "T2DE4": {"stratum": "R", "answer_with_sentence": 0.3535, "regime": null},
+    "T20A0": {"stratum": "D", "answer_with_sentence": 0.4661, "regime": null},
+    "T40EA": {"stratum": "D", "answer_with_sentence": 0.4661, "regime": null},
+    "T9F10": {"stratum": "D", "answer_with_sentence": 0.4661, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "tau = 0.2/20 = 10 ms; I = 0.6(1 - e^-1.5) = 0.4661 A. With extra 10.5 ohm in series: R = 30.5 ohm, Rt/L = 2.2875, I = (12/30.5)(1 - e^-2.2875) = 0.3935*0.8985 = 0.3535 A. T582C and T40EA give no value ('small resistor'), while their apparent counterparts T9F10 and T20A0 give 10.5 ohm; all numeric sentences state 10.5 ohm consistently."
+}

@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch03",
+  "item_id": "M250-S46",
+  "pass_number": 2,
+  "started_at": "2026-11-20T11:03:30Z", "completed_at": "2026-11-20T11:10:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "v = mgR sinθ/(B²L² cos²θ) (motional EMF with vertical field on incline)", "assumptions": ["frictionless", "only stated resistance", "negligible inductance"], "answer": 2.83565, "unit": "m/s"},
+  "stratum_assignments": {
+    "T5D8D": {"stratum": "R", "answer_with_sentence": 10.2083, "regime": null},
+    "T2332": {"stratum": "D", "answer_with_sentence": 2.83565, "regime": null},
+    "T88DE": {"stratum": "D", "answer_with_sentence": 2.83565, "regime": null},
+    "TE145": {"stratum": "D", "answer_with_sentence": 2.83565, "regime": null},
+    "TADB8": {"stratum": "R", "answer_with_sentence": 10.2083, "regime": null},
+    "T2BCE": {"stratum": "D", "answer_with_sentence": 2.83565, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 4, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Relations match my pass-1 derivation (Beff = B cosθ enters squared: EMF and along-slope force each carry cosθ). Verified: R=1.2 -> 0.245*1.2/0.0432 = 6.80556; R=1.8 -> 10.2083; R=2.9 -> 0.7105/0.0432 = 16.4468; base 2.83565 m/s. Declared minimal pairs (T88DE-T5D8D, TE145-TADB8) share 1.3 Ω and differ only in attachment/time; numeral-free twins are by design. Lamp loop has no conductive path to the rod loop. Agrees with pass 1."
+}

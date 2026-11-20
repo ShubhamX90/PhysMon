@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch16",
+  "item_id": "M250-S213",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:15:00Z", "completed_at": "2026-11-20T10:24:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Energy: q V_a = (1/2) m v^2; uniform transverse field E = V_d/d in plates; deflection angle tan(theta) = V_d L / (2 d V_a); screen deflection Y = tan(theta) (L/2 + D)", "assumptions": ["ions start from rest", "non-relativistic speeds", "uniform field between plates, none outside (stated)", "gravity neglected (stated)", "ions enter on axis parallel to plates"], "answer": 4.0625, "unit": "cm"},
+  "stratum_assignments": {
+    "TC114": {"stratum": "D", "answer_with_sentence": 4.0625, "regime": null},
+    "T9EB9": {"stratum": "D", "answer_with_sentence": 4.0625, "regime": null},
+    "T50A6": {"stratum": "D", "answer_with_sentence": 4.0625, "regime": null},
+    "T2D42": {"stratum": "C", "answer_with_sentence": 4.0625, "regime": null},
+    "T0F82": {"stratum": "R", "answer_with_sentence": 2.1959, "regime": null},
+    "TC023": {"stratum": "R", "answer_with_sentence": 2.1959, "regime": null},
+    "T40D5": {"stratum": "D", "answer_with_sentence": 4.0625, "regime": null},
+    "TD80D": {"stratum": "C", "answer_with_sentence": 4.0625, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TD80D says 'Each ion weighs 63 u', using 'weighs' with a mass unit; conventional colloquially but loose wording."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "tan(theta) = 100*0.05/(2*0.01*2000) = 0.125; Y = 0.125*(0.025+0.30) = 0.040625 m = 4.0625 cm. Exit offset 0.125*0.025 = 3.125 mm < 5 mm half-gap, consistent with 'leave without striking'. With V_a = 2000+1700 = 3700 V: tan = 5/74 = 0.067568; Y = 0.067568*0.325 = 0.021959 m = 2.1959 cm. Mass and charge cancel (C for mass). Oscilloscope electrons and earlier-run sentences are D. Variants: T9EB9/T0F82/TC023/T40D5 all 1700 V; TC114/T50A6 non-numeric; T2D42/TD80D both 63 u. Non-relativistic treatment is unambiguous at 2-3.7 kV for ions (corrections ~1e-7)."
+}

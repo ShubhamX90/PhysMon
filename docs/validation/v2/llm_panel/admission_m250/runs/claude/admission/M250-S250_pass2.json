@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch25",
+  "item_id": "M250-S250",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:54:00Z", "completed_at": "2026-11-20T11:03:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "pc = sqrt(K^2 + 2 K mc^2); lambda = hc/pc; sin(theta) = lambda/(2d)", "assumptions": ["electrons reach the crystal with the stated kinetic energy", "first-order Bragg reflection, glancing angle from planes", "stated hc and mc^2"], "answer": 2.47942, "unit": "deg"},
+  "stratum_assignments": {
+    "T6CF4": {"stratum": "D", "answer_with_sentence": 2.47942, "regime": null},
+    "TC57E": {"stratum": "D", "answer_with_sentence": 2.47942, "regime": null},
+    "T82C8": {"stratum": "D", "answer_with_sentence": 2.47942, "regime": null},
+    "T10ED": {"stratum": "R", "answer_with_sentence": 1.50809, "regime": null},
+    "TDC88": {"stratum": "R", "answer_with_sentence": 1.50809, "regime": null},
+    "TE72A": {"stratum": "D", "answer_with_sentence": 2.47942, "regime": null},
+    "T9FF8": {"stratum": "C", "answer_with_sentence": 2.47942, "regime": null},
+    "T0D3D": {"stratum": "C", "answer_with_sentence": 2.47942, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The C cancellation for the film distance is a round trip (compute the ring radius r = q tan 2theta, then recover theta = atan(r/q)/2) rather than a relation the target genuinely needs, and the film is not introduced in the base text; the physics stated is true, so this is a labelling/naturalness point, not an error."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked all certified answers: K = 5 keV -> pc = 71.6589 keV, lambda = 17.3042 pm, theta = 2.4794 deg; K = 12.3 -> pc = 112.791 keV, theta = 1.5749 deg; K = 13.4 -> pc = 117.789 keV, theta = 1.5081 deg; K = 14.5 -> pc = 122.594 keV, theta = 1.4490 deg. All match. In pass 1 I classed the film distance D; the authors' C (via the ring geometry r = q tan 2theta, which is correct physics) is acceptable since the film is part of the diffraction apparatus; either way the answer is invariant. Minimal pairs T6CF4/TDC88 and T82C8/T10ED share 8.4 keV and differ only in attachment; TC57E and TE72A are numeral-free twins. Minor tense mismatch in T82C8/TE72A ('gave ... before it reaches') is wording only."
+}

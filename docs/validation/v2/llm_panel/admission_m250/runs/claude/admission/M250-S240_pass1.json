@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch29",
+  "item_id": "M250-S240",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:16:00Z", "completed_at": "2026-11-20T10:24:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Bernoulli along a streamline plus continuity in a uniform tube: v_out^2 = 2 g d, P_top = P_atm - rho g (h + d)", "assumptions": ["steady, inviscid, incompressible flow", "large reservoir (surface velocity ~0)", "uniform bore so velocity at top equals outlet velocity", "outlet at atmospheric pressure", "no cavitation"], "answer": 78.76, "unit": "kPa"},
+  "stratum_assignments": {
+    "T45C6": {"stratum": "D", "answer_with_sentence": 78.76, "regime": null},
+    "T7E69": {"stratum": "K", "answer_with_sentence": 78.76, "regime": "Vapour pressure matters only if the computed top pressure falls to or below it (cavitation/column break); 78.76 kPa >> 12 kPa."},
+    "TED68": {"stratum": "K", "answer_with_sentence": 78.76, "regime": "Vapour pressure matters only if the computed top pressure falls to or below it; 78.76 kPa >> 12 kPa."},
+    "TC9D2": {"stratum": "C", "answer_with_sentence": 78.76, "regime": null},
+    "T5FCB": {"stratum": "R", "answer_with_sentence": 74.70, "regime": null},
+    "T15A1": {"stratum": "R", "answer_with_sentence": 74.70, "regime": null},
+    "TCBA8": {"stratum": "D", "answer_with_sentence": 78.76, "regime": null},
+    "T3DC9": {"stratum": "D", "answer_with_sentence": 78.76, "regime": null},
+    "T6788": {"stratum": "C", "answer_with_sentence": 78.76, "regime": null},
+    "T2061": {"stratum": "D", "answer_with_sentence": 78.76, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T5FCB ('is replaced') with the reservoir still described as holding the original liquid is slightly underspecified about whether the reservoir liquid also changes, though the pressure at the top depends only on the siphon liquid's density."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base: P_top = 101300 - 1000*9.8*(1.5+0.8) = 101300 - 22540 = 78760 Pa = 78.76 kPa. With 1180 kg/m^3: 101300 - 1180*9.8*2.3 = 101300 - 26597.2 = 74702.8 Pa = 74.70 kPa (assuming the reservoir liquid is the same as the siphon liquid, as continuity of flow requires). Bore cancels via continuity (same area throughout), so C. Vapour pressure 12 kPa is K. Water-butt sentences and earlier-run sentences are D. Pairs T7E69/TED68 (12 kPa) and TC9D2/T6788 (16 mm) state the same number and unit. Question gives no unit; I answer in kPa."
+}

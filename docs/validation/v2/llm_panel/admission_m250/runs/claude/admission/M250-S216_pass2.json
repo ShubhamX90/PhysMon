@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch05",
+  "item_id": "M250-S216",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:48:30Z", "completed_at": "2026-11-20T10:54:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Lossless LC charge transfer: v2 oscillates about Veq = (C1V1 + C2V2)/(C1+C2) from V2 with zero initial current, so V2max = 2 Veq - V2",
+    "assumptions": ["no resistance", "ideal inductor and capacitors", "zero initial current", "positive plates joined"],
+    "answer": 148.0,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "T94A9": {"stratum": "D", "answer_with_sentence": 148.0, "regime": null},
+    "T3614": {"stratum": "D", "answer_with_sentence": 148.0, "regime": null},
+    "T6868": {"stratum": "R", "answer_with_sentence": 157.78, "regime": null},
+    "T47FC": {"stratum": "D", "answer_with_sentence": 148.0, "regime": null},
+    "TF693": {"stratum": "C", "answer_with_sentence": 148.0, "regime": null},
+    "T0EC0": {"stratum": "R", "answer_with_sentence": 157.78, "regime": null},
+    "T7B75": {"stratum": "C", "answer_with_sentence": 148.0, "regime": null},
+    "T3A64": {"stratum": "D", "answer_with_sentence": 148.0, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 4,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "In the flash-unit sentences 'charged to the same voltage' has no clear referent; harmless because the sentence is disconnected."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Authors' relation Vmax = 2 Veq - V2 agrees with my pass-1 method (Veq = 4200/50 = 84 V, Vmax = 148 V). Certified answers verified: q=7 uF: Veq = 4900/57 = 85.965, Vmax = 151.93 V; q=22: 6400/72 = 88.889, 157.78 V; q=35: 7700/85 = 90.588, 161.18 V. Inductance cancels (fixes only the time of the maximum). Minimal pairs T3614/T6868 (flash unit vs first capacitor) and T94A9/T0EC0 (earlier run vs this run) state 22 uF and differ only in attachment. Agrees with pass 1."
+}

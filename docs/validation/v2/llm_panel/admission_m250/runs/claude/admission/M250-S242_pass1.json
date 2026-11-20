@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch27",
+  "item_id": "M250-S242",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:52:00Z", "completed_at": "2026-11-20T11:02:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Exponential decay A_i(t) = A_i0 2^(-t/T_i); equal count rates eps A_1 = eps A_2 gives t = log2(A_10/A_20) / (1/T_1 - 1/T_2)", "assumptions": ["independent decays, no ingrowth", "same efficiency for both", "negligible background"], "answer": 14.813, "unit": "h"},
+  "stratum_assignments": {
+    "T922D": {"stratum": "C", "answer_with_sentence": 14.813, "regime": null},
+    "T9D9A": {"stratum": "D", "answer_with_sentence": 14.813, "regime": null},
+    "T84B6": {"stratum": "D", "answer_with_sentence": 14.813, "regime": null},
+    "T7283": {"stratum": "R", "answer_with_sentence": 12.049, "regime": null},
+    "TADA4": {"stratum": "D", "answer_with_sentence": 14.813, "regime": null},
+    "TF3A2": {"stratum": "D", "answer_with_sentence": 14.813, "regime": null},
+    "T6BE6": {"stratum": "C", "answer_with_sentence": 14.813, "regime": null},
+    "T45EB": {"stratum": "R", "answer_with_sentence": 12.049, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["insufficient_boundary_condition"],
+  "defect_reasons": {"insufficient_boundary_condition": "T45EB ('Another 170 Bq batch of the longer-lived isotope is added to the sample') does not say when the batch is added or at what moment it has 170 Bq; if added later than preparation the answer differs (e.g. added at t = 6 h with 170 Bq then gives a different crossing time than 12.05 h), so the answer is not unique."},
+  "defect_severity": {"insufficient_boundary_condition": "high"},
+  "counterexamples": ["T45EB with the batch added at t = 10 h having 170 Bq then: long-lived activity for t > 10 h is 500*2^(-t/72) + 170*2^(-(t-10)/72) = 670*2^(-t/72)*... (equivalent initial 170*2^(10/72) = 186.9 Bq), giving t = 72/11*log2(2400/686.9) = 11.82 h instead of 12.05 h."],
+  "notes": "Base: log2(4.8) = 2.26303, t = 2.26303*72/11 = 14.8126 h. With 670 Bq long-lived at preparation: log2(2400/670) = 1.84080, t = 12.0489 h. Efficiency cancels (same for both), so C. Waste-drum and earlier-sample sentences are D. T9D9A and TF3A2 carry no number while TADA4 and T84B6 state 170 Bq; check in pass 2 whether they are declared numeral-free controls. T7283 is well specified (at the moment of preparation)."
+}

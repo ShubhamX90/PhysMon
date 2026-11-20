@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch16",
+  "item_id": "M250-S17",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:42:00Z", "completed_at": "2026-11-20T10:51:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Q = Delta T / (R1 + R2)", "assumptions": ["steady one-dimensional conduction", "no edge losses", "constant thermal resistances in series"], "answer": 80.0, "unit": "W"},
+  "stratum_assignments": {
+    "TEA3F": {"stratum": "D", "answer_with_sentence": 80.0, "regime": null},
+    "T9AD7": {"stratum": "D", "answer_with_sentence": 80.0, "regime": null},
+    "TFB08": {"stratum": "C", "answer_with_sentence": 80.0, "regime": null},
+    "T6D07": {"stratum": "D", "answer_with_sentence": 80.0, "regime": null},
+    "TFD0A": {"stratum": "R", "answer_with_sentence": 106.0, "regime": null},
+    "TA36C": {"stratum": "C", "answer_with_sentence": 80.0, "regime": null},
+    "T97D1": {"stratum": "D", "answer_with_sentence": 80.0, "regime": null},
+    "T38CE": {"stratum": "D", "answer_with_sentence": 80.0, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T9AD7 is certified R (106 W) but the problem states the steady surface temperature difference of the test as 20 K, so a warming made 'before the test began' is most naturally already included in that 20 K (80 W); the sentence admits both 80 W and 106 W and the certified R answer is not uniquely supported."},
+  "defect_severity": {"other": "high"},
+  "counterexamples": ["T9AD7: reading the problem's present-tense 'The temperature difference between the two outer surfaces is 20 K, and the heat flow is steady' as the condition during the test, a warming before the test began leaves Delta T = 20 K and Q = 80 W, not the certified 106 W."],
+  "notes": "Arithmetic checked: base 20/0.25 = 80 W; dT+q = 23.5, 26.5, 31 K give 94, 106, 124 W (correct for TFD0A, where 'then' places the warming after the stated state). Colder-surface temperature C claim (cancels in T_hot - T_cold) holds. Partition and earlier-test D claims hold. Minimal pairs: TEA3F/TFD0A and T38CE/T9AD7 all state 6.5 K and differ only in attachment/timing; numeral-free twins correct; TFB08/TA36C both 303 K. This agrees with my pass-1 reading of T9AD7 as D; the only disagreement with the authors is that sentence. If the authors intend the 20 K to be the pre-test difference, the wording must say so (e.g. 'Before the test, the hotter surface is warmed by a further 6.5 K beyond the stated difference'); as written the item does not determine the answer for T9AD7."
+}

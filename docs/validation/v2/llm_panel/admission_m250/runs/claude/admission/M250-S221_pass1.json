@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch12",
+  "item_id": "M250-S221",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:07:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "First law at constant pressure for an ideal gas: Q = n Cp dT with Cp = (7/2)R for diatomic gas with translation+rotation only", "assumptions": ["ideal gas", "quasi-static isobaric", "vibration frozen (stated)", "closed system (no leak)"], "answer": 3491.88, "unit": "J"},
+  "stratum_assignments": {
+    "TE50D": {"stratum": "K", "answer_with_sentence": 3491.88, "regime": "vibrational contribution negligible while T << theta_vib (300-360 K vs 3300 K)"},
+    "T0508": {"stratum": "R", "answer_with_sentence": 5761.602, "regime": null},
+    "T5CFA": {"stratum": "R", "answer_with_sentence": 5761.602, "regime": null},
+    "TC98F": {"stratum": "D", "answer_with_sentence": 3491.88, "regime": null},
+    "TE3A7": {"stratum": "D", "answer_with_sentence": 3491.88, "regime": null},
+    "TED71": {"stratum": "D", "answer_with_sentence": 3491.88, "regime": null},
+    "TFFAB": {"stratum": "C", "answer_with_sentence": 3491.88, "regime": null},
+    "T86C0": {"stratum": "C", "answer_with_sentence": 3491.88, "regime": null},
+    "TA1EB": {"stratum": "D", "answer_with_sentence": 3491.88, "regime": null},
+    "T2A2D": {"stratum": "K", "answer_with_sentence": 3491.88, "regime": "vibrational contribution negligible while T << theta_vib (300-360 K vs 3300 K)"}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Q = 2 x 3.5 x 8.314 x 60 = 3491.88 J; with 3.3 mol, 5761.602 J. Pressure cancels (W = p dV = n R dT). The vibrational temperature is K: the problem already states vibration is not excited, consistent with 3300 K >> 360 K. TE3A7 and TED71 say 'a small amount' rather than 1.3 mol; if they are meant as variants of the 1.3 mol sentences they would differ in number (check in pass 2). The gas bottle sentences are D since no pipe connects it."
+}

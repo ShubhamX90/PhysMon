@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch27",
+  "item_id": "M250-S248",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:32:00Z", "completed_at": "2026-11-20T10:42:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Larmor precession: omega = gamma B with gamma = g e/(2 m); f = omega/(2 pi) = g e B/(4 pi m)", "assumptions": ["classical/quantum Larmor result, independent of tilt angle", "'frequency' read as cyclic frequency in Hz", "gamma = 5.586*1.602e-19/(2*1.673e-27) = 2.6745e8 rad/(s T)"], "answer": 14.898, "unit": "MHz"},
+  "stratum_assignments": {
+    "T371E": {"stratum": "R", "answer_with_sentence": 17.111, "regime": null},
+    "TCC2A": {"stratum": "D", "answer_with_sentence": 14.898, "regime": null},
+    "T5536": {"stratum": "C", "answer_with_sentence": 14.898, "regime": null},
+    "T5A0E": {"stratum": "C", "answer_with_sentence": 14.898, "regime": null},
+    "TBE19": {"stratum": "R", "answer_with_sentence": 17.111, "regime": null},
+    "T9574": {"stratum": "D", "answer_with_sentence": 14.898, "regime": null},
+    "TA0E4": {"stratum": "D", "answer_with_sentence": 14.898, "regime": null},
+    "TB34F": {"stratum": "D", "answer_with_sentence": 14.898, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["contradictory_distractor_statement", "other"],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "The problem states the field at the sample is a uniform 350 mT and that no other magnetic field acts there, while T371E ('during this measurement, a second coil gives 52 mT more field at the sample') and TBE19 assert an additional field acting at the sample, so the text contradicts itself and the answer could be read as either 14.90 or 17.11 MHz.",
+    "other": "'Frequency' could be read as angular frequency (9.36e7 rad/s) rather than cyclic frequency (14.90 MHz); the conventional reading is cyclic."
+  },
+  "defect_severity": {"contradictory_distractor_statement": "high", "other": "low"},
+  "counterexamples": ["Base + T371E: a solver who keeps 'no other magnetic field acts there' gives 14.90 MHz; one who adds the coil gives 17.11 MHz."],
+  "notes": "f = 5.586*1.602e-19*0.350/(4 pi*1.673e-27) = 1.4898e7 Hz (matches 42.58 MHz/T * 0.35 T). With 0.402 T: 1.7111e7 Hz. The tilt angle enters the torque mu B sin(theta) and the precessing component L sin(theta) but cancels, so C. Compass and earlier-measurement sentences are D. TCC2A and T9574 carry 'a little' instead of 52 mT; check in pass 2 whether they are declared numeral-free controls."
+}

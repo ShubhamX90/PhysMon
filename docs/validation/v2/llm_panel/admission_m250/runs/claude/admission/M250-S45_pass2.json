@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch07",
+  "item_id": "M250-S45",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:51:00Z", "completed_at": "2026-11-20T10:56:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "qV = m v^2/2 and r = m v/(q B)", "assumptions": ["starts from rest", "non-relativistic", "field perpendicular to velocity", "gravity and radiation neglected"], "answer": 62.5, "unit": "cm"},
+  "stratum_assignments": {
+    "TD92C": {"stratum": "D", "answer_with_sentence": 62.5, "regime": null},
+    "TD3A9": {"stratum": "R", "answer_with_sentence": 118.585, "regime": null},
+    "TEE28": {"stratum": "R", "answer_with_sentence": 118.585, "regime": null},
+    "T7686": {"stratum": "D", "answer_with_sentence": 62.5, "regime": null},
+    "T8562": {"stratum": "D", "answer_with_sentence": 62.5, "regime": null},
+    "TFFD3": {"stratum": "D", "answer_with_sentence": 62.5, "regime": null}
+  },
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "'The gap'/'the accelerating gap' is not introduced explicitly, an added voltage of the same polarity is implicit, and the authors' wiring uses q for both the charge and the added potential; all are wording/notation issues only."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Checked: base r = 62.5 cm. R answers r = 62.5 sqrt((2.5+q)/2.5): q = 3.5 -> 62.5*1.54919 = 96.8246; 6.5 -> 62.5*1.89737 = 118.585; 12 -> 62.5*2.40832 = 150.520 cm; all match. Minimal pairs T7686/TD3A9 and TFFD3/TEE28 share 6.5 V and differ only in timing/attachment; TD92C and T8562 are declared numeral-free twins. Agrees with pass 1."
+}

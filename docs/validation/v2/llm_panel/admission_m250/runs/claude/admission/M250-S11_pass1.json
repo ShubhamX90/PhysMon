@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch30",
+  "item_id": "M250-S11",
+  "pass_number": 1,
+  "started_at": "2026-11-20T11:09:00Z", "completed_at": "2026-11-20T11:15:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Work-energy (or constant deceleration mu g): d = v^2/(2 mu g).",
+    "assumptions": ["level road", "constant kinetic friction mu = 0.5 with all wheels locked", "straight-line motion", "negligible air resistance"],
+    "answer": 40.82,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "T8720": {"stratum": "R", "answer_with_sentence": 61.25, "regime": null},
+    "TFCB8": {"stratum": "D", "answer_with_sentence": 40.82, "regime": null},
+    "T0C0C": {"stratum": "C", "answer_with_sentence": 40.82, "regime": null},
+    "TF039": {"stratum": "C", "answer_with_sentence": 40.82, "regime": null},
+    "TD024": {"stratum": "D", "answer_with_sentence": 40.82, "regime": null},
+    "T5FC7": {"stratum": "D", "answer_with_sentence": 40.82, "regime": null},
+    "T4983": {"stratum": "D", "answer_with_sentence": 40.82, "regime": null},
+    "TB9A5": {"stratum": "R", "answer_with_sentence": 61.25, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T8720/TB9A5 say the car gains a further 4.5 m/s before braking while the base says it travels at 20 m/s and brakes; 'further' makes the 24.5 m/s braking speed the intended reading, but the wording is slightly awkward."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base: 400/(2 x 0.5 x 9.8) = 40.816 m. With 24.5 m/s: 600.25/9.8 = 61.250 m. Mass cancels (friction force and inertia both proportional to m), so the mass sentences are C; T0C0C and TF039 state the same 1350 kg in different wording. Bus sentences and earlier-run sentences are D. TD024 and T4983 are numeral-free ('a further small amount')."
+}

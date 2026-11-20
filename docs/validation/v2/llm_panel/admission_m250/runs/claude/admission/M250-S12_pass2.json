@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch16",
+  "item_id": "M250-S12",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:07:00Z", "completed_at": "2026-11-20T10:14:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "v_max = sqrt(mu_s g r) from mu_s m g = m v^2 / r", "assumptions": ["flat unbanked curve", "static friction alone provides centripetal force", "uniform circular motion"], "answer": 17.1464, "unit": "m/s"},
+  "stratum_assignments": {
+    "T02CA": {"stratum": "D", "answer_with_sentence": 17.1464, "regime": null},
+    "T82EB": {"stratum": "R", "answer_with_sentence": 18.3875, "regime": null},
+    "T7092": {"stratum": "D", "answer_with_sentence": 17.1464, "regime": null},
+    "T5A6E": {"stratum": "D", "answer_with_sentence": 17.1464, "regime": null},
+    "T9AEC": {"stratum": "D", "answer_with_sentence": 17.1464, "regime": null},
+    "TFE1E": {"stratum": "C", "answer_with_sentence": 17.1464, "regime": null},
+    "T79A4": {"stratum": "C", "answer_with_sentence": 17.1464, "regime": null},
+    "TF5BA": {"stratum": "R", "answer_with_sentence": 18.3875, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TF5BA ('driven 7.5 m further from the centre of the curve before it entered the curve') is claimed R via r -> r + q, which is defensible (the car moved to an outer line before entry and keeps it), but it can also be read as a lateral position on the approach that says nothing about the radius on the curve."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Checked answers: sqrt(0.6*9.8*50)=sqrt(294)=17.1464; r=54: sqrt(317.52)=17.819; r=57.5: sqrt(338.1)=18.3875; r=61.5: sqrt(361.62)=19.016. All certified values correct. Mass cancels (C) correctly. Cyclist (D) and earlier-run (D) claims hold. Minimal pairs: T02CA/T82EB both 7.5 m, differ only in cyclist vs car; T9AEC/TF5BA both 7.5 m, differ only in 'on an earlier run' vs 'before it entered the curve'; numeral-free twins correct. Disagreement with my pass 1: I classed TF5BA as D; on reflection, the authors' reading (the outward move made before entry persists, so the car takes the curve at 57.5 m, and the scene clause says the road is flat with uniform friction everywhere) is the more natural one, so I accept R, but note the wording admits the other reading. No high-severity defect."
+}

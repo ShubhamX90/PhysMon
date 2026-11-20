@@ -1,0 +1,42 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch21",
+  "item_id": "M250-S35",
+  "pass_number": 2,
+  "started_at": "2026-11-20T00:43:00Z", "completed_at": "2026-11-20T00:49:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conical pendulum period = 2 pi sqrt(L cos(theta)/g)",
+    "assumptions": ["light inextensible string", "steady cone at 30 degrees", "g = 9.8 m/s^2"],
+    "answer": 2.046,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T41B5": {"stratum": "R", "answer_with_sentence": 2.575, "regime": null},
+    "T3E4C": {"stratum": "D", "answer_with_sentence": 2.046, "regime": null},
+    "T3589": {"stratum": "C", "answer_with_sentence": 2.046, "regime": null},
+    "T8044": {"stratum": "C", "answer_with_sentence": 2.046, "regime": null},
+    "TC5DB": {"stratum": "R", "answer_with_sentence": 2.575, "regime": null},
+    "T5418": {"stratum": "D", "answer_with_sentence": 2.046, "regime": null},
+    "T422F": {"stratum": "D", "answer_with_sentence": 2.046, "regime": null},
+    "T0789": {"stratum": "D", "answer_with_sentence": 2.046, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["insufficient_boundary_condition", "other"],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "For T41B5 the string is lengthened 'then', i.e. after the stated steady motion at 30 degrees; nothing states that the subsequent motion is again a steady cone at 30 degrees, yet the certified R answers (2.36/2.57/2.83 s) assume the angle is unchanged, and the question could equally refer to the stated (pre-lengthening) motion, giving 2.046 s.",
+    "other": "For TC5DB, the base's 'attached to a light string of length 1.2 m' could be read as the length after the earlier lengthening, which would leave the answer at 2.046 s; the intended reading (1.9 m) is the more natural one."
+  },
+  "defect_severity": {"insufficient_boundary_condition": "high", "other": "medium"},
+  "counterexamples": ["T41B5 at q = 0.7 m: if lengthening the string of a moving conical pendulum leaves it settling at, say, 45 degrees, the period is 2 pi sqrt(1.9 x 0.7071/9.8) = 2.326 s, not 2.575 s; the angle after lengthening is not determined by the text."],
+  "notes": "Arithmetic checked: base 2.04608 s; L = 1.6, 1.9, 2.3 m at 30 degrees give 2.3626, 2.5746, 2.8327 s, matching the certified values. Mass cancellation (C) is correct. D rationales for the reel line and earlier experiment are sound; minimal pairs T422F/TC5DB and T5418/T41B5 share 0.7 m and differ in attachment; T3E4C and T0789 are declared numeral-free controls. The wiring for T41B5 says 'the angle with the vertical is stated', but the stated angle belongs to the motion before the 'then' event. Consistent with my pass 1."
+}

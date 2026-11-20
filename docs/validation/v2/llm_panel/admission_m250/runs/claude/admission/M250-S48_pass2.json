@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch19",
+  "item_id": "M250-S48",
+  "pass_number": 2,
+  "started_at": "2026-11-20T00:57:00Z", "completed_at": "2026-11-20T01:02:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Underdamped series RLC: f_d = sqrt(1/(LC) - (R/2L)^2)/(2 pi).",
+    "assumptions": ["ideal series components", "underdamped"],
+    "answer": 63.662,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T0F33": {"stratum": "R", "answer_with_sentence": 44.872, "regime": null},
+    "TBD03": {"stratum": "D", "answer_with_sentence": 63.662, "regime": null},
+    "T1D0F": {"stratum": "C", "answer_with_sentence": 63.662, "regime": null},
+    "TF60C": {"stratum": "D", "answer_with_sentence": 63.662, "regime": null},
+    "TE9E5": {"stratum": "R", "answer_with_sentence": 44.872, "regime": null},
+    "TA196": {"stratum": "D", "answer_with_sentence": 63.662, "regime": null},
+    "T4FBC": {"stratum": "D", "answer_with_sentence": 63.662, "regime": null},
+    "T1483": {"stratum": "C", "answer_with_sentence": 63.662, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The question says 'frequency' without naming cycles per second versus angular frequency; the certified Hz answer is the standard reading."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified: base 63.662 Hz; C = 47 uF -> 55.765 Hz; 59 uF -> 44.872 Hz; 73 uF -> 34.499 Hz; all remain underdamped (1/LC > 90000 s^-2). Initial charge is an amplitude parameter of a linear ODE and drops out of the frequency (C correct; the authors' cancellation expression is a contrived but valid demonstration). Minimal pairs TBD03/T0F33 and TF60C/TE9E5 share 19 uF and differ only in attachment; TA196 and T4FBC are declared numeral-free controls. Coil resistance not stated as zero is a standard idealisation. Agrees with pass 1."
+}

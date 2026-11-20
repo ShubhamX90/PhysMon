@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch17",
+  "item_id": "M250-S28",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:24:30Z", "completed_at": "2026-11-20T10:32:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "v t = a t^2/2, t = 2v/a", "assumptions": ["car starts from rest level with the truck", "constant a and v on one line", "non-relativistic"], "answer": 15.0, "unit": "s"},
+  "stratum_assignments": {
+    "TB52F": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "T9424": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "T56E0": {"stratum": "R", "answer_with_sentence": 18.375, "regime": null},
+    "T8C0C": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "T35DB": {"stratum": "K", "answer_with_sentence": 15.0, "regime": "top speed > a t = 30 m/s"},
+    "T0812": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "T5651": {"stratum": "R", "answer_with_sentence": 18.375, "regime": null},
+    "T76A7": {"stratum": "K", "answer_with_sentence": 15.0, "regime": "top speed > 30 m/s"},
+    "TE8F1": {"stratum": "R", "answer_with_sentence": 9.0909, "regime": null},
+    "TEA52": {"stratum": "R", "answer_with_sentence": 9.0909, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "The base text states the car 'accelerates at a constant 2 m/s^2', so the R kit sentences (especially TE8F1, 'Before the start, a tuning kit added ...') admit a reading in which 2 m/s^2 is already the kit-inclusive acceleration (answer 15 s) rather than 3.3 m/s^2 (9.09 s)."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Certified answers verified: top speed 17 m/s gives 289/8 = 36.125 s, 21 m/s gives 441/24 = 18.375 s (both > v = 15 m/s so the car still catches up); K values 38, 46, 58 m/s all exceed a t = 30 m/s; extra acceleration 0.6, 1.3, 2.5 gives 30/2.6 = 11.5385, 30/3.3 = 9.0909, 30/4.5 = 6.6667 s. Minimal pairs T8C0C/TEA52 and T9424/TE8F1 share 1.3 m/s^2 and differ in attachment/timing; numeral-free twins match. Pass 1 rated the kit-wording issue low; on reflection, since the minimal-pair contrast T9424 vs TE8F1 rests entirely on the reader taking 'before the start' as a kit still fitted in this run and adding to the stated 2 m/s^2, I raise it to medium language ambiguity; the physics and numbers hold.",
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS"
+}

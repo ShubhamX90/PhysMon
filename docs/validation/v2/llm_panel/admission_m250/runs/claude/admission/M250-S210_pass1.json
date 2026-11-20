@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch02",
+  "item_id": "M250-S210",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:31:00Z", "completed_at": "2026-11-20T10:38:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Lightly damped oscillator: envelope A(t) = A0 exp(-b t / (2m)); t = (2m/b) ln(1/0.2)",
+    "assumptions": ["Linear viscous damping F = -b v (stated)", "Underdamped (stated light damping)", "Frictionless track, ideal spring, negligible air resistance (stated)"],
+    "answer": 8.047,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T7E76": {"stratum": "D", "answer_with_sentence": 8.047, "regime": null},
+    "TDAF8": {"stratum": "R", "answer_with_sentence": 4.127, "regime": null},
+    "T66F6": {"stratum": "D", "answer_with_sentence": 8.047, "regime": null},
+    "T2CC3": {"stratum": "R", "answer_with_sentence": 4.127, "regime": null},
+    "TF11F": {"stratum": "C", "answer_with_sentence": 8.047, "regime": null},
+    "T9920": {"stratum": "C", "answer_with_sentence": 8.047, "regime": null},
+    "TB3BF": {"stratum": "D", "answer_with_sentence": 8.047, "regime": null},
+    "TFF7E": {"stratum": "D", "answer_with_sentence": 8.047, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "t = 2*0.5*ln5/0.2 = 1.609438/0.2 = 8.0472 s. With an extra 0.19 kg/s damper on the block, b = 0.39 kg/s and t = 1.609438/0.39 = 4.1268 s. Spring constant 60 N/m enters omega_d = sqrt(k/m - (b/2m)^2) but not the envelope decay rate b/(2m), so it cancels (C); it could equally be described as K with regime b < 2 sqrt(k m) = 10.95 kg/s, satisfied with margin (and for b = 0.39). Released from rest gives an envelope A0 sqrt(1 + (gamma/omega)^2) e^{-gamma t}, whose ratio to its initial value is still e^{-gamma t}. TF11F/T9920 both state 60 N/m. T7E76 and TB3BF carry no number ('a small value'); the others state 0.19 kg/s."
+}

@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch08",
+  "item_id": "M250-S253",
+  "pass_number": 2,
+  "started_at": "2026-11-20T00:25:00Z", "completed_at": "2026-11-20T00:32:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Normal-incidence acoustic transmission with Z = rho c; I_t = 4 Z1 Z2/(Z1+Z2)^2 I_i; p_t = sqrt(2 Z2 I_t)",
+    "assumptions": ["plane harmonic waves", "lossless uniform fluids", "nothing returns from below", "continuity of pressure and normal velocity"],
+    "answer": 6.284,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {
+    "T9B4F": {"stratum": "R", "answer_with_sentence": 7.697, "regime": null},
+    "TCC99": {"stratum": "R", "answer_with_sentence": 7.697, "regime": null},
+    "T43F7": {"stratum": "C", "answer_with_sentence": 6.284, "regime": null},
+    "TF89B": {"stratum": "D", "answer_with_sentence": 6.284, "regime": null},
+    "TA783": {"stratum": "D", "answer_with_sentence": 6.284, "regime": null},
+    "TEFDB": {"stratum": "D", "answer_with_sentence": 6.284, "regime": null},
+    "TBD48": {"stratum": "D", "answer_with_sentence": 6.284, "regime": null},
+    "TC617": {"stratum": "C", "answer_with_sentence": 6.284, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The R wiring adds the further intensity to the incident wave's intensity, which presumes it is part of the same plane wave (or that a single pressure amplitude is defined for the combined field); the sentences do not say so."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "All certified answers agree with my computation: base 6.2842 Pa; I = 0.015, 0.018, 0.021 W/m^2 give 7.0260, 7.6966, 8.3133 Pa. The authors' relations (intensity transmission then p = sqrt(2 Z2 I_t)) are equivalent to my pressure-transmission route. Frequency cancels via Z = rho*lambda*f = rho*c, consistent with my pass-1 C. Minimal pairs TA783/TCC99 and TEFDB/T9B4F share 0.006 W/m^2 and differ only in attachment; TF89B and TBD48 are declared numeral-free twins. No disagreement with pass 1."
+}

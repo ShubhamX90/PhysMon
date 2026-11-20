@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch14",
+  "item_id": "M250-S66",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:42:00Z", "completed_at": "2026-11-20T10:52:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Grating equation at normal incidence: d sin(theta) = m lambda; separation = asin(2*650/4000) - asin(2*450/4000)", "assumptions": ["normal incidence (stated)", "collimated beam, Fraunhofer angles (stated)", "orders measured on one side (stated)"], "answer": 5.9627, "unit": "degree"},
+  "stratum_assignments": {
+    "TD8FB": {"stratum": "R", "answer_with_sentence": 2.7054, "regime": null},
+    "T19FA": {"stratum": "R", "answer_with_sentence": 2.7054, "regime": null},
+    "T9433": {"stratum": "D", "answer_with_sentence": 5.9627, "regime": null},
+    "T8CA3": {"stratum": "D", "answer_with_sentence": 5.9627, "regime": null},
+    "T30F6": {"stratum": "D", "answer_with_sentence": 5.9627, "regime": null},
+    "T2E60": {"stratum": "D", "answer_with_sentence": 5.9627, "regime": null},
+    "TFEEC": {"stratum": "D", "answer_with_sentence": 5.9627, "regime": null},
+    "TBC0D": {"stratum": "D", "answer_with_sentence": 5.9627, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "The screen sentences (T2E60, TBC0D) refer to 'the screen' although no screen is introduced in the problem, which is slightly awkward wording."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base: sin(theta_450) = 0.225, theta = 0.226943 rad = 13.0029 deg; sin(theta_650) = 0.325, theta = 0.331012 rad = 18.9656 deg; separation 0.104069 rad = 5.9627 deg. With 560 nm replacing 450 nm: sin = 0.28, theta = 0.283794 rad = 16.2602 deg; separation 0.047218 rad = 2.7054 deg. Target unit not specified in the problem; I report degrees. The screen distance does not enter the angle; I class it D (the angle is fixed by the grating equation), though it could also be seen as C/K-type (relevant only for linear separations or near-field); the stratum depends on the authors' framing. TFEEC (light entering the second spectrometer) is D."
+}

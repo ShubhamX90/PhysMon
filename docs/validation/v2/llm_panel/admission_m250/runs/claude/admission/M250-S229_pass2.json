@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch10",
+  "item_id": "M250-S229",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:51:00Z", "completed_at": "2026-11-20T10:55:00Z", "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "f (1/2) m v^2 = m c dT; T = T0 + f v^2/(2c)",
+    "assumptions": ["fraction 0.5 to bullet, uniform; constant c; stays solid; no heat loss in flight (stated)"],
+    "answer": 466.077,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "T4882": {"stratum": "K", "answer_with_sentence": 466.077, "regime": "Tf < melting point (466 K < 585 K)"},
+    "T6F14": {"stratum": "D", "answer_with_sentence": 466.077, "regime": null},
+    "T3479": {"stratum": "C", "answer_with_sentence": 466.077, "regime": null},
+    "TAAB8": {"stratum": "C", "answer_with_sentence": 466.077, "regime": null},
+    "T427C": {"stratum": "D", "answer_with_sentence": 466.077, "regime": null},
+    "T6215": {"stratum": "K", "answer_with_sentence": 466.077, "regime": "Tf < melting point (466 K < 585 K)"},
+    "T6E09": {"stratum": "D", "answer_with_sentence": 466.077, "regime": null},
+    "TAF75": {"stratum": "R", "answer_with_sentence": 483.077, "regime": null},
+    "TFFCD": {"stratum": "R", "answer_with_sentence": 483.077, "regime": null},
+    "T64CC": {"stratum": "D", "answer_with_sentence": 466.077, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "dT = 0.5*45000/130 = 173.077 K; Tf = 466.077 K; R answers 475.077/483.077/497.077 K for 9/17/31 K pre-warming check. Mass cancels exactly. Melting-point values 540/585/640 K all exceed 466 K, consistent with the stated 'stays solid'. Minimal pairs T6F14/TAF75 and T6E09/TFFCD all state 17 K and differ only in time/attachment. Agrees with pass 1."
+}

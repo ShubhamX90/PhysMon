@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch12",
+  "item_id": "M250-S52",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:54:00Z", "completed_at": "2026-11-20T11:02:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "m_w c (dTw - dTf) = m_i Lf + m_i c dTf; Qlost = m_w c (dTw - dTf)", "assumptions": ["isolated container", "all ice melts", "constant c"], "answer": 34.5821, "unit": "kJ"},
+  "stratum_assignments": {
+    "T96AB": {"stratum": "R", "answer_with_sentence": 39.4898, "regime": null},
+    "TA38E": {"stratum": "D", "answer_with_sentence": 34.5821, "regime": null},
+    "T5D2A": {"stratum": "R", "answer_with_sentence": 39.4898, "regime": null},
+    "T2F5B": {"stratum": "D", "answer_with_sentence": 34.5821, "regime": null},
+    "T32CB": {"stratum": "D", "answer_with_sentence": 34.5821, "regime": null},
+    "T162D": {"stratum": "D", "answer_with_sentence": 34.5821, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "With T96AB or T5D2A added, 'starts 40 K above the melting point' could be read as the temperature at the moment the ice is added (after heating) rather than before heating; the certified answers take the latter reading, and T5D2A's 'the container' is slightly ambiguous beside the second container."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "notes": "Verified: base dTf = 57000/2427.88 = 23.4773 K, Q = 34.5821 kJ; q = 6 -> dTf = 69558/2427.88 = 28.650 K, Q = 36.314 kJ; q = 17 -> dTf = 38.1325 K, Q = 39.490 kJ; q = 29 -> dTf = 117697/2427.88 = 48.477 K, Q = 42.954 kJ. The relation dTf = (Qw - Qm)/((mi+mw)c) is equivalent to my balance. All ice melts at every listed value (dTf > 0). Inputs list Lf in kJ/kg alongside c in J/(kg K); the answers show the conversion was done correctly. Minimal pairs T32CB/T96AB and TA38E/T5D2A share 17 K and differ only in attachment; T2F5B and T162D are declared numeral-free twins. Agrees with pass 1."
+}

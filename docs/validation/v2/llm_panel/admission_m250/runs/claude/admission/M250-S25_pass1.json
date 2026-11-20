@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch27",
+  "item_id": "M250-S25",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:17:00Z", "completed_at": "2026-11-20T10:24:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Magnetic energy of an inductor U = (1/2) L I^2", "assumptions": ["ideal linear inductor", "steady current 3 A", "no coupling to the lamp circuit"], "answer": 1.125, "unit": "J"},
+  "stratum_assignments": {
+    "T5F48": {"stratum": "D", "answer_with_sentence": 1.125, "regime": null},
+    "TF595": {"stratum": "K", "answer_with_sentence": 1.125, "regime": "linear core (L constant) for I < 9.5 A; I = 3 A"},
+    "T8F25": {"stratum": "D", "answer_with_sentence": 1.125, "regime": null},
+    "T9150": {"stratum": "K", "answer_with_sentence": 1.125, "regime": "no saturation for I < 9.5 A; I = 3 A"},
+    "T9E75": {"stratum": "R", "answer_with_sentence": 4.205, "regime": null},
+    "T7035": {"stratum": "D", "answer_with_sentence": 1.125, "regime": null},
+    "TA5C2": {"stratum": "R", "answer_with_sentence": 4.205, "regime": null},
+    "T1C85": {"stratum": "C", "answer_with_sentence": 1.125, "regime": null},
+    "T80D0": {"stratum": "D", "answer_with_sentence": 1.125, "regime": null},
+    "T3774": {"stratum": "C", "answer_with_sentence": 1.125, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "In TA5C2 ('Before the energy was measured, a rheostat increased the current by 2.8 A') the past tense leaves some room to read the stated steady 3 A as the current already after the increase, giving 1.125 J instead of 4.205 J."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "R answers: I = 5.8 A, U = 0.5*0.25*33.64 = 4.205 J; 5.8 A is still below the 9.5 A linearity limit. The ramp time (T1C85/T3774) sets the EMF L dI/dt = 16.7 V during the ramp but the stored energy depends only on the final current, so C (it could also be read as D; it does not change the answer). T5F48/T7035 carry no number while their apparent counterparts carry 2.8 A; to check in pass 2 whether they are declared numeral-free controls."
+}

@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch35",
+  "item_id": "M250-S217",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:50:30Z", "completed_at": "2026-11-20T10:58:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law along the slope with kinetic friction; N = m g cos th + qE sin th; v = sqrt(2 a s)",
+    "assumptions": ["starts from rest", "field horizontal in the plane of the slope line", "charge unchanged"],
+    "answer": 6.15353,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TFC7B": {"stratum": "R", "answer_with_sentence": 5.19062, "regime": null},
+    "TEE2E": {"stratum": "D", "answer_with_sentence": 6.15353, "regime": null},
+    "T349D": {"stratum": "D", "answer_with_sentence": 6.15353, "regime": null},
+    "T7028": {"stratum": "D", "answer_with_sentence": 6.15353, "regime": null},
+    "T5634": {"stratum": "R", "answer_with_sentence": 5.19062, "regime": null},
+    "T5CCF": {"stratum": "K", "answer_with_sentence": 6.15353, "regime": "mu_s * N < Fd, i.e. mu_s < 1.182"},
+    "TA524": {"stratum": "K", "answer_with_sentence": 6.15353, "regime": "mu_s * N < Fd, i.e. mu_s < 1.182"},
+    "T5A8D": {"stratum": "D", "answer_with_sentence": 6.15353, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Verified base 6.1535 m/s and R answers for added mass 0.1, 0.15, 0.35 kg: 5.4751, 5.1906, 4.2866 m/s, all matching. K regime Fd > mu_s*Nn: threshold mu_s = 14.243/12.048 = 1.182; 0.35, 0.55, 0.9 inside, 1.6 outside, as claimed. The wiring states the lead weight is uncharged, which the sentence does not say; even if the weight were conducting and shared the block's charge, the total charge and hence the force in a uniform field is unchanged, so the answer holds. Minimal pairs TEE2E/TFC7B and T7028/T5634 share 0.15 kg and differ only in attachment. Agrees with pass 1."
+}

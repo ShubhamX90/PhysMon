@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch14",
+  "item_id": "M250-S06",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:06:00Z", "completed_at": "2026-11-20T10:12:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Ohm's law, series/parallel combination, current divider: R_par = 4 ohm, R_tot = 8 ohm, I = 1.5 A, V_par = 6 V, I_2 = 0.5 A", "assumptions": ["ideal battery", "ideal wires", "ohmic resistors", "lamp loop separate"], "answer": 0.5, "unit": "A"},
+  "stratum_assignments": {
+    "TA527": {"stratum": "K", "answer_with_sentence": 0.5, "regime": "I3^2*R3 = 3 W < rating"},
+    "T272F": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null},
+    "T3DE4": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null},
+    "T7E58": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null},
+    "T7719": {"stratum": "R", "answer_with_sentence": 0.347826, "regime": null},
+    "TBEF7": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null},
+    "T776D": {"stratum": "K", "answer_with_sentence": 0.5, "regime": "I3^2*R3 = 3 W < rating"},
+    "T115C": {"stratum": "R", "answer_with_sentence": 0.347826, "regime": null}
+  },
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Verified R answers: q=1.5: R_tot=9.5, I=1.26316, V_par=5.05263, I2=0.421053; q=3.5: 0.347826; q=7: R_tot=15, I=0.8, V_par=3.2, I2=0.266667. K regime: actual power 3 W, below 11, 20, 29 W; counter-regime 1.5 W correctly outside. Minimal pairs T3DE4/T7719 and T7E58/T115C share 3.5 ohm and differ only in attachment. In pass 1 I flagged 'small resistor' sentences (T272F, TBEF7) as rendering_not_minimal (low); pass 2 shows they are declared numeral-free controls twinned with D sentences, not claimed minimal pairs, so I withdraw that flag."
+}

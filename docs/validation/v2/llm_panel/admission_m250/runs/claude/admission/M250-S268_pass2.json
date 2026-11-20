@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch25",
+  "item_id": "M250-S268",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:37:00Z", "completed_at": "2026-11-20T10:44:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "L = mu0 N^2 pi a^2 / l = 1.42163e-3 H; I0 = V/R1 = 3 A; heat in second resistor = (1/2) L I0^2", "assumptions": ["long-solenoid inductance", "ideal battery and switch", "steady state before opening; winding resistance negligible"], "answer": 6.39735, "unit": "mJ"},
+  "stratum_assignments": {
+    "T212D": {"stratum": "D", "answer_with_sentence": 6.39735, "regime": null},
+    "T000E": {"stratum": "R", "answer_with_sentence": 16.893, "regime": null},
+    "T7621": {"stratum": "C", "answer_with_sentence": 6.39735, "regime": null},
+    "T200B": {"stratum": "D", "answer_with_sentence": 6.39735, "regime": null},
+    "T8F98": {"stratum": "D", "answer_with_sentence": 6.39735, "regime": null},
+    "T0F51": {"stratum": "R", "answer_with_sentence": 16.893, "regime": null},
+    "T5C53": {"stratum": "C", "answer_with_sentence": 6.39735, "regime": null},
+    "TC1E1": {"stratum": "D", "answer_with_sentence": 6.39735, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T000E ends 'for one run only' while saying the emf is present before the switch opens in the stated run; the R reading is the natural one but the trailing phrase invites a reader to wonder whether the extra emf belongs to another run."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "notes": "Checked: L = 1.257e-6 x 640000 x pi x 2.25e-4 / 0.40 = 1.421634e-3 H; L/2 = 0.710817 mJ/A^2. Answers: 3 A -> 6.3974 mJ; 3.8 A -> 10.264 mJ; 4.875 A -> 16.893 mJ; 5.75 A -> 23.501 mJ. All certified values match (my pass-1 values were in J; same numbers). C cancellation of the discharge resistance is correct: integral of I0^2 R exp(-2Rt/L) dt = L I0^2/2, and in steady state the zero-resistance winding shorts the second resistor so it carries no current before opening (the authors' assumptions do not mention this, but it holds). Minimal pairs T200B/T0F51 and T8F98/T000E share 7.5 V and differ only in attachment; T212D and TC1E1 are numeral-free twins. Agree with all strata. Category reflects only the low-severity wording issue in T000E; physics and claims hold."
+}

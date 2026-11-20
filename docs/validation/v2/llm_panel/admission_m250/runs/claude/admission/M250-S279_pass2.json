@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch07",
+  "item_id": "M250-S279",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:25:00Z", "completed_at": "2026-11-20T10:31:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Transverse Doppler shift: df = f0 v^2/(2c^2), f0 = E0/h, v = 2 pi frot R", "assumptions": ["absorber on the axis so the lab photon direction is perpendicular to the source velocity", "leading nonvanishing order, (v/c)^2", "stated h and c"], "answer": 3.9641, "unit": "MHz"},
+  "stratum_assignments": {
+    "T6166": {"stratum": "D", "answer_with_sentence": 3.9641, "regime": null},
+    "TCFA7": {"stratum": "D", "answer_with_sentence": 3.9641, "regime": null},
+    "TC381": {"stratum": "R", "answer_with_sentence": 6.7855, "regime": null},
+    "T1355": {"stratum": "R", "answer_with_sentence": 6.7855, "regime": null},
+    "TA7FF": {"stratum": "D", "answer_with_sentence": 3.9641, "regime": null},
+    "TCAAF": {"stratum": "D", "answer_with_sentence": 3.9641, "regime": null}
+  },
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "Wording 'has grown by 3.7 cm more in rim radius' and 'gets 3.7 cm more' is awkward, and the problem says 'leading order in v/c' where the first nonvanishing order is (v/c)^2; both are wording issues only."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Checked: base 3.9641 MHz agrees with my pass 1. R answers scale as ((12+q)/12)^2: q = 1.9 -> 1.34174*3.96409 = 5.3188; 3.7 -> 1.71174 -> 6.7855; 5.6 -> 2.15111 -> 8.5272 MHz (authors 8.52723, agreement within 3e-5 MHz, rounding only). Minimal pairs TCAFF/T1355 and TCFA7/TC381 carry the same 3.7 cm and differ only in attachment or timing. T6166 and TA7FF are declared numeral-free twins, consistent with my pass-1 observation. No disagreement with pass 1."
+}

@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch33",
+  "item_id": "M250-S278",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Relativistic threshold: invariant s = (m1+m2)^2 + 2 m2 T equals (M_f)^2 with M_f = m1+m2+Q, so T = Q(2(m1+m2)+Q)/(2 m2)", "assumptions": ["special relativity, energy-momentum conservation", "target free and at rest", "threshold: final particles at rest in CM frame"], "answer": 279.71, "unit": "MeV"},
+  "stratum_assignments": {
+    "T1A70": {"stratum": "D", "answer_with_sentence": 279.71, "regime": null},
+    "TD012": {"stratum": "D", "answer_with_sentence": 279.71, "regime": null},
+    "TB459": {"stratum": "D", "answer_with_sentence": 279.71, "regime": null},
+    "T7344": {"stratum": "R", "answer_with_sentence": 508.44, "regime": null},
+    "TCCEF": {"stratum": "R", "answer_with_sentence": 508.44, "regime": null},
+    "TE22F": {"stratum": "D", "answer_with_sentence": 279.71, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal", "other"],
+  "defect_reasons": {
+    "rendering_not_minimal": "TD012 and TB459 say 'a little more' with no number, so they do not state the same 104 MeV as T1A70, T7344, TCCEF and TE22F.",
+    "other": "TCCEF ('the final particles carry 104 MeV more rest energy') could be read as giving the excess as 104 MeV, which would contradict the stated 135 MeV, rather than as an extra 104 MeV on top of it."
+  },
+  "defect_severity": {"rendering_not_minimal": "medium", "other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: Q(2S+Q) = 135*3888.2 = 524907 MeV^2; /1876.6 = 279.71 MeV. With Q=239: 239*3992.2 = 954135.8; /1876.6 = 508.44 MeV. I read T7344 and TCCEF as raising the excess by 104 MeV to 239 MeV. If TCCEF is read as excess = 104 MeV, it contradicts the problem (answer would be 211.8 MeV). The wording 'gets 104 MeV more' is awkward."
+}

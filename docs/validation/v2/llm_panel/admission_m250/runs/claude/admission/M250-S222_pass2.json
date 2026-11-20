@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch31",
+  "item_id": "M250-S222",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:34:00Z", "completed_at": "2026-11-20T10:40:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "W = P_h(1 - T_0/T_h); Q_c = W T_c/(T_0 - T_c)", "assumptions": ["Reversible, steady machines", "All work to refrigerator", "Tank isolated"], "answer": 189.29, "unit": "kW"},
+  "stratum_assignments": {
+    "T5218": {"stratum": "D", "answer_with_sentence": 189.29, "regime": null},
+    "T6A43": {"stratum": "D", "answer_with_sentence": 189.29, "regime": null},
+    "T2FFF": {"stratum": "C", "answer_with_sentence": 189.29, "regime": null},
+    "TD41F": {"stratum": "D", "answer_with_sentence": 189.29, "regime": null},
+    "T9030": {"stratum": "R", "answer_with_sentence": 238.5, "regime": null},
+    "T618C": {"stratum": "R", "answer_with_sentence": 238.5, "regime": null},
+    "TE45E": {"stratum": "D", "answer_with_sentence": 189.29, "regime": null},
+    "T1464": {"stratum": "C", "answer_with_sentence": 189.29, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Verified: q=7 -> W=28.5 kW, Q_c=215.786 kW; q=13 -> 238.5 kW; q=22 -> W=36 kW, Q_c=272.571 kW. Duration cancels as claimed. Minimal pairs T5218/T618C and TD41F/T9030 keep 13 kW and differ only in attachment/timing. Numeral-free twins match their D twins. Agrees with pass 1."
+,
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

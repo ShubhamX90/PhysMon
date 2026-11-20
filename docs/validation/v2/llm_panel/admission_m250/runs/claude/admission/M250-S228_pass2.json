@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch24",
+  "item_id": "M250-S228",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:45:00Z", "completed_at": "2026-11-20T10:51:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "t = (rho c d / (2h)) ln((T0 - Ta)/(T - Ta))", "assumptions": ["lumped capacitance", "both faces convect", "edges and radiation negligible", "constant h and air temperature"], "answer": 5.3393, "unit": "min"},
+  "stratum_assignments": {
+    "T8CE2": {"stratum": "D", "answer_with_sentence": 5.33926, "regime": null},
+    "TFDD1": {"stratum": "D", "answer_with_sentence": 5.33926, "regime": null},
+    "TB45E": {"stratum": "R", "answer_with_sentence": 3.51267, "regime": null},
+    "TD07A": {"stratum": "C", "answer_with_sentence": 5.33926, "regime": null},
+    "T0E64": {"stratum": "R", "answer_with_sentence": 3.51267, "regime": null},
+    "T826B": {"stratum": "D", "answer_with_sentence": 5.33926, "regime": null},
+    "T797C": {"stratum": "C", "answer_with_sentence": 5.33926, "regime": null},
+    "TED8F": {"stratum": "D", "answer_with_sentence": 5.33926, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Certified answers verified (min): base 320.36 s = 5.33926; h = 32: 250.28 s = 4.17129; h = 38: 210.76 s = 3.51267; h = 54: 148.31 s = 2.47188. Relations with Lc = d/2 match my 2hA formulation; area cancels. Minimal pairs T8CE2/T0E64 (fins vs plate faces) and TED8F/TB45E (earlier run vs during cooling) carry the same 13 W/(m^2 K) and differ only in attachment. TFDD1 and T826B are declared numeral-free controls. Quantity label 'a draught of air' for a W/(m^2 K) increment is loose wording only. No disagreement with pass 1.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

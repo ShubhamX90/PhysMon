@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch22",
+  "item_id": "M250-S09",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Calorimetry energy balance: m_c c_c (T_c - T_f) = m_w c_w (T_f - T_w); dT_w = m_c c_c (T_c - T_w)/(m_c c_c + m_w c_w)", "assumptions": ["insulated, container heat capacity zero", "no phase change", "constant specific heats", "uniform final temperature"], "answer": 8.249, "unit": "K"},
+  "stratum_assignments": {
+    "T128A": {"stratum": "D", "answer_with_sentence": 8.249, "regime": null},
+    "TD942": {"stratum": "D", "answer_with_sentence": 8.249, "regime": null},
+    "TC375": {"stratum": "D", "answer_with_sentence": 8.249, "regime": null},
+    "TDD5D": {"stratum": "R", "answer_with_sentence": 3.694, "regime": null},
+    "TCCED": {"stratum": "D", "answer_with_sentence": 8.249, "regime": null},
+    "T4800": {"stratum": "R", "answer_with_sentence": 3.694, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal", "other"],
+  "defect_reasons": {
+    "rendering_not_minimal": "TD942 and TC375 say 'a small amount' while the other water sentences say 0.55 kg, so if they are meant as variants of the 0.55 kg sentences they differ in the stated number.",
+    "other": "T4800 does not say when the water is poured (before or after the block reaches equilibrium) and 'the same temperature' has no unambiguous referent; I read it as 293 K water present during the exchange."
+  },
+  "defect_severity": {"rendering_not_minimal": "medium", "other": "low"},
+  "counterexamples": [],
+  "notes": "Base: dT = 0.5*385*80/(0.5*385 + 0.4*4186) = 15400/1866.9 = 8.249 K. With 0.95 kg water: 15400/(192.5+3976.7) = 15400/4169.2 = 3.694 K. 'Earlier experiment only' water is gone from the present system, so D. Pass-1 severity for rendering_not_minimal held at medium pending pass-2 pairing claims."
+}

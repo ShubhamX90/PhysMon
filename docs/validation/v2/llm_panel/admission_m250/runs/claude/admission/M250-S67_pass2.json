@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch32",
+  "item_id": "M250-S67",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:09:00Z", "completed_at": "2026-11-20T10:16:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "R = ((n-na)/(n+na))^2; incoherent multiple reflections T = (1-R)/(1+R); Pt = T P0",
+    "assumptions": ["normal incidence", "no absorption", "incoherent addition of powers"],
+    "answer": 46.1538,
+    "unit": "mW"
+  },
+  "stratum_assignments": {
+    "T463C": {"stratum": "K", "answer_with_sentence": 46.1538, "regime": "P0 < damage threshold (50 mW < 350 mW)"},
+    "T65F1": {"stratum": "R", "answer_with_sentence": 78.4615, "regime": null},
+    "TBD30": {"stratum": "R", "answer_with_sentence": 78.4615, "regime": null},
+    "T146E": {"stratum": "K", "answer_with_sentence": 46.1538, "regime": "P0 < rated power (50 mW < 350 mW)"},
+    "T094D": {"stratum": "D", "answer_with_sentence": 46.1538, "regime": null},
+    "T60FB": {"stratum": "D", "answer_with_sentence": 46.1538, "regime": null},
+    "T9EF0": {"stratum": "D", "answer_with_sentence": 46.1538, "regime": null},
+    "T6E69": {"stratum": "D", "answer_with_sentence": 46.1538, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TBD30 ('increased by 35 mW before the beam reached the plate') reads slightly awkwardly against the base statement that a 50 mW beam falls on the plate; the intended reading (incident power 85 mW) is the natural one."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Checked: R = 0.04, T = 0.96/1.04 = 0.923077; certified answers 50->46.1538, 75->69.2308, 85->78.4615, 120->110.769 mW all correct. K regime P0 < q holds for 250/350/450 mW (and also for the R-raised 85 mW). Minimal pairs T094D/T65F1 and T9EF0/TBD30 share 35 mW and differ only in attachment; numeral-free twins T60FB/T9EF0 and T6E69/T094D are as described; T463C/T146E both 350 mW. The 'quantity' label on T094D/T6E69 says 'a rise of the source output' though it is the lamp's output; a labelling nit only. Agrees with pass 1."
+}

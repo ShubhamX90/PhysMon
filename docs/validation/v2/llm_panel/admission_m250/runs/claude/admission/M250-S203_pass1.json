@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch01",
+  "item_id": "M250-S203",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:47:00Z", "completed_at": "2026-11-20T10:57:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Lagrangian / rotating-frame dynamics of a bead on a hoop spinning about its vertical diameter: R theta'' = -g sin(theta) + omega^2 R sin(theta) cos(theta); off-axis equilibrium cos(theta0) = g/(omega^2 R); small-oscillation angular frequency Omega = omega sin(theta0)",
+    "assumptions": ["frictionless bead, hoop rotating at constant omega", "omega^2 R > g so the off-axis equilibrium exists (19.6 > 9.8 m/s^2)", "bead treated as a point", "g = 9.8 m/s^2"],
+    "answer": 1.0365,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T30AD": {"stratum": "C", "answer_with_sentence": 1.0365, "regime": null},
+    "TD316": {"stratum": "D", "answer_with_sentence": 1.0365, "regime": null},
+    "T9510": {"stratum": "D", "answer_with_sentence": 1.0365, "regime": null},
+    "T8E51": {"stratum": "D", "answer_with_sentence": 1.0365, "regime": null},
+    "T4B28": {"stratum": "R", "answer_with_sentence": 1.1296, "regime": null},
+    "T3B23": {"stratum": "C", "answer_with_sentence": 1.0365, "regime": null},
+    "T319B": {"stratum": "R", "answer_with_sentence": 1.1296, "regime": null},
+    "T9186": {"stratum": "D", "answer_with_sentence": 1.0365, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 4, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T4B28 says the platform 'was set rising with a constant upward acceleration ... before the oscillations were observed' without saying explicitly that the acceleration continues during the oscillations; the natural reading (still accelerating) gives R, but a reader could take it as a past phase."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: omega^2 R = 49*0.4 = 19.6 m/s^2, cos(theta0) = 9.8/19.6 = 0.5, theta0 = 60 deg; Omega = 7 sin60 = 6.0622 rad/s; T = 2 pi/Omega = 1.0365 s. With platform upward acceleration 2.1 m/s^2 during oscillation, g_eff = 11.9: cos(theta0) = 0.60714, sin^2 = 0.63138, Omega^2 = 30.938, Omega = 5.5622 rad/s, T = 1.1296 s (still in the off-axis regime since 11.9 < 19.6). Bead mass cancels from the equation of motion (C). Crane hook and earlier-run sentences are D. All numbered acceleration sentences state 2.1 m/s^2; mass sentences both 26 g; 'a few metres per second squared' sentences are number-free."
+}

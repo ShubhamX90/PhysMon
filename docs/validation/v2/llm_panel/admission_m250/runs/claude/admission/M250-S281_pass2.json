@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch22",
+  "item_id": "M250-S281",
+  "pass_number": 2,
+  "started_at": "2026-11-20T11:10:00Z", "completed_at": "2026-11-20T11:16:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "v_esc = R sqrt(8 pi G rho/3); v_p = v_E (R_p/R_E) sqrt(rho_p/rho_E)", "assumptions": ["uniform non-rotating sphere", "no atmosphere", "other bodies ignored", "Newtonian gravity", "scaling from Earth's stated escape speed"], "answer": 5.0285, "unit": "km/s"},
+  "stratum_assignments": {
+    "T3112": {"stratum": "D", "answer_with_sentence": 5.0285, "regime": null},
+    "TE270": {"stratum": "C", "answer_with_sentence": 5.0285, "regime": null},
+    "T09DC": {"stratum": "D", "answer_with_sentence": 5.0285, "regime": null},
+    "TC598": {"stratum": "D", "answer_with_sentence": 5.0285, "regime": null},
+    "TE752": {"stratum": "C", "answer_with_sentence": 5.0285, "regime": null},
+    "T39C4": {"stratum": "D", "answer_with_sentence": 5.0285, "regime": null},
+    "T3AA6": {"stratum": "R", "answer_with_sentence": 5.4884, "regime": null},
+    "T8A9F": {"stratum": "R", "answer_with_sentence": 5.4884, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_numerical_precision"],
+  "defect_reasons": {
+    "invalid_numerical_precision": "Earth's stated radius and density with G = 6.674e-11 give 11.18 km/s, not the stated 11.19 km/s; the certified answers follow the stated 11.19 consistently, so the effect is a 0.07% difference from a direct G calculation."
+  },
+  "defect_severity": {"invalid_numerical_precision": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked: base 11.19*(3390/6371)*sqrt(3.93/5.51) = 5.0285 km/s. q=120: 5.0285*3510/3390 = 5.2066; q=310: 5.0285*3700/3390 = 5.4884; q=470: 5.0285*3860/3390 = 5.7257. All match. Probe mass cancels (C). Moon sentences D since the moon's pull is ignored and it does not alter the planet. Minimal pairs T09DC/T3AA6 and T3112/T8A9F share 310 km and differ only in attachment/timing; T39C4 and TC598 are declared numeral-free controls. Agrees with my pass 1."
+}

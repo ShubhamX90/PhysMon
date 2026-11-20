@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch08",
+  "item_id": "M250-S41",
+  "pass_number": 1,
+  "started_at": "2026-11-20T00:00:00Z", "completed_at": "2026-11-20T00:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Coulomb's law F = k|q1 q2|/r^2 with charge conservation and equal sharing between identical conductors on contact",
+    "assumptions": ["point charges as stated", "identical spheres share total charge equally", "isolated system, no other charges", "static magnets exert no force on charges at rest"],
+    "answer": 16.0,
+    "unit": "mN"
+  },
+  "stratum_assignments": {
+    "T162F": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "T0EF1": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "TCCA9": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "TAA47": {"stratum": "K", "answer_with_sentence": 16.0, "regime": "point-charge approximation valid while sphere radius (2.5 cm) << centre separation (30 cm, 60 cm); charge on a conductor resides on the surface so 'solid' is immaterial"},
+    "T81A0": {"stratum": "K", "answer_with_sentence": 16.0, "regime": "point-charge approximation valid while sphere radius (2.5 cm) << centre separation (30 cm, 60 cm)"},
+    "TA88E": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "T2BDE": {"stratum": "R", "answer_with_sentence": 7.788, "regime": null},
+    "TFAEF": {"stratum": "R", "answer_with_sentence": 7.788, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 3,
+  "uncertain_fields": ["TFAEF stratum"],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TFAEF ('Before the force was measured, the spheres were moved 26 cm further apart') can refer either to the 80 mN measurement (then the 30 cm separation at measurement is stated and the sentence is irrelevant history, 16 mN) or to the final force (86 cm, 7.79 mN)."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: q1=-5q, q2=q; F1 = k*5q^2/(0.30)^2 = 80 mN. After contact each carries -2q; F2 = k*4q^2/(0.60)^2 = 80*(4/5)*(0.30/0.60)^2 = 16 mN (repulsive). T2BDE: final separation 86 cm, F = 64 mN*(0.30/0.86)^2 = 7.788 mN. TFAEF reading chosen as R (final separation 86 cm) but the D reading (history before the 80 mN measurement) is equally plausible. T162F/TCCA9 say 'a little' while their counterparts say '26 cm'; they are qualitative versions rather than same-number variants (no effect on answers)."
+}

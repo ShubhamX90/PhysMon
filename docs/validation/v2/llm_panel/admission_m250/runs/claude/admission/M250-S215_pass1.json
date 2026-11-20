@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch29",
+  "item_id": "M250-S215",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:32:00Z", "completed_at": "2026-11-20T10:40:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Lossless transmission line: Z0 = sqrt(L'/C') = sqrt(L_tot/C_tot); launched wave V+ = E Z0/(Z0 + Rs); load voltage V+ (1 + Gamma_L), Gamma_L = (RL - Z0)/(RL + Z0)", "assumptions": ["uniform lossless line", "step source switched at t=0 on uncharged line", "resistive load"], "answer": 10.0, "unit": "V"},
+  "stratum_assignments": {
+    "TAB4E": {"stratum": "D", "answer_with_sentence": 10.0, "regime": null},
+    "TBEAE": {"stratum": "D", "answer_with_sentence": 10.0, "regime": null},
+    "T9B6E": {"stratum": "C", "answer_with_sentence": 10.0, "regime": null},
+    "T2129": {"stratum": "C", "answer_with_sentence": 10.0, "regime": null},
+    "T6BEA": {"stratum": "R", "answer_with_sentence": 6.410, "regime": null},
+    "TADD9": {"stratum": "R", "answer_with_sentence": 6.410, "regime": null},
+    "T0205": {"stratum": "D", "answer_with_sentence": 10.0, "regime": null},
+    "T8F3D": {"stratum": "D", "answer_with_sentence": 10.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T2129 ('cut to a length of 120 m') implies the cable may have been shortened, so the stated total L and C may no longer describe it; the answer survives because Z0 depends only on their ratio, but the wording is slightly awkward."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Z0 = sqrt(0.025e-3/10e-9) = sqrt(2500) = 50 ohm. V+ = 10*50/75 = 6.667 V; Gamma_L = 100/200 = 0.5; V_load = 6.667*1.5 = 10.00 V. With extra 42 ohm in series with source: Rs = 67 ohm, V+ = 500/117 = 4.274 V, V_load = 6.410 V. Length enters per-unit-length L' = L/l and C' = C/l and cancels in Z0 (C); it would set the delay only. Lamp circuit is separate (D). Earlier-test sentences D. Pairs TAB4E/T6BEA/TADD9/T8F3D all state 42 ohm; T9B6E/T2129 both 120 m."
+}

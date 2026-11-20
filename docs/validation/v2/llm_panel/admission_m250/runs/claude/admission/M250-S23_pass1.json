@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch15",
+  "item_id": "M250-S23",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:15:00Z", "completed_at": "2026-11-20T10:21:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Combined ideal-gas law for fixed amount: P1 V1/T1 = P2 V2/T2",
+    "assumptions": ["ideal gas (stated)", "sealed so amount of gas fixed", "stated temperatures are absolute"],
+    "answer": 180.0,
+    "unit": "kPa"
+  },
+  "stratum_assignments": {
+    "T6EEF": {"stratum": "D", "answer_with_sentence": 180.0, "regime": null},
+    "TE55F": {"stratum": "D", "answer_with_sentence": 180.0, "regime": null},
+    "TB1B2": {"stratum": "D", "answer_with_sentence": 180.0, "regime": null},
+    "T20FE": {"stratum": "R", "answer_with_sentence": 199.0, "regime": null},
+    "T656C": {"stratum": "R", "answer_with_sentence": 199.0, "regime": null},
+    "T24F5": {"stratum": "D", "answer_with_sentence": 180.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "T656C ('was warmed by 38 K at constant volume just before its final pressure was read') can be read as the last stage of the heating that reached 360 K rather than an extra 38 K on top of it; the more natural reading gives 398 K and 199 kPa."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base: P2 = 100*(6/4)*(360/300) = 180 kPa. With a further 38 K at constant 4 L: T = 398 K, P = 100*1.5*398/300 = 199 kPa. Earlier-experiment warming leaves no state relevant to the stated initial state (D); the second piston is a separate system (D). T6EEF and T24F5 carry no number, so they are not same-number variants of TE55F/TB1B2."
+}

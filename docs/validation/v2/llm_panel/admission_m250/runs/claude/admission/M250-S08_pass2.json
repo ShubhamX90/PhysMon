@@ -1,0 +1,43 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch15",
+  "item_id": "M250-S08",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:59:30Z", "completed_at": "2026-11-20T11:09:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Ceq = C1 C2/(C1 + C2); U = Ceq V^2/2",
+    "assumptions": ["initially uncharged", "fully charged", "ideal battery and capacitors"],
+    "answer": 15.0,
+    "unit": "mJ"
+  },
+  "stratum_assignments": {
+    "T12E2": {"stratum": "K", "answer_with_sentence": 15.0, "regime": "75 V across the 4 μF capacitor < 185 V rating"},
+    "T18C0": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "T4707": {"stratum": "K", "answer_with_sentence": 15.0, "regime": "75 V across the 4 μF capacitor < 185 V limit"},
+    "TBA71": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "TF8B9": {"stratum": "R", "answer_with_sentence": 15.51, "regime": null},
+    "TB824": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "TE79C": {"stratum": "C", "answer_with_sentence": 15.0, "regime": null},
+    "TFF02": {"stratum": "R", "answer_with_sentence": 15.51, "regime": null},
+    "T52A3": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "TCCF3": {"stratum": "C", "answer_with_sentence": 15.0, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "For TF8B9 and TFF02 the certified answers (16.1905, 16.5957, 17.3333 mJ) are Ceq'V^2/2, the energy of the whole three-capacitor network, but the question asks for the energy 'stored in the two capacitors together', which literally means the 4 μF and 12 μF capacitors only (15.51 mJ at q = 7.5 μF), so the certified answer is wrong on the literal reading and at best one of two readings."
+  },
+  "defect_severity": {"other": "high"},
+  "counterexamples": [
+    "TFF02, q = 7.5 μF: Ceq = 4*19.5/23.5 = 3.3191 μF, Q = 331.9 μC; V(4 μF) = 82.98 V, V(12 μF ∥ 7.5 μF) = 17.02 V; energy in the 4 μF and 12 μF capacitors = 13.771 + 1.738 = 15.51 mJ, not 16.5957 mJ (the extra 1.086 mJ is in the added 7.5 μF capacitor).",
+    "TF8B9, q = 14 μF: C2' = 26 μF, Ceq = 3.4667 μF, Q = 346.7 μC; energy in the two named capacitors = 0.5*4e-6*86.67^2 + 0.5*12e-6*13.33^2 = 15.02 + 1.07 = 16.09 mJ, not 17.3333 mJ."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "Base 15 mJ correct. K claims check: Ceq V/C1 = 75 V < 130, 185, 250 V. D claims (lamp loop, earlier experiment) correct; minimal pairs T18C0/TFF02 and T52A3/TF8B9 share 7.5 μF and differ only in attachment; TB824 and TBA71 are declared numeral-free controls. Resistance sentences: authors call them C via the battery-work minus dissipation derivation; I called them K in pass 1 (full-charge regime). Their cancellation argument is valid (R cancels exactly in the t -> infinity energies), so I accept C here; both readings give the same answer. Network totals check (5 μF: Ceq = 68/21 μF -> 16.19 mJ; 7.5: 16.60; 14: 17.33), so the arithmetic is right for the whole-network reading; the defect is that the question names 'the two capacitors'. Minor: 'The charging circuit offers a resistance of 6.5 kΩ' sits in mild tension with 'the connecting wires have negligible resistance' and with the authors' assumption of negligible internal battery resistance, but it can be read as a separate resistor; not flagged as a contradiction. Comma splice in the base text."
+}

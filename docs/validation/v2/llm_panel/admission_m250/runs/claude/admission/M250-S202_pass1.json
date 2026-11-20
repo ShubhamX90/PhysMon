@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch07",
+  "item_id": "M250-S202",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:32:00Z", "completed_at": "2026-11-20T10:39:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Tsiolkovsky rocket equation: v = u ln(m0/mf)", "assumptions": ["no external force (stated)", "constant exhaust speed relative to the rocket (stated)", "starts from rest (stated)", "non-relativistic"], "answer": 4158.88, "unit": "m/s"},
+  "stratum_assignments": {
+    "T5A37": {"stratum": "R", "answer_with_sentence": 3692.64, "regime": null},
+    "T2DD9": {"stratum": "C", "answer_with_sentence": 4158.88, "regime": null},
+    "T5460": {"stratum": "R", "answer_with_sentence": 3692.64, "regime": null},
+    "T3A6F": {"stratum": "D", "answer_with_sentence": 4158.88, "regime": null},
+    "TB855": {"stratum": "C", "answer_with_sentence": 4158.88, "regime": null},
+    "T357D": {"stratum": "D", "answer_with_sentence": 4158.88, "regime": null},
+    "T23F7": {"stratum": "D", "answer_with_sentence": 4158.88, "regime": null},
+    "T2E45": {"stratum": "D", "answer_with_sentence": 4158.88, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: v = 3000 ln(3200/800) = 3000 ln 4 = 4158.88 m/s. With a 190 kg payload: v = 3000 ln(3390/990) = 3000*1.23088 = 3692.6 m/s. The burn rate enters m(t) and dv = -u dm/m but cancels in the absence of external forces (burn time 2400/27 = 88.9 s is irrelevant). Variant pairs: payload sentences all 190 kg where numeric; burn-rate sentences both 27 kg/s. T357D and T23F7 carry no number ('small payload'), so they are not numeric variants of their 190 kg counterparts."
+}

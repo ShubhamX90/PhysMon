@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch05",
+  "item_id": "M250-S225",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Steady radial conduction in a cylindrical shell with constant k: T(r) = T1 - (T1-T2) ln(r/r1)/ln(r2/r1); drop to r is (T1-T2) ln(r/r1)/ln(r2/r1)",
+    "assumptions": ["steady state", "purely radial heat flow", "constant conductivity", "surface temperatures fixed at 420 K (r=3 cm) and 300 K (r=9 cm)"],
+    "answer": 55.797,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "T2495": {"stratum": "C", "answer_with_sentence": 55.797, "regime": null},
+    "T8870": {"stratum": "C", "answer_with_sentence": 55.797, "regime": null},
+    "T6641": {"stratum": "D", "answer_with_sentence": 55.797, "regime": null},
+    "T21B1": {"stratum": "R", "answer_with_sentence": 47.855, "regime": null},
+    "T26FA": {"stratum": "D", "answer_with_sentence": 55.797, "regime": null},
+    "T6E73": {"stratum": "D", "answer_with_sentence": 55.797, "regime": null},
+    "T15F5": {"stratum": "R", "answer_with_sentence": 47.855, "regime": null},
+    "T8754": {"stratum": "D", "answer_with_sentence": 55.797, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "With T21B1/T15F5 the base text still says 'the outer surface of the insulation is held at 300 K'; the intended reading (new outer surface at 10.8 cm held at 300 K, the 9 cm surface no longer clamped) is the natural one but the wording could be read as the 9 cm surface still being held at 300 K, which would leave the answer at 55.80 K."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: 120*ln(5/3)/ln(3) = 120*0.51083/1.09861 = 55.797 K. With the extra 1.8 cm (outer radius 10.8 cm at 300 K): 120*ln(5/3)/ln(3.6) = 120*0.51083/1.28093 = 47.855 K. Conductivity cancels. 'Earlier survey only' sentences refer to a past configuration and the tank sentences to a separate object: disconnected. Variant pairs: T2495/T8870 same 0.07 W/(m*K); T6641/T21B1/T15F5/T8754 all 1.8 cm; T26FA/T6E73 both 'small thickness' (no number). T21B1 wording 'While the heat flows steadily, the layer is wrapped' is slightly awkward."
+}

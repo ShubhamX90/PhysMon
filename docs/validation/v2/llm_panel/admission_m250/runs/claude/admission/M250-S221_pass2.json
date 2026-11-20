@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch12",
+  "item_id": "M250-S221",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:07:00Z", "completed_at": "2026-11-20T10:13:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Q = n (7/2) R (T2 - T1) at constant pressure, ideal diatomic gas, vibration frozen", "assumptions": ["ideal gas", "quasi-static isobaric", "vibration not excited (stated)", "closed cylinder"], "answer": 3.49188, "unit": "kJ"},
+  "stratum_assignments": {
+    "TE50D": {"stratum": "K", "answer_with_sentence": 3.49188, "regime": "theta_vib >> T2 (claimed predicate 5*T2 < theta_vib)"},
+    "T0508": {"stratum": "R", "answer_with_sentence": 5.7616, "regime": null},
+    "T5CFA": {"stratum": "R", "answer_with_sentence": 5.7616, "regime": null},
+    "TC98F": {"stratum": "D", "answer_with_sentence": 3.49188, "regime": null},
+    "TE3A7": {"stratum": "D", "answer_with_sentence": 3.49188, "regime": null},
+    "TED71": {"stratum": "D", "answer_with_sentence": 3.49188, "regime": null},
+    "TFFAB": {"stratum": "C", "answer_with_sentence": 3.49188, "regime": null},
+    "T86C0": {"stratum": "C", "answer_with_sentence": 3.49188, "regime": null},
+    "TA1EB": {"stratum": "D", "answer_with_sentence": 3.49188, "regime": null},
+    "T2A2D": {"stratum": "K", "answer_with_sentence": 3.49188, "regime": "theta_vib >> T2 (claimed predicate 5*T2 < theta_vib)"}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All certified answers verified: (2+0.7)x3.5x8.314x60 = 4714.04 J, 3.3 -> 5761.60 J, 4.4 -> 7682.14 J; base 3491.88 J. Pressure cancellation relations correct. Minimal pairs TA1EB/T0508 and TC98F/T5CFA share 1.3 mol and differ only in attachment; TE3A7 and TED71 are declared numeral-free twins, which resolves my pass-1 query. K regime: at theta = 2800 K and T = 360 K the true vibrational heat capacity would be about 0.025 R (under 1% of Cp), but the problem explicitly stipulates vibration is not excited, so the certified answer follows from the stated model; the claimed predicate 5*T2 < q is a reasonable proxy. Agrees with pass 1."
+}

@@ -1,0 +1,38 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch19",
+  "item_id": "M250-S238",
+  "pass_number": 2,
+  "started_at": "2026-11-20T00:43:00Z", "completed_at": "2026-11-20T00:50:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Circular Couette flow: T = 4 pi eta L Omega R1^2 R2^2/(R2^2 - R1^2), P = T Omega.",
+    "assumptions": ["Newtonian, no slip, steady laminar azimuthal flow, no end effects"],
+    "answer": 0.18294,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T2F2B": {"stratum": "K", "answer_with_sentence": 0.18294, "regime": "rotation rate < 6500 rpm"},
+    "TF18F": {"stratum": "K", "answer_with_sentence": 0.18294, "regime": "rotation rate < 6500 rpm"},
+    "TEF4A": {"stratum": "R", "answer_with_sentence": 0.48308, "regime": null},
+    "TFDA3": {"stratum": "D", "answer_with_sentence": 0.18294, "regime": null},
+    "T564F": {"stratum": "R", "answer_with_sentence": 0.48308, "regime": null},
+    "T7A33": {"stratum": "D", "answer_with_sentence": 0.18294, "regime": null},
+    "T5A9C": {"stratum": "C", "answer_with_sentence": 0.18294, "regime": null},
+    "T0105": {"stratum": "D", "answer_with_sentence": 0.18294, "regime": null},
+    "T4956": {"stratum": "D", "answer_with_sentence": 0.18294, "regime": null},
+    "TF420": {"stratum": "C", "answer_with_sentence": 0.18294, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The density cancellation is presented by writing eta = rho*nu with nu = eta/rho, a circular construction; the conclusion (density does not enter the laminar Couette torque) is correct, and the relation 'omega = rot' is shorthand for the stated rpm conversion."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All certified numbers verified: base 0.182943 W; 155 rpm -> 0.30522 W; 195 rpm -> 0.48308 W; 280 rpm -> 0.99602 W (quadratic scaling). K regime rot < q holds for 3500, 6500, 9000 rpm and still holds under the R sentences (max 280 rpm). The out-of-regime reference expression P*(q/rot)^2 is not physical for turbulent flow, but it is explicitly reference-only and not certified. Minimal pairs T0105/TEF4A and T7A33/T564F share 75 rpm and differ only in attachment; TFDA3 and T4956 are declared numeral-free controls. Agrees with pass 1."
+}

@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch35",
+  "item_id": "M250-S206",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:23:00Z", "completed_at": "2026-11-20T10:32:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Rigid-body rotation gives a paraboloid free surface z = z0 + w^2 r^2/(2 g_eff); volume conservation gives axis depth h_axis = h0 - w^2 R^2/(4 g_eff)",
+    "assumptions": ["incompressible liquid, volume conserved", "steady solid-body rotation", "axis does not run dry and no spill", "g_eff = g (platform at rest or uniform velocity)"],
+    "answer": 24.26,
+    "unit": "cm"
+  },
+  "stratum_assignments": {
+    "TA93C": {"stratum": "C", "answer_with_sentence": 24.26, "regime": null},
+    "T1EF3": {"stratum": "C", "answer_with_sentence": 24.26, "regime": null},
+    "T70B1": {"stratum": "R", "answer_with_sentence": 25.89, "regime": null},
+    "TE262": {"stratum": "K", "answer_with_sentence": 24.26, "regime": "wall height above the rim level of the paraboloid (35.74 cm), so no liquid spills"},
+    "T2913": {"stratum": "D", "answer_with_sentence": 24.26, "regime": null},
+    "T80DF": {"stratum": "D", "answer_with_sentence": 24.26, "regime": null},
+    "TAF0F": {"stratum": "D", "answer_with_sentence": 24.26, "regime": null},
+    "T3820": {"stratum": "D", "answer_with_sentence": 24.26, "regime": null},
+    "T4A32": {"stratum": "R", "answer_with_sentence": 25.89, "regime": null},
+    "T499A": {"stratum": "K", "answer_with_sentence": 24.26, "regime": "wall height above the rim level of the paraboloid (35.74 cm), so no liquid spills"}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T70B1 ('was set rising ... before the liquid reached steady rotation') is less explicit than T4A32 that the acceleration persists while the liquid is in steady rotation; read as ongoing constant acceleration it is R."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base: drop at axis = w^2 R^2/(4g) = 100*0.0225/39.2 = 0.05740 m; axis depth 0.30 - 0.0574 = 0.2426 m = 24.26 cm; rim level 35.74 cm. With upward platform acceleration 3.9 m/s^2, g_eff = 13.7 m/s^2: drop = 2.25/54.8 = 0.04106 m, axis depth 25.89 cm. Density cancels (pressure field scales with rho, surface shape independent). The goods lift is a separate object in the hall; the tank stands on the platform, not in the lift, so lift acceleration is D. 'Earlier run only' sentences are D. T2913 and T3820 carry no number ('a few metres per second squared'), apparently numeral-free versions."
+}

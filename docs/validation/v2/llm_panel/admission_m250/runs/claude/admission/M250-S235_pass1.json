@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch18",
+  "item_id": "M250-S235",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:12:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Archimedes buoyancy restoring force rho_l g A x gives SHM; T = 2 pi sqrt(m/(rho_l g A)) = 2 pi sqrt(rho_c L/(rho_l g)) = 2 pi sqrt(0.65*0.30/9.8) = 2 pi * 0.14106",
+    "assumptions": ["uniform cylinder of constant cross-section", "added mass and drag of liquid neglected (stated)", "amplitude small enough that the cylinder neither fully submerges nor leaves the liquid", "cylinder stays upright"],
+    "answer": 0.886,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TFE49": {"stratum": "D", "answer_with_sentence": 0.886, "regime": null},
+    "T11DC": {"stratum": "C", "answer_with_sentence": 0.886, "regime": null},
+    "T30BA": {"stratum": "C", "answer_with_sentence": 0.886, "regime": null},
+    "T7F78": {"stratum": "D", "answer_with_sentence": 0.886, "regime": null},
+    "T7EFE": {"stratum": "D", "answer_with_sentence": 0.886, "regime": null},
+    "T0F32": {"stratum": "K", "answer_with_sentence": 0.886, "regime": "amplitude below the depth at which the cylinder would leave the liquid or submerge completely: 3.2 cm < (L - h) = 30 - 19.5 = 10.5 cm"},
+    "T315E": {"stratum": "R", "answer_with_sentence": 1.017, "regime": null},
+    "T4379": {"stratum": "R", "answer_with_sentence": 1.017, "regime": null},
+    "TCA2F": {"stratum": "K", "answer_with_sentence": 0.886, "regime": "amplitude 3.2 cm < 10.5 cm (cylinder stays partly submerged, restoring force linear)"},
+    "TF10E": {"stratum": "D", "answer_with_sentence": 0.886, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_parameter_domain", "missing_assumption"],
+  "defect_reasons": {
+    "invalid_parameter_domain": "With radius 4.5 cm (T11DC, T30BA) the cylinder cannot float upright: metacentric stability requires r^2 > 2h(L-h) = 2(0.195)(0.105) = 0.041 m^2, i.e. r > 20 cm, so the stated radius contradicts 'floats upright' and the vertical-oscillation model does not apply.",
+    "missing_assumption": "The cylinder is never said to be wooden, so 'the same wood' glued on the cylinder (T315E, T4379) could mean the raft's wood, whose density is not given; the R answers require assuming the added wood has density 650 kg/m^3."
+  },
+  "defect_severity": {"invalid_parameter_domain": "high", "missing_assumption": "medium"},
+  "counterexamples": ["r = 4.5 cm, L = 30 cm, s = 0.65: GM = h/2 + r^2/(4h) - L/2 = 0.0975 + 0.0026 - 0.15 = -0.050 m < 0, the upright cylinder is unstable and tips over."],
+  "notes": "R answer: L = 39.5 cm, same density 650 -> T = 2 pi sqrt(0.65*0.395/9.8) = 2 pi * 0.16186 = 1.017 s (floating fraction unchanged, total 39.5 cm stays partly submerged). Earlier-run sentences describe a past configuration with no path to the present period (D). Raft sentences are D. Minimal-pair variants checked: 9.5 cm, 4.5 cm and 3.2 cm consistent across their variants; 'short length' sentences carry no number. The stability problem is a physical inconsistency introduced by the radius sentences; the base item without radius is fine as a textbook idealisation."
+}

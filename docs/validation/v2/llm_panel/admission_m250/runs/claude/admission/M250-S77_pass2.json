@@ -1,0 +1,37 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch02",
+  "item_id": "M250-S77",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:08:00Z", "completed_at": "2026-11-20T10:15:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "T = exp(-2 kappa a), kappa = sqrt(2 mc^2 (U0 - E)) / (hbar c); a = ln(1/T) / (2 kappa)",
+    "assumptions": ["Exponential (wide-barrier) transmission formula as stated", "Non-relativistic kappa as defined", "U0 - E = 3 eV"],
+    "answer": 0.389178,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "TFB05": {"stratum": "D", "answer_with_sentence": 0.389178, "regime": null},
+    "T9848": {"stratum": "D", "answer_with_sentence": 0.389178, "regime": null},
+    "T6F0D": {"stratum": "D", "answer_with_sentence": 0.389178, "regime": null},
+    "T0D94": {"stratum": "D", "answer_with_sentence": 0.389178, "regime": null},
+    "TDA04": {"stratum": "R", "answer_with_sentence": 0.454462, "regime": null},
+    "T8282": {"stratum": "R", "answer_with_sentence": 0.454462, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T9848/T6F0D phrase 'was then replaced ... for an earlier experiment only' combines 'then' with 'earlier experiment', which reads awkwardly although the intended reading is recoverable."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Checked certified answers: q=6 eV: dU=1, kappa=1010.94/197.3=5.1239 nm^-1, a=6.9078/10.2477=0.6741 nm; q=7.2: kappa=7.5999, a=0.4545; q=9.6: dU=4.6, kappa=2168.2/197.3=10.9895, a=0.3143 nm; base 0.389178 nm. All agree with my work. Minimal pairs: T0D94/T8282 differ only in 'step' vs 'barrier' (same 7.2 eV); T9848/TDA04 share 7.2 eV and differ in the timing clause. Numeral-free twins TFB05 (of T0D94) and T6F0D (of T9848) match their twins word for word except the value, explaining my pass-1 note. The step being D relies on the stated electron kinetic energy at the barrier and the clause that barrier heights are measured from the local outside potential; both are stated, so the step cannot couple in. Pass-2 verdict agrees with pass 1."
+}

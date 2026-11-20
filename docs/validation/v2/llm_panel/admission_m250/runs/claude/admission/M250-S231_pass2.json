@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch32",
+  "item_id": "M250-S231",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:41:00Z", "completed_at": "2026-11-20T10:49:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Moving-reflector Doppler: f_echo = f (c+v)/(c-v); beat = 2 f v/(c-v)",
+    "assumptions": ["still air", "source and microphone at rest together", "wall moves directly towards source at constant speed", "u << c"],
+    "answer": 7.76471,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T2729": {"stratum": "R", "answer_with_sentence": 11.4353, "regime": null},
+    "T544D": {"stratum": "D", "answer_with_sentence": 7.76471, "regime": null},
+    "T811A": {"stratum": "D", "answer_with_sentence": 7.76471, "regime": null},
+    "T105F": {"stratum": "D", "answer_with_sentence": 7.76471, "regime": null},
+    "T72F4": {"stratum": "C", "answer_with_sentence": 7.76471, "regime": null},
+    "T7F76": {"stratum": "R", "answer_with_sentence": 11.4353, "regime": null},
+    "TAC5B": {"stratum": "C", "answer_with_sentence": 7.76471, "regime": null},
+    "T1B41": {"stratum": "D", "answer_with_sentence": 7.76471, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T7F76's pluperfect 'had added 1.4 m/s ... before the echo was recorded' only implicitly says the extra speed persists during the recording, and sits slightly against the base 'constant speed of 3 m/s'; the intended reading is clear enough."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Verified the C cancellation derivation: t_n = (q + c n/f)/(c+v), T_n = t_n + (q - v t_n)/c = (t_n(c-v)+q)/c, so T_(n+1)-T_n = (c-v)/(f(c+v)) independent of q. R answers: v=3.7 -> 3256/339.3 = 9.5962; v=4.4 -> 3872/338.6 = 11.4353; v=5.2 -> 4576/337.8 = 13.5465 Hz; all match. Minimal pairs T105F/T2729 and T811A/T7F76 share 1.4 m/s and differ only in attachment/time; numeral-free twins T544D/T105F and T1B41/T811A as described; T72F4/TAC5B both 90 m. Agrees with pass 1 (where I had chosen C for the distance)."
+}

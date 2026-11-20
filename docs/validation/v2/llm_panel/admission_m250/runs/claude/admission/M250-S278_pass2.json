@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch33",
+  "item_id": "M250-S278",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:08:30Z", "completed_at": "2026-11-20T10:20:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Relativistic threshold: W = m1+m2+Q, Eb = (W^2 - m1^2 - m2^2)/(2 m2), K = Eb - m1", "assumptions": ["special relativity, energy-momentum conservation", "target free and at rest", "threshold: final particles at rest in CM frame"], "answer": 279.71, "unit": "MeV"},
+  "stratum_assignments": {
+    "T1A70": {"stratum": "D", "answer_with_sentence": 279.71, "regime": null},
+    "TD012": {"stratum": "D", "answer_with_sentence": 279.71, "regime": null},
+    "TB459": {"stratum": "D", "answer_with_sentence": 279.71, "regime": null},
+    "T7344": {"stratum": "R", "answer_with_sentence": 508.44, "regime": null},
+    "TCCEF": {"stratum": "R", "answer_with_sentence": 508.44, "regime": null},
+    "TE22F": {"stratum": "D", "answer_with_sentence": 279.71, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_numerical_precision", "other"],
+  "defect_reasons": {
+    "invalid_numerical_precision": "The certified answers (279.669, 508.394 MeV) follow from Q = 134.98 MeV, not the displayed 135 MeV, which gives 279.712 and 508.44 MeV; the 0.015% gap is within the precision of the displayed 135 MeV.",
+    "other": "TCCEF ('in this reaction, the final particles carry 104 MeV more rest energy') can also be read as an excess of 104 MeV, which would contradict the stated 135 MeV. Separately, the D rationale for TE22F/TB459 speaks of a particle created at the second station, while the sentences speak of that station's beam energy; D still holds."
+  },
+  "defect_severity": {"invalid_numerical_precision": "low", "other": "medium"},
+  "counterexamples": [],
+  "notes": "Checked the R values with Q = 134.98+q: q=47 gives 181.98*3935.18/1876.6 = 381.61; q=104 gives 238.98*3992.18/1876.6 = 508.39; q=184 gives 318.98*4072.18/1876.6 = 692.18. These match the certified answers. With the displayed Q = 135 MeV, every answer is about 0.04-0.05 MeV higher. The minimal pairs T1A70/TCCEF and TE22F/T7344 share 104 MeV and differ only in attachment. TD012 and TB459 are numeral-free controls by design, so I withdraw my pass-1 rendering_not_minimal flag. The relations and regime are correct."
+}

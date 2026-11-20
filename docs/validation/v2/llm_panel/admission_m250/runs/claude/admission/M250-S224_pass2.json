@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch28",
+  "item_id": "M250-S224",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:23:30Z", "completed_at": "2026-11-20T10:29:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Ideal entropy of mixing at equal T and P: dS = -R sum n_i ln x_i", "assumptions": ["ideal distinct gases", "rigid insulated container, T unchanged", "equal initial T and P"], "answer": 22.001, "unit": "J/K"},
+  "stratum_assignments": {
+    "TD9D8": {"stratum": "D", "answer_with_sentence": 22.0009, "regime": null},
+    "TA337": {"stratum": "D", "answer_with_sentence": 22.0009, "regime": null},
+    "T2667": {"stratum": "R", "answer_with_sentence": 30.4723, "regime": null},
+    "T4FE0": {"stratum": "C", "answer_with_sentence": 22.0009, "regime": null},
+    "TBB89": {"stratum": "D", "answer_with_sentence": 22.0009, "regime": null},
+    "T7A1E": {"stratum": "C", "answer_with_sentence": 22.0009, "regime": null},
+    "T6DA3": {"stratum": "R", "answer_with_sentence": 30.4723, "regime": null},
+    "TA9C4": {"stratum": "D", "answer_with_sentence": 22.0009, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "The R sentences do not state that the added helium is at the common temperature; the intended reading is natural but implicit."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked all certified answers: q=0.7 -> n_He=2.2, dS = 8.314*3.248211 = 27.0056; q=1.3 -> 30.4723; q=2.4 -> x_He=39/64, x_Ar=25/64, dS = 8.314*4.28177 = 35.5986 (rounds to 35.5987 within precision). Volume cancellation via V_i = x_i V is correct. Minimal pairs TBB89/T2667 and TD9D8/T6DA3 carry the same 1.3 mol and differ only in attachment. Agrees with my pass 1."
+}

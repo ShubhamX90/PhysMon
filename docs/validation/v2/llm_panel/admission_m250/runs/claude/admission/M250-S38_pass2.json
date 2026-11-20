@@ -1,0 +1,38 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch19",
+  "item_id": "M250-S38",
+  "pass_number": 2,
+  "started_at": "2026-11-20T00:24:00Z", "completed_at": "2026-11-20T00:33:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Static equilibrium: Fwall = (m/2 + M x) g / tan(theta); Ngnd = (m + M) g; F = sqrt(Fwall^2 + Ngnd^2).",
+    "assumptions": ["smooth wall", "uniform ladder", "static, no slip"],
+    "answer": 841.62,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T4486": {"stratum": "K", "answer_with_sentence": 841.62, "regime": "mu_s (m+M) g > Fwall, i.e. mu_s > 0.311"},
+    "T038B": {"stratum": "C", "answer_with_sentence": 841.62, "regime": null},
+    "TD573": {"stratum": "R", "answer_with_sentence": 939.71, "regime": null},
+    "T1EB2": {"stratum": "D", "answer_with_sentence": 841.62, "regime": null},
+    "TA81B": {"stratum": "D", "answer_with_sentence": 841.62, "regime": null},
+    "T49C6": {"stratum": "D", "answer_with_sentence": 841.62, "regime": null},
+    "T5690": {"stratum": "C", "answer_with_sentence": 841.62, "regime": null},
+    "TCE71": {"stratum": "R", "answer_with_sentence": 939.71, "regime": null},
+    "T5FAB": {"stratum": "K", "answer_with_sentence": 841.62, "regime": "mu_s > 0.311"},
+    "TEA7A": {"stratum": "D", "answer_with_sentence": 841.62, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "natural", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["contradictory_distractor_statement"],
+  "defect_reasons": {"contradictory_distractor_statement": "TCE71 is certified R (angle 44 degrees while the person stands), but the problem states in the present tense that the ladder, with the person standing still on it, makes 62 degrees with the ground; under the certified reading the item contradicts itself, and under the consistent reading (the tilt preceded the stated 62-degree configuration) the answer is the base 841.6 N, so the certified 939.7 N is not uniquely implied."},
+  "defect_severity": {"contradictory_distractor_statement": "high"},
+  "counterexamples": ["TCE71 read as: the ladder was moved into its stated 62-degree position by an 18-degree tilt before the person climbed; then F = 841.62 N, not the certified 939.71 N."],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "Relations and all certified numbers verified: 62 deg -> 841.62 N; 48 deg -> 908.39 N; 44 deg -> 939.71 N; 40 deg -> 979.82 N. Length cancels (C correct); friction K regime mu > 0.311 holds for 0.75, 1.15, 1.4. TD573 ('then tilted') is a clear later event and fine as R; TEA7A/TD573 and T49C6/TCE71 pairs share number and unit. Disagreement with pass 1: I had TCE71 as D with a medium ambiguity flag; seeing that the authors certify it R, the two readings yield different answers and the certified reading conflicts with the present-tense 62-degree description, so I now treat it as a high defect for this sentence. The rest of the item is sound."
+}

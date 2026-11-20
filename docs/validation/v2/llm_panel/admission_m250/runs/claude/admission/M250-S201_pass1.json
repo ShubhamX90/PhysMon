@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch33",
+  "item_id": "M250-S201",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:21:00Z", "completed_at": "2026-11-20T10:30:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Steady-state driven damped oscillator: A = F0 / sqrt((k - m w^2)^2 + (b w)^2)", "assumptions": ["linear spring", "viscous damping", "steady state reached", "frictionless track"], "answer": 0.02334, "unit": "m"},
+  "stratum_assignments": {
+    "TFDBF": {"stratum": "D", "answer_with_sentence": 0.02334, "regime": null},
+    "T2C02": {"stratum": "C", "answer_with_sentence": 0.02334, "regime": null},
+    "T275C": {"stratum": "D", "answer_with_sentence": 0.02334, "regime": null},
+    "TB38B": {"stratum": "K", "answer_with_sentence": 0.02334, "regime": "Hooke's law limit matters only if the amplitude (2.33 cm) exceeds 5.4 cm"},
+    "TF594": {"stratum": "C", "answer_with_sentence": 0.02334, "regime": null},
+    "T7725": {"stratum": "K", "answer_with_sentence": 0.02334, "regime": "Hooke's law limit matters only if the amplitude (2.33 cm) exceeds 5.4 cm"},
+    "T708C": {"stratum": "R", "answer_with_sentence": 0.009511, "regime": null},
+    "T2E9E": {"stratum": "D", "answer_with_sentence": 0.02334, "regime": null},
+    "TDD8E": {"stratum": "D", "answer_with_sentence": 0.02334, "regime": null},
+    "T0270": {"stratum": "R", "answer_with_sentence": 0.009511, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T708C ('was stuck to the block before the driving force was applied') does not say whether the clay is still on the block during the steady run; the natural reading is that it is, which makes it R."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: k - m w^2 = 200 - 450 = -250; b w = 60; sqrt(62500+3600) = 257.10; A = 6/257.10 = 0.02334 m. With 0.92 kg: k - m w^2 = 200 - 828 = -628; sqrt(394384+3600) = 630.86; A = 0.009511 m. The drive phase sets only the steady-state phase, not the amplitude (C). Both Hooke-limit sentences are K and consistent with 'obeys Hooke's law for the extensions that occur'. TDD8E and T275C are numeral-free ('small') versions of the 420 g sentences."
+}

@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch04",
+  "item_id": "M250-S255",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:08:30Z", "completed_at": "2026-11-20T10:14:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Timoshenko bimetal curvature for equal thicknesses: kappa = 24 dAlpha dT / { h [12 + (1+n)(1+1/n)] }, n = E1/E2; delta = kappa L^2/2",
+    "assumptions": ["perfect bond, Euler-Bernoulli bending, equal widths", "small curvature", "magnitude of deflection asked"],
+    "answer": 12.2182,
+    "unit": "mm"
+  },
+  "stratum_assignments": {
+    "T90F6": {"stratum": "D", "answer_with_sentence": 12.2182, "regime": null},
+    "TC665": {"stratum": "D", "answer_with_sentence": 12.2182, "regime": null},
+    "TB206": {"stratum": "C", "answer_with_sentence": 12.2182, "regime": null},
+    "TE1D7": {"stratum": "D", "answer_with_sentence": 12.2182, "regime": null},
+    "T1A9F": {"stratum": "R", "answer_with_sentence": 29.3542, "regime": null},
+    "T374D": {"stratum": "D", "answer_with_sentence": 12.2182, "regime": null},
+    "T6C9F": {"stratum": "C", "answer_with_sentence": 12.2182, "regime": null},
+    "T9949": {"stratum": "R", "answer_with_sentence": 29.3542, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 4, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "Which layer is on top is not stated, so only the magnitude of the vertical deflection is unique; also the numeral-free cable sentence TC665 is labelled with quantity 'a further length of strip' although it concerns cable, a cosmetic metadata mislabel."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Checked: kappa = 24*7e-6*60/(0.001*16.5) = 0.61091 1/m; delta(L=0.20) = 12.218 mm, delta(0.26) = 20.649 mm, delta(0.31) = 29.354 mm, delta(0.35) = 37.418 mm, all matching certified answers. Width cancels as claimed. Minimal pairs T374D/T1A9F and TE1D7/T9949 share 11 cm and differ only in attachment. Numeral-free controls T90F6 and TC665 are declared as such and are D. Agrees with pass 1.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch03",
+  "item_id": "M250-S19",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Projectile range on level ground R = v^2 sin(2θ)/g (uniform gravity, no drag)", "assumptions": ["no air resistance (stated)", "launch and landing at same height (level ground, stated)", "ball does not interact with the ramp"], "answer": 38.355, "unit": "m"},
+  "stratum_assignments": {
+    "T3E32": {"stratum": "R", "answer_with_sentence": 27.311, "regime": null},
+    "T9D35": {"stratum": "D", "answer_with_sentence": 38.355, "regime": null},
+    "TFDC7": {"stratum": "R", "answer_with_sentence": 27.311, "regime": null},
+    "TFC29": {"stratum": "D", "answer_with_sentence": 38.355, "regime": null},
+    "TC550": {"stratum": "D", "answer_with_sentence": 38.355, "regime": null},
+    "T9417": {"stratum": "D", "answer_with_sentence": 38.355, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": ["TFDC7 timing"],
+  "defect_flags": ["other", "rendering_not_minimal"],
+  "defect_reasons": {
+    "other": "TFDC7 'The launch direction is then lowered by a further 14°' is appended after 'The ball lands on the level ground', so 'then' can be read as a change after this flight (no effect, 38.355 m) rather than before launch (27.311 m).",
+    "rendering_not_minimal": "Sentences about the launch-direction lowering do not all state the same number: T9D35 says 'a few degrees' while T3E32, TFDC7, TFC29 say 14°; likewise ramp sentences TC550 (few degrees) vs T9417 (14°)."
+  },
+  "defect_severity": {"other": "medium", "rendering_not_minimal": "medium"},
+  "counterexamples": [],
+  "notes": "Base: R = 400*sin70°/9.8 = 400*0.93969/9.8 = 38.355 m. With launch angle lowered 14° to 21°: R = 400*sin42°/9.8 = 400*0.66913/9.8 = 27.311 m. 'Earlier trial' sentences have no path to the current flight. Ramp lowering has no path since the ball lands on level ground (stated). 'Further' in 'lowered by a further' presupposes a prior lowering not mentioned; slightly artificial. If the authors pair a 'few degrees' sentence with a 14° sentence as a minimal pair, that would be a high-severity false claim."
+}

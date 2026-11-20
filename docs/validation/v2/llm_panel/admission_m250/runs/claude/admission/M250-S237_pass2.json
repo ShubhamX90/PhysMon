@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch30",
+  "item_id": "M250-S237",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:39:00Z", "completed_at": "2026-11-20T10:50:00Z", "minutes_spent": 11,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "t = integral dx/sqrt(g h) over a linear depth profile = 2D/(sqrt(g h1) + sqrt(g h2)).",
+    "assumptions": ["linear depth profile", "shallow-water speed sqrt(g h)", "height, refraction, reflection neglected"],
+    "answer": 29.188,
+    "unit": "min"
+  },
+  "stratum_assignments": {
+    "TA114": {"stratum": "K", "answer_with_sentence": 29.188, "regime": "wavelength > 20 h1 = 4 km (shallow-water regime)"},
+    "TF161": {"stratum": "D", "answer_with_sentence": 29.188, "regime": null},
+    "T8491": {"stratum": "R", "answer_with_sentence": 26.860, "regime": null},
+    "T6BFE": {"stratum": "D", "answer_with_sentence": 29.188, "regime": null},
+    "T1E46": {"stratum": "R", "answer_with_sentence": 26.860, "regime": null},
+    "TEB36": {"stratum": "D", "answer_with_sentence": 29.188, "regime": null},
+    "T5E18": {"stratum": "K", "answer_with_sentence": 29.188, "regime": "wavelength > 20 h1 = 4 km (shallow-water regime)"},
+    "T7BD4": {"stratum": "D", "answer_with_sentence": 29.188, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The R sentences do not say explicitly that the slope stays uniform after dredging the landward end to 93 m; the authors' linear-profile assumption is the natural reading given 'slopes uniformly', but a local-hole reading is possible."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Checked: base 120000/(sqrt(9.8)(sqrt200+sqrt60)) = 1751.3 s = 29.188 min. h2 = 69 m: 1707.6 s = 28.459 min; h2 = 93 m: 1611.6 s = 26.860 min; h2 = 107 m: 1565.5 s = 26.091 min; all match. The question does not name a unit; the authors' minutes are equivalent to my seconds. K regime q > 20 h1 = 4 km holds for 110, 170, 300 km. Minimal pairs T7BD4/T1E46 (harbour vs slope) and TEB36/T8491 (earlier survey only vs before arrival) carry the same 33 m and differ only in attachment. Agrees with my pass 1."
+}

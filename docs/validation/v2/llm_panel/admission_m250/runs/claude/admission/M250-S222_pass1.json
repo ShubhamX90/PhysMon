@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch31",
+  "item_id": "M250-S222",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:28:00Z", "completed_at": "2026-11-20T10:34:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Carnot efficiency W = Q_H (1 - T_0/T_H); reversible refrigerator COP = T_c/(T_0 - T_c); Q_c = W*COP", "assumptions": ["Both machines reversible and steady", "All engine work drives the refrigerator", "Tank thermally isolated from machines"], "answer": 189.29, "unit": "kW"},
+  "stratum_assignments": {
+    "T5218": {"stratum": "D", "answer_with_sentence": 189.29, "regime": null},
+    "T6A43": {"stratum": "D", "answer_with_sentence": 189.29, "regime": null},
+    "T2FFF": {"stratum": "C", "answer_with_sentence": 189.29, "regime": null},
+    "TD41F": {"stratum": "D", "answer_with_sentence": 189.29, "regime": null},
+    "T9030": {"stratum": "R", "answer_with_sentence": 238.5, "regime": null},
+    "T618C": {"stratum": "R", "answer_with_sentence": 238.5, "regime": null},
+    "TE45E": {"stratum": "D", "answer_with_sentence": 189.29, "regime": null},
+    "T1464": {"stratum": "C", "answer_with_sentence": 189.29, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "W = 50*(1 - 300/600) = 25 kW; COP = 265/35 = 7.5714; Q_c = 189.29 kW. With 63 kW input: W = 31.5 kW, Q_c = 238.5 kW. Duration: energies scale with time but rate does not (C, arguably D). Numeric sentences all state 13 kW; T6A43 and TE45E carry no value."
+}

@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch28",
+  "item_id": "M250-S71",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Einstein photoelectric equation K_max = hc/lambda - phi; non-relativistic v = c*sqrt(2K/(mc^2))", "assumptions": ["single-photon photoemission", "non-relativistic kinetic energy (as instructed)", "no fields act on electrons"], "answer": 967.98, "unit": "km/s"},
+  "stratum_assignments": {
+    "TB26A": {"stratum": "K", "answer_with_sentence": 967.98, "regime": "single-photon photoemission: intensity sets only the number of photoelectrons, not K_max, as long as multiphoton/space-charge effects are negligible (intensities far below ~1e13-1e14 W/m^2); 90 W/m^2 is deep inside this regime"},
+    "TF3E8": {"stratum": "D", "answer_with_sentence": 967.98, "regime": null},
+    "TEF5E": {"stratum": "D", "answer_with_sentence": 967.98, "regime": null},
+    "TA8F1": {"stratum": "D", "answer_with_sentence": 967.98, "regime": null},
+    "T94D8": {"stratum": "R", "answer_with_sentence": 1195.73, "regime": null},
+    "TCF8E": {"stratum": "D", "answer_with_sentence": 967.98, "regime": null},
+    "T860D": {"stratum": "R", "answer_with_sentence": 1195.73, "regime": null},
+    "T5707": {"stratum": "K", "answer_with_sentence": 967.98, "regime": "same as TB26A"}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": ["T860D reading"], "defect_flags": ["other", "rendering_not_minimal"],
+  "defect_reasons": {
+    "other": "T860D ('shortened by 55 nm before it reached the metal surface') sits awkwardly with 'Light of wavelength 250 nm falls on a metal surface': it can be read as 250 nm being the source wavelength (answer 1195.73 km/s) or as the 250 nm already describing the light at the surface (answer unchanged), so the sentence is ambiguous.",
+    "rendering_not_minimal": "TA8F1 and TCF8E say 'a small amount' with no number, so they do not carry the same number and unit (55 nm) as their apparent counterparts TF3E8 and TEF5E."
+  },
+  "defect_severity": {"other": "medium", "rendering_not_minimal": "low"},
+  "counterexamples": [],
+  "notes": "Base: E = 1240/250 = 4.96 eV, K = 2.66 eV, v = 3e5*sqrt(5.32/511000) = 967.98 km/s (v/c ~ 0.0032, non-relativistic fine). With lambda = 195 nm: E = 6.35897 eV, K = 4.05897 eV, v = 3e5*sqrt(8.11795/511000) = 1195.73 km/s. Intensity could alternatively be classed D; I chose K because it belongs to the same light and is irrelevant only in the single-photon regime."
+}

@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch16",
+  "item_id": "M250-S213",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:25:00Z", "completed_at": "2026-11-20T10:32:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "tan(theta) = Vd*ell/(2 d Va); Y = tan(theta)*(ell/2 + L)", "assumptions": ["start from rest", "non-relativistic", "uniform field inside plates, zero outside", "gravity neglected"], "answer": 4.0625, "unit": "cm"},
+  "stratum_assignments": {
+    "TC114": {"stratum": "D", "answer_with_sentence": 4.0625, "regime": null},
+    "T9EB9": {"stratum": "D", "answer_with_sentence": 4.0625, "regime": null},
+    "T50A6": {"stratum": "D", "answer_with_sentence": 4.0625, "regime": null},
+    "T2D42": {"stratum": "C", "answer_with_sentence": 4.0625, "regime": null},
+    "T0F82": {"stratum": "R", "answer_with_sentence": 2.19595, "regime": null},
+    "TC023": {"stratum": "R", "answer_with_sentence": 2.19595, "regime": null},
+    "T40D5": {"stratum": "D", "answer_with_sentence": 4.0625, "regime": null},
+    "TD80D": {"stratum": "C", "answer_with_sentence": 4.0625, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TD80D 'Each ion weighs 63 u' uses 'weighs' with a mass unit; loose but conventional wording."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Verified certified answers: Va=3100: tan=5/62=0.080645, Y=0.080645*32.5=2.62097 cm; Va=3700: 5/74*32.5=2.19595 cm; Va=5200: 5/104*32.5=1.5625 cm; base 0.125*32.5=4.0625 cm. All ions still clear the plates (exit offset <= 3.125 mm < 5 mm). Mass cancels (expression_with_q puts q in u without conversion, but it cancels identically, so harmless). D claims for oscilloscope electrons and earlier run hold. Minimal pairs T40D5/TC023 and T9EB9/T0F82 both state 1700 V and differ only in attachment; numeral-free twins correct; T2D42/TD80D both 63 u. Agrees with my pass 1."
+}

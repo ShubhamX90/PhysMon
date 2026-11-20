@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch09",
+  "item_id": "M250-S276",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:25:00Z", "completed_at": "2026-11-20T10:37:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Stated tunnelling model T = exp(-2 kappa a), kappa = sqrt(2 m (V0 - E))/hbar; equal particle fluxes and equal charge (+e) give I_p/I_d = T_p/T_d = exp(2 a (kappa_d - kappa_p))", "assumptions": ["prescribed transmission formula with no prefactor (stated)", "equal particle rates (stated), both particles charge +e", "V0 - E = 0.4 eV for both (same kinetic energy)", "u = 1.66054e-27 kg, eV = 1.602177e-19 J"], "answer": 31.42, "unit": "1"},
+  "stratum_assignments": {
+    "TC752": {"stratum": "C", "answer_with_sentence": 31.42, "regime": null},
+    "T2708": {"stratum": "K", "answer_with_sentence": 31.42, "regime": "Thermal energy spread negligible compared with the 0.4 eV barrier excess (0.028 eV << 0.4 eV), so the stated monoenergetic exponential model applies"},
+    "TF273": {"stratum": "D", "answer_with_sentence": 31.42, "regime": null},
+    "TE9A5": {"stratum": "D", "answer_with_sentence": 31.42, "regime": null},
+    "TAEE0": {"stratum": "K", "answer_with_sentence": 31.42, "regime": "Thermal energy spread negligible compared with the 0.4 eV barrier excess (0.028 eV << 0.4 eV)"},
+    "T7B68": {"stratum": "D", "answer_with_sentence": 31.42, "regime": null},
+    "T87E1": {"stratum": "R", "answer_with_sentence": 56.98, "regime": null},
+    "TEED5": {"stratum": "C", "answer_with_sentence": 31.42, "regime": null},
+    "TF88C": {"stratum": "R", "answer_with_sentence": 56.98, "regime": null},
+    "T1B32": {"stratum": "D", "answer_with_sentence": 31.42, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "U = 0.4 eV = 6.40871e-20 J; m_p = 1.672633e-27 kg; kappa_p = sqrt(2 m_p U)/hbar = 1.464201e-23/1.0546e-34 = 1.388395e11 m^-1; kappa_d = kappa_p sqrt(2.01355/1.00728) = 1.388395e11 x 1.413859 = 1.962995e11 m^-1; 2a(kappa_d - kappa_p) = 6e-11 x 5.74600e10 = 3.4476; ratio = e^3.4476 = 31.42. With 0.55 eV: exponent x sqrt(1.375) = 4.0427, ratio = 56.98. Incident current 5.2 nA per beam: same charge so equal currents is equivalent to equal particle rates; the current multiplies both transmitted currents and cancels (C). Thermal energy sentences: under the prescribed model they do not enter; I classify as K (would matter only if the energy spread were comparable to the 0.4 eV barrier excess); D would also be defensible. The 'step at the guard electrode' is a separate electrode beside the barrier, not the barrier the beams strike, so D. Pairs: TC752/TEED5 and T2708/TAEE0 are wording variants with identical numbers; TF273/T7B68/T87E1/TF88C all 0.15 eV; TE9A5/T1B32 are numeral-free ('a little')."
+}

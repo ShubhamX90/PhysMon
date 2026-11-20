@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch30",
+  "item_id": "M250-S218",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:51:00Z", "completed_at": "2026-11-20T11:00:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Parallel-plate capacitor at fixed potential difference: eps0 A = C0 d0; force between plates F = eps0 A V^2/(2 d^2) = C0 d0 V^2/(2 d^2).",
+    "assumptions": ["vacuum between plates", "no edge effects", "ideal battery keeps V = 900 V", "quasi-static separation"],
+    "answer": 0.00324,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "TD5A9": {"stratum": "D", "answer_with_sentence": 0.00324, "regime": null},
+    "T7BA3": {"stratum": "D", "answer_with_sentence": 0.00324, "regime": null},
+    "T75D2": {"stratum": "K", "answer_with_sentence": 0.00324, "regime": "no breakdown while the largest field reached (900 V / 2 mm = 450 kV/m at the start) stays below 1900 kV/m"},
+    "T0373": {"stratum": "R", "answer_with_sentence": 0.00729, "regime": null},
+    "TDD7D": {"stratum": "D", "answer_with_sentence": 0.00324, "regime": null},
+    "TD96B": {"stratum": "R", "answer_with_sentence": 0.00729, "regime": null},
+    "T56FA": {"stratum": "K", "answer_with_sentence": 0.00324, "regime": "no breakdown while the largest field (450 kV/m) is below 1900 kV/m"},
+    "TAF23": {"stratum": "D", "answer_with_sentence": 0.00324, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "eps0 A = 100 pF x 2 mm = 2e-13 F m. F = 2e-13 x 900^2/(2 x (5e-3)^2) = 3.24e-3 N. With 1350 V: 7.29e-3 N. Even with 1350 V the largest field (675 kV/m at 2 mm) is below 1900 kV/m, so the breakdown sentences are K. T0373 does not say when the extra battery is connected, but the final force depends only on final V and d, so the answer is the same either way. Breakdown sentences state the same 1900 kV/m in two wordings; the 450 V sentences agree."
+}

@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch02",
+  "item_id": "M250-S211",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:24:00Z", "completed_at": "2026-11-20T10:31:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Uniform cavity field E = rho d/(3 eps0) = E0 d / R; a = q0 E / m",
+    "assumptions": ["Ball material treated with permittivity eps0, charge fixed", "Cavity wholly inside", "Gravity neglected, release from rest"],
+    "answer": 48.0,
+    "unit": "m/s^2"
+  },
+  "stratum_assignments": {
+    "TAF10": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null},
+    "T1D94": {"stratum": "R", "answer_with_sentence": 20.0, "regime": null},
+    "TEFF1": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null},
+    "T052D": {"stratum": "C", "answer_with_sentence": 48.0, "regime": null},
+    "TD82F": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null},
+    "T4613": {"stratum": "C", "answer_with_sentence": 48.0, "regime": null},
+    "T2176": {"stratum": "R", "answer_with_sentence": 20.0, "regime": null},
+    "T7F8C": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The C cancellation relations are written loosely ('field of the removed ball at distance d from its centre'; 'cavity field = that field') rather than as the full superposition rho(r - r')/(3 eps0), though the magnitude rho d/(3 eps0) and the a^3 cancellation are correct; the ball's permittivity is also taken as eps0 without statement (standard idealisation)."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Verified: base 48 m/s^2; clip 0.25 g: 0.024/0.00075 = 32; 0.7 g: 20; 1.4 g: 0.024/0.0019 = 12.6316 m/s^2. Cavity radii 3.5, 5.5, 8.5 cm are all <= R - d = 14 cm, so the cavity stays wholly inside at every listed value and the radius cancels. Minimal pairs TAF10/T1D94 (same 0.7 g, timing differs) and TEFF1/T2176 (same 0.7 g, flag vs bead) hold; numeral-free twins T7F8C and TD82F match their twins except for 'small' replacing '0.7 g'. Agrees with pass 1."
+}

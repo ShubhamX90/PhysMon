@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch06",
+  "item_id": "M250-S251",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:17:00Z", "completed_at": "2026-11-20T10:25:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation in inverse-square field: v^2/2 = g R^2 (1/R - 1/(R+h)) => h = v^2 R / (2 g R - v^2)",
+    "assumptions": ["launch speed is the speed at the surface at burnout (impulsive launch)", "no atmosphere, no rotation, no other bodies (stated)", "v below escape speed sqrt(2gR) = 2372 m/s"],
+    "answer": 1157013,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TE544": {"stratum": "C", "answer_with_sentence": 1157013, "regime": null},
+    "T9571": {"stratum": "D", "answer_with_sentence": 1157013, "regime": null},
+    "TFA02": {"stratum": "D", "answer_with_sentence": 1157013, "regime": null},
+    "T9D2A": {"stratum": "D", "answer_with_sentence": 1157013, "regime": null},
+    "T04BD": {"stratum": "R", "answer_with_sentence": 1878541, "regime": null},
+    "TE24B": {"stratum": "C", "answer_with_sentence": 1157013, "regime": null},
+    "T9791": {"stratum": "R", "answer_with_sentence": 1878541, "regime": null},
+    "TAA9D": {"stratum": "D", "answer_with_sentence": 1157013, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "In TFA02/T9D2A the pronoun 'it' follows the weather-balloon sentence and so could refer to the balloon; and in T04BD 'before the firing ... 210 m/s given to the probe' leaves slightly open whether the motor adds 1500 m/s or brings the probe to 1500 m/s, though the natural reading is a total of 1710 m/s."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "gR = 1.62*1.737e6 = 2.81394e6 m^2/s^2; 2gR = 5.62788e6. Base: h = 2.25e6*1.737e6/3.37788e6 = 1.157013e6 m (1157.0 km). With 1710 m/s: v^2 = 2.9241e6, h = 2.9241e6*1.737e6/2.70378e6 = 1.878541e6 m (1878.5 km), still below escape. Mass cancels (appears on both sides of energy equation). TFA02/TFE: earlier firing leaves no state, D regardless of whether 'it' is the probe or the balloon. Mass sentences TE544/TE24B both 270 kg; speed sentences all 210 m/s."
+}

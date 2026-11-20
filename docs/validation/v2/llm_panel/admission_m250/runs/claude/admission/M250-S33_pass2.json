@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch26",
+  "item_id": "M250-S33",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:33:00Z", "completed_at": "2026-11-20T10:38:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Impulse-momentum: F_avg = m v (1 + e) / dt",
+    "assumptions": ["rigid fixed wall", "head-on", "weight neglected during contact"],
+    "answer": 600.0,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T1A02": {"stratum": "R", "answer_with_sentence": 900.0, "regime": null},
+    "T7A97": {"stratum": "D", "answer_with_sentence": 600.0, "regime": null},
+    "T1D0F": {"stratum": "R", "answer_with_sentence": 900.0, "regime": null},
+    "TEFB0": {"stratum": "D", "answer_with_sentence": 600.0, "regime": null},
+    "T174A": {"stratum": "D", "answer_with_sentence": 600.0, "regime": null},
+    "T79DE": {"stratum": "D", "answer_with_sentence": 600.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Claims match pass 1. Checked: (0.185)(32)/0.008 = 740 N; (0.225)(32)/0.008 = 900 N; (0.270)(32)/0.008 = 1080 N. Minimal pairs T7A97/T1A02 and T174A/T1D0F share 75 g and differ only in attachment/time; numeral-free twins by design. Minor wording point (not flagged): T1D0F 'was stuck to the ball before it hit the wall' relies on the reader taking the clay to remain on the ball through the impact, and the stated speed, restitution coefficient and contact time are taken to apply to the ball-plus-clay; both are the natural reading within the item.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

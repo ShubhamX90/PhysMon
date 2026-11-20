@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch14",
+  "item_id": "M250-S66",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:52:00Z", "completed_at": "2026-11-20T11:02:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "d sin(theta) = m lambda, normal incidence; dth = asin(2*650/4000) - asin(2*450/4000)", "assumptions": ["normal incidence", "collimated beam", "same side of central maximum"], "answer": 5.9627, "unit": "deg"},
+  "stratum_assignments": {
+    "TD8FB": {"stratum": "R", "answer_with_sentence": 2.70537, "regime": null},
+    "T19FA": {"stratum": "R", "answer_with_sentence": 2.70537, "regime": null},
+    "T9433": {"stratum": "D", "answer_with_sentence": 5.9627, "regime": null},
+    "T8CA3": {"stratum": "D", "answer_with_sentence": 5.9627, "regime": null},
+    "T30F6": {"stratum": "D", "answer_with_sentence": 5.9627, "regime": null},
+    "T2E60": {"stratum": "C", "answer_with_sentence": 5.9627, "regime": null},
+    "TFEEC": {"stratum": "D", "answer_with_sentence": 5.9627, "regime": null},
+    "TBC0D": {"stratum": "C", "answer_with_sentence": 5.9627, "regime": null}
+  },
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "The screen sentences use 'the screen' although no screen is introduced, and the question does not state that the angle is wanted in degrees (target unit deg is conventional but not written)."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Verified R answers: 520 nm: asin(0.26) = 0.263022 rad, separation 0.067990 rad = 3.8955 deg; 560 nm: 2.7054 deg; 490 nm: asin(0.245) = 0.247520 rad, separation 0.083492 rad = 4.7837 deg (certified 4.78374, matches). Base 5.9627 deg matches pass 1. All second-order maxima exist (sin < 1). In pass 1 I classed the screen distance as D; the authors class it C via y = L tan(theta), theta = atan(y/L). Both are defensible since L never affects the angle; the C framing is internally correct, so I accept it and do not treat the difference as a defect. Minimal pairs T30F6/T19FA (earlier measurement vs this measurement) and TFEEC/TD8FB (second spectrometer vs beam) carry the same 560 nm and differ only in attachment (TD8FB uses present tense 'now replaces' while T19FA uses 'replaced', but the pairs claimed are as stated). T9433 and T8CA3 are declared numeral-free controls."
+}

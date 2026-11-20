@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch08",
+  "item_id": "M250-S226",
+  "pass_number": 2,
+  "started_at": "2026-11-20T00:42:00Z", "completed_at": "2026-11-20T00:50:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Series radiative exchange between infinite parallel grey surfaces; equal gap resistances give T_s1^4 = (2 Th^4 + Tc^4)/3",
+    "assumptions": ["infinite parallel opaque diffuse grey surfaces of equal emissivity", "steady state, radiation only, vacuum", "thin shields with a single temperature"],
+    "answer": 724.66,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "TF3A9": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "T1186": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "T3B75": {"stratum": "C", "answer_with_sentence": 724.66, "regime": null},
+    "TAE28": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "TBE0E": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "T70E5": {"stratum": "C", "answer_with_sentence": 724.66, "regime": null},
+    "T0D5D": {"stratum": "R", "answer_with_sentence": 787.52, "regime": null},
+    "T7BAD": {"stratum": "R", "answer_with_sentence": 787.52, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "Progressive 'is then warming ... by a further 70 K' (T7BAD) is slightly awkward against a steady state, and the claim metadata labels the kettle sentences' quantity as 'a further warming of the hot plate'; neither affects the answers."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Verified certified answers: Th = 835, 870, 940 K give 756.07, 787.52, 850.49 K; base 724.66 K; all agree with pass 1. Relation Ts = T1*((2 + (T2/T1)^4)/3)^(1/4) is equivalent to mine. Emissivity cancellation via G = sigma*eps/(2 - eps) for equal emissivities is correct. Minimal pairs TAE28/T7BAD and TF3A9/T0D5D share 70 K; T1186 and TBE0E are declared numeral-free twins. No disagreement with pass 1."
+}

@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch19",
+  "item_id": "M250-S238",
+  "pass_number": 1,
+  "started_at": "2026-11-20T00:34:00Z", "completed_at": "2026-11-20T00:43:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Circular Couette flow between coaxial cylinders (inner rotating, outer fixed, no-slip): torque T = 4 pi mu L Omega R1^2 R2^2/(R2^2 - R1^2); power P = T Omega.",
+    "assumptions": ["steady laminar flow, no slip (stated)", "no end effects (stated)", "constant viscosity (stated)", "exact annular solution rather than the thin-gap approximation"],
+    "answer": 0.1829,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T2F2B": {"stratum": "K", "answer_with_sentence": 0.1829, "regime": "Taylor vortices would alter the torque only above the stated onset; 120 rpm << 6500 rpm."},
+    "TF18F": {"stratum": "K", "answer_with_sentence": 0.1829, "regime": "Laminar Couette result holds below 6500 rpm; 120 rpm is inside."},
+    "TEF4A": {"stratum": "R", "answer_with_sentence": 0.4831, "regime": null},
+    "TFDA3": {"stratum": "D", "answer_with_sentence": 0.1829, "regime": null},
+    "T564F": {"stratum": "R", "answer_with_sentence": 0.4831, "regime": null},
+    "T7A33": {"stratum": "D", "answer_with_sentence": 0.1829, "regime": null},
+    "T5A9C": {"stratum": "C", "answer_with_sentence": 0.1829, "regime": null},
+    "T0105": {"stratum": "D", "answer_with_sentence": 0.1829, "regime": null},
+    "T4956": {"stratum": "D", "answer_with_sentence": 0.1829, "regime": null},
+    "TF420": {"stratum": "C", "answer_with_sentence": 0.1829, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Omega = 4 pi = 12.566 rad/s; R1^2 R2^2/(R2^2-R1^2) = 1.936e-7/8.4e-5 = 2.3048e-3 m^2; 4 pi mu L = 0.50265; P = 0.50265 * 157.914 * 2.3048e-3 = 0.18294 W. At 195 rpm: 0.18294 * (195/120)^2 = 0.48309 W. A thin-gap (planar Couette) approximation would give 0.159 W, about 13% lower; the exact annular solution is the one implied by the stated laminar, steady, end-free flow. Density: it enters only the radial pressure balance of steady azimuthal flow, not the shear stress, so it drops out of the torque (C; it would matter only for stability, which the laminar statement fixes, so K would also be defensible). T4956 and TFDA3 carry no number."
+}

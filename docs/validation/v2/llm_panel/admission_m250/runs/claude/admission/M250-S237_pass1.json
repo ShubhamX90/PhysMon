@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch30",
+  "item_id": "M250-S237",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:25:00Z", "completed_at": "2026-11-20T10:38:00Z", "minutes_spent": 13,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Shallow-water wave speed c = sqrt(g h) with h linear in x; t = integral dx/sqrt(g h) = 2L/(sqrt(g)(sqrt(h1)+sqrt(h2))).",
+    "assumptions": ["depth varies linearly with horizontal distance", "local shallow-water speed sqrt(g h) applies (wavelength >> depth)", "amplitude, refraction, reflection neglected", "still sea"],
+    "answer": 1751.3,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TA114": {"stratum": "K", "answer_with_sentence": 1751.3, "regime": "shallow-water regime: wavelength much greater than depth (roughly lambda > 20 h, i.e. > 4 km for h = 200 m); 170 km is well inside"},
+    "TF161": {"stratum": "D", "answer_with_sentence": 1751.3, "regime": null},
+    "T8491": {"stratum": "R", "answer_with_sentence": 1611.6, "regime": null},
+    "T6BFE": {"stratum": "D", "answer_with_sentence": 1751.3, "regime": null},
+    "T1E46": {"stratum": "R", "answer_with_sentence": 1611.6, "regime": null},
+    "TEB36": {"stratum": "D", "answer_with_sentence": 1751.3, "regime": null},
+    "T5E18": {"stratum": "K", "answer_with_sentence": 1751.3, "regime": "shallow-water regime: wavelength much greater than depth; 170 km >> 200 m"},
+    "T7BD4": {"stratum": "D", "answer_with_sentence": 1751.3, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The R sentences say dredging adds 33 m 'at the landward end' without saying the slope stays uniform from 200 m to 93 m; a local hole at the end would leave the time essentially unchanged, though the base's 'slopes uniformly' supports the uniform reading."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base: sqrt(200)+sqrt(60) = 21.8881; times sqrt(9.8) = 68.5206; t = 120000/68.5206 = 1751.3 s. With landward depth 93 m (uniform slope 200 -> 93 m): sqrt(200)+sqrt(93) = 23.7858; times 3.13050 = 74.4613; t = 1611.6 s. T8491 (dredged before the tsunami arrived) leaves the deepened state in place, so it is R. TEB36/TF161 ('for an earlier survey only') are D, though the phrase is somewhat artificial. Harbour sentences D. Wavelength sentences are K (shallow-water regime). Paired sentences all state 33 m or 170 km consistently; TF161 and T6BFE use 'a little' with no number."
+}

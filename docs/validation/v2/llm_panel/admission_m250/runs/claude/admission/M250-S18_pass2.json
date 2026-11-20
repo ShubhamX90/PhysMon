@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch11",
+  "item_id": "M250-S18",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:48:00Z", "completed_at": "2026-11-20T10:55:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "W = p1 V1 ln(V2/V1) for slow isothermal ideal-gas expansion",
+    "assumptions": ["ideal gas", "quasi-static isothermal", "given p and V are initial values"],
+    "answer": 693.147,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "TFCFF": {"stratum": "D", "answer_with_sentence": 693.147, "regime": null},
+    "TC41F": {"stratum": "R", "answer_with_sentence": 1223.78, "regime": null},
+    "TBCED": {"stratum": "D", "answer_with_sentence": 693.147, "regime": null},
+    "TEE4E": {"stratum": "D", "answer_with_sentence": 693.147, "regime": null},
+    "T6073": {"stratum": "R", "answer_with_sentence": 1223.78, "regime": null},
+    "T4C17": {"stratum": "D", "answer_with_sentence": 693.147, "regime": null},
+    "TC4FD": {"stratum": "C", "answer_with_sentence": 693.147, "regime": null},
+    "T37B6": {"stratum": "C", "answer_with_sentence": 693.147, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "TC41F and T6073 extend the expansion past the stated 2x end point without restating that the continued part is slow and isothermal; the certified p1V1 ln(q) relies on reading it as a continuation of the same process, which is the natural but not the only reading."
+  },
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Verified: p1V1 = 1000 J; base 1000 ln2 = 693.147 J; R values 1000 ln 2.6 = 955.511, ln 3.4 -> 1223.78, ln 4.5 -> 1504.08 J. Temperature cancels (nR = p1V1/T), so C is correct and agrees with pass 1. Minimal pairs T4C17/T6073 ('second cylinder' vs 'this cylinder') and TEE4E/TC41F ('earlier experiment' vs 'this experiment') share 3.4 and differ only in attachment; TFCFF and TBCED are declared numeral-free controls. Pass-1 judgement unchanged."
+}

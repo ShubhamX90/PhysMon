@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch10",
+  "item_id": "M250-S53",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:15:00Z", "completed_at": "2026-11-20T10:21:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Fourier conduction through series layers: Q = A dT / (L1/k1 + L2/k2)",
+    "assumptions": ["steady one-dimensional conduction (stated)", "perfect contact, no edge loss (stated)", "constant conductivities"],
+    "answer": 160.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "TA69F": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null},
+    "TFB61": {"stratum": "R", "answer_with_sentence": 264.0, "regime": null},
+    "T9459": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null},
+    "T91A5": {"stratum": "R", "answer_with_sentence": 264.0, "regime": null},
+    "T2BD1": {"stratum": "K", "answer_with_sentence": 160.0, "regime": "near-ambient temperatures where the conductivities are constant (and no phase change)"},
+    "T0538": {"stratum": "K", "answer_with_sentence": 160.0, "regime": "near-ambient temperatures where the conductivities are constant (and no phase change)"},
+    "T6A3F": {"stratum": "K", "answer_with_sentence": 160.0, "regime": "temperature difference below 75 K (20 K here), foam intact"},
+    "TC890": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null},
+    "T3307": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null},
+    "TB011": {"stratum": "K", "answer_with_sentence": 160.0, "regime": "temperature difference up to 75 K (20 K here), foam intact"}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Per-area resistances: brick 0.2/0.8 = 0.25, foam 0.05/0.04 = 1.25, sum 1.5 m^2K/W; Q = 12*20/1.5 = 160 W. With dT = 33 K: 264 W. Earlier-survey and shed sentences are D. Absolute temperature 276 K does not enter with constant k; I classed it K (could also be argued C-like/D). Variants consistently state 13 K and 75 K."
+}

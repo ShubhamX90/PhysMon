@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch21",
+  "item_id": "M250-S35",
+  "pass_number": 1,
+  "started_at": "2026-11-20T00:36:00Z", "completed_at": "2026-11-20T00:43:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conical pendulum: T cos(theta) = mg, T sin(theta) = m omega^2 L sin(theta) => period = 2 pi sqrt(L cos(theta)/g)",
+    "assumptions": ["string light and inextensible", "steady conical motion at 30 degrees", "g = 9.8 m/s^2"],
+    "answer": 2.046,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T41B5": {"stratum": "R", "answer_with_sentence": 2.575, "regime": null},
+    "T3E4C": {"stratum": "D", "answer_with_sentence": 2.046, "regime": null},
+    "T3589": {"stratum": "C", "answer_with_sentence": 2.046, "regime": null},
+    "T8044": {"stratum": "C", "answer_with_sentence": 2.046, "regime": null},
+    "TC5DB": {"stratum": "R", "answer_with_sentence": 2.575, "regime": null},
+    "T5418": {"stratum": "D", "answer_with_sentence": 2.046, "regime": null},
+    "T422F": {"stratum": "D", "answer_with_sentence": 2.046, "regime": null},
+    "T0789": {"stratum": "D", "answer_with_sentence": 2.046, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["insufficient_boundary_condition"],
+  "defect_reasons": {"insufficient_boundary_condition": "T41B5 says the string is 'then' lengthened by 0.7 m, after the stated motion, without saying the new motion is again a steady cone at 30 degrees (or which motion the question asks about), so the period could be 2.046 s (original motion) or 2.575 s (1.9 m at 30 degrees) or something else at an unstated new angle."},
+  "defect_severity": {"insufficient_boundary_condition": "high"},
+  "counterexamples": ["T41B5: if the question refers to the motion described before the lengthening, the answer is 2.046 s; if the lengthened bob settles at a different angle (e.g. 45 degrees, L = 1.9 m), the period is 2 pi sqrt(1.9 x 0.7071/9.8) = 2.326 s."],
+  "notes": "Base: 2 pi sqrt(1.2 x 0.866025/9.8) = 2 pi x 0.32564 = 2.046 s. With L = 1.9 m at 30 degrees: 2 pi sqrt(1.64545/9.8) = 2 pi x 0.40976 = 2.575 s. TC5DB is unambiguous (lengthened before the motion, which then has the stated angle) and gives 2.575 s, though it slightly strains the base 'string of length 1.2 m'. Mass cancels (C). Numeral-free sentences T3E4C and T0789 lack the 0.7 m of their counterparts."
+}

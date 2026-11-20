@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch22",
+  "item_id": "M250-S31",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:26:00Z", "completed_at": "2026-11-20T10:35:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Projectile motion: x = v sqrt(2h/g)", "assumptions": ["horizontal launch from the cliff edge", "no air resistance", "uniform g = 9.8 m/s^2", "level ground"], "answer": 30.305, "unit": "m"},
+  "stratum_assignments": {
+    "TA87E": {"stratum": "C", "answer_with_sentence": 30.305, "regime": null},
+    "T09E8": {"stratum": "D", "answer_with_sentence": 30.305, "regime": null},
+    "T4ABD": {"stratum": "D", "answer_with_sentence": 30.305, "regime": null},
+    "TA0DB": {"stratum": "C", "answer_with_sentence": 30.305, "regime": null},
+    "T1E37": {"stratum": "D", "answer_with_sentence": 30.305, "regime": null},
+    "TFC1C": {"stratum": "D", "answer_with_sentence": 30.305, "regime": null},
+    "TA432": {"stratum": "R", "answer_with_sentence": 39.512, "regime": null},
+    "TE4A5": {"stratum": "D", "answer_with_sentence": 30.305, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["insufficient_boundary_condition", "contradictory_distractor_statement"],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T1E37 ('The thrower then climbs onto a platform 14 m above the cliff edge'), appended after the throw has been described, most naturally places the climb after the throw (exactly as 'The surveyor then climbs' in its minimal pair T4ABD is read), so it does not fix that the stone is launched from the platform and the certified R answer 39.51 m is not uniquely determined; the D answer 30.30 m is equally or more defensible.",
+    "contradictory_distractor_statement": "The R sentences require a launch 14 m above the cliff edge, while the problem says the stone is thrown from the edge of a cliff 20 m above the ground; for TA432 the launch from the platform is only implied (the thrower climbed up before the throw), so the tension is real but mild."
+  },
+  "defect_severity": {"insufficient_boundary_condition": "high", "contradictory_distractor_statement": "medium"},
+  "counterexamples": ["T1E37 read as 'after throwing the stone, the thrower climbs onto a platform': the range is 30.30 m, not the certified 39.51 m."],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "Numbers check: base 15*sqrt(40/9.8) = 30.305 m; q=6: 15*sqrt(52/9.8) = 34.55; q=14: 15*sqrt(68/9.8) = 39.51; q=28: 15*sqrt(96/9.8) = 46.95. Mass cancels (C), correct. Earlier-experiment and surveyor sentences D, correct; numeral-free twins are declared controls. Disagreement with authors is only on T1E37, which I took as D in pass 1 and still do; the problem is that 'then' places the climb after the described throw. Fix: 'The thrower throws the stone from a platform 14 m above the cliff edge' or 'before throwing'. answer_correct=false refers to the certified R answer for T1E37 under the natural reading."
+}

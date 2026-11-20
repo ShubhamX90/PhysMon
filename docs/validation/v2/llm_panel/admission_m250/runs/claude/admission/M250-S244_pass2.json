@@ -1,0 +1,37 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch32",
+  "item_id": "M250-S244",
+  "pass_number": 2,
+  "started_at": "2026-11-20T11:01:00Z", "completed_at": "2026-11-20T11:09:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "E_tot = K + 2mc^2; pc = sqrt(K^2 + 2K mc^2); E_forward = (E_tot + pc)/2",
+    "assumptions": ["positron annihilates in flight with the stated kinetic energy", "electron free and at rest", "exactly two collinear photons"],
+    "answer": 1514.66,
+    "unit": "keV"
+  },
+  "stratum_assignments": {
+    "TEB76": {"stratum": "D", "answer_with_sentence": 1514.66, "regime": null},
+    "TE76E": {"stratum": "R", "answer_with_sentence": 1649.68, "regime": null},
+    "TF0E4": {"stratum": "R", "answer_with_sentence": 1649.68, "regime": null},
+    "TF498": {"stratum": "D", "answer_with_sentence": 1514.66, "regime": null},
+    "TE53B": {"stratum": "D", "answer_with_sentence": 1514.66, "regime": null},
+    "TB9B8": {"stratum": "D", "answer_with_sentence": 1514.66, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 4,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "Tense mismatch in TEB76/TB9B8 ('gave ... before it annihilates'), and the input K is the energy on leaving the source, with no energy loss before annihilation implied rather than stated (vacuum chamber, in-flight annihilation is the clear intended reading)."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Certified answers verified: K=800 -> 1514.66; K=870 -> (1892 + 1282.98)/2 = 1587.49; K=930 -> (1952 + 1347.35)/2 = 1649.68; K=1040 -> (2062 + 1464.40)/2 = 1763.20 keV. Relations are correct for collinear two-photon annihilation of a moving positron on a resting electron. Minimal pairs TEB76/TE76E and TF498/TF0E4 share 130 keV and differ only in time/attachment; numeral-free twins TB9B8/TEB76 and TE53B/TF498 as described. Agrees with pass 1."
+}

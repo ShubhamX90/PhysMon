@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch04",
+  "item_id": "M250-S24",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:27:00Z", "completed_at": "2026-11-20T10:32:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Carnot efficiency for a reversible engine: W = Qh (1 - Tc/Th)",
+    "assumptions": ["reversible engine between two reservoirs", "Qh = 800 kJ per cycle"],
+    "answer": 400,
+    "unit": "kJ"
+  },
+  "stratum_assignments": {
+    "T82B8": {"stratum": "R", "answer_with_sentence": 480, "regime": null},
+    "TB635": {"stratum": "C", "answer_with_sentence": 400, "regime": null},
+    "TD300": {"stratum": "D", "answer_with_sentence": 400, "regime": null},
+    "TF51D": {"stratum": "D", "answer_with_sentence": 400, "regime": null},
+    "T9558": {"stratum": "R", "answer_with_sentence": 480, "regime": null},
+    "TC060": {"stratum": "D", "answer_with_sentence": 400, "regime": null},
+    "T77C1": {"stratum": "D", "answer_with_sentence": 400, "regime": null},
+    "TBF70": {"stratum": "C", "answer_with_sentence": 400, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T82B8 'A burner then warms the hot reservoir' does not say whether the warming precedes the cycle asked about, and with a hotter reservoir it is assumed the heat taken stays 800 kJ; TC060 warming a kettle of water by 150 K is physically odd (would exceed boiling for ordinary water) though disconnected."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base: 800*(1 - 300/600) = 400 kJ. With Th = 750 K and Qh still 800 kJ: 800*(1 - 0.4) = 480 kJ. Amount of ideal gas cancels from the Carnot efficiency (C). Kettle and earlier-experiment sentences are D. T77C1 and TF51D are numeral-free ('a few kelvin') variants."
+}

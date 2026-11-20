@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch20",
+  "item_id": "M250-S259",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:29:30Z", "completed_at": "2026-11-20T10:42:00Z", "minutes_spent": 13,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Maxwell speed distribution: fraction with speed > v is erfc(x) + (2/sqrt(pi)) x exp(-x^2), x = v/v_p, v_p = sqrt(2kT/m); amount = n * fraction", "assumptions": ["ideal monatomic gas in equilibrium", "T = 300 K at measurement", "1 u = 1.66054e-27 kg"], "answer": 0.04648, "unit": "mol"},
+  "stratum_assignments": {
+    "T2124": {"stratum": "D", "answer_with_sentence": 0.04648, "regime": null},
+    "TA6B3": {"stratum": "R", "answer_with_sentence": 0.05404, "regime": null},
+    "TA645": {"stratum": "D", "answer_with_sentence": 0.04648, "regime": null},
+    "T5A1D": {"stratum": "C", "answer_with_sentence": 0.04648, "regime": null},
+    "T3034": {"stratum": "C", "answer_with_sentence": 0.04648, "regime": null},
+    "T408F": {"stratum": "D", "answer_with_sentence": 0.04648, "regime": null},
+    "T4B89": {"stratum": "D", "answer_with_sentence": 0.04648, "regime": null},
+    "TA78B": {"stratum": "R", "answer_with_sentence": 0.05404, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 4, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "m = 6.6471e-27 kg; 2kT/m = 1.24655e6 m^2/s^2; v_p = 1116.5 m/s; x = 1.79133, x^2 = 3.20886; erfc(x) = 0.011288; (2/sqrt(pi)) x e^{-x^2} = 0.081667; fraction 0.092955; amount 0.04648 mol. At 317 K: x^2 = 3.03677, x = 1.74263; erfc = 0.013722; second term 0.094365; fraction 0.108087; amount 0.05404 mol. Pressure: for fixed n and T the pressure only fixes the (unstated) volume and does not enter the speed distribution, so I class it C (it would equally be defensible as not entering at all). 62 kPa is well within the ideal-gas regime. Pressure variants T5A1D/T3034 differ only in wording; 17 K variants consistent; 'modest amount' sentences carry no number (numeral-free). The atomic mass unit value is not stated but is a standard constant."
+}

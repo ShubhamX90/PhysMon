@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch23",
+  "item_id": "M250-S267",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:22:00Z", "completed_at": "2026-11-20T10:28:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "t = R_th C ln(1/(1-p)), R_th = R1 R2/(R1+R2)", "assumptions": ["ideal battery and capacitor, capacitor uncharged at t = 0"], "answer": 140.78, "unit": "ms"},
+  "stratum_assignments": {
+    "T77C0": {"stratum": "C", "answer_with_sentence": 140.78, "regime": null},
+    "TA387": {"stratum": "D", "answer_with_sentence": 140.78, "regime": null},
+    "TC55C": {"stratum": "C", "answer_with_sentence": 140.78, "regime": null},
+    "TDA93": {"stratum": "R", "answer_with_sentence": 236.77, "regime": null},
+    "TE837": {"stratum": "R", "answer_with_sentence": 236.77, "regime": null},
+    "T1015": {"stratum": "D", "answer_with_sentence": 140.78, "regime": null},
+    "T7FFF": {"stratum": "D", "answer_with_sentence": 140.78, "regime": null},
+    "T6164": {"stratum": "D", "answer_with_sentence": 140.78, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified certified answers: base 140.782 ms; C + q = 28.2, 37, 55 uF give 180.457, 236.770, 351.955 ms (R_th = 2.77913 kOhm, ln 10 = 2.302585). The emf cancellation expression is correct. Minimal pairs T1015/TDA93 and T6164/TE837 share 15 uF and differ only in attachment/time; numeral-free twins as described. Agrees with my pass 1."
+}

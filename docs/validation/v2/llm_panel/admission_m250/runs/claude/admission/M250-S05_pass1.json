@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch31",
+  "item_id": "M250-S05",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Rotational Newton's second law: tau_drive - tau_friction = I*alpha, I = (1/2) M R^2 for a uniform solid disc", "assumptions": ["Disc rotates in the sense of the driving torque so friction opposes it", "Friction torque constant as stated", "Flywheel on a separate shaft is not coupled to the disc"], "answer": 36.0, "unit": "rad/s^2"},
+  "stratum_assignments": {
+    "TDFCA": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T3FE1": {"stratum": "C", "answer_with_sentence": 36.0, "regime": null},
+    "T8323": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "TADD2": {"stratum": "R", "answer_with_sentence": 24.0, "regime": null},
+    "TA851": {"stratum": "C", "answer_with_sentence": 36.0, "regime": null},
+    "T05A7": {"stratum": "K", "answer_with_sentence": 36.0, "regime": "Disc already rotating, so kinetic friction (1.5 N*m) applies; static friction only matters at rest, and 6 N*m exceeds 2.6 N*m anyway"},
+    "T5207": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T6122": {"stratum": "K", "answer_with_sentence": 36.0, "regime": "Disc already rotating, so kinetic friction applies; static friction only matters at rest"},
+    "TFEA1": {"stratum": "R", "answer_with_sentence": 24.0, "regime": null},
+    "TCF7E": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "I = 0.5*4*0.25^2 = 0.125 kg m^2; net torque 4.5 N*m; alpha = 36 rad/s^2. With a 2 kg coaxial disc of same radius bolted on: I = 0.1875, alpha = 24 rad/s^2 (assuming friction torque unchanged). Thickness: mass is given directly, so thickness does not enter I = MR^2/2 (would cancel via density if mass were derived); labelled C, arguably D. TDFCA and T8323 state no mass for the small disc whereas T5207 and TCF7E state 2 kg; if these are meant as variants of each other they differ in the number. TADD2/TFEA1/T5207/TCF7E all state 2 kg consistently; static friction sentences both 2.6 N*m."
+}

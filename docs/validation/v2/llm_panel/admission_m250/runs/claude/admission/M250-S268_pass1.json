@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch25",
+  "item_id": "M250-S268",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:28:00Z", "completed_at": "2026-11-20T10:37:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Steady state: zero-resistance winding shorts the second resistor, I = E/R1 = 3 A; L = mu0 N^2 pi r^2 / l = 1.42163e-3 H; energy dissipated after opening = (1/2) L I^2", "assumptions": ["long-solenoid inductance formula (l/r about 27)", "ideal battery and switch, no arc losses", "steady state reached before opening"], "answer": 0.0063974, "unit": "J"},
+  "stratum_assignments": {
+    "T212D": {"stratum": "D", "answer_with_sentence": 0.0063974, "regime": null},
+    "T000E": {"stratum": "R", "answer_with_sentence": 0.016893, "regime": null},
+    "T7621": {"stratum": "C", "answer_with_sentence": 0.0063974, "regime": null},
+    "T200B": {"stratum": "D", "answer_with_sentence": 0.0063974, "regime": null},
+    "T8F98": {"stratum": "D", "answer_with_sentence": 0.0063974, "regime": null},
+    "T0F51": {"stratum": "R", "answer_with_sentence": 0.016893, "regime": null},
+    "T5C53": {"stratum": "C", "answer_with_sentence": 0.0063974, "regime": null},
+    "TC1E1": {"stratum": "D", "answer_with_sentence": 0.0063974, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "L = 1.257e-6 x 800^2 x pi x 0.015^2 / 0.40 = 1.42163e-3 H. Base: I = 12/4 = 3 A, E = 0.5 x 1.42163e-3 x 9 = 6.3974e-3 J. With extra 7.5 V aiding: I = 19.5/4 = 4.875 A, E = 0.5 x 1.42163e-3 x 23.7656 = 1.6893e-2 J. Second resistance cancels: in steady state it carries no current (shorted by the zero-resistance winding) and after opening all stored energy ends in it whatever its value (it sets only the time constant). T000E 'Before the switch opens, the circuit also contains ... for one run only' is awkwardly worded: 'for one run only' could suggest a different run, but 'Before the switch opens' anchors it to the present run, so R; I mark clarity ambiguous for this sentence. Doorbell and 'earlier run' sentences are D."
+}

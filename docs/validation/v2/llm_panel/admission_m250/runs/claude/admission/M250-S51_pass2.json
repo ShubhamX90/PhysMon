@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch06",
+  "item_id": "M250-S51",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:42:30Z", "completed_at": "2026-11-20T10:50:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Reversible adiabatic: W_on = n R T1 (r^(gamma-1) - 1)/(gamma - 1)",
+    "assumptions": ["quasi-static adiabatic", "ideal gas, constant gamma"],
+    "answer": 4.04496,
+    "unit": "kJ"
+  },
+  "stratum_assignments": {
+    "T01D6": {"stratum": "R", "answer_with_sentence": 14.5619, "regime": null},
+    "T6088": {"stratum": "C", "answer_with_sentence": 4.04496, "regime": null},
+    "T6B54": {"stratum": "D", "answer_with_sentence": 4.04496, "regime": null},
+    "TF609": {"stratum": "D", "answer_with_sentence": 4.04496, "regime": null},
+    "T4224": {"stratum": "R", "answer_with_sentence": 14.5619, "regime": null},
+    "T75C2": {"stratum": "K", "answer_with_sentence": 4.04496, "regime": "stop irrelevant while the stated ratio r = 8 is below the stop ratio"},
+    "T226E": {"stratum": "C", "answer_with_sentence": 4.04496, "regime": null},
+    "T6655": {"stratum": "K", "answer_with_sentence": 4.04496, "regime": "only under the reading of a mechanical stop at ratio 15; the plain reading (piston comes to rest at ratio 15) contradicts the stated ratio 8"},
+    "T108C": {"stratum": "D", "answer_with_sentence": 4.04496, "regime": null},
+    "T2C06": {"stratum": "D", "answer_with_sentence": 4.04496, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["contradictory_distractor_statement"],
+  "defect_reasons": {"contradictory_distractor_statement": "T6655 'The piston stops at a compression ratio of 15' plainly states the piston comes to rest at ratio 15, contradicting the stated compression ratio 8; only T75C2's wording ('can be pushed in only until') expresses the intended limit."},
+  "defect_severity": {"contradictory_distractor_statement": "high"},
+  "counterexamples": ["Reading T6655 as the final state gives W = 1247.1*(15^0.4 - 1)/0.4 = 6.093 kJ, not 4.045 kJ; at the listed value 20 it would give 1247.1*(20^0.4 - 1)/0.4 = 1247.1*(3.3145-1)/0.4 = 7.216 kJ."],
+  "notes": "All certified answers verified: base 4.04496 kJ; n = 1.2, 1.8, 2.7 mol give 9.7079, 14.5619, 21.8428 kJ. Volume cancellation via p1V1 = nRT1 is correct. Regime 'r < q' for the stop is correct physics for the limit reading, and all listed limits (12, 15, 20) exceed 8. Minimal pairs T108C/T01D6 and T6B54/T4224 hold, numeral-free twins match. The only defect is the wording of T6655 (shared with the K claim), which I flagged in pass 1 and still judge a contradiction under the plain reading; the item would be valid if T6655 were reworded as a stop or limit (e.g. 'A stop prevents the piston going beyond a compression ratio of 15')."
+}

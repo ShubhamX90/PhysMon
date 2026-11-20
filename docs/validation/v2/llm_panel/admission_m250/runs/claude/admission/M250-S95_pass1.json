@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch23",
+  "item_id": "M250-S95",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:28:00Z", "completed_at": "2026-11-20T10:35:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Hydrostatics (Pascal): p_small = p_large + rho g h; piston equilibrium F + p0 A_s = p_small A_s, Mg + p0 A_L = p_large A_L; F = A_s (Mg/A_L + rho g h)", "assumptions": ["static equilibrium, light frictionless pistons", "incompressible oil, uniform g", "atmosphere on both outer faces"], "answer": 318.99, "unit": "N"},
+  "stratum_assignments": {
+    "TC4F6": {"stratum": "D", "answer_with_sentence": 318.99, "regime": null},
+    "T4EF7": {"stratum": "C", "answer_with_sentence": 318.99, "regime": null},
+    "T4338": {"stratum": "R", "answer_with_sentence": 456.19, "regime": null},
+    "T1A9B": {"stratum": "D", "answer_with_sentence": 318.99, "regime": null},
+    "TED46": {"stratum": "D", "answer_with_sentence": 318.99, "regime": null},
+    "TF1DC": {"stratum": "D", "answer_with_sentence": 318.99, "regime": null},
+    "T3BBA": {"stratum": "C", "answer_with_sentence": 318.99, "regime": null},
+    "T6417": {"stratum": "R", "answer_with_sentence": 456.19, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Mg/A_L = 11760/0.08 = 147000 Pa; rho g h = 850*9.8*1.5 = 12495 Pa; F = 0.002*159495 = 318.99 N. With 1760 kg: 215600 + 12495 = 228095 Pa, F = 456.19 N. Atmospheric pressure acts on both outer faces and cancels. Variants: T4EF7/T3BBA both 94 kPa; T4338/T1A9B/TED46/T6417 all 560 kg; TC4F6/TF1DC both 'small load'. Consistent. T6417 (past tense, 'before the force was applied') is R like T4338."
+}

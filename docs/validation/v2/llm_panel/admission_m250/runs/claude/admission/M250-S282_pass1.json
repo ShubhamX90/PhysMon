@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch03",
+  "item_id": "M250-S282",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:34:00Z", "completed_at": "2026-11-20T10:44:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Stefan-Boltzmann L = 4πR²σT⁴ with Wien's displacement law T ∝ 1/λ_peak: L/L_sun = (R/R_sun)² (λ_sun/λ_star)⁴", "assumptions": ["both bodies are black bodies (stated)", "Wien scaling (stated)", "dust disc does not alter the star's emission"], "answer": 25.543, "unit": "dimensionless (L_sun)"},
+  "stratum_assignments": {
+    "T3E50": {"stratum": "D", "answer_with_sentence": 25.543, "regime": null},
+    "T14DF": {"stratum": "D", "answer_with_sentence": 25.543, "regime": null},
+    "TE9FF": {"stratum": "R", "answer_with_sentence": 52.434, "regime": null},
+    "TB343": {"stratum": "D", "answer_with_sentence": 25.543, "regime": null},
+    "T37E0": {"stratum": "R", "answer_with_sentence": 52.434, "regime": null},
+    "T6C97": {"stratum": "D", "answer_with_sentence": 25.543, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "Phrases like 'gets 0.74 more, in solar radii' and 'has swollen by 0.74 more' are ungrammatical/awkward ('more' than what?), though the intended reading R = 1.71 + 0.74 = 2.45 R_sun is recoverable."
+  },
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "T ratio = 502/292 = 1.719178; (T ratio)^4 = 8.73541. Base: 1.71² × 8.73541 = 2.9241 × 8.73541 = 25.543. With R = 2.45: 6.0025 × 8.73541 = 52.434. The Sun's 5772 K is consistent with Wien's constant (2.898e-3/502e-9 ≈ 5773 K) and cancels from the ratio. T37E0 does not say the peak wavelength stays the same, but nothing changes it, so the temperature is the stated one. 'A little more' sentences carry no number."
+}

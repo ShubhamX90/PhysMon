@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch23",
+  "item_id": "M250-S256",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Q = n C_m dT with C_m = 3R (Dulong-Petit), n = m/M", "assumptions": ["no heat loss so all heat supplied goes to the block", "constant molar heat capacity 3R over 300-360 K", "no phase change", "work of thermal expansion negligible (C_p ~ C_v ~ 3R as stated)"], "answer": 3611.3, "unit": "J"},
+  "stratum_assignments": {
+    "TA290": {"stratum": "D", "answer_with_sentence": 3611.3, "regime": null},
+    "T30A5": {"stratum": "C", "answer_with_sentence": 3611.3, "regime": null},
+    "TA856": {"stratum": "K", "answer_with_sentence": 3611.3, "regime": "classical equipartition regime T well above the Debye temperature (T >~ Theta_D); 300-360 K vs 105 K is inside it"},
+    "TD22B": {"stratum": "D", "answer_with_sentence": 3611.3, "regime": null},
+    "TC49F": {"stratum": "R", "answer_with_sentence": 4911.4, "regime": null},
+    "T6CF0": {"stratum": "R", "answer_with_sentence": 4911.4, "regime": null},
+    "T85DA": {"stratum": "D", "answer_with_sentence": 3611.3, "regime": null},
+    "T9737": {"stratum": "K", "answer_with_sentence": 3611.3, "regime": "classical equipartition regime T >~ Theta_D; 300-360 K vs 105 K is inside it"},
+    "TBFB5": {"stratum": "C", "answer_with_sentence": 3611.3, "regime": null},
+    "TAA2E": {"stratum": "D", "answer_with_sentence": 3611.3, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "For TC49F, lead 'cast' onto the block suggests molten lead; the text relies on the base statement that the block is at 300 K when heating begins, which is the natural reading but leaves the added lead's temperature implicit."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "n = 500/207.2 = 2.4131 mol; 3R*dT = 24.942*60 = 1496.52 J/mol; Q = 3611.3 J. With 0.68 kg: n = 3.2819 mol, Q = 4911.4 J. Heater power fixes only the heating time t = Q/P, not Q; I class it C (it enters Q = P t but cancels from Q); D would also be defensible. Variant pairs checked: TA290/TC49F, TD22B/T6CF0 both state 0.18 kg; TA856/T9737 both 105 K; T30A5/TBFB5 both 310 W; T85DA/TAA2E both 'small amount'. All consistent."
+}

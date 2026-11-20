@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch12",
+  "item_id": "M250-S65",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:20:00Z", "completed_at": "2026-11-20T10:26:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "n0 sin(theta_max) = n1 cos(theta_c) = sqrt(n1^2 - n2^2)", "assumptions": ["meridional rays", "flat end face perpendicular to axis", "geometric optics"], "answer": 24.8346, "unit": "deg"},
+  "stratum_assignments": {
+    "TBDB7": {"stratum": "D", "answer_with_sentence": 24.8346, "regime": null},
+    "T5FB3": {"stratum": "D", "answer_with_sentence": 24.8346, "regime": null},
+    "T55EF": {"stratum": "R", "answer_with_sentence": 20.4873, "regime": null},
+    "T494E": {"stratum": "R", "answer_with_sentence": 20.4873, "regime": null},
+    "T6797": {"stratum": "D", "answer_with_sentence": 24.8346, "regime": null},
+    "T38EB": {"stratum": "D", "answer_with_sentence": 24.8346, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "T55EF says the fibre end 'was dipped' into the liquid for this experiment without saying the liquid replaces the stated air, so the reader must infer that it overrides 'enters from air'; T494E states this explicitly."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "notes": "Verified: NA = 0.42; base asin(0.42) = 24.835 deg; n0 = 1.2 -> asin(0.35) = 20.487; 1.33 -> asin(0.31579) = 18.408; 1.38 -> asin(0.30435) = 17.719. Relations (thc = asin(n2/n1), thr = 90 deg - thc, thm = asin(n1 sin thr / n0)) are correct; n1 sin(thr) = 0.42 < n0 for all listed values so no saturation. Minimal pairs T6797/T55EF and TBDB7/T494E share 1.2 and differ in attachment; T38EB and T5FB3 are declared numeral-free twins. Perpendicular end face is assumed by the authors but the problem says only 'flat end'; standard, low concern. Agrees with pass 1."
+}

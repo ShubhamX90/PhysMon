@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch21",
+  "item_id": "M250-S43",
+  "pass_number": 1,
+  "started_at": "2026-11-20T00:00:00Z", "completed_at": "2026-11-20T00:06:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "C = eps0 A/(d - t + t/k) for a dielectric slab in a parallel-plate capacitor; Q = C V at fixed battery emf; dQ = (C' - C0) V",
+    "assumptions": ["battery stays connected so V = 12 V throughout", "edge effects negligible", "slab position between plates irrelevant (series layers)"],
+    "answer": 720.0,
+    "unit": "pC"
+  },
+  "stratum_assignments": {
+    "T27DA": {"stratum": "D", "answer_with_sentence": 720.0, "regime": null},
+    "T8799": {"stratum": "D", "answer_with_sentence": 720.0, "regime": null},
+    "T0DBA": {"stratum": "D", "answer_with_sentence": 720.0, "regime": null},
+    "T9341": {"stratum": "R", "answer_with_sentence": 1170.0, "regime": null},
+    "T6AD3": {"stratum": "R", "answer_with_sentence": 1170.0, "regime": null},
+    "T970C": {"stratum": "D", "answer_with_sentence": 720.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T9341 ('Before the slab was inserted, a 7.5 V cell ... was connected') does not say explicitly whether the cell remains in the circuit during insertion; I read it as remaining (total emf 19.5 V), but a reader could take it as removed before insertion, giving 720 pC."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "C' = 100 pF x 6/(3 + 3/4) = 160 pF, so dC = 60 pF; dQ = 60 pF x 12 V = 720 pC; with an added 7.5 V cell in series aiding, emf 19.5 V gives 60 x 19.5 = 1170 pC. T27DA and T0DBA give no voltage ('a small cell') while their apparent counterparts T8799 and T970C state 7.5 V; if these are meant as minimal-pair variants they differ in the number, though the difference cannot change a D answer. Sentences T6AD3 and T9341 also slightly strain the problem text, which names a 12 V battery as the source; with the cell added the capacitor is charged to 19.5 V, not 12 V, but this is not strictly a contradiction."
+}

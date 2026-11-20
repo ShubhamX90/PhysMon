@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch20",
+  "item_id": "M250-S264",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:08:30Z", "completed_at": "2026-11-20T10:16:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Series RLC phasor: tan(phi) = (X_L - X_C)/R", "assumptions": ["ideal L and C", "steady sinusoidal state", "fan circuit separate"], "answer": 40.3514, "unit": "degree"},
+  "stratum_assignments": {
+    "TA667": {"stratum": "C", "answer_with_sentence": 40.3514, "regime": null},
+    "T2697": {"stratum": "D", "answer_with_sentence": 40.3514, "regime": null},
+    "T0B12": {"stratum": "R", "answer_with_sentence": 30.0827, "regime": null},
+    "T282F": {"stratum": "K", "answer_with_sentence": 40.3514, "regime": "f = 500 Hz far below the 140 kHz self-resonance"},
+    "T9559": {"stratum": "K", "answer_with_sentence": 40.3514, "regime": "f = 500 Hz far below the 140 kHz self-resonance"},
+    "T4415": {"stratum": "C", "answer_with_sentence": 40.3514, "regime": null},
+    "TD7F0": {"stratum": "D", "answer_with_sentence": 40.3514, "regime": null},
+    "TEEB4": {"stratum": "R", "answer_with_sentence": 30.0827, "regime": null},
+    "T3337": {"stratum": "D", "answer_with_sentence": 40.3514, "regime": null},
+    "T6DE7": {"stratum": "D", "answer_with_sentence": 40.3514, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "validity": "invalid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["contradictory_distractor_statement", "other"],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "The problem declares the inductor ideal, but T282F/T9559 give it a 140 kHz self-resonance, which requires parasitic capacitance an ideal inductor does not have.",
+    "other": "The K regime's out-of-regime 'reference expression' substitutes the self-resonant frequency q for the operating frequency in atan((2 pi q L - 1/(2 pi q C))/R), which is not the physics of self-resonance (effective inductance L/(1-(f/q)^2)); the threshold q > 10 f is also loose (about 1 percent change in X_L, ~0.9 deg at q = 10 f), though all listed values are far inside."
+  },
+  "defect_severity": {"contradictory_distractor_statement": "high", "other": "medium"},
+  "counterexamples": ["At q = 10 f = 5 kHz the effective inductance rises by ~1 percent, X rises by ~0.79 ohm and phi by ~0.9 deg, so the stated regime boundary does not guarantee invariance at the certified precision (no listed value is near it)."],
+  "notes": "All certified answers verified: R = 30 -> 40.351 deg; R = 36.5 -> 34.93; 44 -> 30.08; 57 -> 24.09. C cancellation of the peak voltage is correct. D sentences (fan circuit, earlier run) correct; T2697/TEEB4 and T6DE7/T0B12 are proper minimal pairs. T3337/TD7F0 are declared numeral-free controls, so my pass-1 low rendering_not_minimal flag is withdrawn. The remaining high flag is the ideal-inductor vs self-resonance contradiction; if the panel treats 'ideal' as compatible with a stated far-off self-resonance, the item would otherwise be valid."
+}

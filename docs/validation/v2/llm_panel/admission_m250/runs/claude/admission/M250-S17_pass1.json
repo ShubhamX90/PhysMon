@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch16",
+  "item_id": "M250-S17",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:33:00Z", "completed_at": "2026-11-20T10:41:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Steady 1D conduction through series resistances: Q = Delta T / (R1 + R2)", "assumptions": ["steady state (stated)", "no edge losses (stated)", "constant (temperature-independent) thermal resistances", "Delta T is the difference between the two outer surfaces"], "answer": 80.0, "unit": "W"},
+  "stratum_assignments": {
+    "TEA3F": {"stratum": "D", "answer_with_sentence": 80.0, "regime": null},
+    "T9AD7": {"stratum": "D", "answer_with_sentence": 80.0, "regime": null},
+    "TFB08": {"stratum": "C", "answer_with_sentence": 80.0, "regime": null},
+    "T6D07": {"stratum": "D", "answer_with_sentence": 80.0, "regime": null},
+    "TFD0A": {"stratum": "R", "answer_with_sentence": 106.0, "regime": null},
+    "TA36C": {"stratum": "C", "answer_with_sentence": 80.0, "regime": null},
+    "T97D1": {"stratum": "D", "answer_with_sentence": 80.0, "regime": null},
+    "T38CE": {"stratum": "D", "answer_with_sentence": 80.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": ["T9AD7 stratum"],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T9AD7 ('warmed by a further 6.5 K before the test began') is ambiguous: the stated 20 K steady difference could already include that warming (answer 80 W) or the warming could be meant to add to it (26.5 K, 106 W)."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base Q = 20/(0.1+0.15) = 80 W. TFD0A: Delta T -> 26.5 K, Q = 26.5/0.25 = 106 W (taking the new steady state). The absolute colder-surface temperature 303 K: with T_h = T_c + 20, Q = (T_h - T_c)/R and T_c cancels (C); it could also be viewed as K under constant thermal resistance. Partition sentences and earlier-test sentences are D. For T9AD7 I read the problem's present-tense 20 K as the test condition, so warming before the test is already included (D); the alternative reading gives 106 W. Variants: all numeric warming sentences state 6.5 K; T6D07/T97D1 are non-numeric; TFB08/TA36C both 303 K."
+}

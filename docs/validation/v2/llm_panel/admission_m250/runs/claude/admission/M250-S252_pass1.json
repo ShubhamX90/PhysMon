@@ -1,0 +1,21 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch13",
+  "item_id": "M250-S252",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:33:00Z", "completed_at": "2026-11-20T10:43:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Work-energy: W = E2 - E1 with circular-orbit total energy E = -GMm/(2r), GM = g R^2; W = (g R^2 m/2)(1/r1 - 1/r2)", "assumptions": ["both orbits circular (stated)", "inverse-square field of a uniform sphere, GM = g R^2", "no drag, no third bodies, propellant mass neglected so satellite mass constant", "non-relativistic"], "answer": 2.6382e9, "unit": "J"},
+  "stratum_assignments": {
+    "T1748": {"stratum": "D", "answer_with_sentence": 2.6382e9, "regime": null},
+    "TFABF": {"stratum": "R", "answer_with_sentence": 2.9331e9, "regime": null},
+    "TB6C9": {"stratum": "D", "answer_with_sentence": 2.6382e9, "regime": null},
+    "T6B07": {"stratum": "D", "answer_with_sentence": 2.6382e9, "regime": null},
+    "TF8C4": {"stratum": "R", "answer_with_sentence": 2.9331e9, "regime": null},
+    "T2ED2": {"stratum": "D", "answer_with_sentence": 2.6382e9, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "GM = 9.8*(6.371e6)^2 = 3.97778e14 m^3/s^2; r1 = 6.771e6 m, r2 = 7.571e6 m; 1/r1 - 1/r2 = 8e5/(5.12632e13) = 1.56057e-8 1/m; W = 3.97778e14*425*1.56057e-8 = 2.6382e9 J. With 945 kg: W scales linearly, 2.6382e9*945/850 = 2.9331e9 J. 'Small amount' sentences (T1748, TB6C9) carry no number, presumably numeral-free controls for T6B07 and T2ED2. TFABF's 'for one flight only' refers to the present raising, so it is relevant."
+}

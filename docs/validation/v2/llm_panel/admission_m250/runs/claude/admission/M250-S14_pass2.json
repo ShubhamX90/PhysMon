@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch14",
+  "item_id": "M250-S14",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:37:00Z", "completed_at": "2026-11-20T10:42:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "P = m g h / t at constant speed", "assumptions": ["constant speed (stated)", "g = 9.8 m/s^2 (stated)"], "answer": 470.4, "unit": "W"},
+  "stratum_assignments": {
+    "T920A": {"stratum": "R", "answer_with_sentence": 540.96, "regime": null},
+    "TBE39": {"stratum": "D", "answer_with_sentence": 470.4, "regime": null},
+    "T7CD8": {"stratum": "C", "answer_with_sentence": 470.4, "regime": null},
+    "TEC7E": {"stratum": "K", "answer_with_sentence": 470.4, "regime": "P = 470.4 W < maximum power"},
+    "TAAAC": {"stratum": "D", "answer_with_sentence": 470.4, "regime": null},
+    "T8A2F": {"stratum": "R", "answer_with_sentence": 540.96, "regime": null},
+    "T4034": {"stratum": "D", "answer_with_sentence": 470.4, "regime": null},
+    "T635D": {"stratum": "K", "answer_with_sentence": 470.4, "regime": "P = 470.4 W < maximum power"},
+    "T3979": {"stratum": "D", "answer_with_sentence": 470.4, "regime": null},
+    "T6E69": {"stratum": "C", "answer_with_sentence": 470.4, "regime": null}
+  },
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Verified R answers: 87*9.8*6/10 = 511.56 W; 92 kg: 540.96 W; 108 kg: 635.04 W. K values 680, 930, 1280 W all exceed 470.4 W; counter-regime 300 W correctly outside. C cancellation of starting height is correct. Minimal pairs TAAAC/T8A2F (crate vs load) and TBE39/T920A (earlier lift only vs before this lift) carry the same 12 kg and differ only in attachment; T4034 and T3979 are declared numeral-free controls. Agrees with pass 1."
+}

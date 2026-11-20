@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch13",
+  "item_id": "M250-S205",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:58:00Z", "completed_at": "2026-11-20T11:05:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "F = m r sqrt((alpha t)^4 + alpha^2) (static friction supplies centripetal plus tangential acceleration)", "assumptions": ["starts from rest", "no slip", "friction is the only horizontal force"], "answer": 12.4716, "unit": "mN"},
+  "stratum_assignments": {
+    "T93E5": {"stratum": "D", "answer_with_sentence": 12.4716, "regime": null},
+    "TA974": {"stratum": "D", "answer_with_sentence": 12.4716, "regime": null},
+    "T0819": {"stratum": "K", "answer_with_sentence": 12.4716, "regime": "required friction f = 12.47 mN < maximum q = 95 mN"},
+    "TF803": {"stratum": "R", "answer_with_sentence": 18.7073, "regime": null},
+    "T02AF": {"stratum": "R", "answer_with_sentence": 18.7073, "regime": null},
+    "T47DA": {"stratum": "D", "answer_with_sentence": 12.4716, "regime": null},
+    "T2F1F": {"stratum": "K", "answer_with_sentence": 12.4716, "regime": "required friction f = 12.47 mN < maximum q = 95 mN"},
+    "T8DDD": {"stratum": "D", "answer_with_sentence": 12.4716, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "|a| = 1.039297 m/s^2; answers: 12 g -> 12.4716 mN, 14 g -> 14.5502, 18 g -> 18.7073, 27 g -> 28.061 mN, all agree with my pass-1 work. K values 65, 95, 135 mN all exceed the required 12.47 mN (required friction rises monotonically from t = 0, so no earlier slip either); the K limit is consistent with the stated no-slip condition. Minimal pairs TA974/T02AF (dish vs coin) and T47DA/TF803 (earlier trial vs this run) share 6 g and differ only in attachment/time. Numeral-free controls T8DDD and T93E5 are D like their twins. The two K sentences differ in wording ('holds the coin in place with a force of up to' vs 'can reach at most') but state the same 95 mN limit."
+}

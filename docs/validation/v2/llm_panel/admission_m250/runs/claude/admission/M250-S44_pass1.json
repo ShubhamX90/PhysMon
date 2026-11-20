@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch03",
+  "item_id": "M250-S44",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:17:00Z", "completed_at": "2026-11-20T10:25:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Force on a straight current-carrying conductor F = BIL (perpendicular), balanced against weight: BIL = mg, so I = mg/(BL)", "assumptions": ["rod fully in uniform field, perpendicular (stated)", "lead wires exert no force (stated)", "force upward (stated)"], "answer": 1.4, "unit": "A"},
+  "stratum_assignments": {
+    "T6EA8": {"stratum": "D", "answer_with_sentence": 1.4, "regime": null},
+    "TF1C5": {"stratum": "D", "answer_with_sentence": 1.4, "regime": null},
+    "T7DF7": {"stratum": "K", "answer_with_sentence": 1.4, "regime": "field extent along the rod >= rod length (50 cm); 125 cm is inside, so the whole rod is in the field"},
+    "TD1B3": {"stratum": "K", "answer_with_sentence": 1.4, "regime": "field extent along the rod >= rod length (50 cm); 125 cm is inside"},
+    "T0982": {"stratum": "R", "answer_with_sentence": 0.96078, "regime": null},
+    "T679D": {"stratum": "D", "answer_with_sentence": 1.4, "regime": null},
+    "TE75E": {"stratum": "R", "answer_with_sentence": 0.96078, "regime": null},
+    "TDD25": {"stratum": "D", "answer_with_sentence": 1.4, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "'Adds 160 mT to the field' does not state the direction of the added field; the R answer 0.96078 A assumes it is parallel to the existing 350 mT field (total 510 mT), and for TF1C5 the compass 'nearby' could lie in the same field region, so the separation of compass field from rod field relies on reading 'nearby' as outside the rod's field."
+  },
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: I = 0.025*9.8/(0.350*0.50) = 0.245/0.175 = 1.4 A. With 160 mT added parallel: B = 0.510 T, I = 0.245/(0.510*0.50) = 0.245/0.255 = 0.96078 A. T7DF7/TD1B3 differ only in 'along the line of' vs 'in the direction of' with same 125 cm. Sentences with 'a little' carry no number; if they are meant as variants of 160 mT sentences, they differ in number. Past-tense 'added ... before the current was set' (T0982) is read as the coils still acting."
+}

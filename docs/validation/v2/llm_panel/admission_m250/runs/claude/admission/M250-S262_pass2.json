@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch22",
+  "item_id": "M250-S262",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:49:00Z", "completed_at": "2026-11-20T10:58:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Hagen-Poiseuille with quasi-steady draining: t = (8 mu L A/(pi r^4 rho g)) ln(h0/h1)", "assumptions": ["steady laminar Poiseuille flow at every depth", "driving pressure rho g h only", "end effects and outflow kinetic energy neglected"], "answer": 16.753, "unit": "min"},
+  "stratum_assignments": {
+    "TD265": {"stratum": "R", "answer_with_sentence": 26.783, "regime": null},
+    "TC2E8": {"stratum": "K", "answer_with_sentence": 16.753, "regime": "laminar for Re below 2100; actual Re about 3 at 40 cm depth"},
+    "T3C55": {"stratum": "R", "answer_with_sentence": 26.783, "regime": null},
+    "T7A3F": {"stratum": "D", "answer_with_sentence": 16.753, "regime": null},
+    "T7B4A": {"stratum": "D", "answer_with_sentence": 16.753, "regime": null},
+    "TFF4D": {"stratum": "D", "answer_with_sentence": 16.753, "regime": null},
+    "T5EA0": {"stratum": "K", "answer_with_sentence": 16.753, "regime": "laminar for Re below 2100; actual Re about 3"},
+    "T75EB": {"stratum": "D", "answer_with_sentence": 16.753, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "TD265 keeps the phrase 'for one experiment only' while being certified R; the natural reading is that the asked draining is that experiment, but the phrase invites a D reading, and the K 'for_reference_only' expression tc*q/1000 is not a meaningful turbulent-regime formula (harmless, outside the certified claim)."
+  },
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "notes": "Checked: k = pi r^4 rho g/(8 mu L A) = 4.6759e-4 s^-1. Base ln(1.6)/k = 1005.2 s = 16.753 min. q=7: ln(1.88)/k = 1350.1 s = 22.501 min; q=13: ln(2.12)/k = 1607.0 s = 26.783 min; q=21: ln(2.44)/k = 1907.6 s = 31.794 min. All match. My pass-1 answers were in seconds; the authors' target unit is minutes and the question names no unit, so seconds or minutes are both acceptable. K predicate Re0 = rho*(rho g h0 r^2/(8 eta L))*2r/eta = about 3.0, far below 1800-2400; problem also states laminar flow at every depth, so the K sentences are consistent. Minimal pairs T7B4A/T3C55 and TFF4D/TD265 share 13 cm. Pass-1 uncertainty on TD265 resolved toward the authors' R reading, with a low clarity flag."
+}

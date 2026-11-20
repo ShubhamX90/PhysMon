@@ -1,0 +1,30 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch25",
+  "item_id": "M250-S272",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:19:00Z", "completed_at": "2026-11-20T10:28:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "lambda = c/f; successive closed-pipe resonances differ in column length by lambda/2; t = (lambda/2)/vw", "assumptions": ["fixed end correction", "constant fall rate", "constant sound speed 343 m/s"], "answer": 22.3307, "unit": "s"},
+  "stratum_assignments": {
+    "T9749": {"stratum": "R", "answer_with_sentence": 13.9567, "regime": null},
+    "TEA1B": {"stratum": "R", "answer_with_sentence": 13.9567, "regime": null},
+    "TF4FF": {"stratum": "D", "answer_with_sentence": 22.3307, "regime": null},
+    "T3D7A": {"stratum": "D", "answer_with_sentence": 22.3307, "regime": null},
+    "TBEDA": {"stratum": "C", "answer_with_sentence": 22.3307, "regime": null},
+    "T0685": {"stratum": "K", "answer_with_sentence": 22.3307, "regime": "radius below about 0.29 lambda (plane-wave regime, below the first transverse-mode cutoff ka = 1.84); end correction is stated fixed"},
+    "TB8E5": {"stratum": "D", "answer_with_sentence": 22.3307, "regime": null},
+    "T49F8": {"stratum": "D", "answer_with_sentence": 22.3307, "regime": null},
+    "TFF60": {"stratum": "C", "answer_with_sentence": 22.3307, "regime": null},
+    "T0899": {"stratum": "K", "answer_with_sentence": 22.3307, "regime": "radius below about 0.29 lambda (plane-wave regime, below the first transverse-mode cutoff ka = 1.84); end correction is stated fixed"}
+  },
+  "validity": "invalid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The C cancellation relations for TBEDA/TFF60 state that the air column length is q - vw t and resonates at 5 lam/4 then 3 lam/4, i.e. that the column shortens as the water falls; in fact the column between the open top and a falling water surface lengthens (L = q + vw t), and from 130 cm the next resonances are at 9 lam/4 and 11 lam/4 (less end correction), so the shown relation is physically false even though the cancelled answer is right."},
+  "defect_severity": {"other": "high"},
+  "counterexamples": ["With q = 130 cm and lam = 66.99 cm, the authors' relation t = (q - 5 lam/4)/vw places a resonance at column length 83.7 cm, which the column never reaches since it only grows from 130 cm as the water falls."],
+  "equation_consistent": false, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "All certified numbers check: lam/2 = 0.334961 m; /0.015 = 22.331 s; /0.019 = 17.630 s; /0.024 = 13.957 s; /0.0287 = 11.671 s. Strata agree with mine except radius: I gave C in pass 1 (through the fixed end correction); the authors' K with regime q < 0.29 lam (about 19 cm, the plane-wave cutoff) is also defensible and all listed radii lie inside it, so I accept K. Minimal pairs T49F8/T9749 and TF4FF/TEA1B share 0.9 cm/s and differ only in attachment; T3D7A and TB8E5 are numeral-free twins. The only defect is the wrong-direction column-length relation in the C cancellation claim; under rule 3 a false physics claim in the shown relations is high severity even though the answer survives. Fix: column length q + vw t, resonances at successive odd multiples (2n+1) lam/4 and (2n+3) lam/4 above q."
+}

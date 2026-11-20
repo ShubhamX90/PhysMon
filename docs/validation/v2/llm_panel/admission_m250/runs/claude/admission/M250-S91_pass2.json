@@ -1,0 +1,35 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch20",
+  "item_id": "M250-S91",
+  "pass_number": 2,
+  "started_at": "2026-11-20T11:00:30Z", "completed_at": "2026-11-20T11:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Bernoulli + continuity for a horizontal Venturi with differential manometer", "assumptions": ["incompressible, inviscid, steady flow", "uniform speed across sections", "horizontal axis", "manometer lines filled with flowing liquid"], "answer": 11.0395, "unit": "L/s"},
+  "stratum_assignments": {
+    "T90FF": {"stratum": "D", "answer_with_sentence": 11.0395, "regime": null},
+    "T5A70": {"stratum": "D", "answer_with_sentence": 11.0395, "regime": null},
+    "TE588": {"stratum": "C", "answer_with_sentence": 11.0395, "regime": null},
+    "T6113": {"stratum": "D", "answer_with_sentence": 11.0395, "regime": null},
+    "T2A08": {"stratum": "K", "answer_with_sentence": 11.0395, "regime": "wide-section pressure well above the pressure drop so the throat stays above vapour pressure (no cavitation)"},
+    "T609E": {"stratum": "R", "answer_with_sentence": 3.80898, "regime": null},
+    "T2C4F": {"stratum": "D", "answer_with_sentence": 11.0395, "regime": null},
+    "T3597": {"stratum": "R", "answer_with_sentence": 3.80898, "regime": null},
+    "T6339": {"stratum": "K", "answer_with_sentence": 11.0395, "regime": "wide-section pressure well above the pressure drop (no cavitation)"},
+    "T7E31": {"stratum": "C", "answer_with_sentence": 11.0395, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "The K regime 'q > dp' only keeps the throat pressure positive, not above the liquid's vapour pressure (the true cavitation bound), and the out-of-regime reference expression substitutes q for dp, which is not the physics of a cavitating Venturi; all listed values (170-350 kPa vs dp = 14.8 kPa) are far inside any sensible regime, so no certified answer is affected."
+  },
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Verified: dp = 14817.6 Pa, Q = 11.0395 L/s; rho_m = 1590 -> 2.38885, 2500 -> 3.80898, 3100 -> 4.50684 L/s (all checked by hand). In pass 1 I classed the absolute pressure as C; the authors' K (cavitation regime) is also defensible and the invariance holds either way. Height of axis C (z cancels for horizontal pipe) agrees. Barometer and earlier-experiment sentences D correct; minimal pairs T2C4F/T3597 and T6113/T609E share 2500 kg/m^3; T90FF/T5A70 are declared numeral-free controls."
+}

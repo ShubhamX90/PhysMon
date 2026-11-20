@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch30",
+  "item_id": "M250-S11",
+  "pass_number": 2,
+  "started_at": "2026-11-20T11:16:00Z", "completed_at": "2026-11-20T11:21:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "d = v0^2/(2 mu g).",
+    "assumptions": ["level road", "constant kinetic friction", "straight line", "negligible air resistance"],
+    "answer": 40.8163,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "T8720": {"stratum": "R", "answer_with_sentence": 61.25, "regime": null},
+    "TFCB8": {"stratum": "D", "answer_with_sentence": 40.8163, "regime": null},
+    "T0C0C": {"stratum": "C", "answer_with_sentence": 40.8163, "regime": null},
+    "TF039": {"stratum": "C", "answer_with_sentence": 40.8163, "regime": null},
+    "TD024": {"stratum": "D", "answer_with_sentence": 40.8163, "regime": null},
+    "T5FC7": {"stratum": "D", "answer_with_sentence": 40.8163, "regime": null},
+    "T4983": {"stratum": "D", "answer_with_sentence": 40.8163, "regime": null},
+    "TB9A5": {"stratum": "R", "answer_with_sentence": 61.25, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T8720/TB9A5 add a speed gain before braking to a base that says the car travels at 20 m/s and brakes; 'further' makes the intended 24.5 m/s reading clear but the wording is slightly awkward."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Checked R answers: 23^2/9.8 = 53.9796 m, 24.5^2/9.8 = 61.25 m, 31^2/9.8 = 98.0612 m. Mass cancellation N = m g, f = mu N, a = f/m is correct. Minimal pairs T5FC7/T8720 (earlier run vs before braking) and TFCB8/TB9A5 (bus vs car) carry the same 4.5 m/s and differ only in attachment; TD024/T4983 are declared numeral-free controls. Agrees with my pass 1."
+}

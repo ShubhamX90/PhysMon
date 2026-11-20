@@ -1,0 +1,24 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch03",
+  "item_id": "M250-S46",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:53:00Z", "completed_at": "2026-11-20T11:03:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Motional EMF with vertical field on an incline: EMF = B L v cosθ, I = EMF/R, retarding force along slope = B I L cosθ; terminal: mg sinθ = B²L²v cos²θ/R, so v = mgR sinθ/(B²L² cos²θ)", "assumptions": ["frictionless (stated)", "only the 0.5 Ω resistance (stated)", "negligible self-inductance (stated)", "rails long enough (stated)"], "answer": 2.83565, "unit": "m/s"},
+  "stratum_assignments": {
+    "T5D8D": {"stratum": "R", "answer_with_sentence": 10.2083, "regime": null},
+    "T2332": {"stratum": "D", "answer_with_sentence": 2.83565, "regime": null},
+    "T88DE": {"stratum": "D", "answer_with_sentence": 2.83565, "regime": null},
+    "TE145": {"stratum": "D", "answer_with_sentence": 2.83565, "regime": null},
+    "TADB8": {"stratum": "R", "answer_with_sentence": 10.2083, "regime": null},
+    "T2BCE": {"stratum": "D", "answer_with_sentence": 2.83565, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 4, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "mg sinθ = 0.05*9.8*0.5 = 0.245 N; B²L²cos²θ = 0.36*0.16*0.75 = 0.0432. Base v = 0.245*0.5/0.0432 = 2.83565 m/s. With R = 0.5 + 1.3 = 1.8 Ω: v = 0.245*1.8/0.0432 = 10.2083 m/s. Lamp circuit is separate (own battery), no path. 'Small resistor' sentences carry no number."
+}

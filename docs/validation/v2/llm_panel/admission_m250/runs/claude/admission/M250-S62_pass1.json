@@ -1,0 +1,38 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch11",
+  "item_id": "M250-S62",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:23:00Z", "completed_at": "2026-11-20T10:31:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Unpolarised light through ideal polariser: P1 = P0/2; Malus's law P_{n+1} = P_n cos^2(theta)",
+    "assumptions": ["ideal (lossless for aligned component) polarisers", "angles are between successive axes"],
+    "answer": 8.802,
+    "unit": "mW"
+  },
+  "stratum_assignments": {
+    "TAD42": {"stratum": "D", "answer_with_sentence": 8.802, "regime": null},
+    "TBCDC": {"stratum": "D", "answer_with_sentence": 8.802, "regime": null},
+    "TD8CF": {"stratum": "R", "answer_with_sentence": 16.504, "regime": null},
+    "T0933": {"stratum": "D", "answer_with_sentence": 8.802, "regime": null},
+    "T76BC": {"stratum": "K", "answer_with_sentence": 8.802, "regime": "beam power at each polariser below 250 mW (damage threshold); 40 mW and 75 mW are inside"},
+    "T2E23": {"stratum": "D", "answer_with_sentence": 8.802, "regime": null},
+    "T2171": {"stratum": "R", "answer_with_sentence": 16.504, "regime": null},
+    "T86DB": {"stratum": "D", "answer_with_sentence": 8.802, "regime": null},
+    "T9CCB": {"stratum": "D", "answer_with_sentence": 8.802, "regime": null},
+    "T79E5": {"stratum": "K", "answer_with_sentence": 8.802, "regime": "beam power at each polariser below 250 mW; stated powers are inside"}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {
+    "other": "T2171 ('is then increased by 35 mW') leaves slightly open whether the question asks for the output before or after the increase; read as after (75 mW input)."
+  },
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: 40/2 * cos^2(30) * cos^2(40) = 20 * 0.75 * 0.586824 = 8.802 mW. With 75 mW: 37.5 * 0.75 * 0.586824 = 16.504 mW. Beam area does not affect power. Lamp is a separate source aimed at a wall, not in the beam."
+}

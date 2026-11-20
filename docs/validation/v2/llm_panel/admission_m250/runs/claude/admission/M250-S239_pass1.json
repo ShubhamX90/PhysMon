@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch34",
+  "item_id": "M250-S239",
+  "pass_number": 1,
+  "started_at": "2026-11-20T00:11:00Z", "completed_at": "2026-11-20T00:19:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Wave plate between crossed polarisers (Jones calculus): P = P0 sin^2(2 theta) sin^2(delta/2), delta = 2 pi dn d / lambda", "assumptions": ["dn d / lambda = 0.0092*24e-6/589e-9 = 0.37487 waves, delta/2 = 1.17771 rad", "sin^2(60 deg) = 0.75", "sin^2(delta/2) = 0.85328", "no absorption or reflection loss; ideal analyser", "fully coherent light over the retardation (path difference 0.22 um)"], "answer": 5.12, "unit": "mW"},
+  "stratum_assignments": {
+    "T4691": {"stratum": "D", "answer_with_sentence": 5.12, "regime": null},
+    "T6887": {"stratum": "D", "answer_with_sentence": 5.12, "regime": null},
+    "TC0D0": {"stratum": "R", "answer_with_sentence": 3.439, "regime": null},
+    "TFC60": {"stratum": "K", "answer_with_sentence": 5.12, "regime": "coherence length much longer than the optical path difference dn*d = 0.22 um, so the two eigen-polarisations stay mutually coherent and the fully coherent formula holds"},
+    "T61C9": {"stratum": "K", "answer_with_sentence": 5.12, "regime": "coherence length much longer than the optical path difference dn*d = 0.22 um"},
+    "TDB47": {"stratum": "D", "answer_with_sentence": 5.12, "regime": null},
+    "T8B20": {"stratum": "R", "answer_with_sentence": 3.439, "regime": null},
+    "TD658": {"stratum": "D", "answer_with_sentence": 5.12, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T8B20 'Polishing thins the plate by 6.5 um' in the present tense does not say explicitly that the thinning precedes the light's passage, a slight timing ambiguity (read as R)."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Thinned plate d = 17.5 um: dn d/lambda = 0.27334, delta/2 = 0.85874 rad, sin^2 = 0.5731, P = 6*0.5731 = 3.439 mW. Measurement-precision sentences from an earlier run and lens sentences have no path to the target. T4691 and TD658 carry no number (numeral-free wording) unlike the other sentences of their quantities."
+}

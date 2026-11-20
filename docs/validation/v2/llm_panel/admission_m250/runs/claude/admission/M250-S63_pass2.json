@@ -1,0 +1,38 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch26",
+  "item_id": "M250-S63",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:21:00Z", "completed_at": "2026-11-20T10:27:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "v = sqrt(gamma R T / M); closed-open pipe second resonance f = 3v/(4L)",
+    "assumptions": ["ideal gas", "adiabatic sound", "no end correction"],
+    "answer": 428.661,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T64F1": {"stratum": "C", "answer_with_sentence": 428.661, "regime": null},
+    "TD069": {"stratum": "R", "answer_with_sentence": 460.403, "regime": null},
+    "T653E": {"stratum": "K", "answer_with_sentence": 428.661, "regime": "gas temperature above the liquefaction temperature (T > 120 K)"},
+    "T3AD6": {"stratum": "D", "answer_with_sentence": 428.661, "regime": null},
+    "T0C9F": {"stratum": "D", "answer_with_sentence": 428.661, "regime": null},
+    "T3806": {"stratum": "D", "answer_with_sentence": 428.661, "regime": null},
+    "TDCFE": {"stratum": "K", "answer_with_sentence": 428.661, "regime": "gas temperature above the liquefaction temperature (T > 120 K)"},
+    "T2E8F": {"stratum": "C", "answer_with_sentence": 428.661, "regime": null},
+    "T5640": {"stratum": "R", "answer_with_sentence": 460.403, "regime": null},
+    "T4C56": {"stratum": "D", "answer_with_sentence": 428.661, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All claims agree with pass 1. Checked R answers: 428.661*sqrt(318/293)=446.574, sqrt(338/293)->460.403, sqrt(363/293)->477.126. Pressure cancels since p/rho = RT/M (C correct). K regime T > q holds for 90, 120, 150 K against 293 K (and against the heated temperatures). Minimal pairs T3806/TD069 and T3AD6/T5640 share 45 K and differ only in attachment; numeral-free twins are by design. Pressure pair (150 kPa) and liquefaction pair (120 K) consistent. The R-sentence wiring treats the stated 293 K as the pre-heating temperature, which is the natural reading.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

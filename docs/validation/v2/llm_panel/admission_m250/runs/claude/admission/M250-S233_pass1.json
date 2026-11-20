@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch04",
+  "item_id": "M250-S233",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:38:00Z", "completed_at": "2026-11-20T10:46:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law and Fresnel p-polarised power reflectance R_p = [(n2 cos i - n1 cos t)/(n2 cos i + n1 cos t)]^2; transmitted power = (1 - R_p) P",
+    "assumptions": ["n_air = 1", "lossless glass, single surface", "plane wave (narrow parallel beam)"],
+    "answer": 4.466,
+    "unit": "mW"
+  },
+  "stratum_assignments": {
+    "T6A28": {"stratum": "C", "answer_with_sentence": 4.466, "regime": null},
+    "TBC5B": {"stratum": "R", "answer_with_sentence": 7.503, "regime": null},
+    "T38E1": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null},
+    "T8526": {"stratum": "C", "answer_with_sentence": 4.466, "regime": null},
+    "T01A0": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null},
+    "T6921": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null},
+    "TAC23": {"stratum": "R", "answer_with_sentence": 7.503, "regime": null},
+    "TA9F7": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "sin t = sin75/1.5 = 0.643951, cos t = 0.765067, cos i = 0.258819. r_p = (0.388229 - 0.765067)/(0.388229 + 0.765067) = -0.32675; R_p = 0.10677; T_p = 0.89323. P_t = 5 x 0.89323 = 4.466 mW; with 8.4 mW, 7.503 mW. Beam area cancels (intensity times area; transmittance is a power ratio), so C. 'Covers an area' (T6A28) could be read as the footprint on the surface rather than the cross-section; either way it cancels. Laser-pointer and earlier-run sentences are D."
+}

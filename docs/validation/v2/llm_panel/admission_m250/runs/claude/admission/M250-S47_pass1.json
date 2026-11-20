@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch01",
+  "item_id": "M250-S47",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Ideal transformer impedance reflection R' = (N1/N2)^2 R_L; series circuit I1 = E/(r + R'); P_L = I1^2 R' (lossless transformer)",
+    "assumptions": ["ideal (lossless) transformer with turns ratio N1/N2 = 3", "sinusoidal steady state, rms quantities", "wires and coils of negligible resistance", "generator emf 100 V rms, internal resistance 20 ohm purely resistive"],
+    "answer": 45.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "TF38E": {"stratum": "C", "answer_with_sentence": 45.0, "regime": null},
+    "T6C3A": {"stratum": "D", "answer_with_sentence": 45.0, "regime": null},
+    "T217D": {"stratum": "D", "answer_with_sentence": 45.0, "regime": null},
+    "T37F6": {"stratum": "D", "answer_with_sentence": 45.0, "regime": null},
+    "T0C77": {"stratum": "K", "answer_with_sentence": 45.0, "regime": "primary rms current (0.5 A) below the 9 A fuse rating, so the fuse stays intact and acts as a zero-resistance link"},
+    "T8AD6": {"stratum": "R", "answer_with_sentence": 43.465, "regime": null},
+    "T0A10": {"stratum": "D", "answer_with_sentence": 45.0, "regime": null},
+    "TD3C1": {"stratum": "C", "answer_with_sentence": 45.0, "regime": null},
+    "T16F3": {"stratum": "K", "answer_with_sentence": 45.0, "regime": "primary rms current (0.5 A) below 9 A, fuse does not blow"},
+    "TE158": {"stratum": "R", "answer_with_sentence": 43.465, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "T217D and T0A10 say 'a small resistor' with no value, whereas the apparently paired sentences T6C3A and T37F6 state 3.5 ohm; if these are meant as variants they differ in the stated number."},
+  "defect_severity": {"rendering_not_minimal": "low"},
+  "counterexamples": [],
+  "notes": "Base: R' = 9*20 = 180 ohm; I1 = 100/200 = 0.5 A; P = 0.25*180 = 45 W. With 3.5 ohm in series: I1 = 100/203.5 = 0.49140 A, P = 180*(100/203.5)^2 = 43.465 W. Number of secondary turns cancels because only the ratio enters (C). 'Earlier run only' resistors and the heater-circuit resistor are disconnected from the present circuit (D). Fuse sentences: K, as 0.5 A << 9 A. Turns sentences both 400 turns; fuse sentences both 9 A; 3.5 ohm sentences consistent. The no-value 'small resistor' sentences are flagged low only in case they are intended as minimal-pair variants of the 3.5 ohm sentences. The heater sentence in the base problem and 'the generator' wording are slightly artificial but unambiguous."
+}

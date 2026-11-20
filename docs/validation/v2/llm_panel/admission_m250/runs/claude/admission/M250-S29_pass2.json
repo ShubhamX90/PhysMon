@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch23",
+  "item_id": "M250-S29",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:50:00Z", "completed_at": "2026-11-20T10:57:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "P = T v cos(theta)", "assumptions": ["tension 40 N and speed 3 m/s as stated", "horizontal motion"], "answer": 103.923, "unit": "W"},
+  "stratum_assignments": {
+    "T7A7D": {"stratum": "R", "answer_with_sentence": 81.84, "regime": null},
+    "TF8CB": {"stratum": "K", "answer_with_sentence": 103.923, "regime": "rope intact while tension < breaking strength; 40 N < 210 N"},
+    "TD53D": {"stratum": "D", "answer_with_sentence": 103.923, "regime": null},
+    "TAAB5": {"stratum": "R", "answer_with_sentence": 81.84, "regime": null},
+    "TB8F6": {"stratum": "D", "answer_with_sentence": 103.923, "regime": null},
+    "T8FA9": {"stratum": "K", "answer_with_sentence": 103.923, "regime": "rope intact while tension < breaking strength; 40 N < 210 N"},
+    "T4A60": {"stratum": "D", "answer_with_sentence": 103.923, "regime": null},
+    "T3D43": {"stratum": "D", "answer_with_sentence": 103.923, "regime": null},
+    "T012E": {"stratum": "C", "answer_with_sentence": 103.923, "regime": null},
+    "TFC2B": {"stratum": "C", "answer_with_sentence": 103.923, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [], "defect_flags": ["missing_assumption"],
+  "defect_reasons": {"missing_assumption": "The R sentences do not say the tension (40 N) and speed (3 m/s) are unchanged after the rope is tilted; the authors' wiring assumes so, which is the literal reading, but physically a sled held at constant speed against friction would generally need a different tension at 47 degrees."},
+  "defect_severity": {"missing_assumption": "medium"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "notes": "Verified certified answers: base 120*cos30 = 103.923 W; theta + q = 42, 47, 54 degrees give 89.177, 81.840, 70.534 W. K regime F < q holds for 150, 210, 280 N. C cancellation for duration correct (average power = W/t). Minimal pairs T4A60/T7A7D and TD53D/TAAB5 share 17 degrees and differ only in attachment/time; numeral-free twins as described. Agrees with pass 1; I keep the missing-assumption concern at medium because the item's stated values (40 N, 3 m/s) give a unique literal answer and no competing determinate answer is derivable, but an explicit 'with the same tension and speed' in the R sentences would remove the ambiguity."
+}

@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch09",
+  "item_id": "M250-S61",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:20:00Z", "completed_at": "2026-11-20T10:25:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "y_m = m lambda D / d (small angles)", "assumptions": ["small-angle approximation", "normal incidence", "screen parallel to slits", "narrow slits"], "answer": 12.0, "unit": "mm"},
+  "stratum_assignments": {
+    "TE2C3": {"stratum": "D", "answer_with_sentence": 12.0, "regime": null},
+    "T3468": {"stratum": "R", "answer_with_sentence": 16.2, "regime": null},
+    "T1277": {"stratum": "D", "answer_with_sentence": 12.0, "regime": null},
+    "T68D0": {"stratum": "D", "answer_with_sentence": 12.0, "regime": null},
+    "T55CC": {"stratum": "R", "answer_with_sentence": 16.2, "regime": null},
+    "TC70F": {"stratum": "D", "answer_with_sentence": 12.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": ["other"], "defect_reasons": {"other": "The claims for TC70F and T68D0 label the quantity 'a shift of the screen' although those sentences describe a shift of the camera; a metadata label only, the physics and answers are right."}, "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified: D = 2.35 m gives 14.1 mm; 2.7 m gives 16.2 mm; 3.5 m gives 21.0 mm; base 12.0 mm. Agrees with pass 1. Minimal pairs TE2C3/T3468 (earlier experiment vs before recording) and TC70F/T55CC (camera vs screen) keep 70 cm and differ only in attachment. T1277 and T68D0 are declared numeral-free controls, consistent with my pass-1 reading. Small-angle approximation holds at all values (theta_3 = 0.006 rad)."
+}

@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch14",
+  "item_id": "M250-S265",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:12:00Z", "completed_at": "2026-11-20T10:22:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Ideal transformer V_s = V_p/n; full-wave bridge with two constant-drop diodes conducting: v_L = Vm|sin wt| - 2Vd when positive, else 0; average V = (1/pi)[2 Vm cos(alpha) - 2Vd (pi - 2 alpha)], sin(alpha) = 2Vd/Vm", "assumptions": ["ideal transformer (stated)", "constant-drop diode model with 0.7 V each, two in series (stated)", "purely resistive load, no capacitor (stated)", "average taken over a full cycle in steady state"], "answer": 50.376, "unit": "V"},
+  "stratum_assignments": {
+    "T5D4E": {"stratum": "D", "answer_with_sentence": 50.376, "regime": null},
+    "TAC9C": {"stratum": "D", "answer_with_sentence": 50.376, "regime": null},
+    "T8158": {"stratum": "R", "answer_with_sentence": 53.527, "regime": null},
+    "TF8ED": {"stratum": "D", "answer_with_sentence": 50.376, "regime": null},
+    "T697F": {"stratum": "C", "answer_with_sentence": 50.376, "regime": null},
+    "T4891": {"stratum": "R", "answer_with_sentence": 53.527, "regime": null},
+    "T9978": {"stratum": "C", "answer_with_sentence": 50.376, "regime": null},
+    "T644B": {"stratum": "D", "answer_with_sentence": 50.376, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: V_s = 57.5 V rms, Vm = 81.3173 V, 2Vd = 1.4 V, sin(alpha) = 0.0172165, alpha = 0.0172174 rad; V_avg = (162.61046 - 4.35002)/pi = 50.3759 V. With mains 244 V rms: V_s = 61 V, Vm = 86.2670 V, alpha = 0.0162294 rad; V_avg = (172.51134 - 4.35279)/pi = 53.5265 V. Load resistance cancels because the diode model is a constant voltage drop with ideal source/transformer (load current I = v_L/R, v_L independent of R). TAC9C and T644B use 'a small amount' instead of 14 V; noted as apparent numeral-free renderings."
+}

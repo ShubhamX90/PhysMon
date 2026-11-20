@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch18",
+  "item_id": "M250-S34",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:23:00Z", "completed_at": "2026-11-20T10:33:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation with rolling without slipping: (1/2) m v^2 (1 + 2/5) = m g d sin(theta), so d = 0.7 v^2/(g sin theta) = 25.2/(9.8*0.42262) = 25.2/4.1417",
+    "assumptions": ["rolling without slipping (stated), static friction does no work", "uniform solid sphere I = (2/5) m r^2", "no air or rolling resistance (stated)"],
+    "answer": 6.085,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TDEF6": {"stratum": "R", "answer_with_sentence": 4.177, "regime": null},
+    "T741D": {"stratum": "D", "answer_with_sentence": 6.085, "regime": null},
+    "T1332": {"stratum": "D", "answer_with_sentence": 6.085, "regime": null},
+    "T7B54": {"stratum": "D", "answer_with_sentence": 6.085, "regime": null},
+    "T96D5": {"stratum": "R", "answer_with_sentence": 4.177, "regime": null},
+    "TACA4": {"stratum": "C", "answer_with_sentence": 6.085, "regime": null},
+    "T4182": {"stratum": "D", "answer_with_sentence": 6.085, "regime": null},
+    "TD438": {"stratum": "K", "answer_with_sentence": 6.085, "regime": "pure rolling requires mu_s >= (2/7) tan(theta) = 0.133 at 25 degrees; 0.45 is above it"},
+    "T1F4F": {"stratum": "K", "answer_with_sentence": 6.085, "regime": "mu_s >= (2/7) tan 25 deg = 0.133"},
+    "T55FE": {"stratum": "C", "answer_with_sentence": 6.085, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The timing of the re-tilt in T96D5 ('is then tilted') and TDEF6 ('Before the sphere was set rolling... was tilted') is loosely worded; the intended reading (incline at 38 degrees during the climb) is the natural one but a mid-motion tilt or a since-reverted tilt are possible readings."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "R answer at 38 degrees: sin 38 = 0.61566, d = 25.2/(9.8*0.61566) = 25.2/6.0335 = 4.177 m; rolling still holds since (2/7) tan 38 = 0.223 < 0.45 (relevant only if friction is also given, which it is not in that sentence). Radius cancels (TACA4, T55FE same 8.5 cm). Earlier-experiment and solar-panel sentences are D. Variants consistent: 13 deg across TDEF6/T7B54/T96D5/T4182; 0.45 across friction pair; 8.5 cm across radius pair."
+}

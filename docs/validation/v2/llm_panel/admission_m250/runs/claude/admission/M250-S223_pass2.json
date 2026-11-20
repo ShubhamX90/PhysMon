@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch18",
+  "item_id": "M250-S223",
+  "pass_number": 2,
+  "started_at": "2026-11-20T11:09:00Z", "completed_at": "2026-11-20T11:15:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Delta S = m L_f/T0 + m c ln(Tw/T0)",
+    "assumptions": ["quasi-static heating", "constant L_f and c", "no evaporation, water stays liquid"],
+    "answer": 359.2,
+    "unit": "J/K"
+  },
+  "stratum_assignments": {
+    "T51E5": {"stratum": "R", "answer_with_sentence": 592.6, "regime": null},
+    "TA643": {"stratum": "R", "answer_with_sentence": 592.6, "regime": null},
+    "T3730": {"stratum": "C", "answer_with_sentence": 359.2, "regime": null},
+    "T4A5B": {"stratum": "D", "answer_with_sentence": 359.2, "regime": null},
+    "T4B97": {"stratum": "D", "answer_with_sentence": 359.2, "regime": null},
+    "T8603": {"stratum": "C", "answer_with_sentence": 359.2, "regime": null},
+    "T6035": {"stratum": "K", "answer_with_sentence": 359.2, "regime": "Tw = 313 K < T_boil"},
+    "TF01D": {"stratum": "D", "answer_with_sentence": 359.2, "regime": null},
+    "T3F4A": {"stratum": "D", "answer_with_sentence": 359.2, "regime": null},
+    "T5693": {"stratum": "K", "answer_with_sentence": 359.2, "regime": "Tw = 313 K < T_boil"}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Verified: base 244.69 + 114.47 = 359.16 J/K; R with m = 0.27, 0.33, 0.56 kg scales linearly to 484.87, 592.61, 1005.65 J/K. K boiling points 366, 371, 378 K all exceed 313 K. Heater power cancels as claimed (entropy is a state function; power sets only the time). D sentences (dispenser, earlier run) and minimal pairs (TF01D/T51E5, T4A5B/TA643, numeral-free twins) are as intended. The out-of-regime reference expression omits a vaporisation term but is explicitly reference-only. Agrees with pass 1."
+}

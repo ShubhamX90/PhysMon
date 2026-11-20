@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch16",
+  "item_id": "M250-S12",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00Z", "completed_at": "2026-11-20T10:06:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Static friction supplies centripetal force: mu_s m g = m v^2 / r, so v_max = sqrt(mu_s g r)", "assumptions": ["flat (unbanked) curve", "uniform circular motion at constant speed", "friction is the only horizontal force", "no aerodynamic downforce"], "answer": 17.146, "unit": "m/s"},
+  "stratum_assignments": {
+    "T02CA": {"stratum": "D", "answer_with_sentence": 17.146, "regime": null},
+    "T82EB": {"stratum": "R", "answer_with_sentence": 18.387, "regime": null},
+    "T7092": {"stratum": "D", "answer_with_sentence": 17.146, "regime": null},
+    "T5A6E": {"stratum": "D", "answer_with_sentence": 17.146, "regime": null},
+    "T9AEC": {"stratum": "D", "answer_with_sentence": 17.146, "regime": null},
+    "TFE1E": {"stratum": "C", "answer_with_sentence": 17.146, "regime": null},
+    "T79A4": {"stratum": "C", "answer_with_sentence": 17.146, "regime": null},
+    "TF5BA": {"stratum": "D", "answer_with_sentence": 17.146, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base v = sqrt(0.6*9.8*50) = sqrt(294) = 17.146 m/s. T82EB read as the car now taking the curve on radius 57.5 m (road flat with uniform friction): v = sqrt(0.6*9.8*57.5) = sqrt(338.1) = 18.387 m/s. Earlier-run (T7092, T9AEC) and before-entering (TF5BA) sentences describe the car's path at another time, not on the curve asked about, so treated as disconnected from the current answer. Mass sentences cancel (m on both sides). Variants: T02CA/T82EB/T9AEC/TF5BA all state 7.5 m; T7092/T5A6E say 'a little' with no number (non-numeric variants); TFE1E/T79A4 both 1350 kg. Slight artificiality: T82EB 'moves 7.5 m further' is mildly ambiguous about whether the car stays on that larger radius for the whole curve."
+}

@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch12",
+  "item_id": "M250-S52",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:44:00Z", "completed_at": "2026-11-20T10:54:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Calorimetry energy balance: m_w c (dTw - theta) = m_i L + m_i c theta; heat given up Q = m_w c (dTw - theta)", "assumptions": ["isolated system (stated)", "all ice melts (stated, and consistent: theta > 0)", "ice initially at 0 C, constant c"], "answer": 34582.07, "unit": "J"},
+  "stratum_assignments": {
+    "T96AB": {"stratum": "R", "answer_with_sentence": 39489.79, "regime": null},
+    "TA38E": {"stratum": "D", "answer_with_sentence": 34582.07, "regime": null},
+    "T5D2A": {"stratum": "R", "answer_with_sentence": 39489.79, "regime": null},
+    "T2F5B": {"stratum": "D", "answer_with_sentence": 34582.07, "regime": null},
+    "T32CB": {"stratum": "D", "answer_with_sentence": 34582.07, "regime": null},
+    "T162D": {"stratum": "D", "answer_with_sentence": 34582.07, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "For T96AB/T5D2A the reader must decide whether 'starts 40 K above the melting point' is the temperature before or after the 17 K heating; I read it as before (water enters mixing 57 K above), and T5D2A's 'the container' is slightly ambiguous now that a second container is present."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: 2093(40 - theta) = 26720 + 334.88 theta -> theta = 57000/2427.88 = 23.4773 K; Q = 2093 x 16.5227 = 34582.1 J. With 17 K pre-heating: 2093(57 - theta) = 26720 + 334.88 theta -> theta = 92581/2427.88 = 38.1325 K; Q = 39489.8 J. Heat supplied by the heater is not counted as heat given up during mixing. Second-container and earlier-run sentences are D; T2F5B and T162D carry no number."
+}

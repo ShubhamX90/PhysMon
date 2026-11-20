@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch17",
+  "item_id": "M250-S73",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:56:00Z", "completed_at": "2026-11-20T11:05:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "E_n = n^2 (hc)^2/(8 mc^2 L^2); photon energy E_4 - E_1 = 15 E_1; lambda = hc/(15 E_1) = 8 mc^2 L^2/(15 hc) = 8*511000*0.25/(15*1240)", "assumptions": ["infinite 1D well, non-relativistic electron (energies ~ 22 eV << 511 keV)", "single photon carries the whole transition energy", "width fixed during the transition"], "answer": 54.946, "unit": "nm"},
+  "stratum_assignments": {
+    "T3D51": {"stratum": "R", "answer_with_sentence": 1848.39, "regime": null},
+    "TEDF7": {"stratum": "D", "answer_with_sentence": 54.946, "regime": null},
+    "T8EF5": {"stratum": "R", "answer_with_sentence": 1848.39, "regime": null},
+    "T7B70": {"stratum": "D", "answer_with_sentence": 54.946, "regime": null},
+    "T425C": {"stratum": "D", "answer_with_sentence": 54.946, "regime": null},
+    "T6BE7": {"stratum": "D", "answer_with_sentence": 54.946, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "TEDF7/T6BE7 ('was widened ... in an earlier experiment on it') do not say the widening was undone, so a reader could take the well as still 2.9 nm wide; the stated present width of 0.5 nm makes the D reading the consistent one, but the wording invites the other."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "With L = 2.9 nm: lambda = 8*511000*8.41/18600 = 1848.39 nm (scales as L^2: 54.946*(2.9/0.5)^2 = 54.946*33.64). Variants share 2.4 nm and differ in attachment/timing; numeral-free twins consistent. Quantum dot is a separate structure: D."
+}

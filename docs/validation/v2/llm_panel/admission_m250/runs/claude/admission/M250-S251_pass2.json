@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250_admission:batch06",
+  "item_id": "M250-S251",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:25:30Z", "completed_at": "2026-11-20T10:32:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation in inverse-square field: h = v^2 R / (2 g R - v^2)",
+    "assumptions": ["launch speed at the surface", "below escape speed"],
+    "answer": 1157.01,
+    "unit": "km"
+  },
+  "stratum_assignments": {
+    "TE544": {"stratum": "C", "answer_with_sentence": 1157.01, "regime": null},
+    "T9571": {"stratum": "D", "answer_with_sentence": 1157.01, "regime": null},
+    "TFA02": {"stratum": "D", "answer_with_sentence": 1157.01, "regime": null},
+    "T9D2A": {"stratum": "D", "answer_with_sentence": 1157.01, "regime": null},
+    "T04BD": {"stratum": "R", "answer_with_sentence": 1878.54, "regime": null},
+    "TE24B": {"stratum": "C", "answer_with_sentence": 1157.01, "regime": null},
+    "T9791": {"stratum": "R", "answer_with_sentence": 1878.54, "regime": null},
+    "TAA9D": {"stratum": "D", "answer_with_sentence": 1157.01, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "Minor wording issues: 'it' in TFA02/T9D2A follows the balloon sentence (D either way), 'before the firing ... speed given to the probe' in T04BD is slightly odd, and a weather balloon on an airless moon is unnatural; none changes any answer."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Verified all certified answers: v=1500 -> 1157.01 km; 1560 -> 1323.35 km; 1710 -> 1878.54 km; 1830 -> 2552.47 km; all below escape speed sqrt(2gR) = 2372 m/s, so a turning point exists. Mass cancels in the energy relation. Minimal pairs TAA9D/T04BD (balloon vs probe, 210 m/s) and TFA02/T9791 (earlier vs this firing, 210 m/s) hold; numeral-free twins match. Agrees with pass 1."
+}
