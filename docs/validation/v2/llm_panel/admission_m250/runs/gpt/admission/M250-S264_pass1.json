@@ -1,0 +1,112 @@
+{
+  "item_id": "M250-S264",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For a series RLC circuit, Z = R + i(ωL − 1/(ωC)), so the phase-angle magnitude is arctan(|ωL − 1/(ωC)|/R). At ω = 2π(500) rad/s, XL = 78.5398 Ω and XC = 53.0516 Ω.",
+    "assumptions": [
+      "The specified ideal components describe the measured circuit in steady sinusoidal operation.",
+      "The battery-powered fan circuit is electrically independent of the RLC circuit."
+    ],
+    "answer": 40.3514,
+    "unit": "degrees"
+  },
+  "stratum_assignments": {
+    "TA667": {
+      "stratum": "C",
+      "answer_with_sentence": 40.3514,
+      "regime": null
+    },
+    "T2697": {
+      "stratum": "D",
+      "answer_with_sentence": 40.3514,
+      "regime": null
+    },
+    "T0B12": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T282F": {
+      "stratum": "K",
+      "answer_with_sentence": 40.3514,
+      "regime": "Conditional on interpreting the ideal inductor as a low-frequency approximation to a physical inductor, with negligible parasitic effects at 500 Hz compared with its 140 kHz self-resonance."
+    },
+    "T9559": {
+      "stratum": "K",
+      "answer_with_sentence": 40.3514,
+      "regime": "Conditional on interpreting the ideal inductor as a low-frequency approximation to a physical inductor, with negligible parasitic effects at 500 Hz compared with its 140 kHz self-resonance."
+    },
+    "T4415": {
+      "stratum": "C",
+      "answer_with_sentence": 40.3514,
+      "regime": null
+    },
+    "TD7F0": {
+      "stratum": "D",
+      "answer_with_sentence": 40.3514,
+      "regime": null
+    },
+    "TEEB4": {
+      "stratum": "R",
+      "answer_with_sentence": 30.0827,
+      "regime": null
+    },
+    "T3337": {
+      "stratum": "D",
+      "answer_with_sentence": 40.3514,
+      "regime": null
+    },
+    "T6DE7": {
+      "stratum": "D",
+      "answer_with_sentence": 40.3514,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption",
+    "contradictory_distractor_statement",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "T0B12 does not specify how the additional resistance is connected, so the measured circuit's impedance and phase angle are not uniquely determined.",
+    "contradictory_distractor_statement": "T282F and T9559 attribute finite self-resonance to the explicitly ideal inductor, whereas an ideal lumped inductor has no finite self-resonant frequency.",
+    "rendering_not_minimal": "T3337 and TD7F0 replace the explicit 14 Ω found in their corresponding renderings T2697 and T6DE7 with an unspecified 'small amount,' so these variants do not preserve the number and unit."
+  },
+  "defect_severity": {
+    "missing_assumption": "high",
+    "contradictory_distractor_statement": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "For T0B12, adding 14 Ω in series with the RLC branch gives 30.0827 degrees, whereas adding a 14 Ω parallel branch across the source gives approximately 10.3 degrees between source voltage and total source current.",
+    "An ideal inductor has impedance iωL at every finite frequency and therefore cannot exhibit the stated finite self-resonance."
+  ],
+  "notes": "The base problem is well-posed and gives an inductive circuit, with current lagging voltage. Source amplitude cancels because I = V/Z. Added fan resistance and resistance present only in an earlier run do not affect the specified steady-state measurement. The K assignments describe the likely intended practical interpretation; their numerical answers use the ideal low-frequency approximation and do not resolve the literal contradiction with an ideal component. T0B12 would give 30.0827 degrees if series insertion into the measured RLC circuit were explicitly specified. No information outside this packet was accessed.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T09:43:16+00:00",
+  "completed_at": "2026-11-20T09:44:14+00:00",
+  "minutes_spent": 0.96,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "6ea841bbfc52d44967172db106909a2c3e9f1cad4ddf0493254dde983b8ab6e8",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

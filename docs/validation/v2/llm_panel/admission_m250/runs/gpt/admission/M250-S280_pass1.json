@@ -1,0 +1,107 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S280",
+  "pass_number": 1,
+  "started_at": "2026-11-20T09:50:23+00:00",
+  "completed_at": "2026-11-20T09:51:23+00:00",
+  "minutes_spent": 1.0,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Use mu = g_surface R_planet^2 and the vis-viva equation v^2 = mu(2/r - 1/a). With r1 = 1837000 m, r2 = 4237000 m and a = (r1+r2)/2, the total supplied speed change is sqrt(mu/r1)[sqrt(2r2/(r1+r2))-1] + sqrt(mu/r2)[1-sqrt(2r1/(r1+r2))].",
+    "assumptions": [
+      "The stated inverse-square attraction is central, with mu = 4.88781378e12 m^3/s^2.",
+      "Apply the explicitly stated instantaneous-burn approximation to the two prograde burns.",
+      "The transfer is the specified ellipse tangent to the two coplanar circular orbits."
+    ],
+    "answer": 534,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TE6AF": {
+      "stratum": "D",
+      "answer_with_sentence": 534,
+      "regime": null
+    },
+    "T1718": {
+      "stratum": "D",
+      "answer_with_sentence": 534,
+      "regime": null
+    },
+    "T4C56": {
+      "stratum": "D",
+      "answer_with_sentence": 534,
+      "regime": null
+    },
+    "T88D6": {
+      "stratum": "D",
+      "answer_with_sentence": 534,
+      "regime": null
+    },
+    "TA6B6": {
+      "stratum": "K",
+      "answer_with_sentence": 534,
+      "regime": "Burn duration is short compared with orbital periods, permitting the explicitly stipulated impulsive approximation; 180 s is approximately 2.5% of the initial circular period and 0.73% of the final circular period."
+    },
+    "T53EE": {
+      "stratum": "R",
+      "answer_with_sentence": 373,
+      "regime": null
+    },
+    "TCF66": {
+      "stratum": "R",
+      "answer_with_sentence": 373,
+      "regime": null
+    },
+    "TC95F": {
+      "stratum": "C",
+      "answer_with_sentence": 534,
+      "regime": null
+    },
+    "T70A4": {
+      "stratum": "K",
+      "answer_with_sentence": 534,
+      "regime": "Burn duration is short compared with orbital periods, permitting the explicitly stipulated impulsive approximation; 180 s is approximately 2.5% of the initial circular period and 0.73% of the final circular period."
+    },
+    "T6EC6": {
+      "stratum": "C",
+      "answer_with_sentence": 534,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T4C56 and T1718 specify only 'a little' rather than the numerical increase of 470 km given in their corresponding variants TE6AF and T88D6, so the variants fail the required preservation of number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "An earlier-flight altitude increase of 10 km satisfies T4C56 but not TE6AF.",
+    "A relay-orbit altitude increase of 10 km satisfies T1718 but not T88D6."
+  ],
+  "notes": "The base physics problem has a unique answer under its stated model. Raising the present initial orbit by 470 km makes its radius 2307000 m and changes the two-burn total to approximately 373 m/s. Earlier-flight information and relay altitude have no physical path to the current transfer. Spacecraft mass cancels from the orbital equations. A finite stated burn duration is compatible with being treated as instantaneous under the expressly stipulated approximation. The invalid verdict concerns the required numerical equivalence of sentence variants.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "69f71a9de687f82492fe14b2d20abb7c640e3eb7052b8b5f149eae45f4791454",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

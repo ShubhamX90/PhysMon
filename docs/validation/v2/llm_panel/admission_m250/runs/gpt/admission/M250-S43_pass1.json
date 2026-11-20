@@ -1,0 +1,91 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S43",
+  "pass_number": 1,
+  "started_at": "2026-11-20T09:35:02+00:00",
+  "completed_at": "2026-11-20T09:35:52+00:00",
+  "minutes_spent": 0.83,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The air and dielectric layers act as capacitors in series: C_f = C_0 d/(d-t+t/k) = 160 pF. At fixed voltage, additional charge is (C_f-C_0)V = (60 pF)(12 V) = 7.2e-10 C.",
+    "assumptions": [
+      "The dielectric is described by its stated constant relative permittivity.",
+      "The battery maintains its emf across the capacitor.",
+      "Additional charge means the increase in charge on one capacitor plate during slab insertion.",
+      "Edge effects are negligible, so the slab's position within the gap does not affect the result."
+    ],
+    "answer": 7.2e-10,
+    "unit": "C"
+  },
+  "stratum_assignments": {
+    "T27DA": {
+      "stratum": "D",
+      "answer_with_sentence": 7.2e-10,
+      "regime": null
+    },
+    "T8799": {
+      "stratum": "D",
+      "answer_with_sentence": 7.2e-10,
+      "regime": null
+    },
+    "T0DBA": {
+      "stratum": "D",
+      "answer_with_sentence": 7.2e-10,
+      "regime": null
+    },
+    "T9341": {
+      "stratum": "R",
+      "answer_with_sentence": 1.17e-09,
+      "regime": null
+    },
+    "T6AD3": {
+      "stratum": "R",
+      "answer_with_sentence": 1.17e-09,
+      "regime": null
+    },
+    "T970C": {
+      "stratum": "D",
+      "answer_with_sentence": 7.2e-10,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The capacitor-connected cell sentences do not unambiguously specify the cell connection relative to initial charging and the charge-transfer interval, allowing different additional charges.",
+    "rendering_not_minimal": "T27DA versus T8799 and T0DBA versus T970C omit versus specify the 7.5 V emf, so these variants do not preserve the required numerical value and unit."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "With the aiding cell connected and equilibrium established before slab insertion, the insertion transfers (160-100) pF times 19.5 V = 1.17e-9 C.",
+    "If the capacitor first reaches the explicitly described 12 V charged state, then the aiding cell is connected before insertion, the total subsequent charge supplied is (160 pF)(19.5 V) minus (100 pF)(12 V) = 1.92e-9 C; 7.5e-10 C is supplied before insertion."
+  ],
+  "notes": "The base problem is well-posed. The numerical assignments for T9341 and T6AD3 use the insertion-only charge-transfer interval and assume the capacitor has equilibrated at 19.5 V before insertion. Their relevance is clear, but the requested interval and connection chronology need clarification. Earlier-experiment cells and cells in the separate lamp circuit have no physical path to the target under the stated idealizations. 'Small cell' supplies no numerical emf; that omission does not affect the disconnected answers, but it violates the stipulated numerical matching between variants.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "2eac8efd182a1f351218a5a8c2c0c5e0165b420b0686dd7dd0386269a3866011",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

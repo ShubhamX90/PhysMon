@@ -1,0 +1,116 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S237",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "With h(x)=200-140x/60000 and v(x)=sqrt(g h(x)), the crossing time is integral(dx/v)=2L/[sqrt(g)(sqrt(200)+sqrt(60))].",
+    "assumptions": [
+      "The crest crosses the specified horizontal interval of 60000 m.",
+      "The stated uniform depth profile applies during the crossing.",
+      "The prescribed local shallow-water speed applies throughout."
+    ],
+    "answer": 1751.3,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TA114": {
+      "stratum": "K",
+      "answer_with_sentence": 1751.3,
+      "regime": "Shallow water: kh=2*pi*h/lambda << 1. At h=200 m and lambda=170 km, kh is approximately 0.0074."
+    },
+    "TF161": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T8491": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T6BFE": {
+      "stratum": "D",
+      "answer_with_sentence": 1751.3,
+      "regime": null
+    },
+    "T1E46": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TEB36": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T5E18": {
+      "stratum": "K",
+      "answer_with_sentence": 1751.3,
+      "regime": "Shallow water: kh=2*pi*h/lambda << 1. At h=200 m and lambda=170 km, kh is approximately 0.0074."
+    },
+    "T7BD4": {
+      "stratum": "D",
+      "answer_with_sentence": 1751.3,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption",
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The slope-dredging additions do not specify whether the original uniform profile is replaced by another uniform profile or altered only locally, although the crossing time depends on the entire depth profile.",
+    "insufficient_boundary_condition": "TF161 leaves the depth change unquantified, and the earlier-survey wording does not establish whether the dredged profile persists when the tsunami crosses.",
+    "rendering_not_minimal": "TF161 and T6BFE give only 'a little', whereas their quantitative counterparts give 33 m, so these variants do not state the same number and unit as required."
+  },
+  "defect_severity": {
+    "missing_assumption": "high",
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    {
+      "sentences": [
+        "T8491",
+        "T1E46",
+        "TEB36"
+      ],
+      "description": "If dredging produces a new uniform slope from 200 m to 93 m over 60 km before the crossing, the time is 120000/[sqrt(9.8)(sqrt(200)+sqrt(93))] = 1611.6 s. If dredging instead affects only a short region near the landward endpoint, the time can remain arbitrarily close to 1751.3 s."
+    },
+    {
+      "sentences": [
+        "TF161",
+        "TEB36"
+      ],
+      "description": "Dredging performed for an earlier survey can leave a permanent deeper seabed; the survey having ended does not restore the original depth. Restoration would give the original crossing time, whereas persistent dredging can change it."
+    }
+  ],
+  "notes": "The base problem is solvable and gives approximately 29.19 minutes. Null sentence answers indicate that the added information does not determine a unique modified crossing time. The value 1611.6 s is conditional on a new uniform profile with endpoints 200 m and 93 m; it is not determined by an endpoint excavation alone. The slope-dredging sentences are assigned R because the resulting bathymetry has a physical path to the target; historical purpose alone does not disconnect it. T1E46 also leaves the timing of the dredging less explicit than T8491. The harbour additions are disconnected within the stated propagation model. Both wavelength sentences consistently specify 170 km.",
+  "started_at": "2026-11-20T09:19:02+00:00",
+  "completed_at": "2026-11-20T09:20:12+00:00",
+  "minutes_spent": 1.17,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "657bddc27095e5a7587c2a8013fccbcd4df62877e3a0aa6cb87c73960212d858",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

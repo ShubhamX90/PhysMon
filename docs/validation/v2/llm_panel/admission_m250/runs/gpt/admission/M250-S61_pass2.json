@@ -1,0 +1,83 @@
+{
+  "item_id": "M250-S61",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Constructive interference gives d sin(theta) = m lambda. Using the stated small-angle approximation, y = m lambda D/d. Thus y = 3(600e-9)(2)/(0.3e-3) = 0.012 m = 12 mm.",
+    "assumptions": [
+      "The slits receive coherent illumination from the incident light.",
+      "The screen has the usual transverse orientation.",
+      "The camera does not obstruct or disturb the interference apparatus."
+    ],
+    "answer": 12.0,
+    "unit": "mm"
+  },
+  "stratum_assignments": {
+    "TE2C3": {
+      "stratum": "D",
+      "answer_with_sentence": 12.0,
+      "regime": null
+    },
+    "T3468": {
+      "stratum": "R",
+      "answer_with_sentence": 16.2,
+      "regime": null
+    },
+    "T1277": {
+      "stratum": "D",
+      "answer_with_sentence": 12.0,
+      "regime": null
+    },
+    "T68D0": {
+      "stratum": "D",
+      "answer_with_sentence": 12.0,
+      "regime": null
+    },
+    "T55CC": {
+      "stratum": "R",
+      "answer_with_sentence": 16.2,
+      "regime": null
+    },
+    "TC70F": {
+      "stratum": "D",
+      "answer_with_sentence": 12.0,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "The relevant screen shifts of 35, 70 and 150 cm produce distances of 2.35, 2.70 and 3.50 m and fringe positions of 14.1, 16.2 and 21.0 mm, respectively. Every disconnected variant retains 12.0 mm. Lengths must be converted to compatible units when evaluating the symbolic relations; all certified results use the stated target unit of mm. The declared minimal pairs TE2C3/T3468 and TC70F/T55CC preserve the number and unit while changing the event or object attachment. I withdraw the pass-1 rendering_not_minimal flag because pass 2 explicitly identifies T1277 and T68D0 as numeral-free controls, rather than numbered minimal pairs. Their wording matches their numerical twins after replacing the numerical distance. The physical solution and all pass-1 stratum assignments remain unchanged.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T09:32:10+00:00",
+  "completed_at": "2026-11-20T09:32:43+00:00",
+  "minutes_spent": 0.55,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "ec8c44728a4bec9275304221176acf31ab109376477e2decbafc44b630f2ab47",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

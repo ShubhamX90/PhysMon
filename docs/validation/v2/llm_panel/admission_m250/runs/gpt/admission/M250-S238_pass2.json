@@ -1,0 +1,132 @@
+{
+  "item_id": "M250-S238",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For Newtonian, purely azimuthal cylindrical Couette flow, v_theta = Ar + B/r. No slip gives T = 4*pi*eta*L*omega*R1^2*R2^2/(R2^2-R1^2), with omega = 2*pi*rot/60 and P = T*omega.",
+    "assumptions": [
+      "The oil is Newtonian.",
+      "The steady flow is purely azimuthal, without Taylor vortices or imposed axial flow.",
+      "The outer cylinder is stationary, no slip holds, and end effects are negligible.",
+      "The requested power is the mechanical power dissipated in the oil."
+    ],
+    "answer": 0.182942938,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T2F2B": {
+      "stratum": "K",
+      "answer_with_sentence": 0.182942938,
+      "regime": "The operating speed is below the stated vortex-free bound; the Newtonian, purely azimuthal model is also required."
+    },
+    "TF18F": {
+      "stratum": "K",
+      "answer_with_sentence": 0.182942938,
+      "regime": "The operating speed is below the stated laminar-flow bound; laminarity alone does not exclude Taylor vortices."
+    },
+    "TEF4A": {
+      "stratum": "R",
+      "answer_with_sentence": 0.483083696,
+      "regime": null
+    },
+    "TFDA3": {
+      "stratum": "D",
+      "answer_with_sentence": 0.182942938,
+      "regime": null
+    },
+    "T564F": {
+      "stratum": "R",
+      "answer_with_sentence": 0.483083696,
+      "regime": null
+    },
+    "T7A33": {
+      "stratum": "D",
+      "answer_with_sentence": 0.182942938,
+      "regime": null
+    },
+    "T5A9C": {
+      "stratum": "C",
+      "answer_with_sentence": 0.182942938,
+      "regime": null
+    },
+    "T0105": {
+      "stratum": "D",
+      "answer_with_sentence": 0.182942938,
+      "regime": null
+    },
+    "T4956": {
+      "stratum": "D",
+      "answer_with_sentence": 0.182942938,
+      "regime": null
+    },
+    "TF420": {
+      "stratum": "C",
+      "answer_with_sentence": 0.182942938,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "missing_assumption",
+    "inconsistent_units",
+    "other"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TEF4A does not establish whether the stated 120 rpm is before or after the earlier increase, so its certified measurement power is not uniquely determined.",
+    "missing_assumption": "The rendered problem omits the Newtonian constitutive model and purely azimuthal flow condition required by the certified torque law, although the auxiliary assumptions supply them.",
+    "inconsistent_units": "Both density cancellation claims give tau = q*nu*d(omega)/dr, which has units Pa/m for angular velocity omega; cylindrical shear requires tau = q*nu*r*d(omega)/dr.",
+    "other": "The T2F2B claim identifies a vortex-free bound as a loss-of-laminarity threshold, although Taylor vortices can themselves be laminar."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "missing_assumption": "high",
+    "inconsistent_units": "high",
+    "other": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "TEF4A",
+      "description": "An earlier increase from 45 rpm to the stated measurement speed of 120 rpm gives 0.182942938 W; an increase from 120 rpm to 195 rpm before measurement gives 0.483083696 W."
+    },
+    {
+      "sentence_id": "T5A9C",
+      "description": "For local angular velocity Omega(r) = A+B/r^2, the correct shear stress is -2*eta*B/r^2, whereas the claimed relation gives -2*eta*B/r^3 and the wrong dimensions; TF420 repeats this error."
+    },
+    {
+      "sentence_id": "T2F2B",
+      "description": "Steady laminar Taylor-vortex flow contains vortices while remaining laminar, so the vortex-onset threshold and the loss-of-laminarity threshold need not coincide."
+    }
+  ],
+  "notes": "The main torque and power expressions are correct under the supplied auxiliary assumptions. Every listed numerical answer agrees, to its displayed precision, with the intended model: the relevant variants use final speeds 155, 195 and 280 rpm. Those calculations do not resolve TEF4A's timing ambiguity. The explicit angular-speed conversion in the assumptions resolves the shorthand relation omega = rot. Density cancels from the intended torque expression at fixed dynamic viscosity, despite the incorrect intermediate shear relation. The listed K values all exceed 120 rpm; no post-transition power law follows merely from specifying a threshold. I withdraw pass 1's rendering_not_minimal flag because pass 2 explicitly identifies TFDA3 and T4956 as deliberately numeral-free controls, rather than claiming they retain the same numeral and unit. The actual named minimal pairs retain 75 rpm. The constitutive-model omission and erroneous shear relation are additional defects identified during pass 2.",
+  "equation_consistent": false,
+  "units_consistent": false,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T18:59:08+00:00",
+  "completed_at": "2026-11-20T19:00:20+00:00",
+  "minutes_spent": 1.2,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "1bb5ae3bdd40f8916eee809d3f7b831e6bfd2f11e74ba52cfaa0b302ec4f57c9",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

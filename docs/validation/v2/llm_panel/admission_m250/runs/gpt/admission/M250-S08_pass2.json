@@ -1,0 +1,148 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S08",
+  "pass_number": 2,
+  "started_at": "2026-11-20T09:29:07+00:00",
+  "completed_at": "2026-11-20T09:30:01+00:00",
+  "minutes_spent": 0.9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Initially uncharged series capacitors carry equal charge. The base equivalent capacitance is C1*C2/(C1+C2)=3 μF, giving E=0.5*Ceq*V^2=15 mJ. With an added capacitance q parallel to C2, the voltages are V1=V*(C2+q)/(C1+C2+q) and V2=V*C1/(C1+C2+q). The requested energy in the original two capacitors is 0.5*C1*V1^2+0.5*C2*V2^2.",
+    "assumptions": [
+      "Capacitances are ideal and constant.",
+      "Fully charged means the final electrostatic state.",
+      "The lamp circuit is electrically separate.",
+      "The question continues to refer to the original 4 μF and 12 μF capacitors after an extra capacitor is introduced.",
+      "An added capacitor connected before charging remains connected and starts uncharged."
+    ],
+    "answer": 15.0,
+    "unit": "mJ"
+  },
+  "stratum_assignments": {
+    "T12E2": {
+      "stratum": "K",
+      "answer_with_sentence": 15.0,
+      "regime": "The first capacitor's final voltage is 75 V, below every listed rating: 130, 185 and 250 V."
+    },
+    "T18C0": {
+      "stratum": "D",
+      "answer_with_sentence": 15.0,
+      "regime": null
+    },
+    "T4707": {
+      "stratum": "K",
+      "answer_with_sentence": 15.0,
+      "regime": "The first capacitor's final voltage is 75 V, below every listed rating: 130, 185 and 250 V."
+    },
+    "TBA71": {
+      "stratum": "D",
+      "answer_with_sentence": 15.0,
+      "regime": null
+    },
+    "TF8B9": {
+      "stratum": "R",
+      "answer_with_sentence": 15.50928022,
+      "regime": null
+    },
+    "TB824": {
+      "stratum": "D",
+      "answer_with_sentence": 15.0,
+      "regime": null
+    },
+    "TE79C": {
+      "stratum": "C",
+      "answer_with_sentence": 15.0,
+      "regime": null
+    },
+    "TFF02": {
+      "stratum": "R",
+      "answer_with_sentence": 15.50928022,
+      "regime": null
+    },
+    "T52A3": {
+      "stratum": "D",
+      "answer_with_sentence": 15.0,
+      "regime": null
+    },
+    "TCCF3": {
+      "stratum": "C",
+      "answer_with_sentence": 15.0,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "other",
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "other": "For TF8B9 and TFF02, every certified answer includes energy in the added capacitor, whereas the question asks for energy in the original two capacitors.",
+    "missing_assumption": "The outside-regime reference energy C2*V^2/2 assumes the first capacitor fails as a short circuit, but exceeding a voltage rating does not specify that failure model."
+  },
+  "defect_severity": {
+    "other": "high",
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_ids": [
+        "TF8B9",
+        "TFF02"
+      ],
+      "quantity_value": 5,
+      "quantity_unit": "μF",
+      "correct_answer": 15.28344671,
+      "certified_answer": 16.1905,
+      "answer_unit": "mJ"
+    },
+    {
+      "sentence_ids": [
+        "TF8B9",
+        "TFF02"
+      ],
+      "quantity_value": 7.5,
+      "quantity_unit": "μF",
+      "correct_answer": 15.50928022,
+      "certified_answer": 16.5957,
+      "answer_unit": "mJ"
+    },
+    {
+      "sentence_ids": [
+        "TF8B9",
+        "TFF02"
+      ],
+      "quantity_value": 14,
+      "quantity_unit": "μF",
+      "correct_answer": 16.08888889,
+      "certified_answer": 17.3333,
+      "answer_unit": "mJ"
+    }
+  ],
+  "notes": "The base answer, D claims, resistance cancellation relations and listed K regimes are correct. The parallel-capacitor wiring is also correct, but replacing C2 by C2+q in the stored-energy relation computes energy in all three capacitors. Subtracting 0.5*q*V2^2 gives the requested energy in the original two. The certified R values are adequately rounded values for the wrong target. All stratum-assignment answers here use mJ. I withdraw pass 1's rendering_not_minimal flag: pass 2 explicitly identifies TB824 and TBA71 as deliberate numeral-free controls, rather than numeric minimal pairs. The actual claimed numeric pairs preserve 7.5 μF and change the connection or its timing as intended. The unsupported outside-regime reference is separate from the valid certified K answers; no listed rating reaches that regime.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "ce29d2fd7a44c431f384c284aeb482244d91f21d5f6c1a0e5d388dc522692605",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S44",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:00:00+00:00",
+  "completed_at": "2026-11-20T10:00:45+00:00",
+  "minutes_spent": 0.75,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For a straight conductor perpendicular to a uniform magnetic field, F = ILB. Setting ILB = mg gives I = (0.025 × 9.8)/(0.50 × 0.350) = 1.4 A.",
+    "assumptions": [
+      "The entire rod experiences the stated uniform field perpendicular to its length.",
+      "The magnetic force is upward, and the current-carrying wires exert no force on the rod."
+    ],
+    "answer": 1.4,
+    "unit": "A"
+  },
+  "stratum_assignments": {
+    "T6EA8": {
+      "stratum": "D",
+      "answer_with_sentence": 1.4,
+      "regime": null
+    },
+    "TF1C5": {
+      "stratum": "D",
+      "answer_with_sentence": 1.4,
+      "regime": null
+    },
+    "T7DF7": {
+      "stratum": "K",
+      "answer_with_sentence": 1.4,
+      "regime": "The entire 50 cm rod remains within the uniform field; the stated 125 cm extent satisfies this condition."
+    },
+    "TD1B3": {
+      "stratum": "K",
+      "answer_with_sentence": 1.4,
+      "regime": "The entire 50 cm rod remains within the uniform field; the stated 125 cm extent satisfies this condition."
+    },
+    "T0982": {
+      "stratum": "R",
+      "answer_with_sentence": 0.9607843137,
+      "regime": null
+    },
+    "T679D": {
+      "stratum": "D",
+      "answer_with_sentence": 1.4,
+      "regime": null
+    },
+    "TE75E": {
+      "stratum": "R",
+      "answer_with_sentence": 0.9607843137,
+      "regime": null
+    },
+    "TDD25": {
+      "stratum": "D",
+      "answer_with_sentence": 1.4,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T6EA8 and T679D specify only 'a little', whereas their corresponding variants TDD25 and TF1C5 specify 160 mT, violating the requirement that variants retain the same stated number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics is correct and well-posed. For T0982, the ordinary reading is that the added field remains present when the current is set. For both active additions at the rod, 'adds 160 mT' is read as increasing the stated perpendicular field magnitude to 510 mT, giving I = 0.245/(0.50 × 0.510) A. The earlier-experiment-only additions are temporally disconnected from the present force balance. The compass additions are read as changing the field at the compass while leaving the stated field at the rod unchanged. The two 125 cm sentences preserve their number and unit.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "bae39ad581057e799ba3839286654113a66d04113b93ef7da57d75a1093ef64b",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

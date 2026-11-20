@@ -1,0 +1,113 @@
+{
+  "item_id": "M250-S260",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For equilibrium hard spheres, z = n*pi*d^2*<v_rel>, with n = p/(kB*T) and <v_rel> = sqrt(2)*sqrt(8*kB*T/(pi*m)). This gives z = 5.59458e9 s^-1. Adding nitrogen that increases the pressure by q at fixed temperature multiplies z by (80+q)/80, with pressures in kPa.",
+    "assumptions": [
+      "The requested quantity is the equilibrium mean collision frequency per molecule.",
+      "The stated ideal-gas hard-sphere kinetic model applies.",
+      "Only intermolecular collisions are counted.",
+      "The separate cylinder does not exchange gas with the vessel.",
+      "A further pressure denotes an increment to the initial pressure."
+    ],
+    "answer": 5.59458,
+    "unit": "GHz"
+  },
+  "stratum_assignments": {
+    "TE094": {
+      "stratum": "D",
+      "answer_with_sentence": 5.59458,
+      "regime": null
+    },
+    "T209B": {
+      "stratum": "C",
+      "answer_with_sentence": 5.59458,
+      "regime": null
+    },
+    "T62EC": {
+      "stratum": "D",
+      "answer_with_sentence": 5.59458,
+      "regime": null
+    },
+    "T8E4F": {
+      "stratum": "R",
+      "answer_with_sentence": 7.90234,
+      "regime": null
+    },
+    "T5675": {
+      "stratum": "C",
+      "answer_with_sentence": 5.59458,
+      "regime": null
+    },
+    "TA9C7": {
+      "stratum": "D",
+      "answer_with_sentence": 5.59458,
+      "regime": null
+    },
+    "T4C04": {
+      "stratum": "C",
+      "answer_with_sentence": 5.59458,
+      "regime": null
+    },
+    "T7923": {
+      "stratum": "D",
+      "answer_with_sentence": 5.59458,
+      "regime": null
+    },
+    "T6ADA": {
+      "stratum": "C",
+      "answer_with_sentence": 5.59458,
+      "regime": null
+    },
+    "TE998": {
+      "stratum": "R",
+      "answer_with_sentence": 7.90234,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "other"
+  ],
+  "defect_reasons": {
+    "other": "The width claims incorrectly invoke a transition to vbar/q when wall encounters become frequent, although the target explicitly excludes wall collisions and the equilibrium intermolecular collision frequency remains determined by density, temperature and molecular cross section."
+  },
+  "defect_severity": {
+    "other": "high"
+  },
+  "counterexamples": [
+    "Consider equilibrium gas at the stated pressure and temperature in a vessel of width 1e-5 cm with reflecting walls and large other dimensions. This width violates 10*lambda < q, since lambda is approximately 85 nm. Within the stated dilute-gas kinetic model, the intermolecular collision frequency remains approximately 5.59458 GHz; vbar/q is approximately 4.76 GHz and describes a wall-traversal scale, not the requested intermolecular rate."
+  ],
+  "notes": "All certified numerical answers agree with the governing equations: pressure increments of 17, 33 and 58 kPa give 6.78343, 7.90234 and 9.65065 GHz. All listed widths satisfy the supplied inequality, and volume cancels correctly. The declared minimal pairs preserve their numbers and units. I withdraw the pass-1 minimal-pair objection because pass 2 explicitly identifies TE094 and T62EC as deliberate numeral-free controls rather than numerical minimal pairs. I also revise the pass-1 width classification: I had accepted the wall-dominance rationale, but wall encounters are excluded from this target. At fixed pressure and temperature, geometric size cancels through N/V in the stated bulk ideal-gas model. Finite-size corrections can eventually require another model, but the authors' mean-free-path threshold and vbar/q expression do not establish such a change in intermolecular collision frequency. Although the outside-regime expression is marked reference-only, it remains an incorrect physics claim under the admission standard.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T09:56:08+00:00",
+  "completed_at": "2026-11-20T09:57:06+00:00",
+  "minutes_spent": 0.96,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "d1efb551fa6e5d821f8740ae9c7c919e5aaeb106c27a94f233758f95a1302263",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

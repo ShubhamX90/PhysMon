@@ -1,0 +1,88 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S06",
+  "pass_number": 1,
+  "started_at": "2026-11-20T18:58:11+00:00",
+  "completed_at": "2026-11-20T18:58:42+00:00",
+  "minutes_spent": 0.51,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Ohm's law and Kirchhoff's circuit laws: R_parallel = (1/6 + 1/12)^(-1) = 4 Ω; R_total = 8 Ω; battery current = 12/8 = 1.5 A; parallel voltage = 6 V; second-resistor current = 6/12 = 0.5 A.",
+    "assumptions": [
+      "The connections describe the operating circuit.",
+      "The lamp and its own cell form a separate circuit with no electrical connection to the battery circuit.",
+      "The stated negligible resistances and ohmic resistor model apply."
+    ],
+    "answer": 0.5,
+    "unit": "A"
+  },
+  "stratum_assignments": {
+    "TA527": {
+      "stratum": "K",
+      "answer_with_sentence": 0.5,
+      "regime": "Operation within the resistor's power rating: I_second^2 × 12 Ω ≤ 20 W. The actual dissipation is 3 W."
+    },
+    "T272F": {
+      "stratum": "D",
+      "answer_with_sentence": 0.5,
+      "regime": null
+    },
+    "T3DE4": {
+      "stratum": "D",
+      "answer_with_sentence": 0.5,
+      "regime": null
+    },
+    "T7E58": {
+      "stratum": "D",
+      "answer_with_sentence": 0.5,
+      "regime": null
+    },
+    "T7719": {
+      "stratum": "R",
+      "answer_with_sentence": 0.34782608695652173,
+      "regime": null
+    },
+    "TBEF7": {
+      "stratum": "D",
+      "answer_with_sentence": 0.5,
+      "regime": null
+    },
+    "T776D": {
+      "stratum": "K",
+      "answer_with_sentence": 0.5,
+      "regime": "Operation within the resistor's dissipation limit: I_second^2 × 12 Ω ≤ 20 W. The actual dissipation is 3 W."
+    },
+    "T115C": {
+      "stratum": "R",
+      "answer_with_sentence": 0.34782608695652173,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "For T7719, 'was connected ... in this circuit' is read as describing the operating circuit's construction. With the additional series resistor, R_total = 11.5 Ω and I_second = [12 × 4/(11.5 × 12)] A = 8/23 A. The earlier-experiment sentences explicitly exclude their resistors from the operating circuit. All explicit resistance variants consistently specify 3.5 Ω, and both power-limit variants specify 20 W. The two 'small resistor' sentences both leave resistance unspecified, which does not affect their disconnected role. The separate lamp and historical apparatus make the presentation slightly artificial.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a34f846aa0a3522dbe745c882defd1e5a5008377b6391bba5917ff6d89d9c4f8",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

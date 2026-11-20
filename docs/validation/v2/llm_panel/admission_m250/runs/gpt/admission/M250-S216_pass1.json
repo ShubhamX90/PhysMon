@@ -1,0 +1,100 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S216",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:03:41+00:00",
+  "completed_at": "2026-11-20T10:04:46+00:00",
+  "minutes_spent": 1.08,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Assuming the negative plates are connected, charge conservation gives Vbar=(C1*V10+C2*V20)/(C1+C2)=84 V. Kirchhoff's laws give V2(t)=Vbar-[C1/(C1+C2)]*(V10-V20)*cos(omega*t), where omega^2=(C1+C2)/(L*C1*C2). Thus V2,max=84+64=148 V. Adding an initially equally charged 22 μF capacitor across the first makes C1=62 μF and gives V2,max=20+160*62/72=157.7778 V.",
+    "assumptions": [
+      "The negative plates are joined, completing a closed charge-exchange circuit; this connection is not explicitly stated.",
+      "A capacitor added across the first capacitor starts at the first capacitor's initial voltage of 100 V.",
+      "The capacitors and inductor are ideal, with finite positive inductance and no losses."
+    ],
+    "answer": 148,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "T94A9": {
+      "stratum": "D",
+      "answer_with_sentence": 148,
+      "regime": null
+    },
+    "T3614": {
+      "stratum": "D",
+      "answer_with_sentence": 148,
+      "regime": null
+    },
+    "T6868": {
+      "stratum": "R",
+      "answer_with_sentence": 157.7777777778,
+      "regime": null
+    },
+    "T47FC": {
+      "stratum": "D",
+      "answer_with_sentence": 148,
+      "regime": null
+    },
+    "TF693": {
+      "stratum": "C",
+      "answer_with_sentence": 148,
+      "regime": null
+    },
+    "T0EC0": {
+      "stratum": "R",
+      "answer_with_sentence": 157.7777777778,
+      "regime": null
+    },
+    "T7B75": {
+      "stratum": "C",
+      "answer_with_sentence": 148,
+      "regime": null
+    },
+    "T3A64": {
+      "stratum": "D",
+      "answer_with_sentence": 148,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The problem specifies the connection between positive plates but leaves the negative-plate return connection unstated, allowing different circuit topologies and different maximum voltages.",
+    "rendering_not_minimal": "T47FC and T3A64 replace the specified 22 μF capacitance with an unspecified 'small capacitor', so the capacitance variants do not all retain the same number and unit."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "If the negative plates are left individually isolated, joining only the positive plates through the inductor and switch provides no closed current path in the ideal lumped circuit; the second capacitor stays at 20 V instead of reaching 148 V.",
+    "An unspecified 'small capacitor' could have capacitance 1 μF, whereas the quantitative variants explicitly require 22 μF; these renderings therefore need not describe the same capacitance."
+  ],
+  "notes": "All numerical answers and role assignments use the intended closed circuit with common negative plates. Without that connection, the base problem does not uniquely determine an answer. Inductance affects the oscillation period but cancels from the maximum voltage, so its role is C. Both inductance sentences retain 120 mH, and all explicitly quantified added-capacitor sentences retain 22 μF. 'Charged to the same voltage' has an imprecise antecedent, particularly in the flash-unit sentences, although that ambiguity does not affect the target for the disconnected flash circuit.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "ba726e6b6088c9d157116e629037d6e211c70018dad2a778e3e65765e9fde6b0",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

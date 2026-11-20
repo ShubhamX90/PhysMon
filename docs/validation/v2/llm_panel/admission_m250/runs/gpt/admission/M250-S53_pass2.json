@@ -1,0 +1,111 @@
+{
+  "item_id": "M250-S53",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Steady one-dimensional conduction through layers in series gives P = A*dT/(L1/k1 + L2/k2). R1 = 0.0208333 K/W, R2 = 0.1041667 K/W, and P = 20/0.125 = 160 W.",
+    "assumptions": [
+      "The stated conductivities are uniform and applicable at the specified temperatures.",
+      "The explicitly stated steady flow, perfect thermal contact and insulated edges apply.",
+      "The relevant temperature increases are applied to the baseline difference of 20 K, and the resulting steady heat flow is requested."
+    ],
+    "answer": 160,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "TA69F": {
+      "stratum": "D",
+      "answer_with_sentence": 160,
+      "regime": null
+    },
+    "TFB61": {
+      "stratum": "R",
+      "answer_with_sentence": 264,
+      "regime": null
+    },
+    "T9459": {
+      "stratum": "D",
+      "answer_with_sentence": 160,
+      "regime": null
+    },
+    "T91A5": {
+      "stratum": "R",
+      "answer_with_sentence": 264,
+      "regime": null
+    },
+    "T2BD1": {
+      "stratum": "C",
+      "answer_with_sentence": 160,
+      "regime": null
+    },
+    "T0538": {
+      "stratum": "C",
+      "answer_with_sentence": 160,
+      "regime": null
+    },
+    "T6A3F": {
+      "stratum": "K",
+      "answer_with_sentence": 160,
+      "regime": "dT < q is sufficient for the stated in-regime claim; all listed limits exceed 20 K."
+    },
+    "TC890": {
+      "stratum": "D",
+      "answer_with_sentence": 160,
+      "regime": null
+    },
+    "T3307": {
+      "stratum": "D",
+      "answer_with_sentence": 160,
+      "regime": null
+    },
+    "TB011": {
+      "stratum": "K",
+      "answer_with_sentence": 160,
+      "regime": "dT < q is sufficient for the stated in-regime claim; all listed limits exceed 20 K."
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The authors' outside-regime reference P = dT/R1 requires the foam to contribute zero thermal resistance after exceeding its limit, whereas loss of shape or exceeding a rating does not specify removal or any post-failure conduction model."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    "At the authors' example q = 10 K, suppose the foam loses its original shape and compresses to 2.5 cm while retaining conductivity 0.04 W/(m*K), contact and area. With the outer-surface difference maintained at 20 K, P = 240/(0.20/0.8 + 0.025/0.04) = 274.29 W, rather than dT/R1 = 960 W."
+  ],
+  "notes": "All certified answers are correct: relevant increments of 6, 13 and 27 K give 208, 264 and 376 W; every certified C, D and K answer is 160 W. The cancellation relations and the declared numerical minimal pairs are correct. I withdraw the pass-1 rendering_not_minimal flag because pass 2 explicitly identifies TA69F and TC890 as deliberate numeral-free controls, rather than numerical minimal pairs. The K predicates suffice for all listed values. The invalid verdict concerns only the authors' additional outside-regime reference expression: although expressly excluded from certification, it is still a displayed physics claim and needs an additional failure model. No external information was consulted.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T09:30:42+00:00",
+  "completed_at": "2026-11-20T09:32:01+00:00",
+  "minutes_spent": 1.32,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "4e70e611655819248e7f7d73a4b791d9639b2e2972271bf082d10a8be69f72c6",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

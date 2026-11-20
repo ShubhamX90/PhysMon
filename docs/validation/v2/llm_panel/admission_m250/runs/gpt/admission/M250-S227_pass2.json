@@ -1,0 +1,92 @@
+{
+  "item_id": "M250-S227",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Boltzmann populations give p_exc = 3 exp(-6000/(RT))/(1 + 3 exp(-6000/(RT))). The mean molar level energy is U = 6 p_exc in kJ/mol.",
+    "assumptions": [
+      "The requested energy is the energy associated with the stated molecular levels.",
+      "The populations follow the equilibrium Boltzmann distribution at the temperature at which the energy is requested.",
+      "For the certified heated-state answers, heating is complete and the molecules have equilibrated at 300 K plus the stated temperature increment."
+    ],
+    "answer": 1.27797,
+    "unit": "kJ/mol"
+  },
+  "stratum_assignments": {
+    "T0EF9": {
+      "stratum": "D",
+      "answer_with_sentence": 1.27797,
+      "regime": null
+    },
+    "T9DAE": {
+      "stratum": "D",
+      "answer_with_sentence": 1.27797,
+      "regime": null
+    },
+    "TCA07": {
+      "stratum": "D",
+      "answer_with_sentence": 1.27797,
+      "regime": null
+    },
+    "T5974": {
+      "stratum": "R",
+      "answer_with_sentence": 1.57093,
+      "regime": null
+    },
+    "T4CBB": {
+      "stratum": "R",
+      "answer_with_sentence": 1.57093,
+      "regime": null
+    },
+    "T86F4": {
+      "stratum": "D",
+      "answer_with_sentence": 1.27797,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T4CBB describes ongoing heating without specifying that the requested energy is evaluated after the entire temperature increase and equilibration, so its certified answer is not uniquely determined."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "During quasistatic heating through a total increment of 38 K, the gas passes through equilibrium temperatures between 300 K and 338 K, giving different mean level energies; T4CBB does not identify the observation time.",
+    "If heating is rapid relative to internal relaxation, the level populations can initially remain near their 300 K distribution even after the translational temperature rises, giving approximately 1.27797 kJ/mol instead of the certified final-equilibrium value 1.57093 kJ/mol."
+  ],
+  "notes": "The base answer and all tabulated numerical answers agree with the Boltzmann calculation when the relevant cases are interpreted as completed heating followed by equilibrium at 322, 338 or 370 K. The R assignments identify physical relevance; their displayed answers assume that final equilibrium state. T5974 naturally suggests heating followed by equilibration, whereas T4CBB leaves the measurement stage unresolved. The earlier-run and isolated-bath D claims hold. The relations are dimensionally correct: convert 6 kJ/mol to 6000 J/mol when using the stated numerical R in the exponent. I retract the pass-1 rendering_not_minimal flag because pass 2 explicitly identifies the numeral-free sentences as controls, and neither is claimed to be a numerical minimal pair; the actual minimal_pair_with links preserve 38 K. The base answer in pass 1 was expressed in J/mol and agrees with the packet after conversion. No outside information was accessed.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T09:42:32+00:00",
+  "completed_at": "2026-11-20T09:43:16+00:00",
+  "minutes_spent": 0.75,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "69897181f4a4e401a62129a425ff19942595f7d663f4705633efb134f0c6b3ff",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

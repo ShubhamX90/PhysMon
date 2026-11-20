@@ -1,0 +1,99 @@
+{
+  "item_id": "M250-S274",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Electronic Zeeman shifts are δE=μ_B B(g_P m_P−g_S m_S), with electric-dipole selection rules Δm=0,±1. The outermost transitions have shifts ±μ_B B(g_P+g_S)/2, giving Δλ=(λ₀²/hc)μ_B B(g_P+g_S). Using μ_B=5.78878×10⁻⁵ eV/T gives Δλ=0.0270061 nm.",
+    "assumptions": [
+      "Use the explicitly specified P3/2 to S1/2 transition.",
+      "Use the stated electronic, linear Zeeman model and first-order wavelength conversion.",
+      "An added field at the vapour increases the stated field magnitude."
+    ],
+    "answer": 0.0270061,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "T63F3": {
+      "stratum": "K",
+      "answer_with_sentence": 0.0270061,
+      "regime": "The linear weak-field regime requires magnetic shifts much smaller than the fine-structure splitting; the largest P-level shift is approximately 5.79×10⁻⁵ eV, well below 0.0036 eV."
+    },
+    "T2090": {
+      "stratum": "R",
+      "answer_with_sentence": 0.0299768,
+      "regime": null
+    },
+    "TF402": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0270061,
+      "regime": null
+    },
+    "TD469": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0270061,
+      "regime": null
+    },
+    "T664D": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0270061,
+      "regime": null
+    },
+    "TC894": {
+      "stratum": "R",
+      "answer_with_sentence": 0.0299768,
+      "regime": null
+    },
+    "T3EF7": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0270061,
+      "regime": null
+    },
+    "T4FF2": {
+      "stratum": "K",
+      "answer_with_sentence": 0.0270061,
+      "regime": "The linear weak-field regime requires magnetic shifts much smaller than the fine-structure splitting; the largest P-level shift is approximately 5.79×10⁻⁵ eV, well below 0.0036 eV."
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "other",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "other": "The alkali principal-doublet P3/2 to S1/2 transition is the shorter-wavelength member, contradicting the problem's identification of it as the longer-wavelength member.",
+    "rendering_not_minimal": "T664D and T3EF7 replace the explicit 55 mT quantity in their respective variants TF402 and TD469 with an unspecified 'little', so the variants do not preserve the number and unit."
+  },
+  "defect_severity": {
+    "other": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "In the alkali principal doublet, the upper P3/2 level lies above P1/2, so its transition to the common S1/2 lower level has greater photon energy and shorter wavelength."
+  ],
+  "notes": "The numerical solution follows the explicit angular momenta and g-factors despite the incorrect longer-wavelength designation. The compass statements are interpreted as changes confined to the compass field; the earlier-measurement statements do not change the present field. The two fine-structure sentences preserve 0.0036 eV, and the explicitly quantified coil sentences preserve 55 mT; the two 'little' variants do not.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T19:01:10+00:00",
+  "completed_at": "2026-11-20T19:02:17+00:00",
+  "minutes_spent": 1.12,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a8debd38001756fa10707eda3934dcea29ed4169d92a10037c26b2e3d3222bf4",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

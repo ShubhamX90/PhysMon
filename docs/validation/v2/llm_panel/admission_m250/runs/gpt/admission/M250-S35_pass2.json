@@ -1,0 +1,105 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S35",
+  "pass_number": 2,
+  "started_at": "2026-11-20T18:50:47+00:00",
+  "completed_at": "2026-11-20T18:51:39+00:00",
+  "minutes_spent": 0.86,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Vertical balance gives F cos(theta) = mg, while horizontal centripetal acceleration gives F sin(theta) = m omega^2 L sin(theta). Therefore the revolution time is P = 2 pi sqrt(L cos(theta)/g).",
+    "assumptions": [
+      "The small bob is treated as a point mass suspended from a fixed support.",
+      "The stated length and angle describe the steady circular motion whose period is requested.",
+      "For an extended string, replacing L by L + q additionally requires the stated angle to describe the final steady motion."
+    ],
+    "answer": 2.04608,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T41B5": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T3E4C": {
+      "stratum": "D",
+      "answer_with_sentence": 2.04608,
+      "regime": null
+    },
+    "T3589": {
+      "stratum": "C",
+      "answer_with_sentence": 2.04608,
+      "regime": null
+    },
+    "T8044": {
+      "stratum": "C",
+      "answer_with_sentence": 2.04608,
+      "regime": null
+    },
+    "TC5DB": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T5418": {
+      "stratum": "D",
+      "answer_with_sentence": 2.04608,
+      "regime": null
+    },
+    "T422F": {
+      "stratum": "D",
+      "answer_with_sentence": 2.04608,
+      "regime": null
+    },
+    "T0789": {
+      "stratum": "D",
+      "answer_with_sentence": 2.04608,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "T41B5: whether the requested revolution occurs before or after lengthening, and whether the final motion remains steady at 30 degrees.",
+    "TC5DB: whether the stated 1.2 m is the length before extension or the operative length during the described circular motion."
+  ],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The lengthening variants do not uniquely identify the operative length and steady-motion state for the requested revolution, so their certified answers require additional conditions."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "For TC5DB, taking the stated 1.2 m as the length during the described motion gives 2.04608 s despite the earlier extension; taking it as the length before extension gives 2.57460 s at 30 degrees.",
+    "For T41B5, lengthening a moving conical pendulum does not by itself establish another steady cone at the original angle; the bob can undergo transient motion, for which the asserted steady-cone period is unsupported."
+  ],
+  "notes": "The base solution, mass cancellation, and disconnected reel claims are correct. Both mass sentences specify 1.4 kg. The historical-experiment sentences are disconnected when the stated length describes the current experiment. All three extension answers are numerically correct conditional on final lengths of 1.6, 1.9 and 2.3 m and a final steady angle of 30 degrees, but those conditions are not established unambiguously by the rendered additions. The authors' listed assumptions do not resolve the temporal interpretation in the problem text. I retract the pass-1 rendering_not_minimal flag: pass 2 explicitly identifies the numeral-free sentences as controls, whereas the actual minimal_pair_with claims connect sentences with matching numbers and units. The numeral-free twin descriptions accurately identify their intended wording changes. No K claim is present.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "0d896d4512f0f07abc43a2b178289cdfd6f92d6f01e91a84a65c092b1affa43d",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

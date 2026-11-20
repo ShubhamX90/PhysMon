@@ -1,0 +1,118 @@
+{
+  "item_id": "M250-S56",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "COP_Carnot = Tc/(Th-Tc) = 275/25 = 11; COP = 0.3*11 = 3.3; refrigeration drive power = cooling load/COP = 200/3.3.",
+    "assumptions": [
+      "The refrigerator operates steadily between the stated constant reservoir temperatures.",
+      "Its achieved COP remains 3.3 when the load changes.",
+      "For the authors' lamp answers, 200 W is the original heat-leak load and the target excludes the lamp's own electrical consumption.",
+      "An operating interior lamp deposits its electrical power as heat inside the refrigerator."
+    ],
+    "answer": 60.6060606061,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T2CD6": {
+      "stratum": "K",
+      "answer_with_sentence": 60.6060606061,
+      "regime": "Required continuous drive power is below the motor's electrical input capacity."
+    },
+    "TC1B7": {
+      "stratum": "R",
+      "answer_with_sentence": 77.2727272727,
+      "regime": null
+    },
+    "T3A68": {
+      "stratum": "D",
+      "answer_with_sentence": 60.6060606061,
+      "regime": null
+    },
+    "T0E77": {
+      "stratum": "C",
+      "answer_with_sentence": 60.6060606061,
+      "regime": null
+    },
+    "T9447": {
+      "stratum": "D",
+      "answer_with_sentence": 60.6060606061,
+      "regime": null
+    },
+    "T2BAE": {
+      "stratum": "C",
+      "answer_with_sentence": 60.6060606061,
+      "regime": null
+    },
+    "TB1B6": {
+      "stratum": "D",
+      "answer_with_sentence": 60.6060606061,
+      "regime": null
+    },
+    "T50E9": {
+      "stratum": "K",
+      "answer_with_sentence": 60.6060606061,
+      "regime": "Required continuous drive power is below the motor's electrical input capacity."
+    },
+    "T5601": {
+      "stratum": "D",
+      "answer_with_sentence": 60.6060606061,
+      "regime": null
+    },
+    "T5F2C": {
+      "stratum": "R",
+      "answer_with_sentence": 77.2727272727,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The rendered problem does not specify that the requested refrigerator electrical input excludes the operating interior lamp's own consumption, which changes the answer by 55 W."
+  },
+  "defect_severity": {
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    {
+      "sentences": [
+        "TC1B7",
+        "T5F2C"
+      ],
+      "case": "Taking 200 W as the original heat leak, the compressor requires (200+55)/3.3 = 77.2727 W. If the interior lamp is supplied through the refrigerator and its consumption is included in the requested refrigerator electrical power, the total is 77.2727+55 = 132.2727 W. The rendered sentences do not specify this accounting boundary."
+    }
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "All certified numerical values follow from the authors' intended drive-power model: the relevant lamp loads give 71.2121, 77.2727 and 87.8788 W; the invariant cases give 60.6061 W. The numerical precision is adequate. All listed motor ratings exceed the required input; a 20 W capacity cannot sustain the specified operation. Duration cancels when heat and work are integrated over the same interval; minutes must be converted to seconds for either energy separately. I revise T2BAE from D in pass 1 to C because the monitoring interval can consistently define that integration interval. I also withdraw the pass-1 rendering_not_minimal flag: pass 2 identifies the number-free sentences as deliberate controls, and both expressly named minimal pairs preserve 55 W. The authors' assumption that all refrigerator electrical input becomes working-fluid work defines their intended accounting, but that restriction is absent from the rendered problem and does not resolve its ambiguity for the solver. The 200 W must also be understood as the original heat-leak contribution for the lamp calculations. The earlier-test and neighboring-freezer claims hold under the stated steady reservoir model. No tools, files or outside sources were accessed.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T09:28:42+00:00",
+  "completed_at": "2026-11-20T09:29:33+00:00",
+  "minutes_spent": 0.86,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "1aeb1cd75b52e89c88dabce4fac44f505a571adc3fb539d22d111555b65a9163",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

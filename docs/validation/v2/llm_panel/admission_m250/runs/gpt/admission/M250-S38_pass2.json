@@ -1,0 +1,124 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S38",
+  "pass_number": 2,
+  "started_at": "2026-11-20T18:53:59+00:00",
+  "completed_at": "2026-11-20T18:54:49+00:00",
+  "minutes_spent": 0.83,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Static force and torque balance give N=(m+M)g=803.6 N and H=(m/2+Mx)g cot(theta)=470.4 cot(theta). The total ground force is sqrt(N^2+H^2). At the stated current angle of 62 degrees, H=250.116 N and the resultant is 841.624 N. For an explicitly subsequent tilt through q degrees followed by equilibrium, replace theta by 62-q.",
+    "assumptions": [
+      "The ladder and person are in static equilibrium in the configuration being evaluated.",
+      "The shutter has no mechanical connection to the ladder.",
+      "A subsequent repositioning is evaluated after equilibrium is restored, with the person remaining at fraction 0.6 of the ladder length.",
+      "An earlier tilt does not change the explicitly stated current angle."
+    ],
+    "answer": 841.624,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T4486": {
+      "stratum": "K",
+      "answer_with_sentence": 841.624,
+      "regime": "Static equilibrium requires mu_s >= H/N = 0.31125; every listed coefficient satisfies this."
+    },
+    "T038B": {
+      "stratum": "C",
+      "answer_with_sentence": 841.624,
+      "regime": null
+    },
+    "TD573": {
+      "stratum": "R",
+      "answer_with_sentence": 939.709,
+      "regime": null
+    },
+    "T1EB2": {
+      "stratum": "D",
+      "answer_with_sentence": 841.624,
+      "regime": null
+    },
+    "TA81B": {
+      "stratum": "D",
+      "answer_with_sentence": 841.624,
+      "regime": null
+    },
+    "T49C6": {
+      "stratum": "D",
+      "answer_with_sentence": 841.624,
+      "regime": null
+    },
+    "T5690": {
+      "stratum": "C",
+      "answer_with_sentence": 841.624,
+      "regime": null
+    },
+    "TCE71": {
+      "stratum": "D",
+      "answer_with_sentence": 841.624,
+      "regime": null
+    },
+    "T5FAB": {
+      "stratum": "K",
+      "answer_with_sentence": 841.624,
+      "regime": "Static equilibrium requires mu_s >= 0.31125; every listed coefficient satisfies this."
+    },
+    "TEA7A": {
+      "stratum": "D",
+      "answer_with_sentence": 841.624,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "failed_transformation_identity",
+    "other"
+  ],
+  "defect_reasons": {
+    "failed_transformation_identity": "TCE71 describes a tilt before the person stood on the ladder, so subtracting it from the explicitly stated current occupied angle of 62 degrees is not justified and its certified answers are not uniquely supported.",
+    "other": "The claimed outside-regime reference expression incorrectly treats a coefficient of static friction as determining the actual friction force and retains N=(m+M)g after static equilibrium becomes impossible."
+  },
+  "defect_severity": {
+    "failed_transformation_identity": "high",
+    "other": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "TCE71",
+      "case": "The unoccupied ladder initially makes an angle of 80 degrees, is tilted 18 degrees closer to the ground, and then the person stands on it at the stated current angle of 62 degrees.",
+      "result": "This satisfies the historical sentence and current configuration, but the ground force is 841.624 N rather than the certified 939.709 N."
+    },
+    {
+      "sentence_id": "T4486",
+      "case": "At the authors' outside-regime example mu_s=0.2, the maximum available static friction is 160.72 N, whereas equilibrium requires 250.116 N.",
+      "result": "No static solution exists under the stated configuration; the static coefficient alone cannot determine a sliding ground-force resultant using the proposed reference expression."
+    }
+  ],
+  "notes": "The base answer, cancellation of ladder length, disconnected shutter and earlier-experiment statements, and all certified in-regime friction answers are correct. For TD573, the listed tilt values 14, 18 and 22 degrees produce final angles 48, 44 and 40 degrees and the stated certified forces. The same numerical calculation for TCE71 requires interpreting 62 degrees as a pre-tilt angle, which its historical wording does not establish. My pass-1 historical reading of TCE71 is retained. I withdraw the pass-1 medium rendering_not_minimal flag: pass 2 explicitly identifies the numeral-free sentences as separate controls, and the declared numerical minimal pairs match in number and unit. The strict friction-regime inequality omits the admissible limiting equality, but no listed value reaches that boundary, so this is not a substantive defect. Although labelled reference-only, the outside-regime expression remains an incorrect physics claim under the admission rules. No tools, files, web sources or other information were accessed.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "9a614a67b46db1780af9e3392aff579f2f8c9050ba60bb49a171c62289459194",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

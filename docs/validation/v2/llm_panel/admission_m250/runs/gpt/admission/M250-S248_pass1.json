@@ -1,0 +1,98 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S248",
+  "pass_number": 1,
+  "started_at": "2026-11-20T19:02:32+00:00",
+  "completed_at": "2026-11-20T19:03:21+00:00",
+  "minutes_spent": 0.82,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The magnetic torque gives dS/dt = (g e/(2m)) S × B. Thus the angular precession frequency is omega = g e B/(2m), and the frequency is f = g e B/(4 pi m).",
+    "assumptions": [
+      "The stated magnetic moment relation governs the free proton in the stated constant field.",
+      "Frequency means cycles per second."
+    ],
+    "answer": 14897922,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T371E": {
+      "stratum": "R",
+      "answer_with_sentence": 17111270,
+      "regime": null
+    },
+    "TCC2A": {
+      "stratum": "D",
+      "answer_with_sentence": 14897922,
+      "regime": null
+    },
+    "T5536": {
+      "stratum": "C",
+      "answer_with_sentence": 14897922,
+      "regime": null
+    },
+    "T5A0E": {
+      "stratum": "C",
+      "answer_with_sentence": 14897922,
+      "regime": null
+    },
+    "TBE19": {
+      "stratum": "R",
+      "answer_with_sentence": 17111270,
+      "regime": null
+    },
+    "T9574": {
+      "stratum": "D",
+      "answer_with_sentence": 14897922,
+      "regime": null
+    },
+    "TA0E4": {
+      "stratum": "D",
+      "answer_with_sentence": 14897922,
+      "regime": null
+    },
+    "TB34F": {
+      "stratum": "D",
+      "answer_with_sentence": 14897922,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "contradictory_distractor_statement",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "T371E and TBE19 introduce an additional magnetic field at the sample during the measurement, contradicting the base statement that no other magnetic field acts there.",
+    "rendering_not_minimal": "TCC2A and T9574 replace the specified 52 mT quantity with an unspecified 'little', so they do not preserve the number and unit of their corresponding numerical variants."
+  },
+  "defect_severity": {
+    "contradictory_distractor_statement": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "For T371E or TBE19, interpreting the added field as an increase of the sample field gives B = 402 mT and f approximately 17.1 MHz, whereas enforcing the base field of 350 mT gives approximately 14.9 MHz; the simultaneous statements are inconsistent."
+  ],
+  "notes": "The base problem alone is well-posed and gives approximately 14.9 MHz. The numerical answers for T371E and TBE19 are conditional calculations that treat the added sentence as overriding the base field restriction; their literal combined descriptions are contradictory. For either 43-degree sentence, the factor sin(theta) appears in both the torque magnitude and the rate of change of the spin vector and cancels. The earlier measurement does not determine the current precession frequency. The compass field is disconnected from the sample under the explicit restriction on fields at the sample. The evident numerical counterparts are TCC2A/TB34F and T9574/TA0E4; neither pair preserves the stated quantity.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "0900394c43b28f3c0a78b5d317721a62aff285da2105c1b8adb1e10114d02ad2",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S233",
+  "pass_number": 2,
+  "started_at": "2026-11-20T18:54:29+00:00",
+  "completed_at": "2026-11-20T18:55:28+00:00",
+  "minutes_spent": 0.98,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law gives sin(theta_t)=sin(75 degrees)/1.5. The p-polarised power reflectance is R=[(1.5*cos(75 degrees)-cos(theta_t))/(1.5*cos(75 degrees)+cos(theta_t))]^2=0.1067648. Energy conservation gives Pt=Pin*(1-R).",
+    "assumptions": [
+      "Air has refractive index one.",
+      "Ordinary linear, nonmagnetic dielectric Fresnel optics applies.",
+      "Only transmission through the first, nonabsorbing interface is counted.",
+      "The base incident power is 5 mW.",
+      "The listed R-sentence answers assume that 5 mW denotes the power before boosting; the problem does not uniquely establish this."
+    ],
+    "answer": 4.46618,
+    "unit": "mW"
+  },
+  "stratum_assignments": {
+    "T6A28": {
+      "stratum": "C",
+      "answer_with_sentence": 4.46618,
+      "regime": null
+    },
+    "TBC5B": {
+      "stratum": "R",
+      "answer_with_sentence": 7.50318,
+      "regime": null
+    },
+    "T38E1": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46618,
+      "regime": null
+    },
+    "T8526": {
+      "stratum": "C",
+      "answer_with_sentence": 4.46618,
+      "regime": null
+    },
+    "T01A0": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46618,
+      "regime": null
+    },
+    "T6921": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46618,
+      "regime": null
+    },
+    "TAC23": {
+      "stratum": "R",
+      "answer_with_sentence": 7.50318,
+      "regime": null
+    },
+    "TA9F7": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46618,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "other"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TBC5B and TAC23 do not establish whether the stated 5 mW is before or after boosting, so the authors' increased incident powers and certified transmitted powers are not uniquely determined.",
+    "other": "The cancellation claims incorrectly equate transmitted beam irradiance to incident beam irradiance times 1-R while using the same perpendicular beam cross-sectional area on both sides of a refracting interface."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "other": "high"
+  },
+  "counterexamples": [
+    "For TBC5B at q=3.4 mW, a beam boosted from 1.6 mW to the stated incident power of 5 mW transmits 4.46618 mW; taking 5 mW before boosting instead gives 7.50318 mW.",
+    "For a beam with incident perpendicular cross-sectional area Ai, refraction gives At=Ai*cos(theta_t)/cos(theta_i). Consequently It/Ii=(1-R)*cos(theta_i)/cos(theta_t), approximately 0.302 at the stated angles, whereas the authors' transmitted-irradiance relation gives approximately 0.893."
+  ],
+  "notes": "The base Fresnel relations, base answer, D classifications and area independence are correct. Under the authors' prebooster interpretation, the R answers for q=1.7, 3.4 and 6.2 mW are approximately 5.98468, 7.50318 and 10.00423 mW; the supplied numerical precision is adequate. The area cancellation conclusion survives, but its physical derivation must account for the changed transmitted cross section: It=Ii*(1-R)*cos(theta_i)/cos(theta_t), followed by Pt=It*At. An intensity referred to incident area could instead support the displayed algebra, but that is not the claimed transmitted beam intensity. I retain pass 1's ambiguity finding. I withdraw its rendering_not_minimal flag because pass 2 explicitly identifies T01A0 and TA9F7 as numeral-free controls rather than numerical minimal pairs. The actual claimed numerical minimal pairs retain 3.4 mW and change the attachment as intended. No external information was accessed.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "00cf76c1299cab84c41c26f0dc3533b294c20e245539c69fd8b3d30ba67e347e",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

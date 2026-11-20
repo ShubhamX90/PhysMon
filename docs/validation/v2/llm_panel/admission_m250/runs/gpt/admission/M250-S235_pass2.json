@@ -1,0 +1,115 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S235",
+  "pass_number": 2,
+  "started_at": "2026-11-20T09:37:39+00:00",
+  "completed_at": "2026-11-20T09:38:36+00:00",
+  "minutes_spent": 0.95,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Archimedes' principle gives equilibrium immersion d0 = rho_b h/rho_l. For vertical displacement x while partly submerged, m x'' = -rho_l g A x, with m = rho_b A h. Thus T = 2 pi sqrt(rho_b h/(rho_l g)).",
+    "assumptions": [
+      "Motion is vertical and the cylinder remains partly submerged throughout the small oscillation.",
+      "Drag and liquid motion are neglected as stated.",
+      "For the authors' attached-wood answers, an additional unstated assumption is required: the wood extends the cylinder with the same cross-sectional area."
+    ],
+    "answer": 0.886307,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TFE49": {
+      "stratum": "D",
+      "answer_with_sentence": 0.886307,
+      "regime": null
+    },
+    "T11DC": {
+      "stratum": "C",
+      "answer_with_sentence": 0.886307,
+      "regime": null
+    },
+    "T30BA": {
+      "stratum": "C",
+      "answer_with_sentence": 0.886307,
+      "regime": null
+    },
+    "T7F78": {
+      "stratum": "D",
+      "answer_with_sentence": 0.886307,
+      "regime": null
+    },
+    "T7EFE": {
+      "stratum": "D",
+      "answer_with_sentence": 0.886307,
+      "regime": null
+    },
+    "T0F32": {
+      "stratum": "K",
+      "answer_with_sentence": 0.886307,
+      "regime": "The release amplitude q must satisfy q < min(d0, h-d0) = 10.5 cm; all listed amplitudes satisfy this."
+    },
+    "T315E": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T4379": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TCA2F": {
+      "stratum": "K",
+      "answer_with_sentence": 0.886307,
+      "regime": "The release amplitude q must satisfy q < min(d0, h-d0) = 10.5 cm; all listed amplitudes satisfy this."
+    },
+    "TF10E": {
+      "stratum": "D",
+      "answer_with_sentence": 0.886307,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption",
+    "other"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "T315E and T4379 specify the added wood's length and density but omit its cross-sectional area or mass, so treating the attachment as the substitution h -> h+q and certifying a unique modified period is unjustified.",
+    "other": "The outside-regime reference expression 2*pi*sqrt((d0+q)/g) is incorrect: once the cylinder becomes fully submerged or emerges, the period requires piecewise constant-acceleration and harmonic-motion segments."
+  },
+  "defect_severity": {
+    "missing_assumption": "high",
+    "other": "high"
+  },
+  "counterexamples": [
+    "Let the original cylinder have cross-sectional area A. For either current-attachment sentence, a 9.5 cm extension of the same density and area A gives T = 1.017 s, whereas an extension of area A/2 gives T = 2*pi*sqrt(650*(0.30+0.095/2)/(1000*9.8)) = approximately 0.954 s. Both attachments can remain above the liquid during sufficiently small oscillations.",
+    "For the unmodified cylinder, let q approach the full-submersion threshold h-d0 = 0.105 m from above. The actual period approaches 0.886307 s continuously, whereas the claimed outside-regime reference expression approaches 2*pi*sqrt(0.30/9.8), approximately 1.09933 s."
+  ],
+  "notes": "The base relations, radius cancellation, disconnected-object claims, and certified in-regime amplitude answers are correct. The relevant-answer tables at 3.5, 9.5 and 14 cm are numerically correct only if the added wood has the original cylinder's cross-sectional area. The numerical R/D pairs preserve their stated numbers and units and change the intended attachment or event. I withdraw pass 1's rendering_not_minimal flag: pass 2 explicitly identifies T7F78 and T7EFE as numeral-free controls, not numerical minimal-pair claims. The incorrect outside-regime expression remains an authors' physics claim despite being excluded from the certified in-regime answers. The main governing equations are consistent; equation_consistent is false because the packet also supplies that incorrect expression.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "368e5420477b58597ae4d5e8d579743d1e8e2a1e01588e769ba9271b10466ffa",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

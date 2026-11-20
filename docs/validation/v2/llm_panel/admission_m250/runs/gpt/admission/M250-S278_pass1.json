@@ -1,0 +1,98 @@
+{
+  "item_id": "M250-S278",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Relativistic energy-momentum conservation gives (2M + Q)^2 = 4M^2 + 2MK, where M is each incident particle's rest energy. Thus K = 2Q + Q^2/(2M). With M = 938.3 MeV and Q = 135 MeV, K = 279.7117 MeV.",
+    "assumptions": [
+      "Use relativistic kinematics.",
+      "The target is initially at rest and free.",
+      "At threshold, the final system has invariant rest energy 2011.6 MeV."
+    ],
+    "answer": 279.7,
+    "unit": "MeV"
+  },
+  "stratum_assignments": {
+    "T1A70": {
+      "stratum": "D",
+      "answer_with_sentence": 279.7,
+      "regime": null
+    },
+    "TD012": {
+      "stratum": "D",
+      "answer_with_sentence": 279.7,
+      "regime": null
+    },
+    "TB459": {
+      "stratum": "D",
+      "answer_with_sentence": 279.7,
+      "regime": null
+    },
+    "T7344": {
+      "stratum": "R",
+      "answer_with_sentence": 508.4,
+      "regime": null
+    },
+    "TCCEF": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TE22F": {
+      "stratum": "D",
+      "answer_with_sentence": 279.7,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "The reference quantity for '104 MeV more rest energy' in TCCEF."
+  ],
+  "defect_flags": [
+    "rendering_not_minimal",
+    "other"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TD012 and TB459 omit the numerical amount and unit supplied in the corresponding 104 MeV renderings, so the variants do not preserve the required stated quantity.",
+    "other": "TCCEF leaves the comparison underlying 'more rest energy' unspecified: an additional 104 MeV produces one threshold, whereas a total excess of 104 MeV conflicts with the original 135 MeV excess."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high",
+    "other": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "TCCEF",
+      "case": "If 104 MeV is an increment to the originally specified final rest energy, Q becomes 239 MeV and the threshold kinetic energy is 508.4 MeV."
+    },
+    {
+      "sentence_id": "TCCEF",
+      "case": "If 104 MeV describes the final rest-energy excess over the incident particles, it conflicts with the stated 135 MeV; replacing that original value would instead yield 213.8 MeV."
+    }
+  ],
+  "notes": "The base problem is well-posed. T7344 is interpreted as adding 104 MeV to the previously specified final rest energy, giving Q = 239 MeV. TCCEF does not clearly express the same increment, so no unique consistent answer is assigned. Earlier reactions and the independent second station have no specified physical coupling to the target reaction. All explicit numerical additions use 104 MeV, but TD012 and TB459 provide neither that number nor that unit.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T09:38:36+00:00",
+  "completed_at": "2026-11-20T09:39:39+00:00",
+  "minutes_spent": 1.04,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "2b05feaf3c71e2d2ef62ba5e1c41ad90fd028ecff6cff14e4bfc05c1432ba1f8",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

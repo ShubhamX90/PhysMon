@@ -1,0 +1,102 @@
+{
+  "item_id": "M250-S12",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Vertical equilibrium gives N = mg. At the sliding threshold, mv²/r = μsN, so vmax = sqrt(μsgr) = sqrt(0.6 × 9.8 × 50).",
+    "assumptions": [
+      "Static tyre-road friction supplies the centripetal force.",
+      "The car follows a circular path at the limiting speed.",
+      "The cyclist exerts no mechanical influence on the car."
+    ],
+    "answer": 17.1464,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T02CA": {
+      "stratum": "D",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    },
+    "T82EB": {
+      "stratum": "R",
+      "answer_with_sentence": 18.3875,
+      "regime": null
+    },
+    "T7092": {
+      "stratum": "D",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    },
+    "T5A6E": {
+      "stratum": "D",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    },
+    "T9AEC": {
+      "stratum": "D",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    },
+    "TFE1E": {
+      "stratum": "C",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    },
+    "T79A4": {
+      "stratum": "C",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    },
+    "TF5BA": {
+      "stratum": "D",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "other"
+  ],
+  "defect_reasons": {
+    "other": "TF5BA describes an outward displacement before entering the stated 50 m curve, which does not establish a new turning radius, so its claimed R classification, r + q wiring and changed certified answers are unsupported."
+  },
+  "defect_severity": {
+    "other": "high"
+  },
+  "counterexamples": [
+    "Before entering the curve, the car moves radially outward from 42.5 m to 50 m from its centre, then follows the stated circular curve of radius 50 m. TF5BA's 7.5 m pre-entry displacement holds, but the maximum speed remains 17.1464 m/s rather than 18.3875 m/s.",
+    "Likewise, pre-entry outward displacements from 46 m to 50 m or from 38.5 m to 50 m satisfy the 4 m and 11.5 m versions while leaving the maximum speed at 17.1464 m/s."
+  ],
+  "notes": "The base equation, units and base answer are correct. For a circular path whose radius actually increases from 50 m to 50 + q m, the certified speeds 17.8191, 18.3875 and 19.0163 m/s at q = 4, 7.5 and 11.5 m are correctly calculated. This is a reasonable intended reading of T82EB, although explicitly stating that the car follows a concentric circular path would improve clarity. It does not follow from TF5BA: pre-entry displacement supplies no replacement for the stated turning radius. The cyclist and earlier-run D claims hold. Both mass sentences correctly give cancellation for every listed positive mass. The explicitly claimed minimal pairs preserve their numerical value and unit. I withdraw the pass-1 rendering_not_minimal flag because pass 2 identifies T7092 and T5A6E as intentional numeral-free controls, not as minimal pairs required to preserve the numeral. Their numeral-free status and twin wording are accurately described. The equation_consistent verdict includes the erroneous TF5BA wiring; the base equation itself is consistent. No external information was consulted.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T19:00:15+00:00",
+  "completed_at": "2026-11-20T19:01:10+00:00",
+  "minutes_spent": 0.91,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f45818bad3fcbffc3d8e9d7c94444ad195a2d2fa699f9ea4856c78c4e3253ba0",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

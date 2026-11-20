@@ -1,0 +1,110 @@
+{
+  "item_id": "M250-S71",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Einstein's photoelectric equation gives Kmax = hc/lambda - phi = 1240/250 - 2.3 = 2.66 eV. With mc² = 511000 eV, v = c sqrt(2Kmax/(mc²)) = 967.981 km/s.",
+    "assumptions": [
+      "Ordinary single-photon photoelectric emission.",
+      "The fastest electrons lose only the work-function energy.",
+      "Non-relativistic kinetic energy applies, as explicitly requested.",
+      "The stated 250 nm is the wavelength incident on the metal."
+    ],
+    "answer": 967.981,
+    "unit": "km/s"
+  },
+  "stratum_assignments": {
+    "TB26A": {
+      "stratum": "C",
+      "answer_with_sentence": 967.981,
+      "regime": null
+    },
+    "TF3E8": {
+      "stratum": "D",
+      "answer_with_sentence": 967.981,
+      "regime": null
+    },
+    "TEF5E": {
+      "stratum": "D",
+      "answer_with_sentence": 967.981,
+      "regime": null
+    },
+    "TA8F1": {
+      "stratum": "D",
+      "answer_with_sentence": 967.981,
+      "regime": null
+    },
+    "T94D8": {
+      "stratum": "R",
+      "answer_with_sentence": 1195.73,
+      "regime": null
+    },
+    "TCF8E": {
+      "stratum": "D",
+      "answer_with_sentence": 967.981,
+      "regime": null
+    },
+    "T860D": {
+      "stratum": "D",
+      "answer_with_sentence": 967.981,
+      "regime": null
+    },
+    "T5707": {
+      "stratum": "C",
+      "answer_with_sentence": 967.981,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "Whether T860D intends 250 nm to describe the wavelength before shortening, despite the base statement specifying the light falling on the metal."
+  ],
+  "defect_flags": [
+    "rendering_not_minimal",
+    "other"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TA8F1 and TCF8E omit the number and unit retained by the other wavelength variants, contrary to the review's stipulated matching requirement, although the authors explicitly identify these omissions as deliberate controls.",
+    "other": "The T860D claim subtracts the shift from the explicitly stated incident wavelength, whereas its sentence places the shortening before arrival and does not establish that 250 nm is the wavelength before shortening."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high",
+    "other": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "T860D",
+      "case": "Light initially at 305 nm is shortened by 55 nm before reaching the metal at the stated 250 nm. Both textual statements hold, but the speed is 967.981 km/s rather than the certified 1195.73 km/s."
+    }
+  ],
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "The base answer and all T94D8 answers are numerically correct, including the shifts of 35, 55 and 80 nm. The disconnected-sentence answers are correct. The general photoelectric equations are correct when kinetic energy and rest energy are converted to common units; equation_consistent is false specifically because T860D's proposed wavelength wiring does not follow uniquely from its text. Its certified answers are correct only under the alternative reading that 250 nm precedes shortening. I retain the literal incident-wavelength reading from pass 1. I revise both intensity assignments from K to C because the supplied photon-flux relations demonstrate cancellation within the stated single-photon model; the numerical answers are unchanged. The authors explain the numeral-free controls accurately, and the explicitly designated numerical minimal pairs preserve 55 nm, but the controls still fail the assignment's blanket same-number-and-unit requirement.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T09:41:05+00:00",
+  "completed_at": "2026-11-20T09:41:51+00:00",
+  "minutes_spent": 0.76,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a4511b634339956435626af7f750a11d366fbbebefe8a84be5853077e0e0de4a",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S35",
+  "pass_number": 1,
+  "started_at": "2026-11-20T18:49:37+00:00",
+  "completed_at": "2026-11-20T18:50:47+00:00",
+  "minutes_spent": 1.17,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For a conical pendulum, tension F satisfies F cos(theta) = mg and F sin(theta) = m omega^2 L sin(theta). Hence omega^2 = g/(L cos(theta)) and the revolution time is 2 pi sqrt(L cos(theta)/g).",
+    "assumptions": [
+      "The small bob is treated as a point mass.",
+      "The string's upper end is fixed.",
+      "The stated length and angle describe the steady circular motion being asked about."
+    ],
+    "answer": 2.046,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T41B5": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T3E4C": {
+      "stratum": "D",
+      "answer_with_sentence": 2.046,
+      "regime": null
+    },
+    "T3589": {
+      "stratum": "C",
+      "answer_with_sentence": 2.046,
+      "regime": null
+    },
+    "T8044": {
+      "stratum": "C",
+      "answer_with_sentence": 2.046,
+      "regime": null
+    },
+    "TC5DB": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T5418": {
+      "stratum": "D",
+      "answer_with_sentence": 2.046,
+      "regime": null
+    },
+    "T422F": {
+      "stratum": "D",
+      "answer_with_sentence": 2.046,
+      "regime": null
+    },
+    "T0789": {
+      "stratum": "D",
+      "answer_with_sentence": 2.046,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "T41B5: whether the question concerns motion before or after lengthening, and what final angle or motion is prescribed.",
+    "TC5DB: whether 1.2 m denotes the length before or after the historical lengthening."
+  ],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The bob-string lengthening variants do not unambiguously specify the length and steady-motion conditions at the time whose period is requested.",
+    "rendering_not_minimal": "T3E4C and T0789 specify only 'a little', whereas their corresponding lengthening variants specify 0.7 m, so the variants do not preserve the stated number and unit."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "For T41B5, a final steady conical motion at length 1.9 m and angle 30 degrees has period 2.575 s; a final angle of 60 degrees gives 1.956 s. The length increment alone does not determine the final angle.",
+    "For TC5DB, interpreting 1.2 m as the current length gives 2.046 s; interpreting it as the length before the 0.7 m addition gives 2.575 s at the stated angle."
+  ],
+  "notes": "The base problem is well-posed. The reel has no physical connection to the bob. Earlier-experiment changes do not affect the answer once the current length and angle are specified. Both mass statements give 1.4 kg, and mass cancels from the force equations. T41B5 would give 2.575 s if the intended additional conditions were a final length of 1.9 m and steady motion at 30 degrees. TC5DB is provisionally marked R because one plausible reading changes the operative length; on a reading where 1.2 m already describes the length after that historical adjustment, it is D. Null answers indicate that these additions do not establish a unique interpretation.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "66706c6f7712d272d44cae9d424fbf9e4cdf90213f0cd0746014251f30396e5d",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

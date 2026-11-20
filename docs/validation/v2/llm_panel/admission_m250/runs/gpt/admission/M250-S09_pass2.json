@@ -1,0 +1,95 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S09",
+  "pass_number": 2,
+  "started_at": "2026-11-20T18:56:15+00:00",
+  "completed_at": "2026-11-20T18:56:50+00:00",
+  "minutes_spent": 0.59,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of energy gives m1*c1*(T1-Tf) = (m2+q)*c2*(Tf-T2), where q is additional water participating at initial temperature T2. Thus dT = 15400/(1866.9+4186*q). The base case has q=0.",
+    "assumptions": [
+      "The specific heats are constant over the temperature range.",
+      "There is no heat exchange with the surroundings, container heat absorption, or phase change.",
+      "Participating additional water starts at 293 K.",
+      "The authors' historical-addition answers require the earlier water to have been removed or already included in the stated 0.4 kg."
+    ],
+    "answer": 8.24896888,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "T128A": {
+      "stratum": "D",
+      "answer_with_sentence": 8.24896888,
+      "regime": null
+    },
+    "TD942": {
+      "stratum": "D",
+      "answer_with_sentence": 8.24896888,
+      "regime": null
+    },
+    "TC375": {
+      "stratum": "D",
+      "answer_with_sentence": 8.24896888,
+      "regime": null
+    },
+    "TDD5D": {
+      "stratum": "R",
+      "answer_with_sentence": 3.6937542,
+      "regime": null
+    },
+    "TCCED": {
+      "stratum": "D",
+      "answer_with_sentence": 8.24896888,
+      "regime": null
+    },
+    "T4800": {
+      "stratum": "R",
+      "answer_with_sentence": 3.6937542,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "Whether the earlier additions in T128A and TC375 remain as additional water during the current experiment."
+  ],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T128A and TC375 do not establish that water added for the earlier experiment was removed or included in the stated mass, so the authors' claim that the earlier event leaves no state behind is unsupported and the participating heat capacity is ambiguous."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "If the earlier 0.55 kg in T128A remains as additional water at 293 K, the rise is 3.6937542 K; if it was removed, the rise is 8.24896888 K.",
+    "For TC375, an earlier additional mass x kg retained at 293 K gives a rise of 15400/(1866.9+4186*x) K, rather than the certified constant answer."
+  ],
+  "notes": "The base relation, dimensions, and numerical answer are correct. Both R sentences give 5.69506, 3.69375, and 2.83871 K for additions of 0.2, 0.55, and 0.85 kg, respectively. Both second-container sentences are disconnected. The historical D assignments and displayed answers above represent the authors' intended reading, conditional on no additional water remaining; their wording does not establish that condition. The authors' rationale asserts removal of the historical state but does not supply it in the problem text. I withdraw the pass-1 rendering_not_minimal flag: pass 2 explicitly identifies TD942 and TC375 as intentional numeral-free controls, and the claimed numbered minimal pairs preserve 0.55 kg. All certified numbers are arithmetically correct under the intended assumptions; answer_correct is false because the historical sentences do not uniquely support their unconditional certified answers. No tools or outside information were used.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "3f1efe53de2a1321aa6acc249296b7d6e90fe4591b2bad60e6af745eaad01fbc",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

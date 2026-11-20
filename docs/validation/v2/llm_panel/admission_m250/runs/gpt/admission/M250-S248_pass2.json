@@ -1,0 +1,101 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S248",
+  "pass_number": 2,
+  "started_at": "2026-11-20T19:03:21+00:00",
+  "completed_at": "2026-11-20T19:04:00+00:00",
+  "minutes_spent": 0.65,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Magnetic torque gives dS/dt = (g e/(2m)) S × B. The precession frequency magnitude is f = g e B/(4 pi m).",
+    "assumptions": [
+      "The stated magnetic moment relation applies to the free proton.",
+      "Frequency denotes cycles per second.",
+      "For the conditional calculations with an added sample field, the added sentence overrides the base restriction and the total field is B + q."
+    ],
+    "answer": 14.897922,
+    "unit": "MHz"
+  },
+  "stratum_assignments": {
+    "T371E": {
+      "stratum": "R",
+      "answer_with_sentence": 17.111328,
+      "regime": null
+    },
+    "TCC2A": {
+      "stratum": "D",
+      "answer_with_sentence": 14.897922,
+      "regime": null
+    },
+    "T5536": {
+      "stratum": "C",
+      "answer_with_sentence": 14.897922,
+      "regime": null
+    },
+    "T5A0E": {
+      "stratum": "C",
+      "answer_with_sentence": 14.897922,
+      "regime": null
+    },
+    "TBE19": {
+      "stratum": "R",
+      "answer_with_sentence": 17.111328,
+      "regime": null
+    },
+    "T9574": {
+      "stratum": "D",
+      "answer_with_sentence": 14.897922,
+      "regime": null
+    },
+    "TA0E4": {
+      "stratum": "D",
+      "answer_with_sentence": 14.897922,
+      "regime": null
+    },
+    "TB34F": {
+      "stratum": "D",
+      "answer_with_sentence": 14.897922,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "contradictory_distractor_statement"
+  ],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "T371E and TBE19 introduce an additional magnetic field at the sample during the measurement, contradicting the base statement that the field there is 350 mT and no other magnetic field acts there."
+  },
+  "defect_severity": {
+    "contradictory_distractor_statement": "high"
+  },
+  "counterexamples": [
+    "With T371E or TBE19, retaining the base field gives 14.897922 MHz, whereas replacing its field restriction with the authors' intended total of 402 mT gives 17.111328 MHz; no configuration satisfies both descriptions simultaneously."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "All certified numbers are arithmetically correct under the intended field interpretation: total fields of 394, 402 and 410 mT give 16.7708, 17.1113 and 17.4519 MHz. However, the R answers require overriding an explicit base condition, so answer_correct is false for the literal combined items. The cancellation relations are correct: torque and perpendicular angular momentum both contain sin(theta), which cancels at every listed nonzero angle. Degree arguments require the conventional degree interpretation. The earlier measurement cannot change the present frequency; the explicit restriction on fields at the sample supports the compass sentences' D classification. The named numerical minimal pairs preserve 52 mT and change the intended attachment or measurement event. I withdraw the pass-1 rendering_not_minimal flag because pass 2 explicitly identifies TCC2A and T9574 as intentional numeral-free controls, rather than claiming they are numerical minimal pairs. The base answer, target unit and numerical precision are otherwise correct.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "1035be19f5a9c21076123a56013e87721b9b10037f4bcca99a456de359b991f5",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

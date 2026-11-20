@@ -1,0 +1,102 @@
+{
+  "item_id": "M250-S31",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For the explicitly stated launch point, vertical motion gives t = sqrt(2h/g), and horizontal motion gives x = vt = 15 sqrt(40/9.8) = 30.3046 m.",
+    "assumptions": [
+      "The stone launches horizontally from the cliff edge, 20 m above level ground, as stated.",
+      "Gravity is uniform with g = 9.8 m/s².",
+      "Air resistance is neglected."
+    ],
+    "answer": 30.3046,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TA87E": {
+      "stratum": "C",
+      "answer_with_sentence": 30.3046,
+      "regime": null
+    },
+    "T09E8": {
+      "stratum": "D",
+      "answer_with_sentence": 30.3046,
+      "regime": null
+    },
+    "T4ABD": {
+      "stratum": "D",
+      "answer_with_sentence": 30.3046,
+      "regime": null
+    },
+    "TA0DB": {
+      "stratum": "C",
+      "answer_with_sentence": 30.3046,
+      "regime": null
+    },
+    "T1E37": {
+      "stratum": "D",
+      "answer_with_sentence": 30.3046,
+      "regime": null
+    },
+    "TFC1C": {
+      "stratum": "D",
+      "answer_with_sentence": 30.3046,
+      "regime": null
+    },
+    "TA432": {
+      "stratum": "D",
+      "answer_with_sentence": 30.3046,
+      "regime": null
+    },
+    "TE4A5": {
+      "stratum": "D",
+      "answer_with_sentence": 30.3046,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "other"
+  ],
+  "defect_reasons": {
+    "other": "The R classifications, launch-height wiring and certified answers for T1E37 and TA432 incorrectly infer a launch from the platform, although neither sentence replaces the explicitly stated launch from the cliff edge."
+  },
+  "defect_severity": {
+    "other": "high"
+  },
+  "counterexamples": [
+    "For T1E37, the thrower launches the stone from the cliff edge and then climbs onto the platform; the range remains 30.3046 m for platform heights of 6, 14 or 28 m.",
+    "For TA432, the thrower climbs onto the platform, descends, and then throws the stone from the specified cliff edge; this satisfies both statements and gives 30.3046 m rather than the certified 39.5123 m at q = 14 m."
+  ],
+  "notes": "The base relations, base answer, mass cancellation, disconnected surveyor statements and earlier-experiment statements are correct. The platform-dependent answers are numerically correct for a different launch height h + q, but that launch condition is not established by the sentences. T1E37 places the climb after the described launch; TA432 establishes a prior climb without establishing the subsequent launch location. Reading either as a platform launch would conflict with the explicit edge launch. The numerical minimal pairs preserve 14 m, although their claimed physical roles fail. Pass 2 explicitly identifies TFC1C and TE4A5 as intentional numeral-free controls, rather than numerical minimal pairs; on that clarification, I withdraw the pass-1 rendering_not_minimal objection without changing the locked review. Units and displayed numerical precision are adequate throughout.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T18:57:33+00:00",
+  "completed_at": "2026-11-20T18:58:11+00:00",
+  "minutes_spent": 0.63,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "8328af3397aef09e035a333a89a05ace3974f369050e9ad1de3511c664abf77a",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

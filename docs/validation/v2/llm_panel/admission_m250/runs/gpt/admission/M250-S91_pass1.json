@@ -1,0 +1,105 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S91",
+  "pass_number": 1,
+  "started_at": "2026-11-20T19:04:00+00:00",
+  "completed_at": "2026-11-20T19:04:51+00:00",
+  "minutes_spent": 0.84,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Continuity gives v_throat = 4 v_wide. The differential manometer gives Δp = (ρ_m − ρ)gh. Horizontal Bernoulli gives Δp = ρ(v_throat² − v_wide²)/2 = 15ρv_wide²/2. Thus Q = (πD_wide²/4)sqrt[2(ρ_m − ρ)gh/(15ρ)]. With the original manometer liquid, Δp = 14817.6 Pa.",
+    "assumptions": [
+      "The manometer liquid is in hydrostatic equilibrium when read.",
+      "The horizontal sections have equal elevation.",
+      "The stated steady, incompressible, frictionless flow model applies.",
+      "A replacement before reading makes the stated 12 cm difference refer to the replacement liquid; an earlier-experiment-only replacement leaves the present liquid unchanged."
+    ],
+    "answer": 0.01104,
+    "unit": "m³/s"
+  },
+  "stratum_assignments": {
+    "T90FF": {
+      "stratum": "D",
+      "answer_with_sentence": 0.01104,
+      "regime": null
+    },
+    "T5A70": {
+      "stratum": "D",
+      "answer_with_sentence": 0.01104,
+      "regime": null
+    },
+    "TE588": {
+      "stratum": "C",
+      "answer_with_sentence": 0.01104,
+      "regime": null
+    },
+    "T6113": {
+      "stratum": "D",
+      "answer_with_sentence": 0.01104,
+      "regime": null
+    },
+    "T2A08": {
+      "stratum": "C",
+      "answer_with_sentence": 0.01104,
+      "regime": null
+    },
+    "T609E": {
+      "stratum": "R",
+      "answer_with_sentence": 0.003809,
+      "regime": null
+    },
+    "T2C4F": {
+      "stratum": "D",
+      "answer_with_sentence": 0.01104,
+      "regime": null
+    },
+    "T3597": {
+      "stratum": "R",
+      "answer_with_sentence": 0.003809,
+      "regime": null
+    },
+    "T6339": {
+      "stratum": "C",
+      "answer_with_sentence": 0.01104,
+      "regime": null
+    },
+    "T7E31": {
+      "stratum": "C",
+      "answer_with_sentence": 0.01104,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The density variants do not preserve numerical specificity: T90FF and T5A70 state only that the density is known, whereas their corresponding variants T2C4F and T6113 explicitly state 2500 kg/m³."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and all individual augmented problems are solvable; the invalid verdict concerns the required minimal-variant property. Omitting a numerical density in T90FF and T5A70 does not make their individual answers indeterminate because those replacements are disconnected from the current measurement. With a current U-tube density of 2500 kg/m³, Δp = 1764 Pa and Q = 0.003809 m³/s. Absolute pressure cancels when Bernoulli is differenced, and the common pipe elevation cancels from the gravitational terms. The chronological replacement statements are compatible with the original liquid specification.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "624d5d941b01f499572caf80663e595a6370a576dc4b9f4b666dac2fb9b1dbb7",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

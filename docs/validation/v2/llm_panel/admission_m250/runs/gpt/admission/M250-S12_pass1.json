@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S12",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "On a flat circular path, N = mg and mv²/r ≤ μsN, giving vmax = √(μsgr) = √(0.6 × 9.8 × 50).",
+    "assumptions": [
+      "Static tyre-road friction supplies the centripetal force.",
+      "The maximum is evaluated for steady circular motion.",
+      "The cyclist does not interact mechanically with the car."
+    ],
+    "answer": 17.1464,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T02CA": {
+      "stratum": "D",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    },
+    "T82EB": {
+      "stratum": "R",
+      "answer_with_sentence": 18.3875,
+      "regime": null
+    },
+    "T7092": {
+      "stratum": "D",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    },
+    "T5A6E": {
+      "stratum": "D",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    },
+    "T9AEC": {
+      "stratum": "D",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    },
+    "TFE1E": {
+      "stratum": "C",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    },
+    "T79A4": {
+      "stratum": "C",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    },
+    "TF5BA": {
+      "stratum": "D",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T7092 and T5A6E replace the specified displacement of 7.5 m in their corresponding variants with 'a little', so the variants do not preserve the same number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem is well-posed. For T82EB, the numerical answer interprets the added sentence as changing the car's circular-path radius to 57.5 m; explicitly stating that the car follows a concentric circular path would clarify this reading. Earlier-run and pre-entry displacements do not change the radius specified for the current curve. In both mass sentences, mass enters the normal force and centripetal-force requirement and cancels.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T18:59:35+00:00",
+  "completed_at": "2026-11-20T19:00:15+00:00",
+  "minutes_spent": 0.67,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "afd1808e3e76b1407f5599a0335d7a142dd8798a574c05ddb3e5fd725f21c472",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

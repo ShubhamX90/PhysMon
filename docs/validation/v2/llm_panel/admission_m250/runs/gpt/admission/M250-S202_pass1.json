@@ -1,0 +1,103 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S202",
+  "pass_number": 1,
+  "started_at": "2026-11-20T18:54:06+00:00",
+  "completed_at": "2026-11-20T18:54:56+00:00",
+  "minutes_spent": 0.82,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of momentum gives the rocket equation: v = u ln(mi/mf). For initial payload mass P in kg, v = 3 ln((3200 + P)/(800 + P)) km/s.",
+    "assumptions": [
+      "Classical rocket mechanics applies at these speeds.",
+      "Exhaust speed is constant relative to the rocket, and external forces are negligible.",
+      "The numerical base answer assumes no payload aboard; the problem does not explicitly state this.",
+      "A payload attached to the rocket remains aboard throughout the burn."
+    ],
+    "answer": 4.158883083,
+    "unit": "km/s"
+  },
+  "stratum_assignments": {
+    "T5A37": {
+      "stratum": "R",
+      "answer_with_sentence": 3.692640772,
+      "regime": null
+    },
+    "T2DD9": {
+      "stratum": "C",
+      "answer_with_sentence": 4.158883083,
+      "regime": null
+    },
+    "T5460": {
+      "stratum": "R",
+      "answer_with_sentence": 3.692640772,
+      "regime": null
+    },
+    "T3A6F": {
+      "stratum": "D",
+      "answer_with_sentence": 4.158883083,
+      "regime": null
+    },
+    "TB855": {
+      "stratum": "C",
+      "answer_with_sentence": 4.158883083,
+      "regime": null
+    },
+    "T357D": {
+      "stratum": "D",
+      "answer_with_sentence": 4.158883083,
+      "regime": null
+    },
+    "T23F7": {
+      "stratum": "D",
+      "answer_with_sentence": 4.158883083,
+      "regime": null
+    },
+    "T2E45": {
+      "stratum": "D",
+      "answer_with_sentence": 4.158883083,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The base specifies body-and-engine mass and fuel mass but does not state whether an initial payload is aboard, so the total initial and final masses are not uniquely determined.",
+    "rendering_not_minimal": "T357D and T23F7 replace the specified 190 kg payload with an unspecified 'small payload', so the payload variants do not all preserve the same stated number and unit."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    {
+      "case": "The base rocket also carries a 190 kg payload throughout the burn.",
+      "result": "Its empty body-and-engine mass remains 800 kg and its fuel mass remains 2400 kg, but its final speed is 3 ln(3390/990) = 3.692640772 km/s rather than 4.158883083 km/s."
+    }
+  ],
+  "notes": "All numerical assignments assume that no payload is aboard except one explicitly attached to the rocket by the added sentence. The relevant-payload calculations also assume that the stated payload is the entire payload. At 27 kg/s the burn lasts 2400/27 = 88.8889 s; the rate enters thrust and mass depletion but cancels from the integrated velocity change. The nearby tug has no appreciable interaction with the rocket under the stated external-force condition. T5A37, T5460, T3A6F and T2E45 preserve 190 kg; T357D and T23F7 omit that value. The two fuel-rate sentences both preserve 27 kg/s.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "b9222c5f5bd81fd52ba863df705c98aa58d96153457d710e861ea6488a56fae7",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

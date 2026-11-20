@@ -1,0 +1,98 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S209",
+  "pass_number": 1,
+  "started_at": "2026-11-20T18:52:32+00:00",
+  "completed_at": "2026-11-20T18:53:30+00:00",
+  "minutes_spent": 0.97,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conserve angular momentum about the common centre of mass during sticking. Assuming the rod is initially stationary, I_rod = ML^2/12 = 0.24 kg m^2, mu = Mm/(M+m), I_total = I_rod + mu a^2, and omega = mu v a/I_total. With m = 0.3 kg, a = 0.4 m and v = 6 m/s, omega = 2.222222222 rad/s.",
+    "assumptions": [
+      "The rod initially has zero translational and angular velocity; this necessary initial condition is not explicitly stated.",
+      "The stated 6 m/s is the lump's speed immediately before impact, including any additional clay attached before impact.",
+      "The collision has negligible external angular impulse about the vertical axis."
+    ],
+    "answer": 2.222222222,
+    "unit": "rad/s"
+  },
+  "stratum_assignments": {
+    "T7EF6": {
+      "stratum": "D",
+      "answer_with_sentence": 2.222222222,
+      "regime": null
+    },
+    "T9964": {
+      "stratum": "R",
+      "answer_with_sentence": 2.863485017,
+      "regime": null
+    },
+    "T4CC0": {
+      "stratum": "R",
+      "answer_with_sentence": 2.863485017,
+      "regime": null
+    },
+    "T6D0B": {
+      "stratum": "D",
+      "answer_with_sentence": 2.222222222,
+      "regime": null
+    },
+    "T98CE": {
+      "stratum": "D",
+      "answer_with_sentence": 2.222222222,
+      "regime": null
+    },
+    "T688C": {
+      "stratum": "D",
+      "answer_with_sentence": 2.222222222,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [
+    "T4CC0: whether the additional clay is attached before the collision"
+  ],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The rod's initial translational and angular velocities are unspecified, although both can change the answer; T4CC0 also leaves the attachment time unspecified.",
+    "rendering_not_minimal": "T6D0B and T98CE replace the explicit 0.13 kg mass with an unspecified 'small piece', so the mass variants do not consistently preserve the required number and unit."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    {
+      "case": "The rod initially translates at 1 m/s in the incoming clay's direction, with no initial rotation.",
+      "result": "The relative approach speed is 5 m/s and the final angular speed is 1.851851852 rad/s, rather than 2.222222222 rad/s; this initial motion is not explicitly excluded."
+    },
+    {
+      "case": "For T4CC0, the extra clay is attached after the instant whose angular speed is requested.",
+      "result": "Under the stationary-rod assumption, the requested angular speed remains 2.222222222 rad/s; attaching it before impact at the stated incoming speed instead gives 2.863485017 rad/s."
+    }
+  ],
+  "notes": "All numerical answers assume an initially stationary rod, so they are conditional rather than uniquely determined by the literal problem. For pre-impact attachment, the incoming mass becomes 0.43 kg and omega = (0.43*6*0.4)/(0.24*(1+0.43/2)+0.43*0.4^2) = 2.863485017 rad/s. T4CC0 is assigned R under that intended reading. Clay on the shelf-supported vase has no stated physical path to the collision, and clay used for an earlier run only does not enter the current system. The four explicit mass statements consistently use 0.13 kg; the two 'small piece' statements supply no numerical mass.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "4a79ece282b2125279600a865e39e9b73742b8fa158335401fc22fe3447c622d",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S220",
+  "pass_number": 2,
+  "started_at": "2026-11-20T18:55:30+00:00",
+  "completed_at": "2026-11-20T18:56:09+00:00",
+  "minutes_spent": 0.64,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For insertion depth x, C(x)=C0[1+(kappa-1)x/ell]. Including the battery's energy exchange, the inward force at fixed voltage is F=(V^2/2)dC/dx=C0(kappa-1)V^2/(2ell). Substitution gives 0.00075 N = 0.75 mN.",
+    "assumptions": [
+      "Use the stated linear dielectric model with negligible fringe fields.",
+      "The slab fills the plate width and separation and remains partly inserted.",
+      "The ideal connected battery maintains the base voltage at 500 V."
+    ],
+    "answer": 0.75,
+    "unit": "mN"
+  },
+  "stratum_assignments": {
+    "T9C5B": {
+      "stratum": "D",
+      "answer_with_sentence": 0.75,
+      "regime": null
+    },
+    "T09BD": {
+      "stratum": "D",
+      "answer_with_sentence": 0.75,
+      "regime": null
+    },
+    "TBFE0": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TABCB": {
+      "stratum": "D",
+      "answer_with_sentence": 0.75,
+      "regime": null
+    },
+    "TA3FF": {
+      "stratum": "K",
+      "answer_with_sentence": 0.75,
+      "regime": "Positive partial insertion, 0 < x < ell, with the stated linear-overlap model applicable; all listed depths satisfy this."
+    },
+    "TAC6D": {
+      "stratum": "K",
+      "answer_with_sentence": 0.75,
+      "regime": "Positive partial insertion, 0 < x < ell, with the stated linear-overlap model applicable; all listed depths satisfy this."
+    },
+    "TE652": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T8F88": {
+      "stratum": "D",
+      "answer_with_sentence": 0.75,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TBFE0 and TE652 specify a series connection without relative battery polarity, so the authors' assumed voltage V+q and the resulting certified forces are not uniquely determined."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "At q=150 V, series-opposing batteries give 350 V across the capacitor and F=0.3675 mN, whereas the certified answer is 1.2675 mN.",
+    "At q=350 V, series-opposing batteries give 150 V across the capacitor and F=0.0675 mN, whereas the certified answer is 2.1675 mN.",
+    "At q=700 V, series-opposing batteries give a voltage magnitude of 200 V and F=0.12 mN, whereas the certified answer is 4.32 mN."
+  ],
+  "notes": "The base equation, unit conversion and base answer are correct. Every certified D and K answer is correct within the stated model; all R answers are numerically correct for series-aiding batteries only. The authors' assertion that a series battery necessarily adds its emf is unjustified without specifying polarity. I revise the pass-1 C assignments for the insertion depths to K because the constant force holds within the partial-overlap regime and can change outside it. I withdraw the pass-1 rendering_not_minimal flag: pass 2 explicitly identifies the numeral-free sentences as controls, not equal-number minimal pairs. The explicitly claimed numerical minimal pairs retain 350 V and change the intended attachment. No external information was accessed.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "83041931343c36f3c1553ebe9949588e97ab77c4c237b48b1e1c62bf59895fc6",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

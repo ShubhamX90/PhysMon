@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S277",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Survival is S = exp(-t_proper/tau), with t_proper = L/(beta*gamma*c) and beta*gamma = (pc)/(mc^2). Thus the mean decay length is (4000/139.57)*(2.998e8)*(26.03e-9) = 223.6525 m, and S = exp(-100/223.6525).",
+    "assumptions": [
+      "Special relativistic kinematics applies.",
+      "The requested fraction is conditional on pions entering the tube alive.",
+      "A current extension of the flight path preserves the stated constant momentum and absence of interactions."
+    ],
+    "answer": 0.6394657,
+    "unit": "dimensionless"
+  },
+  "stratum_assignments": {
+    "T86A1": {
+      "stratum": "R",
+      "answer_with_sentence": 0.5492817,
+      "regime": null
+    },
+    "T456D": {
+      "stratum": "D",
+      "answer_with_sentence": 0.6394657,
+      "regime": null
+    },
+    "TD9FC": {
+      "stratum": "D",
+      "answer_with_sentence": 0.6394657,
+      "regime": null
+    },
+    "TA551": {
+      "stratum": "R",
+      "answer_with_sentence": 0.5492817,
+      "regime": null
+    },
+    "TA31E": {
+      "stratum": "D",
+      "answer_with_sentence": 0.6394657,
+      "regime": null
+    },
+    "T40C2": {
+      "stratum": "C",
+      "answer_with_sentence": 0.6394657,
+      "regime": null
+    },
+    "T751A": {
+      "stratum": "C",
+      "answer_with_sentence": 0.6394657,
+      "regime": null
+    },
+    "TFEF0": {
+      "stratum": "D",
+      "answer_with_sentence": 0.6394657,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TA31E and TFEF0 replace the explicit 34 m in the corresponding flight-path and cooling-line variants with the unspecified phrase 'a little more', violating the required preservation of number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and each separately augmented physics problem have unique survival fractions. The rendering defect concerns the required variant construction. Earlier-run changes have no physical connection to the current flight. The incident population cancels because N_out/N_in = exp(-L/decay_length); both population sentences consistently specify 2700 pions and are equivalent paraphrases. The unspecified lengths in TA31E and TFEF0 do not prevent solving their augmented problems because those lengths are disconnected from the target.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T18:51:14+00:00",
+  "completed_at": "2026-11-20T18:52:00+00:00",
+  "minutes_spent": 0.75,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "ad9e8c0236e964887aebb09975f96d023a11acc0ac02437b2a762be04285e3ba",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

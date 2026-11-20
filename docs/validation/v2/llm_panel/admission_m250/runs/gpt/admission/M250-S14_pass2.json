@@ -1,0 +1,110 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S14",
+  "pass_number": 2,
+  "started_at": "2026-11-20T19:05:53+00:00",
+  "completed_at": "2026-11-20T19:06:52+00:00",
+  "minutes_spent": 0.99,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Constant speed implies no change in kinetic energy. The mechanical work delivered to the lifted assembly is mgh, giving P = mgh/t = 80 × 9.8 × 6/10 = 470.4 W. An attached box of mass q changes this to (80 + q)gh/t.",
+    "assumptions": [
+      "Gravity is uniform at the stated value.",
+      "A box attached for the present lift is included in the lifted assembly."
+    ],
+    "answer": 470.4,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T920A": {
+      "stratum": "R",
+      "answer_with_sentence": 540.96,
+      "regime": null
+    },
+    "TBE39": {
+      "stratum": "D",
+      "answer_with_sentence": 470.4,
+      "regime": null
+    },
+    "T7CD8": {
+      "stratum": "C",
+      "answer_with_sentence": 470.4,
+      "regime": null
+    },
+    "TEC7E": {
+      "stratum": "K",
+      "answer_with_sentence": 470.4,
+      "regime": "The prescribed lift is feasible if the available mechanical power is at least 470.4 W. Every listed maximum exceeds this requirement."
+    },
+    "TAAAC": {
+      "stratum": "D",
+      "answer_with_sentence": 470.4,
+      "regime": null
+    },
+    "T8A2F": {
+      "stratum": "R",
+      "answer_with_sentence": 540.96,
+      "regime": null
+    },
+    "T4034": {
+      "stratum": "D",
+      "answer_with_sentence": 470.4,
+      "regime": null
+    },
+    "T635D": {
+      "stratum": "K",
+      "answer_with_sentence": 470.4,
+      "regime": "The prescribed lift is feasible if the available mechanical power is at least 470.4 W. Every listed maximum exceeds this requirement."
+    },
+    "T3979": {
+      "stratum": "D",
+      "answer_with_sentence": 470.4,
+      "regime": null
+    },
+    "T6E69": {
+      "stratum": "C",
+      "answer_with_sentence": 470.4,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "other"
+  ],
+  "defect_reasons": {
+    "other": "The K claims give q as an outside-regime reference expression for power, but a maximum below 470.4 W makes the specified lift impossible rather than establishing an alternative answer P = q."
+  },
+  "defect_severity": {
+    "other": "high"
+  },
+  "counterexamples": [
+    "At the authors' example q = 300 W, the required work remains 4704 J, while the motor can deliver at most 3000 J in 10 s. Operating at 300 W would require 15.68 s for this lift, contradicting the stated 10 s; therefore 300 W is not an alternative solution to the stated problem."
+  ],
+  "notes": "All certified answers at listed values are correct. Attached masses of 7, 12 and 28 kg give 511.56, 540.96 and 635.04 W. The disconnected attachments, height cancellation, numerical minimal pairs and stated in-regime K predicates are sound. I revise my pass-1 rendering objection because pass 2 explicitly identifies T4034 and T3979 as numeral-free controls, not numerical minimal pairs; their claimed replacement of '12 kg' by 'small' is accurate. The remaining defect concerns the explicit outside-regime physics expression, despite its designation as reference-only: below the required power, the prescribed motion is infeasible, and a maximum power alone does not specify actual operating power. No outside information was consulted.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "45a5b8faf5474f28a7e92572e8f49aa9ccde4d4ce9ab2204bffeef309c1bdf7f",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

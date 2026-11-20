@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S43",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Series dielectric layers give C_f = C_0 d/(d-t+t/kappa) = 160 pF. At constant capacitor voltage U, the charge supplied during insertion is (C_f-C_0)U. With U = 12 V, this is 0.72 nC.",
+    "assumptions": [
+      "The dielectric has the stated constant relative permittivity.",
+      "The battery is ideal and maintains the capacitor voltage.",
+      "Additional charge is measured during slab insertion.",
+      "For the relevant sentences, the capacitor has equilibrated at the combined source voltage before the charge-transfer interval begins.",
+      "Edge effects are negligible."
+    ],
+    "answer": 0.72,
+    "unit": "nC"
+  },
+  "stratum_assignments": {
+    "T27DA": {
+      "stratum": "D",
+      "answer_with_sentence": 0.72,
+      "regime": null
+    },
+    "T8799": {
+      "stratum": "D",
+      "answer_with_sentence": 0.72,
+      "regime": null
+    },
+    "T0DBA": {
+      "stratum": "D",
+      "answer_with_sentence": 0.72,
+      "regime": null
+    },
+    "T9341": {
+      "stratum": "R",
+      "answer_with_sentence": 1.17,
+      "regime": null
+    },
+    "T6AD3": {
+      "stratum": "R",
+      "answer_with_sentence": 1.17,
+      "regime": null
+    },
+    "T970C": {
+      "stratum": "D",
+      "answer_with_sentence": 0.72,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The relevant additions do not specify whether additional charge excludes charging caused by connecting the extra cell after the explicitly described initial 12 V charged state."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "For T9341, start with the stated 100 pF capacitor fully charged at 12 V, connect the aiding 7.5 V cell before insertion, then insert the slab: the total subsequent charge supplied is (160 pF)(19.5 V)-(100 pF)(12 V)=1.92 nC, whereas insertion alone supplies 1.17 nC.",
+    "Counting from that initial 12 V charged state gives 1.28 nC for a 3.5 V added cell and 4.08 nC for a 21 V added cell, rather than the certified 0.93 nC and 1.98 nC."
+  ],
+  "notes": "All certified numbers are arithmetically correct for the authors' intended insertion-only interval: the relevant answers are 0.06(12+q) nC, and all disconnected answers are 0.72 nC. The series-layer equation, source polarity, dimensions and disconnected wiring claims are correct. The relevant numerical assignments above remain conditional on equilibration before the measurement interval; the authors' claims do not resolve that omission in the problem wording. I revise my pass-1 rendering assessment: pass 2 explicitly identifies the numeral-free sentences as controls, rather than claiming they preserve the numerical value. Both explicitly declared minimal pairs preserve 7.5 V and change the intended attachment.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T09:35:52+00:00",
+  "completed_at": "2026-11-20T09:36:37+00:00",
+  "minutes_spent": 0.74,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "850244ea42bd60b77b3bc2609c101ba02e7abb07e7facc60fef1e6fee7212593",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

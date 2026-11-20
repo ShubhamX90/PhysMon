@@ -1,0 +1,97 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S255",
+  "pass_number": 1,
+  "started_at": "2026-11-20T09:40:35+00:00",
+  "completed_at": "2026-11-20T09:41:37+00:00",
+  "minutes_spent": 1.02,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For a freely bending bonded beam, zero resultant axial force and bending moment determine the thermal curvature. For equal layer thicknesses, its magnitude is kappa = [24 E_s E_b/(E_s^2 + 14 E_s E_b + E_b^2)](alpha_b-alpha_s)DeltaT/h. With DeltaT = 60 K and total thickness h = 0.001 m, kappa = 0.610909 m^-1. Small-curvature beam theory gives the free-end deflection magnitude delta = kappa L^2/2.",
+    "assumptions": [
+      "The bonded layers obey linear thermoelastic beam theory and remain bonded without slipping.",
+      "The stated absence of load permits neglecting gravitational sag.",
+      "Deflection means its magnitude relative to the initial horizontal position; bending is toward the steel layer.",
+      "The stated projecting length is used in the small-deflection approximation, neglecting its small thermal expansion."
+    ],
+    "answer": 0.0122182,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "T90F6": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0122182,
+      "regime": null
+    },
+    "TC665": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0122182,
+      "regime": null
+    },
+    "TB206": {
+      "stratum": "C",
+      "answer_with_sentence": 0.0122182,
+      "regime": null
+    },
+    "TE1D7": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0122182,
+      "regime": null
+    },
+    "T1A9F": {
+      "stratum": "R",
+      "answer_with_sentence": 0.0293542,
+      "regime": null
+    },
+    "T374D": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0122182,
+      "regime": null
+    },
+    "T6C9F": {
+      "stratum": "C",
+      "answer_with_sentence": 0.0122182,
+      "regime": null
+    },
+    "T9949": {
+      "stratum": "R",
+      "answer_with_sentence": 0.0293542,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The length variants do not preserve the same number and unit: T90F6 and TC665 replace the explicit 11 cm used in the other length sentences with an unspecified 'modest' length or distance."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A 'modest distance further' could mean 5 cm, so TC665 does not state the same numerical quantity as TE1D7, which specifies 11 cm."
+  ],
+  "notes": "The base deflection magnitude is approximately 12.2 mm. Releasing an additional 11 cm of strip makes the projecting length 0.31 m and gives approximately 29.4 mm, assuming it is held at that length for measurement. Earlier experiments do not alter the explicitly stated present length or stress-free initial condition. Cable payout has no stated connection to the strip. Width multiplies both the thermal stress resultants and elastic stiffnesses and therefore cancels; the two width sentences both specify 14 mm. The layer order is unspecified, so an upward versus downward displacement cannot be assigned; the numerical answers above are magnitudes. The phrase 'when the deflection is measured' is interpreted as specifying the configuration at measurement rather than an unresolved transient.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "03c390e72ec13ebc0d77a1eb5e0c0c84724912f6e63de778f7b6a0b10ecd9b6b",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

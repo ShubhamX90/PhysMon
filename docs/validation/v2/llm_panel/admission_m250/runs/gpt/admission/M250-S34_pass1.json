@@ -1,0 +1,119 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S34",
+  "pass_number": 1,
+  "started_at": "2026-11-20T09:39:40+00:00",
+  "completed_at": "2026-11-20T09:40:40+00:00",
+  "minutes_spent": 1.01,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of mechanical energy with I = (2/5)mR² and ω = v/R: (7/10)mv² = mgs sinθ, hence s = 7v²/(10g sinθ).",
+    "assumptions": [
+      "The sphere is rigid and rolls without slipping throughout its ascent.",
+      "The stated fixed incline remains at 25 degrees during the base motion.",
+      "Static friction does no work on the sphere on the stationary incline."
+    ],
+    "answer": 6.08452,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TDEF6": {
+      "stratum": "R",
+      "answer_with_sentence": 4.17669,
+      "regime": null
+    },
+    "T741D": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "T1332": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "T7B54": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "T96D5": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TACA4": {
+      "stratum": "C",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "T4182": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "TD438": {
+      "stratum": "K",
+      "answer_with_sentence": 6.08452,
+      "regime": "Rolling without slipping requires μs ≥ (2/7)tan25° ≈ 0.13323; 0.45 satisfies this condition."
+    },
+    "T1F4F": {
+      "stratum": "K",
+      "answer_with_sentence": 6.08452,
+      "regime": "Rolling without slipping requires μs ≥ (2/7)tan25° ≈ 0.13323; 0.45 satisfies this condition."
+    },
+    "T55FE": {
+      "stratum": "C",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "Whether TDEF6 changes the launch angle from 25 degrees to 38 degrees or describes an adjustment preceding the stated 25-degree configuration.",
+    "The timing and physical procedure of the incline adjustment in T96D5."
+  ],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T96D5 does not specify whether tilting occurs before launch or during motion, and motion on a moving incline additionally depends on the tilt procedure and support motion.",
+    "rendering_not_minimal": "The tilt variants do not all state the same number and unit: T741D and T1332 say only 'a little', whereas their corresponding quantified variants specify 13°."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "T96D5",
+      "description": "If the incline is adjusted to 38 degrees before the specified 6 m/s launch, the distance is 4.17669 m; if it rotates while the sphere is moving, the moving support can exchange energy with the sphere, and that answer does not follow without additional conditions."
+    },
+    {
+      "sentence_id": "TDEF6",
+      "description": "A prelaunch adjustment from 12 degrees to the explicitly stated final 25 degrees gives 6.08452 m, whereas interpreting 25 degrees as the angle before the 13-degree increase gives 4.17669 m."
+    }
+  ],
+  "notes": "The base problem is well-posed. The numerical assignment for TDEF6 is conditional on interpreting its adjustment as increasing the launch angle from 25° to 38°; its wording also permits the historical reading described in the counterexample. T96D5 would likewise give 4.17669 m if explicitly completed before launch, but 'then' does not establish that condition. The two radius sentences both specify R = 0.085 m, which cancels through I/R². Both friction sentences specify the same dimensionless coefficient. The earlier-experiment and solar-panel statements have no stated physical connection to the current ascent.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "fb3b09d3c71814235fa0100962708d14ee55f688f1b9b4745613c213c1ca224c",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

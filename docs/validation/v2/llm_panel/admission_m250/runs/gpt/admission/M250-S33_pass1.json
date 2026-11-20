@@ -1,0 +1,83 @@
+{
+  "item_id": "M250-S33",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Impulse–momentum: F_avg = |Δp|/Δt. Taking approach as positive, the rebound velocity is -0.6(20) = -12 m/s, so F_avg = 0.150(20 + 12)/0.008 = 600 N.",
+    "assumptions": [
+      "The wall supplies the significant impulse during contact, with the ball's weight neglected as instructed.",
+      "For the sentences attaching clay to the ball, 'stuck' means the clay remains attached and moves with the ball throughout contact; the stated speeds, restitution and contact duration still apply."
+    ],
+    "answer": 600,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T1A02": {
+      "stratum": "R",
+      "answer_with_sentence": 900,
+      "regime": null
+    },
+    "T7A97": {
+      "stratum": "D",
+      "answer_with_sentence": 600,
+      "regime": null
+    },
+    "T1D0F": {
+      "stratum": "R",
+      "answer_with_sentence": 900,
+      "regime": null
+    },
+    "TEFB0": {
+      "stratum": "D",
+      "answer_with_sentence": 600,
+      "regime": null
+    },
+    "T174A": {
+      "stratum": "D",
+      "answer_with_sentence": 600,
+      "regime": null
+    },
+    "T79DE": {
+      "stratum": "D",
+      "answer_with_sentence": 600,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The sentence set fails the stated requirement that variants preserve the number and unit: TEFB0 replaces T7A97's '75 g' with 'small', and T79DE similarly replaces T174A's '75 g' with 'small'."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics is well-posed. With 75 g of clay attached during impact, the moving mass is 0.225 kg and the average wall force is 900 N. Clay attached to the separate cart has no physical path to the ball's impulse. Clay attached for an earlier experiment only is absent from the present collision. T1D0F is read naturally as attachment before impact that persists through impact. The invalid verdict concerns the explicit requirement that sentence variants preserve their numerical quantity, rather than the force calculation.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T10:02:12+00:00",
+  "completed_at": "2026-11-20T10:02:54+00:00",
+  "minutes_spent": 0.69,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "572e646c5f9f5ce98575864f558037f86c8b54acf1671f13c9cc854b5b31e19b",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S204",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:04:49+00:00",
+  "completed_at": "2026-11-20T10:05:23+00:00",
+  "minutes_spent": 0.56,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of horizontal momentum for a perfectly inelastic collision gives kinetic energy loss = m1*m2*|v1-v2|^2/[2*(m1+m2)]. The perpendicular initial velocities give |v1-v2|^2 = 25 m^2/s^2.",
+    "assumptions": [
+      "The stated velocities apply immediately before the collision.",
+      "External horizontal impulse during the collision is negligible.",
+      "The colliding bodies share a common final velocity.",
+      "For the authors' bag-dependent answers, the bag accompanies the eastbound skater immediately before and throughout the collision."
+    ],
+    "answer": 416.6666667,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "T3B70": {
+      "stratum": "D",
+      "answer_with_sentence": 416.6666667,
+      "regime": null
+    },
+    "T081E": {
+      "stratum": "R",
+      "answer_with_sentence": 459.1836735,
+      "regime": null
+    },
+    "T9E17": {
+      "stratum": "D",
+      "answer_with_sentence": 416.6666667,
+      "regime": null
+    },
+    "T3DB2": {
+      "stratum": "D",
+      "answer_with_sentence": 416.6666667,
+      "regime": null
+    },
+    "TAD96": {
+      "stratum": "D",
+      "answer_with_sentence": 416.6666667,
+      "regime": null
+    },
+    "T90B7": {
+      "stratum": "R",
+      "answer_with_sentence": 459.1836735,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T081E establishes an earlier pickup but does not state that the bag remains with the skater during the collision, which determines the colliding mass and energy loss."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "T081E permits the skater to pick up the bag and then set it down before colliding at the stated speed, giving 416.6666667 J; retaining the 12 kg bag through the collision gives 459.1836735 J."
+  ],
+  "notes": "The base problem, momentum relations, units, and disconnected assignments are sound. With continued carriage and common final motion of the bag, replacing m1 by 60+q gives losses of 429.8285199 J, 459.1836735 J, and 468.75 J for q = 3.5, 12, and 15 kg respectively; all certified numerical values are adequately rounded. T081E's assignment and answer remain conditional: its wiring supplies continued carriage that the sentence does not establish. I withdraw pass 1's rendering_not_minimal flag because pass 2 explicitly identifies T9E17 and TAD96 as numeral-free controls rather than numerical minimal pairs. The explicitly claimed numerical minimal pairs preserve their numbers and units and change the intended attachment.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "896e1cbb6a1b32d246dd250b6b07c5ff93ce62072e723bb7c064fa0a22ab7ae5",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

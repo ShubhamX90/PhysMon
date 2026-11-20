@@ -1,0 +1,110 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S266",
+  "pass_number": 2,
+  "started_at": "2026-11-20T09:37:02+00:00",
+  "completed_at": "2026-11-20T09:37:51+00:00",
+  "minutes_spent": 0.81,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For the base resistive load, Is = P/Vs = 20 A and Ip = Is Ns/Np = 2 A. Thus Ploss = Is^2 Rs + Ip^2 Rp = 32 W. An additional load with real power q and reactive power Q gives, at the stated 24 V, Ploss = [Rs + Rp(Ns/Np)^2][(P+q)^2 + Q^2]/Vs^2. The authors' additional-load answers follow only when Q = 0.",
+    "assumptions": [
+      "Complete flux linkage and negligible magnetising current, leakage inductance and core loss, as stated.",
+      "The stated winding resistances apply at the measurement operating point.",
+      "The stated 24 V is the secondary terminal voltage during measurement.",
+      "The additional load must have unity power factor to obtain the authors' certified additional-load answers; this condition is not stated."
+    ],
+    "answer": 32.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T2665": {
+      "stratum": "D",
+      "answer_with_sentence": 32.0,
+      "regime": null
+    },
+    "TEC29": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TA1EB": {
+      "stratum": "D",
+      "answer_with_sentence": 32.0,
+      "regime": null
+    },
+    "T3C5C": {
+      "stratum": "D",
+      "answer_with_sentence": 32.0,
+      "regime": null
+    },
+    "TDD45": {
+      "stratum": "D",
+      "answer_with_sentence": 32.0,
+      "regime": null
+    },
+    "T9CFA": {
+      "stratum": "K",
+      "answer_with_sentence": 32.0,
+      "regime": "Unsaturated operation with the stipulated negligible magnetising current and core loss; all listed fractions are below the authors' chosen 0.8 bound."
+    },
+    "T9010": {
+      "stratum": "K",
+      "answer_with_sentence": 32.0,
+      "regime": "Unsaturated operation with the stipulated negligible magnetising current and core loss; all listed fractions are below the authors' chosen 0.8 bound."
+    },
+    "TD2EC": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption",
+    "relevant_variable_removed_from_equation",
+    "other"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "TEC29 and TD2EC specify the additional load's real power without specifying its power factor or that it is resistive, so their winding losses are not uniquely determined.",
+    "relevant_variable_removed_from_equation": "The claimed substitution Is = (P+q)/Vs omits the additional load's possible reactive power, which affects both rms winding currents and their heating.",
+    "other": "The outside-regime reference expression Ploss*(1+q^2) is not a saturation law derivable from the supplied model; predicting saturation losses requires additional magnetic and excitation information."
+  },
+  "defect_severity": {
+    "missing_assumption": "high",
+    "relevant_variable_removed_from_equation": "high",
+    "other": "high"
+  },
+  "counterexamples": [
+    "At 24 V, an additional resistive 140 W load gives Ploss = 0.08(620/24)^2 = 53.3889 W.",
+    "At the same 24 V, an additional sinusoidal load consuming 140 W and 140 var inductive satisfies the stated additional real power but gives Ploss = 0.08(620^2+140^2)/24^2 = 56.1111 W. The original 480 W load remains resistive.",
+    "A saturation fraction of 1.4 does not determine a unique magnetising current or winding loss without a magnetic constitutive model; the reference expression nevertheless assigns 32(1+1.4^2) = 94.72 W."
+  ],
+  "notes": "The base answer, governing relations for the base resistive load, and all disconnected-sentence answers are correct. Conditional on a resistive additional load, the certified answers at 65, 140 and 310 W are respectively 41.2535, 53.3889 and 86.6806 W, with adequate rounding. The original load's resistive character does not establish that of a further load. The two K sentences preserve the answer under the stipulated idealisations at every listed value; however, 0.8 is a chosen sufficient bound rather than a universal saturation threshold, and the outside-regime reference formula is unsupported even though it is excluded from the certified in-regime answers. I withdraw pass 1's rendering_not_minimal flag: pass 2 identifies TA1EB and T3C5C explicitly as numeral-free controls, whereas the designated numerical minimal pairs T2665/TEC29 and TDD45/TD2EC retain 140 W and change the load's attachment to a circuit or run. No external information was consulted.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "fff66a01a838c178eb0bcdee6f872a215f8686784718f88e22d18a100a46aaad",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

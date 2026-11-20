@@ -1,0 +1,131 @@
+{
+  "item_id": "M250-S272",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "The wavelength is lambda = c/f = 0.669921875 m. Successive resonances differ in effective air-column length by lambda/2. As water falls, the air column grows: L(t) = L0 + vw*t. A fixed end correction cancels between successive resonance conditions, giving delta_t = c/(2*f*vw).",
+    "assumptions": [
+      "The explicitly stated odd-quarter-wavelength resonance model and fixed end correction apply.",
+      "The water falls uniformly during the interval being measured.",
+      "The tube accommodates two successive resonances.",
+      "An explicitly increased drain speed during the measured interval replaces the baseline speed."
+    ],
+    "answer": 22.3307291667,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T9749": {
+      "stratum": "D",
+      "answer_with_sentence": 22.3307291667,
+      "regime": "This assignment assumes the increase applies only before the first resonance; a persistent increase instead makes it R and gives 13.9567057292 s."
+    },
+    "TEA1B": {
+      "stratum": "R",
+      "answer_with_sentence": 13.9567057292,
+      "regime": null
+    },
+    "TF4FF": {
+      "stratum": "D",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "T3D7A": {
+      "stratum": "D",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "TBEDA": {
+      "stratum": "C",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "T0685": {
+      "stratum": "C",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "TB8E5": {
+      "stratum": "D",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "T49F8": {
+      "stratum": "D",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "TFF60": {
+      "stratum": "C",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "T0899": {
+      "stratum": "C",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [
+    "T9749 does not specify whether the increased drain speed persists during the interval between resonances."
+  ],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal",
+    "other"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T9749 specifies an increased speed before the first resonance without specifying its continuation afterward, so its certified interval is not uniquely determined.",
+    "rendering_not_minimal": "T3D7A and TB8E5 omit the number and unit present in their numerical twins, contrary to the review instructions' requirement that same-quantity variants preserve the number and unit, although the packet explicitly identifies these omissions as intentional controls.",
+    "other": "The cancellation claims incorrectly make the air column shrink as the water falls, and the radius claims assert conditional dependence and an outside-regime expression that do not follow from the stipulated fixed-end-correction resonance model."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high",
+    "other": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "T9749",
+      "description": "If the additional 0.9 cm/s applies only before the first resonance, the interval is 22.3307291667 s. If the increased speed persists, the interval is 13.9567057292 s. The sentence does not distinguish these histories."
+    },
+    {
+      "sentence_id": "TBEDA",
+      "description": "Starting with a 1.30 m air column, after one second of water falling at 0.015 m/s the air column is 1.315 m, whereas the authors' relation predicts 1.285 m. TFF60 has the same error."
+    },
+    {
+      "sentence_id": "T0685",
+      "description": "At the authors' counter-regime radius of 0.40 m, the explicitly stipulated odd-quarter-wavelength model with a fixed end correction still gives 22.3307291667 s. The reference expression q/vw instead gives 26.6666666667 s and is not a consequence of that model. T0899 has the same issue."
+    }
+  ],
+  "notes": "The base answer and all listed numerical answers for the explicitly sustained speed increase are correct to the displayed precision: the intervals for increments of 0.4, 0.9 and 1.37 cm/s are approximately 17.6295, 13.9567 and 11.6711 s. The disconnected pond and completed earlier experiment have no stated coupling to the current tube. The initial-length cancellation is valid, but its supplied derivation is physically reversed: use L = q + vw*t, increasing resonance orders, and t_n = (L_n - q)/vw. The authors' displayed subtraction happens to produce the correct positive interval despite their incorrect motion. Radius can affect the fixed end correction, which cancels under the supplied model; the asserted threshold and outside-regime behavior require additional acoustic modelling and do not establish the claimed K classification. I retain the pass-1 ambiguity about T9749: the authors' intended persistent increase is now apparent, but the sentence does not require it. The packet clarifies that the numeral-free twins are intentional controls rather than accidental omissions; this explains their construction but does not satisfy the frozen same-number-and-unit requirement. No external information or tools were used.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T09:37:46+00:00",
+  "completed_at": "2026-11-20T09:38:40+00:00",
+  "minutes_spent": 0.9,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "af85c7c74af72e29bca27f63eba6a9a935b4334a105548998257910b9e065c8a",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

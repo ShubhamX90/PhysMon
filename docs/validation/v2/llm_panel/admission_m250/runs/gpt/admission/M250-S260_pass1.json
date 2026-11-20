@@ -1,0 +1,105 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S260",
+  "pass_number": 1,
+  "started_at": "2026-11-20T09:55:26+00:00",
+  "completed_at": "2026-11-20T09:56:08+00:00",
+  "minutes_spent": 0.71,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The equilibrium mean collision frequency per molecule is z = n πd²〈v_rel〉 = √2 n πd²√(8kT/(πm)), with n = P/(kT). Using m = 28u = 4.650e-26 kg gives z = 5.59e9 s^-1. An added pressure of 33 kPa at unchanged temperature raises the pressure to 113 kPa, giving z = 7.90e9 s^-1.",
+    "assumptions": [
+      "The requested rate is the equilibrium ensemble-average collision frequency for one molecule.",
+      "The stated hard-sphere ideal-gas model applies, with collision cross section πd².",
+      "The separate gas cylinder has no connection to the vessel.",
+      "The added 33 kPa denotes an increase in the vessel's pressure at the stated temperature."
+    ],
+    "answer": 5590000000,
+    "unit": "s^-1"
+  },
+  "stratum_assignments": {
+    "TE094": {
+      "stratum": "D",
+      "answer_with_sentence": 5590000000,
+      "regime": null
+    },
+    "T209B": {
+      "stratum": "K",
+      "answer_with_sentence": 5590000000,
+      "regime": "Bulk equilibrium gas with vessel dimensions much larger than the mean free path; 12 cm greatly exceeds the approximately 85 nm mean free path."
+    },
+    "T62EC": {
+      "stratum": "D",
+      "answer_with_sentence": 5590000000,
+      "regime": null
+    },
+    "T8E4F": {
+      "stratum": "R",
+      "answer_with_sentence": 7900000000,
+      "regime": null
+    },
+    "T5675": {
+      "stratum": "C",
+      "answer_with_sentence": 5590000000,
+      "regime": null
+    },
+    "TA9C7": {
+      "stratum": "D",
+      "answer_with_sentence": 5590000000,
+      "regime": null
+    },
+    "T4C04": {
+      "stratum": "C",
+      "answer_with_sentence": 5590000000,
+      "regime": null
+    },
+    "T7923": {
+      "stratum": "D",
+      "answer_with_sentence": 5590000000,
+      "regime": null
+    },
+    "T6ADA": {
+      "stratum": "K",
+      "answer_with_sentence": 5590000000,
+      "regime": "Bulk equilibrium gas with vessel dimensions much larger than the mean free path; 12 cm greatly exceeds the approximately 85 nm mean free path."
+    },
+    "TE998": {
+      "stratum": "R",
+      "answer_with_sentence": 7900000000,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TE094 and T62EC replace the specified 33 kPa with an unquantified 'small amount', so the added-nitrogen variants do not preserve the required number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and the individual sentence-conditioned answers are well posed under the usual interpretation of collision frequency as a mean rate. Volume cancels because N/V = P/(kT). Earlier runs have no effect on the stated current equilibrium. The invalid verdict concerns the required numerical matching of sentence variants: TE094 versus TA9C7 and T62EC versus T7923 omit 33 kPa. Those omissions do not change their disconnected roles.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "4a21170f7c2094cb61de5208c26963cad88e5819fde65b80bb46e2e4650cd87b",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

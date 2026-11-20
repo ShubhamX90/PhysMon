@@ -1,0 +1,90 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S19",
+  "pass_number": 1,
+  "started_at": "2026-11-20T19:04:54+00:00",
+  "completed_at": "2026-11-20T19:05:37+00:00",
+  "minutes_spent": 0.71,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Projectile motion: t = 2v sin(theta)/g and R = v cos(theta)t = v² sin(2theta)/g. Thus R = 400 sin(70°)/9.8.",
+    "assumptions": [
+      "Uniform downward gravitational acceleration.",
+      "Launch and landing occur at the same elevation.",
+      "The ball follows an unobstructed ballistic trajectory.",
+      "For a prelaunch direction adjustment, 35° is interpreted as the angle before adjustment."
+    ],
+    "answer": 38.35480085,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "T3E32": {
+      "stratum": "R",
+      "answer_with_sentence": 27.31145332,
+      "regime": null
+    },
+    "T9D35": {
+      "stratum": "D",
+      "answer_with_sentence": 38.35480085,
+      "regime": null
+    },
+    "TFDC7": {
+      "stratum": "R",
+      "answer_with_sentence": 27.31145332,
+      "regime": null
+    },
+    "TFC29": {
+      "stratum": "D",
+      "answer_with_sentence": 38.35480085,
+      "regime": null
+    },
+    "TC550": {
+      "stratum": "D",
+      "answer_with_sentence": 38.35480085,
+      "regime": null
+    },
+    "T9417": {
+      "stratum": "D",
+      "answer_with_sentence": 38.35480085,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal",
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T9D35 and TC550 specify an indefinite 'few degrees', whereas their corresponding earlier-trial and ramp variants specify 14°, violating the required preservation of number and unit.",
+    "insufficient_boundary_condition": "TFDC7 does not establish whether the direction adjustment precedes the current launch or follows it, allowing different launch conditions and ranges."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high",
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "For TFDC7, lowering the launch direction before the current shot gives an angle of 21° and a range of 27.31145332 m; lowering the launcher after the ball has departed leaves its 35° trajectory and 38.35480085 m range unchanged."
+  ],
+  "notes": "The base problem has the standard unique projectile-range solution. TFDC7 is provisionally assigned R under the interpretation that the adjustment occurs before the current launch; its alternative chronological reading is D. Earlier trials do not affect the current shot, and the adjacent ramp has no stated interaction with the ball. T3E32 and TFC29 preserve 14° while changing the trial attachment; TFDC7 and T9417 preserve 14° while changing the object attachment. The 'few degrees' variants fail the numerical matching requirement.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "2fa05f6b8af2bfba799b069af3a74693cd84860b6150a7ba31da4e0570157373",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

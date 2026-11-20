@@ -1,0 +1,106 @@
+{
+  "item_id": "M250-S225",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Steady radial conduction through cylindrical insulation gives T(a)-T(r) = [T(a)-T(b)] ln(r/a)/ln(b/a). Thus the requested fall is 120 ln(5/3)/ln(9/3).",
+    "assumptions": [
+      "The insulation has no internal heat generation.",
+      "The cylindrical conduction model applies, with negligible end effects.",
+      "For the base problem, the maintained boundary temperatures apply at radii 3 cm and 9 cm."
+    ],
+    "answer": 55.7968,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "T2495": {
+      "stratum": "C",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T8870": {
+      "stratum": "C",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T6641": {
+      "stratum": "D",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T21B1": {
+      "stratum": "R",
+      "answer_with_sentence": 47.855,
+      "regime": null
+    },
+    "T26FA": {
+      "stratum": "D",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T6E73": {
+      "stratum": "D",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T15F5": {
+      "stratum": "R",
+      "answer_with_sentence": 47.855,
+      "regime": null
+    },
+    "T8754": {
+      "stratum": "D",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T21B1 and T15F5 do not explicitly release the original maintained 300 K condition at radius 9 cm when imposing 300 K on the added insulation's outer surface, allowing materially different temperature drops.",
+    "rendering_not_minimal": "The added-thickness variants T26FA and T6E73 specify only a 'small thickness', whereas the other added-thickness variants specify 1.8 cm, so these variants do not preserve the required number and unit."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    {
+      "sentences": [
+        "T21B1",
+        "T15F5"
+      ],
+      "case": "Retain the explicitly maintained 300 K surface at radius 9 cm and also maintain the new outer surface at radius 10.8 cm at 300 K. The added annulus is isothermal, and the requested temperature fall remains 55.7968 K.",
+      "alternative": "Release the temperature constraint at radius 9 cm and maintain only the new outer surface at 300 K. The requested fall becomes 120 ln(5/3)/ln(10.8/3) = 47.855 K."
+    }
+  ],
+  "notes": "The base problem is well-posed under the ordinary source-free conduction model. Conductivity multiplies both the total and partial thermal resistances and cancels from their ratio. Historical survey conditions and insulation on the separate tank do not affect the present pipe boundary-value problem. The R assignments and numerical answers for T21B1 and T15F5 use the natural intended interpretation that the maintained cold boundary moves to radius 10.8 cm; they are conditional on that interpretation. No sentence pairing identifiers are supplied in this pass; the number-and-unit check groups the added-thickness sentences as variants of the same quantity.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T09:20:58+00:00",
+  "completed_at": "2026-11-20T09:22:02+00:00",
+  "minutes_spent": 1.07,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "6aa926fbc54dcab5e42a82860e1b68862d3ed6d8f2dac7c3f43644d19067a331",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

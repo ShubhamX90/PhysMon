@@ -1,0 +1,85 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S46",
+  "pass_number": 2,
+  "started_at": "2026-11-20T09:13:34+00:00",
+  "completed_at": "2026-11-20T09:14:10+00:00",
+  "minutes_spent": 0.6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The field perpendicular to the rail plane is B cos(theta). The motional emf is B ell v cos(theta), and the opposing magnetic force along the rails is B^2 ell^2 v cos^2(theta)/R_total. Terminal balance with mg sin(theta) gives v = mg R_total sin(theta)/(B^2 ell^2 cos^2(theta)). Using SI inputs gives v = 5.671296296 R_total m/s when R_total is expressed in ohms. The base resistance is 0.5 ohm, giving 2.835648148 m/s. Extra series resistances of 0.7, 1.3 and 2.4 ohms give 6.805555556, 10.208333333 and 16.446759259 m/s, respectively.",
+    "assumptions": [
+      "The horizontal rod spans the rails perpendicular to their direction of slope.",
+      "The rod slides without friction and maintains electrical contact.",
+      "The applied vertical magnetic field is uniform and prescribed, and loop self-inductance is negligible.",
+      "The lamp circuit is separate from the rail circuit.",
+      "An extra resistor used only during an earlier run is absent during the stated run."
+    ],
+    "answer": 2.835648148,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T5D8D": {
+      "stratum": "R",
+      "answer_with_sentence": 10.208333333,
+      "regime": null
+    },
+    "T2332": {
+      "stratum": "D",
+      "answer_with_sentence": 2.835648148,
+      "regime": null
+    },
+    "T88DE": {
+      "stratum": "D",
+      "answer_with_sentence": 2.835648148,
+      "regime": null
+    },
+    "TE145": {
+      "stratum": "D",
+      "answer_with_sentence": 2.835648148,
+      "regime": null
+    },
+    "TADB8": {
+      "stratum": "R",
+      "answer_with_sentence": 10.208333333,
+      "regime": null
+    },
+    "T2BCE": {
+      "stratum": "D",
+      "answer_with_sentence": 2.835648148,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All certified answers agree with the terminal-force balance at their displayed precision. The resistance changes affect only the present rail loop; the lamp circuit and completed earlier run are disconnected from the target. Both explicitly claimed minimal pairs retain the same numerical value and unit and change the resistor's attachment or run. I withdraw the pass-1 rendering_not_minimal finding: the pass-2 metadata explicitly identifies T2332 and T2BCE as numeral-free controls, rather than claiming they are equal-number minimal pairs. Their stated relationship to their numbered twins accurately describes the replacement of the numerical resistance by 'small'. No other information about the item was accessed.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "9404a5fbd70007d37616c409f6fd6ac013642f0b751499074f1f7aad2bf4f902",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

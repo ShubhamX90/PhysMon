@@ -1,0 +1,104 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S270",
+  "pass_number": 1,
+  "started_at": "2026-11-20T09:13:15+00:00",
+  "completed_at": "2026-11-20T09:14:17+00:00",
+  "minutes_spent": 1.03,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Acoustic Doppler shifts at a moving reflector and moving receiver: f_reflector = f0(c-u)/c; f_return = f_reflector*c/(c+u); f_recorder = f_return*(c-w)/c. Thus the decrease is f0[1-(c-u)(c-w)/(c(c+u))] = 1500*7149/119707.",
+    "assumptions": [
+      "Velocities are measured relative to the still air.",
+      "The recorder moves away from the lorry, opposite to the lorry's velocity, and in the propagation direction of the returning sound.",
+      "The steady reflected signal has reached the recorder.",
+      "The specified reflection preserves frequency in the panel's rest frame."
+    ],
+    "answer": 89.5812,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "TDC03": {
+      "stratum": "C",
+      "answer_with_sentence": 89.5812,
+      "regime": null
+    },
+    "T02E2": {
+      "stratum": "D",
+      "answer_with_sentence": 89.5812,
+      "regime": null
+    },
+    "TA134": {
+      "stratum": "D",
+      "answer_with_sentence": 89.5812,
+      "regime": null
+    },
+    "TA6A4": {
+      "stratum": "D",
+      "answer_with_sentence": 89.5812,
+      "regime": null
+    },
+    "T6307": {
+      "stratum": "C",
+      "answer_with_sentence": 89.5812,
+      "regime": null
+    },
+    "TBF04": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T4BE2": {
+      "stratum": "D",
+      "answer_with_sentence": 89.5812,
+      "regime": null
+    },
+    "TA0C8": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "contradictory_distractor_statement",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TA0C8 and TBF04 do not establish whether the received reflection originated before or after the source-frequency increase, or which source frequency supplies the comparison.",
+    "contradictory_distractor_statement": "TBF04 assigns the source note a frequency of 1910 Hz during reception despite the base description specifying a steady 1500 Hz note.",
+    "rendering_not_minimal": "The earlier-experiment variants T02E2 and TA6A4, and the violin variants T4BE2 and TA134, replace an explicit 410 Hz increase with an unspecified small increase, so they do not preserve the same stated number and unit."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "contradictory_distractor_statement": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "In TA0C8, the source can increase its frequency immediately before the recorder first receives the reflection; the arriving sound still originated at 1500 Hz. If the increase instead occurs sufficiently early for its reflection to arrive, the received sound originates at 1910 Hz.",
+    "For a settled 1910 Hz source and its corresponding reflection, the decrease is 114.0668 Hz. During propagation of the change, a current 1910 Hz source can coexist with a received frequency of 1410.4188 Hz, giving an instantaneous source-to-recorder difference of 499.5812 Hz."
+  ],
+  "notes": "The base problem is well-posed and gives a received frequency of 1410.4188 Hz. Initial panel distance enters the propagation-time relation but cancels when obtaining frequency for constant velocities. Both 82 m sentences agree exactly. All four explicitly quantified frequency-increase sentences use 410 Hz consistently. The earlier experiment and violin have no specified physical coupling to the reflected siren signal. The two source-change sentences are relevant, but 114.0668 Hz requires an additional interpretation: reception of the settled reflection of the raised 1910 Hz note, compared with that same emitted note. A temporal interpretation of TBF04 can soften its literal conflict with 'steady', but still requires the missing timing information.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "ea6b17d5c4aec4ca4f053aa10e1e708b32d274d67ab2b95d2adb6c4c666895c3",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

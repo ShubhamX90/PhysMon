@@ -1,0 +1,96 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S263",
+  "pass_number": 1,
+  "started_at": "2026-11-20T09:32:43+00:00",
+  "completed_at": "2026-11-20T09:33:47+00:00",
+  "minutes_spent": 1.07,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For an energized metre bridge at balance, R_left/R_sample = l/(100-l). Thus R_sample = 12(58.5/41.5) = 16.916 Ω, and resistivity = R_sample πd²/(4L) = 7.97 × 10^-7 Ω m.",
+    "assumptions": [
+      "A nonzero potential difference is maintained across the bridge ends during the measurement; this electrical boundary condition is not stated.",
+      "The bridge wire is uniform and the sample behaves as an ohmic conductor at the stated steady temperature.",
+      "Each added sentence describes the configuration for the reported balance unless it explicitly refers to an earlier trial."
+    ],
+    "answer": 7.97e-07,
+    "unit": "Ω m"
+  },
+  "stratum_assignments": {
+    "T0506": {
+      "stratum": "D",
+      "answer_with_sentence": 7.97e-07,
+      "regime": null
+    },
+    "T0CEE": {
+      "stratum": "R",
+      "answer_with_sentence": 1.42e-06,
+      "regime": null
+    },
+    "T20A1": {
+      "stratum": "C",
+      "answer_with_sentence": 7.97e-07,
+      "regime": null
+    },
+    "TB13C": {
+      "stratum": "C",
+      "answer_with_sentence": 7.97e-07,
+      "regime": null
+    },
+    "T459C": {
+      "stratum": "R",
+      "answer_with_sentence": 1.42e-06,
+      "regime": null
+    },
+    "TE5F9": {
+      "stratum": "D",
+      "answer_with_sentence": 7.97e-07,
+      "regime": null
+    },
+    "TD741": {
+      "stratum": "D",
+      "answer_with_sentence": 7.97e-07,
+      "regime": null
+    },
+    "TAB0A": {
+      "stratum": "D",
+      "answer_with_sentence": 7.97e-07,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The description specifies no nonzero excitation across the bridge, so the galvanometer can read zero without establishing the resistance ratio needed to determine resistivity."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "With no source connected across the bridge ends, samples having resistivities of either 1.0 × 10^-6 Ω m or 2.0 × 10^-6 Ω m both produce zero galvanometer current at 41.5 cm, and indeed at every contact position."
+  ],
+  "notes": "All numerical answers and role assignments assume an energized bridge. With 9.4 Ω added to the left gap, its resistance becomes 21.4 Ω and the inferred sample resistance becomes 30.166 Ω. The uniform bridge wire's cross-sectional area cancels from its two segment resistances. The lamp circuit and resistance present only during an earlier trial do not affect the current balance. All explicitly numerical resistance variants retain 9.4 Ω, and both diameter variants retain 0.65 mm. The two 'small amount' sentences supply no numerical increment but remain disconnected from the present measurement. The diameter 0.3 mm limits strict significant-figure reporting; the base result can accordingly be reported as approximately 8 × 10^-7 Ω m.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "94e18fe5ab355336a2bdb33432fd15785dacf73fa05311a4bfcda3abca2b357d",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

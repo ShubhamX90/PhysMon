@@ -1,0 +1,84 @@
+{
+  "item_id": "M250-S77",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "T = exp(-2κa), κ = sqrt[2(mc²)(U0-E)]/(ħc), so a = (ħc)ln(1/T)/(2sqrt[2(mc²)(U0-E)]). Converting mc² to 511000 eV gives a = 0.389178 nm.",
+    "assumptions": [
+      "Use the explicitly prescribed exponential transmission model.",
+      "The incident kinetic energy is 5 eV relative to the potential outside the barrier.",
+      "An earlier experiment described as applying only to that experiment does not replace the present barrier.",
+      "The separate potential step does not change the stipulated transmission model or the specified incident energy."
+    ],
+    "answer": 0.389178,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "TFB05": {
+      "stratum": "D",
+      "answer_with_sentence": 0.389178,
+      "regime": null
+    },
+    "T9848": {
+      "stratum": "D",
+      "answer_with_sentence": 0.389178,
+      "regime": null
+    },
+    "T6F0D": {
+      "stratum": "D",
+      "answer_with_sentence": 0.389178,
+      "regime": null
+    },
+    "T0D94": {
+      "stratum": "D",
+      "answer_with_sentence": 0.389178,
+      "regime": null
+    },
+    "TDA04": {
+      "stratum": "R",
+      "answer_with_sentence": 0.454462,
+      "regime": null
+    },
+    "T8282": {
+      "stratum": "R",
+      "answer_with_sentence": 0.454462,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All certified answers agree with the stipulated model: present-barrier replacements of 6, 7.2 and 9.6 eV give widths 0.674076, 0.454462 and 0.314289 nm, respectively; disconnected replacements leave 0.389178 nm unchanged. Every replacement height exceeds the incident energy. The relations require converting the stated rest energy from keV to eV when using the supplied numerical value of ħc. I withdraw the pass-1 rendering_not_minimal finding: pass 2 explicitly identifies TFB05 and T6F0D as intentionally numeral-free controls, rather than numerical minimal pairs. Both actual minimal_pair_with claims preserve 7.2 eV and change the attachment or temporal scope as intended. No other information about the item was consulted.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T19:00:23+00:00",
+  "completed_at": "2026-11-20T19:01:05+00:00",
+  "minutes_spent": 0.7,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "814ee2cb5fd0079d0755b1d7484c793587b50c212b59f44e605624bce0edda4f",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

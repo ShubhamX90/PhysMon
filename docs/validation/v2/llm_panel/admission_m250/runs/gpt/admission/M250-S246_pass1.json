@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S246",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Sequential exponential attenuation gives I/I0 = exp[-15(0.30) - 80x] = 10^-4. Thus x = [ln(10000) - 4.5]/80.",
+    "assumptions": [
+      "The stated exponential attenuation model applies independently to both materials.",
+      "Statements restricted to an earlier shield do not change the present shield.",
+      "The shed roof lies outside the beam path."
+    ],
+    "answer": 5.887925465,
+    "unit": "cm"
+  },
+  "stratum_assignments": {
+    "TC013": {
+      "stratum": "D",
+      "answer_with_sentence": 5.887925465,
+      "regime": null
+    },
+    "T4F30": {
+      "stratum": "D",
+      "answer_with_sentence": 5.887925465,
+      "regime": null
+    },
+    "TEDF2": {
+      "stratum": "R",
+      "answer_with_sentence": 4.444175465,
+      "regime": null
+    },
+    "T6B5C": {
+      "stratum": "C",
+      "answer_with_sentence": 5.887925465,
+      "regime": null
+    },
+    "TD827": {
+      "stratum": "D",
+      "answer_with_sentence": 5.887925465,
+      "regime": null
+    },
+    "TCC3C": {
+      "stratum": "D",
+      "answer_with_sentence": 5.887925465,
+      "regime": null
+    },
+    "TD192": {
+      "stratum": "R",
+      "answer_with_sentence": 4.444175465,
+      "regime": null
+    },
+    "T1E87": {
+      "stratum": "C",
+      "answer_with_sentence": 5.887925465,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The thickness variants do not consistently preserve the stated number and unit: TC013 and TD827 use unspecified amounts, whereas the quantitative thickness additions specify 7.7 cm."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The physics problem and each individual addition are well-posed; the invalid verdict concerns the required matching of numerical values across thickness variants. In particular, TC013 versus TCC3C and TD827 versus T4F30 change numerical specificity while keeping the same attachment. All assignment answers are in cm. Adding concrete to the present wall gives x = [ln(10000) - 15(0.377)]/80 m. The unshielded intensity cancels because the requested attenuation is a ratio.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T19:01:05+00:00",
+  "completed_at": "2026-11-20T19:01:51+00:00",
+  "minutes_spent": 0.76,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "000822f052a1f7bae1cc8e1bf361c9cda73b37e6f0312282b8cac455576506a7",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

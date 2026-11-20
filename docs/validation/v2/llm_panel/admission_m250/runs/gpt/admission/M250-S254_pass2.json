@@ -1,0 +1,118 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S254",
+  "pass_number": 2,
+  "started_at": "2026-11-20T09:44:59+00:00",
+  "completed_at": "2026-11-20T09:45:47+00:00",
+  "minutes_spent": 0.8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For an isotropic point source with intensity absorption coefficient alpha, spherical spreading gives I(s)=P*exp(-alpha*s)/(4*pi*s^2), where s is the source-observer distance. If s=60 m, I=0.000695532 W/m^2. If the additional walk increases s by 75 m, I=0.000101780 W/m^2.",
+    "assumptions": [
+      "The numerical answers require identifying the distance from the mast with the distance from the siren.",
+      "The additional walk must increase the source-observer distance by the stated amount.",
+      "Radiation follows the stated isotropic point-source model with exponential intensity attenuation."
+    ],
+    "answer": 0.000695532,
+    "unit": "W/m^2"
+  },
+  "stratum_assignments": {
+    "TA1FB": {
+      "stratum": "C",
+      "answer_with_sentence": 0.000695532,
+      "regime": null
+    },
+    "T28D8": {
+      "stratum": "D",
+      "answer_with_sentence": 0.000695532,
+      "regime": null
+    },
+    "T68BD": {
+      "stratum": "R",
+      "answer_with_sentence": 0.00010178,
+      "regime": null
+    },
+    "TA9C0": {
+      "stratum": "D",
+      "answer_with_sentence": 0.000695532,
+      "regime": null
+    },
+    "T116D": {
+      "stratum": "D",
+      "answer_with_sentence": 0.000695532,
+      "regime": null
+    },
+    "T0CF8": {
+      "stratum": "D",
+      "answer_with_sentence": 0.000695532,
+      "regime": null
+    },
+    "TDDF0": {
+      "stratum": "C",
+      "answer_with_sentence": 0.000695532,
+      "regime": null
+    },
+    "T624A": {
+      "stratum": "R",
+      "answer_with_sentence": 0.00010178,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "other"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The observer's distance from the mast does not determine the distance from the elevated siren, and increasing the former by q does not generally increase the acoustic path by q.",
+    "other": "The claimed K classification, universal regime 5*q<r, and exterior intensity expression do not follow from the stipulated isotropic point-source model; a finite-mouth replacement requires additional source and radiation specifications."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "other": "high"
+  },
+  "counterexamples": [
+    {
+      "claim": "The stated 60 m distance determines the certified base intensity.",
+      "case": "An observer is horizontally 60 m from the mast, with the siren 80 m above the observer; the source-observer distance is 100 m.",
+      "result": "The intensity is 40*exp(-0.4)/(4*pi*100^2)=0.000213369 W/m^2, rather than 0.000695532 W/m^2."
+    },
+    {
+      "claim": "Walking q farther from the mast changes the propagation distance from r to r+q.",
+      "case": "With the same 80 m elevation difference, walking horizontally from 60 m to 135 m from the mast changes the acoustic path from 100 m to sqrt(135^2+80^2) m.",
+      "result": "The resulting acoustic path is approximately 156.924 m, so the certified 135 m calculation does not apply."
+    },
+    {
+      "claim": "Mouth diameter has the specified conditional role and exterior intensity law.",
+      "case": "Within the supplied isotropic point-source equations, changing mouth diameter while holding P, alpha and source-observer distance fixed never changes I.",
+      "result": "Neither the threshold 5*q=r nor the replacement denominator pi*q^2 can be derived from those equations."
+    }
+  ],
+  "notes": "All stratum-assignment numbers are conditional on the authors' intended source-distance interpretation. Under that interpretation, every listed certified numerical answer is correctly evaluated: the additional walks of 35, 75 and 150 m give approximately 0.000241197, 0.000101780 and 0.0000311605 W/m^2. Units and displayed precision are adequate. I retain C for mouth size in the sense that an emitting-area normalization cancels at fixed total power; the supplied point-source equations themselves omit mouth size entirely. A finite-aperture interpretation cannot establish the authors' universal geometric cutoff or exterior expression without further physics. I withdraw pass 1's rendering_not_minimal flag: pass 2 explicitly identifies TA9C0 and T116D as numeral-free controls, rather than numerical minimal pairs. The actual claimed numerical minimal pairs preserve 75 m and change the intended object or event attachment. The point-source assumption supplied in metadata does not resolve the missing source-observer geometry.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "d8c9e9729f652946b010d6d7cf796864cbb883d483cfa3f3656e822e092c62b1",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

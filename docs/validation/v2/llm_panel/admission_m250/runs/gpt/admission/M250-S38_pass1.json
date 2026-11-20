@@ -1,0 +1,105 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S38",
+  "pass_number": 1,
+  "started_at": "2026-11-20T18:52:51+00:00",
+  "completed_at": "2026-11-20T18:53:59+00:00",
+  "minutes_spent": 1.13,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Static equilibrium: the ground normal force is N=(12+70)g=803.6 N. Taking moments about the foot gives the wall reaction H L sin(theta)=gL(12/2+70*0.6)cos(theta), hence H=470.4 cot(theta). Horizontal equilibrium makes the ground friction equal H. The total ground force is sqrt(N^2+H^2). At theta=62 degrees, H=250.116 N.",
+    "assumptions": [
+      "The ladder and person are in static equilibrium.",
+      "The shutter has no mechanical connection or contact with the ladder.",
+      "For the subsequent ladder tilt, equilibrium is evaluated after repositioning, with the person still at fraction 0.6 of its length.",
+      "Historical tilt statements do not override the explicitly stated current angle of 62 degrees."
+    ],
+    "answer": 841.624,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T4486": {
+      "stratum": "K",
+      "answer_with_sentence": 841.624,
+      "regime": "Static equilibrium requires mu_s >= H/N = 0.31125; the stated coefficient 1.15 satisfies this."
+    },
+    "T038B": {
+      "stratum": "C",
+      "answer_with_sentence": 841.624,
+      "regime": null
+    },
+    "TD573": {
+      "stratum": "R",
+      "answer_with_sentence": 939.709,
+      "regime": null
+    },
+    "T1EB2": {
+      "stratum": "D",
+      "answer_with_sentence": 841.624,
+      "regime": null
+    },
+    "TA81B": {
+      "stratum": "D",
+      "answer_with_sentence": 841.624,
+      "regime": null
+    },
+    "T49C6": {
+      "stratum": "D",
+      "answer_with_sentence": 841.624,
+      "regime": null
+    },
+    "T5690": {
+      "stratum": "C",
+      "answer_with_sentence": 841.624,
+      "regime": null
+    },
+    "TCE71": {
+      "stratum": "D",
+      "answer_with_sentence": 841.624,
+      "regime": null
+    },
+    "T5FAB": {
+      "stratum": "K",
+      "answer_with_sentence": 841.624,
+      "regime": "Static equilibrium requires mu_s >= 0.31125; the stated coefficient 1.15 satisfies this."
+    },
+    "TEA7A": {
+      "stratum": "D",
+      "answer_with_sentence": 841.624,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The tilt renderings include both an explicit 18° and an unspecified 'a little', so the required numerical matching cannot be verified across those renderings."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "medium"
+  },
+  "counterexamples": [],
+  "notes": "The subsequent ladder tilt gives a final angle of 44 degrees and ground friction of 487.113 N. Ladder length cancels from torque equilibrium, including for the wooden ladder. All explicitly stated coefficients, lengths and tilt angles match their respective numerical counterparts. No minimal-pair map is supplied, so the unspecified 'little' angles are treated as a wording-level matching issue. TCE71 is read retrospectively: the current occupied ladder remains at the stated 62 degrees. Its placement could suggest applying an additional tilt to that angle, which would instead produce 939.709 N; stating explicitly that the historical tilt preceded the stated current configuration would improve clarity. No external information or tools were used.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "607728e604c62451efa9c7a11b320e9d2868524b3f633c2c060729db0cf4e91a",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S34",
+  "pass_number": 2,
+  "started_at": "2026-11-20T09:40:40+00:00",
+  "completed_at": "2026-11-20T09:41:32+00:00",
+  "minutes_spent": 0.86,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For a stationary incline, conservation of mechanical energy gives (1/2)mv0² + (1/2)(2mR²/5)(v0/R)² = mgd sinθ, hence d = 7v0²/(10g sinθ). The deceleration magnitude is 5g sinθ/7.",
+    "assumptions": [
+      "The sphere rolls without slipping throughout its ascent.",
+      "The incline is stationary at the specified angle throughout the ascent.",
+      "Air resistance and rolling resistance are negligible.",
+      "Static friction does no work on the stationary incline."
+    ],
+    "answer": 6.08452,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TDEF6": {
+      "stratum": "R",
+      "answer_with_sentence": 4.17669,
+      "regime": null
+    },
+    "T741D": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "T1332": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "T7B54": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "T96D5": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TACA4": {
+      "stratum": "C",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "T4182": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "TD438": {
+      "stratum": "K",
+      "answer_with_sentence": 6.08452,
+      "regime": "A stationary incline permits pure rolling when μs ≥ (2/7)tan25° ≈ 0.13323; all listed coefficients satisfy this."
+    },
+    "T1F4F": {
+      "stratum": "K",
+      "answer_with_sentence": 6.08452,
+      "regime": "A stationary incline permits pure rolling when μs ≥ (2/7)tan25° ≈ 0.13323; all listed coefficients satisfy this."
+    },
+    "T55FE": {
+      "stratum": "C",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [
+    "Whether the stated 25-degree angle precedes or follows the prelaunch adjustment in TDEF6.",
+    "The timing, pivot and motion of the incline adjustment in T96D5."
+  ],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T96D5 does not establish that the adjustment finishes before launch or specify the support motion if it occurs during the ascent, so replacing θ by θ + q does not determine a unique answer.",
+    "missing_assumption": "The authors' outside-regime reference expression uses the static friction coefficient as the sliding friction coefficient without specifying a kinetic friction law or assuming equality of the two coefficients."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "T96D5",
+      "description": "Completing the adjustment before the specified 6 m/s launch gives 4.17669 m at 38 degrees; rotating the incline during the ascent introduces support motion and possible work on the sphere, so the same distance does not follow."
+    },
+    {
+      "sentence_id": "TDEF6",
+      "description": "If 25 degrees describes the final launch configuration after a historical increase from 12 degrees, the answer is 6.08452 m; treating 25 degrees as the angle before the increase gives 4.17669 m."
+    },
+    {
+      "sentence_id": "TD438",
+      "description": "Outside the rolling regime, surfaces with the same static coefficient q = 0.05 can have different kinetic coefficients, such as 0.01 and 0.04; their sliding decelerations and centre-of-mass stopping distances differ despite identical q."
+    },
+    {
+      "sentence_id": "T1F4F",
+      "description": "The outside-regime formula is not determined by the measured static coefficient: during sliding the relevant friction coefficient is kinetic, and the sphere can retain rotation when its centre momentarily stops."
+    }
+  ],
+  "notes": "The base answer, stationary-incline equations, radius cancellation and all listed in-regime friction answers are correct. Conditional on completing a prelaunch adjustment from 25 degrees to θ + q, the relevant answers are correctly 4.85249 m, 4.17669 m and 3.77043 m for q = 7, 13 and 18 degrees. That interpretation is not secured for T96D5, and TDEF6 also admits the historical reading recorded in pass 1. The authors' strict friction inequality is sufficient; excluding equality is a harmless boundary convention here. Their outside-regime expression is explicitly a physics claim even though it is excluded from the certified in-regime answers, and it requires an unstated kinetic-friction assumption. I withdraw the pass-1 rendering_not_minimal flag: pass 2 explicitly identifies the numeral-free sentences as controls, while the actual minimal pairs T4182/TDEF6 and T7B54/T96D5 preserve the same number and unit and change the intended attachment. No information beyond the supplied review and packet was consulted.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f8d5d0c1a4d97ec0cd27375b1af4b1722952ff087ca33e51b11295772fcb0425",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

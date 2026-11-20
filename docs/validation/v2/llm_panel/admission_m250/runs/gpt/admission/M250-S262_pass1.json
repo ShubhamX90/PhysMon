@@ -1,0 +1,96 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S262",
+  "pass_number": 1,
+  "started_at": "2026-11-20T09:53:51+00:00",
+  "completed_at": "2026-11-20T09:54:45+00:00",
+  "minutes_spent": 0.9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Hydrostatic pressure and Hagen–Poiseuille flow give Q = pi*r^4*rho*g*h/(8*mu*L). Conservation of volume gives A*dh/dt = -Q, hence t = [8*mu*L*A/(pi*r^4*rho*g)]*ln(h_initial/h_final). The time constant is 2138.64 s; draining from 0.40 m to 0.25 m takes 1005.17 s.",
+    "assumptions": [
+      "The oil follows the Newtonian, constant-viscosity Poiseuille model.",
+      "The specified steady flow at each depth is interpreted as quasi-steady flow during draining.",
+      "Tank area and oil properties remain constant.",
+      "Each added sentence applies independently.",
+      "A current-experiment top-up increases the starting depth to 0.53 m; the requested final depth remains 0.25 m."
+    ],
+    "answer": 1005.17,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TD265": {
+      "stratum": "R",
+      "answer_with_sentence": 1607.01,
+      "regime": null
+    },
+    "TC2E8": {
+      "stratum": "K",
+      "answer_with_sentence": 1005.17,
+      "regime": "The Poiseuille solution applies while flow remains laminar. Using tube diameter, Re ranges from approximately 1.86 to 2.98 during the base draining interval, far below 2100."
+    },
+    "T3C55": {
+      "stratum": "R",
+      "answer_with_sentence": 1607.01,
+      "regime": null
+    },
+    "T7A3F": {
+      "stratum": "D",
+      "answer_with_sentence": 1005.17,
+      "regime": null
+    },
+    "T7B4A": {
+      "stratum": "D",
+      "answer_with_sentence": 1005.17,
+      "regime": null
+    },
+    "TFF4D": {
+      "stratum": "D",
+      "answer_with_sentence": 1005.17,
+      "regime": null
+    },
+    "T5EA0": {
+      "stratum": "K",
+      "answer_with_sentence": 1005.17,
+      "regime": "The Poiseuille solution applies while flow remains laminar. Using tube diameter, Re ranges from approximately 1.86 to 2.98 during the base draining interval, far below 2100."
+    },
+    "T75EB": {
+      "stratum": "D",
+      "answer_with_sentence": 1005.17,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T7A3F and T75EB replace the specified 13 cm with 'a modest depth', so the depth variants do not preserve the required number and unit and differ in more than wording and attachment."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base draining problem has a unique answer under its stated flow idealizations. The bucket and earlier experiment have no specified physical coupling to the current draining process. The unspecified modest depths do not affect their disconnected answers, but they violate the required matching of numerical quantities across variants. The threshold wording differs at exactly Re = 2100, a boundary this problem never approaches.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "dcfb40e5a75156a4a9a37d67244a50c32152a93c666d19965cbb96e348de51e9",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

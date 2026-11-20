@@ -1,0 +1,100 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S266",
+  "pass_number": 1,
+  "started_at": "2026-11-20T09:36:00+00:00",
+  "completed_at": "2026-11-20T09:37:02+00:00",
+  "minutes_spent": 1.03,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The resistive load draws I_s = P/V = 480/24 = 20 A rms. Negligible magnetising current gives I_p = (N_s/N_p)I_s = 2 A rms. The winding heating is I_p^2 R_p + I_s^2 R_s = 12 + 20 = 32 W.",
+    "assumptions": [
+      "Use the stated negligible magnetising current, leakage inductance and core loss, with complete flux linkage.",
+      "The winding resistances are the stated operating resistances.",
+      "The stated load voltage and power describe the measurement operating point."
+    ],
+    "answer": 32,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T2665": {
+      "stratum": "D",
+      "answer_with_sentence": 32,
+      "regime": null
+    },
+    "TEC29": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TA1EB": {
+      "stratum": "D",
+      "answer_with_sentence": 32,
+      "regime": null
+    },
+    "T3C5C": {
+      "stratum": "D",
+      "answer_with_sentence": 32,
+      "regime": null
+    },
+    "TDD45": {
+      "stratum": "D",
+      "answer_with_sentence": 32,
+      "regime": null
+    },
+    "T9CFA": {
+      "stratum": "K",
+      "answer_with_sentence": 32,
+      "regime": "Unsaturated operation with the stipulated negligible magnetising current and core loss; 0.57 of saturation flux density lies below saturation."
+    },
+    "T9010": {
+      "stratum": "K",
+      "answer_with_sentence": 32,
+      "regime": "Unsaturated operation with the stipulated negligible magnetising current and core loss; 0.57 of saturation flux density lies below saturation."
+    },
+    "TD2EC": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "TEC29 and TD2EC specify the additional load's real power but omit its power factor or an explicit resistive-load condition, so its contribution to rms winding current and heating is not uniquely determined.",
+    "rendering_not_minimal": "TA1EB versus T2665 and T3C5C versus TDD45 replace the specified 140 W with an unspecified small amount, violating the stated requirement that quantity variants retain the same number and unit."
+  },
+  "defect_severity": {
+    "missing_assumption": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "With the secondary maintained at 24 V and an additional resistive load consuming 140 W, total secondary current is 620/24 A and winding heating is (0.05 + 3/100)(620/24)^2 = 53.3889 W.",
+    "With the same 24 V and an additional load consuming 140 W and 140 var inductive, total complex power is 620 + j140 VA, giving winding heating (0.05 + 3/100)(620^2 + 140^2)/24^2 = 56.1111 W; this also satisfies the stated additional real power."
+  ],
+  "notes": "The base problem is well-posed and gives 32 W. The relevant additions give 53.3889 W if the additional load is resistive and the stated 24 V remains the measurement voltage; their wording does not explicitly establish the additional load's power factor. The charger has no stated connection to the transformer, and earlier one-run loads do not enter the present steady-state calculation with the specified winding resistances. No external information was consulted.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f1240ea147bc20b234442c350c3e0a51ccf61fb02dbc056ea3821c5070eb19ae",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

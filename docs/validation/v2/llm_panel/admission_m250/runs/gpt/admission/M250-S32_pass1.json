@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S32",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Energy conservation with friction gives (1/2)kx₀² = μ_k Mgd. The initial spring energy is 4 J, and the friction force for the base problem is 1.225 N, giving d = 4/1.225.",
+    "assumptions": [
+      "The stated kinetic friction coefficient applies throughout the slide.",
+      "A weight fixed to the block remains attached during its motion and contributes to the normal force.",
+      "The block leaves the spring at its natural length; its kinetic energy there is positive in both the base and added-weight cases."
+    ],
+    "answer": 3.2653061224489797,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TDC1D": {
+      "stratum": "D",
+      "answer_with_sentence": 3.2653061224489797,
+      "regime": null
+    },
+    "TFBC0": {
+      "stratum": "D",
+      "answer_with_sentence": 3.2653061224489797,
+      "regime": null
+    },
+    "TB3C0": {
+      "stratum": "R",
+      "answer_with_sentence": 0.8163265306122449,
+      "regime": null
+    },
+    "T92B0": {
+      "stratum": "K",
+      "answer_with_sentence": 3.2653061224489797,
+      "regime": "The maximum compression is 10 cm, within the stated 28 cm Hooke's-law range."
+    },
+    "T9B94": {
+      "stratum": "K",
+      "answer_with_sentence": 3.2653061224489797,
+      "regime": "The maximum compression is 10 cm, within the stated 28 cm elastic range; the ideal-spring assumption supplies the force law."
+    },
+    "T1533": {
+      "stratum": "D",
+      "answer_with_sentence": 3.2653061224489797,
+      "regime": null
+    },
+    "T9D09": {
+      "stratum": "D",
+      "answer_with_sentence": 3.2653061224489797,
+      "regime": null
+    },
+    "TC18C": {
+      "stratum": "R",
+      "answer_with_sentence": 0.8163265306122449,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TDC1D and T1533 specify only a 'small weight', whereas the corresponding weight variants specify 1.5 kg, violating the requirement that variants retain the same number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics is well-posed and the numerical answers are unique. The invalid verdict concerns the required numerical matching of variants. TC18C is read in its ordinary procedural sense: the weight was attached before release and remains attached during the slide. The 'earlier experiment only' statements exclude the weight from the present experiment. The two spring-limit sentences retain the same value and unit.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T10:02:46+00:00",
+  "completed_at": "2026-11-20T10:03:31+00:00",
+  "minutes_spent": 0.74,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "d255dc4b0fb7985ec9b50ed39cc0b1ac6e14c676114b631023b268cd2e03a28f",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "item_id": "M250-S95",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Hydrostatic equilibrium gives p_small - p_large = rho*g*h. Piston equilibrium therefore gives F = A1*((m*g/A2) + rho*g*h). With A1 = 0.002 m² and A2 = 0.08 m², F = 294 + 24.99 = 318.99 N downward. An additional supported mass q increases F by 0.0245*q N.",
+    "assumptions": [
+      "The connected oil is at rest with uniform density.",
+      "The same atmospheric pressure acts on both outer piston faces.",
+      "The adjacent bottle jack is independent of the hydraulic lift.",
+      "The earlier-experiment-only load is absent from the present equilibrium."
+    ],
+    "answer": 318.99,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "TC4F6": {
+      "stratum": "D",
+      "answer_with_sentence": 318.99,
+      "regime": null
+    },
+    "T4EF7": {
+      "stratum": "C",
+      "answer_with_sentence": 318.99,
+      "regime": null
+    },
+    "T4338": {
+      "stratum": "R",
+      "answer_with_sentence": 456.19,
+      "regime": null
+    },
+    "T1A9B": {
+      "stratum": "D",
+      "answer_with_sentence": 318.99,
+      "regime": null
+    },
+    "TED46": {
+      "stratum": "D",
+      "answer_with_sentence": 318.99,
+      "regime": null
+    },
+    "TF1DC": {
+      "stratum": "D",
+      "answer_with_sentence": 318.99,
+      "regime": null
+    },
+    "T3BBA": {
+      "stratum": "C",
+      "answer_with_sentence": 318.99,
+      "regime": null
+    },
+    "T6417": {
+      "stratum": "R",
+      "answer_with_sentence": 456.19,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The numeral-free controls omit the 560 kg quantity required by the general variant-format instruction, although the authors explicitly disclose this intended difference and do not claim these controls preserve the numerical value."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "medium"
+  },
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All physical classifications and certified answers agree with pass 1. For both relevant sentences, added masses of 340, 560 and 710 kg give 402.29, 456.19 and 492.94 N respectively. Every disconnected variant leaves 318.99 N unchanged. Atmospheric pressure cancels for all three listed pressures; kPa must be converted to Pa when evaluating absolute pressures. The main relations use gauge pressures, while the cancellation derivation explicitly identifies its absolute pressures; both formulations are consistent. The two explicitly claimed minimal pairs preserve 560 kg and change only the load's temporal or object attachment. I revise the pass-1 high severity and invalid verdict: pass 2 identifies the unnumbered sentences as deliberate numeral-free controls, and their stated relationship to their twins is accurate. Their departure from the general numerical-format instruction remains a medium issue, without an incorrect physical claim or answer.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T09:53:29+00:00",
+  "completed_at": "2026-11-20T09:54:14+00:00",
+  "minutes_spent": 0.75,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "c1f966d3a8ab33bb1c6c7e61cdca82ffd838609c238bfa69cf54d14ab12566c1",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

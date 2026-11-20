@@ -1,0 +1,109 @@
+{
+  "item_id": "M250-S225",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For source-free steady radial conduction with constant conductivity, T(r1)-T(rm) = (Tin-Tout) ln(rm/r1)/ln(r2/r1). The base drop is 120 ln(5/3)/ln(9/3). If the maintained cold boundary moves to radius 9+q cm, replace r2 by 9+q.",
+    "assumptions": [
+      "There is no internal heat generation in the insulation.",
+      "Heat conduction is steady and purely radial, with constant conductivity.",
+      "The base boundary temperatures apply at radii 3 cm and 9 cm.",
+      "The authors' added-layer answers require releasing the maintained temperature at radius 9 cm and imposing 300 K only at the new outer radius."
+    ],
+    "answer": 55.7968,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "T2495": {
+      "stratum": "C",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T8870": {
+      "stratum": "C",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T6641": {
+      "stratum": "D",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T21B1": {
+      "stratum": "R",
+      "answer_with_sentence": 47.855,
+      "regime": null
+    },
+    "T26FA": {
+      "stratum": "D",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T6E73": {
+      "stratum": "D",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T15F5": {
+      "stratum": "R",
+      "answer_with_sentence": 47.855,
+      "regime": null
+    },
+    "T8754": {
+      "stratum": "D",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T21B1 and T15F5 do not explicitly replace the maintained 300 K condition at radius 9 cm with a condition solely at the new outer surface, so retaining or releasing the original constraint gives materially different answers."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    {
+      "sentences": [
+        "T21B1",
+        "T15F5"
+      ],
+      "case": "Retain the original maintained 300 K condition at radius 9 cm and also maintain the added insulation's outer surface at 300 K. The added annulus is isothermal, and the requested drop remains 55.7968 K for every listed added thickness.",
+      "alternative": "Release the maintained condition at radius 9 cm and impose 300 K only at radius 9+q cm. The drops for q = 1.2, 1.8 and 2.5 cm are respectively 50.0901, 47.8550 and 45.6184 K."
+    }
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "The base equation, conductivity cancellation and all numerical calculations are correct under the intended boundary conditions. The conductivity values are positive and cancel exactly; the historical and separate-tank additions have no effect on the stated present pipe problem. All listed added thicknesses leave the requested radius inside the insulation. The R assignments and displayed R answers remain conditional on moving the cold boundary; answer_correct is false because the packet does not uniquely establish that boundary change in the rendered problem. The authors' wiring explains their intention but does not explicitly resolve the retained boundary constraint in the sentences. I withdraw the pass-1 rendering_not_minimal flag: pass 2 identifies T26FA and T6E73 as deliberate numeral-free controls, whereas the explicitly claimed minimal pairs T6641/T21B1 and T8754/T15F5 each preserve 1.8 cm and change the intended temporal or object attachment. Their numeral-free twins otherwise match as claimed. No K regime is claimed.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T09:22:02+00:00",
+  "completed_at": "2026-11-20T09:22:44+00:00",
+  "minutes_spent": 0.7,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "8f1d6e53b2acf8035629c8c031a45062ae83875744a5e9218745a1185fe7f0ca",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

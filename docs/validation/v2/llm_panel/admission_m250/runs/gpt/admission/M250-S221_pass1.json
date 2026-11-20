@@ -1,0 +1,105 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S221",
+  "pass_number": 1,
+  "started_at": "2026-11-20T09:58:44+00:00",
+  "completed_at": "2026-11-20T09:59:24+00:00",
+  "minutes_spent": 0.67,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For five active molecular degrees of freedom, Cv = 5R/2 and Cp = 7R/2. The first law at constant pressure gives Q = ΔU + pΔV = nCpΔT = 2(7/2)(8.314)(360 - 300) = 3491.88 J.",
+    "assumptions": [
+      "The gas is closed during heating and performs only pressure-volume work.",
+      "The stated excitation conditions give five active quadratic degrees of freedom throughout heating."
+    ],
+    "answer": 3491.88,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "TE50D": {
+      "stratum": "K",
+      "answer_with_sentence": 3491.88,
+      "regime": "Vibration remains frozen out: the heating range of 300–360 K is well below the characteristic vibrational temperature of 3300 K, consistent with the explicit excitation assumption."
+    },
+    "T0508": {
+      "stratum": "R",
+      "answer_with_sentence": 5761.602,
+      "regime": null
+    },
+    "T5CFA": {
+      "stratum": "R",
+      "answer_with_sentence": 5761.602,
+      "regime": null
+    },
+    "TC98F": {
+      "stratum": "D",
+      "answer_with_sentence": 3491.88,
+      "regime": null
+    },
+    "TE3A7": {
+      "stratum": "D",
+      "answer_with_sentence": 3491.88,
+      "regime": null
+    },
+    "TED71": {
+      "stratum": "D",
+      "answer_with_sentence": 3491.88,
+      "regime": null
+    },
+    "TFFAB": {
+      "stratum": "C",
+      "answer_with_sentence": 3491.88,
+      "regime": null
+    },
+    "T86C0": {
+      "stratum": "C",
+      "answer_with_sentence": 3491.88,
+      "regime": null
+    },
+    "TA1EB": {
+      "stratum": "D",
+      "answer_with_sentence": 3491.88,
+      "regime": null
+    },
+    "T2A2D": {
+      "stratum": "K",
+      "answer_with_sentence": 3491.88,
+      "regime": "Vibration remains frozen out: the heating range of 300–360 K is well below the characteristic vibrational temperature of 3300 K, consistent with the explicit excitation assumption."
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TE3A7 and TED71 replace the explicit additional amount of 1.3 mol used in the other amount variants with an unspecified 'small amount', violating the required preservation of number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A 'small amount' could mean 0.01 mol, so TE3A7 and TED71 do not specify the same amount as the 1.3 mol variants."
+  ],
+  "notes": "The base problem and each individual augmented problem have unique heat answers. The invalid verdict concerns the required numerical matching of the sentence variants. Adding 1.3 mol to the cylinder before heating gives n = 3.3 mol and Q = 5761.602 J. Earlier runs and the disconnected bottle do not affect the current gas. Pressure cancels because pΔV = nRΔT. The two pressure variants agree at 220 kPa, and the two characteristic-temperature variants agree at 3300 K.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "3d5788e02e4b4c7d20369dc2f40e1276cbb4c8f84d7bc3241557db1f81cc316f",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "item_id": "M250-S232",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For linear gravity-capillary waves in deep water, omega^2 = gk + (sigma/rho)k^3, k = 2*pi/lambda, and group speed = d(omega)/dk = [g + 3(sigma/rho)k^2]/[2*sqrt(gk + (sigma/rho)k^3)]. With lambda = 0.030 m, k = 209.44 m^-1.",
+    "assumptions": [
+      "Linear, inviscid, deep-water waves, as specified.",
+      "Surface tension is spatially uniform.",
+      "Group speed is measured relative to the water.",
+      "A reduction applying to the present run is subtracted from the supplied baseline surface tension."
+    ],
+    "answer": 0.1859,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T6703": {
+      "stratum": "D",
+      "answer_with_sentence": 0.1859,
+      "regime": null
+    },
+    "TC5E1": {
+      "stratum": "D",
+      "answer_with_sentence": 0.1859,
+      "regime": null
+    },
+    "T9415": {
+      "stratum": "R",
+      "answer_with_sentence": 0.1713,
+      "regime": null
+    },
+    "T154E": {
+      "stratum": "K",
+      "answer_with_sentence": 0.1859,
+      "regime": "Deep water requires kh much greater than 1. Here h = 0.55 m gives kh = 115.2, so finite-depth corrections are negligible."
+    },
+    "T14D0": {
+      "stratum": "D",
+      "answer_with_sentence": 0.1859,
+      "regime": null
+    },
+    "T4839": {
+      "stratum": "K",
+      "answer_with_sentence": 0.1859,
+      "regime": "Deep water requires kh much greater than 1. Here h = 0.55 m gives kh = 115.2, so finite-depth corrections are negligible."
+    },
+    "TB5C8": {
+      "stratum": "D",
+      "answer_with_sentence": 0.1859,
+      "regime": null
+    },
+    "T1028": {
+      "stratum": "R",
+      "answer_with_sentence": 0.1713,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The surface-tension-reduction variants do not consistently state the same number and unit: T6703 and T14D0 say only 'a little', whereas TB5C8 and TC5E1 respectively specify 0.015 N/m."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and numerical answer are sound. Present-run reductions give sigma = 0.0578 N/m and group speed 0.1713 m/s. Changes confined to the separate bowl or explicitly confined to an earlier run do not affect the present tank waves. Both depth sentences preserve the stated deep-water regime and use matching values and units. The invalid verdict concerns the required quantitative matching of sentence variants; the qualitative disconnected sentences themselves still leave the requested speed determinate.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T10:05:38+00:00",
+  "completed_at": "2026-11-20T10:06:35+00:00",
+  "minutes_spent": 0.94,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a50688943fb251d6fc95ed4c15d601338f5dfb1c73dfc75eb7d0e70f31ac3839",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

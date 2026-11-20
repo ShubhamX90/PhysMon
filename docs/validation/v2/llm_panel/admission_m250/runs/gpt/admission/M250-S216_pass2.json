@@ -1,0 +1,101 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S216",
+  "pass_number": 2,
+  "started_at": "2026-11-20T10:04:46+00:00",
+  "completed_at": "2026-11-20T10:05:38+00:00",
+  "minutes_spent": 0.88,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "With a common negative-plate return, charge conservation gives Veq=(C1*V0+C2*V2)/(C1+C2)=84 V. Kirchhoff's laws give v2(t)=Veq+(V2-Veq)*cos(omega*t), with omega^2=(C1+C2)/(L*C1*C2). The maximum is 2*Veq-V2=148 V. Adding a capacitor q initially charged to 100 V across the first gives Vmax=20+160*(40+q)/(50+q), with capacitances expressed in μF.",
+    "assumptions": [
+      "The negative plates share a return connection; the problem does not explicitly state this essential circuit connection.",
+      "The added capacitor across the first is initially charged to 100 V with matching polarity and connected before charge transfer.",
+      "The capacitors and inductor are ideal, the inductance is positive, and the initial inductor current is zero."
+    ],
+    "answer": 148.0,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "T94A9": {
+      "stratum": "D",
+      "answer_with_sentence": 148.0,
+      "regime": null
+    },
+    "T3614": {
+      "stratum": "D",
+      "answer_with_sentence": 148.0,
+      "regime": null
+    },
+    "T6868": {
+      "stratum": "R",
+      "answer_with_sentence": 157.7777777778,
+      "regime": null
+    },
+    "T47FC": {
+      "stratum": "D",
+      "answer_with_sentence": 148.0,
+      "regime": null
+    },
+    "TF693": {
+      "stratum": "C",
+      "answer_with_sentence": 148.0,
+      "regime": null
+    },
+    "T0EC0": {
+      "stratum": "R",
+      "answer_with_sentence": 157.7777777778,
+      "regime": null
+    },
+    "T7B75": {
+      "stratum": "C",
+      "answer_with_sentence": 148.0,
+      "regime": null
+    },
+    "T3A64": {
+      "stratum": "D",
+      "answer_with_sentence": 148.0,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "Neither the problem nor the authors' assumptions explicitly connects the negative plates, although that return connection is essential to the claimed charge-transfer oscillation and maximum voltage."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "If each negative plate remains isolated while the positive plates are connected through the inductor and switch, the ideal circuit has no closed charge-transfer path and the second capacitor remains at 20 V; with a common negative return, its maximum is 148 V."
+  ],
+  "notes": "The equations, strata and numerical certificates are correct conditional on the intended common-return circuit. For both relevant sentences, q=7, 22 and 35 μF gives respectively 151.929825, 157.777778 and 161.176471 V, agreeing with the certificates at their displayed precision. All listed positive inductances change the time to the maximum but cancel from its value. The disconnected sentences preserve the intended answer, and the two explicitly claimed minimal pairs retain the same number and unit. I withdraw the pass-1 rendering_not_minimal flag: pass 2 identifies T47FC and T3A64 as deliberate numeral-free controls, not quantitative minimal pairs. The remaining connectivity defect is unchanged. The true equation_consistent and answer_correct fields describe the intended circuit calculation; the written problem does not uniquely entail that calculation.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "79238d5017330f3017a1066adab6bbde6faa9cfe1cd174173b0a6ae293dfd6a0",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

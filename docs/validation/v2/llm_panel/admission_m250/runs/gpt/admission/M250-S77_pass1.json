@@ -1,0 +1,84 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S77",
+  "pass_number": 1,
+  "started_at": "2026-11-20T18:59:33+00:00",
+  "completed_at": "2026-11-20T19:00:23+00:00",
+  "minutes_spent": 0.83,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The stipulated model gives T = exp(-2aκ), with κ = sqrt[2(mc²)(V-E)]/(ħc). Thus a = (ħc)ln(1/T)/(2sqrt[2(mc²)(V-E)]). For V-E = 3 eV, κ = 8.8748 nm⁻¹ and a = 0.38918 nm.",
+    "assumptions": [
+      "Use the explicitly stipulated exponential transmission model.",
+      "The current barrier height remains 8 eV unless a sentence explicitly replaces it for the approaching electron.",
+      "Transmission refers to the specified barrier, with incident kinetic energy fixed at 5 eV."
+    ],
+    "answer": 0.38918,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "TFB05": {
+      "stratum": "D",
+      "answer_with_sentence": 0.38918,
+      "regime": null
+    },
+    "T9848": {
+      "stratum": "D",
+      "answer_with_sentence": 0.38918,
+      "regime": null
+    },
+    "T6F0D": {
+      "stratum": "D",
+      "answer_with_sentence": 0.38918,
+      "regime": null
+    },
+    "T0D94": {
+      "stratum": "D",
+      "answer_with_sentence": 0.38918,
+      "regime": null
+    },
+    "TDA04": {
+      "stratum": "R",
+      "answer_with_sentence": 0.45446,
+      "regime": null
+    },
+    "T8282": {
+      "stratum": "R",
+      "answer_with_sentence": 0.45446,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The height variants fail the required preservation of number and unit: TFB05 and T6F0D give only 'known', whereas the corresponding numerical variants T0D94 and T9848 specify 7.2 eV."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and numerical answer are well-defined under the supplied model. Changes expressly confined to an earlier experiment leave the present barrier unchanged. Replacing the present barrier by a 7.2 eV barrier changes V-E to 2.2 eV and gives a = 0.45446 nm. The separate step has no stated connection to the prescribed barrier transmission. The invalid verdict concerns the required numerical matching of sentence variants.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "9ad104282cc6fa34de76656a0242062130bab0bb73b5d0d205f7c845efcd3f0d",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

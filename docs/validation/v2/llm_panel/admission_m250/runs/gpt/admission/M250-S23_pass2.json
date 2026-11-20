@@ -1,0 +1,100 @@
+{
+  "item_id": "M250-S23",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For a fixed amount of ideal gas, PV/T is constant. The base final pressure is 100*(6/4)*(360/300) = 180 kPa. Additional warming by q at 4 L gives P = 100*6*(360+q)/(4*300) = 180 + 0.5q kPa, with q measured in kelvin. Thus q = 17, 38 and 57 K gives 188.5, 199 and 208.5 kPa respectively.",
+    "assumptions": [
+      "The sealed container retains a fixed amount of ideal gas.",
+      "Pressures are absolute and the specified states are equilibrium states.",
+      "For the intended relevant sentences, 'this piston' denotes the first piston.",
+      "For T656C, the specified warming is interpreted as an additional step after reaching 360 K.",
+      "An earlier experiment precedes the stated initial state."
+    ],
+    "answer": 180,
+    "unit": "kPa"
+  },
+  "stratum_assignments": {
+    "T6EEF": {
+      "stratum": "D",
+      "answer_with_sentence": 180,
+      "regime": null
+    },
+    "TE55F": {
+      "stratum": "D",
+      "answer_with_sentence": 180,
+      "regime": null
+    },
+    "TB1B2": {
+      "stratum": "D",
+      "answer_with_sentence": 180,
+      "regime": null
+    },
+    "T20FE": {
+      "stratum": "R",
+      "answer_with_sentence": 199,
+      "regime": null
+    },
+    "T656C": {
+      "stratum": "R",
+      "answer_with_sentence": 199,
+      "regime": null
+    },
+    "T24F5": {
+      "stratum": "D",
+      "answer_with_sentence": 180,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "other"
+  ],
+  "defect_reasons": {
+    "other": "The intended reading is recoverable, but 'this piston' has an ambiguous referent and T656C does not explicitly describe its warming as additional to reaching 360 K."
+  },
+  "defect_severity": {
+    "other": "medium"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "T20FE",
+      "description": "Reading 'this piston' as the immediately preceding second piston leaves the first gas at 180 kPa; the intended first-piston reading gives 199 kPa."
+    },
+    {
+      "sentence_id": "T656C",
+      "description": "If the 38 K warming describes the last portion of the already stated heating to 360 K, the final pressure remains 180 kPa; interpreting it as subsequent additional warming gives 199 kPa."
+    }
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "notes": "All certified numerical answers and dimensional relations are correct under the intended readings. The listed relation describes the base state; replacing T2 by T2+q implements the relevant wiring correctly. Earlier history does not change the fully specified initial state, and warming the separate gas does not change the first gas's specified state. Both explicitly claimed minimal pairs preserve 38 K and change the intended attachment. I withdraw pass 1's high rendering_not_minimal flag: pass 2 identifies T6EEF and T24F5 as deliberately numeral-free controls, not as the numbered minimal pairs, and their twin descriptions accurately disclose the replacement. The remaining concerns are wording ambiguities rather than errors in the intended physics.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T09:12:27+00:00",
+  "completed_at": "2026-11-20T09:13:15+00:00",
+  "minutes_spent": 0.81,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "1b4ad0be40b2dc9fc3ee932cebff16f5d060c231b75aad0bfaecd8275ef3ccfc",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

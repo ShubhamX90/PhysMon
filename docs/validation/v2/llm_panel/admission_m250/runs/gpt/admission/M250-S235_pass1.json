@@ -1,0 +1,109 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S235",
+  "pass_number": 1,
+  "started_at": "2026-11-20T09:36:37+00:00",
+  "completed_at": "2026-11-20T09:37:39+00:00",
+  "minutes_spent": 1.04,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Archimedes' principle and Newton's second law give m = rho_c A L and m x'' = -rho_l g A x, hence T = 2 pi sqrt(rho_c L / (rho_l g)).",
+    "assumptions": [
+      "The stated small oscillation keeps the cylinder partly submerged throughout.",
+      "The cylinder maintains its upright orientation during the stated vertical motion.",
+      "Drag and liquid motion are neglected as instructed."
+    ],
+    "answer": 0.8863,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TFE49": {
+      "stratum": "D",
+      "answer_with_sentence": 0.8863,
+      "regime": null
+    },
+    "T11DC": {
+      "stratum": "C",
+      "answer_with_sentence": 0.8863,
+      "regime": null
+    },
+    "T30BA": {
+      "stratum": "C",
+      "answer_with_sentence": 0.8863,
+      "regime": null
+    },
+    "T7F78": {
+      "stratum": "D",
+      "answer_with_sentence": 0.8863,
+      "regime": null
+    },
+    "T7EFE": {
+      "stratum": "D",
+      "answer_with_sentence": 0.8863,
+      "regime": null
+    },
+    "T0F32": {
+      "stratum": "K",
+      "answer_with_sentence": 0.8863,
+      "regime": "The release amplitude must be less than both the equilibrium immersion, 19.5 cm, and the equilibrium freeboard, 10.5 cm. The stated 3.2 cm satisfies this condition, so the restoring force remains linear."
+    },
+    "T315E": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T4379": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TCA2F": {
+      "stratum": "K",
+      "answer_with_sentence": 0.8863,
+      "regime": "The release amplitude must be less than both the equilibrium immersion, 19.5 cm, and the equilibrium freeboard, 10.5 cm. The stated 3.2 cm satisfies this condition, so the restoring force remains linear."
+    },
+    "TF10E": {
+      "stratum": "D",
+      "answer_with_sentence": 0.8863,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "T315E and T4379 specify the attached wood's length but omit its cross-sectional area or mass, so the modified oscillation period is not uniquely determined.",
+    "rendering_not_minimal": "The wood-length renderings do not consistently preserve the specified number and unit: T7F78 and T7EFE substitute an unspecified 'short length' for 9.5 cm."
+  },
+  "defect_severity": {
+    "missing_assumption": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "For T315E or T4379, let the original cylinder's cross-sectional area be A. A 9.5 cm wooden extension of density 650 kg/m³ and area A gives T = 1.017 s, whereas an extension of the same length and density with area A/2 gives T = 0.954 s. Both can remain above the liquid throughout sufficiently small oscillations and satisfy the stated attachment description."
+  ],
+  "notes": "The base problem is well-posed. Cylinder radius cancels between inertia and buoyant stiffness. The distant raft is disconnected under the prescribed neglect of liquid motion. 'For an earlier run only' is interpreted as indicating that the attachment is absent during the present run. The two current-cylinder attachment answers are null because they require unspecified geometry; assuming an extension with the original cylinder's cross-sectional area would give 1.017 s.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a206fa5e8834be6776b3df3a0b7f3ae24c65be2a92870fd409c364416c530bd3",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

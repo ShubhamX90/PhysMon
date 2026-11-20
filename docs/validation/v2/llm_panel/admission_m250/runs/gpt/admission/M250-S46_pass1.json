@@ -1,0 +1,84 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S46",
+  "pass_number": 1,
+  "started_at": "2026-11-20T09:12:58+00:00",
+  "completed_at": "2026-11-20T09:13:34+00:00",
+  "minutes_spent": 0.61,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The field normal to the rail plane is B cos(theta). The motional emf is B L v cos(theta), giving current I = B L v cos(theta)/R and an opposing force along the rails of I L B cos(theta). Terminal balance gives mg sin(theta) = B^2 L^2 v cos^2(theta)/R, so v = mg R sin(theta)/(B^2 L^2 cos^2(theta)). With R = 0.5 ohm, v = 2.835648148 m/s. Adding 1.3 ohm in the rail circuit makes R = 1.8 ohm and v = 10.208333333 m/s.",
+    "assumptions": [
+      "The rod remains horizontal across the rails, perpendicular to their downhill direction.",
+      "The stated uniform magnetic field is prescribed.",
+      "The lamp's separately powered circuit has no coupling to the rail circuit in the stated model."
+    ],
+    "answer": 2.835648148,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T5D8D": {
+      "stratum": "R",
+      "answer_with_sentence": 10.208333333,
+      "regime": null
+    },
+    "T2332": {
+      "stratum": "D",
+      "answer_with_sentence": 2.835648148,
+      "regime": null
+    },
+    "T88DE": {
+      "stratum": "D",
+      "answer_with_sentence": 2.835648148,
+      "regime": null
+    },
+    "TE145": {
+      "stratum": "D",
+      "answer_with_sentence": 2.835648148,
+      "regime": null
+    },
+    "TADB8": {
+      "stratum": "R",
+      "answer_with_sentence": 10.208333333,
+      "regime": null
+    },
+    "T2BCE": {
+      "stratum": "D",
+      "answer_with_sentence": 2.835648148,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T2332 and T2BCE replace the explicit 1.3 Ω specification used in the other resistor variants with 'small', violating the requirement that variants retain the same stated number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and all six individual renderings have unique terminal speeds. The invalid verdict concerns the required matching of variant quantities: T2332 versus TE145 and T2BCE versus T88DE change numerical specificity as well as wording. Resistors used only in an earlier run are disconnected from the present terminal-speed calculation. The unspecified resistance in the lamp circuit also does not affect the answer.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "1706b32997cd35fb7b6a8c93b663641b2afa0a6df52730dc4d1c5ae40323a6a6",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "item_id": "M250-S82",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Wien's displacement law gives lambda2 = lambda1*T1/T2 = 1000 nm. Photon energy is E = hc/lambda2 = 1.24 eV. If the second star's observed temperature becomes 2900 + q K, E = 1240*(2900 + q)/(500*5800) eV.",
+    "assumptions": [
+      "Both stars are blackbodies, with peaks defined per unit wavelength.",
+      "The base problem's stated temperatures describe the spectra being considered.",
+      "The numerical answers for the relevant additions assume that the rise starts from 2900 K and persists until observation."
+    ],
+    "answer": 1.24,
+    "unit": "eV"
+  },
+  "stratum_assignments": {
+    "TEFF6": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    },
+    "T80FF": {
+      "stratum": "R",
+      "answer_with_sentence": 1.6462068966,
+      "regime": null
+    },
+    "TF04F": {
+      "stratum": "R",
+      "answer_with_sentence": 1.6462068966,
+      "regime": null
+    },
+    "T099E": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T2C66": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    },
+    "TFD41": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "Whether 2900 K describes the second star before the added temperature rise or at observation.",
+    "Whether the earlier outburst leaves a temperature change at observation.",
+    "The magnitude of the unspecified rise in TFD41 if that rise affects the observed temperature."
+  ],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "hidden_coupling"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The stellar-history sentences do not establish the observed temperature relative to the stated 2900 K or specify that the star returns to that temperature after its earlier outburst.",
+    "hidden_coupling": "The claimed disconnection of T099E and TFD41 is unsupported because an earlier outburst can leave a temperature change that affects the observed blackbody peak."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "hidden_coupling": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "T099E",
+      "description": "If 2900 K is the pre-outburst temperature and the star retains the 950 K rise until observation, its temperature is 3850 K and the photon energy is 1.6462068966 eV. If it returns to 2900 K, the answer is 1.24 eV. The sentence does not distinguish these histories."
+    },
+    {
+      "sentence_id": "T099E",
+      "description": "Under the persistent-rise interpretation, outburst increases of 300 K and 1500 K give 1.3682758621 eV and 1.8813793103 eV respectively, contradicting the claimed invariance."
+    },
+    {
+      "sentence_id": "TFD41",
+      "description": "If a small earlier rise persists from an initial 2900 K, rises of 1 K and 10 K give 1.2404275862 eV and 1.2442758621 eV respectively; smallness alone does not make the dependence vanish."
+    }
+  ],
+  "notes": "The base answer, units and governing relations are correct. All certified R answers follow from the stated additive wiring and are adequately rounded: q = 300, 950 and 1500 K give 1.36828, 1.64621 and 1.88138 eV. The lamp additions are disconnected from the requested intrinsic stellar peak. The authors' assertion that the earlier outburst leaves no state behind supplies a condition absent from the problem; even an ended outburst need not restore the original temperature. Reading 2900 K as explicitly the observation temperature would support D for the historical additions, but that temporal convention is not stated and would also complicate the claimed R interpretation of T80FF. The R assignments for T099E and TFD41 record their possible persistent-temperature coupling; their answers and roles are not uniquely determined. Relative to pass 1, the packet explains that the numeral-free sentences are deliberate controls, so their missing numbers are not a rendering defect. The numbered pairs share 950 K and consistently use kelvin; the temporal wording is the intended distinction for T099E versus T80FF, but does not establish the claimed physical disconnection.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T18:51:58+00:00",
+  "completed_at": "2026-11-20T18:52:51+00:00",
+  "minutes_spent": 0.89,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "532598d65a372e99da9d115f8bd05e5b95aaaf178feb52fa1f53384eada56fd9",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

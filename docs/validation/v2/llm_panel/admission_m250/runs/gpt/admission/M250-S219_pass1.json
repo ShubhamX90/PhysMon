@@ -1,0 +1,104 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S219",
+  "pass_number": 1,
+  "started_at": "2026-11-20T09:15:57+00:00",
+  "completed_at": "2026-11-20T09:16:52+00:00",
+  "minutes_spent": 0.91,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "In the nonrelativistic magnetic-force model, |q|v_perp B = mv_perp^2/r, so T = 2*pi*m/(|q|B) and pitch = v_parallel*T. Thus pitch = 2*pi*(0.0005 kg)*(12 m/s)/((0.005 C)*(0.8 T)) = 9.42478 m.",
+    "assumptions": [
+      "The motion is nonrelativistic; this necessary modelling assumption is not stated.",
+      "The quoted mass is constant and the charge remains fixed during each passage.",
+      "The additional 3.4 mC has the same sign as the original charge, giving a total charge of 8.4 mC.",
+      "The specified parallel velocity applies to the passage being considered."
+    ],
+    "answer": 9.4247779608,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TB95D": {
+      "stratum": "D",
+      "answer_with_sentence": 9.4247779608,
+      "regime": null
+    },
+    "T71C4": {
+      "stratum": "R",
+      "answer_with_sentence": 5.6099868814,
+      "regime": null
+    },
+    "T8046": {
+      "stratum": "R",
+      "answer_with_sentence": 5.6099868814,
+      "regime": null
+    },
+    "T6E3B": {
+      "stratum": "D",
+      "answer_with_sentence": 9.4247779608,
+      "regime": null
+    },
+    "T58CB": {
+      "stratum": "C",
+      "answer_with_sentence": 9.4247779608,
+      "regime": null
+    },
+    "TBA52": {
+      "stratum": "D",
+      "answer_with_sentence": 9.4247779608,
+      "regime": null
+    },
+    "T5675": {
+      "stratum": "C",
+      "answer_with_sentence": 9.4247779608,
+      "regime": null
+    },
+    "TAE48": {
+      "stratum": "D",
+      "answer_with_sentence": 9.4247779608,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "Nonrelativistic motion is not stipulated, and the unrestricted perpendicular speed can make the relativistic pitch materially different from the textbook answer.",
+    "rendering_not_minimal": "TB95D and TBA52 replace the numerical charge magnitude and unit with 'a small amount', whereas corresponding charge renderings specify 3.4 mC, so the charge sentences do not all preserve the required number and unit."
+  },
+  "defect_severity": {
+    "missing_assumption": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    {
+      "claim": "The base pitch is uniquely 9.42478 m, independently of perpendicular speed.",
+      "case": "Take the unspecified perpendicular speed to be 0.6c while retaining the stated parallel component of 12 m/s.",
+      "result": "Relativistic magnetic motion gives T = 2*pi*gamma*m/(|q|B), with gamma approximately 1.25, so the pitch is approximately 11.781 m."
+    }
+  ],
+  "notes": "All tabulated answers and the C assignments use the explicitly identified nonrelativistic assumption. In that model, perpendicular speed appears in both the magnetic-force relation and the circumference and cancels from the period. Without that assumption, the base answer is not unique and perpendicular speed affects the pitch through gamma. The two sentences specifying 6.5 m/s establish a nonrelativistic total speed and give the tabulated pitch to the displayed precision. The four numerical charge sentences consistently use 3.4 mC; the two qualitative charge sentences omit that magnitude. Charge confined to an earlier run is disconnected from the current passage, and charge on the remote electroscope cannot affect the bead under the explicit no-other-force condition.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "ccef85a98b304e113aaad17c1ec0337265d7d687126298dfac161e6d7482c5b3",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

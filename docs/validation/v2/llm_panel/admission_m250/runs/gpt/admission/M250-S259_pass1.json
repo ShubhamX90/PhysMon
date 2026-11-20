@@ -1,0 +1,100 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S259",
+  "pass_number": 1,
+  "started_at": "2026-11-20T18:56:09+00:00",
+  "completed_at": "2026-11-20T18:57:15+00:00",
+  "minutes_spent": 1.11,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For a Maxwell speed distribution, n_fast = n[erfc(x) + (2x/sqrt(pi))exp(-x^2)], where x = v_cut sqrt(m/(2k_B T)). Using m = 6.64714e-27 kg and T = 300 K gives x = 1.79133 and a fraction approximately 0.09296.",
+    "assumptions": [
+      "The unheated gas is measured at 300 K; this final temperature is not established by the stated initial temperature alone.",
+      "For the current-flask warming sentences, thermal equilibrium is reached after heating and the measured gas temperature is 317 K.",
+      "The amount requested is the equilibrium amount in moles, obtained from the Maxwell probability."
+    ],
+    "answer": 0.04648,
+    "unit": "mol"
+  },
+  "stratum_assignments": {
+    "T2124": {
+      "stratum": "D",
+      "answer_with_sentence": 0.04648,
+      "regime": null
+    },
+    "TA6B3": {
+      "stratum": "R",
+      "answer_with_sentence": 0.05404,
+      "regime": null
+    },
+    "TA645": {
+      "stratum": "D",
+      "answer_with_sentence": 0.04648,
+      "regime": null
+    },
+    "T5A1D": {
+      "stratum": "C",
+      "answer_with_sentence": 0.04648,
+      "regime": null
+    },
+    "T3034": {
+      "stratum": "C",
+      "answer_with_sentence": 0.04648,
+      "regime": null
+    },
+    "T408F": {
+      "stratum": "D",
+      "answer_with_sentence": 0.04648,
+      "regime": null
+    },
+    "T4B89": {
+      "stratum": "D",
+      "answer_with_sentence": 0.04648,
+      "regime": null
+    },
+    "TA78B": {
+      "stratum": "R",
+      "answer_with_sentence": 0.05404,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The gas starts at 300 K, but its temperature after equilibration is unspecified because neither the flask's initial thermal state nor an adequate thermal boundary condition is supplied.",
+    "rendering_not_minimal": "T2124 and TA645 replace the explicit 17 K of their corresponding variants T408F and T4B89 with an unquantified 'modest amount', so the variants do not preserve the same stated number and unit."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "In an externally insulated flask whose walls have the same heat capacity as the gas, walls initially at 400 K and gas initially at 300 K equilibrate at 350 K; walls initially at 300 K instead give 300 K. Both satisfy the stated initial gas temperature and produce different high-speed amounts.",
+    "A 'modest amount' of warming could be 5 K or 17 K, so the qualitative sentences do not specify the numerical quantity preserved by the explicit 17 K variants."
+  ],
+  "notes": "All numerical answers are conditional on a baseline equilibrium temperature of 300 K. The 317 K answers additionally interpret flask warming as the equilibrium gas-temperature increase. The earlier experiment and window-frame statements supply no specified coupling to the present gas. Pressure enters the ideal-gas density and volume relations but cancels from the amount above a speed threshold at fixed temperature and total amount. Both pressure variants consistently state 62 kPa.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "b89140353c2df73e59166e29112484fc45ad382cb881f0f9dfccea5907d71a6b",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S36",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For a physical pendulum, I_p = m(L^2/12 + d^2) and I_p theta'' = -mgd theta, giving T = 2*pi*sqrt((L^2/12 + d^2)/(gd)). With L = 1.2 m, d = 0.3 m and g = 9.8 m/s^2, T = 1.67925 s. Moving the rod's pivot q toward its centre replaces d by d - q.",
+    "assumptions": [
+      "The thin uniform rod behaves as a rigid body.",
+      "The stated small oscillations occur about stable equilibrium, with the centre of mass below the pivot.",
+      "Current pivot movements start from the stated 0.3 m offset.",
+      "The earlier experiment does not override the explicitly specified present pivot position."
+    ],
+    "answer": 1.67925,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TA36F": {
+      "stratum": "C",
+      "answer_with_sentence": 1.67925,
+      "regime": null
+    },
+    "TFD4F": {
+      "stratum": "D",
+      "answer_with_sentence": 1.67925,
+      "regime": null
+    },
+    "T1443": {
+      "stratum": "D",
+      "answer_with_sentence": 1.67925,
+      "regime": null
+    },
+    "TF2C6": {
+      "stratum": "D",
+      "answer_with_sentence": 1.67925,
+      "regime": null
+    },
+    "T2919": {
+      "stratum": "C",
+      "answer_with_sentence": 1.67925,
+      "regime": null
+    },
+    "T7714": {
+      "stratum": "D",
+      "answer_with_sentence": 1.67925,
+      "regime": null
+    },
+    "TFE49": {
+      "stratum": "R",
+      "answer_with_sentence": 2.33906,
+      "regime": null
+    },
+    "T1D34": {
+      "stratum": "R",
+      "answer_with_sentence": 2.33906,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "I withdraw the pass-1 rendering_not_minimal finding because the pass-2 packet explicitly identifies TF2C6 and T7714 as numeral-free controls, rather than numerical minimal pairs. Both actual minimal_pair_with claims preserve 20.5 cm and change the intended temporal or object attachment. The numeral-free twin descriptions are accurate. All certified values check: rod-pivot shifts of 18, 20.5 and 22 cm give 2.12410, 2.33906 and 2.52287 s respectively, with positive final offsets inside the rod. Mass cancels for every listed positive mass; historical changes and the disconnected see-saw leave the present period unchanged. The steel-strip description is compatible with the thin uniform rod model. The relations have consistent dimensions, and all displayed answers have adequate precision.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T18:50:32+00:00",
+  "completed_at": "2026-11-20T18:51:08+00:00",
+  "minutes_spent": 0.6,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "e28734a6dd26360fe8ad8484d986f97c298c9c33cfd296c32aa679a018527065",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

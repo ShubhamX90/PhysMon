@@ -1,0 +1,104 @@
+{
+  "item_id": "M250-S271",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For a thin rod, the longitudinal wave speed is v = sqrt(E/rho). The fundamental free-free mode has wavelength 2L and a displacement node at the central clamp, so f = v/(2L). Adjacent air displacement nodes, and hence dust heaps, are separated by c_air/(2f) = c_air L sqrt(rho/E). With E = 7.0e10 Pa, v = 5091.75 m/s and f = 2121.56 Hz.",
+    "assumptions": [
+      "The thin-rod linear longitudinal-wave model applies, with negligible loading from the light disc.",
+      "For the current-experiment extension sentences, the additional length changes the working rod length to 1.52 m, and the clamp is at the midpoint of that completed rod.",
+      "The welded extension continues the rod with the same cross-section and material."
+    ],
+    "answer": 0.0808366,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TA297": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "T94AF": {
+      "stratum": "C",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "T641F": {
+      "stratum": "C",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "TFBD6": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "TD83B": {
+      "stratum": "R",
+      "answer_with_sentence": 0.1023931,
+      "regime": null
+    },
+    "T9574": {
+      "stratum": "C",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "T1BAE": {
+      "stratum": "C",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "T3295": {
+      "stratum": "R",
+      "answer_with_sentence": 0.1023931,
+      "regime": null
+    },
+    "T2604": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "TFE55": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TFBD6 and TFE55 replace the specified added length of 32 cm in the corresponding railing and earlier-experiment renderings with an unspecified 'small amount', violating the requirement that quantity variants preserve their number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The physics and numerical answers are sound under the stated thin-rod interpretation; the invalid verdict concerns the rendering requirement. Cross-sectional area cancels between axial stiffness EA and mass per unit length rho A, so both diameter renderings and both area renderings are C. Drawing describes the rod's resulting diameter; no earlier dimensions or conserved stock volume are specified. Earlier experiments have no stated persistent effect on the present rod, and the railing has no stated mechanical coupling to the apparatus. Explicit pair identifiers are absent in this pass, but the small-amount renderings visibly fail to preserve the 32 cm quantity used by their otherwise corresponding renderings.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T10:07:36+00:00",
+  "completed_at": "2026-11-20T10:08:25+00:00",
+  "minutes_spent": 0.82,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f893976e0fb3e3308edf4a3d6769b8e922f10ab331518d01c31301487fdff4f4",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "item_id": "M250-S45",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Let Q denote bead charge and U the additional accelerating voltage. Energy conservation gives Q(V+U)=mv²/2, and magnetic force gives QvB=mv²/r. Thus r=sqrt(2m(V+U)/Q)/B. For the base problem, U=0, m=0.0001 kg, Q=0.002 C, V=2.5 V and B=0.8 T, giving v=10 m/s and r=0.625 m=62.5 cm.",
+    "assumptions": [
+      "The accelerating voltage increases the positive bead's kinetic energy.",
+      "The bead's mass and charge remain constant.",
+      "For a relevant added voltage, it adds with the accelerating polarity and remains applied during traversal of the gap.",
+      "Classical mechanics is adequate at the calculated speeds."
+    ],
+    "answer": 62.5,
+    "unit": "cm"
+  },
+  "stratum_assignments": {
+    "TD92C": {
+      "stratum": "D",
+      "answer_with_sentence": 62.5,
+      "regime": null
+    },
+    "TD3A9": {
+      "stratum": "R",
+      "answer_with_sentence": 118.58541226,
+      "regime": null
+    },
+    "TEE28": {
+      "stratum": "R",
+      "answer_with_sentence": 118.58541226,
+      "regime": null
+    },
+    "T7686": {
+      "stratum": "D",
+      "answer_with_sentence": 62.5,
+      "regime": null
+    },
+    "T8562": {
+      "stratum": "D",
+      "answer_with_sentence": 62.5,
+      "regime": null
+    },
+    "TFFD3": {
+      "stratum": "D",
+      "answer_with_sentence": 62.5,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "inconsistent_units"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TD3A9 does not establish whether the extra voltage applied before release remains across the gap during acceleration, so its certified radius is conditional on an unstated temporal boundary condition.",
+    "inconsistent_units": "The relevant-sentence wiring uses q simultaneously as bead charge and additional voltage in q(V+q), making V+q dimensionally invalid with the packet's defined charge variable q."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "inconsistent_units": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "TD3A9",
+      "description": "Apply the extra 6.5 V before release, then remove it before the bead moves; the bead traverses the original 2.5 V and its radius is 62.5 cm."
+    },
+    {
+      "sentence_id": "TD3A9",
+      "description": "Apply the extra 6.5 V before release and maintain it during acceleration; the total voltage is 9.0 V and the radius is approximately 118.585 cm."
+    }
+  ],
+  "equation_consistent": false,
+  "units_consistent": false,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "The base relations are correct with consistent SI conversions. All certified numerical answers are correct under the intended maintained-voltage interpretation: additional voltages 3.5, 6.5 and 12 V give approximately 96.8246, 118.5854 and 150.5199 cm. The displayed rounding is adequate. answer_correct refers to these numerical calculations; TD3A9 does not uniquely establish their applicability. The wiring should use distinct symbols, Q for charge and U for extra voltage, yielding energy Q(V+U). The disconnected attachments have no stated causal path to the target. My pass-1 answer of 0.625 m agrees with the packet's 62.5 cm. I withdraw the pass-1 rendering_not_minimal flag because pass 2 explicitly identifies TD92C and T8562 as intentional numeral-free controls rather than the numbered minimal pairs. The claimed numbered pairs preserve 6.5 V and change its attachment as intended, although the full sentence collection does not satisfy the general same-number instruction literally.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T09:20:14+00:00",
+  "completed_at": "2026-11-20T09:20:58+00:00",
+  "minutes_spent": 0.73,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "e2a697a464643dd8184f0c60180273118a624e758fa2aa3b0291712aa0b08d21",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

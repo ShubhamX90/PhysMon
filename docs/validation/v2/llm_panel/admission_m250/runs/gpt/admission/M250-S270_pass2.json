@@ -1,0 +1,106 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S270",
+  "pass_number": 2,
+  "started_at": "2026-11-20T09:14:17+00:00",
+  "completed_at": "2026-11-20T09:15:11+00:00",
+  "minutes_spent": 0.9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For the steady source, f_received = f(c-w)(c-v)/[c(c+w)], where w is the lorry speed and v is the trolley speed. Thus df = 1500[1-(337)(334)/(343·349)] = 89.5812 Hz.",
+    "assumptions": [
+      "Speeds are relative to the still air.",
+      "The trolley moves opposite to the lorry, in the direction of the returning sound.",
+      "The recorder receives the reflected steady note.",
+      "Reflection preserves frequency in the panel's rest frame."
+    ],
+    "answer": 89.5812,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "TDC03": {
+      "stratum": "C",
+      "answer_with_sentence": 89.5812,
+      "regime": null
+    },
+    "T02E2": {
+      "stratum": "D",
+      "answer_with_sentence": 89.5812,
+      "regime": null
+    },
+    "TA134": {
+      "stratum": "D",
+      "answer_with_sentence": 89.5812,
+      "regime": null
+    },
+    "TA6A4": {
+      "stratum": "D",
+      "answer_with_sentence": 89.5812,
+      "regime": null
+    },
+    "T6307": {
+      "stratum": "C",
+      "answer_with_sentence": 89.5812,
+      "regime": null
+    },
+    "TBF04": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T4BE2": {
+      "stratum": "D",
+      "answer_with_sentence": 89.5812,
+      "regime": null
+    },
+    "TA0C8": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "contradictory_distractor_statement"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TA0C8 and TBF04 do not specify whether the received reflection was emitted before or after the frequency increase, so replacing f by f+q does not establish a unique answer.",
+    "contradictory_distractor_statement": "TBF04 states that the siren note is 410 Hz higher during reception despite the base description specifying a steady 1500 Hz note."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "contradictory_distractor_statement": "high"
+  },
+  "counterexamples": [
+    "If the siren rises to 1910 Hz immediately before reception, the arriving reflection can still originate from its earlier 1500 Hz emission: the received frequency is 1410.4188 Hz and its difference from the current source frequency is 499.5812 Hz.",
+    "If the increase occurs sufficiently early for the recorder to receive the reflected 1910 Hz note, the difference from that source frequency is 114.0668 Hz. Both timing arrangements satisfy TA0C8."
+  ],
+  "notes": "The base relations, units, base answer and distance-cancellation derivation are correct. The initial distance affects arrival times but cancels from successive crest intervals. All certified D and C answers are correct at every listed value. The R answers 99.7338, 114.067 and 134.969 Hz are numerically correct conditional on receiving the settled reflection of a source at f+q and comparing it with that same source frequency; the sentences do not establish those conditions. A temporal reading can soften TBF04's conflict with 'steady', but leaves the timing defect. I withdraw pass 1's rendering_not_minimal flag: pass 2 explicitly identifies TA134 and TA6A4 as intentional numeral-free controls, rather than quantified minimal pairs. The actual claimed minimal pairs T02E2/TBF04 and T4BE2/TA0C8 preserve 410 Hz and change the intended attachment. Both distance renderings preserve 82 m.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "c6f9f9bda0b223e6013e936977f023135fa8b8b10dccaa87008c375c916f0305",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

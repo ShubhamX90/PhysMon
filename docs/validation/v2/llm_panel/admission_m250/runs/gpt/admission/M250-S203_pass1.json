@@ -1,0 +1,102 @@
+{
+  "item_id": "M250-S203",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Let theta be measured from the downward vertical. For a platform with constant upward acceleration a, theta_ddot = sin(theta)[Omega^2 cos(theta) - (g+a)/R]. The off-axis equilibrium satisfies cos(theta_0) = (g+a)/(Omega^2 R). Linearization gives omega_small^2 = Omega^2[1 - ((g+a)/(Omega^2 R))^2], and T = 2*pi/omega_small. Taking a=0 gives T=1.03646 s; taking a=2.1 m/s^2 gives T=1.12963 s.",
+    "assumptions": [
+      "The platform has no translational acceleration during the base observation; this condition is needed but not explicitly stated.",
+      "The bead is treated as a point particle constrained to the rigid hoop.",
+      "The motor maintains the stated angular speed during perturbations.",
+      "Oscillations have sufficiently small amplitude for linearization."
+    ],
+    "answer": 1.03646,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T30AD": {
+      "stratum": "C",
+      "answer_with_sentence": 1.03646,
+      "regime": null
+    },
+    "TD316": {
+      "stratum": "D",
+      "answer_with_sentence": 1.03646,
+      "regime": null
+    },
+    "T9510": {
+      "stratum": "D",
+      "answer_with_sentence": 1.03646,
+      "regime": null
+    },
+    "T8E51": {
+      "stratum": "D",
+      "answer_with_sentence": 1.03646,
+      "regime": null
+    },
+    "T4B28": {
+      "stratum": "R",
+      "answer_with_sentence": 1.12963,
+      "regime": null
+    },
+    "T3B23": {
+      "stratum": "C",
+      "answer_with_sentence": 1.03646,
+      "regime": null
+    },
+    "T319B": {
+      "stratum": "R",
+      "answer_with_sentence": 1.12963,
+      "regime": null
+    },
+    "T9186": {
+      "stratum": "D",
+      "answer_with_sentence": 1.03646,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The base does not explicitly fix the platform's translational acceleration, and T4B28 does not establish whether its previously initiated acceleration continues during observation, allowing different periods.",
+    "rendering_not_minimal": "T9510 and T9186 replace the specified 2.1 m/s² with 'a few metres per second squared', so the acceleration variants do not state the same numerical value as required."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A platform with zero translational acceleration gives 1.03646 s, whereas one accelerating upward at 2.1 m/s² gives 1.12963 s; both can carry a hoop rotating at 7 rad/s with an off-axis equilibrium.",
+    "Under T4B28, acceleration could continue throughout observation, giving 1.12963 s, or could have ceased before observation, giving 1.03646 s after equilibration.",
+    "'A few metres per second squared' could describe 3 m/s² and therefore does not specify the same value as 2.1 m/s²."
+  ],
+  "notes": "Numerical assignments other than T319B use the conventional nonaccelerating-platform interpretation of the base. T4B28 is classified R under the reading that acceleration continues; its answer is conditional on that reading. Both relevant numerical cases have stable off-axis equilibria because g+a < Omega^2 R = 19.6 m/s². Mass multiplies every term in the bead's equation and cancels. The crane hook has no stated mechanical connection to the hoop. Acceleration confined to an earlier run does not determine the present small-oscillation frequency. The two mass sentences consistently specify 26 g.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T09:34:28+00:00",
+  "completed_at": "2026-11-20T09:35:18+00:00",
+  "minutes_spent": 0.84,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "aac7162a18848ce4dfc6755d999b9c31f3960db6d4e80e558a2872d772d6cf5f",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S213",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:05:23+00:00",
+  "completed_at": "2026-11-20T10:06:21+00:00",
+  "minutes_spent": 0.97,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation gives mv²/2 = qV. Between the plates, a = qE/m and E = 100/0.01 = 10000 V/m. Including the subsequent drift, the displacement is y = (qE/mv²)L(D + L/2) = EL(D + L/2)/(2V). With L = 0.05 m, D = 0.30 m and V = 2000 V, y = 0.040625 m. The displacement at the plate exit is 0.003125 m, below the 0.005 m clearance.",
+    "assumptions": [
+      "Use classical particle dynamics, adequate at the stated precision for ions accelerated through these voltages.",
+      "The ions enter along the plate midplane with zero transverse velocity.",
+      "The additional accelerating voltage, where specified, adds to the initial 2000 V."
+    ],
+    "answer": 0.040625,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TC114": {
+      "stratum": "D",
+      "answer_with_sentence": 0.040625,
+      "regime": null
+    },
+    "T9EB9": {
+      "stratum": "D",
+      "answer_with_sentence": 0.040625,
+      "regime": null
+    },
+    "T50A6": {
+      "stratum": "D",
+      "answer_with_sentence": 0.040625,
+      "regime": null
+    },
+    "T2D42": {
+      "stratum": "C",
+      "answer_with_sentence": 0.040625,
+      "regime": null
+    },
+    "T0F82": {
+      "stratum": "R",
+      "answer_with_sentence": 0.02195945945945946,
+      "regime": null
+    },
+    "TC023": {
+      "stratum": "R",
+      "answer_with_sentence": 0.02195945945945946,
+      "regime": null
+    },
+    "T40D5": {
+      "stratum": "D",
+      "answer_with_sentence": 0.040625,
+      "regime": null
+    },
+    "TD80D": {
+      "stratum": "C",
+      "answer_with_sentence": 0.040625,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TC114 and T50A6 specify only a 'small potential difference', whereas their numerical counterparts specify 1700 V, so the voltage variants do not preserve the required number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics is well-posed; the invalid verdict concerns the required variant matching. Ion mass and charge cancel between the acceleration energy and transverse dynamics. Earlier-run voltages and the separate oscilloscope have no physical path to the present ion trajectory. For T0F82, 'crossed' does not explicitly specify voltage polarity, but a retarding interpretation leaves an equivalent accelerating voltage of only 300 V and predicts a plate-exit displacement of 0.020833 m, contradicting the stated passage without striking a plate; the accelerating interpretation is therefore the consistent one. 'Weighs 63 u' is colloquial wording for mass and does not introduce a different numerical quantity.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "74fe68bbac2e615ef5ad35f54bc7238340dfa4d93d04821f90d751e73731eab5",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

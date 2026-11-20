@@ -1,0 +1,99 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S220",
+  "pass_number": 1,
+  "started_at": "2026-11-20T18:54:49+00:00",
+  "completed_at": "2026-11-20T18:55:30+00:00",
+  "minutes_spent": 0.69,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For insertion depth x, C(x) = C0[1 + (kappa - 1)x/L]. At fixed voltage, including the battery's energy exchange, F = (V^2/2)dC/dx = C0(kappa - 1)V^2/(2L). With C0 = 200e-12 F, kappa = 4, L = 0.10 m and V = 500 V, F = 0.00075 N.",
+    "assumptions": [
+      "Use the stated linear dielectric and negligible-fringing electrostatic model.",
+      "The inserted portion fills the plate width and separation.",
+      "The battery maintains the capacitor voltage at 500 V in the base problem."
+    ],
+    "answer": 0.00075,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T9C5B": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00075,
+      "regime": null
+    },
+    "T09BD": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00075,
+      "regime": null
+    },
+    "TBFE0": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TABCB": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00075,
+      "regime": null
+    },
+    "TA3FF": {
+      "stratum": "C",
+      "answer_with_sentence": 0.00075,
+      "regime": null
+    },
+    "TAC6D": {
+      "stratum": "C",
+      "answer_with_sentence": 0.00075,
+      "regime": null
+    },
+    "TE652": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T8F88": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00075,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TBFE0 and TE652 omit the relative battery polarity, allowing capacitor voltages of either 850 V or 150 V and therefore different forces.",
+    "rendering_not_minimal": "T9C5B and T8F88 specify only a 'small battery', whereas their numerical counterparts T09BD and TABCB specify 350 V, violating the requirement that quantity variants retain the same stated number and unit."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "For either TBFE0 or TE652, series-aiding batteries give V = 850 V and F = 0.0021675 N; series-opposing batteries give V = 150 V and F = 0.0000675 N. Both connections satisfy the stated series connection."
+  ],
+  "notes": "The base problem has a unique answer. Null answers for TBFE0 and TE652 indicate the missing polarity; both possible numerical answers are supplied in counterexamples. Insertion depth enters C(x) but disappears from dC/dx, so TA3FF and TAC6D are cancelling variants and agree in number and unit. An earlier run has no effect under the stated linear dielectric model, and the separately supplied Geiger counter has no specified coupling to the capacitor.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "2824174b6b7dfa599613f4e6c09cc888305006f80586dd3d8e021c0a21f1322a",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

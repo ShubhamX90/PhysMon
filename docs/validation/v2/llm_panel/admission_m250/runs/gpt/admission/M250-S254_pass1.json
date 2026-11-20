@@ -1,0 +1,103 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S254",
+  "pass_number": 1,
+  "started_at": "2026-11-20T09:43:56+00:00",
+  "completed_at": "2026-11-20T09:44:59+00:00",
+  "minutes_spent": 1.04,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of radiated power with spherical spreading and exponential absorption gives I(r)=P exp(-alpha r)/(4 pi r^2). Taking r=60 m gives I=6.9553e-4 W/m^2. Moving 75 m radially farther gives r=135 m and I=1.0178e-4 W/m^2.",
+    "assumptions": [
+      "The stated distance from the mast is interpreted as the distance from the siren; this interpretation is needed for the numerical answers.",
+      "The stated isotropic radiation is modeled by spherical spreading from a localized source.",
+      "The observer measures after completing any stated movement."
+    ],
+    "answer": 0.00069553,
+    "unit": "W/m^2"
+  },
+  "stratum_assignments": {
+    "TA1FB": {
+      "stratum": "C",
+      "answer_with_sentence": 0.00069553,
+      "regime": null
+    },
+    "T28D8": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00069553,
+      "regime": null
+    },
+    "T68BD": {
+      "stratum": "R",
+      "answer_with_sentence": 0.00010178,
+      "regime": null
+    },
+    "TA9C0": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00069553,
+      "regime": null
+    },
+    "T116D": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00069553,
+      "regime": null
+    },
+    "T0CF8": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00069553,
+      "regime": null
+    },
+    "TDDF0": {
+      "stratum": "C",
+      "answer_with_sentence": 0.00069553,
+      "regime": null
+    },
+    "T624A": {
+      "stratum": "R",
+      "answer_with_sentence": 0.00010178,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "Distance from the mast does not uniquely specify distance from the elevated siren; the source-observer geometry or an explicit identification of these distances is missing.",
+    "rendering_not_minimal": "TA9C0 and T116D use an unspecified 'modest distance' rather than the 75 m stated in the other displacement variants, violating the required matching of numbers and units."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    {
+      "claim": "The stated 60 m distance uniquely determines the measured intensity.",
+      "case": "If the observer is horizontally 60 m from the mast and the siren is 80 m above the observer, the acoustic path is 100 m.",
+      "result": "The intensity is 40 exp(-0.4)/(4 pi 100^2)=2.1337e-4 W/m^2, rather than 6.9553e-4 W/m^2."
+    }
+  ],
+  "notes": "All numerical assignments are conditional on interpreting distances from the mast as source-observer distances. The mouth dimensions are classified C because emitting area relates mouth intensity to total power, but cancels when total power and isotropic radiation are fixed. Dog movement has no specified coupling to the measurement. Movement in an earlier experiment does not alter the current experiment's stated starting position. The two mouth descriptions both specify 26 cm; the numerical displacement descriptions consistently specify 75 m, but the two 'modest distance' descriptions do not.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "9433d4a01074f952c70f76fb26b5b001632cafd46c7f4acf58a318174f5f9f4b",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

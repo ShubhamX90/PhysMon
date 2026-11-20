@@ -1,0 +1,113 @@
+{
+  "item_id": "M250-S276",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For equal incident particle fluxes and equal particle charges, Ip/Id = Tp/Td = exp[(2L/ħ) sqrt(2ΔE) (sqrt(md) - sqrt(mp))], with ΔE = 0.4 eV and L = 30 pm.",
+    "assumptions": [
+      "The stated barrier excess applies to each particle's kinetic energy in the tunnelling direction.",
+      "Protons and deuterons both carry charge +e.",
+      "The specified exponential transmission law applies exactly.",
+      "Use the standard conversions of atomic mass units to kilograms and electronvolts to joules."
+    ],
+    "answer": 31.4,
+    "unit": "dimensionless"
+  },
+  "stratum_assignments": {
+    "TC752": {
+      "stratum": "C",
+      "answer_with_sentence": 31.4,
+      "regime": null
+    },
+    "T2708": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TF273": {
+      "stratum": "D",
+      "answer_with_sentence": 31.4,
+      "regime": null
+    },
+    "TE9A5": {
+      "stratum": "D",
+      "answer_with_sentence": 31.4,
+      "regime": null
+    },
+    "TAEE0": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T7B68": {
+      "stratum": "D",
+      "answer_with_sentence": 31.4,
+      "regime": null
+    },
+    "T87E1": {
+      "stratum": "R",
+      "answer_with_sentence": 57.0,
+      "regime": null
+    },
+    "TEED5": {
+      "stratum": "C",
+      "answer_with_sentence": 31.4,
+      "regime": null
+    },
+    "TF88C": {
+      "stratum": "R",
+      "answer_with_sentence": 57.0,
+      "regime": null
+    },
+    "T1B32": {
+      "stratum": "D",
+      "answer_with_sentence": 31.4,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "Whether the thermal energy is already included in the specified kinetic energy, and whether it changes the distribution of kinetic energy normal to the barrier."
+  ],
+  "defect_flags": [
+    "missing_assumption",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The thermal-energy additions do not specify how thermal motion contributes to the incident normal kinetic energy or its distribution, which is needed to determine an averaged tunnelling current if thermal broadening is intended.",
+    "rendering_not_minimal": "TE9A5 and T1B32 specify only 'a little', whereas their numerical counterparts specify 0.15 eV, so the variants do not preserve the stated number and unit."
+  },
+  "defect_severity": {
+    "missing_assumption": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "If 0.028 eV contributes an additional common normal kinetic energy, the gap becomes 0.372 eV and the ratio is approximately 27.8; if it is already included in the stipulated kinetic energy, the ratio remains 31.4.",
+    "An earlier-run increase described as 'a little' could be 0.01 eV, so TE9A5 does not specify the same increase as T7B68."
+  ],
+  "notes": "The base problem is solvable under its explicit transmission prescription. Increasing the present barrier by 0.15 eV makes the gap 0.55 eV. Equal incident currents cancel from the ratio. Earlier-run changes have no stated continuing effect. Guard-electrode changes are disconnected within the prescribed rectangular-barrier model. The thermal R assignments indicate a possible physical dependency with an unspecified answer; if the quoted gap remains fixed for every particle, those sentences instead supply redundant information. A mean thermal energy below the barrier gap alone does not establish an exact regime of invariance, because tunnelling depends exponentially on incident energy.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T10:06:11+00:00",
+  "completed_at": "2026-11-20T10:07:27+00:00",
+  "minutes_spent": 1.27,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "22136cb776f66b5caf81894a291538958f0dd80208b7c216d53289af2d5a5a09",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "item_id": "M250-S11",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "On the level road, N = mg and kinetic friction gives ma = -mu_k mg, so the deceleration magnitude is mu_k g = 4.9 m/s². Using v_f² = v_i² - 2 mu_k g d gives d = 20²/(2 × 0.5 × 9.8) = 40.8163265306 m.",
+    "assumptions": [
+      "The stated 20 m/s is the speed when braking begins in the base problem.",
+      "The kinetic-friction coefficient remains constant throughout the skid.",
+      "The bus does not interact with the car."
+    ],
+    "answer": 40.8163265306,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "T8720": {
+      "stratum": "R",
+      "answer_with_sentence": 61.25,
+      "regime": null
+    },
+    "TFCB8": {
+      "stratum": "D",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "T0C0C": {
+      "stratum": "C",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "TF039": {
+      "stratum": "C",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "TD024": {
+      "stratum": "D",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "T5FC7": {
+      "stratum": "D",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "T4983": {
+      "stratum": "D",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "TB9A5": {
+      "stratum": "R",
+      "answer_with_sentence": 61.25,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TD024 and T4983 replace the specified increment of 4.5 m/s with an unspecified 'small amount', so the increment variants fail the required preservation of number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A speed increment of 0.1 m/s satisfies an unspecified 'small amount' but does not equal the 4.5 m/s stated in the corresponding numerical renderings."
+  ],
+  "notes": "The base stopping problem is physically well-posed. Both current-car speed-increment sentences give a braking speed of 24.5 m/s and a stopping distance of 61.25 m. Both mass sentences describe mass appearing in friction and inertia and cancelling from the stopping distance. An increment on an earlier run does not change the specified current-run speed. The two 'small amount' sentences also leave the quantity gained implicit; their attachments nevertheless make them disconnected from the current stopping calculation. The invalid verdict concerns the required variant matching.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T09:22:44+00:00",
+  "completed_at": "2026-11-20T09:23:32+00:00",
+  "minutes_spent": 0.8,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "63ef169f8c07a8936157d1d2782a42f5bf5b8fe5fe0fe830a5c35cae08b348e2",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

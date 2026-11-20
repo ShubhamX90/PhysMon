@@ -1,0 +1,89 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S204",
+  "pass_number": 1,
+  "started_at": "2026-11-20T10:04:01+00:00",
+  "completed_at": "2026-11-20T10:04:49+00:00",
+  "minutes_spent": 0.81,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of horizontal momentum in a perfectly inelastic collision: energy converted = (m1*m2/[2*(m1+m2)])*|v1-v2|^2. The perpendicular velocities give |v1-v2|^2 = 25 m^2/s^2, so the loss is 416.6666667 J.",
+    "assumptions": [
+      "The stated velocities apply immediately before the collision.",
+      "External horizontal impulse during the collision is negligible.",
+      "Holding on produces a common final velocity."
+    ],
+    "answer": 416.6666667,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "T3B70": {
+      "stratum": "D",
+      "answer_with_sentence": 416.6666667,
+      "regime": null
+    },
+    "T081E": {
+      "stratum": "R",
+      "answer_with_sentence": 459.1836735,
+      "regime": null
+    },
+    "T9E17": {
+      "stratum": "D",
+      "answer_with_sentence": 416.6666667,
+      "regime": null
+    },
+    "T3DB2": {
+      "stratum": "D",
+      "answer_with_sentence": 416.6666667,
+      "regime": null
+    },
+    "TAD96": {
+      "stratum": "D",
+      "answer_with_sentence": 416.6666667,
+      "regime": null
+    },
+    "T90B7": {
+      "stratum": "R",
+      "answer_with_sentence": 459.1836735,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T081E states that the bag was picked up shortly before the collision but does not establish that it remains with the skater during the collision, which determines the colliding mass.",
+    "rendering_not_minimal": "T9E17 and TAD96 describe a 'small bag' without the 12 kg magnitude specified in the corresponding earlier-outing and coach variants, so these renderings do not preserve the required numerical quantity."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "For T081E, retaining the bag through the collision gives colliding masses 72 kg and 75 kg and an energy loss of 459.1836735 J; picking it up and then setting it down before the collision leaves colliding masses 60 kg and 75 kg and a loss of 416.6666667 J."
+  ],
+  "notes": "The base problem is well-posed. The T081E assignment and numerical answer are conditional on continued carriage of the bag through the collision. For T90B7, the carried bag contributes 12 kg to the eastward moving mass, giving energy loss (72*75/(2*147))*25 = 459.1836735 J. The coach's bag has no physical connection to the collision. 'On an earlier outing only' excludes carriage during the present collision. The unquantified 'small bag' variants do not affect their answers, but fail the stipulated numerical matching requirement.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "ae30f5efb94b2f740951403c2f4ef010984b0a4dfd7169abe4bb9446edb2df49",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

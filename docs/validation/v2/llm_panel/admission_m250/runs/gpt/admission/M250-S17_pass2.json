@@ -1,0 +1,111 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S17",
+  "pass_number": 2,
+  "started_at": "2026-11-20T09:56:28+00:00",
+  "completed_at": "2026-11-20T09:57:05+00:00",
+  "minutes_spent": 0.63,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Steady heat flow through thermal resistances in series obeys Q_dot = (T_hot - T_cold)/(R_a + R_b). Thus Q_dot = 20/(0.1 + 0.15) = 80 W.",
+    "assumptions": [
+      "The stated thermal resistances apply at the operating temperatures.",
+      "The layers have negligible contact resistance.",
+      "Steady flow with no edge losses gives the same heat flow through both layers."
+    ],
+    "answer": 80.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "TEA3F": {
+      "stratum": "D",
+      "answer_with_sentence": 80.0,
+      "regime": null
+    },
+    "T9AD7": {
+      "stratum": "D",
+      "answer_with_sentence": 80.0,
+      "regime": null
+    },
+    "TFB08": {
+      "stratum": "C",
+      "answer_with_sentence": 80.0,
+      "regime": null
+    },
+    "T6D07": {
+      "stratum": "D",
+      "answer_with_sentence": 80.0,
+      "regime": null
+    },
+    "TFD0A": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TA36C": {
+      "stratum": "C",
+      "answer_with_sentence": 80.0,
+      "regime": null
+    },
+    "T97D1": {
+      "stratum": "D",
+      "answer_with_sentence": 80.0,
+      "regime": null
+    },
+    "T38CE": {
+      "stratum": "D",
+      "answer_with_sentence": 80.0,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "failed_transformation_identity"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TFD0A does not specify that the colder surface remains unchanged or that the requested flow is evaluated after a new steady state is established, although its certified answers require both conditions.",
+    "failed_transformation_identity": "T9AD7 describes warming before the test, so the stated test temperature difference remains 20 K; its R classification, additive wiring and certified answers incorrectly apply that historical warming again."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "failed_transformation_identity": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "T9AD7",
+      "description": "Before the test, let the cold surface remain at 303 K and warm the hot surface from 316.5 K to 323 K. The test then has the stated 20 K difference and an 80 W flow, despite the claimed answer of 106 W."
+    },
+    {
+      "sentence_id": "TFD0A",
+      "description": "Initially let the surfaces be at 323 K and 303 K. After the hot surface reaches 329.5 K, the eventual steady flow is 106 W if the cold surface stays at 303 K, but 94 W if it reaches 306 K. Its subsequent boundary temperature is unspecified."
+    }
+  ],
+  "notes": "The base equation, dimensions and 80 W answer are correct. Both colder-surface statements give cancellation of the absolute temperature at every listed value, yielding 80 W. The partition and earlier-test D claims are consistent with the stated wall model. For T9AD7, all listed historical warming values leave the present specified temperature difference unchanged, yielding 80 W; its claimed D/R pairing with T38CE therefore fails to establish the intended relevance distinction. The values 94, 106 and 124 W are arithmetically correct for a new steady temperature difference of 20 K plus 3.5, 6.5 or 11 K, respectively, but that transformation is not supported by T9AD7 and requires additional boundary conditions for TFD0A. I retract the pass-1 rendering_not_minimal flag concerning 'few kelvin': pass 2 explicitly identifies these sentences as deliberately numeral-free controls, rather than equal-value numerical variants. The numerical variants use matching numbers and units. The authors reuse q for both heat flow and the varied temperature in their explanatory expressions; these expressions are dimensionally consistent when the two roles are distinguished.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "57aded190e3214fa426c1867dde0916069957f81475eaec4c2be8849e6cb9052",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

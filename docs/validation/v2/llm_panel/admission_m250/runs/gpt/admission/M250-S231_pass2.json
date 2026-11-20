@@ -1,0 +1,103 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S231",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Reflection produces two Doppler shifts: f_echo = f(c+v)/(c-v), giving beat frequency 2fv/(c-v). With f = 440 Hz, c = 343 m/s and v = 3 m/s, the beat is 2640/340 Hz.",
+    "assumptions": [
+      "The microphone remains stationary beside the loudspeaker.",
+      "The wall has the specified constant velocity during the reflections being measured.",
+      "The echo is measured after its arrival and before the wall reaches the apparatus."
+    ],
+    "answer": 7.764705882,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T2729": {
+      "stratum": "R",
+      "answer_with_sentence": 11.435321914,
+      "regime": null
+    },
+    "T544D": {
+      "stratum": "D",
+      "answer_with_sentence": 7.764705882,
+      "regime": null
+    },
+    "T811A": {
+      "stratum": "D",
+      "answer_with_sentence": 7.764705882,
+      "regime": null
+    },
+    "T105F": {
+      "stratum": "D",
+      "answer_with_sentence": 7.764705882,
+      "regime": null
+    },
+    "T72F4": {
+      "stratum": "C",
+      "answer_with_sentence": 7.764705882,
+      "regime": null
+    },
+    "T7F76": {
+      "stratum": "R",
+      "answer_with_sentence": 11.435321914,
+      "regime": null
+    },
+    "TAC5B": {
+      "stratum": "C",
+      "answer_with_sentence": 7.764705882,
+      "regime": null
+    },
+    "T1B41": {
+      "stratum": "D",
+      "answer_with_sentence": 7.764705882,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T7F76 specifies that the speed increment precedes recording, but does not establish that it precedes the relevant reflection or that it is additional to the stated recording-run speed of 3 m/s."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "For T7F76, a crest reflected while the wall approaches at 3 m/s retains its corresponding Doppler shift even if the motor increases the wall speed before that crest reaches the microphone; the recorded pre-change echo has a beat frequency of 7.764705882 Hz.",
+    "An increment completed before the relevant reflections, raising the operative wall speed from 3 to 4.4 m/s, instead gives 11.435321914 Hz.",
+    "An earlier increment from 1.6 to 3 m/s also occurs before recording while leaving the explicitly stated recording-run speed at 3 m/s."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "The base answer, double-Doppler relations, and distance-cancellation derivation are correct and dimensionally consistent. For operative speeds 3+q m/s, the beat frequencies at q = 0.7, 1.4 and 2.2 m/s are approximately 9.59623, 11.4353 and 13.5465 Hz, matching the certificates. All claimed disconnected quantities are disconnected under the stated scene model. Both distance sentences specify 90 m, and distance changes propagation delay and phase but cancels from echo frequency. The numeric minimal pairs T105F/T2729 and T811A/T7F76 preserve the number and unit while changing attachment or event. I withdraw the pass-1 rendering_not_minimal flag because pass 2 explicitly identifies T544D and T1B41 as deliberate numeral-free controls, rather than numeric minimal pairs. T7F76 remains underdetermined: its numeric assignment above is conditional on the authors' intended operative speed of 4.4 m/s. The authors' wiring asserts that interpretation without supplying the missing timing and speed-reference conditions in the sentence. answer_correct is false because that sentence does not uniquely support its certified answers, although the numerical calculations under the intended interpretation are correct.",
+  "started_at": "2026-11-20T09:25:44+00:00",
+  "completed_at": "2026-11-20T09:26:25+00:00",
+  "minutes_spent": 0.68,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "9668a2a852e9d3f2b65efa349086b4758216ee9ded996911fb38e26b77c9db8e",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "item_id": "M250-S42",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Resistance is R = rho L/A. Conservation of volume gives Anew = A0/3, so Rnew = 9R0 = 18 ohms. The power is P = V^2/Rnew = 12^2/18 = 8 W. An aiding ideal cell supplying the wire gives P(q) = (12 + q)^2/18.",
+    "assumptions": [
+      "The drawn-out wire remains uniform.",
+      "The wire obeys the ohmic resistance model at its stated constant temperature.",
+      "The lamp has a separate electrical circuit.",
+      "For the intended R readings, the added cell is connected to the wire's 12 V battery and remains connected during measurement."
+    ],
+    "answer": 8.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "TE42B": {
+      "stratum": "D",
+      "answer_with_sentence": 8.0,
+      "regime": null
+    },
+    "T4F86": {
+      "stratum": "D",
+      "answer_with_sentence": 8.0,
+      "regime": null
+    },
+    "TDA6F": {
+      "stratum": "D",
+      "answer_with_sentence": 8.0,
+      "regime": null
+    },
+    "T4B85": {
+      "stratum": "R",
+      "answer_with_sentence": 21.125,
+      "regime": null
+    },
+    "TC5BC": {
+      "stratum": "C",
+      "answer_with_sentence": 8.0,
+      "regime": null
+    },
+    "TC461": {
+      "stratum": "R",
+      "answer_with_sentence": 21.125,
+      "regime": null
+    },
+    "T903C": {
+      "stratum": "C",
+      "answer_with_sentence": 8.0,
+      "regime": null
+    },
+    "TF0E0": {
+      "stratum": "D",
+      "answer_with_sentence": 8.0,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TC461 and T4B85 refer to 'the battery' after two batteries have been introduced, leaving the added cell's circuit unspecified and permitting different powers for the wire."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_ids": [
+        "TC461",
+        "T4B85"
+      ],
+      "case": "Connecting the aiding 7.5 V cell to the wire's 12 V supply gives 21.125 W; connecting it to the lamp's battery leaves the wire at 8 W. Both attachments are compatible with the unqualified phrase 'the battery'."
+    }
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "The base answer is correct. Under the authors' intended wiring, all numerical certificates check: q = 3.5, 7.5 and 16 V give respectively 13.347222..., 21.125 and 43.555555... W, consistent with the displayed precision. The equations and dimensions are correct. Both original-length statements are C: Rnew/R0 = (Lnew/L0)^2, so the original length cancels for every listed positive length. The explicitly separate lamp circuit and the earlier-experiment-only statements are D under the stated fixed wire properties. No K claim is present. The quantified minimal pairs preserve 7.5 V and change the intended attachment or event. I withdraw pass 1's rendering_not_minimal flag for TE42B and T4F86: pass 2 identifies them explicitly as numeral-free controls, rather than asserting that they preserve the quantified value. Their twin descriptions accurately describe the wording changes. The remaining ambiguity identified in pass 1 persists: the authors' wiring explanations specify the intended battery, but the rendered R sentences do not. Their R assignments and displayed answers above are conditional on that intended attachment; answer_correct is false because those certificates are not uniquely established by the rendered problems.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T19:01:08+00:00",
+  "completed_at": "2026-11-20T19:01:47+00:00",
+  "minutes_spent": 0.64,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "ed59e805a23748fceb24404689580e58ba094f4ddbf98e9989b0a7549e5234ab",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S251",
+  "pass_number": 1,
+  "started_at": "2026-11-20T09:12:36+00:00",
+  "completed_at": "2026-11-20T09:13:39+00:00",
+  "minutes_spent": 1.04,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of mechanical energy: v²/2 - GM/R = -GM/(R+h), with GM = gR². Therefore h = Rv²/(2gR-v²). Using R = 1737000 m and v = 1500 m/s gives h = 1157012.09 m.",
+    "assumptions": [
+      "The motor supplies the launch speed and supplies no subsequent thrust.",
+      "The probe is a test body in the stated lunar gravitational field.",
+      "The requested flight begins at the surface with the stated upward launch speed."
+    ],
+    "answer": 1157012.09,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TE544": {
+      "stratum": "C",
+      "answer_with_sentence": 1157012.09,
+      "regime": null
+    },
+    "T9571": {
+      "stratum": "D",
+      "answer_with_sentence": 1157012.09,
+      "regime": null
+    },
+    "TFA02": {
+      "stratum": "D",
+      "answer_with_sentence": 1157012.09,
+      "regime": null
+    },
+    "T9D2A": {
+      "stratum": "D",
+      "answer_with_sentence": 1157012.09,
+      "regime": null
+    },
+    "T04BD": {
+      "stratum": "R",
+      "answer_with_sentence": 1878542.52,
+      "regime": null
+    },
+    "TE24B": {
+      "stratum": "C",
+      "answer_with_sentence": 1157012.09,
+      "regime": null
+    },
+    "T9791": {
+      "stratum": "R",
+      "answer_with_sentence": 1878542.52,
+      "regime": null
+    },
+    "TAA9D": {
+      "stratum": "D",
+      "answer_with_sentence": 1157012.09,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "The resulting launch speed in T04BD."
+  ],
+  "defect_flags": [
+    "rendering_not_minimal",
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The speed variants do not preserve the specified number and unit: T9571 and T9D2A replace 210 m/s with an unspecified 'small amount', and the historical variants also change the timing of the event.",
+    "insufficient_boundary_condition": "T04BD places the extra speed before firing without establishing whether it survives until launch or whether the stated 1500 m/s is the final launch speed or the motor's additive velocity increment."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high",
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "T04BD",
+      "description": "If the motor establishes the stated final launch speed of 1500 m/s despite the earlier boost, the height is 1157012.09 m; if it adds 1500 m/s to a retained upward speed of 210 m/s at the surface, the launch speed is 1710 m/s and the height is 1878542.52 m."
+    }
+  ],
+  "notes": "The base problem is solvable under the ordinary interpretation of an impulsive launch followed by ballistic motion. Probe mass multiplies both kinetic and gravitational potential energy and cancels. The balloon's motion has no stated physical path to the probe. An extra impulse restricted to an earlier firing does not alter the specified current launch conditions, regardless of the ambiguous antecedent of 'it'. T04BD's numerical entry uses the additive interpretation with no intervening loss of upward speed; it is not a unique answer as worded. T9791 explicitly places the extra impulse at firing, supporting a launch speed of 1710 m/s. Both calculated launch speeds are below escape speed, approximately 2372 m/s. The two mass variants preserve 270 kg exactly. No information outside this packet was accessed.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f26ed6346536626d62bb56124ae44f58e066d1cdd2ead8254425dfc016aad878",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

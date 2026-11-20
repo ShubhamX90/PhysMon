@@ -1,0 +1,120 @@
+{
+  "item_id": "M250-S276",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "With equal incident particle rates and equal charges, Ip/Id = exp[(2a/hbar)sqrt(2V)(sqrt(md)-sqrt(mp))]. Convert masses to kilograms, V to joules and a to metres.",
+    "assumptions": [
+      "V is the barrier height above the incident kinetic energy relevant to tunnelling.",
+      "The stipulated exponential transmission law applies without a prefactor.",
+      "Protons and deuterons each carry charge +e.",
+      "For the base calculation, the specified kinetic energy applies to every incident particle."
+    ],
+    "answer": 31.4246,
+    "unit": "dimensionless"
+  },
+  "stratum_assignments": {
+    "TC752": {
+      "stratum": "C",
+      "answer_with_sentence": 31.4246,
+      "regime": null
+    },
+    "T2708": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TF273": {
+      "stratum": "D",
+      "answer_with_sentence": 31.4246,
+      "regime": null
+    },
+    "TE9A5": {
+      "stratum": "D",
+      "answer_with_sentence": 31.4246,
+      "regime": null
+    },
+    "TAEE0": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T7B68": {
+      "stratum": "D",
+      "answer_with_sentence": 31.4246,
+      "regime": null
+    },
+    "T87E1": {
+      "stratum": "R",
+      "answer_with_sentence": 56.9776,
+      "regime": null
+    },
+    "TEED5": {
+      "stratum": "C",
+      "answer_with_sentence": 31.4246,
+      "regime": null
+    },
+    "TF88C": {
+      "stratum": "R",
+      "answer_with_sentence": 56.9776,
+      "regime": null
+    },
+    "T1B32": {
+      "stratum": "D",
+      "answer_with_sentence": 31.4246,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "Whether thermal energy is included in the stipulated incident kinetic energy or describes additional energy spread.",
+    "The incident energy distribution and its component normal to the barrier."
+  ],
+  "defect_flags": [
+    "missing_assumption",
+    "hidden_coupling"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The thermal sentences do not specify how thermal motion relates to the prescribed incident kinetic energy or provide the energy distribution needed to calculate averaged transmitted currents.",
+    "hidden_coupling": "The claimed exact thermal invariance under 8*q < V has no basis in the transmission law: thermal changes to incident normal energies change the exponentially energy-dependent transmissions even within that inequality."
+  },
+  "defect_severity": {
+    "missing_assumption": "high",
+    "hidden_coupling": "high"
+  },
+  "counterexamples": [
+    "If the stated thermal energy supplies an additional common normal kinetic energy of 0.028 eV relative to the base kinetic energy, V becomes 0.372 eV and the ratio becomes approximately 27.8, although 8*0.028 < 0.4.",
+    "An energy distribution with mean incident energy E does not generally give transmission exp[-2*a*sqrt(2*m*(U-E))/hbar]; averaging this nonlinear expression requires more information than the mean energy.",
+    "If the stipulated 0.4 eV gap instead remains fixed for every incident particle, thermal energy is absent from the prescribed calculation at every q; the claimed transition at 8*q = V still does not follow."
+  ],
+  "notes": "The base equation, dimensions and answer are correct. Substituting V+q gives the certified relevant answers 41.9761, 56.9776 and 75.6935 for q = 0.07, 0.15 and 0.23 eV, respectively. The incident-current factors cancel for every listed current. Earlier-run statements leave the present prescribed barrier unchanged. Guard-electrode statements are disconnected within the stipulated fixed rectangular-barrier model; physical electrostatic isolation cannot be inferred merely from the electrode being a different object. All listed thermal values satisfy the authors' inequality, but satisfying it does not establish exact invariance. The outside-regime expression sqrt(md/mp) also has no derivation from the supplied tunnelling model, although it is expressly excluded from the certified answers. Relative to pass 1, I withdraw rendering_not_minimal: pass 2 explicitly identifies TE9A5 and T1B32 as intentional numeral-free controls, rather than claiming that they preserve the numerical values of their twins. The actual claimed numerical minimal pairs preserve 0.15 eV and change the attachment as intended. Thermal R assignments remain conditional on thermal motion affecting incident energies; their numerical answers are undetermined as written.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T10:07:27+00:00",
+  "completed_at": "2026-11-20T10:08:30+00:00",
+  "minutes_spent": 1.05,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "3ec7b6e88b00eef5d9c71dcfaf4b50363187a97b2ea1147e34745f0b92db576e",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

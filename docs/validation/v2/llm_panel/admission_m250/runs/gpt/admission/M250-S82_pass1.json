@@ -1,0 +1,96 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S82",
+  "pass_number": 1,
+  "started_at": "2026-11-20T18:51:08+00:00",
+  "completed_at": "2026-11-20T18:51:58+00:00",
+  "minutes_spent": 0.83,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Wien's displacement law gives lambda_max,2 = (5800/2900)(500 nm) = 1000 nm. Photon energy is E = hc/lambda = 1240/1000 = 1.24 eV.",
+    "assumptions": [
+      "The requested maximum is for spectral radiance per unit wavelength, as specified.",
+      "For the base problem, the second star's temperature at the relevant observation is 2900 K."
+    ],
+    "answer": 1.24,
+    "unit": "eV"
+  },
+  "stratum_assignments": {
+    "TEFF6": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    },
+    "T80FF": {
+      "stratum": "R",
+      "answer_with_sentence": 1.6462068966,
+      "regime": null
+    },
+    "TF04F": {
+      "stratum": "R",
+      "answer_with_sentence": 1.6462068966,
+      "regime": null
+    },
+    "T099E": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T2C66": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    },
+    "TFD41": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "Whether the stated 2900 K precedes or follows each described stellar temperature increase.",
+    "The second star's temperature at observation following an earlier outburst.",
+    "The numerical temperature increase meant by 'a small amount'."
+  ],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The stellar-history additions do not unambiguously establish the temperature at observation relative to the stated 2900 K; TFD41 additionally leaves the temperature increase unquantified if it is intended to update that temperature."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "T099E",
+      "description": "An earlier rise from 1950 K to the stated present temperature of 2900 K gives 1.24 eV. A rise from an initial 2900 K to 3850 K, retained until observation, gives 1.6462068966 eV. The relation between the stated temperature and the earlier outburst is not specified."
+    },
+    {
+      "sentence_id": "TFD41",
+      "description": "If the increase updates an initial 2900 K and persists until observation, increases of 1 K and 10 K give 1.2404275862 eV and 1.2442758621 eV respectively. Both can reasonably be called small, and neither is exactly irrelevant."
+    }
+  ],
+  "notes": "The base problem is valid. The numerical entries for T80FF and TF04F use the natural update interpretation: 2900 K is the temperature before a 950 K rise, giving 3850 K, a peak wavelength of 753.2467532 nm, and 1.6462068966 eV. Their temporal relationship to the original temperature should nevertheless be explicit. For T099E and TFD41, R records the interpretation in which the historical increase determines the observed temperature; no unique numerical answer follows. If 2900 K explicitly denotes the temperature at observation, earlier thermal history adds no change to the blackbody answer. Smallness alone does not establish a K regime because peak-photon energy is proportional to temperature. The lamp additions have no stated physical coupling to either star's peak wavelength. Four sentences specify 950 K, whereas two specify only 'a small amount'; these cannot all be verified as numerical variants of the same quantity, and no explicit pairing is supplied.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "98f9078a8c09fae49b5d33a499ad631274cb8cc87fa6daa8915f2aa1f74d6c42",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

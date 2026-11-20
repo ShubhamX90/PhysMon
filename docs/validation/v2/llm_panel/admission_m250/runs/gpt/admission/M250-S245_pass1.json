@@ -1,0 +1,106 @@
+{
+  "item_id": "M250-S245",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Momentum balance gives N(h/lambda) = sqrt(2mE), hence N = lambda*sqrt(2mE)/h. Using u = 1.66054e-27 kg and eV = 1.60218e-19 J gives N approximately 27163.4 photons.",
+    "assumptions": [
+      "The stipulated zero average emission recoil is used to calculate the mean slowing.",
+      "Photon momentum is evaluated at 589 nm; its variation during the frequency sweep is negligible at the stated precision.",
+      "The atom remains illuminated and resonant until stopping, as specified."
+    ],
+    "answer": 27163.4,
+    "unit": "photons"
+  },
+  "stratum_assignments": {
+    "T0167": {
+      "stratum": "K",
+      "answer_with_sentence": 27163.4,
+      "regime": "The sweep must cover the resonance change from the initial velocity to rest, approximately v/lambda = 1.36 GHz. A suitably positioned 2.4 GHz sweep suffices."
+    },
+    "T7F35": {
+      "stratum": "D",
+      "answer_with_sentence": 27163.4,
+      "regime": null
+    },
+    "T866E": {
+      "stratum": "K",
+      "answer_with_sentence": 27163.4,
+      "regime": "The sweep must cover the resonance change from the initial velocity to rest, approximately v/lambda = 1.36 GHz. A suitably positioned 2.4 GHz sweep suffices."
+    },
+    "TAB0F": {
+      "stratum": "C",
+      "answer_with_sentence": 27163.4,
+      "regime": null
+    },
+    "TCE76": {
+      "stratum": "R",
+      "answer_with_sentence": 29055.5,
+      "regime": null
+    },
+    "TF60D": {
+      "stratum": "C",
+      "answer_with_sentence": 27163.4,
+      "regime": null
+    },
+    "T037E": {
+      "stratum": "D",
+      "answer_with_sentence": 27163.4,
+      "regime": null
+    },
+    "TC3E2": {
+      "stratum": "R",
+      "answer_with_sentence": 29055.5,
+      "regime": null
+    },
+    "T28D1": {
+      "stratum": "D",
+      "answer_with_sentence": 27163.4,
+      "regime": null
+    },
+    "T341F": {
+      "stratum": "D",
+      "answer_with_sentence": 27163.4,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The energy-increment variants do not all state the required same number and unit: T7F35 and T037E use unspecified qualitative increments, whereas their numerical counterparts specify 0.011 eV."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "An earlier-run increment of 0.001 eV satisfies the unspecified increment in T7F35 but does not satisfy T28D1's specified 0.011 eV increment."
+  ],
+  "notes": "The base slowing calculation is well posed under the stipulated average-recoil treatment. Adding 0.011 eV to each current atom's energy gives E = 0.0873 eV and approximately 29055.5 photons. For scattering rate r, F = r*h/lambda and N = r*t, so r cancels from the required photon count. Earlier runs and the isolated helium jet have no stated physical path to the current atoms' momentum. T0167/T866E and TAB0F/TF60D preserve their numerical values and units. The invalid verdict concerns the required numerical matching of variants, not the base momentum calculation.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T09:31:26+00:00",
+  "completed_at": "2026-11-20T09:32:27+00:00",
+  "minutes_spent": 1.01,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "3abb6fc659c4f84dccbc3c111e30302897a4d2543829376fa52d5a982895011a",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "item_id": "M250-S16",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Kirchhoff's voltage law gives L di/dt + R_total i = V. For zero initial current, i(t) = (V/R_total)[1 - exp(-R_total t/L)]. With L = 0.200 H, R_total = 20 Ω and t = 0.015 s, i = 0.466122 A. Adding a coil-series resistance q gives currents 0.417351 A, 0.353500 A and 0.304103 A for q = 4 Ω, 10.5 Ω and 17 Ω respectively.",
+    "assumptions": [
+      "Closing the initially open series circuit establishes i(0) = 0.",
+      "The inductance is constant and the coil, battery and connecting wires have negligible resistance.",
+      "The lamp has its own electrically separate circuit.",
+      "A resistor connected before closure remains connected unless explicitly confined to an earlier experiment."
+    ],
+    "answer": 0.466122,
+    "unit": "A"
+  },
+  "stratum_assignments": {
+    "TAEAE": {
+      "stratum": "R",
+      "answer_with_sentence": 0.3535,
+      "regime": null
+    },
+    "T582C": {
+      "stratum": "D",
+      "answer_with_sentence": 0.466122,
+      "regime": null
+    },
+    "T2DE4": {
+      "stratum": "R",
+      "answer_with_sentence": 0.3535,
+      "regime": null
+    },
+    "T20A0": {
+      "stratum": "D",
+      "answer_with_sentence": 0.466122,
+      "regime": null
+    },
+    "T40EA": {
+      "stratum": "D",
+      "answer_with_sentence": 0.466122,
+      "regime": null
+    },
+    "T9F10": {
+      "stratum": "D",
+      "answer_with_sentence": 0.466122,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All certified answers and wiring claims agree with the RL solution. Inductance in mH divided by resistance in Ω gives the time constant in ms, consistent with the stated time input. The claimed numerical minimal pairs retain 10.5 Ω and change the resistor's attachment to another circuit or an earlier experiment. Pass 2 explicitly identifies T40EA and T582C as numeral-free controls, rather than numerical minimal pairs; this resolves my pass-1 rendering_not_minimal concern, which I withdraw. My pass-1 value 0.353501 A contained a small numerical error: the refined value is approximately 0.35350035 A, consistent with the authors' 0.3535 A.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "started_at": "2026-11-20T09:11:54+00:00",
+  "completed_at": "2026-11-20T09:12:36+00:00",
+  "minutes_spent": 0.7,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "df44a3e86d9a3894e7b7d40fd372e9ae73cc0c7aed3e356f7ca07731f49944b9",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

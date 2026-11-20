@@ -1,0 +1,92 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250_admission",
+  "item_id": "M250-S19",
+  "pass_number": 2,
+  "started_at": "2026-11-20T19:05:37+00:00",
+  "completed_at": "2026-11-20T19:06:14+00:00",
+  "minutes_spent": 0.63,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For equal launch and landing elevations, t = 2v sin(theta)/g and R = v² sin(2theta)/g. The base range is 400 sin(70°)/9.8. A prelaunch lowering by q gives R(q) = 400 sin(2(35° - q))/9.8.",
+    "assumptions": [
+      "Uniform downward gravitational acceleration and negligible air resistance, as stated.",
+      "Launch and landing occur at the same elevation.",
+      "The ramp does not intercept the trajectory.",
+      "For the intended relevant variants, 35° denotes the direction before the adjustment, and the adjustment precedes the current launch."
+    ],
+    "answer": 38.35480085,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "T3E32": {
+      "stratum": "R",
+      "answer_with_sentence": 27.31145332,
+      "regime": null
+    },
+    "T9D35": {
+      "stratum": "D",
+      "answer_with_sentence": 38.35480085,
+      "regime": null
+    },
+    "TFDC7": {
+      "stratum": "R",
+      "answer_with_sentence": 27.31145332,
+      "regime": null
+    },
+    "TFC29": {
+      "stratum": "D",
+      "answer_with_sentence": 38.35480085,
+      "regime": null
+    },
+    "TC550": {
+      "stratum": "D",
+      "answer_with_sentence": 38.35480085,
+      "regime": null
+    },
+    "T9417": {
+      "stratum": "D",
+      "answer_with_sentence": 38.35480085,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TFDC7 does not establish that its direction adjustment precedes the current launch; its placement after the landing description permits an adjustment after the current flight, yielding a different range."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "For TFDC7 with q = 14°, adjusting the direction before the current launch gives theta = 21° and R = 27.31145332 m; adjusting the launcher after the described flight leaves the current ball's range at 38.35480085 m."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "The base answer and all numerical tables agree with the projectile-range equation under the authors' intended interpretation: prelaunch lowerings of 7°, 14°, and 22° give approximately 33.8383 m, 27.3115 m, and 17.8927 m. Earlier-trial changes and changes to a noninteracting ramp leave the range unchanged. TFDC7's R assignment is conditional on a prelaunch interpretation; the authors' wiring states that intention but the sentence does not establish it, so its certified answer is not uniquely entailed. I withdraw pass 1's rendering_not_minimal flag: pass 2 explicitly identifies T9D35 and TC550 as numeral-free controls, rather than numerical minimal pairs. The claimed numerical pairs TFC29/T3E32 and T9417/TFDC7 preserve 14° and change the intended attachment. No external information was consulted.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "88f21a8c8fe8d0979d8c94fac19c8a6ba460935a8a486597834c3e711948ebad",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}
