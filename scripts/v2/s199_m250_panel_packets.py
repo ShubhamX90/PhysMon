@@ -10,7 +10,9 @@ Exactly `s193_m0v21_panel_packets.py` (loaded and run, by the same patching patt
 * output `docs/validation/v2/llm_panel/admission_m250/` and scratch `/scratch/pabitra/physmon/judge/m250_*`.
 
 The restricted key files hold roles and never go to a judge; every packet is leak-scanned. Deterministic; refuses to overwrite.
-Usage: s199_m250_panel_packets.py [--dataset DIR] [--out DIR] [--scratch DIR]
+Repair rounds: `--round r1 --ids S03,... --run-prefix m250r1 --dataset data/v2/dataset/m250_explore_v2 --out <dir>` packages only the
+changed structures with the r1 spec modules.
+Usage: s199_m250_panel_packets.py [--dataset DIR] [--out DIR] [--scratch DIR] [--round v1|r1] [--ids S..,S..] [--run-prefix P]
 """
 
 from __future__ import annotations
@@ -74,7 +76,7 @@ def with_n_note(build_item):
     return wrapped
 
 
-def configure(dataset: Path, ids: list[str], sources: list) -> None:
+def configure(dataset: Path, ids: list[str], sources: list, run_prefix: str = "m250") -> None:
     """Point the M0 v2.1 packet script at the M250 dataset and the specs of `ids` (the same patching pattern as s196)."""
 
     by_id = {sid: source for source in sources if not source.error for sid in source.specs if sid in ids}
@@ -91,7 +93,7 @@ def configure(dataset: Path, ids: list[str], sources: list) -> None:
     s193.CELLS = str(dataset / "cells.jsonl")
     s193.CERTIFICATES = str(dataset / "certificates.json")
     s193.OUT_DIR = OUT_DIR
-    s193.ADMISSION_RUN, s193.NATURALNESS_RUN = "m250_admission", "m250_naturalness"
+    s193.ADMISSION_RUN, s193.NATURALNESS_RUN = f"{run_prefix}_admission", f"{run_prefix}_naturalness"
     s193.ADMISSION_BATCH, s193.NATURALNESS_BATCH = ADMISSION_BATCH, NATURALNESS_BATCH
 
 
@@ -100,16 +102,26 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--dataset", default=DATASET)
     parser.add_argument("--out", default=OUT_DIR)
     parser.add_argument("--scratch", default=SCRATCH)
+    parser.add_argument("--round", choices=sorted(s198.ROUNDS), default="v1", help="spec modules of the build (s198 --round)")
+    parser.add_argument("--ids", default="", help="comma-separated structure ids: package only these (a re-review of changed structures)")
+    parser.add_argument("--run-prefix", default="m250", help="run ids <prefix>_admission / <prefix>_naturalness (scratch dirs)")
     args = parser.parse_args(argv)
     dataset = Path(args.dataset) if Path(args.dataset).is_absolute() else REPO_ROOT / args.dataset
     if not (dataset / "admission").is_dir():
         print(f"No built M250 dataset at {dataset}", file=sys.stderr)
         return 2
     ids = packet_structures(dataset)
+    wanted = [x.strip() for x in args.ids.split(",") if x.strip()]
+    if wanted:
+        unknown = sorted(set(wanted) - set(ids))
+        if unknown:
+            print(f"--ids not machine-admitted (or already panel-admitted) in {dataset}: {unknown}", file=sys.stderr)
+            return 2
+        ids = [sid for sid in ids if sid in set(wanted)]
     if not ids:
         print("No machine-admitted non-M0 structure to review", file=sys.stderr)
         return 2
-    configure(dataset, ids, s198.discover())
+    configure(dataset, ids, s198.discover(s198.ROUNDS[args.round][0]), args.run_prefix)
     return s193.main(["--out", args.out, "--scratch", args.scratch])
 
 

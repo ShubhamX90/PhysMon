@@ -79,12 +79,28 @@ GUARD_53B_FLAGS = ("rendering_not_minimal",)
 SENTENCE_ID = re.compile(r"\bT[0-9A-F]{4}\b")
 
 
-def guarded_53b(flag: dict[str, str], n_sentence_ids: set[str]) -> bool:
-    """Amendment A1 (docs/registry/v2/g1/freeze/amendments.md, check 5.3b): a high `rendering_not_minimal` flag whose every named
-    sentence is a numeral-free control (N) sentence is a judge error. A flag naming no sentence, or any non-N sentence, counts."""
+def guarded_53b(flag: dict[str, str], n_sentence_ids: set[str] | dict[str, str]) -> bool:
+    """Amendment A1 (docs/registry/v2/g1/freeze/amendments.md, check 5.3b): a high `rendering_not_minimal` flag on numeral-free
+    control (N) sentences is a judge error. Guarded when the flag names at least one N sentence and every other sentence it names is
+    the numbered D twin of a named N sentence (the twin is cited as the sentence whose number the N sentence "lacks"; J15.1-059:
+    the first implementation required every named sentence to be N, which missed flags that cite the twin, e.g. M250 S222). A flag
+    naming no sentence, or any other sentence, counts. `n_sentence_ids` maps each N sentence id to its D twin id (a plain set:
+    no twin known)."""
 
+    twins = n_sentence_ids if isinstance(n_sentence_ids, dict) else dict.fromkeys(n_sentence_ids, "")
     ids = set(SENTENCE_ID.findall(flag.get("reason", "")))
-    return flag["flag"] in GUARD_53B_FLAGS and bool(ids) and ids <= n_sentence_ids
+    named_n = ids & set(twins)
+    allowed = named_n | {twins[n] for n in named_n if twins[n]}
+    return flag["flag"] in GUARD_53B_FLAGS and bool(named_n) and ids <= allowed
+
+
+def n_twins(entry: dict[str, Any]) -> dict[str, str]:
+    """N sentence id -> id of its numbered D twin (label N<i> <-> D<i>, the pair's D sentence), from the restricted key."""
+
+    labels = entry.get("sentence_labels", {})
+    by_label = {label: sid for sid, label in labels.items()}
+    return {sid: by_label.get("D" + label[1:], "") for sid, s in entry.get("sentence_strata", {}).items() if s == "N"
+            for label in [labels.get(sid, "")]}
 
 
 def judge_verdict(item_id: str, reviews: dict[tuple[str, int], dict[str, Any]],
@@ -142,7 +158,7 @@ def score(key: dict[str, Any], nat_key: dict[str, Any], judges: dict[str, list[P
     rated = {j: load_ratings(d) for j, d in nat_judges.items()}
     structures: dict[str, Any] = {}
     for item_id in sorted(key):
-        n_ids = ({sid for sid, s in key[item_id].get("sentence_strata", {}).items() if s == "N"} if guard_53b else None)
+        n_ids = n_twins(key[item_id]) if guard_53b else None
         verdicts = {j: judge_verdict(item_id, r, n_ids) for j, r in loaded.items()}
         statuses = [v["status"] for v in verdicts.values()]
         reasons = [f"{j}: {r}" for j, v in verdicts.items() for r in v["reasons"]]
