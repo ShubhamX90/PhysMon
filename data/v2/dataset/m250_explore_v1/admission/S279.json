@@ -1,0 +1,580 @@
+{
+  "cells_by_stratum": {
+    "D": 6,
+    "N": 2,
+    "R": 6,
+    "none": 1,
+    "support": 16
+  },
+  "checks": [
+    {
+      "id": "3.0",
+      "name": "strict rule set: the spec is certified under version v2.1",
+      "status": "PASS",
+      "values": {
+        "cert_version": "v2.1",
+        "module_cert_version": "v2.1",
+        "spec_version": "v2.1"
+      }
+    },
+    {
+      "id": "1.1",
+      "name": "unique template cluster and symbolic program",
+      "status": "PASS",
+      "values": {
+        "compared_with": "dataset v1 (80 structures), 18 library modules, and 147 previously admitted candidates; the structure's own id is excluded",
+        "duplicates_by_cluster": [],
+        "duplicates_by_hash": [],
+        "not_checkable": "DECOY-v1 and the EPC pool: no machine-readable structure pool exists in the repository",
+        "pool_load_errors": [],
+        "symbolic_program_hash": "9ac6fbac54c8c0bb0c501f6679e3c99f6ee2e14950874130f02d58be60d8e5d0",
+        "template_cluster_id": "V2C-S279"
+      }
+    },
+    {
+      "id": "1.2.text",
+      "name": "text overlap (number-masked base problem, difflib ratio)",
+      "status": "PASS",
+      "values": {
+        "flagged": false,
+        "nearest": "S261",
+        "origin": "admitted_candidate",
+        "score": 0.3898,
+        "threshold": 0.85
+      }
+    },
+    {
+      "id": "1.2.program",
+      "name": "program overlap (equal canonical hash; relation-set Jaccard)",
+      "status": "PASS",
+      "values": {
+        "equal_hash": false,
+        "equal_program_hash_with": [],
+        "flagged": false,
+        "nearest_by_relation_set": "S16",
+        "relation_jaccard": 0.25,
+        "threshold": 0.8
+      }
+    },
+    {
+      "id": "1.2.value_signature",
+      "name": "value signature (identical sorted displayed inputs and gold)",
+      "status": "PASS",
+      "values": {
+        "identical": false,
+        "identical_signature_with": [],
+        "input_multiset_jaccard": 0.1667,
+        "nearest_by_input_values": "S20"
+      }
+    },
+    {
+      "id": "1.3",
+      "name": "provenance fields",
+      "status": "PASS",
+      "values": {
+        "author_agent": "agent (M250 phase 2, qastro)",
+        "consistency_check": "dataset-level: scripts/check_provenance_consistency.py on the README (manifest.json)",
+        "created_by": "agent",
+        "date": "2026-11-20",
+        "generator": "scripts/v2/s198_build_m250_exploration.py",
+        "generator_version": "s198 v1",
+        "git": {
+          "commit": "4e8de96",
+          "tracked_files_modified": false
+        },
+        "spec_hash": "67282fd73478e171ef4322819c5c557bb2cba2aa89d0631bb0e9a4667a55ff72",
+        "spec_module": "roles_m250n_qastro",
+        "spec_version": "v2.1"
+      }
+    },
+    {
+      "id": "2.1",
+      "name": "typed dependency graph; dimension check on every relation; solver route; prompt matches graph",
+      "status": "PASS",
+      "values": {
+        "checks": {
+          "assumptions_cover_assumed": true,
+          "boundary_cases": true,
+          "dimensions": true,
+          "nuisance_independence": true,
+          "positive_control": true,
+          "prompt_matches_graph": true,
+          "role_reversal_twin": true,
+          "route_agreement": true,
+          "schema": true,
+          "symbols_acyclic": true,
+          "target_and_inputs_relevant": true
+        },
+        "n_nodes": 8,
+        "status": "SOLVER_CERTIFIED",
+        "units": {
+          "E0": "keV",
+          "R": "cm",
+          "c": "m/s",
+          "df": "MHz",
+          "f0": "Hz",
+          "frot": "Hz",
+          "h": "eV*s",
+          "v": "m/s"
+        }
+      }
+    },
+    {
+      "id": "2.2",
+      "name": "R and D cells: certified at 3 study and 2 held-out values; R separated from D; answer tokens differ",
+      "status": "PASS",
+      "values": {
+        "answer_tokens_differ_4sf": true,
+        "loosest_tolerance": 0.01,
+        "min_relative_r_d_separation": 0.13627506529760533,
+        "n_heldout_values": 2,
+        "n_study_values": 3,
+        "per_instance_checks": {
+          "r_separated_from_d": true,
+          "r_values_distinct": true,
+          "routes_agree": true
+        }
+      }
+    },
+    {
+      "id": "2.3",
+      "name": "C cells (not feasible: reason recorded)",
+      "status": "PASS",
+      "values": {
+        "feasible": false,
+        "reason": "The shift follows from the speed of the source and the photon energy; the mass of the source or the phase of the rotor would not enter any relation, so no free quantity enters an intermediate relation and then leaves it."
+      }
+    },
+    {
+      "id": "2.4",
+      "name": "K cells (not feasible: reason recorded)",
+      "status": "PASS",
+      "values": {
+        "feasible": false,
+        "reason": "The leading-order condition (v much less than c) is fixed by the stated rotation frequency and radius, so it is approached gradually and has no free threshold quantity."
+      }
+    },
+    {
+      "id": "2.6",
+      "name": "planted mutations rejected by the certifier (role-spec mutations; broken cancellation, out-of-regime K)",
+      "status": "PASS",
+      "values": {
+        "graph_mutation_report": "not run: certify.mutation_report costs about 18 s per structure",
+        "mutations": [
+          {
+            "caught": true,
+            "failed_checks": [
+              "numeric_certificate",
+              "value_hygiene",
+              "heldout_value_hygiene",
+              "no_confounded_foils_except_degenerate"
+            ],
+            "mutation": "identity_values",
+            "note": "R values too close to the identity to move the answer",
+            "raised": null
+          },
+          {
+            "caught": true,
+            "failed_checks": [
+              "numeric_certificate"
+            ],
+            "mutation": "repeated_values",
+            "note": "two identical study values",
+            "raised": null
+          },
+          {
+            "caught": true,
+            "failed_checks": [
+              "numeric_certificate"
+            ],
+            "mutation": "broken_solver",
+            "note": "independent solver route 1% off",
+            "raised": null
+          },
+          {
+            "caught": true,
+            "failed_checks": [
+              "marker_free"
+            ],
+            "mutation": "marker_word_in_d",
+            "note": "a marker word in a D phrasing",
+            "raised": null
+          },
+          {
+            "caught": true,
+            "failed_checks": [
+              "reversal_free",
+              "word_count_ok"
+            ],
+            "mutation": "reversal_in_d",
+            "note": "a D phrasing that undoes a change",
+            "raised": null
+          },
+          {
+            "caught": true,
+            "failed_checks": [
+              "scene_clause_ok",
+              "scene_clause_in_base_context"
+            ],
+            "mutation": "digit_in_scene_clause",
+            "note": "a number in the scene clause",
+            "raised": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.8",
+      "name": "feasibility: complete (R and D at three values in two phrasing pairs); infeasible strata recorded",
+      "status": "PASS",
+      "values": {
+        "complete": true,
+        "failed_certificate_checks": []
+      }
+    },
+    {
+      "id": "3.1",
+      "name": "phrasing pairs: same frame, numeral and unit; word counts within 3",
+      "status": "PASS",
+      "values": {
+        "certificate_checks": {
+          "attach_has_no_digit": true,
+          "exactly_two_pairs": true,
+          "frame_mismatch_reason_ok": true,
+          "numerals_ok": true,
+          "same_frame_numeral_unit_or_declared_unmatched": true,
+          "word_count_ok": true
+        },
+        "pairs": [
+          {
+            "frame_matched": true,
+            "pair_id": "p0",
+            "token_difference": {
+              "added": [
+                "pulley",
+                "of",
+                "vacuum",
+                "pump"
+              ],
+              "removed": [
+                "rotor",
+                "that",
+                "carries",
+                "source"
+              ]
+            },
+            "word_counts": [
+              13,
+              13
+            ]
+          },
+          {
+            "frame_matched": true,
+            "pair_id": "p1",
+            "token_difference": {
+              "added": [
+                "For",
+                "an",
+                "earlier",
+                "run",
+                "only,",
+                "carried",
+                "had"
+              ],
+              "removed": [
+                "Before",
+                "the",
+                "shift",
+                "is",
+                "measured,",
+                "carries",
+                "has"
+              ]
+            },
+            "word_counts": [
+              25,
+              25
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.2",
+      "name": "D kinds: co-present and other event; D not on the target; rationale; scene clause",
+      "status": "PASS",
+      "values": {
+        "certificate_checks": {
+          "d0_refers_to_scene_object": true,
+          "d_kinds": true,
+          "d_not_on_target": true,
+          "d_rationale_ok": true,
+          "remoteness_free_d": true,
+          "reversal_free": true,
+          "scene_clause_in_base_context": true,
+          "scene_clause_ok": true
+        },
+        "d_kinds": [
+          "other_object_same_scene",
+          "same_object_other_event"
+        ],
+        "d_rationales": [
+          "A ring that is added to the pulley of the vacuum pump changes the pump and not the rotor; the source moves on a circle of the stated radius.",
+          "The rotor was made larger for an earlier run, which is over; in the run of the question the source moves on a circle of the stated radius."
+        ],
+        "scene_clause": "A belt-driven vacuum pump stands beside the rotor housing."
+      }
+    },
+    {
+      "id": "3.3",
+      "name": "lexicons: marker free and consequence free (D, N, R, C, K sentences)",
+      "status": "PASS",
+      "values": {
+        "certificate_checks": {
+          "consequence_free": true,
+          "marker_free": true
+        }
+      }
+    },
+    {
+      "id": "3.4",
+      "name": "conditions untouched: stated conditions occur in the base text",
+      "status": "PASS",
+      "values": {
+        "certificate_checks": {
+          "conditions_in_base_text": true,
+          "conditions_listed": true
+        },
+        "conditions_preserved": [
+          [
+            "constant rotation frequency",
+            "straight line in the laboratory"
+          ],
+          [
+            "constant rotation frequency",
+            "straight line in the laboratory"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "3.5",
+      "name": "value hygiene: no study value equals a displayed input; digit overlap recorded",
+      "status": "PASS",
+      "values": {
+        "certificate_checks": {
+          "heldout_value_hygiene": true,
+          "value_hygiene": true
+        },
+        "max_digit_overlap_with_gold": 1,
+        "max_digit_overlap_with_inputs": 1
+      }
+    },
+    {
+      "id": "3.7",
+      "name": "article agreement: no 'a' before a number read with a vowel sound (8, 11, 18, 80-89, 800-899, ...)",
+      "status": "PASS",
+      "values": {
+        "violations": []
+      }
+    },
+    {
+      "id": "3.8",
+      "name": "pair distinctness: r0 != r1 and d0 != d1 at every study and held-out value, and the pair-0 frame differs from the pair-1 frame after removing the attachment ('also'-only differences fail; tense or order pass)",
+      "status": "PASS",
+      "values": {
+        "identical": [],
+        "word_difference": {
+          "D": {
+            "content_words_only_pair0": [
+              "gets"
+            ],
+            "content_words_only_pair1": [
+              "frequency",
+              "rim",
+              "rotation",
+              "same"
+            ],
+            "frame_pair0": "the radius of gets more",
+            "frame_pair1": "more in rim radius at the same rotation frequency",
+            "frames_differ": true,
+            "information_only": "the number of differing content words is recorded, not required"
+          },
+          "R": {
+            "content_words_only_pair0": [
+              "gets"
+            ],
+            "content_words_only_pair1": [
+              "frequency",
+              "rim",
+              "rotation",
+              "same"
+            ],
+            "frame_pair0": "the radius of gets more",
+            "frame_pair1": "more in rim radius at the same rotation frequency",
+            "frames_differ": true,
+            "information_only": "the number of differing content words is recorded, not required"
+          }
+        }
+      }
+    },
+    {
+      "id": "3.4.base",
+      "name": "rendered base problem + scene clause, gold from the certifier",
+      "status": "PASS",
+      "values": {
+        "base_problem_equal": true,
+        "gold": 3.964103098407533,
+        "gold_independent_solver": 3.96410309840979,
+        "gold_original_graph": 3.964103098407533
+      }
+    },
+    {
+      "id": "B",
+      "name": "cell and trace build (rendering, scene clause, base problem self-checks)",
+      "status": "PASS",
+      "values": {
+        "n_cells": 31,
+        "n_traces": 31
+      }
+    },
+    {
+      "id": "2.5",
+      "name": "misuse curves and placebo separated from the gold at 2+ of 3 study values",
+      "status": "PASS",
+      "values": {
+        "degenerate_misuse_foils": [],
+        "inseparable_misuse_pairs_recorded_as_confounded": {
+          "D": [],
+          "R": []
+        },
+        "separated_study_values_per_foil": {
+          "D": {
+            "digit_copy": 3,
+            "relevant_twin": 3,
+            "replace:R": 3,
+            "subtract:R": 3
+          },
+          "R": {
+            "digit_copy": 3,
+            "neglect": 3,
+            "placebo": 3,
+            "replace:R": 3,
+            "subtract:R": 3
+          }
+        }
+      }
+    },
+    {
+      "id": "2.7",
+      "name": "gold trace for every cell, last value equals the cell gold (1e-9)",
+      "status": "PASS",
+      "values": {
+        "cells_without_trace": [],
+        "n_cells": 31,
+        "n_traces": 31,
+        "wrong_last_value": []
+      }
+    },
+    {
+      "id": "2.7b",
+      "name": "target naming (target_symbols and target_phrases on every row)",
+      "status": "PASS",
+      "values": {
+        "n_rows": 31,
+        "rows_without": []
+      }
+    },
+    {
+      "id": "3.2.scene",
+      "name": "the scene clause is in every cell's base context",
+      "status": "PASS",
+      "values": {
+        "n_rows": 31
+      }
+    },
+    {
+      "id": "4.1",
+      "name": "grading dry run: the gold in every declared format grades CORRECT under every view",
+      "status": "PASS",
+      "values": {
+        "alt_unit_findings_not_blocking": {
+          "count": 0,
+          "examples": [],
+          "note": "s194 also rewrites the gold in every other unit of its dimension (up to 17-digit integers); the standard requires the three declared answer formats, so these are recorded, not blocking"
+        },
+        "failures": [],
+        "n_cells": 31,
+        "n_checks_run_all_kinds": 1318
+      }
+    },
+    {
+      "id": "4.2",
+      "name": "foil dry run: every misuse value and the placebo grade NOT CORRECT under the primary view",
+      "status": "PASS",
+      "values": {
+        "failures": []
+      }
+    },
+    {
+      "id": "6.2",
+      "name": "familiarity tag of the C quantity (the share across the set is in composition.json)",
+      "status": "PASS",
+      "values": {
+        "reason": null,
+        "tag": null
+      }
+    }
+  ],
+  "data_role": "EXPLORATION",
+  "dataset": "m250_explore_v1",
+  "failed_checks": [],
+  "instance": 0,
+  "judge_checks_pending": [
+    "5.1-5.4 panel review",
+    "6.1 blind naturalness"
+  ],
+  "lineage": {
+    "base_problem": "rendered base problem + scene clause (no v1 text)",
+    "kind": "NEW",
+    "spec_module": "roles_m250n_qastro"
+  },
+  "n_cells": 31,
+  "n_checks": 28,
+  "n_pass": 28,
+  "panel": {
+    "admission_5.x": "PENDING",
+    "naturalness_6.1": "PENDING",
+    "packets": "scripts/v2/s199_m250_panel_packets.py",
+    "status": "PENDING"
+  },
+  "status": "MACHINE_ADMITTED",
+  "structure_id": "S279",
+  "summary": {
+    "c_familiarity": null,
+    "cert_version": "v2.1",
+    "domain": "special relativity",
+    "has_c": false,
+    "has_k": false,
+    "heldout_values": [
+      2.2,
+      4.6
+    ],
+    "k_out_feasible": null,
+    "law_family": "rotor_transverse_doppler_shift_gamma_rays",
+    "level": "upper_university",
+    "n_computed_nodes": 3,
+    "no_c_reason": "The shift follows from the speed of the source and the photon energy; the mass of the source or the phase of the rotor would not enter any relation, so no free quantity enters an intermediate relation and then leaves it.",
+    "no_k_reason": "The leading-order condition (v much less than c) is fixed by the stated rotation frequency and radius, so it is approached gradually and has no free threshold quantity.",
+    "quantity_phrase": "a further ring",
+    "scene_clause": "A belt-driven vacuum pump stands beside the rotor housing.",
+    "spec_version": "v2.1",
+    "title": "Transverse Doppler shift of gamma rays from the rim of a rotor",
+    "unit": "cm",
+    "values": [
+      1.9,
+      3.7,
+      5.6
+    ]
+  }
+}
