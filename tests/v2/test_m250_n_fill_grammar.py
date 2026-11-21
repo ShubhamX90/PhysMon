@@ -17,6 +17,10 @@ MODULES = (
     "roles_m250r1_a", "roles_m250r1_b", "roles_m250r1_c", "roles_m250r1_d", "roles_m250r1n_mech", "roles_m250r1n_em",
     "roles_m250r1n_thermo", "roles_m250r1n_waves", "roles_m250r1n_modern", "roles_m250r1n_extra", "roles_m250r1n_circ",
     "roles_m250r1n_qastro",
+    # repair round 2 (J15.1-061)
+    "roles_m250r2_a", "roles_m250r2_b", "roles_m250r2_c", "roles_m250r2_d", "roles_m250r2n_mech", "roles_m250r2n_em",
+    "roles_m250r2n_thermo", "roles_m250r2n_waves", "roles_m250r2n_modern", "roles_m250r2n_extra", "roles_m250r2n_circ",
+    "roles_m250r2n_qastro",
 )
 BANNED_FILLS = ("further a little", "another a little", "a further a ", "another a ", "by a further a", "a further an ")
 # 'a' before a number read with a vowel sound (eight, eleven, eighteen, eighty)

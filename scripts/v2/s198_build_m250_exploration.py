@@ -224,8 +224,12 @@ class Source:
 R1_SOURCES: tuple[tuple[str, str, str, str | None], ...] = tuple(
     (key, module.replace("roles_m250", "roles_m250r1", 1) if module.startswith("roles_m250") else module, kind, lib)
     for key, module, kind, lib in SOURCES)
+# Repair round 2 (J15.1-061): the `roles_m250r2*` modules, which re-export the r1 specs and repair the round-1 re-review findings.
+R2_SOURCES: tuple[tuple[str, str, str, str | None], ...] = tuple(
+    (key, module.replace("roles_m250r1", "roles_m250r2", 1), kind, lib) for key, module, kind, lib in R1_SOURCES)
 ROUNDS: dict[str, tuple[tuple[tuple[str, str, str, str | None], ...], str, str]] = {
-    "v1": (SOURCES, "m250_explore_v1", "s198 v1"), "r1": (R1_SOURCES, "m250_explore_v2", "s198 v2")}
+    "v1": (SOURCES, "m250_explore_v1", "s198 v1"), "r1": (R1_SOURCES, "m250_explore_v2", "s198 v2"),
+    "r2": (R2_SOURCES, "m250_explore_v3", "s198 v3")}
 
 
 def discover(sources: tuple[tuple[str, str, str, str | None], ...] = SOURCES) -> list[Source]:

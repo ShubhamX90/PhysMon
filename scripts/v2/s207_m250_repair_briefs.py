@@ -39,9 +39,13 @@ def module_of() -> dict[str, str]:
 
 
 def main() -> int:
+    global ADM, DATASET
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--out", required=True)
+    parser.add_argument("--adm", default=str(ADM.relative_to(REPO_ROOT)), help="panel directory with runs/score_two_judges/")
+    parser.add_argument("--dataset", default=str(DATASET.relative_to(REPO_ROOT)), help="dataset whose admission records name the spec modules")
     args = parser.parse_args()
+    ADM, DATASET = REPO_ROOT / args.adm, REPO_ROOT / args.dataset
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
 
