@@ -1,0 +1,646 @@
+{
+  "cells_by_stratum": {
+    "C": 6,
+    "D": 6,
+    "N": 2,
+    "R": 6,
+    "none": 1,
+    "support": 16
+  },
+  "checks": [
+    {
+      "id": "3.0",
+      "name": "strict rule set: the spec is certified under version v2.1",
+      "status": "PASS",
+      "values": {
+        "cert_version": "v2.1",
+        "module_cert_version": null,
+        "spec_version": "v2.1"
+      }
+    },
+    {
+      "id": "1.1",
+      "name": "unique template cluster and symbolic program",
+      "status": "PASS",
+      "values": {
+        "compared_with": "dataset v1 (80 structures), 18 library modules, and 65 previously admitted candidates; the structure's own id is excluded",
+        "duplicates_by_cluster": [],
+        "duplicates_by_hash": [],
+        "not_checkable": "DECOY-v1 and the EPC pool: no machine-readable structure pool exists in the repository",
+        "pool_load_errors": [],
+        "symbolic_program_hash": "b43ad5a7ea01f5e692fef84d0f1312ac9a1b9ddbe259d7e6df141ab6e4019dc3",
+        "template_cluster_id": "V2C-S93"
+      }
+    },
+    {
+      "id": "1.2.text",
+      "name": "text overlap (number-masked base problem, difflib ratio)",
+      "status": "PASS",
+      "values": {
+        "flagged": false,
+        "nearest": "S52",
+        "origin": "admitted_candidate",
+        "score": 0.369,
+        "threshold": 0.85
+      }
+    },
+    {
+      "id": "1.2.program",
+      "name": "program overlap (equal canonical hash; relation-set Jaccard)",
+      "status": "PASS",
+      "values": {
+        "equal_hash": false,
+        "equal_program_hash_with": [],
+        "flagged": false,
+        "nearest_by_relation_set": "S263",
+        "relation_jaccard": 0.25,
+        "threshold": 0.8
+      }
+    },
+    {
+      "id": "1.2.value_signature",
+      "name": "value signature (identical sorted displayed inputs and gold)",
+      "status": "PASS",
+      "values": {
+        "identical": false,
+        "identical_signature_with": [],
+        "input_multiset_jaccard": 0.4,
+        "nearest_by_input_values": "S13"
+      }
+    },
+    {
+      "id": "1.3",
+      "name": "provenance fields",
+      "status": "PASS",
+      "values": {
+        "author_agent": "agent (M250 batch d)",
+        "consistency_check": "dataset-level: scripts/check_provenance_consistency.py on the README (manifest.json)",
+        "created_by": "agent",
+        "date": "2026-11-21",
+        "generator": "scripts/v2/s198_build_m250_exploration.py",
+        "generator_version": "s198 v2",
+        "git": {
+          "commit": "6c75375",
+          "tracked_files_modified": true
+        },
+        "spec_hash": "01c95ea084c3e25f66e17ce817cc10acea4f7eef9719e4d9094d82a4677f4a34",
+        "spec_module": "roles_m250r1_d",
+        "spec_version": "v2.1"
+      }
+    },
+    {
+      "id": "2.1",
+      "name": "typed dependency graph; dimension check on every relation; solver route; prompt matches graph",
+      "status": "PASS",
+      "values": {
+        "checks": {
+          "assumptions_cover_assumed": true,
+          "boundary_cases": true,
+          "dimensions": true,
+          "nuisance_independence": true,
+          "positive_control": true,
+          "prompt_matches_graph": true,
+          "role_reversal_twin": true,
+          "route_agreement": true,
+          "schema": true,
+          "symbols_acyclic": true,
+          "target_and_inputs_relevant": true
+        },
+        "n_nodes": 8,
+        "status": "SOLVER_CERTIFIED",
+        "units": {
+          "A": "m^2",
+          "D": "cm",
+          "a": "mm^2",
+          "d": "mm",
+          "g": "m/s^2",
+          "h0": "m",
+          "h1": "m",
+          "t": "s"
+        }
+      }
+    },
+    {
+      "id": "2.2",
+      "name": "R and D cells: certified at 3 study and 2 held-out values; R separated from D; answer tokens differ",
+      "status": "PASS",
+      "values": {
+        "answer_tokens_differ_4sf": true,
+        "loosest_tolerance": 0.01,
+        "min_relative_r_d_separation": 0.06347554630593122,
+        "n_heldout_values": 2,
+        "n_study_values": 3,
+        "per_instance_checks": {
+          "r_separated_from_d": true,
+          "r_values_distinct": true,
+          "routes_agree": true
+        }
+      }
+    },
+    {
+      "id": "2.3",
+      "name": "C cells: symbolic cancellation (dy/dq = 0) and numeric invariance",
+      "status": "PASS",
+      "values": {
+        "certificate": {
+          "derivative_zero": true,
+          "expr_dimension_ok": true,
+          "familiarity_tag": true,
+          "heldout_two_certified": true,
+          "intermediate_relations_listed": true,
+          "numeric_invariance": true,
+          "q_present_unsimplified": true,
+          "wrong_law_separated_at_2_of_3": true
+        },
+        "feasible": true,
+        "relations_containing_q": [
+          "hydrostatic pressure at the hole: p = rho g h",
+          "Bernoulli between the surface and the jet: p = (1/2) rho v^2",
+          "outflow speed: v = sqrt(2 p / rho)"
+        ]
+      }
+    },
+    {
+      "id": "2.4",
+      "name": "K cells (not feasible: reason recorded)",
+      "status": "PASS",
+      "values": {
+        "feasible": false,
+        "reason": "The regime (ideal liquid, small hole, negligible surface speed) is stated as assumptions without a free value; the quantities that could define it, the tank and hole diameters, are already inputs, and a viscosity or surface-speed correction would change the law without a certified out-of-regime answer for this question."
+      }
+    },
+    {
+      "id": "2.6",
+      "name": "planted mutations rejected by the certifier (role-spec mutations; broken cancellation, out-of-regime K)",
+      "status": "PASS",
+      "values": {
+        "graph_mutation_report": "not run: certify.mutation_report costs about 18 s per structure",
+        "mutations": [
+          {
+            "caught": true,
+            "failed_checks": [
+              "numeric_certificate",
+              "value_hygiene",
+              "no_confounded_foils_except_degenerate"
+            ],
+            "mutation": "identity_values",
+            "note": "R values too close to the identity to move the answer",
+            "raised": null
+          },
+          {
+            "caught": true,
+            "failed_checks": [
+              "numeric_certificate"
+            ],
+            "mutation": "repeated_values",
+            "note": "two identical study values",
+            "raised": null
+          },
+          {
+            "caught": true,
+            "failed_checks": [
+              "numeric_certificate"
+            ],
+            "mutation": "broken_solver",
+            "note": "independent solver route 1% off",
+            "raised": null
+          },
+          {
+            "caught": true,
+            "failed_checks": [
+              "numeric_certificate",
+              "c_heldout_two_certified"
+            ],
+            "mutation": "broken_cancellation",
+            "note": "C expression that no longer cancels q",
+            "raised": null
+          },
+          {
+            "caught": true,
+            "failed_checks": [
+              "marker_free"
+            ],
+            "mutation": "marker_word_in_d",
+            "note": "a marker word in a D phrasing",
+            "raised": null
+          },
+          {
+            "caught": true,
+            "failed_checks": [
+              "reversal_free",
+              "word_count_ok"
+            ],
+            "mutation": "reversal_in_d",
+            "note": "a D phrasing that undoes a change",
+            "raised": null
+          },
+          {
+            "caught": true,
+            "failed_checks": [
+              "scene_clause_ok",
+              "scene_clause_in_base_context"
+            ],
+            "mutation": "digit_in_scene_clause",
+            "note": "a number in the scene clause",
+            "raised": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.8",
+      "name": "feasibility: complete (R and D at three values in two phrasing pairs); infeasible strata recorded",
+      "status": "PASS",
+      "values": {
+        "complete": true,
+        "failed_certificate_checks": []
+      }
+    },
+    {
+      "id": "3.1",
+      "name": "phrasing pairs: same frame, numeral and unit; word counts within 3",
+      "status": "PASS",
+      "values": {
+        "certificate_checks": {
+          "attach_has_no_digit": true,
+          "exactly_two_pairs": true,
+          "frame_mismatch_reason_ok": true,
+          "numerals_ok": true,
+          "same_frame_numeral_unit_or_declared_unmatched": true,
+          "word_count_ok": true
+        },
+        "pairs": [
+          {
+            "frame_matched": true,
+            "pair_id": "p0",
+            "token_difference": {
+              "added": [
+                "barrel"
+              ],
+              "removed": [
+                "tank"
+              ]
+            },
+            "word_counts": [
+              22,
+              22
+            ]
+          },
+          {
+            "frame_matched": true,
+            "pair_id": "p1",
+            "token_difference": {
+              "added": [
+                "After",
+                "had",
+                "been"
+              ],
+              "removed": [
+                "Before",
+                "was"
+              ]
+            },
+            "word_counts": [
+              22,
+              23
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "3.2",
+      "name": "D kinds: co-present and other event; D not on the target; rationale; scene clause",
+      "status": "PASS",
+      "values": {
+        "certificate_checks": {
+          "d0_refers_to_scene_object": true,
+          "d_kinds": true,
+          "d_not_on_target": true,
+          "d_rationale_ok": true,
+          "remoteness_free_d": true,
+          "reversal_free": true,
+          "scene_clause_in_base_context": true,
+          "scene_clause_ok": true
+        },
+        "d_kinds": [
+          "other_object_same_scene",
+          "same_object_other_event"
+        ],
+        "d_rationales": [
+          "The hole of the rain barrel is widened (to drain the barrel faster); the barrel drains through its own hole, so the hole of the tank and the time asked for are the stated ones.",
+          "The hole was reamed out after the timing had ended, an event after the stated process; the time for the level to fall between the stated heights was set by the stated hole."
+        ],
+        "scene_clause": "A rain barrel with a hole in its bottom stands beside the tank. Water leaves the tank only through the hole in its bottom, and the hole stays circular."
+      }
+    },
+    {
+      "id": "3.3",
+      "name": "lexicons: marker free and consequence free (D, N, R, C, K sentences)",
+      "status": "PASS",
+      "values": {
+        "certificate_checks": {
+          "cancelling_consequence_free": true,
+          "cancelling_marker_free": true,
+          "consequence_free": true,
+          "marker_free": true
+        }
+      }
+    },
+    {
+      "id": "3.4",
+      "name": "conditions untouched: stated conditions occur in the base text",
+      "status": "PASS",
+      "values": {
+        "certificate_checks": {
+          "conditions_in_base_text": true,
+          "conditions_listed": true
+        },
+        "conditions_preserved": [
+          [
+            "small circular hole",
+            "ideal"
+          ],
+          [
+            "small circular hole",
+            "ideal"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "3.5",
+      "name": "value hygiene: no study value equals a displayed input; digit overlap recorded",
+      "status": "PASS",
+      "values": {
+        "certificate_checks": {
+          "heldout_value_hygiene": true,
+          "value_hygiene": true
+        },
+        "max_digit_overlap_with_gold": 0,
+        "max_digit_overlap_with_inputs": 1
+      }
+    },
+    {
+      "id": "3.7",
+      "name": "article agreement: no 'a' before a number read with a vowel sound (8, 11, 18, 80-89, 800-899, ...)",
+      "status": "PASS",
+      "values": {
+        "violations": []
+      }
+    },
+    {
+      "id": "3.8",
+      "name": "pair distinctness: r0 != r1 and d0 != d1 at every study and held-out value, and the pair-0 frame differs from the pair-1 frame after removing the attachment ('also'-only differences fail; tense or order pass)",
+      "status": "PASS",
+      "values": {
+        "identical": [],
+        "word_difference": {
+          "D": {
+            "content_words_only_pair0": [
+              "level",
+              "timed"
+            ],
+            "content_words_only_pair1": [
+              "tank"
+            ],
+            "frame_pair0": "before the level is timed the hole in the bottom of is reamed out to a diameter larger",
+            "frame_pair1": "the hole in the bottom of the tank was reamed out to a diameter larger",
+            "frames_differ": true,
+            "information_only": "the number of differing content words is recorded, not required"
+          },
+          "R": {
+            "content_words_only_pair0": [
+              "level",
+              "timed"
+            ],
+            "content_words_only_pair1": [
+              "tank"
+            ],
+            "frame_pair0": "before the level is timed the hole in the bottom of is reamed out to a diameter larger",
+            "frame_pair1": "the hole in the bottom of the tank was reamed out to a diameter larger",
+            "frames_differ": true,
+            "information_only": "the number of differing content words is recorded, not required"
+          }
+        }
+      }
+    },
+    {
+      "id": "3.4.base",
+      "name": "base problem = v1 problem + scene clause, gold unchanged",
+      "status": "PASS",
+      "values": {
+        "base_problem_equal": true,
+        "gold": 323.2488142567075,
+        "gold_v1": 323.2488142567075
+      }
+    },
+    {
+      "id": "B",
+      "name": "cell and trace build (rendering, scene clause, base problem self-checks)",
+      "status": "PASS",
+      "values": {
+        "n_cells": 37,
+        "n_traces": 37
+      }
+    },
+    {
+      "id": "2.5",
+      "name": "misuse curves and placebo separated from the gold at 2+ of 3 study values",
+      "status": "PASS",
+      "values": {
+        "degenerate_misuse_foils": [
+          "add:D",
+          "add:h0",
+          "add:h1",
+          "subtract:D",
+          "subtract:h0",
+          "subtract:h1"
+        ],
+        "inseparable_misuse_pairs_recorded_as_confounded": {
+          "C": [],
+          "D": [
+            "add:D~add:h0",
+            "add:D~add:h1",
+            "add:D~subtract:h0",
+            "add:D~subtract:h1",
+            "add:h0~add:h1",
+            "add:h0~subtract:D",
+            "add:h0~subtract:h0",
+            "add:h0~subtract:h1",
+            "add:h1~subtract:D",
+            "add:h1~subtract:h0",
+            "add:h1~subtract:h1",
+            "subtract:D~subtract:h0",
+            "subtract:D~subtract:h1",
+            "subtract:h0~subtract:h1"
+          ],
+          "R": [
+            "add:D~add:h0",
+            "add:D~add:h1",
+            "add:D~neglect",
+            "add:D~subtract:h0",
+            "add:D~subtract:h1",
+            "add:h0~add:h1",
+            "add:h0~neglect",
+            "add:h0~subtract:D",
+            "add:h0~subtract:h0",
+            "add:h0~subtract:h1",
+            "add:h1~neglect",
+            "add:h1~subtract:D",
+            "add:h1~subtract:h0",
+            "add:h1~subtract:h1",
+            "neglect~subtract:D",
+            "neglect~subtract:h0",
+            "neglect~subtract:h1",
+            "subtract:D~subtract:h0",
+            "subtract:D~subtract:h1",
+            "subtract:h0~subtract:h1"
+          ]
+        },
+        "separated_study_values_per_foil": {
+          "C": {
+            "digit_copy": 3,
+            "wrong_law": 3
+          },
+          "D": {
+            "digit_copy": 3,
+            "relevant_twin": 3,
+            "replace:D": 3,
+            "replace:d": 3,
+            "replace:h0": 3,
+            "replace:h1": 3,
+            "subtract:d": 3
+          },
+          "R": {
+            "add:D": 3,
+            "add:h0": 3,
+            "add:h1": 3,
+            "digit_copy": 3,
+            "neglect": 3,
+            "placebo": 3,
+            "replace:D": 3,
+            "replace:d": 3,
+            "replace:h0": 3,
+            "replace:h1": 3,
+            "subtract:D": 3,
+            "subtract:d": 3,
+            "subtract:h0": 3,
+            "subtract:h1": 3
+          }
+        }
+      }
+    },
+    {
+      "id": "2.7",
+      "name": "gold trace for every cell, last value equals the cell gold (1e-9)",
+      "status": "PASS",
+      "values": {
+        "cells_without_trace": [],
+        "n_cells": 37,
+        "n_traces": 37,
+        "wrong_last_value": []
+      }
+    },
+    {
+      "id": "2.7b",
+      "name": "target naming (target_symbols and target_phrases on every row)",
+      "status": "PASS",
+      "values": {
+        "n_rows": 37,
+        "rows_without": []
+      }
+    },
+    {
+      "id": "3.2.scene",
+      "name": "the scene clause is in every cell's base context",
+      "status": "PASS",
+      "values": {
+        "n_rows": 37
+      }
+    },
+    {
+      "id": "4.1",
+      "name": "grading dry run: the gold in every declared format grades CORRECT under every view",
+      "status": "PASS",
+      "values": {
+        "alt_unit_findings_not_blocking": {
+          "count": 0,
+          "examples": [],
+          "note": "s194 also rewrites the gold in every other unit of its dimension (up to 17-digit integers); the standard requires the three declared answer formats, so these are recorded, not blocking"
+        },
+        "failures": [],
+        "n_cells": 37,
+        "n_checks_run_all_kinds": 2296
+      }
+    },
+    {
+      "id": "4.2",
+      "name": "foil dry run: every misuse value and the placebo grade NOT CORRECT under the primary view",
+      "status": "PASS",
+      "values": {
+        "failures": []
+      }
+    },
+    {
+      "id": "6.2",
+      "name": "familiarity tag of the C quantity (the share across the set is in composition.json)",
+      "status": "PASS",
+      "values": {
+        "reason": "That the outflow speed of Torricelli's law does not depend on the density of the liquid is standard but is usually stated for the speed, not for the draining time.",
+        "tag": "standard"
+      }
+    }
+  ],
+  "data_role": "EXPLORATION",
+  "dataset": "m250_explore_v2",
+  "failed_checks": [],
+  "instance": 0,
+  "judge_checks_pending": [
+    "5.1-5.4 panel review",
+    "6.1 blind naturalness"
+  ],
+  "lineage": {
+    "base_problem": "dataset v1 instance 0 problem + scene clause",
+    "kind": "UPGRADED_V1",
+    "spec_module": "roles_m250r1_d"
+  },
+  "n_cells": 37,
+  "n_checks": 28,
+  "n_pass": 28,
+  "panel": {
+    "admission_5.x": "PENDING",
+    "naturalness_6.1": "PENDING",
+    "packets": "scripts/v2/s199_m250_panel_packets.py",
+    "status": "PENDING"
+  },
+  "status": "MACHINE_ADMITTED",
+  "structure_id": "S93",
+  "summary": {
+    "c_familiarity": "standard",
+    "cert_version": "v2.1",
+    "domain": "fluids",
+    "has_c": true,
+    "has_k": false,
+    "heldout_values": [
+      0.5,
+      1.7
+    ],
+    "k_out_feasible": null,
+    "law_family": "torricelli_tank_drain_time",
+    "level": "intro_university",
+    "n_computed_nodes": 3,
+    "no_c_reason": null,
+    "no_k_reason": "The regime (ideal liquid, small hole, negligible surface speed) is stated as assumptions without a free value; the quantities that could define it, the tank and hole diameters, are already inputs, and a viscosity or surface-speed correction would change the law without a certified out-of-regime answer for this question.",
+    "quantity_phrase": "a widening of the hole",
+    "scene_clause": "A rain barrel with a hole in its bottom stands beside the tank. Water leaves the tank only through the hole in its bottom, and the hole stays circular.",
+    "spec_version": "v2.1",
+    "title": "Time for a tank to drain through a hole in its bottom",
+    "unit": "mm",
+    "values": [
+      0.6,
+      1.3,
+      1.9
+    ]
+  }
+}

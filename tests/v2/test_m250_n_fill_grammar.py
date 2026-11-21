@@ -13,6 +13,10 @@ from physmon.benchmark.v2 import rolevalue_v2 as r2
 MODULES = (
     "roles_m0v25", "roles_m250_a", "roles_m250_b", "roles_m250_c", "roles_m250_d", "roles_m250n_mech", "roles_m250n_em",
     "roles_m250n_thermo", "roles_m250n_waves", "roles_m250n_modern", "roles_m250n_extra", "roles_m250n_circ", "roles_m250n_qastro",
+    # repair round 1 (J15.1-059)
+    "roles_m250r1_a", "roles_m250r1_b", "roles_m250r1_c", "roles_m250r1_d", "roles_m250r1n_mech", "roles_m250r1n_em",
+    "roles_m250r1n_thermo", "roles_m250r1n_waves", "roles_m250r1n_modern", "roles_m250r1n_extra", "roles_m250r1n_circ",
+    "roles_m250r1n_qastro",
 )
 BANNED_FILLS = ("further a little", "another a little", "a further a ", "another a ", "by a further a", "a further an ")
 # 'a' before a number read with a vowel sound (eight, eleven, eighteen, eighty)
