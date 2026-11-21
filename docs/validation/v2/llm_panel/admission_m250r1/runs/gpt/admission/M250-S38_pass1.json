@@ -1,0 +1,100 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S38",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:37:55+00:00",
+  "completed_at": "2026-11-21T14:38:44+00:00",
+  "minutes_spent": 0.83,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Static equilibrium gives ground normal N = (12 + 70)g = 803.6 N. Taking moments about the foot gives horizontal ground friction F = g(12/2 + 70×0.6)cot(theta) = 470.4 cot(theta) N. The total ground force is sqrt(803.6^2 + (470.4 cot(theta))^2).",
+    "assumptions": [
+      "The ladder and person are in static equilibrium at the final angle theta.",
+      "The smooth wall supplies only a horizontal reaction.",
+      "The shutter does not contact or support the ladder.",
+      "The problem explicitly identifies 62 degrees as the initial angle but does not specify the final angle or explicitly say that it remains unchanged."
+    ],
+    "answer": null,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T1EB2": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T49C6": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T5690": {
+      "stratum": "C",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T038B": {
+      "stratum": "C",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TA81B": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TCE71": {
+      "stratum": "R",
+      "answer_with_sentence": 939.71,
+      "regime": null
+    },
+    "TD573": {
+      "stratum": "R",
+      "answer_with_sentence": 939.71,
+      "regime": null
+    },
+    "TEA7A": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The description expressly assigns 62 degrees to initial setup, while the requested equilibrium force depends on the unspecified final angle.",
+    "rendering_not_minimal": "The angular-change variants alternate between 'a few degrees' and the definite value 18 degrees, so they do not preserve the same stated numerical quantity."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "If the ladder remains at 62 degrees, the total ground force is 841.62 N; if it is repositioned to 44 degrees before the person stands still, the force is 939.71 N. The base description distinguishes initial and final configurations without fixing their relationship."
+  ],
+  "notes": "Null answers indicate that the final angle is not fixed by the corresponding standalone problem. If unchanged orientation is intended implicitly, the base answer and all D/C answers are 841.62 N. TCE71 and TD573 give 939.71 N when their stated 18-degree reduction is applied to the initial 62-degree angle. Ladder length cancels because every torque arm contains the same length factor. An earlier experiment supplies no specified physical connection to the present equilibrium. The shutter statements are disconnected under the ordinary reading that 'beside' does not imply contact. The two length statements preserve 5.5 m; the explicitly numerical angular statements preserve 18 degrees, but the 'few degrees' statements do not.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "3d4dd2755f745437ec181abf53fe78cb3b68b36222663951613303303c7d7d59",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

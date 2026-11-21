@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch02",
+  "item_id": "M250-S211",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:45:30Z", "completed_at": "2026-11-21T10:51:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Superposition: uniform field in off-centre cavity E_cav = rho d/(3 eps0) = E0 d/R; a = q0 E_cav/m", "assumptions": ["fixed uniform charge in remaining material", "bead does not disturb the charge", "gravity neglected, released from rest"], "answer": 48.0, "unit": "m/s^2"},
+  "stratum_assignments": {
+    "TAF10": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null},
+    "T1D94": {"stratum": "R", "answer_with_sentence": 20.0, "regime": null},
+    "TEFF1": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null},
+    "T052D": {"stratum": "C", "answer_with_sentence": 48.0, "regime": null},
+    "TD82F": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null},
+    "T4613": {"stratum": "C", "answer_with_sentence": 48.0, "regime": null},
+    "T2176": {"stratum": "R", "answer_with_sentence": 20.0, "regime": null},
+    "T7F8C": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Claims agree with pass 1. Checked R answers: clip 0.25 g -> m = 0.75 g, a = 0.024/7.5e-4 = 32 m/s^2; 0.7 g -> 20 m/s^2; 1.4 g -> 0.024/1.9e-3 = 12.63 m/s^2. Base 48 m/s^2. Cavity radii 3.5, 5.5, 8.5 cm all keep the cavity wholly inside (6 + 8.5 = 14.5 < 20 cm), and the uniform cavity field is independent of the cavity radius, so C is correct. The authors' cancellation chain (Qc built from a^3 then divided by a^3) is somewhat contrived but physically correct. Minimal pairs: TAF10/T1D94 differ only in 'earlier trial only' vs 'when it is released' (0.7 g); TEFF1/T2176 differ in flag vs bead plus the extra clause 'before it is released', a timing phrase consistent with the intended attachment, same 0.7 g. T7F8C and TD82F are declared numeral-free twins. Naturalness slightly artificial because of the flag/clip scene additions."
+}

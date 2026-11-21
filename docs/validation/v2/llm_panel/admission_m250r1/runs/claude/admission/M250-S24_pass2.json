@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch11",
+  "item_id": "M250-S24",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:34:00Z", "completed_at": "2026-11-21T10:39:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "W = Q_H (1 - T_C/T_H)", "assumptions": ["reversible engine", "Q_H = 800 kJ per cycle"], "answer": 400.0, "unit": "kJ"},
+  "stratum_assignments": {
+    "T82B8": {"stratum": "R", "answer_with_sentence": 480.0, "regime": null},
+    "TB635": {"stratum": "C", "answer_with_sentence": 400.0, "regime": null},
+    "TD300": {"stratum": "D", "answer_with_sentence": 400.0, "regime": null},
+    "TF51D": {"stratum": "D", "answer_with_sentence": 400.0, "regime": null},
+    "T9558": {"stratum": "R", "answer_with_sentence": 480.0, "regime": null},
+    "TC060": {"stratum": "D", "answer_with_sentence": 400.0, "regime": null},
+    "T77C1": {"stratum": "D", "answer_with_sentence": 400.0, "regime": null},
+    "TBF70": {"stratum": "C", "answer_with_sentence": 400.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"], "defect_reasons": {"other": "The claims for TC060 and TF51D label the quantity 'a temperature rise of the hot reservoir', although these sentences warm the copper block; a metadata label only, the strata and answers are right."}, "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked: q = 70 -> 800*370/670 = 441.791 kJ; 150 -> 480 kJ; 250 -> 800*550/850 = 517.647 kJ. C cancellation for the ideal-gas Carnot cycle is correct (n cancels). Minimal pairs hold: TC060/T82B8 differ only in 'copper block' vs 'hot reservoir'; TD300/T9558 differ only in 'In an earlier experiment' vs 'Before the first cycle'; T77C1 and TF51D are declared numeral-free twins. Agreement with pass 1."
+}

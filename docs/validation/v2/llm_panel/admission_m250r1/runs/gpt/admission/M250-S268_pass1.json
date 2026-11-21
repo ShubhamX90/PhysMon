@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S268",
+  "pass_number": 1,
+  "started_at": "2026-11-21T13:50:30+00:00",
+  "completed_at": "2026-11-21T13:51:27+00:00",
+  "minutes_spent": 0.95,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "L = μ₀N²πr²/ℓ = 0.00142163 H. At steady state the solenoid shorts the parallel resistor, giving I₀ = 12/4 = 3 A. During discharge, L di/dt = -R₂i, so the total resistor heat is ∫R₂i²dt = LI₀²/2.",
+    "assumptions": [
+      "The long solenoid is represented by its ideal, linear air-core inductance.",
+      "The second resistor has finite positive resistance.",
+      "The stated discharge path dissipates all initially stored magnetic energy in the second resistor."
+    ],
+    "answer": 0.00639735,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "T212D": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00639735,
+      "regime": null
+    },
+    "T000E": {
+      "stratum": "R",
+      "answer_with_sentence": 0.016893,
+      "regime": null
+    },
+    "T7621": {
+      "stratum": "C",
+      "answer_with_sentence": 0.00639735,
+      "regime": null
+    },
+    "T200B": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00639735,
+      "regime": null
+    },
+    "T8F98": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00639735,
+      "regime": null
+    },
+    "T0F51": {
+      "stratum": "R",
+      "answer_with_sentence": 0.016893,
+      "regime": null
+    },
+    "T5C53": {
+      "stratum": "C",
+      "answer_with_sentence": 0.00639735,
+      "regime": null
+    },
+    "TC1E1": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00639735,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T212D and TC1E1 specify only 'small emf', whereas their otherwise matching counterparts T8F98 and T200B specify 7.5 V, violating the required preservation of the number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics is well-posed. With an aiding 7.5 V battery in the main supply, I₀ = 19.5/4 = 4.875 A and Q = 0.016893 J. 'The battery' in T0F51 refers naturally to the main battery; the doorbell source is called a cell. Batteries used only in an earlier run do not determine the stated steady current in the present run. Doorbell batteries are disconnected from the target circuit. The second resistor's resistance sets the discharge time constant but cancels from the integrated heat. Both resistance variants specify 47 Ω consistently.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "90ec49f7594c1f32c4b488d705441541165592f6900322eef785df30961ed08c",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S267",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "The capacitor sees a Thevenin resistance Rth = (4.7 kΩ)(6.8 kΩ)/(4.7 kΩ + 6.8 kΩ) = 2.77913 kΩ. Its voltage is V(t) = Vfinal[1 - exp(-t/(Rth C))], so t90 = Rth C ln(10).",
+    "assumptions": [
+      "The stated initially uncharged condition applies at switch closure.",
+      "For the added parallel capacitance variants, the combined capacitance starts at zero voltage.",
+      "The flash unit and its battery are electrically separate from the charging circuit."
+    ],
+    "answer": 0.140782,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T77C0": {
+      "stratum": "C",
+      "answer_with_sentence": 0.140782,
+      "regime": null
+    },
+    "TA387": {
+      "stratum": "D",
+      "answer_with_sentence": 0.140782,
+      "regime": null
+    },
+    "TC55C": {
+      "stratum": "C",
+      "answer_with_sentence": 0.140782,
+      "regime": null
+    },
+    "TDA93": {
+      "stratum": "R",
+      "answer_with_sentence": 0.23677,
+      "regime": null
+    },
+    "TE837": {
+      "stratum": "R",
+      "answer_with_sentence": 0.23677,
+      "regime": null
+    },
+    "T1015": {
+      "stratum": "D",
+      "answer_with_sentence": 0.140782,
+      "regime": null
+    },
+    "T7FFF": {
+      "stratum": "D",
+      "answer_with_sentence": 0.140782,
+      "regime": null
+    },
+    "T6164": {
+      "stratum": "D",
+      "answer_with_sentence": 0.140782,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TA387 and T7FFF specify only a 'small amount' of additional capacitance, whereas the corresponding numerical variants specify 15 μF, violating the required preservation of number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base circuit has a unique charging time under its stated initial condition. Adding 15 μF gives a total capacitance of 37 μF. Earlier-run additions have no effect on the present run with the stated initial condition. Both emf sentences are assigned C by interpreting 'the battery' as the main circuit battery; because the description also mentions the flash battery, that reference has a wording ambiguity. If it instead refers to the separate flash battery, its role is D and the numerical answer remains unchanged. No information beyond this packet was consulted.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:22:47+00:00",
+  "completed_at": "2026-11-21T14:23:45+00:00",
+  "minutes_spent": 0.96,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "796fe4fdecf8c3448a328dedeca93a1612a1698d7ec480cc7e9fa75b81315e69",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S280",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Use mu = gR² and vis-viva, v² = mu(2/r - 1/a). With a = (r1+r2)/2, the total supplied speed change is sqrt(mu/r1)[sqrt(2r2/(r1+r2))-1] + sqrt(mu/r2)[1-sqrt(2r1/(r1+r2))].",
+    "assumptions": [
+      "The circular-orbit radii are measured from the planet's center: r1 = 1837000 m and r2 = 4237000 m.",
+      "The requested total is the sum of the two instantaneous prograde speed increments.",
+      "When the initial orbit's altitude is increased, the two-burn transfer starts from that revised circular orbit; any preparation maneuver is outside the requested two burns."
+    ],
+    "answer": 534.2,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T53EE": {
+      "stratum": "R",
+      "answer_with_sentence": 373.0,
+      "regime": null
+    },
+    "TE6AF": {
+      "stratum": "D",
+      "answer_with_sentence": 534.2,
+      "regime": null
+    },
+    "TCF66": {
+      "stratum": "R",
+      "answer_with_sentence": 373.0,
+      "regime": null
+    },
+    "TC95F": {
+      "stratum": "C",
+      "answer_with_sentence": 534.2,
+      "regime": null
+    },
+    "T1718": {
+      "stratum": "D",
+      "answer_with_sentence": 534.2,
+      "regime": null
+    },
+    "T88D6": {
+      "stratum": "D",
+      "answer_with_sentence": 534.2,
+      "regime": null
+    },
+    "T4C56": {
+      "stratum": "D",
+      "answer_with_sentence": 534.2,
+      "regime": null
+    },
+    "T6EC6": {
+      "stratum": "C",
+      "answer_with_sentence": 534.2,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The altitude-increase variants do not all preserve the required number and unit: T1718 and T4C56 specify only 'a small amount', whereas the other altitude-increase sentences specify 470 km."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics problem is well-posed and solvable. Its gravitational parameter is 4.88781378e12 m³/s². Increasing the initial altitude from 100 km to 570 km gives r1 = 2307000 m and a total transfer delta-v of approximately 372.98 m/s. Spacecraft mass cancels between gravitational force and inertia. The earlier flight and relay orbit have no physical path to the target under the stated isolation conditions. The invalid verdict concerns the explicit requirement that quantity variants preserve their numerical value and unit; the unspecified small increases do not affect their D classifications.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:20:58+00:00",
+  "completed_at": "2026-11-21T14:22:14+00:00",
+  "minutes_spent": 1.27,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f027aa9b47ac5fdf2f53dbf047462555206dac330528c169d3f5fa4f5495152d",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

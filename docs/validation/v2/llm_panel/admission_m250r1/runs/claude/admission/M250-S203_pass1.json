@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch03",
+  "item_id": "M250-S203",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:28:00Z", "completed_at": "2026-11-21T10:36:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Bead on rotating hoop (rotating frame): equilibrium cos(theta) = g/(omega^2 R); small-oscillation angular frequency Omega = omega sin(theta); period T = 2 pi/Omega", "assumptions": ["frictionless bead", "omega held constant by motor", "omega^2 R > g so off-axis equilibrium exists (19.6 > 9.8)", "platform at rest (inertial) unless stated otherwise"], "answer": 1.0365, "unit": "s"},
+  "stratum_assignments": {
+    "T30AD": {"stratum": "C", "answer_with_sentence": 1.0365, "regime": null},
+    "TD316": {"stratum": "D", "answer_with_sentence": 1.0365, "regime": null},
+    "T9510": {"stratum": "D", "answer_with_sentence": 1.0365, "regime": null},
+    "T8E51": {"stratum": "D", "answer_with_sentence": 1.0365, "regime": null},
+    "T4B28": {"stratum": "R", "answer_with_sentence": 1.1296, "regime": null},
+    "T3B23": {"stratum": "C", "answer_with_sentence": 1.0365, "regime": null},
+    "T319B": {"stratum": "R", "answer_with_sentence": 1.1296, "regime": null},
+    "T9186": {"stratum": "D", "answer_with_sentence": 1.0365, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["rendering_not_minimal"], "defect_reasons": {"rendering_not_minimal": "T9510 and T9186 say 'a few metres per second squared' instead of 2.1 m/s^2; acceptable only as numeral-free controls."}, "defect_severity": {"rendering_not_minimal": "low"},
+  "counterexamples": [],
+  "notes": "Base: cos(theta) = 9.8/(49*0.4) = 0.5, theta = 60 deg, Omega = 7 sin60 = 6.0622 rad/s, T = 1.0365 s. With upward platform acceleration 2.1 m/s^2, g_eff = 11.9: cos(theta) = 0.60714, sin^2 = 0.63138, Omega^2 = 30.9375, Omega = 5.5621, T = 1.1296 s (equilibrium still exists, 11.9 < 19.6). Mass cancels from both equilibrium and oscillation equations (C). Crane load has no coupling to the hoop (D). Earlier-run acceleration leaves no state (D)."
+}

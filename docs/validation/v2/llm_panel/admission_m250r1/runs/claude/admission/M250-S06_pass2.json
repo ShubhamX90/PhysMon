@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch01",
+  "item_id": "M250-S06",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:21:00Z", "completed_at": "2026-11-21T10:26:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "R_p = R2 R3/(R2+R3); I = V/(R1+R_p); I3 = I R_p / R3", "assumptions": ["ideal battery and wires", "ohmic resistors", "lamp loop isolated from the battery network"], "answer": 0.5, "unit": "A"},
+  "stratum_assignments": {
+    "T272F": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null},
+    "T3DE4": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null},
+    "T7E58": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null},
+    "T115C": {"stratum": "R", "answer_with_sentence": 0.347826, "regime": null},
+    "T7719": {"stratum": "R", "answer_with_sentence": 0.347826, "regime": null},
+    "TBEF7": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked R answers: q = 1.5 -> 12/9.5 * 4/12 = 0.421053 A; q = 3.5 -> 12/11.5 * 4/12 = 0.347826 A; q = 7 -> 12/15 * 4/12 = 0.266667 A. Minimal pairs T7E58/T115C (lamp vs battery) and T3DE4/T7719 (earlier experiment only vs before the measurement) keep 3.5 ohm and differ only in attachment. T272F and TBEF7 are declared numeral-free controls. Agrees with pass 1."
+}

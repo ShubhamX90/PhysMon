@@ -1,0 +1,99 @@
+{
+  "item_id": "M250-S12",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Static friction supplies centripetal force: mv²/r ≤ μ_s mg, giving v_max = sqrt(μ_s g r).",
+    "assumptions": [
+      "The car follows a circular path at constant speed on the horizontal road.",
+      "Static friction provides the lateral force, with no other material lateral forces.",
+      "The car's path radius must be specified separately from the road's inner-edge radius."
+    ],
+    "answer": null,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T02CA": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T82EB": {
+      "stratum": "R",
+      "answer_with_sentence": 18.3875,
+      "regime": null
+    },
+    "T7092": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T5A6E": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T9AEC": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TFE1E": {
+      "stratum": "C",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T79A4": {
+      "stratum": "C",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TF5BA": {
+      "stratum": "R",
+      "answer_with_sentence": 18.3875,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The specified 50 m radius belongs to the road's inner edge, while the car's path radius and the road's outer boundary are unspecified, preventing a unique maximum speed.",
+    "rendering_not_minimal": "The distance variants T7092 and T5A6E replace the explicit 7.5 m displacement with 'a little', failing the required preservation of the numerical quantity and unit."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A car path of radius 50 m gives sqrt(0.6 × 9.8 × 50) = 17.1464 m/s, whereas a path of radius 57.5 m gives 18.3875 m/s; the base description does not select either path."
+  ],
+  "notes": "Null answers indicate that the current car-path radius remains unspecified. For T82EB and TF5BA, the numerical answers interpret '7.5 m further' as an offset from the stated inner edge, giving r = 57.5 m. The cyclist and earlier-run statements do not determine the current car's radius. Both mass statements cancel through mv²/r = μ_s mg. The explicit distance variants consistently use 7.5 m, and both mass variants consistently use 1350 kg; the vague distance variants do not preserve that explicit distance.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T19:07:54+00:00",
+  "completed_at": "2026-11-21T19:08:48+00:00",
+  "minutes_spent": 0.91,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "c193f29c33d6f292dbe9913089b3576b3b3324e45852eea590e3f3615d8b2c67",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

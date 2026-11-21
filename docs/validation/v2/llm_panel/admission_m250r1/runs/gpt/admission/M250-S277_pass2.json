@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S277",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "The proper transit time is L/(gamma*v), with gamma*v/c = pc/(mc^2). Hence Ld = c*tau0*(pc/mc^2) = 223.652 m and F = exp(-L/Ld).",
+    "assumptions": [
+      "Special-relativistic momentum and proper time apply.",
+      "The fraction refers to pions entering the upstream end.",
+      "Momentum remains constant and decay is the only loss mechanism, as stated.",
+      "Energy and time units are converted consistently."
+    ],
+    "answer": 0.639466,
+    "unit": "1"
+  },
+  "stratum_assignments": {
+    "T86A1": {
+      "stratum": "R",
+      "answer_with_sentence": 0.549282,
+      "regime": null
+    },
+    "T456D": {
+      "stratum": "D",
+      "answer_with_sentence": 0.639466,
+      "regime": null
+    },
+    "TD9FC": {
+      "stratum": "D",
+      "answer_with_sentence": 0.639466,
+      "regime": null
+    },
+    "TA551": {
+      "stratum": "R",
+      "answer_with_sentence": 0.549282,
+      "regime": null
+    },
+    "TA31E": {
+      "stratum": "D",
+      "answer_with_sentence": 0.639466,
+      "regime": null
+    },
+    "T40C2": {
+      "stratum": "C",
+      "answer_with_sentence": 0.639466,
+      "regime": null
+    },
+    "T751A": {
+      "stratum": "C",
+      "answer_with_sentence": 0.639466,
+      "regime": null
+    },
+    "TFEF0": {
+      "stratum": "D",
+      "answer_with_sentence": 0.639466,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "I withdraw the pass-1 rendering_not_minimal finding: pass 2 explicitly identifies TA31E and TFEF0 as numeral-free controls, rather than claiming they preserve the numeric quantity. Their stated control transformations are accurate. The actual minimal pairs preserve 34 m and change the event or object attachment as intended. All certified answers agree with the decay law: extensions of 16, 34 and 51 m give 0.595317, 0.549282 and 0.509078, respectively. Earlier-run extensions apply only to that earlier run, and cooling-water extensions do not change the flight path. Spill population cancels in the surviving fraction. The relations and cancellation expression are dimensionally consistent after converting GeV and MeV to matching units and ns to seconds.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:38:22+00:00",
+  "completed_at": "2026-11-21T14:38:48+00:00",
+  "minutes_spent": 0.44,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "be3c03dffebfb74cb8f2f91082d5b5912b8209f7fc3c2c139c6d5cab42a59d7f",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch02",
+  "item_id": "M250-S93",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:22:30Z", "completed_at": "2026-11-21T10:27:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "t = (A/a) sqrt(2/g) (sqrt(h0) - sqrt(h1))", "assumptions": ["ideal quasi-steady efflux, negligible surface speed, jet area = hole area", "atmospheric pressure at surface and jet"], "answer": 323.25, "unit": "s"},
+  "stratum_assignments": {
+    "T8938": {"stratum": "C", "answer_with_sentence": 323.25, "regime": null},
+    "T5A35": {"stratum": "D", "answer_with_sentence": 323.25, "regime": null},
+    "T1199": {"stratum": "D", "answer_with_sentence": 323.25, "regime": null},
+    "T5BC7": {"stratum": "R", "answer_with_sentence": 253.15, "regime": null},
+    "T5A43": {"stratum": "D", "answer_with_sentence": 323.25, "regime": null},
+    "T68EC": {"stratum": "D", "answer_with_sentence": 323.25, "regime": null},
+    "T1C18": {"stratum": "R", "answer_with_sentence": 253.15, "regime": null},
+    "T41BC": {"stratum": "C", "answer_with_sentence": 323.25, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Claims agree with pass 1. Checked R answers: d = 10.6 mm -> A/a = 1424.0, t = 287.69 s; 11.3 mm -> 1253.0, t = 253.15 s; 11.9 mm -> 1129.9, t = 228.27 s. Base 323.249 s. Density cancels in Torricelli (C) correctly. Minimal pairs: T1199/T5BC7 differ only in barrel vs tank (same tense, 1.3 mm); T5A43/T1C18 differ only in after vs before timing (both past tense, 1.3 mm). T5A35 and T68EC are declared numeral-free twins, so the missing number is by design. Density values 958-997 kg/m^3 are physically plausible for liquid water."
+}

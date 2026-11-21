@@ -1,0 +1,96 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S272",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:07:32+00:00",
+  "completed_at": "2026-11-21T14:08:28+00:00",
+  "minutes_spent": 0.93,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Resonances satisfy L + e = (2n + 1)c/(4f). Successive resonant lengths therefore differ by c/(2f) = 0.3349609375 m. With the stated surface speed v = 0.015 m/s, the interval is c/(2fv) = 22.3307291667 s.",
+    "assumptions": [
+      "The stated 1.5 cm/s is the actual water-surface speed during the interval.",
+      "The frequency, sound speed and end correction remain constant.",
+      "The falling water reaches both successive resonant lengths."
+    ],
+    "answer": 22.3307291667,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TF4FF": {
+      "stratum": "D",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "TEA1B": {
+      "stratum": "C",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "T49F8": {
+      "stratum": "D",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "TFF60": {
+      "stratum": "C",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "TBEDA": {
+      "stratum": "C",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "T9749": {
+      "stratum": "C",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "T3D7A": {
+      "stratum": "D",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "TB8E5": {
+      "stratum": "D",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T3D7A and TB8E5 replace the numerical specification 0.9 cm/s in their respective counterparts TF4FF and T49F8 with an unspecified steady rate, violating the required preservation of number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "Adding 0.9 cm/s to 1.5 cm/s would produce an interval of 13.9567057292 s, but this requires interpreting 1.5 cm/s as the first tap's isolated contribution rather than the actual surface speed explicitly stated in the problem."
+  ],
+  "notes": "The base problem is well-posed. Initial length and fixed end correction cancel when successive resonance conditions are subtracted. The earlier-run outlet and the pond outlets are disconnected from the current air-column motion. For TEA1B and T9749, I retain the explicitly stated actual surface speed of 1.5 cm/s: the outlet contribution participates in the flow balance but drops out once total speed is fixed, hence C. Their wording invites an alternative additive-rate reading, under which they would be R and the interval would be 13.9567057292 s. To establish that reading unambiguously, the base must specify that the original tap alone lowers the surface at 1.5 cm/s and that the outlet contributions add. All explicit outlet-rate numbers agree at 0.9 cm/s; both initial-length sentences agree at 130 cm.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "c586470ae54ecfe8a49883142f5bfeffdc5dcdc88557b5d9963ff8e189d44dc0",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

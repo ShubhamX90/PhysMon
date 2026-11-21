@@ -1,0 +1,100 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S36",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:35:44+00:00",
+  "completed_at": "2026-11-21T14:36:51+00:00",
+  "minutes_spent": 1.12,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For a physical pendulum, I_p theta'' = -mgd sin(theta). For small oscillations, T = 2*pi*sqrt(I_p/(mgd)), where I_p = m(L^2/12 + d^2). Thus T = 2*pi*sqrt((1.2^2/12 + 0.3^2)/(9.8*0.3)) = 1.67925 s.",
+    "assumptions": [
+      "The thin uniform rod is rigid, with negligible transverse dimensions.",
+      "Small oscillations occur about the stable equilibrium with the centre of mass below the pivot.",
+      "For sentences describing a movement in the current experiment, 0.3 m is interpreted as the offset before that movement."
+    ],
+    "answer": 1.67925,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TA36F": {
+      "stratum": "C",
+      "answer_with_sentence": 1.67925,
+      "regime": null
+    },
+    "TFD4F": {
+      "stratum": "D",
+      "answer_with_sentence": 1.67925,
+      "regime": null
+    },
+    "T1443": {
+      "stratum": "D",
+      "answer_with_sentence": 1.67925,
+      "regime": null
+    },
+    "TF2C6": {
+      "stratum": "D",
+      "answer_with_sentence": 1.67925,
+      "regime": null
+    },
+    "T2919": {
+      "stratum": "C",
+      "answer_with_sentence": 1.67925,
+      "regime": null
+    },
+    "T7714": {
+      "stratum": "D",
+      "answer_with_sentence": 1.67925,
+      "regime": null
+    },
+    "TFE49": {
+      "stratum": "R",
+      "answer_with_sentence": 2.33906,
+      "regime": null
+    },
+    "T1D34": {
+      "stratum": "R",
+      "answer_with_sentence": 2.33906,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal",
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The pivot-displacement sentences do not consistently preserve the required numerical quantity: TF2C6 and T7714 specify only 'a few centimetres', whereas the other displacement sentences specify 20.5 cm.",
+    "insufficient_boundary_condition": "TFE49 does not establish whether the stated 0.3 m offset describes the pivot before or after the movement that occurred before swinging, allowing different oscillation periods."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high",
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "For TFE49, an initial offset of 0.300 m followed by a 0.205 m movement toward the centre gives a final offset of 0.095 m and T = 2.33906 s.",
+    "Alternatively, for TFE49, a previous offset of 0.505 m followed by the stated movement gives the presently described offset of 0.300 m and T = 1.67925 s."
+  ],
+  "notes": "The base problem is well-posed. Mass multiplies both the rotational inertia and gravitational restoring torque and therefore cancels. Historical experiments are treated as separate from the currently specified apparatus; the second rod has no stated mechanical coupling to the swinging rod. For current movements interpreted as starting at 0.3 m, the new offset is 0.095 m and T = 2*pi*sqrt((0.12 + 0.095^2)/(9.8*0.095)). Both mass sentences preserve 1.1 kg. The numerical displacement sentences preserve 20.5 cm, but the vague displacement sentences do not supply a matching numerical value. No information outside this packet was consulted.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "656f4bff888541d6140378facac241ef175b792b7bd98f4593414ec4591a14b9",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

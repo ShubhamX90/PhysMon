@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch10",
+  "item_id": "M250-S271",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:15:00Z", "completed_at": "2026-11-21T10:23:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Thin-rod longitudinal wave speed c = sqrt(E/rho); free-free fundamental with central clamp: lambda_rod = 2L, f = c/(2L); air standing wave node spacing = lambda_air/2 = v_air/(2f) = v_air*L/c", "assumptions": ["thin rod (no lateral inertia correction)", "light disc does not load the rod", "air column resonant at rod frequency"], "answer": 0.08084, "unit": "m"},
+  "stratum_assignments": {
+    "TA297": {"stratum": "D", "answer_with_sentence": 0.08084, "regime": null},
+    "T94AF": {"stratum": "C", "answer_with_sentence": 0.08084, "regime": null},
+    "T641F": {"stratum": "C", "answer_with_sentence": 0.08084, "regime": null},
+    "TFBD6": {"stratum": "D", "answer_with_sentence": 0.08084, "regime": null},
+    "TD83B": {"stratum": "R", "answer_with_sentence": 0.10239, "regime": null},
+    "T9574": {"stratum": "C", "answer_with_sentence": 0.08084, "regime": null},
+    "T1BAE": {"stratum": "C", "answer_with_sentence": 0.08084, "regime": null},
+    "T3295": {"stratum": "R", "answer_with_sentence": 0.10239, "regime": null},
+    "T2604": {"stratum": "D", "answer_with_sentence": 0.08084, "regime": null},
+    "TFE55": {"stratum": "D", "answer_with_sentence": 0.08084, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "c = sqrt(7e10/2700) = 5091.75 m/s; f = 5091.75/2.4 = 2121.6 Hz; spacing = 343/(2*2121.6) = 0.080837 m (8.08 cm). With L = 1.52 m (clamp fitted at the middle of the extended rod): 343*1.52/5091.75 = 0.10239 m. Cross-section/diameter appear in mass and stiffness and cancel from c = sqrt(E/rho) (C, valid while the rod stays thin compared with the wavelength: 8 mm vs 2.4 m). Railing and 'earlier run only' sentences are D. Note: a diameter of 8.21 mm gives 0.529 cm^2, not 1.6 cm^2, but these are separate sentences each added alone, so no within-item contradiction. Variant pairs T94AF/T9574 (8.21 mm) and T641F/T1BAE (1.6 cm^2) state the same values. TFBD6 and TFE55 carry no number ('small amount', 'a few centimetres')."
+}

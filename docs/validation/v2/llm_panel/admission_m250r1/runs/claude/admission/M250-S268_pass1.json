@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch26",
+  "item_id": "M250-S268",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:42:00Z", "completed_at": "2026-11-21T10:51:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Steady current I = emf/R1 (the zero-resistance solenoid shorts the second resistor); long-solenoid L = mu0 N^2 pi r^2 / l; all stored energy (1/2) L I^2 is dissipated in the second resistor", "assumptions": ["ideal battery", "winding resistance negligible", "long-solenoid formula (no end corrections)", "switch opens instantly, no other dissipation or radiation"], "answer": 6.397e-3, "unit": "J"},
+  "stratum_assignments": {
+    "T212D": {"stratum": "D", "answer_with_sentence": 6.397e-3, "regime": null},
+    "T000E": {"stratum": "R", "answer_with_sentence": 1.6893e-2, "regime": null},
+    "T7621": {"stratum": "C", "answer_with_sentence": 6.397e-3, "regime": null},
+    "T200B": {"stratum": "D", "answer_with_sentence": 6.397e-3, "regime": null},
+    "T8F98": {"stratum": "D", "answer_with_sentence": 6.397e-3, "regime": null},
+    "T0F51": {"stratum": "R", "answer_with_sentence": 1.6893e-2, "regime": null},
+    "T5C53": {"stratum": "C", "answer_with_sentence": 6.397e-3, "regime": null},
+    "TC1E1": {"stratum": "D", "answer_with_sentence": 6.397e-3, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "L = 1.257e-6*800^2*pi*(0.015)^2/0.40 = 1.257e-6*640000*7.0686e-4/0.40 = 1.4216e-3 H. I = 12/4 = 3 A (the zero-resistance winding shorts the second resistor in steady state). E = 0.5*1.4216e-3*9 = 6.397e-3 J. With 19.5 V: I = 4.875 A, E = 0.5*1.4216e-3*23.766 = 1.6893e-2 J. The second resistor's value sets only the decay time constant L/R2; the total heat is independent of it (C). Earlier-run and doorbell batteries are D. The numeral-free 'small emf' sentences (T212D, TC1E1) carry no number."
+}

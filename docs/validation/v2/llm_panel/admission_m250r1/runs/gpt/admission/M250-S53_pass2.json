@@ -1,0 +1,111 @@
+{
+  "item_id": "M250-S53",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For steady conduction through layers in series, P = A ΔT/(L1/k1 + L2/k2). Thus P = 12×20/(0.20/0.8 + 0.05/0.04) = 160 W.",
+    "assumptions": [
+      "The stated steady-flow condition applies to the requested measurement, including after an added temperature increment.",
+      "The stated thermal conductivities are uniform and constant.",
+      "Perfect thermal contact and insulated edges exclude contact resistance and lateral losses."
+    ],
+    "answer": 160,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "TA69F": {
+      "stratum": "D",
+      "answer_with_sentence": 160,
+      "regime": null
+    },
+    "TFB61": {
+      "stratum": "R",
+      "answer_with_sentence": 264,
+      "regime": null
+    },
+    "T9459": {
+      "stratum": "D",
+      "answer_with_sentence": 160,
+      "regime": null
+    },
+    "T91A5": {
+      "stratum": "R",
+      "answer_with_sentence": 264,
+      "regime": null
+    },
+    "T2BD1": {
+      "stratum": "C",
+      "answer_with_sentence": 160,
+      "regime": null
+    },
+    "T0538": {
+      "stratum": "C",
+      "answer_with_sentence": 160,
+      "regime": null
+    },
+    "T6A3F": {
+      "stratum": "K",
+      "answer_with_sentence": 160,
+      "regime": "ΔT < q suffices; 20 K is below every listed threshold, 60, 75 and 95 K."
+    },
+    "TC890": {
+      "stratum": "D",
+      "answer_with_sentence": 160,
+      "regime": null
+    },
+    "T3307": {
+      "stratum": "D",
+      "answer_with_sentence": 160,
+      "regime": null
+    },
+    "TB011": {
+      "stratum": "K",
+      "answer_with_sentence": 160,
+      "regime": "ΔT < q suffices; 20 K is below every listed threshold, 60, 75 and 95 K."
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TA69F and TC890 replace their numerical twins' specified 13 K with an unspecified 'few kelvin', violating the review instructions' requirement that variants of the same quantity preserve its number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A rise of 3 K can satisfy 'a few kelvin' but does not describe the 13 K increment specified by either numerical twin."
+  ],
+  "notes": "The authors explicitly identify the numeral-free controls as intentional; this explains the mismatch found in pass 1 but does not satisfy the frozen instructions' same-number requirement. The explicitly claimed minimal pairs T3307/TFB61 and T9459/T91A5 do preserve 13 K and change the intended event or object attachment. All certified numerical answers are correct under the stated steady model: relevant increments of 6, 13 and 27 K give 208, 264 and 376 W; every other listed in-regime value gives 160 W. The absolute surface temperature cancels, and both threshold claims hold at all listed values. The K predicate is sufficient, although the wording also leaves the foam intact at equality; no listed value reaches that boundary. TFB61's 'just before' wording suggests a transient, but the explicit steady-flow statement supports the authors' calculation; specifying measurement after steady state is restored would improve clarity. The destruction threshold based solely on temperature difference is physically artificial but can be used as a stipulated model.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:02:27+00:00",
+  "completed_at": "2026-11-21T14:03:27+00:00",
+  "minutes_spent": 1.01,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f6db7a21b65fd136f2d4cac8be67cb8135b07daa408d0a5644b38223b9fdf972",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch07",
+  "item_id": "M250-S262",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:37:30Z", "completed_at": "2026-11-21T10:45:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Hagen-Poiseuille drainage: t = (8 eta l A / (pi R^4 rho g)) ln(h0/h1)",
+    "assumptions": ["quasi-steady laminar Poiseuille flow driven by hydrostatic head only", "end effects and exit kinetic energy neglected"],
+    "answer": 16.753,
+    "unit": "min"
+  },
+  "stratum_assignments": {
+    "TD265": {"stratum": "R", "answer_with_sentence": 26.783, "regime": null},
+    "TC2E8": {"stratum": "K", "answer_with_sentence": 16.753, "regime": "Re = rho v (2R)/eta about 3 (about 4 with any listed top-up) is far below the stated critical Re"},
+    "T3C55": {"stratum": "R", "answer_with_sentence": 26.783, "regime": null},
+    "T7A3F": {"stratum": "D", "answer_with_sentence": 16.753, "regime": null},
+    "T7B4A": {"stratum": "D", "answer_with_sentence": 16.753, "regime": null},
+    "TFF4D": {"stratum": "D", "answer_with_sentence": 16.753, "regime": null},
+    "T5EA0": {"stratum": "K", "answer_with_sentence": 16.753, "regime": "Same as TC2E8"},
+    "T75EB": {"stratum": "D", "answer_with_sentence": 16.753, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "tau = 2138.6 s. Verified: base 2138.6*ln1.6 = 1005.2 s = 16.753 min; h0 = 47, 53, 61 cm give 1350.1, 1607.0, 1907.6 s = 22.501, 26.783, 31.794 min. K predicate uses mean Poiseuille velocity rho g h0 r^2/(8 eta Lc), correct; Re about 3 at 40 cm, far below 1800-2400. The out-of-regime reference expression tc*q/1000 has no physical meaning, but it is marked reference-only and not part of the certified claim. Minimal pairs T7B4A/T3C55 and TFF4D/TD265 share 13 cm and differ only in attachment/timing. My pass-1 low rendering_not_minimal flag on T7A3F and T75EB is withdrawn: they are declared numeral-free controls. Strata agree with pass 1.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

@@ -1,0 +1,116 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S56",
+  "pass_number": 2,
+  "started_at": "2026-11-21T14:00:24+00:00",
+  "completed_at": "2026-11-21T14:01:14+00:00",
+  "minutes_spent": 0.83,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "COP_Carnot = Tc/(Th - Tc) = 275/25 = 11; COP = 0.3 × 11 = 3.3; compressor electrical power = cooling load/COP = 200/3.3.",
+    "assumptions": [
+      "The stated COP relates cooling power to compressor electrical input.",
+      "The temperatures and COP remain constant during steady operation.",
+      "For an interior lamp operating during the run being evaluated, its electrical power becomes an additional interior heat load."
+    ],
+    "answer": 60.6060606,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T2CD6": {
+      "stratum": "K",
+      "answer_with_sentence": 60.6060606,
+      "regime": "The required compressor electrical input is below its continuous rating; all listed ratings satisfy this condition."
+    },
+    "TC1B7": {
+      "stratum": "R",
+      "answer_with_sentence": 77.2727273,
+      "regime": null
+    },
+    "T3A68": {
+      "stratum": "D",
+      "answer_with_sentence": 60.6060606,
+      "regime": null
+    },
+    "T0E77": {
+      "stratum": "C",
+      "answer_with_sentence": 60.6060606,
+      "regime": null
+    },
+    "T9447": {
+      "stratum": "D",
+      "answer_with_sentence": 60.6060606,
+      "regime": null
+    },
+    "T2BAE": {
+      "stratum": "C",
+      "answer_with_sentence": 60.6060606,
+      "regime": null
+    },
+    "TB1B6": {
+      "stratum": "D",
+      "answer_with_sentence": 60.6060606,
+      "regime": null
+    },
+    "T50E9": {
+      "stratum": "K",
+      "answer_with_sentence": 60.6060606,
+      "regime": "The required compressor electrical input is below its continuous rating; all listed ratings satisfy this condition."
+    },
+    "T5601": {
+      "stratum": "D",
+      "answer_with_sentence": 60.6060606,
+      "regime": null
+    },
+    "T5F2C": {
+      "stratum": "R",
+      "answer_with_sentence": 77.2727273,
+      "regime": "This assignment requires the lamp to operate during the run whose power is requested; the sentence does not establish that temporal connection."
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "Whether T5F2C refers to the operation whose electrical power is requested or to an earlier steady operation."
+  ],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T5F2C describes a lamp operating during a past steady run without establishing that it operates during the run being evaluated, leaving the present cooling load and requested power undetermined."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "T5F2C",
+      "case": "A 55 W lamp operated during an earlier steady run and is now off, satisfying the sentence while the requested present compressor power is 200/3.3 = 60.6061 W; if the lamp operates during the evaluated run, the power is 255/3.3 = 77.2727 W."
+    }
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "All numerical calculations are correct under the authors' intended temporal interpretation. The relevant-lamp answers are 71.2121, 77.2727 and 87.8788 W for 35, 55 and 90 W. Test duration cancels, and every listed motor rating exceeds the required power. The disconnected-lamp claims hold with the stated constant-temperature kitchen and steady operation. I withdraw pass 1's rendering_not_minimal flag: pass 2 explicitly identifies T9447 and TB1B6 as deliberate numeral-free controls, rather than numerical minimal pairs. The actual claimed minimal pairs preserve 55 W. I elevate the temporal defect noted in pass 1 from a medium wording issue to a high insufficient_boundary_condition defect because the admission standard requires every condition determining the answer to be stated. T5F2C's certified answers are therefore conditionally correct but not uniquely established by its wording.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "b8e87a58003b8e2092ccbe802e3ccc97edec32b82998986f3556d49154e8294d",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

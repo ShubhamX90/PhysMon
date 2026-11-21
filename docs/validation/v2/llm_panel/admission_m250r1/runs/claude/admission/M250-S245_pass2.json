@@ -1,0 +1,30 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch04",
+  "item_id": "M250-S245",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:48:00Z", "completed_at": "2026-11-21T10:58:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "N = sqrt(2 M K) / (h/lambda), emission recoil averaging to zero", "assumptions": ["1 u = 1.66054e-27 kg, 1 eV = 1.602177e-19 J", "photon momentum constant over the sweep", "non-relativistic 1D motion"], "answer": 27163.4, "unit": "1 (photons)"},
+  "stratum_assignments": {
+    "T0167": {"stratum": "K", "answer_with_sentence": 27163.4, "regime": "sweep range exceeds the Doppler change needed to stop the atom, v0/lambda = 1.358 GHz"},
+    "T7F35": {"stratum": "D", "answer_with_sentence": 27163.4, "regime": null},
+    "T866E": {"stratum": "K", "answer_with_sentence": 27163.4, "regime": "sweep range exceeds v0/lambda = 1.358 GHz"},
+    "TAB0F": {"stratum": "C", "answer_with_sentence": 27163.4, "regime": null},
+    "TCE76": {"stratum": "R", "answer_with_sentence": 29055.6, "regime": null},
+    "TF60D": {"stratum": "C", "answer_with_sentence": 27163.4, "regime": null},
+    "T037E": {"stratum": "D", "answer_with_sentence": 27163.4, "regime": null},
+    "TC3E2": {"stratum": "R", "answer_with_sentence": 29055.6, "regime": null},
+    "T28D1": {"stratum": "D", "answer_with_sentence": 27163.4, "regime": null},
+    "T341F": {"stratum": "D", "answer_with_sentence": 27163.4, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The D rationale for T341F and T037E speaks of a nozzle that speeds up 'the helium jet', but the problem's second beam is of unspecified molecules from a second oven, so the authors' rationale misdescribes the scene (the D claim itself holds); also the sweep sentences invite deriving the velocity change from the sweep range, a reading the text does not exclude."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "notes": "Revision of pass 1: I flagged the 2.4 GHz sweep as contradicting the stated energy. On reflection the authors' K reading is defensible: the question counts photons up to the moment the atom is at rest, and a sweep range larger than the needed Doppler change v0/lambda = 800.1/589e-9 = 1.358 GHz merely contains the part used; whatever the laser does after the atom stops does not change N. All listed sweep values (2.2, 2.4, 3 GHz) exceed 1.358 GHz, so the K regime claim holds. I therefore withdraw the high contradiction flag but keep a medium note that a solver could read the sweep as the full velocity change (giving about 4.8e4). Certified answers verified: base 27163.4; K+0.009 eV: 27163.4*sqrt(0.0853/0.0763) = 28720.8; +0.011: 29055.6; +0.036: 27163.4*sqrt(0.1123/0.0763) = 32954.3. Scattering rate C chain is correct. Minimal pairs T28D1/TCE76 and T341F/TC3E2 share 0.011 eV and differ only in attachment; T7F35 and T037E are declared numeral-free twins. Pass 1 marked sweep sentences C; K with the stated regime is the better label."
+}

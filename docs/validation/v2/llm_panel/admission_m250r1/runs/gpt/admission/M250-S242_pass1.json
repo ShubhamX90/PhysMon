@@ -1,0 +1,95 @@
+{
+  "item_id": "M250-S242",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Each activity obeys A(t)=A(0)2^(-t/T). Equal detection efficiencies cancel when the count rates are equated. Thus t=ln(2400/500)/[ln(2)(1/6-1/72)]=14.8126 h. Adding 170 Bq of the longer-lived isotope to this sample changes its initial activity to 670 Bq, giving t=12.0489 h.",
+    "assumptions": [
+      "The stated half-lives describe exponential radioactive decay with constant decay constants.",
+      "The isotopes decay independently without feeding one another, as stated.",
+      "The counter has the same nonzero efficiency for both isotopes and detects only decays in this sample, as stated.",
+      "Any added activity is specified at the moment of preparation."
+    ],
+    "answer": 14.8126,
+    "unit": "h"
+  },
+  "stratum_assignments": {
+    "T922D": {
+      "stratum": "C",
+      "answer_with_sentence": 14.8126,
+      "regime": null
+    },
+    "T9D9A": {
+      "stratum": "D",
+      "answer_with_sentence": 14.8126,
+      "regime": null
+    },
+    "T84B6": {
+      "stratum": "D",
+      "answer_with_sentence": 14.8126,
+      "regime": null
+    },
+    "T7283": {
+      "stratum": "R",
+      "answer_with_sentence": 12.0489,
+      "regime": null
+    },
+    "TADA4": {
+      "stratum": "D",
+      "answer_with_sentence": 14.8126,
+      "regime": null
+    },
+    "TF3A2": {
+      "stratum": "D",
+      "answer_with_sentence": 14.8126,
+      "regime": null
+    },
+    "T6BE6": {
+      "stratum": "C",
+      "answer_with_sentence": 14.8126,
+      "regime": null
+    },
+    "T45EB": {
+      "stratum": "R",
+      "answer_with_sentence": 12.0489,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T9D9A and TF3A2 omit the added activity's number and unit, whereas the corresponding quantified additions specify 170 Bq, so the variants do not all preserve the required numerical information."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and each individual extension are physically well-posed. The invalid verdict concerns the required minimal-variant property: 'small batch' and 'small amount' do not specify 170 Bq. The quantified activity variants consistently use 170 Bq, and both efficiency variants consistently use the dimensionless value 0.36. Waste-drum activity is disconnected because the counter explicitly detects only decays in the sample; additions to an earlier sample are likewise disconnected.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T13:58:43+00:00",
+  "completed_at": "2026-11-21T13:59:25+00:00",
+  "minutes_spent": 0.71,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a10199eaa8eca828549550017a360fb8c009cfdb38d939dcf6e9b3f29da69722",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

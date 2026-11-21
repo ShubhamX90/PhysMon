@@ -1,0 +1,84 @@
+{
+  "item_id": "M250-S254",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For isotropic sound with absorption, I(r) = P exp(-alpha r)/(4 pi r^2). At r = 60 m, I = 40 exp(-0.24)/(4 pi 60^2).",
+    "assumptions": [
+      "The base measurement is made at the stated observer position, 60 m from the mast.",
+      "The microphone's height makes the stated horizontal range equal to its distance from the siren.",
+      "The dog and microphone negligibly disturb the outgoing sound field."
+    ],
+    "answer": 0.00069553,
+    "unit": "W/m^2"
+  },
+  "stratum_assignments": {
+    "T0CF8": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00069553,
+      "regime": null
+    },
+    "TA9C0": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00069553,
+      "regime": null
+    },
+    "T28D8": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00069553,
+      "regime": null
+    },
+    "T624A": {
+      "stratum": "R",
+      "answer_with_sentence": 0.000101781,
+      "regime": null
+    },
+    "T116D": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00069553,
+      "regime": null
+    },
+    "T68BD": {
+      "stratum": "R",
+      "answer_with_sentence": 0.000101781,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TA9C0 and T116D give an unquantified 'modest distance', whereas the corresponding distance variants specify 75 m, so the variants do not preserve the required number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and all individual sentence renderings are solvable. Current observer displacement increases the measurement distance to 135 m, giving 40 exp(-0.54)/(4 pi 135^2) W/m^2. An earlier experiment does not change the stated position in the present experiment. The dog's displacement has no effect within the stated propagation model. The invalid verdict concerns the required matching of numerical values across variants.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:15:11+00:00",
+  "completed_at": "2026-11-21T14:15:51+00:00",
+  "minutes_spent": 0.67,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "c433090a12c888e570e194954e0831e8282e7ac21f2d11bc4c4fd42664135a40",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

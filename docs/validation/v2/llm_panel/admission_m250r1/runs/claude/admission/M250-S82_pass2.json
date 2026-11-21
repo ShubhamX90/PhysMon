@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch16",
+  "item_id": "M250-S82",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:21:00Z", "completed_at": "2026-11-21T10:27:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Wien displacement lambda_2 = lambda_1 T_1/T_2; E = hc/lambda_2",
+    "assumptions": ["ideal blackbodies", "peak per unit wavelength", "hc = 1240 eV nm"],
+    "answer": 1.24,
+    "unit": "eV"
+  },
+  "stratum_assignments": {
+    "TEFF6": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "T80FF": {"stratum": "R", "answer_with_sentence": 1.64621, "regime": null},
+    "TF04F": {"stratum": "R", "answer_with_sentence": 1.64621, "regime": null},
+    "T099E": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "T2C66": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "TFD41": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "With T099E/TFD41 the question asks for the peak of 'the second star' in the present tense without tying it to the recorded spectrum, so a reader could take the star's post-outburst temperature (3850 K, 1.646 eV) rather than the recorded 2900 K."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "All certified answers verified: E = 1.24*(2900+q)/2900 gives 1.36828, 1.64621, 1.88138 eV for q = 300, 950, 1500 K; D answers 1.24 eV. Strata match my pass 1. Minimal pairs T099E/T80FF (after vs before recording) and TEFF6/TF04F (third vs second star) share 950 K and differ only in attachment; T2C66 and TFD41 are declared numeral-free controls of TEFF6 and T099E with matching wording. New relative to pass 1: I note a low-severity reading ambiguity for the after-recording sentences, because the question does not explicitly refer to the recorded spectrum; the 'from time to time' outburst wording and past tense favour the authors' reading, so I keep the item valid."
+}

@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch27",
+  "item_id": "M250-S65",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:50:00Z", "completed_at": "2026-11-21T10:56:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "n0 sin(theta_max) = n1 cos(theta_c) = sqrt(n1^2 - n2^2)",
+    "assumptions": ["meridional rays", "end face perpendicular to axis", "straight step-index fibre"],
+    "answer": 24.8346,
+    "unit": "deg"
+  },
+  "stratum_assignments": {
+    "TBDB7": {"stratum": "D", "answer_with_sentence": 24.8346, "regime": null},
+    "T5FB3": {"stratum": "D", "answer_with_sentence": 24.8346, "regime": null},
+    "T55EF": {"stratum": "R", "answer_with_sentence": 20.4873, "regime": null},
+    "T494E": {"stratum": "R", "answer_with_sentence": 20.4873, "regime": null},
+    "T6797": {"stratum": "D", "answer_with_sentence": 24.8346, "regime": null},
+    "T38EB": {"stratum": "D", "answer_with_sentence": 24.8346, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Authors' relations reduce to n0 sin(thm) = sqrt(n1^2 - n2^2) = 0.42. Recomputed: n0=1 -> 24.8346; 1.2 -> 20.4873; 1.33 -> 18.4085; 1.38 -> 17.7189 deg; all match, and 0.42/n0 < 1 for all values. Minimal pairs T6797/T55EF and TBDB7/T494E share index 1.2 and differ in attachment (earlier vs this experiment; trough vs in front of the end face). T38EB and T5FB3 are declared numeral-free twins with matching wording. The R sentences explicitly replace the air ('instead of in the air', 'replaces the air'), so they are stated modifications rather than contradictions. Agrees with pass 1."
+}

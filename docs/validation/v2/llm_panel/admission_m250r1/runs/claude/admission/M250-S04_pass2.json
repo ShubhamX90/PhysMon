@@ -1,0 +1,30 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch06",
+  "item_id": "M250-S04",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:55:00Z", "completed_at": "2026-11-21T11:00:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Energy conservation in SHM: (1/2) k A^2 = (1/2) m v_max^2, v_max = A sqrt(k/m)", "assumptions": ["frictionless table, massless ideal spring (stated)", "released from rest at amplitude 0.15 m"], "answer": 3.0, "unit": "m/s"},
+  "stratum_assignments": {
+    "TDAD6": {"stratum": "R", "answer_with_sentence": 1.8605, "regime": null},
+    "T8A4D": {"stratum": "C", "answer_with_sentence": 3.0, "regime": null},
+    "TAF2C": {"stratum": "C", "answer_with_sentence": 3.0, "regime": null},
+    "T95EE": {"stratum": "D", "answer_with_sentence": 3.0, "regime": null},
+    "T7685": {"stratum": "K", "answer_with_sentence": 3.0, "regime": "amplitude 0.15 m within the elastic (Hooke) range of 0.34 m"},
+    "T1436": {"stratum": "D", "answer_with_sentence": 3.0, "regime": null},
+    "T780C": {"stratum": "R", "answer_with_sentence": 1.8605, "regime": null},
+    "T2F08": {"stratum": "K", "answer_with_sentence": 3.0, "regime": "amplitude 0.15 m within the elastic (Hooke) range of 0.34 m"},
+    "T8C06": {"stratum": "D", "answer_with_sentence": 3.0, "regime": null},
+    "T2898": {"stratum": "D", "answer_with_sentence": 3.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All strata and answers agree with pass 1. R checks: 0.15*sqrt(200/1.1) = 2.0226, 0.15*sqrt(200/1.3) = 1.8605, 0.15*sqrt(200/1.7) = 1.6270 m/s. K: amplitude 0.15 m < 0.26, 0.34, 0.52 m at all listed values. C: natural lengths 0.25-0.65 m all exceed the 0.15 m compression, so the physics is consistent and L0 cancels. Minimal pairs T1436/T780C and T2898/TDAD6 share 0.8 kg and differ only in attachment; numeral-free twins match. Small remaining wording point from pass 1: the elastic-limit sentences mention extensions only, while the spring is also compressed by 0.15 m; not material."
+}

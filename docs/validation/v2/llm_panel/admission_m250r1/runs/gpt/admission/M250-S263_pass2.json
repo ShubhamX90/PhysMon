@@ -1,0 +1,95 @@
+{
+  "item_id": "M250-S263",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "At galvanometer null, R_left/X = l/(Lw-l), so rho = R_left (Lw-l) pi d^2/(4 l Lx). With R_left = 12 Ω, l = 41.5 cm, Lw = 100 cm, d = 0.0003 m and Lx = 1.5 m, X = 16.91566 Ω and rho = 7.97132e-7 Ω m. Adding q in series in the left gap replaces R_left by 12 Ω + q.",
+    "assumptions": [
+      "The uniform bridge wire has resistance proportional to length.",
+      "The sample has a uniform circular cross section.",
+      "The lamp and its battery form a separate circuit.",
+      "The reported null position applies after the modification made before balancing.",
+      "The stated negligible connection resistances and steady wire temperatures apply."
+    ],
+    "answer": 7.97132e-07,
+    "unit": "Ω m"
+  },
+  "stratum_assignments": {
+    "T0506": {
+      "stratum": "D",
+      "answer_with_sentence": 7.97132e-07,
+      "regime": null
+    },
+    "T0CEE": {
+      "stratum": "R",
+      "answer_with_sentence": 1.42155e-06,
+      "regime": null
+    },
+    "T20A1": {
+      "stratum": "C",
+      "answer_with_sentence": 7.97132e-07,
+      "regime": null
+    },
+    "TB13C": {
+      "stratum": "C",
+      "answer_with_sentence": 7.97132e-07,
+      "regime": null
+    },
+    "T459C": {
+      "stratum": "R",
+      "answer_with_sentence": 1.42155e-06,
+      "regime": null
+    },
+    "TE5F9": {
+      "stratum": "D",
+      "answer_with_sentence": 7.97132e-07,
+      "regime": null
+    },
+    "TD741": {
+      "stratum": "D",
+      "answer_with_sentence": 7.97132e-07,
+      "regime": null
+    },
+    "TAB0A": {
+      "stratum": "D",
+      "answer_with_sentence": 7.97132e-07,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All certified answers agree with the bridge equations. For either relevant sentence, added resistances of 4.6, 9.4 and 17 Ω give respectively 1.10270e-6, 1.42155e-6 and 1.92640e-6 Ω m. The bridge-wire diameter cancels through the common cross-sectional area at all three listed diameters. SI conversion of the sample diameter is required when evaluating its area. I withdraw the pass-1 rendering objection in this pass: the packet explicitly identifies TE5F9 and TD741 as numeral-free controls, without claiming that they preserve a numerical value. The actual claimed minimal pairs preserve their numbers and units. T459C and TAB0A intentionally attach the resistance to different trials, which is the stated event-attachment change; the earlier-trial addition is absent during the reported measurement. My physical answers and stratum assignments are unchanged.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:04:29+00:00",
+  "completed_at": "2026-11-21T14:05:19+00:00",
+  "minutes_spent": 0.84,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "be4c9e911e918786907d9224380252426db0326f7bedbea64e3a0f6b29c6b611",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

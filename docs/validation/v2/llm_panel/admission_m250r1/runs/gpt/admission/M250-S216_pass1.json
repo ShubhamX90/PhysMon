@@ -1,0 +1,97 @@
+{
+  "item_id": "M250-S216",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Conservation of total capacitor charge and ideal LC dynamics give V2(t) = Vbar - [C1/(C1+C2)](V1_initial-V2_initial) cos(omega t), where Vbar = (C1 V1_initial+C2 V2_initial)/(C1+C2) = 84 V and omega^2 = (1/C1+1/C2)/L. Thus V2(t) = 84 - 64 cos(omega t) V, whose maximum is 148 V.",
+    "assumptions": [
+      "The capacitors have constant capacitances.",
+      "The ideal inductor has finite positive inductance.",
+      "The stated initial voltages and zero initial inductor current apply at switch closure.",
+      "The separately powered flash unit has no electrical connection to the oscillating circuit."
+    ],
+    "answer": 148,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "T94A9": {
+      "stratum": "D",
+      "answer_with_sentence": 148,
+      "regime": null
+    },
+    "T3614": {
+      "stratum": "D",
+      "answer_with_sentence": 148,
+      "regime": null
+    },
+    "T6868": {
+      "stratum": "R",
+      "answer_with_sentence": 157.77777777777777,
+      "regime": null
+    },
+    "T47FC": {
+      "stratum": "D",
+      "answer_with_sentence": 148,
+      "regime": null
+    },
+    "TF693": {
+      "stratum": "C",
+      "answer_with_sentence": 148,
+      "regime": null
+    },
+    "T0EC0": {
+      "stratum": "R",
+      "answer_with_sentence": 157.77777777777777,
+      "regime": null
+    },
+    "T7B75": {
+      "stratum": "C",
+      "answer_with_sentence": 148,
+      "regime": null
+    },
+    "T3A64": {
+      "stratum": "D",
+      "answer_with_sentence": 148,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T47FC and T3A64 replace the explicit 22 μF capacitance in their corresponding quantitative variants T94A9 and T3614 with 'small', violating the requirement that variants state the same number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A 1 μF capacitor could satisfy 'a small capacitor' in T47FC or T3A64, whereas T94A9 and T3614 explicitly require 22 μF; the qualitative renderings therefore do not preserve the specified quantity."
+  ],
+  "notes": "The base physics and all individual augmented problems give unique target voltages. The invalid verdict concerns the required numerical matching between variants. With the added capacitor connected across the first capacitor, the initial effective capacitance is 62 μF at 100 V, so V2,max = 20 + 2(62/72)(100-20) = 157.777... V. Inductance enters the oscillation frequency but cancels from the maximum voltage. The unspecified capacitances in the disconnected 'small capacitor' sentences do not create ambiguity in the target answer.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:30:42+00:00",
+  "completed_at": "2026-11-21T14:31:24+00:00",
+  "minutes_spent": 0.69,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "9cada7b7470000752bb74856255fe56e5aacd62aa2ac3a177917b325f52c1afc",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

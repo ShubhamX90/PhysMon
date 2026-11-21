@@ -1,0 +1,109 @@
+{
+  "item_id": "M250-S234",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Snell's law gives theta_r = asin(sin(40 degrees)/1.8). Reflection at sides parallel to the axis preserves the axial speed, so t = nL/(c cos(theta_r)).",
+    "assumptions": [
+      "The end faces are perpendicular to the axis.",
+      "The sides are parallel to the axis.",
+      "Air has refractive index 1.",
+      "The nondispersive glass gives pulse speed c/n.",
+      "L denotes the rod's length when the pulse travels."
+    ],
+    "answer": 12.8471,
+    "unit": "ns"
+  },
+  "stratum_assignments": {
+    "T507D": {
+      "stratum": "D",
+      "answer_with_sentence": 12.8471,
+      "regime": null
+    },
+    "TB902": {
+      "stratum": "R",
+      "answer_with_sentence": 21.1977,
+      "regime": null
+    },
+    "T97AD": {
+      "stratum": "D",
+      "answer_with_sentence": 12.8471,
+      "regime": null
+    },
+    "TE2F0": {
+      "stratum": "D",
+      "answer_with_sentence": 12.8471,
+      "regime": null
+    },
+    "T29E2": {
+      "stratum": "C",
+      "answer_with_sentence": 12.8471,
+      "regime": null
+    },
+    "T2524": {
+      "stratum": "R",
+      "answer_with_sentence": 21.1977,
+      "regime": null
+    },
+    "TACC7": {
+      "stratum": "D",
+      "answer_with_sentence": 12.8471,
+      "regime": null
+    },
+    "TF3EE": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "hidden_coupling"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TF3EE can describe drawing the initially 2 m rod before transmission, but its final length or sufficient initial geometry to determine that length is not specified.",
+    "hidden_coupling": "The claimed cancellation for TF3EE holds at fixed final length, whereas drawing to a specified diameter can change the rod's length and therefore its transit time."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "hidden_coupling": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "TF3EE",
+      "description": "An initially 2 m circular rod of diameter 5 cm, drawn uniformly at constant volume to diameter 2.5 cm while retaining the stated refractive index, becomes 8 m long. Its transit time is approximately 51.3884 ns, rather than the certified 12.8471 ns. If 2 m instead specifies the finished rod's length, the certified answer follows."
+    }
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "All listed numerical answers agree with the governing relation when the authors' intended lengths are used: 12.8471 ns for 2 m and 17.3436, 21.1977, and 26.9789 ns for lengths 2.7, 3.3, and 4.2 m. The diameter cancels for a rod of fixed axial length; the stated leg-count construction is a long-rod approximation, while preservation of axial speed establishes the result exactly. TF3EE is R under a sequential drawing interpretation and C under a finished-geometry interpretation; its certified answers therefore require clarification. I withdraw the pass-1 rendering_not_minimal flag: the packet explicitly identifies T97AD and TACC7 as numeral-free controls, and their twin descriptions are accurate. T507D/T2524 change object attachment, while TE2F0/TB902 change temporal attachment; both specified minimal pairs retain the same number and unit. No information outside the supplied reviews and packet was consulted.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:35:25+00:00",
+  "completed_at": "2026-11-21T14:36:20+00:00",
+  "minutes_spent": 0.92,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "192057aaa8899760a1c8f43d258cda2887ba6066b2e3db5b89059500782deb64",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

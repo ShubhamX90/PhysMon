@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch25",
+  "item_id": "M250-S12",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Static friction supplies centripetal force on flat curve: mu m g >= m v^2 / r, so v_max = sqrt(mu g r)", "assumptions": ["car follows the 50 m radius (inner edge) in the base problem", "flat unbanked road, uniform friction", "car treated as a point mass; no aerodynamic forces"], "answer": 17.146, "unit": "m/s"},
+  "stratum_assignments": {
+    "T02CA": {"stratum": "D", "answer_with_sentence": 17.146, "regime": null},
+    "T82EB": {"stratum": "R", "answer_with_sentence": 18.388, "regime": null},
+    "T7092": {"stratum": "D", "answer_with_sentence": 17.146, "regime": null},
+    "T5A6E": {"stratum": "D", "answer_with_sentence": 17.146, "regime": null},
+    "T9AEC": {"stratum": "D", "answer_with_sentence": 17.146, "regime": null},
+    "TFE1E": {"stratum": "C", "answer_with_sentence": 17.146, "regime": null},
+    "T79A4": {"stratum": "C", "answer_with_sentence": 17.146, "regime": null},
+    "TF5BA": {"stratum": "R", "answer_with_sentence": 18.388, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "T7092 and T5A6E state 'a little further' with no number, while the other lane sentences state 7.5 m, so if they are meant as variants they differ in the number."},
+  "defect_severity": {"rendering_not_minimal": "medium"},
+  "counterexamples": [],
+  "notes": "Base: v = sqrt(0.6*9.8*50) = sqrt(294) = 17.146 m/s. With the car at 57.5 m: sqrt(5.88*57.5) = sqrt(338.1) = 18.388 m/s. The base says the radius is that of the inner edge but does not explicitly say the car follows the inner edge; I read 'drives around a curve of radius 50 m' as the car's path radius. A reader could argue the car's path radius is unstated; I judge it medium-level wording rather than a missing condition. Mass sentences cancel (m on both sides). Earlier-run sentences refer to a different run, so they do not affect this run. TF5BA uses past tense 'kept' for this run, slightly awkward against the present-tense question."
+}

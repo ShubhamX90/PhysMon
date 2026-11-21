@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch05",
+  "item_id": "M250-S32",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:24:00Z", "completed_at": "2026-11-21T10:30:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Work-energy theorem: (1/2) k x^2 = mu_k m g d", "assumptions": ["block starts from rest and moves", "ideal massless spring, separation at natural length", "kinetic friction over the whole slide"], "answer": 3.265, "unit": "m"},
+  "stratum_assignments": {
+    "TDC1D": {"stratum": "D", "answer_with_sentence": 3.265, "regime": null},
+    "TFBC0": {"stratum": "D", "answer_with_sentence": 3.265, "regime": null},
+    "TB3C0": {"stratum": "R", "answer_with_sentence": 0.816, "regime": null},
+    "T92B0": {"stratum": "K", "answer_with_sentence": 3.265, "regime": "elastic limit above the 10 cm compression"},
+    "T9B94": {"stratum": "K", "answer_with_sentence": 3.265, "regime": "elastic limit above the 10 cm compression"},
+    "T1533": {"stratum": "D", "answer_with_sentence": 3.265, "regime": null},
+    "T9D09": {"stratum": "D", "answer_with_sentence": 3.265, "regime": null},
+    "TC18C": {"stratum": "R", "answer_with_sentence": 0.816, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The claims for the trolley sentences (TFBC0, TDC1D) label the quantity 'a weight fixed to the block' although the weight is fixed to the trolley; a metadata label slip that does not affect any answer or stratum."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Checked all answers: base 4/1.225 = 3.26531 m; m+q = 1.2, 2.0, 2.7 kg give friction 2.94, 4.9, 6.615 N and distances 1.36054, 0.816327, 0.604686 m, all correct. In every R case the block still has positive kinetic energy at the spring's natural length (minimum 4 - 0.6615 = 3.34 J) and the spring force (80 N) exceeds friction, so s = E/Ff holds. K regime q > x = 0.10 m holds for 22, 28, 36 cm. Minimal pairs TFBC0/TB3C0 (trolley vs block) and T9D09/TC18C (earlier experiment vs before release) share 1.5 kg and differ only in attachment; numeral-free twins match. Agrees with my pass 1.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

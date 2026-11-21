@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch07",
+  "item_id": "M250-S261",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:22:30Z", "completed_at": "2026-11-21T10:27:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Stokes terminal velocity: 6 pi eta r v = (m - rho_l V) g",
+    "assumptions": ["Stokes drag (Re < 0.5 for all listed values)", "liquid at rest, unbounded"],
+    "answer": 5.40123,
+    "unit": "cm/s"
+  },
+  "stratum_assignments": {
+    "TEAB4": {"stratum": "D", "answer_with_sentence": 5.40123, "regime": null},
+    "T9846": {"stratum": "D", "answer_with_sentence": 5.40123, "regime": null},
+    "TFAF0": {"stratum": "D", "answer_with_sentence": 5.40123, "regime": null},
+    "T122F": {"stratum": "R", "answer_with_sentence": 7.7408, "regime": null},
+    "T3D94": {"stratum": "D", "answer_with_sentence": 5.40123, "regime": null},
+    "TB5DB": {"stratum": "R", "answer_with_sentence": 7.7408, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Verified: base 0.207777 g net -> 5.4013 cm/s; +0.04 g -> 6.4410; +0.09 g -> 7.7408; +0.17 g -> 9.8205 cm/s (Re at most ~0.5, Stokes regime acceptable as the problem states the Stokes drag). Relation vt = 2 g r^2 (rho_s - rho_f)/(9 eta) is equivalent to my force balance. Minimal pairs T9846/T122F and TFAF0/TB5DB share 0.09 g and differ only in attachment/timing. My pass-1 low rendering_not_minimal flag on TEAB4 and T3D94 is withdrawn: the authors declare them numeral-free controls by design. Strata agree with pass 1.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

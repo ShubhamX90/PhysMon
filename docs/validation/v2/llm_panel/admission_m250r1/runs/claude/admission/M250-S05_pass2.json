@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch22",
+  "item_id": "M250-S05",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:57:00Z", "completed_at": "2026-11-21T11:02:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "alpha = (tau - tau_f)/I with I = (1/2) M R^2", "assumptions": ["uniform solid disc about its central axis", "constant torques"], "answer": 36.0, "unit": "rad/s^2"},
+  "stratum_assignments": {
+    "TADD2": {"stratum": "R", "answer_with_sentence": 24.0, "regime": null},
+    "T3FE1": {"stratum": "C", "answer_with_sentence": 36.0, "regime": null},
+    "TFEA1": {"stratum": "R", "answer_with_sentence": 24.0, "regime": null},
+    "TDFCA": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T5207": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T8323": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "TA851": {"stratum": "C", "answer_with_sentence": 36.0, "regime": null},
+    "TCF7E": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Agrees with pass 1. R answers verified: q = 1 kg -> I = 0.15625, alpha = 28.8; q = 2 kg -> 24.0; q = 5.5 kg -> I = 0.296875, alpha = 15.158 rad/s^2. The thickness cancellation via rho = m/(pi r^2 t) matches my pass-1 reading. Declared minimal pairs T5207/TADD2 and TCF7E/TFEA1 share 2 kg and differ only in attachment or timing; TDFCA and T8323 are declared numeral-free controls."
+}

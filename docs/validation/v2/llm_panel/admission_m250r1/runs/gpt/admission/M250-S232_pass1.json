@@ -1,0 +1,92 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S232",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:32:16+00:00",
+  "completed_at": "2026-11-21T14:33:04+00:00",
+  "minutes_spent": 0.8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For linear, inviscid, deep-water gravity-capillary waves, omega^2 = g*k + (sigma/rho)*k^3, where k = 2*pi/lambda. The group speed is d(omega)/dk = [g + 3*(sigma/rho)*k^2]/[2*sqrt(g*k + (sigma/rho)*k^3)]. With lambda = 0.03 m, k = 209.44 m^-1.",
+    "assumptions": [
+      "The stated surface tension is uniform across the tank.",
+      "The water is described by the standard incompressible, linear surface-wave model.",
+      "For a current-run detergent reduction, subtract the stated reduction from 0.0728 N/m and retain the stated density."
+    ],
+    "answer": 0.1859,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T1028": {
+      "stratum": "R",
+      "answer_with_sentence": 0.17135,
+      "regime": null
+    },
+    "T9415": {
+      "stratum": "R",
+      "answer_with_sentence": 0.17135,
+      "regime": null
+    },
+    "TC5E1": {
+      "stratum": "D",
+      "answer_with_sentence": 0.1859,
+      "regime": null
+    },
+    "T6703": {
+      "stratum": "D",
+      "answer_with_sentence": 0.1859,
+      "regime": null
+    },
+    "TB5C8": {
+      "stratum": "D",
+      "answer_with_sentence": 0.1859,
+      "regime": null
+    },
+    "T14D0": {
+      "stratum": "D",
+      "answer_with_sentence": 0.1859,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "T9415 does not explicitly identify which water underwent the reduction or whether the quoted surface tension precedes that reduction."
+  ],
+  "defect_flags": [
+    "rendering_not_minimal",
+    "other"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T6703 and T14D0 replace the specified reduction of 0.015 N/m with an unspecified 'small amount', violating the required preservation of number and unit across variants.",
+    "other": "T9415 leaves the water's identity and the reference time of the quoted surface tension less explicit than T1028."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high",
+    "other": "medium"
+  },
+  "counterexamples": [
+    "A bowl surface-tension reduction of 0.001 N/m satisfies T6703's 'small amount' but does not match TB5C8's specified 0.015 N/m, so these sentences do not preserve the numerical quantity.",
+    "If T9415 refers to the bowl's water, the tank group speed remains 0.1859 m/s; its assigned value of 0.17135 m/s assumes it refers to the tank and modifies the quoted baseline tension."
+  ],
+  "notes": "The base problem is well-posed under the standard surface-wave model. A current tank reduction gives sigma = 0.0578 N/m. The bowl is physically disconnected, and 'for an earlier run only' excludes an effect on the current run; those historical quantities are classified D. T9415 is assigned R under its most natural intended reading. The invalid verdict concerns the required variant construction; the unspecified reductions in disconnected water do not themselves prevent calculating the current group speed.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "04b20e03a3c77728fc3115c0b479d572837920df9e01646c5519cf5ec0e2a7fa",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

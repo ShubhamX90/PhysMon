@@ -1,0 +1,100 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S17",
+  "pass_number": 2,
+  "started_at": "2026-11-21T14:25:29+00:00",
+  "completed_at": "2026-11-21T14:26:15+00:00",
+  "minutes_spent": 0.77,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Steady conduction through series thermal resistances gives P = deltaT/(Ra + Rb). The base flow is 20/0.25 = 80 W. Warming the hotter wall surface by x gives P = (20 + x)/0.25. Specifying the colder surface temperature cancels through deltaT = (Tc + 20) - Tc.",
+    "assumptions": [
+      "The specified thermal resistances remain applicable at all listed temperatures.",
+      "The final heat flow is steady, with no edge losses.",
+      "The adjacent partition has no specified thermal connection to the wall.",
+      "The earlier test does not change the stated initial conditions of the present test."
+    ],
+    "answer": 80,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "TEA3F": {
+      "stratum": "D",
+      "answer_with_sentence": 80,
+      "regime": null
+    },
+    "T9AD7": {
+      "stratum": "R",
+      "answer_with_sentence": 106,
+      "regime": null
+    },
+    "TFB08": {
+      "stratum": "C",
+      "answer_with_sentence": 80,
+      "regime": null
+    },
+    "T6D07": {
+      "stratum": "D",
+      "answer_with_sentence": 80,
+      "regime": null
+    },
+    "TFD0A": {
+      "stratum": "R",
+      "answer_with_sentence": 106,
+      "regime": null
+    },
+    "TA36C": {
+      "stratum": "C",
+      "answer_with_sentence": 80,
+      "regime": null
+    },
+    "T97D1": {
+      "stratum": "D",
+      "answer_with_sentence": 80,
+      "regime": null
+    },
+    "T38CE": {
+      "stratum": "D",
+      "answer_with_sentence": 80,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T6D07 and T97D1 replace their twins' explicit 6.5 K with 'a few kelvin', violating the review instructions' requirement that variants of the same quantity preserve its stated numerical value and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "All physical classifications, certified numerical answers, resistance relations and units check out: wall warming by 3.5, 6.5 and 11 K gives 94, 106 and 124 W; both absolute-temperature variants give 80 W at every listed temperature; both disconnected attachments leave 80 W. The explicitly declared minimal_pair_with pairs preserve their numerical values and units, and the earlier-test attachment is the intended event change. This corrects my pass-1 suggestion that the temporal attachment change itself was an additional defect. The authors explain that the numeral-free twins are deliberate controls, rather than claiming they preserve 6.5 K. Nevertheless, the frozen review instructions supply no exemption for such controls from the numerical-matching requirement, so the rendering defect and invalid verdict remain.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "9f269adecc2d414e6d9e70fe6cde553c1b85f369b5503602d4fe7e8024bccd90",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

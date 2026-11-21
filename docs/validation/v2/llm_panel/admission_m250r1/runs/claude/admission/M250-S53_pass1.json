@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch26",
+  "item_id": "M250-S53",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Steady 1-D Fourier conduction through series layers: Q = dT / (L1/(k1 A) + L2/(k2 A))", "assumptions": ["steady state", "1-D conduction perpendicular to layers", "perfect contact, no edge losses", "constant conductivities"], "answer": 160.0, "unit": "W"},
+  "stratum_assignments": {
+    "TA69F": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null},
+    "TFB61": {"stratum": "R", "answer_with_sentence": 264.0, "regime": null},
+    "T9459": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null},
+    "T91A5": {"stratum": "R", "answer_with_sentence": 264.0, "regime": null},
+    "T2BD1": {"stratum": "C", "answer_with_sentence": 160.0, "regime": null},
+    "T0538": {"stratum": "C", "answer_with_sentence": 160.0, "regime": null},
+    "T6A3F": {"stratum": "K", "answer_with_sentence": 160.0, "regime": "temperature difference across the wall <= 75 K (foam intact)"},
+    "TC890": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null},
+    "T3307": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null},
+    "TB011": {"stratum": "K", "answer_with_sentence": 160.0, "regime": "temperature difference across the wall <= 75 K (foam intact)"}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "R_brick = 0.20/(0.8*12) = 0.020833 K/W, R_foam = 0.05/(0.04*12) = 0.104167 K/W, total 0.125 K/W; Q = 20/0.125 = 160 W. With dT raised by 13 K to 33 K: Q = 264 W. Absolute cold-face temperature 276 K does not enter with constant k (C). Foam-failure threshold 75 K is above both 20 K and 33 K (K). 'A few kelvin' sentences (TA69F, TC890) state no number, unlike their 13 K counterparts (T3307, T9459); whether that is intended depends on the pairing claims. TFB61 ('raised just before the heat flow was measured') sits a little uneasily with 'steady' flow, but most naturally reads as the measured steady state at 33 K."
+}

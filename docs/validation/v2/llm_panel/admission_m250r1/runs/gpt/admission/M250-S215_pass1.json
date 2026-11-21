@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S215",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:19:55+00:00",
+  "completed_at": "2026-11-21T14:20:40+00:00",
+  "minutes_spent": 0.76,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For a uniform lossless transmission line, Z0 = sqrt(L_total/C_total) = 50 Ω. The launched voltage is V+ = E Z0/(Rs + Z0). At the load, ΓL = (RL − Z0)/(RL + Z0) = 0.5, so VL = V+(1 + ΓL) = 10 V. Adding 42 Ω at the source gives VL = 10(50)/(25 + 42 + 50) × 1.5 = 250/39 V.",
+    "assumptions": [
+      "The cable follows the ideal uniform lossless transmission-line model.",
+      "The switched source applies a constant 10 V emf through its stated resistance.",
+      "The independently powered lamp has no electrical connection to the cable circuit."
+    ],
+    "answer": 10.0,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "TAB4E": {
+      "stratum": "D",
+      "answer_with_sentence": 10.0,
+      "regime": null
+    },
+    "TBEAE": {
+      "stratum": "D",
+      "answer_with_sentence": 10.0,
+      "regime": null
+    },
+    "T9B6E": {
+      "stratum": "C",
+      "answer_with_sentence": 10.0,
+      "regime": null
+    },
+    "T2129": {
+      "stratum": "C",
+      "answer_with_sentence": 10.0,
+      "regime": null
+    },
+    "T6BEA": {
+      "stratum": "R",
+      "answer_with_sentence": 6.410256410256411,
+      "regime": null
+    },
+    "TADD9": {
+      "stratum": "R",
+      "answer_with_sentence": 6.410256410256411,
+      "regime": null
+    },
+    "T0205": {
+      "stratum": "D",
+      "answer_with_sentence": 10.0,
+      "regime": null
+    },
+    "T8F3D": {
+      "stratum": "D",
+      "answer_with_sentence": 10.0,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TBEAE and T0205 specify only a 'small resistor', whereas their numerical counterparts TAB4E and T8F3D specify 42 Ω, violating the requirement that variants preserve the same stated number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and each individually augmented problem are well-posed; invalidity concerns the required variant matching. For either length sentence, L′ = L_total/ℓ and C′ = C_total/ℓ, so ℓ cancels from Z0 = sqrt(L′/C′). The first transit time is sqrt(L_total C_total) = 0.5 μs. The earlier-test resistors are absent from the present circuit. Neither unspecified resistor value affects the target, but the numerical matching requirement still fails.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "01678405b16195739b7e744240fb52ed4b41ab0bc065e50f86daac751df49c47",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

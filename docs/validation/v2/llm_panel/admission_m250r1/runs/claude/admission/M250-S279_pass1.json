@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch15",
+  "item_id": "M250-S279",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:42:00Z", "completed_at": "2026-11-21T10:52:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Transverse Doppler effect (time dilation of the source): f_abs = f0 sqrt(1 - v^2/c^2), so to leading order Delta f = f0 v^2/(2 c^2), with f0 = E/h and v = 2 pi r f_rot",
+    "assumptions": ["emission direction in the lab is perpendicular to the source velocity (absorber on the axis), so no first-order Doppler shift", "absorber at rest in an inertial lab frame", "f0 = 14400 eV / 4.1357e-15 eV s = 3.48188e18 Hz; v = 452.39 m/s; v^2/(2c^2) = 1.13849e-12"],
+    "answer": 3.964e6,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T6166": {"stratum": "D", "answer_with_sentence": 3.964e6, "regime": null},
+    "TCFA7": {"stratum": "D", "answer_with_sentence": 3.964e6, "regime": null},
+    "TC381": {"stratum": "R", "answer_with_sentence": 6.785e6, "regime": null},
+    "T1355": {"stratum": "R", "answer_with_sentence": 6.785e6, "regime": null},
+    "TA7FF": {"stratum": "D", "answer_with_sentence": 3.964e6, "regime": null},
+    "TCAAF": {"stratum": "D", "answer_with_sentence": 3.964e6, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T1355 omits 'at the same rotation frequency', which TC381 states; the problem's stated 600 Hz makes the natural reading unchanged frequency, but the two R sentences differ in more than wording."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "With r = 15.7 cm: Delta f scales as r^2, (15.7/12)^2 = 1.71174, so Delta f = 6.785e6 Hz. The earlier-run sentences and the vacuum-pump pulley sentences are disconnected. Every number-bearing sentence states 3.7 cm. The 'a little larger' sentences carry no number."
+}

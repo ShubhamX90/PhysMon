@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch08",
+  "item_id": "M250-S09",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:44:00Z", "completed_at": "2026-11-21T10:49:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Calorimetry: dT = m1 c1 (T1 - T2)/(m1 c1 + m2 c2)",
+    "assumptions": ["insulated, container absorbs no heat", "no phase change", "constant specific heats"],
+    "answer": 8.24897,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "T128A": {"stratum": "D", "answer_with_sentence": 8.24897, "regime": null},
+    "TD942": {"stratum": "D", "answer_with_sentence": 8.24897, "regime": null},
+    "TC375": {"stratum": "D", "answer_with_sentence": 8.24897, "regime": null},
+    "TDD5D": {"stratum": "R", "answer_with_sentence": 3.69375, "regime": null},
+    "TCCED": {"stratum": "D", "answer_with_sentence": 8.24897, "regime": null},
+    "T4800": {"stratum": "R", "answer_with_sentence": 3.69375, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Verified certified answers: q=0.2 -> 15400/(192.5+2511.6) = 5.69506 K; q=0.55 -> 15400/4169.2 = 3.69375 K; q=0.85 -> 15400/5425 = 2.83871 K; base 8.24897 K. Minimal pairs T128A/TDD5D (earlier experiment only vs before the block was added) and TCCED/T4800 (second vs first container) share 0.55 kg and differ only in attachment. TD942 and TC375 are declared numeral-free controls, resolving my pass-1 query. Agrees with pass 1."
+}

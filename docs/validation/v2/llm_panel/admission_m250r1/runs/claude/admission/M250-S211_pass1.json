@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch02",
+  "item_id": "M250-S211",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:39:00Z", "completed_at": "2026-11-21T10:45:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Gauss's law and superposition: inside a uniformly charged ball E = rho r/(3 eps0); in an off-centre empty cavity E = rho d/(3 eps0) (uniform), so E_cav = E_surface d/R; Newton a = qE/m", "assumptions": ["charge fixed and uniform in remaining material (stated)", "bead does not perturb charge (stated)", "gravity neglected (stated)", "non-relativistic, released from rest"], "answer": 48.0, "unit": "m/s^2"},
+  "stratum_assignments": {
+    "TAF10": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null},
+    "T1D94": {"stratum": "R", "answer_with_sentence": 20.0, "regime": null},
+    "TEFF1": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null},
+    "T052D": {"stratum": "C", "answer_with_sentence": 48.0, "regime": null},
+    "TD82F": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null},
+    "T4613": {"stratum": "C", "answer_with_sentence": 48.0, "regime": null},
+    "T2176": {"stratum": "R", "answer_with_sentence": 20.0, "regime": null},
+    "T7F8C": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "E_cav = 40 kV/m x 6/20 = 12 kV/m; F = 2e-6 x 1.2e4 = 0.024 N; a = 0.024/5e-4 = 48 m/s^2. With an uncharged 0.7 g clip moving with the bead: m = 1.2 g, a = 20 m/s^2. Cavity radius enters the superposition (charge removed ~ a^3) but the field in the cavity is independent of it (C); 5.5 cm keeps the cavity inside the ball (6 + 5.5 = 11.5 cm < 20 cm) and the bead still fits. Clip on the flag or on an earlier trial does not enter (D). Variant checks: clip sentences all 0.7 g except TD82F and T7F8C ('small'); cavity pair both 5.5 cm. T1D94 and T2176 differ in wording ('rides on' vs 'is attached to... before it is released') but have the same number and attachment."
+}

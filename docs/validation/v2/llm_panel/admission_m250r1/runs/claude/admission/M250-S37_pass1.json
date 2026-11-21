@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch10",
+  "item_id": "M250-S37",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:45:00Z", "completed_at": "2026-11-21T10:53:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Circular orbit: GM/r^2 = (2 pi/T)^2 r with GM = g R^2, so T = 2 pi sqrt(r^3/(g R^2)), r = R + h", "assumptions": ["uniform spherical Earth, GM = gR^2", "circular orbit, no drag, no other bodies", "satellite mass negligible relative to Earth"], "answer": 92.51, "unit": "min"},
+  "stratum_assignments": {
+    "T829A": {"stratum": "D", "answer_with_sentence": 92.51, "regime": null},
+    "T4F19": {"stratum": "D", "answer_with_sentence": 92.51, "regime": null},
+    "TF747": {"stratum": "D", "answer_with_sentence": 92.51, "regime": null},
+    "TDE51": {"stratum": "R", "answer_with_sentence": 109.38, "regime": null},
+    "T2454": {"stratum": "R", "answer_with_sentence": 109.38, "regime": null},
+    "T5F43": {"stratum": "D", "answer_with_sentence": 92.51, "regime": null},
+    "TA5FD": {"stratum": "C", "answer_with_sentence": 92.51, "regime": null},
+    "T469A": {"stratum": "C", "answer_with_sentence": 92.51, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "gR^2 = 9.8*(6.371e6)^2 = 3.97778e14 m^3/s^2. r = 6.771e6 m: r^3/(gR^2) = 780400 s^2, sqrt = 883.40 s, T = 5550.6 s = 92.510 min. r = 7.571e6 m: ratio 1.090984e6 s^2, sqrt = 1044.50 s, T = 6562.8 s = 109.38 min. Satellite mass cancels (C). Space-station sentences D (different body, stated never close). 'Earlier mission' raise is D given that the stated 400 km is the orbit at the outset; 'earlier' is slightly loose (earlier than what) but the outset clause settles it. TDE51 and T2454 raise the current orbit (R). T829A and T5F43 carry no number. Mass pair both 750 kg."
+}

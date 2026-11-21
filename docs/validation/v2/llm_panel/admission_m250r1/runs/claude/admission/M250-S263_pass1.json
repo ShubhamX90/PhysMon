@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch02",
+  "item_id": "M250-S263",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Wheatstone (metre) bridge balance R/S = l/(100 cm - l) for a uniform bridge wire; rho = S A / L with A = pi d^2/4", "assumptions": ["uniform bridge wire, negligible end and contact resistances (stated)", "balance at l = 41.5 cm measured from the left end, box in left gap", "sample wire uniform cross-section"], "answer": 7.971e-7, "unit": "Ω·m"},
+  "stratum_assignments": {
+    "T0506": {"stratum": "D", "answer_with_sentence": 7.971e-7, "regime": null},
+    "T0CEE": {"stratum": "R", "answer_with_sentence": 1.4216e-6, "regime": null},
+    "T20A1": {"stratum": "C", "answer_with_sentence": 7.971e-7, "regime": null},
+    "TB13C": {"stratum": "C", "answer_with_sentence": 7.971e-7, "regime": null},
+    "T459C": {"stratum": "R", "answer_with_sentence": 1.4216e-6, "regime": null},
+    "TE5F9": {"stratum": "D", "answer_with_sentence": 7.971e-7, "regime": null},
+    "TD741": {"stratum": "D", "answer_with_sentence": 7.971e-7, "regime": null},
+    "TAB0A": {"stratum": "D", "answer_with_sentence": 7.971e-7, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: S = 12 x 58.5/41.5 = 16.916 Ω; A = pi(0.15e-3)^2 = 7.0686e-8 m^2; rho = 16.916 x 7.0686e-8 / 1.5 = 7.971e-7 Ω·m. With box at 21.4 Ω at balance (T0CEE, T459C): S = 21.4 x 58.5/41.5 = 30.166 Ω, rho = 1.4216e-6 Ω·m. Bridge-wire diameter belongs to the bridge but cancels in the length ratio (uniform wire). Rheostat/lamp circuit is separate (D). 'Earlier trial only' sentences do not affect the reported balance (D). T0CEE reads as a modification of the box value before balance, so the 12 Ω becomes 21.4 Ω at balance; readers might briefly see tension with 'a resistance box of 12 Ω' but the 'raised by a further' wording resolves it. Variant checks: T0506/T0CEE same 9.4 Ω; T20A1/TB13C same 0.65 mm; TD741/TAB0A differ in 'small amount' vs 9.4 Ω, and TE5F9 vs T0506 likewise; if those are claimed as minimal pairs they differ in the number."
+}

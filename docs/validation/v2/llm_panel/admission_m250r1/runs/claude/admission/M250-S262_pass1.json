@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch07",
+  "item_id": "M250-S262",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:28:00Z", "completed_at": "2026-11-21T10:37:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Hagen-Poiseuille Q = pi R^4 rho g h / (8 eta l) with A dh/dt = -Q, giving exponential decay; t = (8 eta l A / (pi R^4 rho g)) ln(h0/h1)",
+    "assumptions": ["quasi-steady laminar Poiseuille flow, driven by hydrostatic head h only", "end effects and exit kinetic energy neglected", "tank cross-section constant"],
+    "answer": 1005.2,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TD265": {"stratum": "R", "answer_with_sentence": 1607.0, "regime": null},
+    "TC2E8": {"stratum": "K", "answer_with_sentence": 1005.2, "regime": "Laminar Poiseuille flow requires Re below the critical value; actual Re = rho v (2R)/eta is about 3 at 40 cm (about 4 at 53 cm), far below 2100"},
+    "T3C55": {"stratum": "R", "answer_with_sentence": 1607.0, "regime": null},
+    "T7A3F": {"stratum": "D", "answer_with_sentence": 1005.2, "regime": null},
+    "T7B4A": {"stratum": "D", "answer_with_sentence": 1005.2, "regime": null},
+    "TFF4D": {"stratum": "D", "answer_with_sentence": 1005.2, "regime": null},
+    "T5EA0": {"stratum": "K", "answer_with_sentence": 1005.2, "regime": "Same as TC2E8: Re about 3, far below 2100"},
+    "T75EB": {"stratum": "D", "answer_with_sentence": 1005.2, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "T7A3F and T75EB give 'a modest depth' where their apparent counterparts give 13 cm, so they do not carry the same number if meant as variants."},
+  "defect_severity": {"rendering_not_minimal": "low"},
+  "counterexamples": [],
+  "notes": "k = pi R^4 rho g/(8 eta l A) = pi*8.1e-11*8820/(8*0.12*0.5*0.01) = 2.24442e-6/0.0048 = 4.67588e-4 1/s; 1/k = 2138.6 s. Base t = 2138.6*ln(1.6) = 1005.2 s. Topped up to 53 cm: t = 2138.6*ln(2.12) = 1607.0 s. The R sentences describe topping up after the tank was filled to 40 cm, which reads as a sequence rather than a contradiction. TC2E8 and T5EA0 restate the critical Re slightly differently ('up to' vs 'below') but carry the same number and unit."
+}

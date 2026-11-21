@@ -1,0 +1,102 @@
+{
+  "item_id": "M250-S216",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Charge conservation gives Veq = (C1 V0 + C2 V2)/(C1 + C2). Ideal LC dynamics with zero initial current give v2(t) = Veq + (V2 - Veq) cos(omega t), where omega^2 = (C1 + C2)/(L C1 C2). Here Veq = 84 V, so v2(t) = 84 - 64 cos(omega t) V and its maximum is 148 V.",
+    "assumptions": [
+      "The capacitors have constant capacitances.",
+      "The ideal inductor has finite positive inductance.",
+      "The stated voltages and zero inductor current are initial conditions at switch closure.",
+      "The separately powered flash unit has no electrical connection to the transfer circuit."
+    ],
+    "answer": 148,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "T94A9": {
+      "stratum": "D",
+      "answer_with_sentence": 148,
+      "regime": null
+    },
+    "T3614": {
+      "stratum": "D",
+      "answer_with_sentence": 148,
+      "regime": null
+    },
+    "T6868": {
+      "stratum": "R",
+      "answer_with_sentence": 157.77777777777777,
+      "regime": null
+    },
+    "T47FC": {
+      "stratum": "D",
+      "answer_with_sentence": 148,
+      "regime": null
+    },
+    "TF693": {
+      "stratum": "C",
+      "answer_with_sentence": 148,
+      "regime": null
+    },
+    "T0EC0": {
+      "stratum": "R",
+      "answer_with_sentence": 157.77777777777777,
+      "regime": null
+    },
+    "T7B75": {
+      "stratum": "C",
+      "answer_with_sentence": 148,
+      "regime": null
+    },
+    "T3A64": {
+      "stratum": "D",
+      "answer_with_sentence": 148,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T47FC and T3A64 omit the 22 μF quantity stated in their corresponding quantitative variants, violating the review instructions' explicit requirement that variants preserve the number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A 1 μF capacitor can satisfy 'a small capacitor' in T47FC or T3A64, while their quantitative twins explicitly specify 22 μF, so the renderings do not preserve the same numerical statement."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "All physics claims, role assignments and certified answers check out. For either relevant sentence, replacing C1 by C1 + q gives Vmax = 20 + 160(40 + q)/(50 + q) V when q is expressed in μF. At q = 7, 22 and 35 μF this gives 151.929825, 157.777778 and 161.176471 V, consistent with the certified rounding. Both stated inductance variants change the frequency and time of the maximum but leave its value unchanged for all listed positive inductances. The authors' explicit minimal_pair_with links preserve 22 μF and change only the intended attachment or event. The pass-2 packet explains that T47FC and T3A64 intentionally serve as numeral-free controls; their descriptions and twin notes are accurate. Nevertheless, the review instructions provide no exception to the same-number-and-unit requirement for these controls, so I retain the pass-1 rendering defect. There is no disagreement with my pass-1 physics solution.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:31:24+00:00",
+  "completed_at": "2026-11-21T14:32:16+00:00",
+  "minutes_spent": 0.86,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "91531454100c0c52821f1adcf93cac180e7d29099a92b7725e0942e717d0cda8",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

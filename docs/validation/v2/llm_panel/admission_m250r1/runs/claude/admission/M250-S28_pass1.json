@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch01",
+  "item_id": "M250-S28",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Constant-velocity and constant-acceleration kinematics: x_truck = v t, x_car = a t^2 / 2; equal positions give t = 2v/a", "assumptions": ["straight road, both start level at t=0", "car starts from rest with constant a = 2 m/s^2 (no top speed unless stated)", "truck speed constant"], "answer": 15.0, "unit": "s"},
+  "stratum_assignments": {
+    "TB52F": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "T9424": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "T56E0": {"stratum": "R", "answer_with_sentence": 18.375, "regime": null},
+    "T8C0C": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "T35DB": {"stratum": "K", "answer_with_sentence": 15.0, "regime": "top speed irrelevant while v_max >= 2v = 30 m/s (car speed at the meeting); 46 m/s is inside"},
+    "T0812": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "T5651": {"stratum": "R", "answer_with_sentence": 18.375, "regime": null},
+    "T76A7": {"stratum": "K", "answer_with_sentence": 15.0, "regime": "top speed irrelevant while v_max >= 30 m/s; 46 m/s is inside"},
+    "TE8F1": {"stratum": "R", "answer_with_sentence": 9.0909, "regime": null},
+    "TEA52": {"stratum": "R", "answer_with_sentence": 9.0909, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "TB52F and T0812 say 'adds a little' with no number, whereas the other tuning-kit sentences state 1.3 m/s^2, so if they are meant as variants of the numeric sentences they differ in the stated value."},
+  "defect_severity": {"rendering_not_minimal": "medium"},
+  "counterexamples": [],
+  "notes": "Top speed 21 m/s: car reaches 21 m/s at t = 10.5 s having covered 110.25 m; then 110.25 + 21(t - 10.5) = 15 t gives t = 18.375 s. Kit on car: a = 3.3 m/s^2, t = 30/3.3 = 9.0909 s (the problem says the stated 2 m/s^2 is as delivered, so the kit adds to it). Motorbike kit and earlier-run kit have no path to this run's meeting time. Pairing of 'a little' sentences with numeric ones cannot be confirmed until pass 2."
+}

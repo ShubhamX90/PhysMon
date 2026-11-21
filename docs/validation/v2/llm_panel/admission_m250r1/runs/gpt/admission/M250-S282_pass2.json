@@ -1,0 +1,91 @@
+{
+  "item_id": "M250-S282",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Wien's law gives T_star/T_Sun = 502/292. The Stefan–Boltzmann law gives L_star/L_Sun = 1.71^2(502/292)^4. Increasing the radius by q solar radii gives (1.71 + q)^2(502/292)^4 if the peak wavelength remains unchanged.",
+    "assumptions": [
+      "Luminosity is the intrinsic total power emitted by the stellar surface.",
+      "The peak wavelengths use the same spectral convention.",
+      "The certified expansion answers require the final peak wavelength to remain 292 nm."
+    ],
+    "answer": 25.5432,
+    "unit": "1"
+  },
+  "stratum_assignments": {
+    "T3E50": {
+      "stratum": "D",
+      "answer_with_sentence": 25.5432,
+      "regime": null
+    },
+    "T14DF": {
+      "stratum": "D",
+      "answer_with_sentence": 25.5432,
+      "regime": null
+    },
+    "TE9FF": {
+      "stratum": "R",
+      "answer_with_sentence": 52.4343,
+      "regime": null
+    },
+    "TB343": {
+      "stratum": "D",
+      "answer_with_sentence": 25.5432,
+      "regime": null
+    },
+    "T37E0": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T6C97": {
+      "stratum": "D",
+      "answer_with_sentence": 25.5432,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T37E0 specifies an expansion without specifying the final surface temperature or preserving the peak wavelength, so its certified luminosities require an unstated thermal condition."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "For T37E0 at q = 0.74, the final radius is 2.45 solar radii. A final peak wavelength of 292 nm gives 52.4343 solar luminosities, whereas a final temperature of 5772 K gives 6.0025 solar luminosities; the expansion sentence does not select between these final thermal states."
+  ],
+  "notes": "The base relations, normalized units, base answer, and disconnected-sentence answers are consistent. All three certified expansion answers are numerically correct when the peak wavelength is held fixed, as TE9FF explicitly requires. T37E0 does not state that condition; its wiring supplies it only in the authors' explanation. I retract the pass-1 rendering_not_minimal flag because the claims explicitly identify T3E50 and T6C97 as deliberate numeral-free controls rather than numerical minimal pairs. The declared numerical pairs match in number and unit and differ in their intended attachment.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:27:15+00:00",
+  "completed_at": "2026-11-21T14:27:53+00:00",
+  "minutes_spent": 0.64,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "480ae6a1efa200e356a111feccf6c656e83a35fdbc9137b44534cd73b2fed1ca",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

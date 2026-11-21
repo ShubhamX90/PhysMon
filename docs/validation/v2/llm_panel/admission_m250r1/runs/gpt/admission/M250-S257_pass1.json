@@ -1,0 +1,84 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S257",
+  "pass_number": 1,
+  "started_at": "2026-11-21T13:53:08+00:00",
+  "completed_at": "2026-11-21T13:53:46+00:00",
+  "minutes_spent": 0.63,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The decay equations are dNp/dt = -lambda_p Np and dNd/dt = lambda_p Np - lambda_d Nd. With no initial daughter, Ad(t) = Ap(0) lambda_d/(lambda_d-lambda_p) [exp(-lambda_p t)-exp(-lambda_d t)]. Thus Ad(24 h) = 4000(66/60)[2^(-24/66)-2^(-24/6)].",
+    "assumptions": [
+      "The stated half-lives describe constant exponential decay rates.",
+      "Any further parent loaded at the start joins the initial inventory at time zero.",
+      "The transport container is separate from the column."
+    ],
+    "answer": 3144.69,
+    "unit": "Bq"
+  },
+  "stratum_assignments": {
+    "T5569": {
+      "stratum": "D",
+      "answer_with_sentence": 3144.69,
+      "regime": null
+    },
+    "T3269": {
+      "stratum": "D",
+      "answer_with_sentence": 3144.69,
+      "regime": null
+    },
+    "T0FDD": {
+      "stratum": "R",
+      "answer_with_sentence": 4166.72,
+      "regime": null
+    },
+    "T1787": {
+      "stratum": "R",
+      "answer_with_sentence": 4166.72,
+      "regime": null
+    },
+    "TCB75": {
+      "stratum": "D",
+      "answer_with_sentence": 3144.69,
+      "regime": null
+    },
+    "T3A18": {
+      "stratum": "D",
+      "answer_with_sentence": 3144.69,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T5569 and T3269 specify only a 'small amount', whereas their otherwise matching variants T3A18 and TCB75 specify 1300 Bq, violating the requirement that variants preserve the number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and all individual renderings are solvable. Each current-run addition to the column raises its initial parent activity to 5300 Bq. An earlier run cannot change the explicitly specified current initial inventory, and parent in the separate transport container cannot supply daughter to the column. The invalid verdict concerns the required variant matching.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "7756a7d0101feea3db88c233ccb6a576b4a0d63cbbddb227370e87a6428df476",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

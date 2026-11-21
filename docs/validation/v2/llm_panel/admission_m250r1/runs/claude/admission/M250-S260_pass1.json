@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch18",
+  "item_id": "M250-S260",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:47:30Z", "completed_at": "2026-11-21T10:57:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Kinetic-theory collision frequency z = sqrt(2) pi d^2 n v_mean, with n = P/(kT) and v_mean = sqrt(8kT/(pi m))", "assumptions": ["ideal gas (stated)", "hard spheres, Maxwell speeds (stated)", "1 u = 1.66054e-27 kg"], "answer": 5.59e9, "unit": "1/s"},
+  "stratum_assignments": {
+    "TE094": {"stratum": "D", "answer_with_sentence": 5.59e9, "regime": null},
+    "T7923": {"stratum": "D", "answer_with_sentence": 5.59e9, "regime": null},
+    "TE998": {"stratum": "R", "answer_with_sentence": 7.90e9, "regime": null},
+    "TA9C7": {"stratum": "D", "answer_with_sentence": 5.59e9, "regime": null},
+    "T4C04": {"stratum": "C", "answer_with_sentence": 5.59e9, "regime": null},
+    "T5675": {"stratum": "C", "answer_with_sentence": 5.59e9, "regime": null},
+    "T8E4F": {"stratum": "R", "answer_with_sentence": 7.90e9, "regime": null},
+    "T62EC": {"stratum": "D", "answer_with_sentence": 5.59e9, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [], "defect_flags": ["other"], "defect_reasons": {"other": "T8E4F ('Just before the collisions were counted ... for one run only') does not make clear whether that run is the one asked about; I read it as the counted run (R), but a D reading is possible."}, "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "n = 80000/(1.381e-23*300) = 1.9310e25 m^-3; sqrt(2) pi d^2 = 6.0823e-19 m^2; m = 4.6495e-26 kg; v_mean = sqrt(8kT/(pi m)) = 476.35 m/s; z = 5.5946e9 s^-1. With 33 kPa more nitrogen at 300 K in the rigid vessel: P = 113 kPa, z = 5.5946e9*113/80 = 7.9024e9 s^-1. Volume cancels (n = N/V = P/kT): C. Gas-cylinder sentences and earlier-experiment sentences: D. Numbers consistent across variants (33 kPa, 5.2 L). The atomic mass unit value is not given; standard 1.66054e-27 kg used."
+}

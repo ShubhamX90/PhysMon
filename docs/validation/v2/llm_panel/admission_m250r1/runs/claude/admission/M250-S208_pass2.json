@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch13",
+  "item_id": "M250-S208",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:38:00Z", "completed_at": "2026-11-21T10:46:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Angular momentum conservation; heat = (1/2) [I1 I2/(I1+I2)] w1^2", "assumptions": ["I1 = (1/2) M R^2 = 0.04 kg m^2", "w1 = 20 pi rad/s", "frictionless axle, no external torque", "second disc initially at rest"], "answer": 33.839, "unit": "J"},
+  "stratum_assignments": {
+    "T3181": {"stratum": "D", "answer_with_sentence": 33.839, "regime": null},
+    "T7B9A": {"stratum": "D", "answer_with_sentence": 33.839, "regime": null},
+    "T3F66": {"stratum": "C", "answer_with_sentence": 33.839, "regime": null},
+    "T145A": {"stratum": "R", "answer_with_sentence": 50.245, "regime": null},
+    "TE735": {"stratum": "D", "answer_with_sentence": 33.839, "regime": null},
+    "TBE70": {"stratum": "C", "answer_with_sentence": 33.839, "regime": null},
+    "T1AC4": {"stratum": "D", "answer_with_sentence": 33.839, "regime": null},
+    "T9108": {"stratum": "R", "answer_with_sentence": 50.245, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "The pair TE735/T145A differs in the verb ('fitted to' vs 'glued to') as well as the attachment; number and unit agree, so this is a minor wording difference."},
+  "defect_severity": {"rendering_not_minimal": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked certified answers: Ki = 78.957 J; I2 = 0.03: 33.839 J; 0.045: 78.957*0.045/0.085 = 41.801 J; 0.07: 50.245 J; 0.105: 78.957*0.105/0.145 = 57.176 J, all matching. Cancellation of the friction torque is correct: heat = q * relative slip angle = q * (I_red w1^2/(2q)) = I_red w1^2/2. The relations use n1 (listed in rpm) directly; this must be read as converted to rad/s, which the certified numbers do. Pair T7B9A/T9108 shares number and unit and differs only in timing. Numeral-free twins match their D twins' wording. Agrees with pass 1."
+}

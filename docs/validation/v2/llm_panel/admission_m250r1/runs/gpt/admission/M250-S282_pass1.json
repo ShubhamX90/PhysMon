@@ -1,0 +1,88 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S282",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Wien scaling gives T_star/T_Sun = 502/292. The Stefan–Boltzmann law gives L_star/L_Sun = (R_star/R_Sun)^2(T_star/T_Sun)^4 = 1.71^2(502/292)^4.",
+    "assumptions": [
+      "Luminosity means the intrinsic total power radiated by the stellar surface.",
+      "The given peak wavelengths refer to the same spectral convention."
+    ],
+    "answer": 25.5432,
+    "unit": "dimensionless"
+  },
+  "stratum_assignments": {
+    "T3E50": {
+      "stratum": "D",
+      "answer_with_sentence": 25.5432,
+      "regime": null
+    },
+    "T14DF": {
+      "stratum": "D",
+      "answer_with_sentence": 25.5432,
+      "regime": null
+    },
+    "TE9FF": {
+      "stratum": "R",
+      "answer_with_sentence": 52.4343,
+      "regime": null
+    },
+    "TB343": {
+      "stratum": "D",
+      "answer_with_sentence": 25.5432,
+      "regime": null
+    },
+    "T37E0": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T6C97": {
+      "stratum": "D",
+      "answer_with_sentence": 25.5432,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T37E0 changes the stellar radius without specifying the surface temperature or peak wavelength after expansion, so the resulting luminosity is not uniquely determined.",
+    "rendering_not_minimal": "T3E50 versus T14DF and T6C97 versus TB343 replace an unspecified 'small part' with 0.74 solar radii, so these variants do not state the same numerical quantity."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "For T37E0, the final radius is 2.45 solar radii. Keeping the peak at 292 nm gives 52.4343 solar luminosities, whereas a final surface temperature of 5772 K gives 6.0025 solar luminosities. No condition in that sentence selects the final temperature."
+  ],
+  "notes": "The base problem is well-posed and gives approximately 25.5 solar luminosities. TE9FF explicitly preserves the peak wavelength and gives approximately 52.4 solar luminosities. T37E0 gives that same result only if unchanged peak wavelength is additionally assumed. The dust-rim statements do not affect intrinsic stellar luminosity. The earlier-observation statements are read as confined to a previous observation and therefore do not alter the present stellar parameters. The 'small part' variants supply no numerical increment; their disconnection makes their individual answers determinate, but they fail the required numerical matching across variants.",
+  "started_at": "2026-11-21T14:26:27+00:00",
+  "completed_at": "2026-11-21T14:27:15+00:00",
+  "minutes_spent": 0.81,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "456301372495d8d2d7a1c11f7f082a5738bc8797b334a6b17eed03ba117aff63",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

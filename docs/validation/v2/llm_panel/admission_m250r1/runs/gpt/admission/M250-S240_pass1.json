@@ -1,0 +1,107 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S240",
+  "pass_number": 1,
+  "started_at": "2026-11-21T19:12:26+00:00",
+  "completed_at": "2026-11-21T19:13:14+00:00",
+  "minutes_spent": 0.81,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Continuity gives equal speeds at the highest point and outlet because the bore is uniform. Bernoulli between those points gives p_high = p_atm - rho*g*(1.5 + 0.8) = 101.3 - 22.54 = 78.76 kPa. Bernoulli from the reservoir surface to the outlet gives v = sqrt(2*g*0.8) = 3.96 m/s.",
+    "assumptions": [
+      "The large reservoir has negligible free-surface speed.",
+      "The stated steady, frictionless, incompressible flow applies throughout the filled siphon.",
+      "The outlet pressure is atmospheric.",
+      "The liquid remains in a single liquid phase."
+    ],
+    "answer": 78.76,
+    "unit": "kPa"
+  },
+  "stratum_assignments": {
+    "T45C6": {
+      "stratum": "D",
+      "answer_with_sentence": 78.76,
+      "regime": null
+    },
+    "T7E69": {
+      "stratum": "K",
+      "answer_with_sentence": 78.76,
+      "regime": "Continuous single-phase flow is possible because the minimum absolute pressure, at the highest point, is 78.76 kPa, above the 12 kPa boiling threshold."
+    },
+    "TED68": {
+      "stratum": "K",
+      "answer_with_sentence": 78.76,
+      "regime": "Continuous single-phase flow is possible because the minimum absolute pressure, at the highest point, is 78.76 kPa, above the 12 kPa vaporisation threshold."
+    },
+    "TC9D2": {
+      "stratum": "C",
+      "answer_with_sentence": 78.76,
+      "regime": null
+    },
+    "T5FCB": {
+      "stratum": "R",
+      "answer_with_sentence": 74.7028,
+      "regime": null
+    },
+    "T15A1": {
+      "stratum": "R",
+      "answer_with_sentence": 74.7028,
+      "regime": null
+    },
+    "TCBA8": {
+      "stratum": "D",
+      "answer_with_sentence": 78.76,
+      "regime": null
+    },
+    "T3DC9": {
+      "stratum": "D",
+      "answer_with_sentence": 78.76,
+      "regime": null
+    },
+    "T6788": {
+      "stratum": "C",
+      "answer_with_sentence": 78.76,
+      "regime": null
+    },
+    "T2061": {
+      "stratum": "D",
+      "answer_with_sentence": 78.76,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TCBA8 and T2061 omit the density magnitude and unit, whereas their corresponding numerical variants T45C6 and T3DC9 specify 1180 kg/m³, violating the requirement that variants retain the same number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "Replacing the beaker liquid with a liquid of density 900 kg/m³ satisfies TCBA8 but does not satisfy T45C6, demonstrating that the variants do not preserve the numerical specification."
+  ],
+  "notes": "The base problem and individual augmented problems have determinate pressure answers; invalidity concerns the required variant matching. For the current replacement sentences, the retained statement that reservoir and siphon hold the same liquid makes 1180 kg/m³ the operating density. The earlier-run-only replacements leave the present operating density at 1000 kg/m³. Bore area enters continuity through Q = Av, but cancels because the top and outlet speeds are equal.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "9ff96785b34776c01d306265f155c3de87ff3bc110c631308e9dfb232b0f3825",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

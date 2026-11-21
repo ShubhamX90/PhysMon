@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch08",
+  "item_id": "M250-S251",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation in inverse-square gravity: v^2/2 - gR = -gR^2/(R+h), so h = R v^2/(2gR - v^2)",
+    "assumptions": ["no atmosphere, non-rotating moon, inverse-square field (stated)", "launch speed is the speed at the surface, motor burn treated as instantaneous", "probe mass negligible compared with moon"],
+    "answer": 1157013.0,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TE544": {"stratum": "C", "answer_with_sentence": 1157013.0, "regime": null},
+    "T9571": {"stratum": "D", "answer_with_sentence": 1157013.0, "regime": null},
+    "TFA02": {"stratum": "D", "answer_with_sentence": 1157013.0, "regime": null},
+    "T9D2A": {"stratum": "D", "answer_with_sentence": 1157013.0, "regime": null},
+    "T04BD": {"stratum": "R", "answer_with_sentence": 1878541.0, "regime": null},
+    "TE24B": {"stratum": "C", "answer_with_sentence": 1157013.0, "regime": null},
+    "T9791": {"stratum": "R", "answer_with_sentence": 1878541.0, "regime": null},
+    "TAA9D": {"stratum": "D", "answer_with_sentence": 1157013.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: gR = 2,813,940 m^2/s^2; 2gR - v^2 = 3,377,880; h = 1.737e6 * 2.25e6/3,377,880 = 1.15701e6 m (about 1157 km). With 1500+210 = 1710 m/s: 2gR - v^2 = 2,703,780; h = 1.737e6 * 2,924,100/2,703,780 = 1.87854e6 m. Mass cancels (C). Earlier-test and relay-capsule sentences have no path to this firing of the probe (D). Variant check: T9571 and T9D2A say 'a further small amount' rather than '210 m/s'; if either is meant as a variant of a 210 m/s sentence they differ in the number, which would be a rendering_not_minimal defect; to be checked in pass 2. The 'small moon' with radius 1737 km is slightly odd wording (that is lunar size)."
+}

@@ -1,0 +1,21 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch14",
+  "item_id": "M250-S239",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:17:00Z", "completed_at": "2026-11-21T10:27:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Wave plate between crossed polarisers: P = P0 sin^2(2 theta) sin^2(delta/2), delta = 2 pi dn d / lambda", "assumptions": ["ideal analyser", "no absorption or reflection", "monochromatic, normal incidence"], "answer": 5.120, "unit": "mW"},
+  "stratum_assignments": {
+    "T8B20": {"stratum": "R", "answer_with_sentence": 3.438, "regime": null},
+    "T6887": {"stratum": "D", "answer_with_sentence": 5.120, "regime": null},
+    "TD658": {"stratum": "D", "answer_with_sentence": 5.120, "regime": null},
+    "TC0D0": {"stratum": "R", "answer_with_sentence": 3.438, "regime": null},
+    "TDB47": {"stratum": "D", "answer_with_sentence": 5.120, "regime": null},
+    "T4691": {"stratum": "D", "answer_with_sentence": 5.120, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [], "defect_flags": ["other"], "defect_reasons": {"other": "In T8B20 'Polishing then thins the plate' does not say whether the thinning happens before or after the light crosses the plate; I read it as the next step in the setup (before the light), as TC0D0 states explicitly, but the after-reading would leave the answer at 5.12 mW."}, "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: dn d = 0.0092*24 um = 220.8 nm; delta/2 = pi*220.8/589 = 1.1777 rad; sin^2 = 0.8533; sin^2(60 deg) = 0.75; P = 8*0.75*0.8533 = 5.120 mW. Thinned to 17.5 um: dn d = 161 nm, delta/2 = 0.85874 rad, sin^2 = 0.5731, P = 6*0.5731 = 3.438 mW. Micrometer precision in an earlier run and polishing of the lens are D. TD658 and T4691 carry no number, unlike T6887 and TDB47; as D sentences this does not change any answer."
+}

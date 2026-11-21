@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch13",
+  "item_id": "M250-S255",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:47:00Z", "completed_at": "2026-11-21T10:57:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Timoshenko bimetal curvature kappa = 6 dAlpha dT (1+m)^2 / {h [3(1+m)^2 + (1+mn)(m^2 + 1/(mn))]}; tip deflection of a uniformly curved cantilever delta = kappa L^2 / 2 (small curvature)", "assumptions": ["equal layer thicknesses (m = 1), equal widths", "n = E_steel/E_brass = 2", "no self-weight load", "small curvature, so delta = kappa L^2/2", "deflection measured with the strip still at 353 K"], "answer": 12.22, "unit": "mm"},
+  "stratum_assignments": {
+    "T90F6": {"stratum": "D", "answer_with_sentence": 12.22, "regime": null},
+    "TC665": {"stratum": "D", "answer_with_sentence": 12.22, "regime": null},
+    "TB206": {"stratum": "C", "answer_with_sentence": 12.22, "regime": null},
+    "TE1D7": {"stratum": "D", "answer_with_sentence": 12.22, "regime": null},
+    "T1A9F": {"stratum": "R", "answer_with_sentence": 29.35, "regime": null},
+    "T374D": {"stratum": "D", "answer_with_sentence": 12.22, "regime": null},
+    "T6C9F": {"stratum": "C", "answer_with_sentence": 12.22, "regime": null},
+    "T9949": {"stratum": "R", "answer_with_sentence": 29.35, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 4, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "With m = 1, n = 2: denominator factor 12 + (1+n)(1+1/n) = 12 + 4.5 = 16.5; dAlpha dT = 7e-6*60 = 4.2e-4; kappa = 24*4.2e-4/(16.5*0.001 m) = 0.61091 1/m. delta = 0.61091*0.2^2/2 = 0.012218 m = 12.22 mm. For L = 0.31 m: 0.61091*0.0961/2 = 0.029354 m = 29.35 mm. Width cancels because both layers share it (the force balance and moment balance scale with width), so the width sentences are C. 'Pulled out 11 cm further' sentences (current measurement) lengthen the projecting part; the problem says the strip can be slid through the clamp, which makes this physically available. Tape and earlier-experiment sentences are D. Small-curvature check: kappa L = 0.19 rad at L = 0.31 m, acceptable."
+}

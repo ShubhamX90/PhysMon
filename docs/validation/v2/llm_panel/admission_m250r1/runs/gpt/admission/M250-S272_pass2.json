@@ -1,0 +1,105 @@
+{
+  "item_id": "M250-S272",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Successive resonances satisfy L_n + e = (2n+1)c/(4f), so their separation is ΔL = c/(2f). With the stated actual surface speed v = 0.015 m/s, Δt = c/(2fv) = 22.3307291667 s.",
+    "assumptions": [
+      "The stated 1.5 cm/s describes the actual water-surface speed during the interval.",
+      "The frequency, sound speed and end correction remain constant.",
+      "The tube accommodates two successive resonances."
+    ],
+    "answer": 22.3307291667,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TF4FF": {
+      "stratum": "D",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "TEA1B": {
+      "stratum": "C",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "T49F8": {
+      "stratum": "D",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "TFF60": {
+      "stratum": "C",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "TBEDA": {
+      "stratum": "C",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "T9749": {
+      "stratum": "C",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "T3D7A": {
+      "stratum": "D",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "TB8E5": {
+      "stratum": "D",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "missing_assumption",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The certified R answers require 1.5 cm/s to be the original tap's isolated contribution and require additive outlet contributions, whereas the problem specifies 1.5 cm/s as the actual water-surface speed.",
+    "rendering_not_minimal": "T3D7A and TB8E5 omit the number and unit present in their numerical counterparts, contrary to the review instructions' requirement that variants preserve the number and unit."
+  },
+  "defect_severity": {
+    "missing_assumption": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "For TEA1B with q = 0.9 cm/s, an original-tap contribution of 0.6 cm/s and second-outlet contribution of 0.9 cm/s satisfy the stated total surface speed of 1.5 cm/s, giving 22.3307291667 s rather than the certified 13.9567 s.",
+    "For T9749, preserving the explicitly specified actual surface speed gives 22.3307291667 s; obtaining 13.9567 s requires interpreting that specification as applying before the second outlet opens."
+  ],
+  "notes": "I retain my pass-1 interpretation and assignments. The base equations, base answer, disconnected-sentence answers and initial-length cancellation are correct. A fixed end correction cancels along with the initial length. All listed drain-rate answers are numerically correct under the authors' additional interpretation v_total = 1.5 cm/s + q, but that interpretation is not established by the wording. The D/R numerical pairs preserve 0.9 cm/s and change the intended temporal or physical attachment. Pass 2 explicitly identifies the numeral-free sentences as deliberate controls; this explains their construction but does not satisfy the frozen requirement that variants preserve their number and unit. Units and numerical rounding are otherwise consistent.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:08:28+00:00",
+  "completed_at": "2026-11-21T14:09:19+00:00",
+  "minutes_spent": 0.84,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "d1cbe18b0e31365408f41eb760c94772fa5dc94ef7bafaa5fcf5af8d522180b6",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

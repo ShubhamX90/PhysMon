@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch16",
+  "item_id": "M250-S82",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:15:00Z", "completed_at": "2026-11-21T10:21:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Wien displacement law lambda_max T = const, calibrated by the first star; E = hc/lambda",
+    "assumptions": ["both stars are blackbodies", "maximum per unit wavelength in both cases"],
+    "answer": 1.24,
+    "unit": "eV"
+  },
+  "stratum_assignments": {
+    "TEFF6": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "T80FF": {"stratum": "R", "answer_with_sentence": 1.646, "regime": null},
+    "TF04F": {"stratum": "R", "answer_with_sentence": 1.646, "regime": null},
+    "T099E": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "T2C66": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "TFD41": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "lambda_2 = 500 nm * 5800/2900 = 1000 nm, E = 1240/1000 = 1.24 eV. With the 950 K rise before recording, T = 3850 K, lambda = 753.25 nm, E = 1.24*3850/2900 = 1.6462 eV. A rise after the spectrum was recorded does not affect the recorded peak; the third star has no path to the target. TEFF6/T2C66 and T099E/TFD41 appear to be numbered/numeral-free versions of the same sentence; the 950 K variants all state the same number and unit. The 2900 K in the problem is read as the quiescent temperature, which an outburst then raises; this is coherent but slightly artificial."
+}

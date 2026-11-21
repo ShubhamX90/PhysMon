@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch21",
+  "item_id": "M250-S225",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:33:00Z", "completed_at": "2026-11-21T10:42:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Steady radial conduction in a cylindrical shell with constant k: T(r) = T1 - (T1 - T2) ln(r/r1)/ln(r2/r1)", "assumptions": ["steady, purely radial flow", "constant k", "long pipe (no end effects)"], "answer": 55.797, "unit": "K"},
+  "stratum_assignments": {
+    "T2495": {"stratum": "C", "answer_with_sentence": 55.797, "regime": null},
+    "T8870": {"stratum": "C", "answer_with_sentence": 55.797, "regime": null},
+    "T6641": {"stratum": "D", "answer_with_sentence": 55.797, "regime": null},
+    "T21B1": {"stratum": "R", "answer_with_sentence": 47.855, "regime": null},
+    "T26FA": {"stratum": "D", "answer_with_sentence": 55.797, "regime": null},
+    "T6E73": {"stratum": "D", "answer_with_sentence": 55.797, "regime": null},
+    "T15F5": {"stratum": "R", "answer_with_sentence": 47.855, "regime": null},
+    "T8754": {"stratum": "D", "answer_with_sentence": 55.797, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: 120*ln(5/3)/ln(3) = 120*0.510826/1.098612 = 55.797 K. With a further 1.8 cm on the layer the outermost insulation surface (held at 300 K) moves to 10.8 cm: 120*0.510826/ln(3.6) = 120*0.510826/1.280934 = 47.855 K. This relies on reading 'the outermost surface of the insulation is held at 300 K' as applying to the new outer surface; if the 9 cm interface stayed at 300 K the answer would not change, but 'outermost' supports the R reading. Conductivity k cancels from the temperature profile (C). Earlier-survey and tank sentences are disconnected; T26FA and T6E73 use 'a small thickness' rather than 1.8 cm."
+}

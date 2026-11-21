@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch25",
+  "item_id": "M250-S221",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:16:00Z", "completed_at": "2026-11-21T10:22:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "First law at constant pressure for an ideal gas: Q = n C_p dT with C_p = (7/2) R for a diatomic gas without vibration", "assumptions": ["ideal gas", "quasi-static constant-pressure process", "closed system (no leak)", "vibration frozen"], "answer": 3491.88, "unit": "J"},
+  "stratum_assignments": {
+    "T0508": {"stratum": "R", "answer_with_sentence": 5761.60, "regime": null},
+    "TC98F": {"stratum": "D", "answer_with_sentence": 3491.88, "regime": null},
+    "TA1EB": {"stratum": "D", "answer_with_sentence": 3491.88, "regime": null},
+    "T5CFA": {"stratum": "R", "answer_with_sentence": 5761.60, "regime": null},
+    "TE3A7": {"stratum": "D", "answer_with_sentence": 3491.88, "regime": null},
+    "TFFAB": {"stratum": "C", "answer_with_sentence": 3491.88, "regime": null},
+    "T86C0": {"stratum": "C", "answer_with_sentence": 3491.88, "regime": null},
+    "TED71": {"stratum": "D", "answer_with_sentence": 3491.88, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "C_p = 3.5*8.314 = 29.099 J/(mol K); Q = 2*29.099*60 = 3491.88 J. With 3.3 mol: 3.3*29.099*60 = 5761.60 J. Pressure appears in pV = nRT but Q = n C_p dT is independent of p, so C. Gas added to the bottle (no pipe) or in an earlier run does not change the gas heated. TE3A7 and TED71 carry no number ('small amount'), unlike their 1.3 mol counterparts; I take them as numeral-free versions."
+}

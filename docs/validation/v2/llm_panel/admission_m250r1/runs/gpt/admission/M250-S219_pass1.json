@@ -1,0 +1,96 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S219",
+  "pass_number": 1,
+  "started_at": "2026-11-21T13:51:59+00:00",
+  "completed_at": "2026-11-21T13:52:38+00:00",
+  "minutes_spent": 0.65,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The magnetic Lorentz force gives angular frequency omega = |q|B/m. The parallel velocity remains constant, so pitch = v_parallel times 2*pi*m/(|q|B) = 3*pi m.",
+    "assumptions": [
+      "Use nonrelativistic magnetic motion as stated.",
+      "The specified charge and mass remain constant during the current run.",
+      "The given parallel velocity describes the motion in the field."
+    ],
+    "answer": 9.4247779608,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TB95D": {
+      "stratum": "D",
+      "answer_with_sentence": 9.4247779608,
+      "regime": null
+    },
+    "T71C4": {
+      "stratum": "R",
+      "answer_with_sentence": 5.6099868814,
+      "regime": null
+    },
+    "T8046": {
+      "stratum": "R",
+      "answer_with_sentence": 5.6099868814,
+      "regime": null
+    },
+    "T6E3B": {
+      "stratum": "D",
+      "answer_with_sentence": 9.4247779608,
+      "regime": null
+    },
+    "T58CB": {
+      "stratum": "C",
+      "answer_with_sentence": 9.4247779608,
+      "regime": null
+    },
+    "TBA52": {
+      "stratum": "D",
+      "answer_with_sentence": 9.4247779608,
+      "regime": null
+    },
+    "T5675": {
+      "stratum": "C",
+      "answer_with_sentence": 9.4247779608,
+      "regime": null
+    },
+    "TAE48": {
+      "stratum": "D",
+      "answer_with_sentence": 9.4247779608,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The charge variants do not consistently preserve the required number and unit: TB95D and TBA52 say only 'a further small amount', while their corresponding numerical renderings T6E3B and TAE48 specify 3.4 mC."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "An additional charge of 1 mC satisfies 'a further small amount' but does not satisfy 'a further 3.4 mC', demonstrating that these renderings do not preserve numerical information."
+  ],
+  "notes": "The base physics is well-posed. Adding 3.4 mC to the bead gives a total charge of 8.4 mC and pitch 25*pi/14 m. The perpendicular speed changes the orbit radius, but cancels from the period through T = 2*pi*r/v_perpendicular. Charge used for an earlier run only has no effect on the current run. The electroscope is disconnected under the explicit statement that no other force acts on the bead. Invalidity concerns the required numerical equivalence of the sentence variants.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "9f2246765ae928a0d50b179a76f8a1db69642f7705880565d890ec4e3e55b6fc",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

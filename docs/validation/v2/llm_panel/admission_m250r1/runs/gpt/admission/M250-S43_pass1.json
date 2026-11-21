@@ -1,0 +1,85 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S43",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:06:02+00:00",
+  "completed_at": "2026-11-21T14:06:40+00:00",
+  "minutes_spent": 0.63,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The dielectric and remaining vacuum gaps act as capacitors in series: C_f = C_0 d/(d-t+t/k) = 100 pF × 6/(3+3/4) = 160 pF. At fixed voltage, the additional charge is ΔQ = (C_f-C_0)V = 60 pF × 12 V = 720 pC.",
+    "assumptions": [
+      "The initial and final capacitor states are electrostatic equilibrium states.",
+      "The dielectric is homogeneous and described by its stated dielectric constant.",
+      "The slab fully overlaps the plate area after insertion.",
+      "For sentences adding a cell to the capacitor circuit before charging, that cell remains connected during insertion."
+    ],
+    "answer": 7.2e-10,
+    "unit": "C"
+  },
+  "stratum_assignments": {
+    "T27DA": {
+      "stratum": "D",
+      "answer_with_sentence": 7.2e-10,
+      "regime": null
+    },
+    "T8799": {
+      "stratum": "D",
+      "answer_with_sentence": 7.2e-10,
+      "regime": null
+    },
+    "T0DBA": {
+      "stratum": "D",
+      "answer_with_sentence": 7.2e-10,
+      "regime": null
+    },
+    "T9341": {
+      "stratum": "R",
+      "answer_with_sentence": 1.17e-09,
+      "regime": null
+    },
+    "T6AD3": {
+      "stratum": "R",
+      "answer_with_sentence": 1.17e-09,
+      "regime": null
+    },
+    "T970C": {
+      "stratum": "D",
+      "answer_with_sentence": 7.2e-10,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T27DA and T0DBA omit the cell's numerical emf and unit, whereas the other cell variants specify 7.5 V, violating the required preservation of the same number and unit across variants."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and each individual augmented problem have determinate answers; the invalid verdict concerns the required numerical matching of sentence variants. T27DA versus T8799 and T0DBA versus T970C differ by adding a numerical emf, rather than solely by wording or attachment. Earlier-experiment cells have no effect on the present equilibrium charge change, and the separately powered lamp has no coupling to the target under the stated model. For T9341 and T6AD3, the aiding cell raises the maintained capacitor voltage to 19.5 V, giving ΔQ = 60 pF × 19.5 V = 1170 pC.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a4b761e4b69e5865b06f1638885077dff7719de7ede8faecc9753f8e51244958",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

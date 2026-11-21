@@ -1,0 +1,85 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S45",
+  "pass_number": 1,
+  "started_at": "2026-11-21T13:53:21+00:00",
+  "completed_at": "2026-11-21T13:54:01+00:00",
+  "minutes_spent": 0.67,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation gives qV = mv²/2; magnetic centripetal force gives qvB = mv²/r. Thus r = sqrt(2mV/q)/B. With m = 0.0001 kg, q = 0.002 C, V = 2.5 V and B = 0.8 T, v = 10 m/s and r = 0.625 m.",
+    "assumptions": [
+      "The accelerating voltage supplies positive kinetic energy to the bead.",
+      "Classical mechanics applies at the resulting speeds.",
+      "An extra voltage across the accelerating gap adds to the original accelerating voltage.",
+      "The bulb's separate circuit has no appreciable interaction with the bead."
+    ],
+    "answer": 0.625,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TD92C": {
+      "stratum": "D",
+      "answer_with_sentence": 0.625,
+      "regime": null
+    },
+    "TD3A9": {
+      "stratum": "R",
+      "answer_with_sentence": 1.1858541226,
+      "regime": null
+    },
+    "TEE28": {
+      "stratum": "R",
+      "answer_with_sentence": 1.1858541226,
+      "regime": null
+    },
+    "T7686": {
+      "stratum": "D",
+      "answer_with_sentence": 0.625,
+      "regime": null
+    },
+    "T8562": {
+      "stratum": "D",
+      "answer_with_sentence": 0.625,
+      "regime": null
+    },
+    "TFFD3": {
+      "stratum": "D",
+      "answer_with_sentence": 0.625,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TD92C and T8562 omit the numerical value and unit supplied in their corresponding variants TFFD3 and T7686, violating the required preservation of 6.5 V across variants."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics is well-posed. For TD3A9 and TEE28, the total accelerating voltage becomes 9.0 V, giving v = sqrt(360) m/s and r approximately 1.186 m. The past tense in TD3A9 refers to the described bead's acceleration; an explicitly earlier experiment affects neither its energy nor its radius. The unspecified extra bulb voltage likewise does not prevent determining the radius. The invalid verdict concerns the required numerical matching of sentence variants.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f654c9009e771a2e27fcc417f5dc81db20f612e063e0f08480b59a31f62780e3",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

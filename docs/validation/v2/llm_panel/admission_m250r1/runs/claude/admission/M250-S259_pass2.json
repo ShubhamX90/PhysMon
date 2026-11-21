@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch15",
+  "item_id": "M250-S259",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:13:00Z", "completed_at": "2026-11-21T10:22:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Maxwell speed distribution: F = erfc(x) + (2/sqrt(pi)) x exp(-x^2), x = vc/sqrt(2kT/m); nf = n F",
+    "assumptions": ["ideal monatomic gas in equilibrium at the wall temperature", "1 u = 1.66054e-27 kg"],
+    "answer": 0.0465,
+    "unit": "mol"
+  },
+  "stratum_assignments": {
+    "T2124": {"stratum": "D", "answer_with_sentence": 0.0465, "regime": null},
+    "TA6B3": {"stratum": "R", "answer_with_sentence": 0.0540, "regime": null},
+    "TA645": {"stratum": "D", "answer_with_sentence": 0.0465, "regime": null},
+    "T5A1D": {"stratum": "C", "answer_with_sentence": 0.0465, "regime": null},
+    "T3034": {"stratum": "C", "answer_with_sentence": 0.0465, "regime": null},
+    "T408F": {"stratum": "D", "answer_with_sentence": 0.0465, "regime": null},
+    "T4B89": {"stratum": "D", "answer_with_sentence": 0.0465, "regime": null},
+    "TA78B": {"stratum": "R", "answer_with_sentence": 0.0540, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base answer 0.0464826 mol and R answer at 17 K (0.0540434 mol) match my pass-1 values (0.0465, 0.0540); I also checked the 9 K value (about 0.0505 mol, claimed 0.0504532). Minimal pairs hold: T408F/TA78B differ only in timing (earlier experiment vs just before measurement), T4B89/TA6B3 only in the object warmed (window frame vs flask), all at 17 K. T2124 and TA645 are declared numeral-free controls (twins of T408F and T4B89), not number-bearing variants, so I withdraw my pass-1 low rendering_not_minimal flag. Pressure cancels as claimed (it sets the number density, and the fraction does not depend on it). The scene clause about the walls makes the warming of the flask carry through to the gas."
+}

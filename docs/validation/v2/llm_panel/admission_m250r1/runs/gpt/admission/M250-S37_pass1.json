@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S37",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:08:16+00:00",
+  "completed_at": "2026-11-21T14:09:16+00:00",
+  "minutes_spent": 1.0,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newtonian gravitation and circular motion give GM = gR² and T = 2π√((R+h)³/(gR²)). With R = 6371000 m and h = 400000 m, T = 5550.58 s.",
+    "assumptions": [
+      "Use Newtonian gravity and the spherical Earth's external gravitational field.",
+      "The stated initial altitude describes the current mission; an earlier mission precedes that initial condition.",
+      "After a specified current raise, use the resulting circular orbit."
+    ],
+    "answer": 92.51,
+    "unit": "min"
+  },
+  "stratum_assignments": {
+    "T829A": {
+      "stratum": "D",
+      "answer_with_sentence": 92.51,
+      "regime": null
+    },
+    "T4F19": {
+      "stratum": "D",
+      "answer_with_sentence": 92.51,
+      "regime": null
+    },
+    "TF747": {
+      "stratum": "D",
+      "answer_with_sentence": 92.51,
+      "regime": null
+    },
+    "TDE51": {
+      "stratum": "R",
+      "answer_with_sentence": 109.38,
+      "regime": null
+    },
+    "T2454": {
+      "stratum": "R",
+      "answer_with_sentence": 109.38,
+      "regime": null
+    },
+    "T5F43": {
+      "stratum": "D",
+      "answer_with_sentence": 92.51,
+      "regime": null
+    },
+    "TA5FD": {
+      "stratum": "C",
+      "answer_with_sentence": 92.51,
+      "regime": null
+    },
+    "T469A": {
+      "stratum": "C",
+      "answer_with_sentence": 92.51,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The orbit-raise variants do not consistently state the same number: T829A and T5F43 specify only 'a few hundred kilometres', whereas the other raise sentences specify 800 km."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The individual physics problems have determinate answers; the invalid verdict concerns the stipulated numerical matching of variants. Kilometres and km are equivalent units, but an unspecified few hundred kilometres does not state 800 km. Raising the satellite by 800 km gives a final altitude of 1200 km. Earlier-mission raises precede the explicitly supplied current initial orbit and do not alter it. The station's orbit is disconnected under the stated neglect of other bodies' gravity. Satellite mass cancels between gravitational and centripetal force. Both mass variants consistently specify 750 kg.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "bc901849661ba9ea467f4670c83d9341cc73e2c9a92387c62643a128ea7bc40a",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

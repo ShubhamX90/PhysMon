@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S66",
+  "pass_number": 1,
+  "started_at": "2026-11-21T13:50:38+00:00",
+  "completed_at": "2026-11-21T13:51:23+00:00",
+  "minutes_spent": 0.75,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Principal grating maxima satisfy d sin(theta_m) = m lambda. Thus the separation is asin(2*650/4000) - asin(2*450/4000) = approximately 5.96 degrees.",
+    "assumptions": [
+      "Use the standard angular positions of the grating's principal diffraction maxima.",
+      "Both wavelengths are observed in order 2 on the same side.",
+      "Replacement statements update the beam composition for the measurement they specify."
+    ],
+    "answer": 5.96,
+    "unit": "degree"
+  },
+  "stratum_assignments": {
+    "TD8FB": {
+      "stratum": "R",
+      "answer_with_sentence": 2.71,
+      "regime": null
+    },
+    "T19FA": {
+      "stratum": "R",
+      "answer_with_sentence": 2.71,
+      "regime": null
+    },
+    "T9433": {
+      "stratum": "D",
+      "answer_with_sentence": 5.96,
+      "regime": null
+    },
+    "T8CA3": {
+      "stratum": "D",
+      "answer_with_sentence": 5.96,
+      "regime": null
+    },
+    "T30F6": {
+      "stratum": "D",
+      "answer_with_sentence": 5.96,
+      "regime": null
+    },
+    "T2E60": {
+      "stratum": "C",
+      "answer_with_sentence": 5.96,
+      "regime": null
+    },
+    "TFEEC": {
+      "stratum": "D",
+      "answer_with_sentence": 5.96,
+      "regime": null
+    },
+    "TBC0D": {
+      "stratum": "C",
+      "answer_with_sentence": 5.96,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The wavelength variants do not consistently retain the same number and unit: T9433 and T8CA3 specify only a different wavelength, whereas their corresponding explicit variants T30F6 and TFEEC specify 560 nm."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The individual physics problems have determinate answers; invalidity concerns the required variant construction. Replacing 450 nm with 560 nm gives asin(0.325) - asin(0.280), approximately 2.71 degrees. Earlier measurements do not affect the current beam, and no coupling from the second spectrometer to the grating is stated. Screen distance cancels when screen coordinates y = L tan(theta) are converted back to angles. The two screen sentences both retain 2.5 m. Current replacement statements naturally supersede the initial wavelength specification and are not contradictions.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "ab998523a8e64d23614093dd6dbe70a286e9d956320fc0e2c334dcc7143001e6",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "item_id": "M250-S235",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Archimedes' principle gives equilibrium draught d0 = rho_b L/rho_l. For downward displacement x, the additional upward buoyancy is rho_l g A x. Thus rho_b A L x'' = -rho_l g A x, giving T = 2 pi sqrt(rho_b L/(rho_l g)). With L = 0.30 m, T = 0.886307 s. An attached extension q of the same density and cross-section replaces L by L + q.",
+    "assumptions": [
+      "The cylinder maintains its stated upright orientation and moves vertically.",
+      "The displacement is small enough that the cylinder remains partly submerged.",
+      "The wood and its attached extension are rigid and have the stated uniform density.",
+      "Drag and liquid motion are neglected as instructed.",
+      "Lengths are converted from centimetres to metres when using the stated SI gravitational acceleration.",
+      "Extensions specified for an earlier run only are absent during the present run."
+    ],
+    "answer": 0.886307,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T11DC": {
+      "stratum": "C",
+      "answer_with_sentence": 0.886307,
+      "regime": null
+    },
+    "T7EFE": {
+      "stratum": "D",
+      "answer_with_sentence": 0.886307,
+      "regime": null
+    },
+    "T315E": {
+      "stratum": "R",
+      "answer_with_sentence": 1.017,
+      "regime": null
+    },
+    "T4379": {
+      "stratum": "R",
+      "answer_with_sentence": 1.017,
+      "regime": null
+    },
+    "T30BA": {
+      "stratum": "C",
+      "answer_with_sentence": 0.886307,
+      "regime": null
+    },
+    "TFE49": {
+      "stratum": "D",
+      "answer_with_sentence": 0.886307,
+      "regime": null
+    },
+    "T7F78": {
+      "stratum": "D",
+      "answer_with_sentence": 0.886307,
+      "regime": null
+    },
+    "TF10E": {
+      "stratum": "D",
+      "answer_with_sentence": 0.886307,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All certified answers and stratum claims agree with the physics. Radius enters both cylinder mass and buoyant restoring stiffness through the same cross-sectional area, cancelling for every listed radius. Current extensions of 3.5, 9.5 and 14 cm give periods 0.936582, 1.01700 and 1.07337 s, respectively. Their equilibrium draught remains 65% of the total length, so sufficiently small oscillations remain partly submerged at every listed value. Raft extensions have no coupling to the cylinder under the stated neglect of liquid motion; extensions for an earlier run only leave the present cylinder unchanged. The explicitly claimed minimal pairs TF10E/T4379 and TFE49/T315E preserve 9.5 cm and change the temporal or object attachment as intended. I withdraw the pass-1 rendering_not_minimal flag: the pass-2 metadata identifies T7EFE and T7F78 as deliberate numeral-free controls, not as number-preserving minimal pairs. Their stated twin transformations are accurate. This clarification changes my verdict without changing the locked pass-1 review. The governing relations are dimensionally correct, with centimetre inputs converted consistently for numerical evaluation.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:08:15+00:00",
+  "completed_at": "2026-11-21T14:08:58+00:00",
+  "minutes_spent": 0.71,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "5484fd0977ba4002d0e542106c7412fbb0847b1eaa75c3dc783ffd0da716b34e",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

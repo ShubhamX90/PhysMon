@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch12",
+  "item_id": "M250-S210",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Lightly damped harmonic oscillator m x'' + b x' + k x = 0; amplitude envelope A(t) = A0 exp(-b t / (2m)); t = 2m ln(1/0.2) / b", "assumptions": ["linear viscous damping", "underdamped (stated light damping)", "envelope ratio independent of release phase and of k"], "answer": 8.047, "unit": "s"},
+  "stratum_assignments": {
+    "T7E76": {"stratum": "D", "answer_with_sentence": 8.047, "regime": null},
+    "TDAF8": {"stratum": "R", "answer_with_sentence": 4.127, "regime": null},
+    "T66F6": {"stratum": "D", "answer_with_sentence": 8.047, "regime": null},
+    "T2CC3": {"stratum": "R", "answer_with_sentence": 4.127, "regime": null},
+    "TF11F": {"stratum": "C", "answer_with_sentence": 8.047, "regime": null},
+    "T9920": {"stratum": "C", "answer_with_sentence": 8.047, "regime": null},
+    "TB3BF": {"stratum": "D", "answer_with_sentence": 8.047, "regime": null},
+    "TFF7E": {"stratum": "D", "answer_with_sentence": 8.047, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: gamma = b/(2m) = 0.2 s^-1, t = ln 5 / 0.2 = 8.047 s. With added 0.19 kg/s damper on the block (present during this run): b = 0.39 kg/s, gamma = 0.39 s^-1, t = 1.6094/0.39 = 4.127 s. k = 60 N/m gives omega0 = 10.95 rad/s >> gamma, consistent with light damping; k enters omega_d but cancels from the envelope (C; could also be read as K with regime underdamped). Sentences T7E76 and TB3BF give the coefficient only as 'small' rather than 0.19 kg/s; if they are intended as variants of TFF7E / T66F6 they differ in the stated value, but since they have no path to the target, this does not change answers. Door sentences are D."
+}

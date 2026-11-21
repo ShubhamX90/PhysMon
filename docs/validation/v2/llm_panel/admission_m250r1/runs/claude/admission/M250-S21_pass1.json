@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch05",
+  "item_id": "M250-S21",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Doppler effect, moving source, stationary observer, still air: f' = f c/(c - v_s)", "assumptions": ["source moves directly toward listener (approaching phase)", "still air, stationary listener", "non-relativistic"], "answer": 467.245, "unit": "Hz"},
+  "stratum_assignments": {
+    "T5688": {"stratum": "D", "answer_with_sentence": 467.245, "regime": null},
+    "TE5DD": {"stratum": "K", "answer_with_sentence": 467.245, "regime": "the heard frequency is independent of distance while the siren is still approaching (before it passes the listener, about 15 s at 20 m/s)"},
+    "TD410": {"stratum": "R", "answer_with_sentence": 484.235, "regime": null},
+    "TEDCB": {"stratum": "D", "answer_with_sentence": 467.245, "regime": null},
+    "T8B99": {"stratum": "R", "answer_with_sentence": 484.235, "regime": null},
+    "T4EE7": {"stratum": "K", "answer_with_sentence": 467.245, "regime": "same as TE5DD"},
+    "T62DC": {"stratum": "D", "answer_with_sentence": 467.245, "regime": null},
+    "TEE83": {"stratum": "D", "answer_with_sentence": 467.245, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "Temporal wording ('then tuned up', 'just before the tone was measured') versus 'the tone given is the one emitted when first switched on' leaves it slightly ambiguous at which moment the heard frequency is asked; the natural reading is after retuning, giving 484.24 Hz."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base: 440*343/323 = 467.245 Hz. With 456 Hz emitted: 456*343/323 = 484.235 Hz. Distance sentences TE5DD/T4EE7 state the same 300 m. Sentences with 'a small amount' (TEDCB, T62DC) carry no number, so if they are meant as variants of the 16 Hz sentences they would differ in the value; as stated they are distractors without a numeric value, which I do not count as a defect in pass 1."
+}

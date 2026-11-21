@@ -1,0 +1,92 @@
+{
+  "item_id": "M250-S279",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "The laboratory photon direction is perpendicular to the source velocity, so f_abs = f0/gamma. Consequently, the leading frequency decrease is df = (E0/h)(2*pi*frot*R)^2/(2*c^2).",
+    "assumptions": [
+      "Special relativity applies.",
+      "The source-frame photon energy remains fixed.",
+      "The stated constant rotation frequency remains 600 Hz when the source radius changes.",
+      "Lengths and photon energy are converted to units compatible with c and h."
+    ],
+    "answer": 3.964103,
+    "unit": "MHz"
+  },
+  "stratum_assignments": {
+    "T6166": {
+      "stratum": "D",
+      "answer_with_sentence": 3.964103,
+      "regime": null
+    },
+    "TCFA7": {
+      "stratum": "D",
+      "answer_with_sentence": 3.964103,
+      "regime": null
+    },
+    "TC381": {
+      "stratum": "R",
+      "answer_with_sentence": 6.785593,
+      "regime": null
+    },
+    "T1355": {
+      "stratum": "R",
+      "answer_with_sentence": 6.785593,
+      "regime": null
+    },
+    "TA7FF": {
+      "stratum": "D",
+      "answer_with_sentence": 3.964103,
+      "regime": null
+    },
+    "TCAAF": {
+      "stratum": "D",
+      "answer_with_sentence": 3.964103,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "invalid_numerical_precision"
+  ],
+  "defect_reasons": {
+    "invalid_numerical_precision": "For both relevant sentences at q = 3.7 cm, the certified 6.7855 MHz does not correctly round the calculated 6.7855928 MHz; at the displayed precision it should be 6.7856 MHz."
+  },
+  "defect_severity": {
+    "invalid_numerical_precision": "high"
+  },
+  "counterexamples": [
+    "With q = 3.7 cm, R becomes 0.157 m and the stated relation gives approximately 6.7855928 MHz, about 93 Hz above the certified 6.7855 MHz."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": false,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "The physics, wiring, stratum assignments and disconnected-sentence invariances are correct. The base certificate and the certificates at 1.9 cm and 5.6 cm round correctly. The numerical defect at 3.7 cm is small but exceeds rounding at the certificate's displayed precision. I withdraw pass 1's rendering_not_minimal flag: pass 2 explicitly identifies the qualitative sentences as numeral-free controls, while the actual minimal_pair_with claims link quantified sentences preserving 3.7 cm and changing the relevant attachment. This clarification does not alter my physical solutions. The equations require the ordinary conversions from centimetres to metres and from keV to eV.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T13:51:15+00:00",
+  "completed_at": "2026-11-21T13:52:11+00:00",
+  "minutes_spent": 0.94,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "370d41ed0c17be1f211af49806aca984ed76343c57c466ea397a79e81c5311db",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

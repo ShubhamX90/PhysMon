@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch01",
+  "item_id": "M250-S14",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:52:00Z", "completed_at": "2026-11-21T10:58:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "P = m g h / t at constant speed", "assumptions": ["constant speed, no kinetic-energy change", "uniform g = 9.8 m/s^2", "losses in the lifting gear not counted"], "answer": 470.4, "unit": "W"},
+  "stratum_assignments": {
+    "T920A": {"stratum": "R", "answer_with_sentence": 540.96, "regime": null},
+    "T8A2F": {"stratum": "R", "answer_with_sentence": 540.96, "regime": null},
+    "T7CD8": {"stratum": "C", "answer_with_sentence": 470.4, "regime": null},
+    "T4034": {"stratum": "D", "answer_with_sentence": 470.4, "regime": null},
+    "T3979": {"stratum": "D", "answer_with_sentence": 470.4, "regime": null},
+    "TAAAC": {"stratum": "D", "answer_with_sentence": 470.4, "regime": null},
+    "TBE39": {"stratum": "D", "answer_with_sentence": 470.4, "regime": null},
+    "T6E69": {"stratum": "C", "answer_with_sentence": 470.4, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "With a box strapped onto the load (T920A, T8A2F), 'power the motor delivers to the load' admits a reading as power to the 80 kg load alone (470.4 W) rather than to the lifted assembly (540.96 W); the certified reading is the more natural one, helped by 'the mass given is that of the load alone', so this is wording only."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "notes": "Checked R answers: (80+7)*9.8*6/10 = 511.56 W, 92*5.88 = 540.96 W, 108*5.88 = 635.04 W. C cancellation m g((q+h) - q)/t is correct for all starting heights. Minimal pairs TAAAC/T8A2F (crate vs load) and TBE39/T920A (earlier lift only vs before this lift) keep 12 kg and differ only in attachment; T3979 and T4034 are declared numeral-free controls. Pass-1 medium wording flag retained; no high defect."
+}

@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch23",
+  "item_id": "M250-S265",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:49:00Z", "completed_at": "2026-11-21T10:58:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Ideal transformer and constant-drop full-wave bridge; Vavg = (2/pi)(Vp cos th0 - 2Vd(pi/2 - th0)), sin th0 = 2Vd/Vp", "assumptions": ["ideal transformer", "constant-drop diode model", "resistive load, no capacitor"], "answer": 50.3759, "unit": "V"},
+  "stratum_assignments": {
+    "T5D4E": {"stratum": "D", "answer_with_sentence": 50.3759, "regime": null},
+    "TAC9C": {"stratum": "D", "answer_with_sentence": 50.3759, "regime": null},
+    "T8158": {"stratum": "R", "answer_with_sentence": 53.5265, "regime": null},
+    "TF8ED": {"stratum": "D", "answer_with_sentence": 50.3759, "regime": null},
+    "T697F": {"stratum": "C", "answer_with_sentence": 50.3759, "regime": null},
+    "T4891": {"stratum": "R", "answer_with_sentence": 53.5265, "regime": null},
+    "T9978": {"stratum": "C", "answer_with_sentence": 50.3759, "regime": null},
+    "T644B": {"stratum": "D", "answer_with_sentence": 50.3759, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified: +8 V -> Vp = 84.146 V, Vavg = 52.176 V; +14 V -> 53.527 V; +21 V -> Vp = 88.742 V, Vavg = 55.102 V; base 50.376 V; all match the certified values. Load-resistance cancellation correct under the stated diode model. Minimal pairs T5D4E/T8158 (lamp vs transformer supply) and TF8ED/T4891 (earlier run vs measurement run) share 14 V and differ only in attachment. Numeral-free controls declared. Agrees with pass 1."
+}

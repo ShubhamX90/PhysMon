@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch24",
+  "item_id": "M250-S226",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:12:00Z", "completed_at": "2026-11-21T10:20:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Radiative exchange between large parallel grey plates with N=2 shields; all gaps have equal resistance (2/eps - 1) for equal emissivity, so the T^4 drop is equal across the three gaps: T1^4 = Th^4 - (Th^4 - Tc^4)/3", "assumptions": ["infinite parallel plates (view factor 1)", "equal emissivity on all surfaces, diffuse grey, opaque", "steady state, radiation only"], "answer": 724.66, "unit": "K"},
+  "stratum_assignments": {
+    "TF3A9": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "T1186": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "T3B75": {"stratum": "C", "answer_with_sentence": 724.66, "regime": null},
+    "TAE28": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "TBE0E": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "T70E5": {"stratum": "C", "answer_with_sentence": 724.66, "regime": null},
+    "T0D5D": {"stratum": "R", "answer_with_sentence": 787.52, "regime": null},
+    "T7BAD": {"stratum": "R", "answer_with_sentence": 787.52, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: Th^4 = 4.096e11, Tc^4 = 8.1e9, T1^4 = 2.757667e11, T1 = 724.662 K. With the hot plate held at 870 K: Th^4 = 5.728976e11, T1^4 = 3.846317e11, T1 = 787.52 K. Emissivity cancels because every gap has the same resistance. Earlier-run and kettle sentences have no path to this steady state (kettle explicitly exchanges no heat). For T0D5D/T7BAD the problem's 'hot plate at 800 K' is read as its initial temperature; slight tension in wording but not a contradiction."
+}

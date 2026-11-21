@@ -1,0 +1,103 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S202",
+  "pass_number": 1,
+  "started_at": "2026-11-21T19:03:01+00:00",
+  "completed_at": "2026-11-21T19:04:11+00:00",
+  "minutes_spent": 1.17,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of momentum gives the rocket equation v = u ln(m_initial/m_final). For an unspecified retained payload mass M, v = 3000 ln((3200 + M)/(800 + M)) m/s.",
+    "assumptions": [
+      "Classical rocket mechanics applies.",
+      "The stated exhaust speed is the effective exhaust velocity.",
+      "Bolted payload remains attached throughout the burn.",
+      "The numerical answer below assumes no payload or other additional bolted mass; the base problem does not explicitly establish this."
+    ],
+    "answer": 4158.883083,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T5A37": {
+      "stratum": "R",
+      "answer_with_sentence": 3692.640772,
+      "regime": null
+    },
+    "T2DD9": {
+      "stratum": "C",
+      "answer_with_sentence": 4158.883083,
+      "regime": null
+    },
+    "T5460": {
+      "stratum": "R",
+      "answer_with_sentence": 3692.640772,
+      "regime": null
+    },
+    "T3A6F": {
+      "stratum": "D",
+      "answer_with_sentence": 4158.883083,
+      "regime": null
+    },
+    "TB855": {
+      "stratum": "C",
+      "answer_with_sentence": 4158.883083,
+      "regime": null
+    },
+    "T357D": {
+      "stratum": "D",
+      "answer_with_sentence": 4158.883083,
+      "regime": null
+    },
+    "T23F7": {
+      "stratum": "D",
+      "answer_with_sentence": 4158.883083,
+      "regime": null
+    },
+    "T2E45": {
+      "stratum": "D",
+      "answer_with_sentence": 4158.883083,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The base problem permits additional bolted cargo without specifying its initial mass or stating that none exists, although retained cargo changes the final speed.",
+    "rendering_not_minimal": "The payload sentences do not uniformly preserve the promised numerical quantity: T357D and T23F7 specify only a 'small payload', whereas the numerical payload variants specify 190 kg."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    {
+      "claim": "The base description determines a unique final speed.",
+      "case": "With no additional bolted cargo, the speed is 4158.883083 m/s; with 190 kg of retained bolted cargo, it is 3692.640772 m/s. Both satisfy the base description."
+    }
+  ],
+  "notes": "All listed numerical sentence answers are conditional on there being no additional unspecified cargo. For the rocket-payload sentences, the specified 190 kg is assumed to be the entire payload. Fuel consumption rate enters acceleration and burn duration but cancels when integrating over the fixed total fuel mass. Tug cargo has no appreciable force path to the rocket under the stated isolation condition, and cargo carried on a previous flight only is absent from the current mass budget. The numerical payload sentences consistently use 190 kg, and both numerical fuel-rate sentences consistently use 27 kg/s. No sentence creates an explicit contradiction with the base description.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "d888e95051223abd3ab04713199b234712aad26585f35ba090fec944fde698ac",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

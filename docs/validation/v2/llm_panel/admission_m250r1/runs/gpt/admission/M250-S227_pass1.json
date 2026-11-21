@@ -1,0 +1,86 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S227",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:12:36+00:00",
+  "completed_at": "2026-11-21T14:13:33+00:00",
+  "minutes_spent": 0.95,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Boltzmann populations give Z = 1 + 3 exp(-6000/(RT)) and mean molar internal energy U = 6000[3 exp(-6000/(RT))]/Z. At T = 300 K, U = 1278 J/mol.",
+    "assumptions": [
+      "The requested energy is the internal energy associated with the specified molecular levels.",
+      "The dilute equilibrium gas has Boltzmann level populations.",
+      "For additions describing heating before measurement, 300 K is the temperature before that heating."
+    ],
+    "answer": 1278,
+    "unit": "J/mol"
+  },
+  "stratum_assignments": {
+    "T0EF9": {
+      "stratum": "D",
+      "answer_with_sentence": 1278,
+      "regime": null
+    },
+    "T9DAE": {
+      "stratum": "D",
+      "answer_with_sentence": 1278,
+      "regime": null
+    },
+    "TCA07": {
+      "stratum": "D",
+      "answer_with_sentence": 1278,
+      "regime": null
+    },
+    "T5974": {
+      "stratum": "R",
+      "answer_with_sentence": 1571,
+      "regime": null
+    },
+    "T4CBB": {
+      "stratum": "R",
+      "answer_with_sentence": 1571,
+      "regime": null
+    },
+    "T86F4": {
+      "stratum": "D",
+      "answer_with_sentence": 1278,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The temperature-rise variants do not preserve the required number and unit: T9DAE and TCA07 specify an indefinite 'few kelvin', whereas the other variants specify 38 K."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "Interpreting 'a few kelvin' as 3 K satisfies that wording but differs from the 38 K specified in the other variants, so the variants do not differ only in wording and attachment."
+  ],
+  "notes": "The base physics is well posed under the internal-level interpretation. Heating the gas before measurement raises its equilibrium temperature to 338 K. An earlier run does not change the explicitly stated current temperature, and heating the thermally disconnected water bath does not change the gas temperature. The invalid verdict concerns the required numerical identity across sentence variants.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "efb04636acf7e3ce7cb4d5b2a8a988dce4943b9adf8af781f914616083683df8",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

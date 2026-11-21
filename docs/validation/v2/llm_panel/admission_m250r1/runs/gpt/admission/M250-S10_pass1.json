@@ -1,0 +1,105 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S10",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:04:28+00:00",
+  "completed_at": "2026-11-21T14:05:22+00:00",
+  "minutes_spent": 0.91,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Vertical projectile motion gives v_y² = (20 sin 40°)² - 2g(y - h). At the apex v_y = 0, so y_max = h + (20 sin 40°)²/(2 × 9.8). With h = 5 m, the rise is 8.43216 m.",
+    "assumptions": [
+      "Air resistance is neglected, as stated.",
+      "Gravity is uniform and downward with magnitude 9.8 m/s².",
+      "The baseline launch point is 5 m above the ground.",
+      "A stand installed under the platform for the current launch adds its height to the platform's stated height."
+    ],
+    "answer": 13.43216,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "T2FDC": {
+      "stratum": "D",
+      "answer_with_sentence": 13.43216,
+      "regime": null
+    },
+    "TB71A": {
+      "stratum": "D",
+      "answer_with_sentence": 13.43216,
+      "regime": null
+    },
+    "T7618": {
+      "stratum": "D",
+      "answer_with_sentence": 13.43216,
+      "regime": null
+    },
+    "TA325": {
+      "stratum": "C",
+      "answer_with_sentence": 13.43216,
+      "regime": null
+    },
+    "T4C78": {
+      "stratum": "K",
+      "answer_with_sentence": 13.43216,
+      "regime": "The ceiling is above the unobstructed apex: 26 m > 13.43216 m, so the ball cannot strike it."
+    },
+    "T3770": {
+      "stratum": "C",
+      "answer_with_sentence": 13.43216,
+      "regime": null
+    },
+    "T2004": {
+      "stratum": "R",
+      "answer_with_sentence": 15.63216,
+      "regime": null
+    },
+    "T161A": {
+      "stratum": "R",
+      "answer_with_sentence": 15.63216,
+      "regime": null
+    },
+    "T55E8": {
+      "stratum": "D",
+      "answer_with_sentence": 13.43216,
+      "regime": null
+    },
+    "T5047": {
+      "stratum": "K",
+      "answer_with_sentence": 13.43216,
+      "regime": "The ceiling is above the unobstructed apex: 26 m > 13.43216 m, so the ball cannot strike it."
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T7618 and TB71A replace the specified 2.2 m stand height with the unquantified description 'small', violating the required preservation of number and unit across variants of the stand quantity."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and each individual augmented problem have a determinate answer. The invalid verdict concerns the required relationship between sentence variants. T7618 versus T2FDC and TB71A versus T55E8 differ in numerical specification, beyond wording or attachment. Installing the stand under the platform for the current launch raises the launch point from 5 m to 7.2 m; use for an earlier experiment only does not affect the current launch. Loudspeaker stands have no stated physical connection to the trajectory. Ball mass cancels from m times acceleration equals gravitational force, and describing the ball as solid does not change this result.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "5eadfa01348f4630c51da21e25d9e73194ffb26354120485fb696b8fa798ff10",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S234",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:34:07+00:00",
+  "completed_at": "2026-11-21T14:35:25+00:00",
+  "minutes_spent": 1.29,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law gives sin(theta)=sin(40 degrees)/1.8. Reflection at straight, parallel sides preserves the axial velocity component, so t=nL/(c cos(theta)).",
+    "assumptions": [
+      "The end faces are perpendicular to the rod's axis.",
+      "The sides run parallel to the axis.",
+      "Air has refractive index approximately 1.",
+      "The stated absence of dispersion makes the pulse speed c/n."
+    ],
+    "answer": 1.2847e-08,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T507D": {
+      "stratum": "D",
+      "answer_with_sentence": 1.2847e-08,
+      "regime": null
+    },
+    "TB902": {
+      "stratum": "R",
+      "answer_with_sentence": 2.1198e-08,
+      "regime": null
+    },
+    "T97AD": {
+      "stratum": "D",
+      "answer_with_sentence": 1.2847e-08,
+      "regime": null
+    },
+    "TE2F0": {
+      "stratum": "D",
+      "answer_with_sentence": 1.2847e-08,
+      "regime": null
+    },
+    "T29E2": {
+      "stratum": "C",
+      "answer_with_sentence": 1.2847e-08,
+      "regime": null
+    },
+    "T2524": {
+      "stratum": "R",
+      "answer_with_sentence": 2.1198e-08,
+      "regime": null
+    },
+    "TACC7": {
+      "stratum": "D",
+      "answer_with_sentence": 1.2847e-08,
+      "regime": null
+    },
+    "TF3EE": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal",
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T97AD and TACC7 replace the specified extension of 1.3 m with an unspecified short length, while the historical-run variants additionally change temporal participation rather than only attachment.",
+    "insufficient_boundary_condition": "TF3EE can describe drawing the initially 2 m rod before the pulse, which changes its length, but neither the initial diameter nor the final length is specified for that reading."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high",
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "TF3EE",
+      "description": "For volume-conserving drawing of an initially circular 2 m rod from diameter 5 cm to 2.5 cm, its final length is 8 m and the transit time is approximately 5.1388e-8 s. If the sentence instead describes manufacture of the already specified 2 m finished rod, the time remains 1.2847e-8 s."
+    }
+  ],
+  "notes": "The internal angle is approximately 20.92 degrees, consistent with the stipulated total internal reflection. Diameter changes the spacing and number of reflections, but cancels from total path length at fixed axial length and internal angle. Earlier-run extensions have no stated surviving effect. TF3EE is assigned R under the sequential drawing interpretation; under a finished-rod fabrication interpretation it would instead be C with the base answer. The base problem itself is solvable, and the explicit current-run extensions give a length of 3.3 m.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "59b963759ff35333de40eeb4968e7260f6f907156d53f928571339d6e4b28617",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

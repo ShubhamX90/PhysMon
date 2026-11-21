@@ -1,0 +1,107 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S245",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:02:17+00:00",
+  "completed_at": "2026-11-21T14:03:11+00:00",
+  "minutes_spent": 0.9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Initial momentum p = sqrt(2mE). Each absorbed counterpropagating photon removes mean longitudinal momentum h/lambda, so N = lambda*sqrt(2mE)/h.",
+    "assumptions": [
+      "Use the problem's averaged emission-recoil model, interpreting stopping as removal of the mean longitudinal momentum.",
+      "The small frequency changes needed for Doppler compensation negligibly change photon momentum at the stated precision.",
+      "Use 1 u = 1.66053906660e-27 kg and 1 eV = 1.602176634e-19 J."
+    ],
+    "answer": 27163.5,
+    "unit": "photons"
+  },
+  "stratum_assignments": {
+    "T0167": {
+      "stratum": "K",
+      "answer_with_sentence": 27163.5,
+      "regime": "The sweep must cover the resonance-frequency change throughout slowing, approximately v_initial/lambda = 1.36 GHz, with suitable frequency endpoints; 2.4 GHz is sufficient."
+    },
+    "T7F35": {
+      "stratum": "D",
+      "answer_with_sentence": 27163.5,
+      "regime": null
+    },
+    "T866E": {
+      "stratum": "K",
+      "answer_with_sentence": 27163.5,
+      "regime": "The sweep must cover the resonance-frequency change throughout slowing, approximately v_initial/lambda = 1.36 GHz, with suitable frequency endpoints; 2.4 GHz is sufficient."
+    },
+    "TAB0F": {
+      "stratum": "C",
+      "answer_with_sentence": 27163.5,
+      "regime": null
+    },
+    "TCE76": {
+      "stratum": "R",
+      "answer_with_sentence": 29055.6,
+      "regime": null
+    },
+    "TF60D": {
+      "stratum": "C",
+      "answer_with_sentence": 27163.5,
+      "regime": null
+    },
+    "T037E": {
+      "stratum": "D",
+      "answer_with_sentence": 27163.5,
+      "regime": null
+    },
+    "TC3E2": {
+      "stratum": "R",
+      "answer_with_sentence": 29055.6,
+      "regime": null
+    },
+    "T28D1": {
+      "stratum": "D",
+      "answer_with_sentence": 27163.5,
+      "regime": null
+    },
+    "T341F": {
+      "stratum": "D",
+      "answer_with_sentence": 27163.5,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T7F35 and T037E give only an unspecified small energy increase, whereas their numerical counterparts T28D1 and T341F specify 0.011 eV, violating the requirement that quantity variants preserve the same stated number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "An earlier-run increase of 0.005 eV satisfies T7F35's unspecified 'a little more' but does not satisfy T28D1.",
+    "A second-beam increase of 0.005 eV satisfies T037E's unspecified 'a little' but does not satisfy T341F."
+  ],
+  "notes": "The base physics is well-posed under its explicitly stated averaged-recoil approximation. Adding 0.011 eV to the current atomic beam changes its kinetic energy to 0.0873 eV and gives approximately 2.91e4 photons. For scattering rate Gamma, N = Gamma*t and the stopping time is p_initial/(Gamma*h/lambda), so Gamma cancels. Earlier runs and the separate molecular beam have no stated physical connection to the current stopping process. The numerical sweep variants preserve 2.4 GHz, the scattering-rate variants preserve 9.3 MHz, and the explicitly numerical energy variants preserve 0.011 eV; the two vague energy variants fail that preservation requirement.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "0f6fbf4690fbbb271266e1eed70dd89b245e190b81f76c6c35a7b3d5386b8aa6",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

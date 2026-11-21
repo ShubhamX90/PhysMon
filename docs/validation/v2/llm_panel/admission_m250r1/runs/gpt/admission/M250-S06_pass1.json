@@ -1,0 +1,90 @@
+{
+  "item_id": "M250-S06",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "The parallel resistance is (1/6 + 1/12)^(-1) = 4 Ω. The total resistance is 8 Ω, giving a battery current of 1.5 A and a parallel-branch voltage of 6 V. The current through the second resistor is 6/12 = 0.5 A. With an additional series resistance r, that current is 12×4/[12×(8+r)] A.",
+    "assumptions": [
+      "The lamp and its own cell are electrically separate from the measured circuit.",
+      "An added resistor described as currently connected remains connected during measurement."
+    ],
+    "answer": 0.5,
+    "unit": "A"
+  },
+  "stratum_assignments": {
+    "T272F": {
+      "stratum": "D",
+      "answer_with_sentence": 0.5,
+      "regime": null
+    },
+    "T3DE4": {
+      "stratum": "D",
+      "answer_with_sentence": 0.5,
+      "regime": null
+    },
+    "T7E58": {
+      "stratum": "D",
+      "answer_with_sentence": 0.5,
+      "regime": null
+    },
+    "T115C": {
+      "stratum": "R",
+      "answer_with_sentence": 0.34782608695652173,
+      "regime": null
+    },
+    "T7719": {
+      "stratum": "R",
+      "answer_with_sentence": 0.34782608695652173,
+      "regime": null
+    },
+    "TBEF7": {
+      "stratum": "D",
+      "answer_with_sentence": 0.5,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "Whether T7719 establishes that the added resistor remains connected during measurement."
+  ],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T7719 specifies connection before measurement but leaves its continued connection at measurement ambiguous, allowing currents of approximately 0.348 A or 0.5 A.",
+    "rendering_not_minimal": "T272F and TBEF7 specify only a 'small resistor', whereas their numerical counterparts T7E58 and T3DE4 specify 3.5 Ω, violating the requirement that variants state the same number and unit."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "For T7719, connecting the 3.5 Ω resistor and leaving it connected gives 8/23 A; connecting it earlier and removing it before measurement gives 0.5 A. Both histories permit the stated past connection."
+  ],
+  "notes": "The base problem is well-posed. T7719 is assigned R under the natural reading that the connection persists, but its historical wording does not explicitly establish the measurement configuration. The missing numerical resistances in T272F and TBEF7 do not affect their disconnected status, but they prevent compliance with the stated numerical-variant requirement.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T19:06:36+00:00",
+  "completed_at": "2026-11-21T19:07:16+00:00",
+  "minutes_spent": 0.68,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "cb71f75137f4279b37418cf6bf89c62f3202ec1a36cff31124cebfb280a904cd",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

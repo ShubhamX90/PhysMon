@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch15",
+  "item_id": "M250-S279",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:53:00Z", "completed_at": "2026-11-21T11:00:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Transverse Doppler shift Delta f = f0 v^2/(2c^2), v = 2 pi f_rot r, f0 = E/h",
+    "assumptions": ["absorber on the axis, so emission perpendicular to the source velocity in the lab"],
+    "answer": 3.964,
+    "unit": "MHz"
+  },
+  "stratum_assignments": {
+    "T6166": {"stratum": "D", "answer_with_sentence": 3.964, "regime": null},
+    "TCFA7": {"stratum": "D", "answer_with_sentence": 3.964, "regime": null},
+    "TC381": {"stratum": "R", "answer_with_sentence": 6.785, "regime": null},
+    "T1355": {"stratum": "R", "answer_with_sentence": 6.785, "regime": null},
+    "TA7FF": {"stratum": "D", "answer_with_sentence": 3.964, "regime": null},
+    "TCAAF": {"stratum": "D", "answer_with_sentence": 3.964, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T1355 does not repeat 'at the same rotation frequency', and the authors' quantity label and wiring speak of 'a further ring', which no sentence mentions; neither changes the answer under the natural reading that the stated 600 Hz still holds."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base 3.9641 MHz and R 6.7855 MHz at +3.7 cm match my pass-1 values (3.964e6 Hz, 6.785e6 Hz). I checked the 1.9 cm value: (13.9/12)^2 * 3.9641 = 5.3188 MHz, as claimed. Minimal pairs hold: TCAAF/T1355 differ only in what is enlarged (pump pulley vs source circle), and TCFA7/TC381 only in timing (earlier run vs before the measurement), all at 3.7 cm. T6166 and TA7FF are declared numeral-free controls. The problem says 'leading order in v/c' while the assumptions say (v/c)^2; these agree, since the leading nonzero term for transverse emission is second order."
+}

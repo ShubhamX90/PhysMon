@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch19",
+  "item_id": "M250-S266",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:27:00Z", "completed_at": "2026-11-21T10:32:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Ideal-transformer current ratio I_p/I_s = N_s/N_p with Joule heating I^2 R in each winding; I_s = P_load/V_load",
+    "assumptions": ["unity power factor resistive load", "magnetising current, leakage and core loss negligible (stated)", "load voltage held at 24 V rms (stated)"],
+    "answer": 32.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "TEC29": {"stratum": "R", "answer_with_sentence": 53.389, "regime": null},
+    "TDD45": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null},
+    "T2665": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null},
+    "TA1EB": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null},
+    "TD2EC": {"stratum": "R", "answer_with_sentence": 53.389, "regime": null},
+    "T3C5C": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "I_s = 480/24 = 20 A, I_p = 2 A; losses 2^2 x 3 = 12 W plus 20^2 x 0.05 = 20 W = 32 W. Equivalently 0.08 I_s^2. With 620 W at 24 V: I_s = 25.833 A, loss = 0.08 x 667.36 = 53.39 W. Extra 140 W read as the power drawn by the extra load at the held 24 V. TA1EB and T3C5C carry no number (D anyway)."
+}

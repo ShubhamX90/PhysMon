@@ -1,0 +1,97 @@
+{
+  "item_id": "M250-S260",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "The mean collision frequency per molecule is z = n*pi*d^2*<v_rel>, where n = P/(k_B*T) and <v_rel> = 4*sqrt(k_B*T/(pi*m)). Thus z = 4*sqrt(pi)*d^2*P/sqrt(m*k_B*T).",
+    "assumptions": [
+      "The requested frequency is the equilibrium mean over molecules.",
+      "Binary hard-sphere collisions are counted, using m = 28 u = 4.6495e-26 kg.",
+      "An added 33 kPa at the same temperature denotes an equilibrated pressure increase from 80 to 113 kPa at 300 K.",
+      "Earlier experiments described as occurring for one run only are separate from the present stated gas condition."
+    ],
+    "answer": 5590000000.0,
+    "unit": "s^-1"
+  },
+  "stratum_assignments": {
+    "TE094": {
+      "stratum": "D",
+      "answer_with_sentence": 5590000000.0,
+      "regime": null
+    },
+    "T7923": {
+      "stratum": "D",
+      "answer_with_sentence": 5590000000.0,
+      "regime": null
+    },
+    "TE998": {
+      "stratum": "R",
+      "answer_with_sentence": 7900000000.0,
+      "regime": null
+    },
+    "TA9C7": {
+      "stratum": "D",
+      "answer_with_sentence": 5590000000.0,
+      "regime": null
+    },
+    "T4C04": {
+      "stratum": "C",
+      "answer_with_sentence": 5590000000.0,
+      "regime": null
+    },
+    "T5675": {
+      "stratum": "C",
+      "answer_with_sentence": 5590000000.0,
+      "regime": null
+    },
+    "T8E4F": {
+      "stratum": "R",
+      "answer_with_sentence": 7900000000.0,
+      "regime": null
+    },
+    "T62EC": {
+      "stratum": "D",
+      "answer_with_sentence": 5590000000.0,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TE094 versus TA9C7 and T62EC versus T7923 replace the specified 33 kPa with an unspecified 'small amount', violating the required preservation of number and unit across variants."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A 'small amount' could produce a pressure increment of 1 kPa rather than 33 kPa, so these renderings do not specify the same quantity value."
+  ],
+  "notes": "The collision calculation itself is well posed under the stated same-temperature interpretation. Volume cancels because N/V = P/(k_B*T). The nearby cylinder has no stated connection to the vessel. 'Just before the collisions were counted' in T8E4F places the addition in the measured run, whereas 'an earlier experiment' in TE094 and TA9C7 places it outside that run. The invalid verdict concerns the required numerical matching of sentence variants.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:24:32+00:00",
+  "completed_at": "2026-11-21T14:25:35+00:00",
+  "minutes_spent": 1.04,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "8d980103b5f3989a09383ef95f58b9b01ce915caa69078a61750e3f65b9efd75",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

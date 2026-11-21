@@ -1,0 +1,103 @@
+{
+  "item_id": "M250-S274",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "The allowed Zeeman shifts are mu_B B(g_u m_u-g_l m_l). Their extreme separation is (g_u+g_l)mu_B B, giving delta_lambda=lambda_0^2(g_u+g_l)mu_B B/(hc). The supplied constants give mu_B=5.7887803e-5 eV/T.",
+    "assumptions": [
+      "Use the stated linear weak-field Zeeman model and first-order wavelength conversion.",
+      "All six allowed electronic electric-dipole components are observed.",
+      "The additional field at the vapour increases its field magnitude by the stated amount.",
+      "Convert energies consistently between joules and electronvolts."
+    ],
+    "answer": 27.006092,
+    "unit": "pm"
+  },
+  "stratum_assignments": {
+    "T63F3": {
+      "stratum": "K",
+      "answer_with_sentence": 27.006092,
+      "regime": "Zeeman splittings remain much smaller than the fine-structure splitting. The claimed sufficient predicate gives 10*dE=0.000965279 eV, below every listed fine-structure value."
+    },
+    "T2090": {
+      "stratum": "R",
+      "answer_with_sentence": 29.976762,
+      "regime": null
+    },
+    "TF402": {
+      "stratum": "D",
+      "answer_with_sentence": 27.006092,
+      "regime": null
+    },
+    "TD469": {
+      "stratum": "D",
+      "answer_with_sentence": 27.006092,
+      "regime": null
+    },
+    "T664D": {
+      "stratum": "D",
+      "answer_with_sentence": 27.006092,
+      "regime": null
+    },
+    "TC894": {
+      "stratum": "R",
+      "answer_with_sentence": 29.976762,
+      "regime": null
+    },
+    "T3EF7": {
+      "stratum": "D",
+      "answer_with_sentence": 27.006092,
+      "regime": null
+    },
+    "T4FF2": {
+      "stratum": "K",
+      "answer_with_sentence": 27.006092,
+      "regime": "Zeeman splittings remain much smaller than the fine-structure splitting. The claimed sufficient predicate gives 10*dE=0.000965279 eV, below every listed fine-structure value."
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "failed_transformation_identity"
+  ],
+  "defect_reasons": {
+    "failed_transformation_identity": "The certified answers do not follow from the supplied constants and relations at their displayed precision: the base result is 27.006092 pm, and additions of 36, 55 and 83 mT give 28.950531, 29.976762 and 31.489103 pm, respectively."
+  },
+  "defect_severity": {
+    "failed_transformation_identity": "high"
+  },
+  "counterexamples": [
+    "At B=0.5 T, the supplied constants give dE=9.6527892e-5 eV and delta_lambda=27.006092 pm, whereas the certified base answer is 27.0031 pm.",
+    "With the stated 55 mT addition at the vapour, proportionality to B gives 29.976762 pm, whereas the certified answer is 29.9735 pm."
+  ],
+  "notes": "The governing relations, physical dependencies, stratum assignments and listed K regimes are sound. Joule-to-electronvolt conversion is required when using the supplied hc. The numerical discrepancies are small, and all base results round to 27.0 pm at three significant figures, but the certified six-digit values are not correct roundings of the stated calculation. My pass-1 answer in nm agrees with the present calculation after conversion to pm. I withdraw the pass-1 rendering flag: pass 2 explicitly identifies T664D and T3EF7 as numeral-free controls rather than claimed minimal pairs; the explicitly claimed minimal pairs preserve the number and unit.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": false,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T19:10:27+00:00",
+  "completed_at": "2026-11-21T19:11:39+00:00",
+  "minutes_spent": 1.2,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "0c2f6edd4abc1dfc05be089129ede9a6a7f7bb5a43463209d1eb96897c854d90",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch11",
+  "item_id": "M250-S73",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Infinite square well E_n = n^2 (hc)^2 / (8 mc^2 L^2); photon lambda = hc / (E_4 - E_1) = 8 mc^2 L^2 / (15 hc)", "assumptions": ["non-relativistic particle in an ideal infinite well", "single photon carries the full level difference", "L = 0.5 nm at the moment of the transition"], "answer": 54.95, "unit": "nm"},
+  "stratum_assignments": {
+    "T3D51": {"stratum": "R", "answer_with_sentence": 1848.4, "regime": null},
+    "TEDF7": {"stratum": "D", "answer_with_sentence": 54.95, "regime": null},
+    "T8EF5": {"stratum": "R", "answer_with_sentence": 1848.4, "regime": null},
+    "T7B70": {"stratum": "D", "answer_with_sentence": 54.95, "regime": null},
+    "T425C": {"stratum": "D", "answer_with_sentence": 54.95, "regime": null},
+    "T6BE7": {"stratum": "D", "answer_with_sentence": 54.95, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "E1 = 1537600/(8*511000*0.25) = 1.5045 eV; dE = 15 E1 = 22.568 eV; lambda = 1240/22.568 = 54.946 nm. With L = 0.5 + 2.4 = 2.9 nm, lambda scales by (2.9/0.5)^2 = 33.64 -> 1848.4 nm. For the R sentences I assume the electron stays in the n = 4 level while the well is widened (adiabatic widening keeps n), then makes the 4 -> 1 transition; this is the natural reading. Widening after the emission (TEDF7, T6BE7) cannot affect the already emitted photon; widening the separate dot (T7B70, T425C) has no path to the well. T425C and T6BE7 say 'a small amount' rather than 2.4 nm; they do not change the answer, but as variants they do not state the same number as the others."
+}

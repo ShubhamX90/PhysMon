@@ -1,0 +1,98 @@
+{
+  "item_id": "M250-S243",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For repulsive Rutherford scattering, let A = (2e)(79e)/(4*pi*epsilon_0). The impact parameter is b = A*cot(theta/2)/(2E). Conservation of energy and angular momentum at closest approach gives E = A/r_min + E*b^2/r_min^2, hence r_min = A*[1 + csc(theta/2)]/(2E). With theta = 90 degrees and E = 5 MeV, r_min = 54.92 fm.",
+    "assumptions": [
+      "The stated kinetic energy is the incident energy far from the scattering nucleus.",
+      "The nucleus provides the standard central Coulomb field, with negligible recoil as stipulated.",
+      "An alpha particle has charge +2e.",
+      "The earlier scattering mentioned in some sentences is a separate event."
+    ],
+    "answer": 54.92,
+    "unit": "fm"
+  },
+  "stratum_assignments": {
+    "T9A84": {
+      "stratum": "R",
+      "answer_with_sentence": 31.93,
+      "regime": null
+    },
+    "TE67A": {
+      "stratum": "D",
+      "answer_with_sentence": 54.92,
+      "regime": null
+    },
+    "T850C": {
+      "stratum": "R",
+      "answer_with_sentence": 31.93,
+      "regime": null
+    },
+    "TA405": {
+      "stratum": "K",
+      "answer_with_sentence": 54.92,
+      "regime": "The trajectory stays outside the nuclear charge distribution: r_min = 54.92 fm exceeds the nuclear radius of 7.3 fm, so the exterior Coulomb field applies."
+    },
+    "T381B": {
+      "stratum": "D",
+      "answer_with_sentence": 54.92,
+      "regime": null
+    },
+    "TABD0": {
+      "stratum": "D",
+      "answer_with_sentence": 54.92,
+      "regime": null
+    },
+    "T5616": {
+      "stratum": "D",
+      "answer_with_sentence": 54.92,
+      "regime": null
+    },
+    "T69BD": {
+      "stratum": "K",
+      "answer_with_sentence": 54.92,
+      "regime": "The trajectory stays outside the nuclear charge distribution: r_min = 54.92 fm exceeds the nuclear radius of 7.3 fm, so the exterior Coulomb field applies."
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T381B and T5616 replace the explicit 3.6 MeV additions in their corresponding variants TE67A and TABD0 with unspecified amounts, violating the required preservation of the number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "An earlier energy addition of 0.1 MeV satisfies T381B but does not satisfy TE67A, which specifies 3.6 MeV.",
+    "A proton energy addition of 0.1 MeV satisfies T5616 but does not satisfy TABD0, which specifies 3.6 MeV."
+  ],
+  "notes": "The base scattering problem and the answers for all individual added sentences are physically well-posed under the standard Rutherford interpretation. The invalid verdict concerns the required numerical matching of variants. Both radius sentences preserve 7.3 fm, and all explicitly quantified energy additions preserve 3.6 MeV. The vague energy additions remain disconnected from the requested scattering distance.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:28:04+00:00",
+  "completed_at": "2026-11-21T14:28:59+00:00",
+  "minutes_spent": 0.91,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "97b2f9f345b3b087a0d719e56572562888d1205143221900b3f9b4ae0a9ffbf8",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

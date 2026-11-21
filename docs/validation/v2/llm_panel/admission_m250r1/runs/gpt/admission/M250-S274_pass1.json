@@ -1,0 +1,96 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S274",
+  "pass_number": 1,
+  "started_at": "2026-11-21T19:09:36+00:00",
+  "completed_at": "2026-11-21T19:10:27+00:00",
+  "minutes_spent": 0.86,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The linear Zeeman shift is delta E = mu_B B (g_P m_P - g_S m_S), with electric-dipole selection rule delta m = 0, +/-1. The outermost components have energy shifts +/-[(g_P + g_S)/2]mu_B B, so their wavelength separation is lambda_0^2 (g_P + g_S)mu_B B/(hc). Here mu_B = e*hbar/(2m_e) = 5.78878e-5 eV/T.",
+    "assumptions": [
+      "Use the stated linear weak-field Zeeman model and first-order conversion from energy shifts to wavelength shifts.",
+      "The six observed components are the allowed electronic electric-dipole transitions.",
+      "A coil that adds a stated field increases the local field magnitude by that amount."
+    ],
+    "answer": 0.0270061,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "T63F3": {
+      "stratum": "K",
+      "answer_with_sentence": 0.0270061,
+      "regime": "The Zeeman splittings must remain much smaller than the fine-structure splitting so that the stated linear weak-field model applies. At 0.5 T, the full P-level Zeeman spread is approximately 0.000116 eV, much smaller than 0.0036 eV."
+    },
+    "T2090": {
+      "stratum": "R",
+      "answer_with_sentence": 0.0299768,
+      "regime": null
+    },
+    "TF402": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0270061,
+      "regime": null
+    },
+    "TD469": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0270061,
+      "regime": null
+    },
+    "T664D": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0270061,
+      "regime": null
+    },
+    "TC894": {
+      "stratum": "R",
+      "answer_with_sentence": 0.0299768,
+      "regime": null
+    },
+    "T3EF7": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0270061,
+      "regime": null
+    },
+    "T4FF2": {
+      "stratum": "K",
+      "answer_with_sentence": 0.0270061,
+      "regime": "The Zeeman splittings must remain much smaller than the fine-structure splitting so that the stated linear weak-field model applies. At 0.5 T, the full P-level Zeeman spread is approximately 0.000116 eV, much smaller than 0.0036 eV."
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T664D and T3EF7 specify only 'a little', whereas the other added-field variants explicitly specify 55 mT, so the field variants fail the required preservation of the stated number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "An addition of 1 mT at the compass satisfies T664D but does not satisfy TF402, which specifies 55 mT."
+  ],
+  "notes": "The base physics problem and each independently augmented problem have unique target answers. The invalid verdict concerns the required numerical matching of sentence variants. Both current-vapour additions give B = 0.555 T; compass additions and additions confined to earlier measurements have no path to the present target. The two fine-structure sentences preserve the same number and unit.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "af3f21ca59520e76ca14479897e35c5aa6548525b701513c472433b8e70c737b",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

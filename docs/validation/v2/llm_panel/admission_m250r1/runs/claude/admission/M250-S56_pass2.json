@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch21",
+  "item_id": "M250-S56",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:58:00Z", "completed_at": "2026-11-21T11:05:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Pw = Pc / (f * Tc/(Th - Tc))", "assumptions": ["steady operation", "electrical input equals cycle work", "reservoirs at constant temperature"], "answer": 60.6061, "unit": "W"},
+  "stratum_assignments": {
+    "T2CD6": {"stratum": "K", "answer_with_sentence": 60.6061, "regime": "Pw < 330 W"},
+    "TC1B7": {"stratum": "R", "answer_with_sentence": 77.2727, "regime": null},
+    "T3A68": {"stratum": "D", "answer_with_sentence": 60.6061, "regime": null},
+    "T0E77": {"stratum": "C", "answer_with_sentence": 60.6061, "regime": null},
+    "T9447": {"stratum": "D", "answer_with_sentence": 60.6061, "regime": null},
+    "T2BAE": {"stratum": "C", "answer_with_sentence": 60.6061, "regime": null},
+    "TB1B6": {"stratum": "D", "answer_with_sentence": 60.6061, "regime": null},
+    "T50E9": {"stratum": "K", "answer_with_sentence": 60.6061, "regime": "Pw < 330 W"},
+    "T5601": {"stratum": "D", "answer_with_sentence": 60.6061, "regime": null},
+    "T5F2C": {"stratum": "R", "answer_with_sentence": 77.2727, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "For TC1B7 and T5F2C the base clause 'must remove heat from it at a steady rate of 200 W' can be read as the total removal rate, which would leave the answer at 60.6 W; the 'Heat leaks into the interior, so' wording supports the authors' leak-only reading and wiring Pc + q."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Verified: COP = 0.3*11 = 3.3; base 60.6061 W; lamp q = 35, 55, 90 W -> 71.2121, 77.2727, 87.8788 W. Test-length C claim holds (power is independent of duration). K regime Pw < q holds for 260, 330, 480 W (Pw = 60.6 W). D claims for the earlier test and the lamp above the chest freezer (kitchen is a reservoir) hold. Minimal pairs T3A68/T5F2C and T5601/TC1B7 share 55 W and differ only in attachment; T9447, TB1B6 are declared numeral-free controls. Agreement with pass 1."
+}

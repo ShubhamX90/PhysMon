@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch13",
+  "item_id": "M250-S57",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:22:00Z", "completed_at": "2026-11-21T10:29:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "W = m c [(Tb - Tl) - Tl ln(Tb/Tl)] (zero total entropy change for a reversible engine)", "assumptions": ["constant c, water stays liquid", "lake at constant 290 K", "insulated tank", "added water in the first tank is at 360 K"], "answer": 61.077, "unit": "kJ"},
+  "stratum_assignments": {
+    "T9CCB": {"stratum": "R", "answer_with_sentence": 103.83, "regime": null},
+    "T630C": {"stratum": "R", "answer_with_sentence": 103.83, "regime": null},
+    "TE3D6": {"stratum": "D", "answer_with_sentence": 61.077, "regime": null},
+    "TC03C": {"stratum": "D", "answer_with_sentence": 61.077, "regime": null},
+    "T24C4": {"stratum": "D", "answer_with_sentence": 61.077, "regime": null},
+    "T557D": {"stratum": "D", "answer_with_sentence": 61.077, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The scene_clause_note calls the second tank 'empty', whereas the problem says it holds some water of its own; the note's conclusion (the second tank is not connected to the engine) still holds, and 'the same temperature' in the second-tank sentences has a slightly vague referent, neither of which affects any answer."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked: base 8372 J/K * 7.2954 K = 61.077 kJ; m = 2.7 kg: 11302.2*7.2954 = 82.453 kJ; 3.4 kg: 103.83 kJ; 5.3 kg: 22185.8*7.2954 = 161.85 kJ, all matching. Pass 1 answers were in J; same values in kJ. Minimal pairs T24C4/T630C (second vs first tank) and TE3D6/T9CCB (earlier experiment only vs before this run) share 1.4 kg and differ only in attachment; numeral-free twins TC03C and T557D match their D twins' wording with the number replaced. The 'empty' wording in the scene_clause_note is an internal annotation error only and does not concern answers, equations, displayed values or pairings, so I rate it low."
+}

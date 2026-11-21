@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch28",
+  "item_id": "M250-S17",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:15:00Z", "completed_at": "2026-11-21T10:21:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Steady 1D conduction through series thermal resistances: Q = dT / (R1 + R2)", "assumptions": ["steady state", "no edge losses", "series resistances add"], "answer": 80.0, "unit": "W"},
+  "stratum_assignments": {
+    "TEA3F": {"stratum": "D", "answer_with_sentence": 80.0, "regime": null},
+    "T9AD7": {"stratum": "R", "answer_with_sentence": 106.0, "regime": null},
+    "TFB08": {"stratum": "C", "answer_with_sentence": 80.0, "regime": null},
+    "T6D07": {"stratum": "D", "answer_with_sentence": 80.0, "regime": null},
+    "TFD0A": {"stratum": "R", "answer_with_sentence": 106.0, "regime": null},
+    "TA36C": {"stratum": "C", "answer_with_sentence": 80.0, "regime": null},
+    "T97D1": {"stratum": "D", "answer_with_sentence": 80.0, "regime": null},
+    "T38CE": {"stratum": "D", "answer_with_sentence": 80.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: 20 K / 0.25 K/W = 80 W. Warming the hot wall surface by 6.5 K with the cold surface held fixed gives 26.5 K / 0.25 = 106 W (TFD0A, T9AD7). The absolute cold-surface temperature 303 K enters the surface temperatures but only the difference matters (C). Partition and earlier-test sentences have no path to the settled flow (D). The framing clause ('the temperature difference given is the initial one ... settled flow at the end') is somewhat artificial but makes the R sentences unambiguous."
+}

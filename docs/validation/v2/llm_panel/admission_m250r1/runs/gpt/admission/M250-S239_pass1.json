@@ -1,0 +1,85 @@
+{
+  "item_id": "M250-S239",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For a lossless birefringent plate followed by a crossed analyser, P_out = P_in sin²(2θ) sin²(π Δn d/λ). With θ = 30°, the prefactor is 6 mW. At d = 24 μm, P_out = 5.11962 mW; after removing 6.5 μm, d = 17.5 μm and P_out = 3.43846 mW.",
+    "assumptions": [
+      "Without an added polishing event, the plate thickness traversed by the light is the stated 24 μm.",
+      "Polishing uniformly reduces thickness while preserving birefringence and axis orientation.",
+      "The analyser is ideal, as indicated by its stated polarisation selection.",
+      "The lens beside the plate is outside the optical path."
+    ],
+    "answer": 5.11962,
+    "unit": "mW"
+  },
+  "stratum_assignments": {
+    "T8B20": {
+      "stratum": "R",
+      "answer_with_sentence": 3.43846,
+      "regime": null
+    },
+    "T6887": {
+      "stratum": "D",
+      "answer_with_sentence": 5.11962,
+      "regime": null
+    },
+    "TD658": {
+      "stratum": "D",
+      "answer_with_sentence": 5.11962,
+      "regime": null
+    },
+    "TC0D0": {
+      "stratum": "R",
+      "answer_with_sentence": 3.43846,
+      "regime": null
+    },
+    "TDB47": {
+      "stratum": "D",
+      "answer_with_sentence": 5.11962,
+      "regime": null
+    },
+    "T4691": {
+      "stratum": "D",
+      "answer_with_sentence": 5.11962,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TD658 replaces the specified 6.5 μm measurement margin with an unspecified 'small margin', and T4691 replaces the specified 6.5 μm lens thinning with 'a little', so these variants fail the required preservation of number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The optical calculation is well-posed under the ordinary reading that no polishing occurs unless an added sentence specifies it. Both plate-polishing sentences describe thinning before the requested transmission is evaluated. A measurement tolerance from an earlier run does not change the independently stated present thickness or establish that its uncertainty applies to that thickness; it is therefore disconnected historical information. The validity defect concerns the required matching of numerical quantities across sentence variants.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:14:17+00:00",
+  "completed_at": "2026-11-21T14:15:26+00:00",
+  "minutes_spent": 1.15,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "1338d19b36fe9201733440a0fb932c5b7859027d41adc7cf87aa3e8fbb355d2c",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

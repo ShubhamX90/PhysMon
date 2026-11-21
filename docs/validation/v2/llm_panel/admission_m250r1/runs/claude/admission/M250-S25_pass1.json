@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch11",
+  "item_id": "M250-S25",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:15:00Z", "completed_at": "2026-11-21T10:22:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Magnetic energy of an inductor U = (1/2) L I^2", "assumptions": ["ideal linear inductor", "current at the time of the question is the stated steady current"], "answer": 1.125, "unit": "J"},
+  "stratum_assignments": {
+    "T5F48": {"stratum": "D", "answer_with_sentence": 1.125, "regime": null},
+    "TF595": {"stratum": "K", "answer_with_sentence": 1.125, "regime": "linear core, I < 9.5 A; 3 A is inside"},
+    "T8F25": {"stratum": "D", "answer_with_sentence": 1.125, "regime": null},
+    "T9150": {"stratum": "K", "answer_with_sentence": 1.125, "regime": "unsaturated core, I < 9.5 A; 3 A is inside"},
+    "T9E75": {"stratum": "R", "answer_with_sentence": 4.205, "regime": null},
+    "T7035": {"stratum": "D", "answer_with_sentence": 1.125, "regime": null},
+    "TA5C2": {"stratum": "R", "answer_with_sentence": 4.205, "regime": null},
+    "T1C85": {"stratum": "C", "answer_with_sentence": 1.125, "regime": null},
+    "T80D0": {"stratum": "D", "answer_with_sentence": 1.125, "regime": null},
+    "T3774": {"stratum": "C", "answer_with_sentence": 1.125, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "U = 0.5 * 0.25 H * (3 A)^2 = 1.125 J. With a later increase by 2.8 A (T9E75, TA5C2), I = 5.8 A, still below 9.5 A, so U = 0.5 * 0.25 * 33.64 = 4.205 J. T9E75 relies on 'the current stated is the steady current at the outset' to place the question after the increase; this reading is the intended one, though the question's time is not stated explicitly. 'Earlier experiment' increases (T5F48, T8F25) leave no state behind. The ramp time (T1C85, T3774) enters the emf L dI/dt during charging but not the final energy, so I mark it C. T5F48 and T7035 say 'a small amount' rather than 2.8 A."
+}

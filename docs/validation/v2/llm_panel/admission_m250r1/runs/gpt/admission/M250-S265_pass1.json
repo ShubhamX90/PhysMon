@@ -1,0 +1,97 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S265",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:04:19+00:00",
+  "completed_at": "2026-11-21T14:05:10+00:00",
+  "minutes_spent": 0.85,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The secondary peak voltage is Vm = sqrt(2)(230/4). With total conducting diode drop d = 1.4 V, the load voltage is max(Vm|sin(theta)| - d, 0). Defining alpha = asin(d/Vm), its average is [2Vm cos(alpha) - d(pi - 2alpha)]/pi.",
+    "assumptions": [
+      "The bridge provides the usual full-wave rectified output.",
+      "The stated ideal transformer and constant-drop diode models apply.",
+      "The bench lamp has no stated electrical or other coupling to the rectifier."
+    ],
+    "answer": 50.3759,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "T5D4E": {
+      "stratum": "D",
+      "answer_with_sentence": 50.3759,
+      "regime": null
+    },
+    "TAC9C": {
+      "stratum": "D",
+      "answer_with_sentence": 50.3759,
+      "regime": null
+    },
+    "T8158": {
+      "stratum": "R",
+      "answer_with_sentence": 53.5265,
+      "regime": null
+    },
+    "TF8ED": {
+      "stratum": "D",
+      "answer_with_sentence": 50.3759,
+      "regime": null
+    },
+    "T697F": {
+      "stratum": "C",
+      "answer_with_sentence": 50.3759,
+      "regime": null
+    },
+    "T4891": {
+      "stratum": "R",
+      "answer_with_sentence": 53.5265,
+      "regime": null
+    },
+    "T9978": {
+      "stratum": "C",
+      "answer_with_sentence": 50.3759,
+      "regime": null
+    },
+    "T644B": {
+      "stratum": "D",
+      "answer_with_sentence": 50.3759,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TAC9C and T644B replace the specified 14 V with an unspecified 'small amount', violating the requirement that variants preserve the same number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A 1 V increase satisfies 'a further small amount' in T644B but does not match the 14 V increase in T5D4E.",
+    "An earlier mains voltage 1 V above nominal satisfies TAC9C but does not match the 14 V excess specified in TF8ED."
+  ],
+  "notes": "The base physics and every individual appended problem have unique answers. The invalid verdict concerns the required matching of numerical values across variants. Earlier runs cannot affect the present output in the stated memoryless model. Load resistance enters the current relation I = Vload/R but cancels from the voltage waveform because the source has no resistance and diode drops are fixed. Both relevant sentences give a primary voltage of 244 V rms. The two resistance sentences consistently specify 47 ohms.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "70934aad76b6f0363c416cc0f60275c6a823cd2c7c02605c9f0421692435cfaa",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

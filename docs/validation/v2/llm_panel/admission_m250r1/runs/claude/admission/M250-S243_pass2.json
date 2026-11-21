@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch16",
+  "item_id": "M250-S243",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:38:00Z", "completed_at": "2026-11-21T10:46:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Rutherford closest approach r_min = (D/2)(1 + 1/sin(theta/2)), D = 2 Z k e^2 / K",
+    "assumptions": ["fixed point nucleus", "pure Coulomb force between 2e and Ze", "single scattering", "non-relativistic"],
+    "answer": 54.92,
+    "unit": "fm"
+  },
+  "stratum_assignments": {
+    "T9A84": {"stratum": "R", "answer_with_sentence": 31.93, "regime": null},
+    "TE67A": {"stratum": "D", "answer_with_sentence": 54.92, "regime": null},
+    "T850C": {"stratum": "R", "answer_with_sentence": 31.93, "regime": null},
+    "TA405": {"stratum": "K", "answer_with_sentence": 54.92, "regime": "closest approach exceeds the nuclear radius"},
+    "T381B": {"stratum": "D", "answer_with_sentence": 54.92, "regime": null},
+    "TABD0": {"stratum": "D", "answer_with_sentence": 54.92, "regime": null},
+    "T5616": {"stratum": "D", "answer_with_sentence": 54.92, "regime": null},
+    "T69BD": {"stratum": "K", "answer_with_sentence": 54.92, "regime": "closest approach exceeds the nuclear radius"}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The certified 54.9159 fm appears to convert MeV to joules with the exact CODATA e (1.602176634e-19) rather than the stated e = 1.602e-19 C; using the stated e throughout gives 54.922 fm, a 0.011% difference well within the four-figure precision of the given constants."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Strata agree with pass 1. R answers scale as 5/(5+q): 54.9159*5/8 = 34.322, *5/8.6 = 31.928, *5/9.2 = 29.846 fm, all verified. K regime d > q holds for all listed radii (6.6-7.5 fm) with d = 54.9 fm; also with the R boosts the closest approach (about 30-34 fm) stays well outside the nucleus. Strictly the contact distance is nuclear plus alpha radius, which does not change the conclusion. Minimal pairs TE67A/T9A84 (earlier vs this scattering) and TABD0/T850C (protons vs alpha particles) share 3.6 MeV and differ only in attachment; T381B and T5616 are declared numeral-free controls with matching wording. Pass 1 answer was 54.92 fm (5.492e-14 m), consistent."
+}

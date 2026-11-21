@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch27",
+  "item_id": "M250-S278",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:23:00Z", "completed_at": "2026-11-21T10:30:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Invariant-mass threshold: K = (W^2 - (m1+m2)^2)/(2 m2), W = m1 + m2 + Q",
+    "assumptions": ["free target at rest", "energy and momentum conserved", "products at rest relative to each other at threshold"],
+    "answer": 279.669,
+    "unit": "MeV"
+  },
+  "stratum_assignments": {
+    "T1A70": {"stratum": "D", "answer_with_sentence": 279.669, "regime": null},
+    "TD012": {"stratum": "D", "answer_with_sentence": 279.669, "regime": null},
+    "TB459": {"stratum": "D", "answer_with_sentence": 279.669, "regime": null},
+    "T7344": {"stratum": "R", "answer_with_sentence": 508.394, "regime": null},
+    "TCCEF": {"stratum": "R", "answer_with_sentence": 508.394, "regime": null},
+    "TE22F": {"stratum": "D", "answer_with_sentence": 279.669, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Relations are equivalent to my pass-1 formula (Eb - m1 = (W^2 - (m1+m2)^2)/(2 m2)). Recomputed: Q=134.98 -> 279.669; Q=181.98 -> 381.608; Q=238.98 -> 508.394; Q=318.98 -> 692.181 MeV; all match. Minimal pairs T1A70/TCCEF and TE22F/T7344 share 104 MeV and differ only in attachment; TD012 and TB459 are declared numeral-free twins with matching wording. Agrees with pass 1."
+}

@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch17",
+  "item_id": "M250-S94",
+  "pass_number": 2,
+  "started_at": "2026-11-21T11:06:00Z", "completed_at": "2026-11-21T11:12:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Hagen-Poiseuille: P = dP*Q = 8 pi mu L vbar^2", "assumptions": ["steady laminar fully developed Newtonian incompressible flow", "entrance effects neglected", "average speed fixed"], "answer": 8.042, "unit": "mW"},
+  "stratum_assignments": {
+    "TB900": {"stratum": "C", "answer_with_sentence": 8.042, "regime": null},
+    "T1EF8": {"stratum": "D", "answer_with_sentence": 8.042, "regime": null},
+    "T0EC4": {"stratum": "D", "answer_with_sentence": 8.042, "regime": null},
+    "TC7C1": {"stratum": "D", "answer_with_sentence": 8.042, "regime": null},
+    "TF825": {"stratum": "R", "answer_with_sentence": 28.551, "regime": null},
+    "T0FF6": {"stratum": "R", "answer_with_sentence": 28.551, "regime": null},
+    "T9141": {"stratum": "C", "answer_with_sentence": 8.042, "regime": null},
+    "T4C1C": {"stratum": "D", "answer_with_sentence": 8.042, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Base 8.04248 mW and 28.5508 mW match my pass 1 (8.042e-3 W, 2.855e-2 W). Checked other values: L = 5.4 m -> 21.7147 mW, L = 9.3 m -> 37.3975 mW; both correct (P is proportional to L at fixed average speed). The outlet pressure cancels from the drop as claimed (C), agreeing with pass 1. Minimal pairs TC7C1/T0FF6 (hose vs pipe) and T1EF8/TF825 (after the flow vs before it) share 5.1 m and differ only in attachment and its tense. T0EC4 and T4C1C are declared numeral-free controls. The d_rationale mention of 'to reach the tap' is not in the text but does not affect the claim."
+}

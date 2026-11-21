@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch12",
+  "item_id": "M250-S36",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:52:30Z", "completed_at": "2026-11-21T10:59:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Physical pendulum: T = 2 pi sqrt((L^2/12 + d^2)/(g d))", "assumptions": ["thin uniform rod", "small amplitude", "frictionless pivot"], "answer": 1.679, "unit": "s"},
+  "stratum_assignments": {
+    "TA36F": {"stratum": "C", "answer_with_sentence": 1.679, "regime": null},
+    "TFD4F": {"stratum": "D", "answer_with_sentence": 1.679, "regime": null},
+    "T1443": {"stratum": "D", "answer_with_sentence": 1.679, "regime": null},
+    "TF2C6": {"stratum": "D", "answer_with_sentence": 1.679, "regime": null},
+    "T2919": {"stratum": "C", "answer_with_sentence": 1.679, "regime": null},
+    "T7714": {"stratum": "D", "answer_with_sentence": 1.679, "regime": null},
+    "TFE49": {"stratum": "R", "answer_with_sentence": 2.339, "regime": null},
+    "T1D34": {"stratum": "R", "answer_with_sentence": 2.339, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T1D34 moves the pivot of the rod while it is described as swinging, and TFE49 revises the stated 0.3 m pivot position, so the reader must infer that the period asked is the one after the move; the natural reading gives the certified answer."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "notes": "Checked R answers: q = 18 cm, d = 0.12 m: 0.1344/1.176 = 0.114286, T = 2.1241 s; q = 20.5 cm, d = 0.095 m: T = 2.3391 s; q = 22 cm, d = 0.08 m: 0.1264/0.784 = 0.161224, T = 2.5229 s. All match. All shifted d stay positive (pivot still off-centre). Mass cancels as claimed. Minimal pairs T1443/T1D34 and TFD4F/TFE49 share 20.5 cm and differ only in attachment/timing; T7714 and TF2C6 are declared numeral-free controls. The physics and claims hold; my only reservation is the low-severity wording point carried over from pass 1, which is why I give SOLVER_VALID_LANGUAGE_AMBIGUOUS rather than CERTIFIED_AND_VALIDATED."
+}

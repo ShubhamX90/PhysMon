@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch11",
+  "item_id": "M250-S73",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:08:00Z", "completed_at": "2026-11-21T10:14:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Infinite square well E_n = n^2 (hc)^2 / (8 mc^2 L^2); lambda = hc / (E_4 - E_1)", "assumptions": ["non-relativistic ideal infinite well", "one photon carries the whole level difference"], "answer": 54.946, "unit": "nm"},
+  "stratum_assignments": {
+    "T3D51": {"stratum": "R", "answer_with_sentence": 1848.39, "regime": null},
+    "TEDF7": {"stratum": "D", "answer_with_sentence": 54.946, "regime": null},
+    "T8EF5": {"stratum": "R", "answer_with_sentence": 1848.39, "regime": null},
+    "T7B70": {"stratum": "D", "answer_with_sentence": 54.946, "regime": null},
+    "T425C": {"stratum": "D", "answer_with_sentence": 54.946, "regime": null},
+    "T6BE7": {"stratum": "D", "answer_with_sentence": 54.946, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["inconsistent_units"], "defect_reasons": {"inconsistent_units": "The relation E1 = hc**2/(8*mc2*L**2) mixes hc in eV nm with mc2 in keV, so a keV-to-eV conversion is implicit; the certified numbers use it correctly."}, "defect_severity": {"inconsistent_units": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked all certified answers: base 54.946 nm; L + q = 1.8, 2.9, 3.3 nm give factors 12.96, 33.64, 43.56 -> 712.10, 1848.39, 2393.46 nm, matching. Minimal pairs hold: T7B70/T8EF5 differ only in 'dot' vs 'well'; TEDF7/T3D51 differ only in 'after' vs 'before'; T425C and T6BE7 are declared numeral-free twins of T7B70 and TEDF7, which resolves my pass-1 remark about 'a small amount'. Delta n = 3 is odd, so the dipole-allowed note is correct. For the R sentences the level 'n = 4' is naturally read as the n = 4 level of the widened well (adiabatic widening); this reading gives a unique answer. Agreement with pass 1."
+}

@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch04",
+  "item_id": "M250-S245",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:32:00Z", "completed_at": "2026-11-21T10:48:00Z", "minutes_spent": 16,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Momentum conservation in photon absorption: N = p_atom / (h/lambda), p_atom = sqrt(2 m K) (non-relativistic); emission recoil averages to zero", "assumptions": ["1 u = 1.66054e-27 kg, 1 eV = 1.602177e-19 J", "photon momentum h/lambda constant over the sweep (Doppler sweep ~1.4 GHz out of 509 THz is negligible)", "one-dimensional motion, no other forces"], "answer": 27163, "unit": "photons (dimensionless)"},
+  "stratum_assignments": {
+    "T0167": {"stratum": "C", "answer_with_sentence": 27163, "regime": null},
+    "T7F35": {"stratum": "D", "answer_with_sentence": 27163, "regime": null},
+    "T866E": {"stratum": "C", "answer_with_sentence": 27163, "regime": null},
+    "TAB0F": {"stratum": "C", "answer_with_sentence": 27163, "regime": null},
+    "TCE76": {"stratum": "R", "answer_with_sentence": 29056, "regime": null},
+    "TF60D": {"stratum": "C", "answer_with_sentence": 27163, "regime": null},
+    "T037E": {"stratum": "D", "answer_with_sentence": 27163, "regime": null},
+    "TC3E2": {"stratum": "R", "answer_with_sentence": 29056, "regime": null},
+    "T28D1": {"stratum": "D", "answer_with_sentence": 27163, "regime": null},
+    "T341F": {"stratum": "D", "answer_with_sentence": 27163, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["contradictory_distractor_statement"],
+  "defect_reasons": {"contradictory_distractor_statement": "With the frequency tracking resonance until the atom stops, the sweep must equal the Doppler change v/lambda = 800 m/s / 589 nm = 1.36 GHz, so a stated 2.4 GHz sweep (T0167, T866E) implies a velocity change of 1414 m/s and contradicts the stated kinetic energy (it would give N = m lambda^2 df / h = about 4.80e4)."},
+  "defect_severity": {"contradictory_distractor_statement": "high"},
+  "counterexamples": ["T0167/T866E: a reader using the sweep, Delta v = lambda * Delta f = 1413.6 m/s, gets N = m Delta v/(h/lambda) = 47992 instead of 27163."],
+  "notes": "m = 23 u = 3.81924e-26 kg; K = 0.0763 eV = 1.22246e-20 J; p = sqrt(2mK) = 3.05577e-23 kg m/s (v = 800.1 m/s); h/lambda = 1.124958e-27 kg m/s; N = 27163.4, i.e. about 27163 (2.72e4). With 0.011 eV more (K = 0.0873 eV): N = 27163.4*sqrt(0.0873/0.0763) = 29055.5. Scattering rate affects the stopping time, not N (C). Earlier-run nozzle sentences and second-beam molecule sentences are D. The defect flag applies to the sweep sentences only (the base problem and other sentences are consistent); since the item includes those sentences I mark the item invalid. If the sweep is read as a chirp range that starts off resonance (as in real chirp cooling), the tension disappears, but the problem says each atom stays in resonance throughout the sweep. Numbered nozzle sentences all state 0.011 eV; T7F35 and T037E carry no number. 'Rate of 9.3 MHz' uses a frequency unit for a rate (s^-1), conventional."
+}

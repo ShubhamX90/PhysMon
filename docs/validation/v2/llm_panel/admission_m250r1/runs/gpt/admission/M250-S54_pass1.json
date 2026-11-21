@@ -1,0 +1,87 @@
+{
+  "item_id": "M250-S54",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Stefan–Boltzmann law: P = emissivity × sigma × 4πr²T⁴. Thus P2 = P1(r2/r1)²(T2/T1)⁴ = 1500 × 4 × 1.2⁴.",
+    "assumptions": [
+      "Both spheres have the stated equal, constant emissivity.",
+      "Absorption from the surroundings is negligible.",
+      "Each stated surface temperature applies uniformly to the emitting outer surface.",
+      "A specified layer around the second sphere increases its outer radius by the layer thickness."
+    ],
+    "answer": 12441.6,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T298E": {
+      "stratum": "D",
+      "answer_with_sentence": 12441.6,
+      "regime": null
+    },
+    "TA4B6": {
+      "stratum": "R",
+      "answer_with_sentence": 26158.464,
+      "regime": null
+    },
+    "TCB5F": {
+      "stratum": "D",
+      "answer_with_sentence": 12441.6,
+      "regime": null
+    },
+    "TDB9C": {
+      "stratum": "D",
+      "answer_with_sentence": 12441.6,
+      "regime": null
+    },
+    "T6222": {
+      "stratum": "R",
+      "answer_with_sentence": 26158.464,
+      "regime": null
+    },
+    "T4B8C": {
+      "stratum": "D",
+      "answer_with_sentence": 12441.6,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The coating-thickness variants do not preserve the required common number and unit: T298E and TDB9C specify only a 'thin layer', whereas the other sentences specify 4.5 cm."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A 1 mm coating on the bracket satisfies T298E but does not satisfy TCB5F, so those variants differ in thickness specification as well as their wording."
+  ],
+  "notes": "The base physics and each individual augmented problem have determinate answers. For either second-sphere coating sentence, the emitting radius is 0.145 m and the stated outer-surface temperature remains 1200 K, giving 1500 × (0.145/0.05)² × (1200/1000)⁴ = 26158.464 W. Coatings on the bracket or disc have no stated coupling to the target, with absorbed radiation explicitly negligible. Numerical answers are supplied before rounding; approximately 12 kW and 26 kW reflect the input precision. The invalid verdict concerns the required matching of sentence variants.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T13:57:22+00:00",
+  "completed_at": "2026-11-21T13:58:05+00:00",
+  "minutes_spent": 0.71,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "d45010dad7bead154ac7cbfe16c3ac598f6b3e38b3828276926f6dac0a7d8a50",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

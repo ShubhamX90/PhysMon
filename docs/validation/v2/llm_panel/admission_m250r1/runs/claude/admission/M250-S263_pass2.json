@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch02",
+  "item_id": "M250-S263",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:08:30Z", "completed_at": "2026-11-21T10:14:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Metre bridge balance X = R (Lw - l)/l; rho = X (pi d^2/4)/Lx", "assumptions": ["uniform bridge wire, negligible strip/lead/contact resistance", "balance with box in left gap at l = 41.5 cm"], "answer": 7.971e-7, "unit": "Ω·m"},
+  "stratum_assignments": {
+    "T0506": {"stratum": "D", "answer_with_sentence": 7.971e-7, "regime": null},
+    "T0CEE": {"stratum": "R", "answer_with_sentence": 1.4216e-6, "regime": null},
+    "T20A1": {"stratum": "C", "answer_with_sentence": 7.971e-7, "regime": null},
+    "TB13C": {"stratum": "C", "answer_with_sentence": 7.971e-7, "regime": null},
+    "T459C": {"stratum": "R", "answer_with_sentence": 1.4216e-6, "regime": null},
+    "TE5F9": {"stratum": "D", "answer_with_sentence": 7.971e-7, "regime": null},
+    "TD741": {"stratum": "D", "answer_with_sentence": 7.971e-7, "regime": null},
+    "TAB0A": {"stratum": "D", "answer_with_sentence": 7.971e-7, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All claims agree with pass 1. Checked R answers: q=4.6 -> 16.6x58.5/41.5 = 23.40 Ω, rho = 1.1027e-6; q=9.4 -> 30.166 Ω, rho = 1.4216e-6; q=17 -> 40.88 Ω, rho = 1.9264e-6 Ω·m. Base 7.9713e-7 Ω·m. Bridge-wire diameter cancels in the length ratio (C) correctly. Minimal pairs: T0506/T0CEE differ only in rheostat vs box, same 9.4 Ω; TAB0A/T459C differ only in 'earlier trial only' vs 'before the galvanometer was brought to zero', same 9.4 Ω. TD741 and TE5F9 are declared numeral-free twins, so their lack of a number (which I noted in pass 1) is by design, not a defect. Input units cm/m/mm are converted consistently."
+}

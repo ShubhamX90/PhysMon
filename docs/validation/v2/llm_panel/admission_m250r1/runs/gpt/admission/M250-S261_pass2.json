@@ -1,0 +1,83 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S261",
+  "pass_number": 2,
+  "started_at": "2026-11-21T14:20:32+00:00",
+  "completed_at": "2026-11-21T14:21:09+00:00",
+  "minutes_spent": 0.62,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "At terminal speed, mg = rho_f*V*g + 6*pi*eta*r*v, where V = 4*pi*r^3/3. Therefore v = (m-rho_f*V)*g/(6*pi*eta*r). Using SI inputs gives 0.0540123 m/s = 5.40123 cm/s. A further internal load q adds q*g/(6*pi*eta*r) to the terminal speed.",
+    "assumptions": [
+      "The sphere is fully submerged at terminal speed.",
+      "The added shot remains inside the sphere without changing its radius.",
+      "The specified Stokes drag and liquid properties apply throughout."
+    ],
+    "answer": 5.40123,
+    "unit": "cm/s"
+  },
+  "stratum_assignments": {
+    "TEAB4": {
+      "stratum": "D",
+      "answer_with_sentence": 5.40123,
+      "regime": null
+    },
+    "T9846": {
+      "stratum": "D",
+      "answer_with_sentence": 5.40123,
+      "regime": null
+    },
+    "TFAF0": {
+      "stratum": "D",
+      "answer_with_sentence": 5.40123,
+      "regime": null
+    },
+    "T122F": {
+      "stratum": "R",
+      "answer_with_sentence": 7.7408,
+      "regime": null
+    },
+    "T3D94": {
+      "stratum": "D",
+      "answer_with_sentence": 5.40123,
+      "regime": null
+    },
+    "TB5DB": {
+      "stratum": "R",
+      "answer_with_sentence": 7.7408,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All stated relations, dependencies and certified answers are correct. Internal additions of 0.04, 0.09 and 0.17 g give 6.44104, 7.74080 and 9.82043 cm/s, respectively; the disconnected additions leave 5.40123 cm/s unchanged. The declared numerical minimal pairs retain the same number and unit and change the intended attachment or release event. I withdraw the pass-1 rendering_not_minimal finding: pass 2 identifies TEAB4 and T3D94 as deliberate numeral-free controls, rather than numerical minimal pairs. Their claimed substitutions are accurate. This changes my validity judgement without changing the locked pass-1 review. The pass-1 solution in m/s agrees with the requested cm/s answers after conversion.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "ea8b50a0cd85b0b4eddea054aadc9c35277764d533e2cae40f563b9b0e97dac5",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

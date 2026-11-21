@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch28",
+  "item_id": "M250-S248",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Larmor precession: f = gamma B / (2 pi), gamma = g e / (2 m)", "assumptions": ["free proton, uniform static field 350 mT", "classical/quantum Larmor frequency independent of tilt angle", "'frequency' means cyclic frequency in Hz"], "answer": 14898000.0, "unit": "Hz"},
+  "stratum_assignments": {
+    "T371E": {"stratum": "R", "answer_with_sentence": 17111000.0, "regime": null},
+    "TCC2A": {"stratum": "D", "answer_with_sentence": 14898000.0, "regime": null},
+    "T5536": {"stratum": "C", "answer_with_sentence": 14898000.0, "regime": null},
+    "T5A0E": {"stratum": "C", "answer_with_sentence": 14898000.0, "regime": null},
+    "TBE19": {"stratum": "R", "answer_with_sentence": 17111000.0, "regime": null},
+    "T9574": {"stratum": "D", "answer_with_sentence": 14898000.0, "regime": null},
+    "TA0E4": {"stratum": "D", "answer_with_sentence": 14898000.0, "regime": null},
+    "TB34F": {"stratum": "D", "answer_with_sentence": 14898000.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "gamma = 5.586*1.602e-19/(2*1.673e-27) = 2.6745e8 rad/s/T; f(0.350 T) = 1.4898e7 Hz; f(0.402 T) = 1.7111e7 Hz. Tilt angle enters the torque relation but cancels from the precession frequency (C). Fields at the compass and fields from an earlier measurement have no path to the sample field (D). TCC2A and T9574 state 'a little' rather than 52 mT; if they are meant as variants of the 52 mT sentences they would differ in number, to be checked in pass 2. 'Frequency' read as cyclic (Hz) rather than angular."
+}

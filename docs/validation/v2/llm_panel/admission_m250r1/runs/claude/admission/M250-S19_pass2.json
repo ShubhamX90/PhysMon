@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch25",
+  "item_id": "M250-S19",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:54:00Z", "completed_at": "2026-11-21T10:59:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "R = v^2 sin(2 theta)/g", "assumptions": ["no air resistance", "uniform g", "same launch and landing height"], "answer": 38.3548, "unit": "m"},
+  "stratum_assignments": {
+    "T3E32": {"stratum": "R", "answer_with_sentence": 27.3115, "regime": null},
+    "T9D35": {"stratum": "D", "answer_with_sentence": 38.3548, "regime": null},
+    "TFDC7": {"stratum": "R", "answer_with_sentence": 27.3115, "regime": null},
+    "TFC29": {"stratum": "D", "answer_with_sentence": 38.3548, "regime": null},
+    "TC550": {"stratum": "D", "answer_with_sentence": 38.3548, "regime": null},
+    "T9417": {"stratum": "D", "answer_with_sentence": 38.3548, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The base states the ball is launched at 35 degrees while the R sentences lower the launch direction before launch; the intended reading (35 degrees is the initial setting) is clear but the wording is slightly in tension."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "notes": "Checked: 35 deg: 400*sin70/9.8 = 38.355; 28 deg: 400*sin56/9.8 = 400*0.829038/9.8 = 33.838; 21 deg: 400*sin42/9.8 = 27.311; 13 deg: 400*sin26/9.8 = 400*0.438371/9.8 = 17.893 m. All match. Minimal pairs T9417/TFDC7 (ramp vs launch direction, both 'Before the ball is launched ... lowered by 14 deg') and TFC29/T3E32 (earlier trial vs this launch, both past tense, 14 deg) differ only in attachment. T9D35 and TC550 are declared numeral-free twins. The ramp is beside the launch point and the ball lands on level ground, so ramp tilt is disconnected. Consistent with pass 1."
+}

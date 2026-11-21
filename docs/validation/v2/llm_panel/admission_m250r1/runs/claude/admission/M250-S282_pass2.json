@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch03",
+  "item_id": "M250-S282",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:22:00Z", "completed_at": "2026-11-21T10:27:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "L/Lsun = (R/Rsun)^2 (lambda_sun/lambda_star)^4 (Stefan-Boltzmann with Wien)", "assumptions": ["black bodies", "dust disc does not alter the star's emission"], "answer": 25.543, "unit": "1 (solar luminosities)"},
+  "stratum_assignments": {
+    "T3E50": {"stratum": "D", "answer_with_sentence": 25.543, "regime": null},
+    "T14DF": {"stratum": "D", "answer_with_sentence": 25.543, "regime": null},
+    "TE9FF": {"stratum": "R", "answer_with_sentence": 52.434, "regime": null},
+    "TB343": {"stratum": "D", "answer_with_sentence": 25.543, "regime": null},
+    "T37E0": {"stratum": "R", "answer_with_sentence": 52.434, "regime": null},
+    "T6C97": {"stratum": "D", "answer_with_sentence": 25.543, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified: (502/292)^4 = 8.7354; R=1.71 -> 25.543; R=2.04 -> 36.353; R=2.45 -> 52.434; R=2.95 -> 76.020. Minimal pairs T14DF/T37E0 (disc rim vs radiating star) and TB343/TE9FF (earlier observation vs this evaluation) share 0.74 R_sun. T3E50 and T6C97 are declared numeral-free controls, so my pass-1 low rendering_not_minimal flag is withdrawn. T37E0 omits 'with the peak wavelength unchanged', unlike TE9FF, but the problem states the peak wavelength as a fact, so the R reading with unchanged temperature is the natural one; I do not count this as a defect."
+}

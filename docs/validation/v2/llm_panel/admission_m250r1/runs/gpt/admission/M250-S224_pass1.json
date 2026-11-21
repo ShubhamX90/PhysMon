@@ -1,0 +1,100 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S224",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:16:55+00:00",
+  "completed_at": "2026-11-21T14:18:30+00:00",
+  "minutes_spent": 1.57,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Initially equal pressures and temperatures give V_i/V = n_i/N. Conservation of internal energy during mixing in the insulated rigid container gives unchanged temperature. Therefore ΔS = R[1.5 ln(4/1.5) + 2.5 ln(4/2.5)].",
+    "assumptions": [
+      "The target is the entropy change during mixing.",
+      "The gases form an ideal mixture.",
+      "The initial common temperature and equal pressures are as stated."
+    ],
+    "answer": 22.000947,
+    "unit": "J/K"
+  },
+  "stratum_assignments": {
+    "TD9D8": {
+      "stratum": "D",
+      "answer_with_sentence": 22.000947,
+      "regime": null
+    },
+    "TA337": {
+      "stratum": "D",
+      "answer_with_sentence": 22.000947,
+      "regime": null
+    },
+    "T2667": {
+      "stratum": "R",
+      "answer_with_sentence": 30.472348,
+      "regime": null
+    },
+    "T4FE0": {
+      "stratum": "C",
+      "answer_with_sentence": 22.000947,
+      "regime": null
+    },
+    "TBB89": {
+      "stratum": "D",
+      "answer_with_sentence": 22.000947,
+      "regime": null
+    },
+    "T7A1E": {
+      "stratum": "C",
+      "answer_with_sentence": 22.000947,
+      "regime": null
+    },
+    "T6DA3": {
+      "stratum": "R",
+      "answer_with_sentence": 30.472348,
+      "regime": null
+    },
+    "TA9C4": {
+      "stratum": "D",
+      "answer_with_sentence": 22.000947,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal",
+    "missing_assumption"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TA337 and TA9C4 replace the specified 1.3 mol with an unspecified 'small amount', so the amount variants do not preserve the same number and unit.",
+    "missing_assumption": "T2667 and T6DA3 do not establish a common compartment temperature after helium admission; specifying the incoming temperature alone does not preserve the original thermal state during filling of an insulated rigid container."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high",
+    "missing_assumption": "high"
+  },
+  "counterexamples": [
+    "TD9D8 specifies 1.3 mol in the balloon, whereas TA337 permits any sufficiently small amount; these are not fixed-quantity wording variants.",
+    "With a thermally insulating sliding partition, helium admission can compress and heat the argon and leave unequal compartment temperatures. Subsequent mixing then includes thermal equilibration entropy. A conducting partition allowed to reach thermal equilibrium instead gives the common-temperature mixing result."
+  ],
+  "notes": "The base problem is well-posed. The numerical answers shown for T2667 and T6DA3 are conditional on both compartments reaching a common temperature and equal pressure after admission, with only the subsequent mixing counted: ΔS = R[2.8 ln(5.3/2.8) + 2.5 ln(5.3/2.5)]. Without that preparation condition, those numbers are not uniquely established. Container volume enters the initial and final volumes but cancels from their ratios. Balloon contents and earlier runs have no physical path to the current mixing target. The two 42 L sentences and the two explicit helium-compartment admission sentences preserve their respective quantities.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "fb0e6dc7dace960e7ab77c5323120eae850fb67945b900db73fcdc2739973984",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

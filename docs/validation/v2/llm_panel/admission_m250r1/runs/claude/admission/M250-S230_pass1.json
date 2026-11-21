@@ -1,0 +1,21 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch22",
+  "item_id": "M250-S230",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:14:00Z", "completed_at": "2026-11-21T10:24:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Energy conservation for the final temperature Tf = (m1 T1 + m2 T2)/(m1 + m2); entropy generated = sum m c ln(Tf/Ti) (isolated system, incompressible solids)", "assumptions": ["isolated system, no work", "constant c, negligible volume change", "Tf = 318 K"], "answer": 25.57, "unit": "J/K"},
+  "stratum_assignments": {
+    "T04A3": {"stratum": "D", "answer_with_sentence": 25.57, "regime": null},
+    "T33C5": {"stratum": "D", "answer_with_sentence": 25.57, "regime": null},
+    "T7053": {"stratum": "D", "answer_with_sentence": 25.57, "regime": null},
+    "TFF07": {"stratum": "D", "answer_with_sentence": 25.57, "regime": null},
+    "TC78D": {"stratum": "R", "answer_with_sentence": 31.98, "regime": null},
+    "T8625": {"stratum": "R", "answer_with_sentence": 31.98, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: Tf = 318 K; S_gen = 900[2 ln(318/360) + 3 ln(318/290)] = 900(-0.248105 + 0.276511) = 25.57 J/K. With the hot block at 3.1 kg: Tf = 1986/6.1 = 325.574 K; S_gen = 900[3.1 ln(0.904372) + 3 ln(1.122668)] = 900(-0.311596 + 0.347124) = 31.98 J/K. The two 'small amount' sentences carry no number, unlike their apparent 1.1 kg variants; they are disconnected anyway. The 'earlier run' sentences rely on the reader taking the stated 2 kg as the current mass, which the problem text does state."
+}

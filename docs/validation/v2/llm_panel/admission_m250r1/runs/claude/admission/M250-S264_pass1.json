@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch19",
+  "item_id": "M250-S264",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:38:00Z", "completed_at": "2026-11-21T10:45:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Series RLC impedance: tan(phi) = (omega L - 1/(omega C))/R, omega = 2 pi f",
+    "assumptions": ["ideal L and C (stated)", "steady sinusoidal state (stated)", "ideal source"],
+    "answer": 40.35,
+    "unit": "degree"
+  },
+  "stratum_assignments": {
+    "T3337": {"stratum": "D", "answer_with_sentence": 40.35, "regime": null},
+    "TA667": {"stratum": "C", "answer_with_sentence": 40.35, "regime": null},
+    "T2697": {"stratum": "D", "answer_with_sentence": 40.35, "regime": null},
+    "T4415": {"stratum": "C", "answer_with_sentence": 40.35, "regime": null},
+    "TD7F0": {"stratum": "D", "answer_with_sentence": 40.35, "regime": null},
+    "T0B12": {"stratum": "R", "answer_with_sentence": 30.08, "regime": null},
+    "TEEB4": {"stratum": "R", "answer_with_sentence": 30.08, "regime": null},
+    "T6DE7": {"stratum": "D", "answer_with_sentence": 40.35, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "omega = 3141.59 rad/s; X_L = 78.540 ohm; X_C = 53.052 ohm; X = 25.488 ohm; tan(phi) = 0.84961, phi = 40.35 deg (0.7043 rad), current lagging. With R = 44 ohm: tan(phi) = 0.57928, phi = 30.08 deg (0.5250 rad). Peak voltage sets the current amplitude but cancels from the phase angle (C). TEEB4: a resistor in series with the inductor is in the single series loop, so it adds to R. T3337 and TD7F0 are numeral-free."
+}

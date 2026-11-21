@@ -1,0 +1,104 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S271",
+  "pass_number": 2,
+  "started_at": "2026-11-21T14:34:06+00:00",
+  "completed_at": "2026-11-21T14:34:41+00:00",
+  "minutes_spent": 0.59,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For longitudinal rod waves, v = sqrt(Y/rho). The fundamental frequency is f = v/(2L), and adjacent dust nodes are separated by d = c/(2f) = cL sqrt(rho/Y). Converting Y = 70000 MPa to 7.00e10 Pa gives v = 5091.75 m/s, f = 2121.56 Hz, and d = 8.08366 cm.",
+    "assumptions": [
+      "The stated thin rod follows the one-dimensional linear elastic longitudinal-wave model.",
+      "The light disc negligibly loads the rod.",
+      "For the current-run extensions, the stated 1.2 m is the length before extension, and the clamp is fitted at the midpoint of the completed rod.",
+      "The earlier-run extensions are absent during the stated measurement."
+    ],
+    "answer": 8.08366,
+    "unit": "cm"
+  },
+  "stratum_assignments": {
+    "TA297": {
+      "stratum": "D",
+      "answer_with_sentence": 8.08366,
+      "regime": null
+    },
+    "T94AF": {
+      "stratum": "K",
+      "answer_with_sentence": 8.08366,
+      "regime": "Thin-rod longitudinal-wave approximation; all listed diameters satisfy 10q < Lr with lengths expressed in metres."
+    },
+    "T641F": {
+      "stratum": "C",
+      "answer_with_sentence": 8.08366,
+      "regime": null
+    },
+    "TFBD6": {
+      "stratum": "D",
+      "answer_with_sentence": 8.08366,
+      "regime": null
+    },
+    "TD83B": {
+      "stratum": "R",
+      "answer_with_sentence": 10.2393,
+      "regime": null
+    },
+    "T9574": {
+      "stratum": "K",
+      "answer_with_sentence": 8.08366,
+      "regime": "Thin-rod longitudinal-wave approximation; all listed diameters satisfy 10q < Lr with lengths expressed in metres."
+    },
+    "T1BAE": {
+      "stratum": "C",
+      "answer_with_sentence": 8.08366,
+      "regime": null
+    },
+    "T3295": {
+      "stratum": "R",
+      "answer_with_sentence": 10.2393,
+      "regime": null
+    },
+    "T2604": {
+      "stratum": "D",
+      "answer_with_sentence": 8.08366,
+      "regime": null
+    },
+    "TFE55": {
+      "stratum": "D",
+      "answer_with_sentence": 8.08366,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All certified numerical answers agree with d = cL sqrt(rho/Y): extensions of 14, 32 and 55 cm give 9.02676, 10.2393 and 11.7887 cm. Cross-sectional area cancels between axial rigidity YA and linear density rho A. I accept the diameter assignments as K because thinness conditions the applicability of this cancellation; pass 1 classified them as C within the already assumed one-dimensional model. All listed diameters are well inside the stated slenderness regime, whose threshold is an approximation criterion rather than an exact physical transition. I withdraw the pass-1 rendering flag: pass 2 explicitly identifies TFBD6 and TFE55 as deliberately numeral-free controls, rather than numerical minimal pairs. The actual claimed minimal pairs T2604/TD83B and TA297/T3295 preserve the quantity, number and unit while changing its attachment or timing. The cancellation expressions require consistent units, including conversion of Young's modulus from MPa to Pa.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "68b2020d7da487b7185c2fdf46c256f115c9df23d874cc71f615ab4d253f4569",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

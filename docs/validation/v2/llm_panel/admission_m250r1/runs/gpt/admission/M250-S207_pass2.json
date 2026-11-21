@@ -1,0 +1,85 @@
+{
+  "item_id": "M250-S207",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Newton's second law and the two string-length constraints give a1 = g(M - mr)/(M + mr), where mr = 4*m2*m3/(m2 + m3) = 2.4 kg. The single-block mass is M = 8 kg without an attached sandbag and M = 8 kg + q with one. Thus the base acceleration is 5.276923076923077 m/s² downward. Attached sandbags of 0.5, 2.4 and 3.8 kg give downward accelerations of 5.484403669724771, 6.125 and 6.487323943661972 m/s², respectively.",
+    "assumptions": [
+      "The light, inextensible strings remain taut.",
+      "The pulleys are light and frictionless.",
+      "An attached sandbag remains attached and moves with the single block at release.",
+      "The earlier-run sandbag leaves no change in the current moving system.",
+      "The toolbox and any sandbag resting on it have no mechanical connection to the moving apparatus."
+    ],
+    "answer": 5.276923076923077,
+    "unit": "m/s²"
+  },
+  "stratum_assignments": {
+    "T033D": {
+      "stratum": "D",
+      "answer_with_sentence": 5.276923076923077,
+      "regime": null
+    },
+    "TDD9E": {
+      "stratum": "D",
+      "answer_with_sentence": 5.276923076923077,
+      "regime": null
+    },
+    "T23F6": {
+      "stratum": "R",
+      "answer_with_sentence": 6.125,
+      "regime": null
+    },
+    "T8D42": {
+      "stratum": "R",
+      "answer_with_sentence": 6.125,
+      "regime": null
+    },
+    "T51F2": {
+      "stratum": "D",
+      "answer_with_sentence": 5.276923076923077,
+      "regime": null
+    },
+    "T5576": {
+      "stratum": "D",
+      "answer_with_sentence": 5.276923076923077,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All certified answers agree with the governing relation at the displayed precision. The effective mass mr has units of kg, and the acceleration expression has units of m/s². All listed masses are positive and give taut-string solutions. I revise the pass-1 rendering judgment because pass 2 explicitly identifies TDD9E and T51F2 as numeral-free controls, rather than claiming them as numeric minimal pairs. Their stated substitution descriptions are accurate. The actual minimal_pair_with claims, T033D with T23F6 and T5576 with T8D42, preserve 2.4 kg and change the sandbag's connection to the current moving system as intended. The locked pass-1 review remains unchanged.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T13:54:55+00:00",
+  "completed_at": "2026-11-21T13:55:42+00:00",
+  "minutes_spent": 0.77,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "b5ea814d8303ef393ed8e4638db20fec204eb435a4cd67c33d072042ac64de6a",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

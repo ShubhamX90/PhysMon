@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch24",
+  "item_id": "M250-S247",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:38:00Z", "completed_at": "2026-11-21T10:47:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Radiation pressure on a partly reflecting mirror, normal component: F = (1 + R) I A cos^2(theta) / c; v = F t / m (constant force, non-relativistic)", "assumptions": ["intercepted power I A cos(theta)", "absorbed fraction transfers its incident momentum; its tangential component is taken by the rail", "Doppler and recoil corrections negligible since v << c"], "answer": 114.99, "unit": "m/s"},
+  "stratum_assignments": {
+    "TE4B6": {"stratum": "R", "answer_with_sentence": 153.59, "regime": null},
+    "T532A": {"stratum": "C", "answer_with_sentence": 114.99, "regime": null},
+    "T76D3": {"stratum": "D", "answer_with_sentence": 114.99, "regime": null},
+    "T8261": {"stratum": "D", "answer_with_sentence": 114.99, "regime": null},
+    "TB1C7": {"stratum": "D", "answer_with_sentence": 114.99, "regime": null},
+    "TFEB0": {"stratum": "R", "answer_with_sentence": 153.59, "regime": null},
+    "T5DB2": {"stratum": "C", "answer_with_sentence": 114.99, "regime": null},
+    "T56A5": {"stratum": "D", "answer_with_sentence": 114.99, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "F = 1.9 * 1400 * 100 * 0.75 / 2.998e8 = 6.6544e-4 N; a = 1.33089e-3 m/s^2; v = a * 86400 s = 114.989 m/s. With 1870 W/m^2 the answer scales linearly: 153.592 m/s. Photon energy cancels because the intensity fixes the momentum flux regardless of photon number. TFEB0 says 'light that reaches the mirror' rather than 'the beam'; I read it, together with the problem's clause about lamp light put into the beam, as light along the beam for the whole exposure. Earlier-exposure and projection-screen sentences are D."
+}

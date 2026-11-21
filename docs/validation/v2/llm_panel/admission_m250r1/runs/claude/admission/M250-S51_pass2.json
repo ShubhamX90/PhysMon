@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch22",
+  "item_id": "M250-S51",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:43:00Z", "completed_at": "2026-11-21T10:50:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "W_on = n R T1 (r^(gamma-1) - 1)/(gamma - 1) for a reversible adiabatic compression of an ideal gas", "assumptions": ["reversible adiabatic", "ideal gas, constant gamma"], "answer": 4.04496, "unit": "kJ"},
+  "stratum_assignments": {
+    "T01D6": {"stratum": "R", "answer_with_sentence": 14.5619, "regime": null},
+    "T6088": {"stratum": "C", "answer_with_sentence": 4.04496, "regime": null},
+    "T6B54": {"stratum": "D", "answer_with_sentence": 4.04496, "regime": null},
+    "TF609": {"stratum": "D", "answer_with_sentence": 4.04496, "regime": null},
+    "T4224": {"stratum": "R", "answer_with_sentence": 14.5619, "regime": null},
+    "T75C2": {"stratum": "K", "answer_with_sentence": 4.04496, "regime": "irrelevant while the stated ratio 8 is below the stop value"},
+    "T226E": {"stratum": "C", "answer_with_sentence": 4.04496, "regime": null},
+    "T6655": {"stratum": "K", "answer_with_sentence": 4.04496, "regime": "irrelevant while the stated ratio 8 is below the stop value"},
+    "T108C": {"stratum": "D", "answer_with_sentence": 4.04496, "regime": null},
+    "T2C06": {"stratum": "D", "answer_with_sentence": 4.04496, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All claims agree with pass 1. Base 4044.96 J = 4.04496 kJ. R answers: n = 1.2, 1.8, 2.7 mol give 2.4, 3.6, 5.4 times the base = 9.7079, 14.5619, 21.8428 kJ. C cancellation of V1 via p1V1 = nRT1 is correct for all listed volumes. K regime r < q holds for q = 12, 15, 20 with r = 8. Declared minimal pairs (T108C/T01D6, T6B54/T4224) share 1.3 mol and differ in attachment; numeral-free controls declared as such."
+}

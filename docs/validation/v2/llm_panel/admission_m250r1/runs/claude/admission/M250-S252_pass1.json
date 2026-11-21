@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch22",
+  "item_id": "M250-S252",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Work-energy theorem with circular-orbit total energy E = -GMm/(2r), GM = gR^2: W = (g R^2 m / 2)(1/r1 - 1/r2)", "assumptions": ["r1 = 6771 km, r2 = 7571 km", "GM = 9.8 * (6.371e6)^2 = 3.9778e14 m^3/s^2", "work done by engines equals change in total mechanical energy (no propellant mass, no drag)"], "answer": 2.638e9, "unit": "J"},
+  "stratum_assignments": {
+    "T1748": {"stratum": "D", "answer_with_sentence": 2.638e9, "regime": null},
+    "TFABF": {"stratum": "R", "answer_with_sentence": 2.933e9, "regime": null},
+    "TB6C9": {"stratum": "D", "answer_with_sentence": 2.638e9, "regime": null},
+    "T6B07": {"stratum": "D", "answer_with_sentence": 2.638e9, "regime": null},
+    "TF8C4": {"stratum": "R", "answer_with_sentence": 2.933e9, "regime": null},
+    "T2ED2": {"stratum": "D", "answer_with_sentence": 2.638e9, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "T1748 and TB6C9 state 'a further small amount of instruments' while their apparent variants (T6B07, T2ED2, TF8C4, TFABF) state 95 kg, so if they are meant as variants of the same quantity they differ in the number."},
+  "defect_severity": {"rendering_not_minimal": "medium"},
+  "counterexamples": [],
+  "notes": "With 945 kg the work scales by 945/850: 2.638e9 * 1.11176 = 2.933e9 J. The 'small amount' sentences do not affect the answer either way since they attach to the ship or an earlier flight; severity depends on whether the authors claim them as minimal pairs with the 95 kg sentences (to be checked in pass 2)."
+}

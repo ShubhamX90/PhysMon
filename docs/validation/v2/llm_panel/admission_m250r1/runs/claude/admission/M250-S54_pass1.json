@@ -1,0 +1,21 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch23",
+  "item_id": "M250-S54",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Stefan-Boltzmann law P = e*sigma*4*pi*r^2*T^4; ratio P2/P1 = (r2/r1)^2 (T2/T1)^4", "assumptions": ["same constant emissivity (stated)", "absorption from surroundings negligible (stated)", "uniform surface temperature"], "answer": 12.4416, "unit": "kW"},
+  "stratum_assignments": {
+    "T298E": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "TA4B6": {"stratum": "R", "answer_with_sentence": 26.158, "regime": null},
+    "TCB5F": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "TDB9C": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "T6222": {"stratum": "R", "answer_with_sentence": 26.158, "regime": null},
+    "T4B8C": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: 1.5 kW * (10/5)^2 * (1.2)^4 = 1.5*4*2.0736 = 12.4416 kW. With a 4.5 cm layer on the second sphere the outer radius is 14.5 cm and, by the problem's statement, 1200 K is the outer-surface temperature: 1.5*(2.9)^2*2.0736 = 1.5*8.41*2.0736 = 26.158 kW. Layer on bracket/disc: no path to target. The 4.5 cm sentences form consistent variants (same number/unit, differing in attachment and tense). T298E and TDB9C say 'thin' with no number, so if they are intended as variants of the 4.5 cm sentences they would not be minimal; they are fine as stand-alone D sentences. Slightly artificial: the outer layer's emissivity is implicitly taken equal to the stated constant emissivity (same metal; acceptable)."
+}

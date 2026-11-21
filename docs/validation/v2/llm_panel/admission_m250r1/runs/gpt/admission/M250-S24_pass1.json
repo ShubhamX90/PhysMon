@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S24",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For a reversible engine exchanging heat with two reservoirs, W = Q_H(1 - T_C/T_H) = 800(1 - 300/600) = 400 kJ.",
+    "assumptions": [
+      "Each reservoir maintains its operating temperature throughout the cycle.",
+      "The engine receives the stated 800 kJ per cycle, including when an added sentence changes the hot reservoir's operating temperature.",
+      "The specified outset temperatures describe the current experiment."
+    ],
+    "answer": 400,
+    "unit": "kJ"
+  },
+  "stratum_assignments": {
+    "T82B8": {
+      "stratum": "R",
+      "answer_with_sentence": 480,
+      "regime": null
+    },
+    "TB635": {
+      "stratum": "C",
+      "answer_with_sentence": 400,
+      "regime": null
+    },
+    "TD300": {
+      "stratum": "D",
+      "answer_with_sentence": 400,
+      "regime": null
+    },
+    "TF51D": {
+      "stratum": "D",
+      "answer_with_sentence": 400,
+      "regime": null
+    },
+    "T9558": {
+      "stratum": "R",
+      "answer_with_sentence": 480,
+      "regime": null
+    },
+    "TC060": {
+      "stratum": "D",
+      "answer_with_sentence": 400,
+      "regime": null
+    },
+    "T77C1": {
+      "stratum": "D",
+      "answer_with_sentence": 400,
+      "regime": null
+    },
+    "TBF70": {
+      "stratum": "C",
+      "answer_with_sentence": 400,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The temperature-increase variants fail the required numerical match: TF51D and T77C1 specify 'a few kelvin', whereas the other temperature-increase sentences specify 150 K."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and all individual augmented problems have determinate work outputs. Heating the hot reservoir before the cycle sets T_H = 750 K, giving W = 800(1 - 300/750) = 480 kJ. Heating the explicitly thermally disconnected copper block has no effect. The earlier experiments precede the current stated initial conditions, so their heating does not change the current reservoir temperatures. The gas amount appears in extensive heat and work relations but cancels from reversible efficiency; with Q_H fixed, it does not change net work. Kelvin and K denote the same unit, but 'a few kelvin' does not preserve the specified 150 K magnitude. In particular, TF51D versus TC060 and T77C1 versus TD300 change the quantity while retaining the same attachment. The invalid verdict concerns this required variant consistency.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:21:22+00:00",
+  "completed_at": "2026-11-21T14:22:06+00:00",
+  "minutes_spent": 0.73,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "3b5e80e3875d65cf18d7c477f8939e6d6c5fb462d24988a957c3781b39fab3a7",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch22",
+  "item_id": "M250-S252",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:08:00Z", "completed_at": "2026-11-21T10:14:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "W = (g R^2 m / 2)(1/r1 - 1/r2) from circular-orbit energy E = -GMm/(2r)", "assumptions": ["r1 = 6771 km, r2 = 7571 km", "GM = gR^2", "engine work equals change in total mechanical energy"], "answer": 2638240.0, "unit": "kJ"},
+  "stratum_assignments": {
+    "T1748": {"stratum": "D", "answer_with_sentence": 2638240.0, "regime": null},
+    "TFABF": {"stratum": "R", "answer_with_sentence": 2933100.0, "regime": null},
+    "TB6C9": {"stratum": "D", "answer_with_sentence": 2638240.0, "regime": null},
+    "T6B07": {"stratum": "D", "answer_with_sentence": 2638240.0, "regime": null},
+    "TF8C4": {"stratum": "R", "answer_with_sentence": 2933100.0, "regime": null},
+    "T2ED2": {"stratum": "D", "answer_with_sentence": 2638240.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Base answer 2.638e9 J = 2638240 kJ agrees with my pass 1. R answers check: 45 kg -> 2638240*895/850 = 2.7779e6 kJ; 95 kg -> 2.9331e6 kJ; 170 kg -> 2638240*1.2 = 3.16589e6 kJ. Pass-1 medium rendering_not_minimal flag withdrawn: T1748 and TB6C9 are declared numeral-free controls (twins of T6B07 and T2ED2), not minimal pairs with the 95 kg sentences; the declared minimal pairs T6B07/TF8C4 and T2ED2/TFABF share number and unit and differ only in attachment."
+}

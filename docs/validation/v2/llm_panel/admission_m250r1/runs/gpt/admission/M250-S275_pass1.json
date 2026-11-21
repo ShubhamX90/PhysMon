@@ -1,0 +1,86 @@
+{
+  "item_id": "M250-S275",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Born rule with ψ₂(x)=sqrt(2/L) sin(2πx/L): P(a≤x≤b)=(b-a)/L-[sin(4πb/L)-sin(4πa/L)]/(4π). For L=3 nm, a=0.6 nm and b=1.5 nm, P=0.3467744642.",
+    "assumptions": [
+      "The stated stationary state describes the electron immediately before the measurement.",
+      "The probe performs an ideal position measurement over its stated response interval.",
+      "Moving the response boundary changes the detection interval without changing the well or the prepared electron state."
+    ],
+    "answer": 0.3467744642,
+    "unit": "dimensionless"
+  },
+  "stratum_assignments": {
+    "TE83E": {
+      "stratum": "D",
+      "answer_with_sentence": 0.3467744642,
+      "regime": null
+    },
+    "T0018": {
+      "stratum": "D",
+      "answer_with_sentence": 0.3467744642,
+      "regime": null
+    },
+    "T1E15": {
+      "stratum": "D",
+      "answer_with_sentence": 0.3467744642,
+      "regime": null
+    },
+    "TE382": {
+      "stratum": "D",
+      "answer_with_sentence": 0.3467744642,
+      "regime": null
+    },
+    "T6A0A": {
+      "stratum": "R",
+      "answer_with_sentence": 0.3595850027,
+      "regime": null
+    },
+    "T3E63": {
+      "stratum": "R",
+      "answer_with_sentence": 0.3595850027,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T0018 and TE382 replace the specified 0.24 nm displacement with an unspecified 'little' displacement, so the variants fail the requirement to preserve the same numerical value and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A displacement of 0.12 nm satisfies T0018 or TE382, whereas their numerical counterparts T1E15 and TE83E specify 0.24 nm."
+  ],
+  "notes": "The individual probability questions are physically solvable; the invalid verdict concerns the required numerical matching between sentence variants. For T6A0A and T3E63, the new right boundary is 1.74 nm and integration over [0.6,1.74] nm gives 0.3595850027. Earlier measurement settings do not change the answer because the current electron state and current response interval are explicitly specified; this does not assume that earlier measurements lacked backaction.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T19:06:27+00:00",
+  "completed_at": "2026-11-21T19:07:12+00:00",
+  "minutes_spent": 0.75,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "7f27d6f241fd77cb2fbc05992472d7cccc2ed4afd9cd4f26f85b8939968e8bcf",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

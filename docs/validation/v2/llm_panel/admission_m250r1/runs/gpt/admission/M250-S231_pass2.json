@@ -1,0 +1,107 @@
+{
+  "item_id": "M250-S231",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Let V be the trolley velocity through the still air, positive towards the loudspeaker. The wall's air-frame speed is u = 3 + V m/s. Reflection gives f_echo = 440(343 + u)/(343 - u), so the beat frequency is 880u/(343 - u) Hz for an approaching subsonic wall. The base problem leaves V unspecified and therefore has no unique numerical answer.",
+    "assumptions": [
+      "The microphone remains at rest beside the loudspeaker.",
+      "The returned echo has reached the microphone.",
+      "Reflection preserves frequency in the wall's frame.",
+      "The wall approaches at constant subsonic speed through the still air."
+    ],
+    "answer": null,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T2729": {
+      "stratum": "R",
+      "answer_with_sentence": 11.4353,
+      "regime": null
+    },
+    "T544D": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T811A": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T105F": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T72F4": {
+      "stratum": "C",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T7F76": {
+      "stratum": "R",
+      "answer_with_sentence": 11.4353,
+      "regime": null
+    },
+    "TAC5B": {
+      "stratum": "C",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T1B41": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "relevant_variable_removed_from_equation"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The wall's specified speed is relative to its trolley, but the trolley's velocity during recording is unspecified except in T2729 and T7F76.",
+    "relevant_variable_removed_from_equation": "The base Doppler and crest-timing relations use the stated relative speed v as the wall's air-frame speed, omitting the trolley velocity required to obtain that speed."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "relevant_variable_removed_from_equation": "high"
+  },
+  "counterexamples": [
+    "A stationary trolley gives u = 3 m/s and a beat frequency of 7.76471 Hz; a trolley approaching at 1.4 m/s gives u = 4.4 m/s and 11.4353 Hz. Both satisfy the base problem's explicit relative-speed condition.",
+    "Adding a conveyor speed of 1.4 m/s or an initial wall distance of 90 m permits either trolley motion above, so neither addition establishes the certified answer of 7.76471 Hz.",
+    "A trolley can approach at 1.4 m/s in both an earlier run and the current recording. T811A does not exclude this case, which gives 11.4353 Hz during the current recording."
+  ],
+  "notes": "The R wiring and all three R numerical answers are correct. The D classifications and distance cancellation are also physically correct, but their certified numerical answers require the unstated condition V = 0. The earlier-run rationale incorrectly treats absence of a stated current trolley velocity as establishing zero velocity. The crest-timing relations and cancellation expression are dimensionally correct and become physically applicable after replacing v with the wall's air-frame speed. Listed speeds remain subsonic, and numerical rounding is adequate. The explicitly claimed minimal pairs preserve their numbers and units. I withdraw pass 1's rendering_not_minimal flag: pass 2 identifies T544D and T1B41 as deliberate numeral-free controls rather than claimed numerical minimal pairs. Null answers mean underdetermination. No external information was consulted.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T13:58:43+00:00",
+  "completed_at": "2026-11-21T13:59:30+00:00",
+  "minutes_spent": 0.79,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "4139ec3be0f363af1f1766379f85cf95c55d99ac0283e31a9ff1d2c4f4f2a914",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

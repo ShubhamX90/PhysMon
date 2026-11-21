@@ -1,0 +1,100 @@
+{
+  "item_id": "M250-S241",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Eph = hc/lambda = 3.1 eV; Ndot = P/Eph with energy converted to joules; I = eta*e*Ndot. Using 1 eV = 1.602176634e-19 J gives I = 4.83818 μA.",
+    "assumptions": [
+      "The specified emission probability applies to photons from either lamp at the stated wavelength.",
+      "All released electrons are collected.",
+      "The earlier illumination belongs to a completed measurement.",
+      "Light supplied to the shielded wall-chart arrangement does not reach the cathode."
+    ],
+    "answer": 4.83818,
+    "unit": "μA"
+  },
+  "stratum_assignments": {
+    "T9477": {
+      "stratum": "K",
+      "answer_with_sentence": 4.83818,
+      "regime": "Eph > work function; all listed work functions are below 3.1 eV, with emission probability fixed and collection complete."
+    },
+    "TD93A": {
+      "stratum": "R",
+      "answer_with_sentence": 8.12814,
+      "regime": null
+    },
+    "TC8F7": {
+      "stratum": "D",
+      "answer_with_sentence": 4.83818,
+      "regime": null
+    },
+    "T306C": {
+      "stratum": "D",
+      "answer_with_sentence": 4.83818,
+      "regime": null
+    },
+    "T22AD": {
+      "stratum": "R",
+      "answer_with_sentence": 8.12814,
+      "regime": null
+    },
+    "TE41A": {
+      "stratum": "D",
+      "answer_with_sentence": 4.83818,
+      "regime": null
+    },
+    "TEBFE": {
+      "stratum": "K",
+      "answer_with_sentence": 4.83818,
+      "regime": "Eph > work function; all listed work functions are below 3.1 eV, with emission probability fixed and collection complete."
+    },
+    "TEB4A": {
+      "stratum": "D",
+      "answer_with_sentence": 4.83818,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "other"
+  ],
+  "defect_reasons": {
+    "other": "The authors' D rationales for T306C and TEB4A incorrectly identify the illuminated object as a meter dial, whereas both sentences specify a wall chart and the problem introduces no meter dial."
+  },
+  "defect_severity": {
+    "other": "high"
+  },
+  "counterexamples": [],
+  "notes": "The equations, strata, listed numerical answers, and K regimes are correct. The numerical minimal pairs TC8F7/TD93A and TEB4A/T22AD preserve their values and units. I withdraw the pass-1 rendering flag because pass 2 explicitly identifies T306C and TE41A as numeral-free controls rather than numerical minimal pairs. The small difference from my pass-1 current comes from using the exact joule conversion for the electronvolt while retaining the separately stated rounded electron charge. The remaining invalidity concerns the false description in the authors' rationales; replacing 'dial of the meter' with 'wall chart' would resolve it.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:27:08+00:00",
+  "completed_at": "2026-11-21T14:28:04+00:00",
+  "minutes_spent": 0.94,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "ce19c254286de8c122547d2a7b1bf7ddbf9eb12bf86c8cec884bd074be6f21e3",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

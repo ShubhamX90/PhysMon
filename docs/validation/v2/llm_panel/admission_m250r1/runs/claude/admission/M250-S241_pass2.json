@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch28",
+  "item_id": "M250-S241",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:49:00Z", "completed_at": "2026-11-21T10:57:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "I = eta * e * P / (h c / lambda)", "assumptions": ["photon energy 3.1 eV", "full collection", "full window transmission"], "answer": 4.8387, "unit": "μA"},
+  "stratum_assignments": {
+    "T9477": {"stratum": "K", "answer_with_sentence": 4.8387, "regime": "work function < hc/lambda = 3.1 eV"},
+    "TD93A": {"stratum": "R", "answer_with_sentence": 8.1290, "regime": null},
+    "TC8F7": {"stratum": "D", "answer_with_sentence": 4.8387, "regime": null},
+    "T306C": {"stratum": "D", "answer_with_sentence": 4.8387, "regime": null},
+    "T22AD": {"stratum": "R", "answer_with_sentence": 8.1290, "regime": null},
+    "TE41A": {"stratum": "D", "answer_with_sentence": 4.8387, "regime": null},
+    "TEBFE": {"stratum": "K", "answer_with_sentence": 4.8387, "regime": "work function < hc/lambda = 3.1 eV"},
+    "TEB4A": {"stratum": "D", "answer_with_sentence": 4.8387, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_numerical_precision", "other"],
+  "defect_reasons": {
+    "invalid_numerical_precision": "The certified answers (4.83818, 8.12814 μA, ...) use the CODATA eV-to-joule factor 1.602176634e-19 for the photon energy while the charge uses the stated e = 1.602e-19 C; with the stated constants used consistently e cancels and I = eta P / 3.1 V = 4.83871 μA (8.12903 μA at 8.4 mW), a 0.011% difference that is within any reasonable stated precision.",
+    "other": "The D rationales for T306C and TEB4A speak of 'a lamp that lights the dial of the meter', whereas the item text names a wall chart; the physics of the claim is right but the rationale text does not match the item."
+  },
+  "defect_severity": {"invalid_numerical_precision": "low", "other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Certified answer ratios reproduce (6.7, 8.4, 11.2 mW give 6.48316, 8.12814, 10.8375 μA, each equal to my value times 1.602/1.602177). Strata agree with pass 1, including K with regime Eph = 3.1 eV > work function for all listed values 1.7-2.1 eV. Minimal pairs TC8F7/TD93A and TEB4A/T22AD share 3.4 mW and differ only in attachment; T306C and TE41A are declared numeral-free twins. Pass-1 base answer 4.8387 μA differs from the certified 4.83818 μA only in the fifth significant figure, explained above."
+}

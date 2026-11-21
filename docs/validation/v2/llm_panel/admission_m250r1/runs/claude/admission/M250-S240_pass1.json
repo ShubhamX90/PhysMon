@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch14",
+  "item_id": "M250-S240",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:50:00Z", "completed_at": "2026-11-21T11:00:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Bernoulli along a streamline from reservoir surface to outlet (v^2 = 2 g h_out) and to the top, with continuity in a uniform bore: P_top = P_atm - rho g (h_top + h_out)", "assumptions": ["steady, inviscid, incompressible flow", "large reservoir (surface velocity negligible)", "uniform bore so velocity at top equals outlet velocity", "outlet at atmospheric pressure"], "answer": 78.76, "unit": "kPa"},
+  "stratum_assignments": {
+    "T45C6": {"stratum": "D", "answer_with_sentence": 78.76, "regime": null},
+    "T7E69": {"stratum": "K", "answer_with_sentence": 78.76, "regime": "Vapour pressure matters only if the computed P_top falls to or below it (cavitation breaks the column); here P_top = 78.76 kPa > 12 kPa."},
+    "TED68": {"stratum": "K", "answer_with_sentence": 78.76, "regime": "Same as T7E69: the result holds while P_top > 12 kPa."},
+    "TC9D2": {"stratum": "C", "answer_with_sentence": 78.76, "regime": null},
+    "T5FCB": {"stratum": "R", "answer_with_sentence": 74.70, "regime": null},
+    "T15A1": {"stratum": "R", "answer_with_sentence": 74.70, "regime": null},
+    "TCBA8": {"stratum": "D", "answer_with_sentence": 78.76, "regime": null},
+    "T3DC9": {"stratum": "D", "answer_with_sentence": 78.76, "regime": null},
+    "T6788": {"stratum": "C", "answer_with_sentence": 78.76, "regime": null},
+    "T2061": {"stratum": "D", "answer_with_sentence": 78.76, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [], "defect_flags": ["other"], "defect_reasons": {"other": "T5FCB/T15A1 replace only 'the liquid in the siphon'; since steady flow draws reservoir liquid into the tube, the answer 74.70 kPa requires reading the scene clause ('the reservoir holds the same liquid as the siphon') as carrying over to the replacement liquid, which the wording implies but does not state explicitly."}, "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: P_top = 101300 - 1000*9.8*(1.5+0.8) = 101300 - 22540 = 78760 Pa = 78.76 kPa. With rho = 1180: 101300 - 1180*9.8*2.3 = 101300 - 26597.2 = 74702.8 Pa = 74.70 kPa (still above 12 kPa). The bore enters continuity A v = const but cancels for uniform bore (C). Beaker liquid and earlier-run replacements are D. Variant pairs share 1180 kg/m^3, 12 kPa and 16 mm consistently; TCBA8 and T2061 carry no number."
+}

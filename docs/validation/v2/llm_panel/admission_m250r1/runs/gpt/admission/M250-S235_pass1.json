@@ -1,0 +1,96 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S235",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:07:29+00:00",
+  "completed_at": "2026-11-21T14:08:15+00:00",
+  "minutes_spent": 0.77,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Archimedes' principle gives equilibrium submerged depth h = rho_c L/rho_l. A downward displacement x increases buoyancy by rho_l g A x, so rho_c A L x'' = -rho_l g A x and T = 2 pi sqrt(rho_c L/(rho_l g)). Using L = 0.30 m gives T = 0.8863 s. Adding 0.095 m of the same wood gives L = 0.395 m and T = 1.0170 s.",
+    "assumptions": [
+      "The stated vertical motion maintains the cylinder's upright orientation.",
+      "The small displacement keeps the cylinder partly submerged throughout the motion.",
+      "The cylinder is rigid, with the stated uniform density.",
+      "A current extension adds to the original 30 cm length; an extension for an earlier run only is absent during the present run.",
+      "Drag and liquid motion are neglected as instructed."
+    ],
+    "answer": 0.8863,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T11DC": {
+      "stratum": "C",
+      "answer_with_sentence": 0.8863,
+      "regime": null
+    },
+    "T7EFE": {
+      "stratum": "D",
+      "answer_with_sentence": 0.8863,
+      "regime": null
+    },
+    "T315E": {
+      "stratum": "R",
+      "answer_with_sentence": 1.017,
+      "regime": null
+    },
+    "T4379": {
+      "stratum": "R",
+      "answer_with_sentence": 1.017,
+      "regime": null
+    },
+    "T30BA": {
+      "stratum": "C",
+      "answer_with_sentence": 0.8863,
+      "regime": null
+    },
+    "TFE49": {
+      "stratum": "D",
+      "answer_with_sentence": 0.8863,
+      "regime": null
+    },
+    "T7F78": {
+      "stratum": "D",
+      "answer_with_sentence": 0.8863,
+      "regime": null
+    },
+    "TF10E": {
+      "stratum": "D",
+      "answer_with_sentence": 0.8863,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T7EFE and T7F78 replace the specified extension of 9.5 cm with an unquantified 'short length', so the extension variants do not consistently preserve the required number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics is well-posed and all added sentences permit definite period calculations. Radius enters both mass and buoyant restoring stiffness through the cross-sectional area and cancels. Raft modifications are disconnected under the explicit neglect of liquid motion. Historical extensions designated 'for an earlier run only' are interpreted as absent now. The rendering defect is visible directly in T7EFE versus TF10E and T7F78 versus TFE49; no pair identifiers or authors' claims were supplied in this pass.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "8a92e2d55f32660189bd7722c0fea6349e8eaa0c1d4d0e17279ee64e546b4f55",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

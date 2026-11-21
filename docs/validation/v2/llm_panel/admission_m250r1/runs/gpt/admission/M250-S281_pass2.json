@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S281",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Conservation of mechanical energy gives mv²/2 = GMm/R. With M = (4π/3)ρR³, comparison with Earth gives v = ve(R/RE)sqrt(ρ/ρE) = 5.02855 km/s. Accreting rock at unchanged density replaces R by R + q, giving 5.20655, 5.48839 and 5.72572 km/s for q = 120, 310 and 470 km, respectively.",
+    "assumptions": [
+      "Newtonian gravity with negligible probe mass relative to the planet.",
+      "The probe coasts after launch and approaches infinity with zero limiting speed.",
+      "Other bodies exert no relevant gravitational force, as explicitly stipulated.",
+      "Accretion preserves the planet's spherical shape and stated uniform density."
+    ],
+    "answer": 5.02855,
+    "unit": "km/s"
+  },
+  "stratum_assignments": {
+    "T3112": {
+      "stratum": "D",
+      "answer_with_sentence": 5.02855,
+      "regime": null
+    },
+    "TE270": {
+      "stratum": "C",
+      "answer_with_sentence": 5.02855,
+      "regime": null
+    },
+    "T09DC": {
+      "stratum": "D",
+      "answer_with_sentence": 5.02855,
+      "regime": null
+    },
+    "TC598": {
+      "stratum": "D",
+      "answer_with_sentence": 5.02855,
+      "regime": null
+    },
+    "TE752": {
+      "stratum": "C",
+      "answer_with_sentence": 5.02855,
+      "regime": null
+    },
+    "T39C4": {
+      "stratum": "D",
+      "answer_with_sentence": 5.02855,
+      "regime": null
+    },
+    "T3AA6": {
+      "stratum": "R",
+      "answer_with_sentence": 5.48839,
+      "regime": null
+    },
+    "T8A9F": {
+      "stratum": "R",
+      "answer_with_sentence": 5.48839,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "I retract the pass-1 rendering_not_minimal flag: the authors explicitly identify TC598 and T39C4 as numeral-free controls, not as same-number minimal pairs. Both declared minimal pairs preserve 310 km and change the intended attachment. My pass-1 unrounded accretion answer contained an arithmetic error: the correct value is 5.48839 km/s, although its reported 5.49 km/s rounding was correct. All certified answers agree with the stated relation at their displayed precision. Probe mass cancels for every listed mass. Moon accretion is disconnected under the explicit exclusion of other bodies' gravitational pull, and simulated accretion does not alter the actual planet. The governing relations, cancellation expression, units, assumptions and parameter domains are consistent.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T13:58:31+00:00",
+  "completed_at": "2026-11-21T13:59:07+00:00",
+  "minutes_spent": 0.61,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "6fc55a3aee3bc3a697d02e46fa495841f2fa704dcaa20c50bc2d8fb1ecf48d08",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

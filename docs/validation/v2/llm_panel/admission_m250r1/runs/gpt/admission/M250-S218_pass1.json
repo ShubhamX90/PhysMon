@@ -1,0 +1,95 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S218",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For parallel plates, C0 = epsilon0 A/d0 and the attractive force magnitude is F = epsilon0 A V^2/(2 df^2) = C0 d0 V^2/(2 df^2). Substitution gives F = 0.00324 N.",
+    "assumptions": [
+      "The stated capacitance applies at the initial 2 mm separation.",
+      "Plate area remains constant.",
+      "The connected ideal battery maintains the potential difference.",
+      "The stated vacuum approximation and neglect of edge effects apply."
+    ],
+    "answer": 0.00324,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "TD5A9": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00324,
+      "regime": null
+    },
+    "T7BA3": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00324,
+      "regime": null
+    },
+    "T75D2": {
+      "stratum": "K",
+      "answer_with_sentence": 0.00324,
+      "regime": "The field must remain below the breakdown threshold of 1.9e6 V/m; it decreases from 4.5e5 V/m initially to 1.8e5 V/m finally."
+    },
+    "T0373": {
+      "stratum": "R",
+      "answer_with_sentence": 0.00729,
+      "regime": null
+    },
+    "TDD7D": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00324,
+      "regime": null
+    },
+    "TD96B": {
+      "stratum": "R",
+      "answer_with_sentence": 0.00729,
+      "regime": null
+    },
+    "T56FA": {
+      "stratum": "K",
+      "answer_with_sentence": 0.00324,
+      "regime": "The field remains within the withstand range: its maximum during separation is 450 kV/m, below 1900 kV/m."
+    },
+    "TAF23": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00324,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The battery variants do not consistently preserve the required number and unit: T7BA3 and TAF23 specify only a 'small battery', whereas the other additional-battery sentences specify 450 V."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and each independently augmented problem have determinate answers. The invalid verdict concerns the stipulated numerical identity of quantity variants. In the relevant sentences the aiding batteries maintain 1350 V, increasing the force by (1350/900)^2 = 2.25. An extra battery used only in an earlier run has no effect on the present ideal capacitor configuration. No external information was accessed.",
+  "started_at": "2026-11-21T14:19:34+00:00",
+  "completed_at": "2026-11-21T14:20:17+00:00",
+  "minutes_spent": 0.72,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "eeda3f49c63016604fc62ab3bc40f13ea3e5ff74c63137767b69b7d1937ea6e2",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

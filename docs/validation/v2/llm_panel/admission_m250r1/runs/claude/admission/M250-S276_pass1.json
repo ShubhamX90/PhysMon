@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch16",
+  "item_id": "M250-S276",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:47:00Z", "completed_at": "2026-11-21T10:58:00Z", "minutes_spent": 11,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Tunnelling T = exp(-2 kappa L), kappa = sqrt(2 m U)/hbar; current ratio I_p/I_d = T_p/T_d = exp(2 L sqrt(2U)(sqrt(m_d) - sqrt(m_p))/hbar) since both carry charge e and incident rates are equal",
+    "assumptions": ["stated transmission formula with no prefactor", "U = 0.4 eV for both", "1 u = 1.66054e-27 kg, 1 eV = 1.602177e-19 J (standard constants, not stated)"],
+    "answer": 31.43,
+    "unit": "1"
+  },
+  "stratum_assignments": {
+    "TC752": {"stratum": "C", "answer_with_sentence": 31.43, "regime": null},
+    "TF273": {"stratum": "D", "answer_with_sentence": 31.43, "regime": null},
+    "TE9A5": {"stratum": "D", "answer_with_sentence": 31.43, "regime": null},
+    "T1B32": {"stratum": "D", "answer_with_sentence": 31.43, "regime": null},
+    "TF88C": {"stratum": "R", "answer_with_sentence": 56.98, "regime": null},
+    "TEED5": {"stratum": "C", "answer_with_sentence": 31.43, "regime": null},
+    "T7B68": {"stratum": "D", "answer_with_sentence": 31.43, "regime": null},
+    "T87E1": {"stratum": "R", "answer_with_sentence": 56.98, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "U = 6.4087e-20 J; m_p = 1.67262e-27 kg; sqrt(2 m_p U) = 1.46419e-23; kappa_p = 1.38838e11 /m; 2 kappa_p L = 8.3303; 2 kappa_d L = 8.3303*sqrt(1.999037) = 11.7780; difference 3.4477; ratio e^3.4477 = 31.43. With the barrier raised by 0.15 eV, the exponent difference scales by sqrt(0.55/0.4) = 1.17260 to 4.0428 and the ratio is 56.98. Equal incident currents of 5.2 nA multiply both transmitted currents and cancel (consistent with equal particle rates since both have charge e). The guard-electrode step and the earlier-run bias are D. The u-to-kg and eV-to-J conversions are not stated, but they are standard constants; the answer depends on them only at the fourth-figure level."
+}

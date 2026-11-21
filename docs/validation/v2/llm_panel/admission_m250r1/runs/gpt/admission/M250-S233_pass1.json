@@ -1,0 +1,111 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S233",
+  "pass_number": 1,
+  "started_at": "2026-11-21T19:03:01+00:00",
+  "completed_at": "2026-11-21T19:04:11+00:00",
+  "minutes_spent": 1.17,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law gives sin(theta_t)=sin(75 degrees)/1.5. For p-polarised light, R_p=[(1.5 cos(75 degrees)-cos(theta_t))/(1.5 cos(75 degrees)+cos(theta_t))]^2=0.1067651. With no absorption, the power transmission coefficient is T_p=1-R_p=0.8932349, so P_entering=T_p P_incident.",
+    "assumptions": [
+      "Air has refractive index approximately 1.",
+      "The interface follows the usual Fresnel model for nonmagnetic transparent media.",
+      "In the base problem, the beam reaches the interface without an intervening change in power.",
+      "Only transmission through the first surface is counted."
+    ],
+    "answer": 4.46617,
+    "unit": "mW"
+  },
+  "stratum_assignments": {
+    "T6A28": {
+      "stratum": "C",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "TBC5B": {
+      "stratum": "R",
+      "answer_with_sentence": 7.50317,
+      "regime": null
+    },
+    "T38E1": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "T8526": {
+      "stratum": "C",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "T01A0": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "T6921": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "TAC23": {
+      "stratum": "R",
+      "answer_with_sentence": 7.50317,
+      "regime": null
+    },
+    "TA9F7": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TAC23 does not locate the amplifier relative to the first glass surface, leaving the incident power and therefore the power entering that surface unspecified.",
+    "rendering_not_minimal": "The amplifier-power variants T01A0 and TA9F7 replace the explicit 3.4 mW used elsewhere with 'a small amount', so the variants do not consistently preserve the stated number and unit."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "TAC23",
+      "case": "An amplifier between the laser and the incident surface adds 3.4 mW.",
+      "answer": 7.50317,
+      "unit": "mW"
+    },
+    {
+      "sentence_id": "TAC23",
+      "case": "An amplifier downstream of the first surface adds 3.4 mW to the transmitted beam, with no feedback to the incident beam.",
+      "answer": 4.46617,
+      "unit": "mW"
+    }
+  ],
+  "notes": "The base problem has a definite Fresnel-transmission answer. The numerical assignment for TAC23 assumes amplification before incidence; its wording alone does not establish that placement. Beam area enters through incident irradiance P/A and transmitted power T(P/A)A, then cancels; either a perpendicular cross section or a surface footprint gives the same total transmitted power when handled consistently. The two area sentences preserve 5.5 mm². Earlier-run amplification and amplification of the second laser have no stated physical path to the current incident power. The qualitative amplifier sentences remain disconnected individually, but fail the packet's numerical matching requirement.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f5a3604c21d0c5cf7813b2b32a799e06537aba64ec9f493ca3ac0a179c382d6b",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

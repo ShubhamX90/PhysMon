@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch20",
+  "item_id": "M250-S224",
+  "pass_number": 2,
+  "started_at": "2026-11-21T11:00:00Z", "completed_at": "2026-11-21T11:09:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Ideal entropy of mixing at equal T and p: dS = -R sum n_i ln x_i", "assumptions": ["ideal, non-reacting, distinct gases", "equal initial T and p", "insulated rigid container, T constant on ideal mixing"], "answer": 22.00, "unit": "J/K"},
+  "stratum_assignments": {
+    "TD9D8": {"stratum": "D", "answer_with_sentence": 22.00, "regime": null},
+    "TA337": {"stratum": "D", "answer_with_sentence": 22.00, "regime": null},
+    "T2667": {"stratum": "R", "answer_with_sentence": 30.47, "regime": null},
+    "T4FE0": {"stratum": "C", "answer_with_sentence": 22.00, "regime": null},
+    "TBB89": {"stratum": "D", "answer_with_sentence": 22.00, "regime": null},
+    "T7A1E": {"stratum": "C", "answer_with_sentence": 22.00, "regime": null},
+    "T6DA3": {"stratum": "R", "answer_with_sentence": 30.47, "regime": null},
+    "TA9C4": {"stratum": "D", "answer_with_sentence": 22.00, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {"missing_assumption": "The R sentences say the added helium is 'at the temperature of the gases' but do not state that the compartments remain at one common temperature after it is let in; strictly, filling a compartment of an insulated container does flow work and the sliding partition compresses the argon, so the certified answers assume (naturally but implicitly) that the common temperature is restored."},
+  "defect_severity": {"missing_assumption": "medium"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "notes": "Base 22.0009 J/K matches my 22.001. R checks: q=0.7 -> x = 2.2/4.7, 2.5/4.7, dS = 8.314 x 3.24821 = 27.006; q=1.3 -> 30.472; q=2.4 -> x = 0.609375, 0.390625, dS = 8.314 x 4.28177 = 35.599; all match. Volume C claim correct (V_i = x_i V cancels). D claims (balloon with no tube; earlier run only) correct. Minimal pairs TD9D8/T6DA3 ('Before the gases are allowed to mix, a further 1.3 mol of helium at the temperature of the gases is let into the balloon / helium compartment') differ only in attachment; TBB89/T2667 differ in tense and 'In an earlier run' vs 'Before the gases are allowed to mix', which is the intended temporal attachment, same 1.3 mol. TA337 and TA9C4 are declared numeral-free controls. I keep my pass-1 medium flag: it does not make the certified answers wrong under the natural reading, so the item is valid."
+}

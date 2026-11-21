@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch20",
+  "item_id": "M250-S215",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:22:00Z", "completed_at": "2026-11-21T10:28:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Transmission-line step response: Z0 = sqrt(L/C); V+ = E Z0/(Z0+Rs); V_load = V+ (1+Gamma_L)", "assumptions": ["lossless uniform line", "ideal step source", "resistive load"], "answer": 10.0, "unit": "V"},
+  "stratum_assignments": {
+    "TAB4E": {"stratum": "D", "answer_with_sentence": 10.0, "regime": null},
+    "TBEAE": {"stratum": "D", "answer_with_sentence": 10.0, "regime": null},
+    "T9B6E": {"stratum": "C", "answer_with_sentence": 10.0, "regime": null},
+    "T2129": {"stratum": "C", "answer_with_sentence": 10.0, "regime": null},
+    "T6BEA": {"stratum": "R", "answer_with_sentence": 6.410, "regime": null},
+    "TADD9": {"stratum": "R", "answer_with_sentence": 6.410, "regime": null},
+    "T0205": {"stratum": "D", "answer_with_sentence": 10.0, "regime": null},
+    "T8F3D": {"stratum": "D", "answer_with_sentence": 10.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All claims agree with pass 1. R checks: q=22 -> Rs=47, V+=500/97=5.155, VL=7.732; q=42 -> 6.410; q=65 -> Rs=90, V+=3.571, VL=5.357; all match. Length cancellation (C) correct since totals are given and the line is stated uniform. Minimal pairs TAB4E/T6BEA (lamp vs source) and T8F3D/TADD9 (earlier test only vs before switching on) keep 42 ohm and differ in attachment only. TBEAE and T0205 are declared numeral-free controls, so their missing number is by design."
+}

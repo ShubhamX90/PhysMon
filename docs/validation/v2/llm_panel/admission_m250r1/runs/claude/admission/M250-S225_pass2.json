@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch21",
+  "item_id": "M250-S225",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:42:00Z", "completed_at": "2026-11-21T10:49:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "dT(rm) = (Tin - Tout) ln(rm/r1)/ln(r2/r1)", "assumptions": ["steady radial conduction", "constant k", "long pipe"], "answer": 55.7968, "unit": "K"},
+  "stratum_assignments": {
+    "T2495": {"stratum": "C", "answer_with_sentence": 55.7968, "regime": null},
+    "T8870": {"stratum": "C", "answer_with_sentence": 55.7968, "regime": null},
+    "T6641": {"stratum": "D", "answer_with_sentence": 55.7968, "regime": null},
+    "T21B1": {"stratum": "R", "answer_with_sentence": 47.855, "regime": null},
+    "T26FA": {"stratum": "D", "answer_with_sentence": 55.7968, "regime": null},
+    "T6E73": {"stratum": "D", "answer_with_sentence": 55.7968, "regime": null},
+    "T15F5": {"stratum": "R", "answer_with_sentence": 47.855, "regime": null},
+    "T8754": {"stratum": "D", "answer_with_sentence": 55.7968, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Verified: q=1.2 cm -> 120*0.510826/ln(3.4)=50.090 K; q=1.8 -> 47.855 K; q=2.5 -> 120*0.510826/ln(11.5/3)=45.618 K; base 55.797 K. Conductivity cancellation is correct. The wiring (outermost surface stays at 300 K) matches my pass-1 reading of 'outermost surface'. D claims hold; minimal pairs T6641/T21B1 and T8754/T15F5 share 1.8 cm; T26FA and T6E73 are declared numeral-free controls. Agreement with pass 1."
+}

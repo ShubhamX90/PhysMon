@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch04",
+  "item_id": "M250-S38",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:59:00Z", "completed_at": "2026-11-21T11:10:00Z", "minutes_spent": 11,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Static equilibrium of a rigid ladder: N = (m1+m2) g; torque about the foot gives wall force F_w = (0.5 m1 + 0.6 m2) g cot(theta); friction f = F_w; ground force = sqrt(N^2 + f^2)", "assumptions": ["smooth wall (horizontal wall reaction only)", "ladder in static equilibrium (does not slip)", "uniform ladder, centre of mass at mid-length", "person treated as a point load at 0.6 L"], "answer": 841.62, "unit": "N"},
+  "stratum_assignments": {
+    "T1EB2": {"stratum": "D", "answer_with_sentence": 841.62, "regime": null},
+    "T49C6": {"stratum": "D", "answer_with_sentence": 841.62, "regime": null},
+    "T5690": {"stratum": "C", "answer_with_sentence": 841.62, "regime": null},
+    "T038B": {"stratum": "C", "answer_with_sentence": 841.62, "regime": null},
+    "TA81B": {"stratum": "D", "answer_with_sentence": 841.62, "regime": null},
+    "TCE71": {"stratum": "R", "answer_with_sentence": 939.71, "regime": null},
+    "TD573": {"stratum": "R", "answer_with_sentence": 939.71, "regime": null},
+    "TEA7A": {"stratum": "D", "answer_with_sentence": 841.62, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "N = 82*9.8 = 803.6 N; torque sum (0.5*117.6 + 0.6*686) = 470.4 N (per unit L). At 62 deg: cot = 0.531709, f = 250.12 N, |F| = sqrt(803.6^2 + 250.12^2) = 841.62 N. At 44 deg (tilted 18 deg closer to the ground): cot = 1.035530, f = 487.11 N, |F| = 939.71 N; this needs a friction coefficient of at least 0.606, and the problem states the ladder does not slip, so it is consistent. Length cancels from the torque balance (C). Earlier-experiment and shutter sentences are D. The scene clause about set-up vs final angle makes TCE71 (tilt before the person stands) and TD573 (tilt afterwards) both change the final angle. Numbered angle sentences all use 18 deg; T1EB2 and TA81B carry no number. 'Then tilted' in TD573 with the person standing on it is an unusual operation, hence slightly artificial."
+}

@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch09",
+  "item_id": "M250-S41",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:25:00Z", "completed_at": "2026-11-21T10:34:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Coulomb's law F = k q1 q2 / r^2 and equal charge sharing between identical conductors on contact (charge conservation)", "assumptions": ["point charges", "identical spheres share total charge equally", "isolated spheres, no leakage"], "answer": 16.0, "unit": "mN"},
+  "stratum_assignments": {
+    "T162F": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "T0EF1": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "TCCA9": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "TAA47": {"stratum": "K", "answer_with_sentence": 16.0, "regime": "point-charge regime: sphere radius (2.5 cm) small compared with the separations (30 cm, 60 cm), as the problem instructs; outside it, induced-charge corrections would change the force"},
+    "T81A0": {"stratum": "K", "answer_with_sentence": 16.0, "regime": "point-charge regime: sphere radius (2.5 cm) small compared with the separations, as the problem instructs"},
+    "TA88E": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "T2BDE": {"stratum": "R", "answer_with_sentence": 7.788, "regime": null},
+    "TFAEF": {"stratum": "R", "answer_with_sentence": 7.788, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TFAEF ('Before the force was measured, the spheres were moved 26 cm further apart') can be read as referring to the initial 80 mN measurement at 30 cm, in which case it is mere history (16 mN), rather than to the asked final force (7.79 mN)."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Charges 5q and -q: F0 = 5kq^2/r0^2 = 80 mN at 30 cm. After contact each sphere has 2q (repulsive now): F = 4kq^2/r^2 = 80*(4/5)*(30/60)^2 = 16 mN. With a further 26 cm (final 86 cm): 64*(900/7396) = 7.788 mN. Magnets exert no force on static charges (D). Earlier-experiment moves are history (D). Radius is moot under the stated point-charge treatment; I class it K (point-charge regime) rather than C because it does not enter the governing relations at all. T162F and TCCA9 carry no number ('a few centimetres'), apparently numeral-free variants. Ambiguity in TFAEF noted under 'other'; I take the reading that 'the force' is the one asked for, consistent with the base clause 'after all their moves'."
+}

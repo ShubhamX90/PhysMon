@@ -1,0 +1,97 @@
+{
+  "item_id": "M250-S71",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Einstein's photoelectric equation gives K_max = hc/lambda - phi = 1240/250 - 2.3 = 2.66 eV. Using K_max = mv²/2 gives v = c sqrt(2K_max/(mc²)) = 967.98 km/s. Shortening the incident wavelength by 55 nm gives lambda = 195 nm, K_max = 4.05897 eV and v = 1195.73 km/s.",
+    "assumptions": [
+      "The usual single-photon photoelectric model applies, with negligible heating and multiphoton effects.",
+      "The base illumination remains at its stated wavelength.",
+      "For a change before measurement, the measured electrons are emitted under the changed illumination."
+    ],
+    "answer": 967.98,
+    "unit": "km/s"
+  },
+  "stratum_assignments": {
+    "TB26A": {
+      "stratum": "K",
+      "answer_with_sentence": 967.98,
+      "regime": "Weak illumination in the single-photon photoelectric regime, with negligible heating and multiphoton effects; 90 W/m² is within the ordinary textbook regime."
+    },
+    "TF3E8": {
+      "stratum": "D",
+      "answer_with_sentence": 967.98,
+      "regime": null
+    },
+    "TEF5E": {
+      "stratum": "D",
+      "answer_with_sentence": 967.98,
+      "regime": null
+    },
+    "TA8F1": {
+      "stratum": "D",
+      "answer_with_sentence": 967.98,
+      "regime": null
+    },
+    "T94D8": {
+      "stratum": "R",
+      "answer_with_sentence": 1195.73,
+      "regime": null
+    },
+    "TCF8E": {
+      "stratum": "D",
+      "answer_with_sentence": 967.98,
+      "regime": null
+    },
+    "T860D": {
+      "stratum": "R",
+      "answer_with_sentence": 1195.73,
+      "regime": null
+    },
+    "T5707": {
+      "stratum": "K",
+      "answer_with_sentence": 967.98,
+      "regime": "Weak illumination in the single-photon photoelectric regime, with negligible heating and multiphoton effects; 90 W/m² is within the ordinary textbook regime."
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TA8F1 replaces the specified 55 nm shortening with 'slightly shorter', and TCF8E replaces it with 'a small amount', so the wavelength variants do not preserve the required numerical value and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "An earlier wavelength of 249 nm satisfies 'slightly shorter' but does not satisfy '55 nm shorter' than 250 nm.",
+    "Shortening the second lamp's wavelength by 1 nm satisfies 'a small amount' without matching the specified 55 nm change."
+  ],
+  "notes": "The base numerical problem is solvable under the ordinary photoelectric model, and its non-relativistic approximation is appropriate because K_max is much smaller than 511 keV. The invalid verdict concerns the explicit numerical matching requirement for sentence variants. Earlier experiments and the separate lamp have no stated physical connection to the current photoelectron energy. T860D is interpreted as measuring electrons emitted after tuning; changing the source cannot alter electrons already emitted.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:10:25+00:00",
+  "completed_at": "2026-11-21T14:11:33+00:00",
+  "minutes_spent": 1.14,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "57c12ed9f02e47a50583c005fa46e1e44813207deb2f654525f7ff219b3a0245",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

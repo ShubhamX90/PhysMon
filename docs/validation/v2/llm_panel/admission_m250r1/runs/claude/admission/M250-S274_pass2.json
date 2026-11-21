@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch19",
+  "item_id": "M250-S274",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:09:00Z", "completed_at": "2026-11-21T10:15:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Anomalous Zeeman effect: E shift = mu_B B (g_P m_P - g_S m_S), Delta m = 0, +/-1; outer spread (g_P + g_S) mu_B B; Delta lambda = lambda^2 Delta E/(hc)",
+    "assumptions": ["weak-field linear Zeeman regime as stated", "first-order wavelength shift"],
+    "answer": 27.003,
+    "unit": "pm"
+  },
+  "stratum_assignments": {
+    "T63F3": {"stratum": "K", "answer_with_sentence": 27.003, "regime": "Zeeman splittings (~1e-4 eV) much smaller than the fine-structure splitting"},
+    "T2090": {"stratum": "R", "answer_with_sentence": 29.973, "regime": null},
+    "TF402": {"stratum": "D", "answer_with_sentence": 27.003, "regime": null},
+    "TD469": {"stratum": "D", "answer_with_sentence": 27.003, "regime": null},
+    "T664D": {"stratum": "D", "answer_with_sentence": 27.003, "regime": null},
+    "TC894": {"stratum": "R", "answer_with_sentence": 29.973, "regime": null},
+    "T3EF7": {"stratum": "D", "answer_with_sentence": 27.003, "regime": null},
+    "T4FF2": {"stratum": "K", "answer_with_sentence": 27.003, "regime": "Zeeman splittings (~1e-4 eV) much smaller than the fine-structure splitting"}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 4, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Agrees with pass 1 (0.02701 nm = 27.003 pm; 29.973 pm at 0.555 T). Checked R answers: 27.0031 x 1.072 = 28.947, x 1.11 = 29.973, x 1.166 = 31.486 pm. The relation dE = (gu+gl) Eb correctly gives the spread between the m_P=+/-1/2 -> m_S=-/+1/2 components. K predicate 10*dE < q holds for all listed values (10 x 9.65e-5 eV = 9.65e-4 eV < 0.0018 eV); the predicate is a heuristic proxy for the stated weak-field condition but is adequate. Minimal pairs TD469/T2090 and TF402/TC894 share 55 mT and differ only in attachment; numeral-free twins T3EF7 and T664D match their D twins' wording."
+}

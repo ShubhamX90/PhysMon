@@ -1,0 +1,118 @@
+{
+  "item_id": "M250-S238",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Circular Couette flow has v_theta = Ar + B/r. No slip gives T = 4*pi*eta*L*omega*R1^2*R2^2/(R2^2-R1^2), with omega = 2*pi*rot/60 and P = T*omega.",
+    "assumptions": [
+      "Use the stated steady, laminar, purely azimuthal Newtonian flow, constant viscosity, no slip and negligible end effects.",
+      "The requested power balances the oil's viscous torque.",
+      "For the relevant speed-setting additions, the maintained rotor speed becomes 120+q rpm."
+    ],
+    "answer": 0.182942938,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T2F2B": {
+      "stratum": "K",
+      "answer_with_sentence": 0.182942938,
+      "regime": "The actual rotor speed is below the stated threshold; 120 rpm is below every listed threshold. Interpret vortices as secondary Taylor vortices."
+    },
+    "TF18F": {
+      "stratum": "K",
+      "answer_with_sentence": 0.182942938,
+      "regime": "The actual rotor speed is below the stated threshold; 120 rpm is below every listed threshold."
+    },
+    "TEF4A": {
+      "stratum": "R",
+      "answer_with_sentence": 0.483083696,
+      "regime": null
+    },
+    "TFDA3": {
+      "stratum": "D",
+      "answer_with_sentence": 0.182942938,
+      "regime": null
+    },
+    "T564F": {
+      "stratum": "R",
+      "answer_with_sentence": 0.483083696,
+      "regime": null
+    },
+    "T7A33": {
+      "stratum": "D",
+      "answer_with_sentence": 0.182942938,
+      "regime": null
+    },
+    "T5A9C": {
+      "stratum": "C",
+      "answer_with_sentence": 0.182942938,
+      "regime": null
+    },
+    "T0105": {
+      "stratum": "D",
+      "answer_with_sentence": 0.182942938,
+      "regime": null
+    },
+    "T4956": {
+      "stratum": "D",
+      "answer_with_sentence": 0.182942938,
+      "regime": null
+    },
+    "TF420": {
+      "stratum": "C",
+      "answer_with_sentence": 0.182942938,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "failed_transformation_identity",
+    "other"
+  ],
+  "defect_reasons": {
+    "failed_transformation_identity": "The K claims show P*(q/rot)^2 as an outside-regime reference expression, but changing an instability threshold does not change the imposed rotor speed, and this expression does not describe power after the onset of secondary flow.",
+    "other": "In the current-run speed-increase variants, 'this rate' can refer to the original 120 rpm or the updated 195 rpm."
+  },
+  "defect_severity": {
+    "failed_transformation_identity": "high",
+    "other": "medium"
+  },
+  "counterexamples": [
+    {
+      "claim": "The outside-regime reference expression in T2F2B and TF18F.",
+      "case": "At the authors' example threshold q = 5 rpm, with the actual rotor still at 120 rpm, the expression predicts 0.182942938*(5/120)^2 = 0.000317609 W.",
+      "failure": "The threshold is not the imposed speed. For the same constant-viscosity, no-slip apparatus, circular Couette flow supplies the minimum viscous dissipation at those boundary velocities; adding secondary flow cannot reduce the required power to this value."
+    }
+  ],
+  "notes": "My pass-1 base value contained a small arithmetic error: recalculation gives 0.182942938 W, agreeing with the authors. All listed certified answers are correctly rounded: the relevant additions of 35, 75 and 160 rpm give approximately 0.305223, 0.483084 and 0.996023 W. The density cancellation and the disconnected attachments are correct. All listed K thresholds exceed 120 rpm. Although the outside-regime expression is explicitly excluded from certification, it is still an incorrect physics expression shown by the authors; the admission standard includes such claims. I withdraw the pass-1 rendering_not_minimal flag because pass 2 explicitly identifies the numeral-free sentences as controls, while the actual minimal_pair_with pairs preserve 75 rpm and change the intended attachment. Read omega = rot as equality after angular-speed unit conversion, consistent with the explicit conversion assumption; using the raw rpm numeral there would be incorrect. The wording ambiguity about 'this rate' remains.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T19:07:06+00:00",
+  "completed_at": "2026-11-21T19:08:29+00:00",
+  "minutes_spent": 1.39,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "b6dbd99ac91d4d05dcda30bdcc7f2a8e0d727f5f54607685614fbfeaa0270326",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

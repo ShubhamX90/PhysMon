@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch10",
+  "item_id": "M250-S281",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Energy conservation: v_esc = sqrt(2GM/R) = R*sqrt(8*pi*G*rho/3), so v_esc scales as R*sqrt(rho); scale from Earth: v = 11.19 km/s * (3390/6371) * sqrt(3.93/5.51)", "assumptions": ["uniform non-rotating sphere, no atmosphere", "other bodies (including the moon) ignored as stated", "Newtonian gravity"], "answer": 5.029, "unit": "km/s"},
+  "stratum_assignments": {
+    "T3112": {"stratum": "D", "answer_with_sentence": 5.029, "regime": null},
+    "TE270": {"stratum": "C", "answer_with_sentence": 5.029, "regime": null},
+    "T09DC": {"stratum": "D", "answer_with_sentence": 5.029, "regime": null},
+    "TC598": {"stratum": "D", "answer_with_sentence": 5.029, "regime": null},
+    "TE752": {"stratum": "C", "answer_with_sentence": 5.029, "regime": null},
+    "T39C4": {"stratum": "D", "answer_with_sentence": 5.029, "regime": null},
+    "T3AA6": {"stratum": "R", "answer_with_sentence": 5.488, "regime": null},
+    "T8A9F": {"stratum": "R", "answer_with_sentence": 5.488, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: 11.19*0.532099*0.844541 = 5.0286 km/s. With R = 3700 km at same density: 5.0286*3700/3390 = 5.4884 km/s. Probe mass cancels from GMm/R = mv^2/2 (C). Moon is disconnected because the pull of other bodies is ignored (D). 'Earlier simulation only' sentences describe a counterfactual planet that is not the one launched from (D). T8A9F is present tense without an explicit time relative to launch; I read it as the planet's state at launch (R), but it is slightly less explicit than T3AA6. The 'small amount of radius' sentences (TC598, T39C4) give no number, so they cannot be numeric variants of the 310 km sentences; if they are claimed as minimal pairs of T09DC/T3112 that would be a rendering mismatch (to check in pass 2). Probe-mass sentences TE270/TE752 state the same 2270 kg."
+}

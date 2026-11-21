@@ -1,0 +1,84 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S09",
+  "pass_number": 1,
+  "started_at": "2026-11-21T19:04:46+00:00",
+  "completed_at": "2026-11-21T19:05:19+00:00",
+  "minutes_spent": 0.56,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of energy: m_c c_c(373-T_f)=m_w c_w(T_f-293). Thus the water temperature rise is 192.5*80/(192.5+1674.4)=8.24977 K. With an additional 0.55 kg of water initially at 293 K, the rise is 15400/(192.5+0.95*4186)=3.69375 K.",
+    "assumptions": [
+      "The supplied specific heats apply throughout the temperature change.",
+      "Copper and water reach a common final temperature.",
+      "Stirring contributes negligible energy."
+    ],
+    "answer": 8.24977,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "T128A": {
+      "stratum": "D",
+      "answer_with_sentence": 8.24977,
+      "regime": null
+    },
+    "TD942": {
+      "stratum": "D",
+      "answer_with_sentence": 8.24977,
+      "regime": null
+    },
+    "TC375": {
+      "stratum": "D",
+      "answer_with_sentence": 8.24977,
+      "regime": null
+    },
+    "TDD5D": {
+      "stratum": "R",
+      "answer_with_sentence": 3.69375,
+      "regime": null
+    },
+    "TCCED": {
+      "stratum": "D",
+      "answer_with_sentence": 8.24977,
+      "regime": null
+    },
+    "T4800": {
+      "stratum": "R",
+      "answer_with_sentence": 3.69375,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TD942 and TC375 specify only a 'small amount', whereas the corresponding numerical variants TCCED and T128A specify 0.55 kg, so the variants do not preserve the required number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and each individual addition are physically well-posed; invalidity concerns the required variant matching. Water used for an earlier experiment is disconnected because the problem explicitly excludes leftovers. Water added to the second insulated container is also disconnected. Neither case represents cancellation within the governing energy balance.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "ce8fc7420816bf23e250db254be20ebd239838bfe38c3933bd66129329bb8415",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

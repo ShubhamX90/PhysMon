@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch09",
+  "item_id": "M250-S277",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:19:00Z", "completed_at": "2026-11-21T10:25:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "F = exp(-L mc^2/(pc * c tau0))", "assumptions": ["loss only by decay, exponential in proper time", "same momentum, constant speed", "stated constants"], "answer": 0.639466, "unit": "1"},
+  "stratum_assignments": {
+    "T86A1": {"stratum": "R", "answer_with_sentence": 0.549282, "regime": null},
+    "T456D": {"stratum": "D", "answer_with_sentence": 0.639466, "regime": null},
+    "TD9FC": {"stratum": "D", "answer_with_sentence": 0.639466, "regime": null},
+    "TA551": {"stratum": "R", "answer_with_sentence": 0.549282, "regime": null},
+    "TA31E": {"stratum": "D", "answer_with_sentence": 0.639466, "regime": null},
+    "T40C2": {"stratum": "C", "answer_with_sentence": 0.639466, "regime": null},
+    "T751A": {"stratum": "C", "answer_with_sentence": 0.639466, "regime": null},
+    "TFEF0": {"stratum": "D", "answer_with_sentence": 0.639466, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All strata agree with pass 1. Decay length 223.652 m. Verified R answers: L=116 m -> exp(-0.51866)=0.59532; L=134 m -> 0.54928; L=151 m -> exp(-0.67516)=0.50908. Spill count cancels from the fraction. Minimal pairs T456D/TA551 and TD9FC/T86A1 share 34 m and differ only in attachment; TA31E and TFEF0 are declared numeral-free twins. My pass-1 file contains a stray key 'TA551_note': null inside stratum_assignments, an editing slip with no meaning; pass 1 is left unchanged as required."
+}

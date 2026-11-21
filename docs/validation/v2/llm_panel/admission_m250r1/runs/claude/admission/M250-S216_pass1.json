@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch07",
+  "item_id": "M250-S216",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:46:00Z", "completed_at": "2026-11-21T10:54:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Lossless LC oscillation of charge between two capacitors: charge conservation sets equilibrium voltage V_eq = (Q1+Q2)/(C1+C2); V2 is linear in the transferred charge, which oscillates harmonically about equilibrium, so V2_max = 2 V_eq - V2(0)",
+    "assumptions": ["no resistance or radiation (stated)", "zero initial inductor current (stated)", "positive plates joined through the inductor"],
+    "answer": 148.0,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "T94A9": {"stratum": "D", "answer_with_sentence": 148.0, "regime": null},
+    "T3614": {"stratum": "D", "answer_with_sentence": 148.0, "regime": null},
+    "T6868": {"stratum": "R", "answer_with_sentence": 157.778, "regime": null},
+    "T47FC": {"stratum": "D", "answer_with_sentence": 148.0, "regime": null},
+    "TF693": {"stratum": "C", "answer_with_sentence": 148.0, "regime": null},
+    "T0EC0": {"stratum": "R", "answer_with_sentence": 157.778, "regime": null},
+    "T7B75": {"stratum": "C", "answer_with_sentence": 148.0, "regime": null},
+    "T3A64": {"stratum": "D", "answer_with_sentence": 148.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "T47FC and T3A64 say 'a small capacitor' where their apparent counterparts say 22 uF, so they do not carry the same number if meant as variants."},
+  "defect_severity": {"rendering_not_minimal": "low"},
+  "counterexamples": [],
+  "notes": "Q1 = 4000 uC, Q2 = 200 uC; V_eq = 4200/50 = 84 V; V2 swings 20 -> 148 V. With 22 uF at 100 V in parallel with C1: C1' = 62 uF, Q1' = 6200 uC, V_eq = 6400/72 = 88.889 V, V2_max = 157.778 V. Inductance sets only the oscillation frequency (C). T94A9/T47FC refer to an earlier run only (D); T3614/T3A64 attach the capacitor to the separately powered flash unit (D)."
+}

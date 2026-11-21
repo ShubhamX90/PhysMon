@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch14",
+  "item_id": "M250-S240",
+  "pass_number": 2,
+  "started_at": "2026-11-21T11:01:00Z", "completed_at": "2026-11-21T11:09:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Bernoulli with continuity in a uniform bore: pc = p0 - rho g H - rho g h", "assumptions": ["steady, inviscid, incompressible flow, tube full", "large reservoir; surface and outlet at atmospheric pressure"], "answer": 78.76, "unit": "kPa"},
+  "stratum_assignments": {
+    "T45C6": {"stratum": "D", "answer_with_sentence": 78.76, "regime": null},
+    "T7E69": {"stratum": "K", "answer_with_sentence": 78.76, "regime": "irrelevant while pc = 78.76 kPa > vapour pressure"},
+    "TED68": {"stratum": "K", "answer_with_sentence": 78.76, "regime": "irrelevant while pc = 78.76 kPa > vapour pressure"},
+    "TC9D2": {"stratum": "C", "answer_with_sentence": 78.76, "regime": null},
+    "T5FCB": {"stratum": "R", "answer_with_sentence": 74.7028, "regime": null},
+    "T15A1": {"stratum": "R", "answer_with_sentence": 74.7028, "regime": null},
+    "TCBA8": {"stratum": "D", "answer_with_sentence": 78.76, "regime": null},
+    "T3DC9": {"stratum": "D", "answer_with_sentence": 78.76, "regime": null},
+    "T6788": {"stratum": "C", "answer_with_sentence": 78.76, "regime": null},
+    "T2061": {"stratum": "D", "answer_with_sentence": 78.76, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"], "defect_reasons": {"other": "T5FCB/T15A1 name only the liquid in the siphon; the R answer relies on the scene clause that the reservoir holds the same liquid as the siphon, which covers it but makes the wording slightly indirect."}, "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified: rho=760 -> 101300 - 760*9.8*2.3 = 84169.6 Pa; 1180 -> 74702.8 Pa; 1340 -> 71096.4 Pa; base 78760 Pa. All match. Bore cancels for uniform bore (C). K regime pc > p_vap holds for 3.2, 12, 31 kPa against 78.76 kPa; counter-regime at 110 kPa is correct. Minimal pairs T3DC9/T15A1 and T45C6/T5FCB share 1180 kg/m^3 and differ only in attachment. Disagreement with pass 1: on reflection the scene clause 'the reservoir holds the same liquid as the siphon, and the density given is that of the liquid first put in them' adequately signals that a replacement applies to the circulating liquid, so I downgrade my pass-1 medium wording concern to low."
+}

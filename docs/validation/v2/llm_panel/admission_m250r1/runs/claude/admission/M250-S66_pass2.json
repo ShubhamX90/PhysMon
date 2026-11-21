@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch18",
+  "item_id": "M250-S66",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:08:30Z", "completed_at": "2026-11-21T10:16:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Grating equation d sin(theta) = m lambda at normal incidence; separation = asin(2*650/4000) - asin(2*450/4000)", "assumptions": ["normal incidence (stated)", "far-field (Fraunhofer) maxima", "angles measured from the grating normal"], "answer": 5.96, "unit": "degree"},
+  "stratum_assignments": {
+    "TD8FB": {"stratum": "R", "answer_with_sentence": 2.705, "regime": null},
+    "T19FA": {"stratum": "R", "answer_with_sentence": 2.705, "regime": null},
+    "T9433": {"stratum": "D", "answer_with_sentence": 5.963, "regime": null},
+    "T8CA3": {"stratum": "D", "answer_with_sentence": 5.963, "regime": null},
+    "T30F6": {"stratum": "D", "answer_with_sentence": 5.963, "regime": null},
+    "T2E60": {"stratum": "C", "answer_with_sentence": 5.963, "regime": null},
+    "TFEEC": {"stratum": "D", "answer_with_sentence": 5.963, "regime": null},
+    "TBC0D": {"stratum": "C", "answer_with_sentence": 5.963, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"], "defect_reasons": {"other": "The screen sentences say 'the screen' although the problem introduces no screen; this does not affect the angular answer."}, "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified certified answers: 520 nm -> asin(0.26)=15.070 deg, separation 3.8955; 560 nm -> asin(0.28)=16.260 deg, separation 2.7054; 490 nm -> asin(0.245)=14.182 deg, separation 4.7837; base 18.966-13.003=5.9627 deg. All replacement wavelengths stay shorter than 650 nm and all order-2 maxima exist (m*lambda/d < 1). Minimal pairs T30F6/T19FA and TFEEC/TD8FB share 560 nm and differ only in attachment/timing; numeral-free twins T9433/T30F6 and T8CA3/TFEEC differ only by number replaced with 'a different wavelength'. Screen-distance cancellation is correct. Agrees with pass 1."
+}

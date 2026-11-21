@@ -1,0 +1,21 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch09",
+  "item_id": "M250-S257",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:42:00Z", "completed_at": "2026-11-21T10:50:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Bateman equation for parent-daughter decay: A_d(t) = A_p0 * lambda_d/(lambda_d - lambda_p) * (exp(-lambda_p t) - exp(-lambda_d t))", "assumptions": ["no daughter at t=0", "parent decays only to daughter (branching 1)", "closed column: nothing removed or added"], "answer": 3144.7, "unit": "Bq"},
+  "stratum_assignments": {
+    "T5569": {"stratum": "D", "answer_with_sentence": 3144.7, "regime": null},
+    "T3269": {"stratum": "D", "answer_with_sentence": 3144.7, "regime": null},
+    "T0FDD": {"stratum": "R", "answer_with_sentence": 4166.7, "regime": null},
+    "T1787": {"stratum": "R", "answer_with_sentence": 4166.7, "regime": null},
+    "TCB75": {"stratum": "D", "answer_with_sentence": 3144.7, "regime": null},
+    "T3A18": {"stratum": "D", "answer_with_sentence": 3144.7, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "lambda_d/(lambda_d - lambda_p) = (1/6)/(1/6 - 1/66) = 1.1. exp(-lambda_p*24 h) = 2^(-24/66) = 0.777203; exp(-lambda_d*24 h) = 2^-4 = 0.0625. A_d = 4000*1.1*0.714703 = 3144.7 Bq. Answer is linear in initial parent activity, so with 5300 Bq: 3144.7*1.325 = 4166.7 Bq. Parent in the transport container or in an earlier run has no path to this column's daughter activity (D). T1787's 'for one run only' wording is slightly awkward but 'this run' makes it relevant. T5569 and T3269 carry no number ('small amount'), apparently numeral-free variants."
+}

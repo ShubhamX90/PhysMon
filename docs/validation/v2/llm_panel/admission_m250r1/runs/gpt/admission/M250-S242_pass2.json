@@ -1,0 +1,100 @@
+{
+  "item_id": "M250-S242",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For independent exponential decay, R_i(t)=epsilon*A_i(0)*exp(-lambda_i*t), with lambda_i=ln(2)/T_i. Equating count rates cancels the common efficiency and gives t=ln(A1/A2)/(lambda1-lambda2). An additional initial activity q of the longer-lived isotope replaces A2 by A2+q.",
+    "assumptions": [
+      "Both isotopes follow exponential radioactive decay with the stated half-lives.",
+      "Neither isotope feeds the other, as stated.",
+      "The counter detects only decays in the sample with the same nonzero efficiency for both isotopes.",
+      "An added activity is specified at the preparation time identified in its sentence."
+    ],
+    "answer": 14.8126,
+    "unit": "h"
+  },
+  "stratum_assignments": {
+    "T922D": {
+      "stratum": "C",
+      "answer_with_sentence": 14.8126,
+      "regime": null
+    },
+    "T9D9A": {
+      "stratum": "D",
+      "answer_with_sentence": 14.8126,
+      "regime": null
+    },
+    "T84B6": {
+      "stratum": "D",
+      "answer_with_sentence": 14.8126,
+      "regime": null
+    },
+    "T7283": {
+      "stratum": "R",
+      "answer_with_sentence": 12.0489,
+      "regime": null
+    },
+    "TADA4": {
+      "stratum": "D",
+      "answer_with_sentence": 14.8126,
+      "regime": null
+    },
+    "TF3A2": {
+      "stratum": "D",
+      "answer_with_sentence": 14.8126,
+      "regime": null
+    },
+    "T6BE6": {
+      "stratum": "C",
+      "answer_with_sentence": 14.8126,
+      "regime": null
+    },
+    "T45EB": {
+      "stratum": "R",
+      "answer_with_sentence": 12.0489,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The deliberately numeral-free controls T9D9A and TF3A2 do not preserve the number and unit requested by the general variant instruction, although the authors accurately identify these omissions and both explicitly claimed minimal pairs preserve 170 Bq."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "medium"
+  },
+  "counterexamples": [],
+  "notes": "All physical classifications, dependencies, cancellation relations and certified numerical answers are correct. Adding 110, 170 or 360 Bq to this sample gives 12.9348, 12.0489 or 9.69137 h, respectively. Waste-drum additions and additions to a separate earlier sample have no path to the target under the explicitly restricted detection model. Both stated efficiency values and all activity units are consistent. The claimed minimal pairs T84B6/T7283 and TADA4/T45EB preserve the numerical quantity while changing its attachment as intended. I revise my pass-1 severity and validity judgment: pass 2 explicitly identifies the unquantified sentences as numeral-free controls, not as numerical minimal pairs. Their departure from the general variant instruction remains a presentation defect, but it does not establish a false author claim, incorrect physics, missing determining condition or contradiction, so high severity is not justified under admission rule 3.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T13:59:25+00:00",
+  "completed_at": "2026-11-21T14:00:12+00:00",
+  "minutes_spent": 0.77,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "25b10868e5b5d6a29c996b2b90d079c98ba4c6264f7e3c901791d544284a6a6b",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch04",
+  "item_id": "M250-S253",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:15:00Z", "completed_at": "2026-11-21T10:25:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Normal-incidence acoustic transmission: p_i = sqrt(2 Z1 I), p_t = 2 Z2/(Z1+Z2) * p_i, with Z = rho c", "assumptions": ["plane waves, normal incidence", "linear acoustics, lossless uniform fluids", "no return wave from below", "pressure and normal velocity continuous", "intensity is the time-averaged intensity of a harmonic wave, I = p^2/(2 Z)"], "answer": 6.2842, "unit": "Pa"},
+  "stratum_assignments": {
+    "T9B4F": {"stratum": "R", "answer_with_sentence": 7.6966, "regime": null},
+    "TCC99": {"stratum": "R", "answer_with_sentence": 7.6966, "regime": null},
+    "T43F7": {"stratum": "C", "answer_with_sentence": 6.2842, "regime": null},
+    "TF89B": {"stratum": "D", "answer_with_sentence": 6.2842, "regime": null},
+    "TA783": {"stratum": "D", "answer_with_sentence": 6.2842, "regime": null},
+    "TEFDB": {"stratum": "D", "answer_with_sentence": 6.2842, "regime": null},
+    "TBD48": {"stratum": "D", "answer_with_sentence": 6.2842, "regime": null},
+    "TC617": {"stratum": "C", "answer_with_sentence": 6.2842, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Z1 = 1.2*343 = 411.6 Pa s/m; Z2 = 998*1482 = 1,479,036 Pa s/m. p_i = sqrt(2*411.6*0.012) = 3.14299 Pa; transmission factor 2Z2/(Z1+Z2) = 1.999444; p_t = 6.2842 Pa. With the first loudspeaker's intensity raised to 0.018 W/m^2: p_t = 6.2842*sqrt(1.5) = 7.6966 Pa. Frequency is a property of the wave that enters wavelength/displacement relations but not the normal-incidence pressure transmission coefficient (frequency-independent for lossless half-spaces), so C (one could also argue D-like irrelevance; I classify C as it belongs to the system). Second loudspeaker faces the boathouse wall and is taken as not contributing to the incident wave; earlier-trial changes leave no state. Numbered intensity sentences all use 0.006 W/m^2; TF89B and TBD48 carry no number (apparently numeral-free variants). Using I = p^2/(2Z) assumes a harmonic wave and amplitude (not rms) is asked, which is the standard reading."
+}

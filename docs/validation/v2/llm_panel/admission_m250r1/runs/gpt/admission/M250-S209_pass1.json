@@ -1,0 +1,86 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S209",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:37:51+00:00",
+  "completed_at": "2026-11-21T14:38:39+00:00",
+  "minutes_spent": 0.8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conserve angular momentum about the combined centre of mass. With rod mass M, incoming mass m, impact offset b and speed v, let mu = M*m/(M+m). Then I = M*L^2/12 + mu*b^2 and omega = mu*v*b/I. For M = 2 kg, m = 0.3 kg, L = 1.2 m, b = 0.4 m and v = 6 m/s, omega = 2.222222222 rad/s.",
+    "assumptions": [
+      "The smooth table supplies no horizontal impulse or torque about the vertical axis.",
+      "The attached additional clay in T9964 and T4CC0 forms part of the pointlike incoming lump, moving at the stated 6 m/s.",
+      "The shelf and pot have no mechanical connection to the collision."
+    ],
+    "answer": 2.222222222,
+    "unit": "rad/s"
+  },
+  "stratum_assignments": {
+    "T7EF6": {
+      "stratum": "D",
+      "answer_with_sentence": 2.222222222,
+      "regime": null
+    },
+    "T9964": {
+      "stratum": "R",
+      "answer_with_sentence": 2.863485017,
+      "regime": null
+    },
+    "T4CC0": {
+      "stratum": "R",
+      "answer_with_sentence": 2.863485017,
+      "regime": null
+    },
+    "T6D0B": {
+      "stratum": "D",
+      "answer_with_sentence": 2.222222222,
+      "regime": null
+    },
+    "T98CE": {
+      "stratum": "D",
+      "answer_with_sentence": 2.222222222,
+      "regime": null
+    },
+    "T688C": {
+      "stratum": "D",
+      "answer_with_sentence": 2.222222222,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The stated requirement that mass variants preserve the same number and unit fails: T6D0B and T98CE replace the explicit 0.13 kg used in the other sentences with the unquantified word 'small'."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A 0.01 kg piece satisfies 'a further small piece' in T6D0B or T98CE, whereas the corresponding explicit-mass sentences require 0.13 kg."
+  ],
+  "notes": "The collision physics and numerical answers are well-posed under the ordinary reading of the added statements. The invalid verdict concerns the packet's explicit same-number-and-unit requirement. T9964 and T4CC0 increase the incoming mass to 0.43 kg, giving omega = 2.064/0.7208 rad/s. Clay remaining on the pot or used only in an earlier run cannot affect this collision.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "06a39af7ad73fa05c157e084ce0e86889e6f0022ef1c7cd9d98b4c0c8b26acfb",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

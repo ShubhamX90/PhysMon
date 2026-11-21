@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch16",
+  "item_id": "M250-S243",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:28:00Z", "completed_at": "2026-11-21T10:38:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Rutherford (Coulomb hyperbolic orbit, fixed nucleus): r_min = (d/2)(1 + 1/sin(theta/2)), d = 2*Z*e^2/(4 pi eps0 E)",
+    "assumptions": ["fixed nucleus", "pure Coulomb repulsion, alpha charge 2e", "single scattering", "non-relativistic", "E = 5 MeV converted with the stated e"],
+    "answer": 5.492e-14,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "T9A84": {"stratum": "R", "answer_with_sentence": 3.193e-14, "regime": null},
+    "TE67A": {"stratum": "D", "answer_with_sentence": 5.492e-14, "regime": null},
+    "T850C": {"stratum": "R", "answer_with_sentence": 3.193e-14, "regime": null},
+    "TA405": {"stratum": "K", "answer_with_sentence": 5.492e-14, "regime": "pure Coulomb orbit holds while r_min exceeds the nuclear radius (plus alpha radius); 54.9 fm >> 7.3 fm"},
+    "T381B": {"stratum": "D", "answer_with_sentence": 5.492e-14, "regime": null},
+    "TABD0": {"stratum": "D", "answer_with_sentence": 5.492e-14, "regime": null},
+    "T5616": {"stratum": "D", "answer_with_sentence": 5.492e-14, "regime": null},
+    "T69BD": {"stratum": "K", "answer_with_sentence": 5.492e-14, "regime": "pure Coulomb orbit holds while r_min exceeds the nuclear radius (plus alpha radius); 54.9 fm >> 7.3 fm"}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "1/(4 pi eps0) = 8.98774e9; k e = 1.43984e-9 V m, i.e. k e^2 = 1.43984 MeV fm. d = 1.43984*2*79/5 = 45.499 fm; r_min = 22.750*(1+1.41421) = 54.92 fm. With 8.6 MeV: d = 26.453 fm, r_min = 31.93 fm, still well outside a 7.3 fm nucleus. The radius is K (or arguably redundant given that the force is stated to be purely electrostatic). Earlier-scattering boosts and the proton beam line are D. T850C is phrased differently from T9A84 but states the same 3.6 MeV attached to the alpha particles, and pairs naturally with TABD0 (protons)."
+}

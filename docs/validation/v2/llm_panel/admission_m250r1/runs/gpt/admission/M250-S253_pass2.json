@@ -1,0 +1,114 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S253",
+  "pass_number": 2,
+  "started_at": "2026-11-21T14:10:43+00:00",
+  "completed_at": "2026-11-21T14:11:37+00:00",
+  "minutes_spent": 0.9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For harmonic linear acoustics, Z1 = rho1*c1 = 411.6 Pa s/m and Z2 = rho2*c2 = 1479036 Pa s/m. Pressure and normal-velocity continuity give pt = [2*Z2/(Z1+Z2)]*sqrt(2*Ii*Z1) = 6.28424 Pa.",
+    "assumptions": [
+      "The incident wave is harmonic and amplitude means peak pressure.",
+      "Linear acoustics applies.",
+      "The requested pressure is the transmitted component originating from the first loudspeaker.",
+      "For the increased-intensity answers, the changed wave has reached the measurement location."
+    ],
+    "answer": 6.28424,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {
+    "T9B4F": {
+      "stratum": "R",
+      "answer_with_sentence": 7.69659,
+      "regime": null
+    },
+    "TCC99": {
+      "stratum": "R",
+      "answer_with_sentence": 7.69659,
+      "regime": null
+    },
+    "T43F7": {
+      "stratum": "C",
+      "answer_with_sentence": 6.28424,
+      "regime": null
+    },
+    "TF89B": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TA783": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TEFDB": {
+      "stratum": "D",
+      "answer_with_sentence": 6.28424,
+      "regime": null
+    },
+    "TBD48": {
+      "stratum": "D",
+      "answer_with_sentence": 6.28424,
+      "regime": null
+    },
+    "TC617": {
+      "stratum": "C",
+      "answer_with_sentence": 6.28424,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "Whether the requested amplitude is the first source's transmitted component or the total pressure amplitude in the water.",
+    "The second loudspeaker's acoustic paths to the water.",
+    "Whether the intensity changes have reached the measurement location."
+  ],
+  "defect_flags": [
+    "missing_assumption",
+    "insufficient_boundary_condition",
+    "hidden_coupling"
+  ],
+  "defect_reasons": {
+    "missing_assumption": "The problem does not state the harmonic-wave assumption listed by the authors, although intensity alone determines RMS pressure and does not determine an arbitrary waveform's peak amplitude.",
+    "insufficient_boundary_condition": "The rendered problem does not establish either that the second source is excluded from the measured pressure or that a source-intensity change has reached the measurement location.",
+    "hidden_coupling": "Facing the boathouse wall does not establish the claimed absence of an acoustic path from the second loudspeaker to the water."
+  },
+  "defect_severity": {
+    "missing_assumption": "high",
+    "insufficient_boundary_condition": "high",
+    "hidden_coupling": "high"
+  },
+  "counterexamples": [
+    "In linear, lossless acoustics, sinusoidal and symmetric triangular incident pressure waves can have the same intensity but peak pressures sqrt(2*Ii*Z1) and sqrt(3*Ii*Z1), respectively; their transmitted peak pressures therefore differ.",
+    "A reflecting boathouse wall can send sound from the second loudspeaker toward the water; if the measured quantity includes that sound, its amplitude depends on the second source and its relative phase.",
+    "If the first loudspeaker is turned up shortly before measurement and the propagation time exceeds that interval, the measured transmitted amplitude remains 6.28424 Pa instead of becoming 7.69659 Pa."
+  ],
+  "notes": "The governing relations, cancellation expressions and units are internally correct under harmonic linear acoustics. All listed numerical values are arithmetically correct under the intended assumptions: increments of 0.003, 0.006 and 0.009 W/m² give 7.02599, 7.69659 and 8.31326 Pa. The numerical stratum assignments above are conditional on own_solution.assumptions; answer_correct is false because the certified answers are not established unconditionally by the rendered problem. Frequency cancels in the stated nondispersive fluid model at every listed frequency. The authors' separate harmonic assumption does not repair its omission from the problem text. The second-source sentences would be D if the target explicitly selected the first source's transmitted component in linear acoustics. Historical-trial sentences are D under their ordinary interpretation as completed separate trials. I withdraw the pass-1 rendering_not_minimal flag because pass 2 explicitly identifies TF89B and TBD48 as numeral-free controls rather than number-preserving minimal pairs. Both actual minimal_pair_with pairs preserve 0.006 W/m² and change the intended source or event attachment. No external information was accessed.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "2acf2fb618ddbca3a507412f3670bc9a69a72e3ed2d85711d831da172c35c39d",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

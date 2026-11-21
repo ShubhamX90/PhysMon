@@ -1,0 +1,109 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S225",
+  "pass_number": 2,
+  "started_at": "2026-11-21T13:55:02+00:00",
+  "completed_at": "2026-11-21T13:55:49+00:00",
+  "minutes_spent": 0.79,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Steady radial conduction without internal heat generation gives ΔT(r)=120 ln(r/3)/ln(R/3), with radii expressed in the same unit. For the base problem R=9 cm; for a retained additional thickness q, R=9+q cm.",
+    "assumptions": [
+      "The insulation is homogeneous and passive, with constant thermal conductivity and no internal heat generation.",
+      "The stated radial-flow model eliminates end effects.",
+      "When additional insulation remains on the pipe, the prescribed 300 K applies to its outermost surface."
+    ],
+    "answer": 55.7968,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "T2495": {
+      "stratum": "C",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T8870": {
+      "stratum": "C",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T6641": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T21B1": {
+      "stratum": "R",
+      "answer_with_sentence": 47.855,
+      "regime": null
+    },
+    "T26FA": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T6E73": {
+      "stratum": "D",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T15F5": {
+      "stratum": "R",
+      "answer_with_sentence": 47.855,
+      "regime": null
+    },
+    "T8754": {
+      "stratum": "D",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "Whether the additional wrapping in T6641 and T26FA remains during the steady state being evaluated.",
+    "The additional thickness in T26FA if its wrapping remains."
+  ],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "hidden_coupling"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T6641 and T26FA do not state that the historical wrapping was removed, leaving the current outer boundary radius unresolved under the same additive-layer reading used for the relevant variants.",
+    "hidden_coupling": "The authors claim that historical wrapping leaves no state behind, although retained wrapping changes the radial thermal resistance and therefore the requested temperature fall."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "hidden_coupling": "high"
+  },
+  "counterexamples": [
+    "In T6641, retaining the historical 1.8 cm wrapping makes the outer radius 10.8 cm and gives 47.8550 K; removing it restores the certified 55.7968 K.",
+    "Retained historical wrappings of 1.2 cm and 2.5 cm give 50.0901 K and 45.6184 K respectively, contradicting the claimed invariant historical answers.",
+    "For T26FA, retaining a small thickness d gives 120 ln(5/3)/ln((9+d)/3) K, with d in centimetres, so an unspecified retained thickness does not determine a unique answer."
+  ],
+  "notes": "The base equation, conductivity cancellation, units, and listed numerical results for explicitly added pipe insulation are correct. The separate tank insulation is disconnected under the prescribed pipe boundary temperatures. Ending a survey does not establish removal of insulation installed during it; the authors' historical-event rationale therefore does not resolve the pass-1 concern. The R assignments for historical wrapping are conditional on retention; removal would make these sentences irrelevant. Pass 2 explains that the numeral-free sentences are deliberate controls, so their absent numbers are not treated as a rendering defect. The explicitly claimed minimal pairs match their numerical values and units, and their temporal or object attachment differences are intentional.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "0955870d92539d0c39aca27a61abd98e9d1ce58495d54668f39be23f3cdcbd5b",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch03",
+  "item_id": "M250-S249",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Relativistic cyclotron frequency f = eB/(2 pi gamma m), gamma = 1 + T/(m c^2)", "assumptions": ["velocity perpendicular to B", "uniform constant B, no E field", "no radiation", "m c^2 = 1.673e-27*(2.998e8)^2 J = 938.63 MeV"], "answer": 1.6527e7, "unit": "Hz"},
+  "stratum_assignments": {
+    "TE2A4": {"stratum": "D", "answer_with_sentence": 1.6527e7, "regime": null},
+    "T836B": {"stratum": "D", "answer_with_sentence": 1.6527e7, "regime": null},
+    "T13DE": {"stratum": "D", "answer_with_sentence": 1.6527e7, "regime": null},
+    "T8739": {"stratum": "R", "answer_with_sentence": 1.5414e7, "regime": null},
+    "T30C5": {"stratum": "D", "answer_with_sentence": 1.6527e7, "regime": null},
+    "TAC96": {"stratum": "R", "answer_with_sentence": 1.5414e7, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["rendering_not_minimal"], "defect_reasons": {"rendering_not_minimal": "T13DE and T30C5 say 'a little' instead of 75 MeV, so they are not same-number variants of TE2A4/T836B; acceptable only if intended as non-numeric controls."}, "defect_severity": {"rendering_not_minimal": "low"},
+  "counterexamples": [],
+  "notes": "Base: gamma = 1 + 100/938.63 = 1.10654; eB/(2 pi m) = 1.8288e7 Hz; f = 1.6527e7 Hz. With 175 MeV: gamma = 1.18644, f = 1.5414e7 Hz. T836B refers to an earlier injection only, so it does not affect the current orbit."
+}

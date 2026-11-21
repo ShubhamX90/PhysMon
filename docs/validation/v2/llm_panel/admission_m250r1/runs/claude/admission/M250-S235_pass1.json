@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch23",
+  "item_id": "M250-S235",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:16:00Z", "completed_at": "2026-11-21T10:26:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Archimedes' principle; linear restoring force rho_l g A x gives SHM with T = 2 pi sqrt(m/(rho_l g A)) = 2 pi sqrt(rho_c L/(rho_l g))", "assumptions": ["no added mass of liquid (motion of liquid neglected, stated)", "no drag (stated)", "cylinder stays upright and does not fully submerge or leave the liquid", "constant cross-section"], "answer": 0.8863, "unit": "s"},
+  "stratum_assignments": {
+    "T11DC": {"stratum": "C", "answer_with_sentence": 0.8863, "regime": null},
+    "T7EFE": {"stratum": "D", "answer_with_sentence": 0.8863, "regime": null},
+    "T315E": {"stratum": "R", "answer_with_sentence": 1.0170, "regime": null},
+    "T4379": {"stratum": "R", "answer_with_sentence": 1.0170, "regime": null},
+    "T30BA": {"stratum": "C", "answer_with_sentence": 0.8863, "regime": null},
+    "TFE49": {"stratum": "D", "answer_with_sentence": 0.8863, "regime": null},
+    "T7F78": {"stratum": "D", "answer_with_sentence": 0.8863, "regime": null},
+    "TF10E": {"stratum": "D", "answer_with_sentence": 0.8863, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: T = 2 pi sqrt(0.65*0.30/9.8) = 2 pi sqrt(0.019898) = 2 pi*0.14106 = 0.8863 s. Radius cancels (m and buoyancy stiffness both proportional to A). Built up by 9.5 cm of same wood: L = 0.395 m, same mean density, T = 2 pi sqrt(0.65*0.395/9.8) = 2 pi*0.16186 = 1.0170 s. 'For an earlier run only' sentences describe a past configuration not present now: D. Raft is a separate body far away: D. Variants consistent (9.5 cm everywhere; 32 cm both radius sentences; 'short length' sentences carry no number). Upright stability holds at r = 32 cm (r/L about 1.07 > sqrt(2*0.65*0.35) = 0.67); the problem asserts upright floating anyway."
+}

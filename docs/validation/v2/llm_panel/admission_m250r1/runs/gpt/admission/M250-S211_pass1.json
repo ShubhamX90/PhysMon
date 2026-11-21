@@ -1,0 +1,88 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S211",
+  "pass_number": 1,
+  "started_at": "2026-11-21T13:56:25+00:00",
+  "completed_at": "2026-11-21T13:57:10+00:00",
+  "minutes_spent": 0.76,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Use Gauss's law and superposition. For the original uniformly charged ball, E_surface = rho R/(3 epsilon_0). Subtracting the field of the removed sphere gives the uniform cavity field E = rho d/(3 epsilon_0) = E_surface d/R = 12000 V/m. Thus F = |q|E = 0.024 N and a = F/m = 48 m/s^2.",
+    "assumptions": [
+      "The bead is treated as a point test charge inside the cavity.",
+      "The remaining charge distribution stays fixed as stated.",
+      "A neutral clip carried by the bead contributes its mass to the moving assembly, with negligible electrical polarization effects."
+    ],
+    "answer": 48,
+    "unit": "m/s^2"
+  },
+  "stratum_assignments": {
+    "TAF10": {
+      "stratum": "D",
+      "answer_with_sentence": 48,
+      "regime": null
+    },
+    "T1D94": {
+      "stratum": "R",
+      "answer_with_sentence": 20,
+      "regime": null
+    },
+    "TEFF1": {
+      "stratum": "D",
+      "answer_with_sentence": 48,
+      "regime": null
+    },
+    "T052D": {
+      "stratum": "C",
+      "answer_with_sentence": 48,
+      "regime": null
+    },
+    "TD82F": {
+      "stratum": "D",
+      "answer_with_sentence": 48,
+      "regime": null
+    },
+    "T4613": {
+      "stratum": "C",
+      "answer_with_sentence": 48,
+      "regime": null
+    },
+    "T2176": {
+      "stratum": "R",
+      "answer_with_sentence": 20,
+      "regime": null
+    },
+    "T7F8C": {
+      "stratum": "D",
+      "answer_with_sentence": 48,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "For either current bead-mounted clip sentence, the moving mass is 1.2 g, giving 0.024/0.0012 = 20 m/s^2. A clip used only in an earlier trial or attached to the flag has no mechanical path to the bead's present acceleration under the stated idealization. The cavity radius cancels in the interior-field calculation for the removed uniformly charged sphere. Both radius sentences specify 5.5 cm, consistent with a wholly internal cavity because 6 + 5.5 < 20 cm. All numerical clip variants specify the same 0.7 g; the two 'small' variants omit a numerical mass, but their mass is disconnected from the target. The flag and historical clip details make the presentation slightly artificial.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "cbe6ad84ca80b2a27a028309d8e27f8e0eb0cf4c7e358a6d06a6ce909b9858c5",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

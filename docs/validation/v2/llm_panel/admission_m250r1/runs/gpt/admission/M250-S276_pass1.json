@@ -1,0 +1,89 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S276",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:32:34+00:00",
+  "completed_at": "2026-11-21T14:33:33+00:00",
+  "minutes_spent": 0.99,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "With T_i = exp[-2d sqrt(2m_i ΔE)/ħ] and equal incident particle rates, I_p/I_d = T_p/T_d = exp[(2d/ħ)sqrt(2ΔE)(sqrt(m_d) - sqrt(m_p))]. Here d = 30 pm and ΔE = 0.4 eV, giving an exponent approximately 3.4476.",
+    "assumptions": [
+      "Protons and deuterons each carry charge +e.",
+      "The stipulated transmission formula applies to both beams, with height interpreted as the barrier's energy excess above the incident kinetic energy.",
+      "A change confined to the guard electrode's potential step does not change the specified barrier encountered by the beams.",
+      "Use the standard conversions for the atomic mass unit and electronvolt."
+    ],
+    "answer": 31.4,
+    "unit": "dimensionless"
+  },
+  "stratum_assignments": {
+    "TC752": {
+      "stratum": "C",
+      "answer_with_sentence": 31.4,
+      "regime": null
+    },
+    "TF273": {
+      "stratum": "D",
+      "answer_with_sentence": 31.4,
+      "regime": null
+    },
+    "TE9A5": {
+      "stratum": "D",
+      "answer_with_sentence": 31.4,
+      "regime": null
+    },
+    "T1B32": {
+      "stratum": "D",
+      "answer_with_sentence": 31.4,
+      "regime": null
+    },
+    "TF88C": {
+      "stratum": "R",
+      "answer_with_sentence": 57.0,
+      "regime": null
+    },
+    "TEED5": {
+      "stratum": "C",
+      "answer_with_sentence": 31.4,
+      "regime": null
+    },
+    "T7B68": {
+      "stratum": "D",
+      "answer_with_sentence": 31.4,
+      "regime": null
+    },
+    "T87E1": {
+      "stratum": "R",
+      "answer_with_sentence": 57.0,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "The common incident current cancels exactly. A present-run barrier increase changes ΔE to 0.55 eV, multiplying the logarithm of the ratio by sqrt(0.55/0.4). Earlier-run changes have no effect on this run. The guard statements refer to a distinct potential step beside the traversed barrier. All explicitly numerical bias variants state 0.15 eV, and both current variants state 5.2 nA. TE9A5 and T1B32 instead both say 'a small amount'; their numerical equality to the 0.15 eV variants cannot be established from this packet, although their unspecified magnitudes do not affect the target. No specific minimal-pair mapping is supplied in pass 1.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "209ad2d50d5df5c87fb2556581784f155ccb584a91df759b4e625b65671a3a41",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

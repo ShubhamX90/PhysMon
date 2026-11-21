@@ -1,0 +1,21 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch01",
+  "item_id": "M250-S06",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:15:00Z", "completed_at": "2026-11-21T10:21:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Ohm's law with series/parallel combination and current divider: R_p = 6*12/18 = 4 ohm, I = 12/(4+4) = 1.5 A, V_p = 6 V, I_2 = V_p/12", "assumptions": ["ideal battery and wires", "ohmic resistors", "lamp circuit separate from the main circuit"], "answer": 0.5, "unit": "A"},
+  "stratum_assignments": {
+    "T272F": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null},
+    "T3DE4": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null},
+    "T7E58": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null},
+    "T115C": {"stratum": "R", "answer_with_sentence": 0.347826, "regime": null},
+    "T7719": {"stratum": "R", "answer_with_sentence": 0.347826, "regime": null},
+    "TBEF7": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "With 3.5 ohm in series with the battery: total 11.5 ohm, I = 12/11.5 = 1.04348 A, V_p = 4.17391 V, I_2 = 0.347826 A. The lamp has its own cell, so its series resistor has no path to the main circuit. Earlier-experiment resistors leave nothing in the present circuit. T272F and TBEF7 carry no number ('a small resistor'); if meant as numeric variants of T7E58/T3DE4 they would differ in value, but they read as numeral-free controls; pairing checked in pass 2."
+}

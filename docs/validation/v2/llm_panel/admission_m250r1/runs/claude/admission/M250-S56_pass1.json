@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch21",
+  "item_id": "M250-S56",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:49:00Z", "completed_at": "2026-11-21T10:58:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "COP_Carnot = Tc/(Th - Tc); COP = 0.3 COP_Carnot; W = Qc_dot / COP", "assumptions": ["steady operation", "electrical input equals cycle work (motor losses folded into the stated COP fraction)"], "answer": 60.606, "unit": "W"},
+  "stratum_assignments": {
+    "T2CD6": {"stratum": "K", "answer_with_sentence": 60.606, "regime": "the rating matters only if the required input exceeds it (input below 330 W); 60.6 W is inside"},
+    "TC1B7": {"stratum": "R", "answer_with_sentence": 77.273, "regime": null},
+    "T3A68": {"stratum": "D", "answer_with_sentence": 60.606, "regime": null},
+    "T0E77": {"stratum": "C", "answer_with_sentence": 60.606, "regime": null},
+    "T9447": {"stratum": "D", "answer_with_sentence": 60.606, "regime": null},
+    "T2BAE": {"stratum": "C", "answer_with_sentence": 60.606, "regime": null},
+    "TB1B6": {"stratum": "D", "answer_with_sentence": 60.606, "regime": null},
+    "T50E9": {"stratum": "K", "answer_with_sentence": 60.606, "regime": "input below the 330 W rating; 60.6 W is inside"},
+    "T5601": {"stratum": "D", "answer_with_sentence": 60.606, "regime": null},
+    "T5F2C": {"stratum": "R", "answer_with_sentence": 77.273, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "With a lamp inside (TC1B7, T5F2C), the base sentence 'must remove heat from it at a steady rate of 200 W' could be read as the total removal rate (answer 60.6 W) rather than the leak load alone (answer 77.3 W); the 'Heat leaks into the interior, so' clause favours the leak-only reading."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "COP_Carnot = 275/25 = 11; COP = 3.3; W = 200/3.3 = 60.606 W. With a 55 W lamp inside: (200 + 55)/3.3 = 77.273 W. Test/monitoring duration does not enter a power (C/D borderline; labelled C as it belongs to the system and would enter only the energy E = P t). Motor rating is K (non-binding because 60.6 W, and 77.3 W, are below 330 W). T5F2C is past tense but 'while the refrigerator ran steadily' ties it to the stated steady run, so read as R. T9447 and TB1B6 use 'a small lamp' instead of 55 W."
+}

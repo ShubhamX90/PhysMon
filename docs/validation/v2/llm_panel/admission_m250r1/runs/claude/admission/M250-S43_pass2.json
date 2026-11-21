@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch12",
+  "item_id": "M250-S43",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:22:30Z", "completed_at": "2026-11-21T10:27:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "C = C0/(1 - (t/d)(1 - 1/kappa)); dQ = (C - C0) V at fixed V", "assumptions": ["battery stays connected and ideal", "edge effects negligible", "slab spans full plate area"], "answer": 0.72, "unit": "nC"},
+  "stratum_assignments": {
+    "T27DA": {"stratum": "D", "answer_with_sentence": 0.72, "regime": null},
+    "T8799": {"stratum": "D", "answer_with_sentence": 0.72, "regime": null},
+    "T0DBA": {"stratum": "D", "answer_with_sentence": 0.72, "regime": null},
+    "T9341": {"stratum": "R", "answer_with_sentence": 1.17, "regime": null},
+    "T6AD3": {"stratum": "R", "answer_with_sentence": 1.17, "regime": null},
+    "T970C": {"stratum": "D", "answer_with_sentence": 0.72, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "C = 160 pF, C - C0 = 60 pF. Checked R answers: 60 x 15.5 = 930 pC = 0.93 nC; 60 x 19.5 = 1.17 nC; 60 x 33 = 1.98 nC. Base 0.72 nC agrees with pass 1 (720 pC). Minimal pairs T8799/T9341 and T970C/T6AD3 share 7.5 V and differ only in attachment/timing; numeral-free controls T27DA and T0DBA are declared twins. The authors take the empty gap as vacuum; air would change C by well under the stated precision, a standard idealisation. Agree with pass 1."
+}

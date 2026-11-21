@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch26",
+  "item_id": "M250-S53",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:08:00Z", "completed_at": "2026-11-21T10:14:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Steady 1-D Fourier conduction through series layers: Q = dT / (L1/(k1 A) + L2/(k2 A))", "assumptions": ["steady state", "1-D conduction perpendicular to layers", "perfect contact, no edge losses", "constant conductivities"], "answer": 160.0, "unit": "W"},
+  "stratum_assignments": {
+    "TA69F": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null},
+    "TFB61": {"stratum": "R", "answer_with_sentence": 264.0, "regime": null},
+    "T9459": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null},
+    "T91A5": {"stratum": "R", "answer_with_sentence": 264.0, "regime": null},
+    "T2BD1": {"stratum": "C", "answer_with_sentence": 160.0, "regime": null},
+    "T0538": {"stratum": "C", "answer_with_sentence": 160.0, "regime": null},
+    "T6A3F": {"stratum": "K", "answer_with_sentence": 160.0, "regime": "dT (20 K) < foam limit"},
+    "TC890": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null},
+    "T3307": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null},
+    "TB011": {"stratum": "K", "answer_with_sentence": 160.0, "regime": "dT (20 K) < foam limit"}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All claims agree with pass 1. Total resistance 0.125 K/W; base 160 W; R answers 26/0.125 = 208 W, 33/0.125 = 264 W, 47/0.125 = 376 W, all correct. C cancellation of T_cold is correct for constant k. K limits 60/75/95 K all exceed dT = 20 K, so every listed value is in regime. Minimal pairs T3307/TFB61 and T9459/T91A5 share 13 K and differ only in attachment; TA69F and TC890 are declared numeral-free twins, resolving my pass-1 query. Minor: d_rationale says 'earlier survey' while the sentence says 'earlier test', which is wording only. TFB61's 'just before the heat flow was measured' reads acceptably as a new steady state, given the problem states steady flow."
+}

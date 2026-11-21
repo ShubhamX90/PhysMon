@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch09",
+  "item_id": "M250-S202",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:06:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Tsiolkovsky rocket equation, dv = u ln(m0/mf) (momentum conservation with no external force)", "assumptions": ["starts at rest", "constant exhaust speed relative to rocket", "no external force", "non-relativistic (3 km/s)", "carried mass = body+engine+fuel (+ anything bolted to it)"], "answer": 4158.9, "unit": "m/s"},
+  "stratum_assignments": {
+    "T5A37": {"stratum": "R", "answer_with_sentence": 3692.6, "regime": null},
+    "T2DD9": {"stratum": "C", "answer_with_sentence": 4158.9, "regime": null},
+    "T5460": {"stratum": "R", "answer_with_sentence": 3692.6, "regime": null},
+    "T3A6F": {"stratum": "D", "answer_with_sentence": 4158.9, "regime": null},
+    "TB855": {"stratum": "C", "answer_with_sentence": 4158.9, "regime": null},
+    "T357D": {"stratum": "D", "answer_with_sentence": 4158.9, "regime": null},
+    "T23F7": {"stratum": "D", "answer_with_sentence": 4158.9, "regime": null},
+    "T2E45": {"stratum": "D", "answer_with_sentence": 4158.9, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: 3 km/s * ln(3200/800) = 3 ln 4 = 4.1589 km/s. With 190 kg payload on the rocket: 3 ln(3390/990) = 3 * 1.23088 = 3.6926 km/s. Burn rate (27 kg/s) only sets burn time (~88.9 s) and cancels from the final speed (C). Payload on the tug or on a previous flight only has no path to this rocket's mass (D). T357D and T23F7 state no number ('small payload'), unlike the 190 kg variants; if they are intended as minimal-pair variants of the 190 kg sentences this would be a rendering mismatch, to check in pass 2."
+}

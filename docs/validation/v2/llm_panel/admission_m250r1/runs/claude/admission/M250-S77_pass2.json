@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch10",
+  "item_id": "M250-S77",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:38:00Z", "completed_at": "2026-11-21T10:44:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "T = exp(-2 kappa a), kappa = sqrt(2 mc^2 (V0 - E))/(hbar c); a = ln(1/T)/(2 kappa)", "assumptions": ["stated exponential approximation", "non-relativistic electron", "given constants"], "answer": 0.38918, "unit": "nm"},
+  "stratum_assignments": {
+    "TFB05": {"stratum": "D", "answer_with_sentence": 0.389178, "regime": null},
+    "T9848": {"stratum": "D", "answer_with_sentence": 0.389178, "regime": null},
+    "T6F0D": {"stratum": "D", "answer_with_sentence": 0.389178, "regime": null},
+    "T0D94": {"stratum": "D", "answer_with_sentence": 0.389178, "regime": null},
+    "TDA04": {"stratum": "R", "answer_with_sentence": 0.454462, "regime": null},
+    "T8282": {"stratum": "R", "answer_with_sentence": 0.454462, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Strata and answers agree with pass 1. Verified R answers: V0 = 6 eV: kappa = 1010.94/197.3 = 5.1239 nm^-1, a = 0.67408 nm; 7.2 eV: a = 0.45446 nm; 9.6 eV: kappa = 2168.23/197.3 = 10.9895 nm^-1, a = 0.31429 nm. All replacement heights exceed 5 eV, so the tunnelling formula stays in domain. Minimal pairs T0D94/T8282 (second barrier vs the barrier) and T9848/TDA04 (after left vs before approached) share 7.2 eV and differ only in attachment/timing. Numeral-free controls by design."
+}

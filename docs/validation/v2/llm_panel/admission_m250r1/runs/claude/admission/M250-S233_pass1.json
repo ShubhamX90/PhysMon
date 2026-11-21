@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch03",
+  "item_id": "M250-S233",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:43:00Z", "completed_at": "2026-11-21T10:52:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Fresnel equations, p-polarisation: r_p = (n cos(ti) - cos(tt))/(n cos(ti) + cos(tt)), Snell sin(ti) = n sin(tt); transmitted power = P (1 - r_p^2) (energy conservation, non-absorbing)", "assumptions": ["n_air = 1", "non-absorbing glass, single surface", "no losses between laser and glass", "narrow parallel beam"], "answer": 4.466, "unit": "mW"},
+  "stratum_assignments": {
+    "T6A28": {"stratum": "C", "answer_with_sentence": 4.466, "regime": null},
+    "TBC5B": {"stratum": "R", "answer_with_sentence": 7.503, "regime": null},
+    "T38E1": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null},
+    "T8526": {"stratum": "C", "answer_with_sentence": 4.466, "regime": null},
+    "T01A0": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null},
+    "T6921": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null},
+    "TAC23": {"stratum": "R", "answer_with_sentence": 7.503, "regime": null},
+    "TA9F7": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["rendering_not_minimal"], "defect_reasons": {"rendering_not_minimal": "T01A0 and TA9F7 say 'a small amount' instead of 3.4 mW; acceptable only as numeral-free controls."}, "defect_severity": {"rendering_not_minimal": "low"},
+  "counterexamples": [],
+  "notes": "sin(tt) = 0.965926/1.5 = 0.643951, cos(tt) = 0.765067, cos(ti) = 0.258819; r_p = (0.388229 - 0.765067)/(1.153296) = -0.32675; R_p = 0.10676; T_p = 0.89324; P_t = 5 * 0.89324 = 4.466 mW. With 8.4 mW: 7.503 mW. Beam area enters intensity (I = P/A) and the transmittance formula with area factors cos(tt)/cos(ti), but cancels from transmitted power (C). TAC23 does not say where the amplifier is; I read it as acting on the beam before the glass (R)."
+}

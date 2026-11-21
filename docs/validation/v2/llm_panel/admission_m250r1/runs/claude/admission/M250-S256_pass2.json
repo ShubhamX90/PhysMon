@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch21",
+  "item_id": "M250-S256",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:25:00Z", "completed_at": "2026-11-21T10:33:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Q = (m/M) * 3R * (T2 - T1)", "assumptions": ["Dulong-Petit 3R constant", "no heat loss", "stays solid"], "answer": 3.61129, "unit": "kJ"},
+  "stratum_assignments": {
+    "TAA2E": {"stratum": "D", "answer_with_sentence": 3.61129, "regime": null},
+    "TD22B": {"stratum": "D", "answer_with_sentence": 3.61129, "regime": null},
+    "T30A5": {"stratum": "C", "answer_with_sentence": 3.61129, "regime": null},
+    "T85DA": {"stratum": "D", "answer_with_sentence": 3.61129, "regime": null},
+    "TA290": {"stratum": "D", "answer_with_sentence": 3.61129, "regime": null},
+    "TBFB5": {"stratum": "C", "answer_with_sentence": 3.61129, "regime": null},
+    "T6CF0": {"stratum": "R", "answer_with_sentence": 4.91136, "regime": null},
+    "TC49F": {"stratum": "R", "answer_with_sentence": 4.91136, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["insufficient_boundary_condition"],
+  "defect_reasons": {"insufficient_boundary_condition": "The R sentences TC49F and T6CF0 add 0.18 kg of lead without stating its temperature; the certified 4.91136 kJ requires it to start at 300 K, and the authors' own wiring describes the lead as 'cast' onto the block, which would make it hot, so the heat supplied is not uniquely determined."},
+  "defect_severity": {"insufficient_boundary_condition": "high"},
+  "counterexamples": ["If the added 0.18 kg is at 360 K when added, the combined block equilibrates near 315.9 K and the heat supplied to reach 360 K is about 3.611 kJ, not 4.911 kJ."],
+  "notes": "Verified certified numbers: base 3.61129 kJ; q=0.07 -> 4.11687 kJ; q=0.18 -> 4.91136 kJ; q=0.52 -> 7.36704 kJ. C claims for heater power hold (Q fixed by dT; P only sets the time). D claims for the lead weight and earlier experiment hold; numeral-free twins are declared controls. Minimal pairs TA290/TC49F and TD22B/T6CF0 share 0.18 kg. The defect is limited to the unstated starting temperature of the added lead in the R sentences; I keep my pass-1 judgement."
+}

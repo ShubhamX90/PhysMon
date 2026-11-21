@@ -1,0 +1,96 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S277",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:37:34+00:00",
+  "completed_at": "2026-11-21T14:38:22+00:00",
+  "minutes_spent": 0.8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Survival probability is f = exp[-L/(gamma*v*tau0)]. Special relativity gives gamma*v = c*(pc)/(mc^2), so the mean laboratory decay length is (c*tau0)*(4000/139.57) = 223.652 m. Thus f = exp(-100/223.652).",
+    "assumptions": [
+      "Special-relativistic momentum and proper time apply.",
+      "The fraction is measured relative to pions entering the upstream end.",
+      "The stated decay law and constant momentum apply throughout the tube."
+    ],
+    "answer": 0.639466,
+    "unit": "dimensionless"
+  },
+  "stratum_assignments": {
+    "T86A1": {
+      "stratum": "R",
+      "answer_with_sentence": 0.549282,
+      "regime": null
+    },
+    "T456D": {
+      "stratum": "D",
+      "answer_with_sentence": 0.639466,
+      "regime": null
+    },
+    "TD9FC": {
+      "stratum": "D",
+      "answer_with_sentence": 0.639466,
+      "regime": null
+    },
+    "TA551": {
+      "stratum": "R",
+      "answer_with_sentence": 0.549282,
+      "regime": null
+    },
+    "TA31E": {
+      "stratum": "D",
+      "answer_with_sentence": 0.639466,
+      "regime": null
+    },
+    "T40C2": {
+      "stratum": "C",
+      "answer_with_sentence": 0.639466,
+      "regime": null
+    },
+    "T751A": {
+      "stratum": "C",
+      "answer_with_sentence": 0.639466,
+      "regime": null
+    },
+    "TFEF0": {
+      "stratum": "D",
+      "answer_with_sentence": 0.639466,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TA31E and TFEF0 replace the explicit 34 m extension in their corresponding variants with 'a small amount', failing the requirement that variants preserve the same number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "An earlier-run extension of 1 m satisfies TA31E but does not satisfy TD9FC, which specifies 34 m."
+  ],
+  "notes": "The base physics and all individual survival answers are well-posed. The invalid verdict concerns the required variant matching. Both current-tube extensions give L = 134 m. Earlier-run changes and external water-line changes have no physical path to the present survival fraction. Spill population cancels because N_out/N_in = exp[-L/(gamma*v*tau0)].",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "97ad1b16bf7c7f5a0dff1d8d2cf9f7d0f37cf90988b27b13cfa8a52e93d4d19f",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch11",
+  "item_id": "M250-S25",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:22:00Z", "completed_at": "2026-11-21T10:28:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "U = (1/2) L I^2", "assumptions": ["ideal linear coil", "steady current"], "answer": 1125.0, "unit": "mJ"},
+  "stratum_assignments": {
+    "T5F48": {"stratum": "D", "answer_with_sentence": 1125.0, "regime": null},
+    "TF595": {"stratum": "K", "answer_with_sentence": 1125.0, "regime": "saturation current above 3 A"},
+    "T8F25": {"stratum": "D", "answer_with_sentence": 1125.0, "regime": null},
+    "T9150": {"stratum": "K", "answer_with_sentence": 1125.0, "regime": "saturation current above 3 A"},
+    "T9E75": {"stratum": "R", "answer_with_sentence": 4205.0, "regime": null},
+    "T7035": {"stratum": "D", "answer_with_sentence": 1125.0, "regime": null},
+    "TA5C2": {"stratum": "R", "answer_with_sentence": 4205.0, "regime": null},
+    "T1C85": {"stratum": "C", "answer_with_sentence": 1125.0, "regime": null},
+    "T80D0": {"stratum": "D", "answer_with_sentence": 1125.0, "regime": null},
+    "T3774": {"stratum": "C", "answer_with_sentence": 1125.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Certified answers check: 125 mH-factor times (3+q)^2: q = 1.2 -> 17.64*125 = 2205 mJ; 2.8 -> 33.64*125 = 4205 mJ; 4.5 -> 56.25*125 = 7031.25 mJ; base 1125 mJ (= 1.125 J, my pass-1 value). C cancellation q*(L I/q)*(I/2) = L I^2/2 is correct for a linear ramp in an ideal coil. K regime q > 3 A holds for 6.5, 9.5, 12 A. Minimal pairs hold: T80D0/T9E75 differ only in 'lamp' vs 'coil'; T8F25/TA5C2 differ only in 'In an earlier experiment' vs 'Before the energy was measured'; T5F48 and T7035 are declared numeral-free twins. Agreement with pass 1."
+}

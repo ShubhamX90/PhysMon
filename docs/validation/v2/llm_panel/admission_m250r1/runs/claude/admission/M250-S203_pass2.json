@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch03",
+  "item_id": "M250-S203",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:36:00Z", "completed_at": "2026-11-21T10:42:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "cos(theta0) = g/(Om^2 R); Omega_small = Om sin(theta0); T = 2 pi/Omega_small", "assumptions": ["frictionless point bead", "constant Om", "Om^2 R > g", "platform inertial unless stated"], "answer": 1.0365, "unit": "s"},
+  "stratum_assignments": {
+    "T30AD": {"stratum": "C", "answer_with_sentence": 1.0365, "regime": null},
+    "TD316": {"stratum": "D", "answer_with_sentence": 1.0365, "regime": null},
+    "T9510": {"stratum": "D", "answer_with_sentence": 1.0365, "regime": null},
+    "T8E51": {"stratum": "D", "answer_with_sentence": 1.0365, "regime": null},
+    "T4B28": {"stratum": "R", "answer_with_sentence": 1.1296, "regime": null},
+    "T3B23": {"stratum": "C", "answer_with_sentence": 1.0365, "regime": null},
+    "T319B": {"stratum": "R", "answer_with_sentence": 1.1296, "regime": null},
+    "T9186": {"stratum": "D", "answer_with_sentence": 1.0365, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified certified answers: q=1.2 -> g_eff 11.0, T = 1.0845 s; q=2.1 -> 1.1296 s; q=5.6 -> g_eff 15.4, cos = 0.7857, Omega^2 = 18.75, T = 1.4510 s; all values keep g_eff < Om^2 R = 19.6 so the off-axis equilibrium exists. Mass cancellation is correct. Minimal pairs T8E51/T4B28 and TD316/T319B share 2.1 m/s^2 and differ only in attachment/timing. T9510 and T9186 are declared numeral-free controls, so my pass-1 low rendering_not_minimal flag is withdrawn."
+}

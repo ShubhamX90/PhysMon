@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S208",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:21:09+00:00",
+  "completed_at": "2026-11-21T14:21:47+00:00",
+  "minutes_spent": 0.63,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Angular momentum is conserved about the frictionless axle. I1 = MR²/2 = 0.04 kg*m² and omega0 = 20*pi rad/s. The common speed is I1*omega0/(I1+I2), and the heat is Q = I1*I2*omega0²/[2*(I1+I2)] = 24*pi²/7 J. Adding the stated ring to the second disc gives I2 = 0.07 kg*m² and Q = 56*pi²/11 J.",
+    "assumptions": [
+      "There is no external torque about the axle.",
+      "A ring glued to the second disc in the current run starts at rest with that disc and adds to its stated moment of inertia.",
+      "The nearby grinding wheel has no mechanical connection to the discs."
+    ],
+    "answer": 33.83864366,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "T3181": {
+      "stratum": "D",
+      "answer_with_sentence": 33.83864366,
+      "regime": null
+    },
+    "T7B9A": {
+      "stratum": "D",
+      "answer_with_sentence": 33.83864366,
+      "regime": null
+    },
+    "T3F66": {
+      "stratum": "C",
+      "answer_with_sentence": 33.83864366,
+      "regime": null
+    },
+    "T145A": {
+      "stratum": "R",
+      "answer_with_sentence": 50.24525877,
+      "regime": null
+    },
+    "TE735": {
+      "stratum": "D",
+      "answer_with_sentence": 33.83864366,
+      "regime": null
+    },
+    "TBE70": {
+      "stratum": "C",
+      "answer_with_sentence": 33.83864366,
+      "regime": null
+    },
+    "T1AC4": {
+      "stratum": "D",
+      "answer_with_sentence": 33.83864366,
+      "regime": null
+    },
+    "T9108": {
+      "stratum": "R",
+      "answer_with_sentence": 50.24525877,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The ring-inertia variants T3181 and T1AC4 state only 'small', whereas the other ring-inertia variants specify 0.04 kg*m², violating the required preservation of the numerical value and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics is well-posed. The constant friction torque determines the slipping duration but cancels from the total dissipated energy: Q = integral(tau*(omega1-omega2) dt). Rings attached only during an earlier run are temporally disconnected from the present experiment. T3181 versus TE735 and T1AC4 versus T7B9A also change quantitative specification despite retaining the same attachment. Invalidity concerns the required variant construction.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "6753ff315f2b9d457c0931d39231c60d4b93449648dc0916543357dd911f22b2",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

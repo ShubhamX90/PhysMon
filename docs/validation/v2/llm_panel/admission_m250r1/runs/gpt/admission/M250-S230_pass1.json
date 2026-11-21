@@ -1,0 +1,84 @@
+{
+  "item_id": "M250-S230",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Energy conservation gives Tf=(2×360+3×290)/(2+3)=318 K. Since the enclosure is insulated, the entropy generated equals the blocks' total entropy change: Sgen=900[2 ln(318/360)+3 ln(318/290)].",
+    "assumptions": [
+      "The stated masses and temperatures describe the present experiment.",
+      "The enclosure has negligible heat capacity.",
+      "The process involves thermal equilibration without other energy transfers or changes of phase."
+    ],
+    "answer": 25.5655,
+    "unit": "J/K"
+  },
+  "stratum_assignments": {
+    "T04A3": {
+      "stratum": "D",
+      "answer_with_sentence": 25.5655,
+      "regime": null
+    },
+    "T33C5": {
+      "stratum": "D",
+      "answer_with_sentence": 25.5655,
+      "regime": null
+    },
+    "T7053": {
+      "stratum": "D",
+      "answer_with_sentence": 25.5655,
+      "regime": null
+    },
+    "TFF07": {
+      "stratum": "D",
+      "answer_with_sentence": 25.5655,
+      "regime": null
+    },
+    "TC78D": {
+      "stratum": "R",
+      "answer_with_sentence": 31.9753,
+      "regime": null
+    },
+    "T8625": {
+      "stratum": "R",
+      "answer_with_sentence": 31.9753,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T33C5 and TFF07 specify only a 'small amount' rather than 1.1 kg, so these variants change the numerical specification as well as the wording or attachment."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base thermal calculation is well-posed under standard apparatus idealizations. Adding 1.1 kg to the hotter block at its existing temperature makes its mass 3.1 kg, giving Tf=325.5737705 K and Sgen=31.9753 J/K. Material placed in the thermally disconnected cabinet does not affect the blocks' equilibration. The earlier-run statements describe a separate experiment and do not change the explicitly stated present masses. The invalid verdict concerns the requirement that quantity variants retain the same number and unit.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T13:52:11+00:00",
+  "completed_at": "2026-11-21T13:52:57+00:00",
+  "minutes_spent": 0.76,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f9d2bc81d9ae7489a4f27e70fb9bd95819141224015f6f6746c188912d0627f7",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

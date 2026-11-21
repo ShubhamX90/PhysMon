@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch06",
+  "item_id": "M250-S272",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:22:00Z", "completed_at": "2026-11-21T10:30:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Closed-pipe resonance: successive resonance lengths differ by lambda/2 = c/(2f); time = (c/(2f))/vw", "assumptions": ["constant end correction", "constant fall rate", "tube tall enough for successive resonances"], "answer": 22.33, "unit": "s"},
+  "stratum_assignments": {
+    "TF4FF": {"stratum": "D", "answer_with_sentence": 22.33, "regime": null},
+    "TEA1B": {"stratum": "R", "answer_with_sentence": 13.96, "regime": null},
+    "T49F8": {"stratum": "D", "answer_with_sentence": 22.33, "regime": null},
+    "TFF60": {"stratum": "C", "answer_with_sentence": 22.33, "regime": null},
+    "TBEDA": {"stratum": "C", "answer_with_sentence": 22.33, "regime": null},
+    "T9749": {"stratum": "R", "answer_with_sentence": 13.96, "regime": null},
+    "T3D7A": {"stratum": "D", "answer_with_sentence": 22.33, "regime": null},
+    "TB8E5": {"stratum": "D", "answer_with_sentence": 22.33, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The C cancellation relations fix the resonances at L + e = 13 lam/4 and 15 lam/4 (108.9 cm and 125.6 cm, end correction dropped) and set t = (L_n - q)/vw, which gives negative times for the listed initial lengths 130 cm and 190 cm, so the illustrative mode numbers are wrong for those values although the difference, and hence every certified answer, is correct."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": ["q = 130 cm: (13 lam/4 - q)/vw = (108.86 - 130)/1.5 = -14.1 s, a resonance before the water starts to fall; the first resonances after the start are at higher odd multiples, but their spacing is still 22.33 s."],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Strata and answers agree with my pass 1. R checks: 33.496 cm / 1.9 = 17.63 s, / 2.4 = 13.96 s, / 2.87 = 11.67 s. D pond and earlier-run sentences correct; minimal pairs T49F8/T9749 and TF4FF/TEA1B share 0.9 cm/s and differ only in attachment. Numeral-free twins match. Only issue is the illustrative mode numbers in the C cancellation expression (medium); the cancellation itself is correct for any successive pair."
+}

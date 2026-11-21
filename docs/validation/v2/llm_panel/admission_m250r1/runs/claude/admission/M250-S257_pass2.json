@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch09",
+  "item_id": "M250-S257",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:50:00Z", "completed_at": "2026-11-21T10:55:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Bateman equation for a two-member chain with no initial daughter", "assumptions": ["no daughter at t=0", "parent decays only to daughter", "closed column"], "answer": 3144.69, "unit": "Bq"},
+  "stratum_assignments": {
+    "T5569": {"stratum": "D", "answer_with_sentence": 3144.69, "regime": null},
+    "T3269": {"stratum": "D", "answer_with_sentence": 3144.69, "regime": null},
+    "T0FDD": {"stratum": "R", "answer_with_sentence": 4166.72, "regime": null},
+    "T1787": {"stratum": "R", "answer_with_sentence": 4166.72, "regime": null},
+    "TCB75": {"stratum": "D", "answer_with_sentence": 3144.69, "regime": null},
+    "T3A18": {"stratum": "D", "answer_with_sentence": 3144.69, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All strata and answers agree with pass 1. Factor per Bq of initial parent: 1.1*(2^(-24/66) - 2^-4) = 0.786173; 4680 -> 3679.29, 5300 -> 4166.72, 6900 -> 5424.59 Bq, matching the certified values. Minimal pairs T3A18/T0FDD and TCB75/T1787 share 1300 Bq and differ only in attachment (container vs column; earlier run vs this run). T3269 and T5569 are declared numeral-free twins. T1787's 'for one run only' is slightly awkward but unambiguous with 'this run'."
+}

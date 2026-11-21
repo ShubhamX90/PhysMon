@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch13",
+  "item_id": "M250-S255",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:58:00Z", "completed_at": "2026-11-21T11:06:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Timoshenko bimetal curvature with m = 1: kappa = 24 dAlpha dT / {h [12 + (1+n)(1+1/n)]}; delta = kappa L^2/2", "assumptions": ["equal thicknesses and widths", "n = 2", "no load, small curvature", "measured at 353 K"], "answer": 12.218, "unit": "mm"},
+  "stratum_assignments": {
+    "T90F6": {"stratum": "D", "answer_with_sentence": 12.218, "regime": null},
+    "TC665": {"stratum": "D", "answer_with_sentence": 12.218, "regime": null},
+    "TB206": {"stratum": "C", "answer_with_sentence": 12.218, "regime": null},
+    "TE1D7": {"stratum": "D", "answer_with_sentence": 12.218, "regime": null},
+    "T1A9F": {"stratum": "R", "answer_with_sentence": 29.354, "regime": null},
+    "T374D": {"stratum": "D", "answer_with_sentence": 12.218, "regime": null},
+    "T6C9F": {"stratum": "C", "answer_with_sentence": 12.218, "regime": null},
+    "T9949": {"stratum": "R", "answer_with_sentence": 29.354, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 4, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The claims for the tape sentences (TE1D7, TC665) label the quantity 'a further length of strip' although it is a length of measuring tape; a bookkeeping label only, with no effect on strata or answers."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified: kappa = 0.61091 1/m; L = 0.20 m: 12.218 mm; 0.26 m: 0.61091*0.0676/2 = 20.649 mm; 0.31 m: 29.354 mm; 0.35 m: 0.61091*0.1225/2 = 37.418 mm, all matching. Small-curvature condition holds up to kappa L = 0.21 rad. Width cancellation is correct for layers of equal width. Pairs T374D/T1A9F and TE1D7/T9949 share 11 cm and differ only in attachment (earlier experiment vs now; tape vs strip). Numeral-free twins match their D twins. Agrees with pass 1."
+}

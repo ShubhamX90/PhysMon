@@ -1,0 +1,91 @@
+{
+  "item_id": "M250-S06",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Ohm's law and series/parallel resistance: R23 = 6×12/(6+12) = 4 Ω, so I3 = 12×4/[(4+4)×12] = 0.5 A. With an extra resistance q remaining in series during measurement, I3 = 4/(8+q) A, where q is expressed in ohms.",
+    "assumptions": [
+      "The lamp's cell and circuit are electrically separate from the measured network.",
+      "For the claimed relevant variants, the extra resistor remains connected during measurement."
+    ],
+    "answer": 0.5,
+    "unit": "A"
+  },
+  "stratum_assignments": {
+    "T272F": {
+      "stratum": "D",
+      "answer_with_sentence": 0.5,
+      "regime": null
+    },
+    "T3DE4": {
+      "stratum": "D",
+      "answer_with_sentence": 0.5,
+      "regime": null
+    },
+    "T7E58": {
+      "stratum": "D",
+      "answer_with_sentence": 0.5,
+      "regime": null
+    },
+    "T115C": {
+      "stratum": "R",
+      "answer_with_sentence": 0.34782608695652173,
+      "regime": null
+    },
+    "T7719": {
+      "stratum": "R",
+      "answer_with_sentence": 0.34782608695652173,
+      "regime": "Conditional on the resistor remaining connected during measurement; otherwise the sentence does not uniquely determine the measurement configuration."
+    },
+    "TBEF7": {
+      "stratum": "D",
+      "answer_with_sentence": 0.5,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T7719 establishes an earlier connection but does not explicitly establish that the extra resistor is still connected during measurement, so its certified answer requires an unstated measurement configuration."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "For T7719, connect the 3.5 Ω resistor before measurement and leave it connected: I3 = 4/11.5 = 0.347826 A.",
+    "Alternatively, connect the 3.5 Ω resistor before measurement, then remove it and restore the base circuit before measuring: I3 = 0.5 A. The sentence's stated historical connection still occurred."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "The base relations, units and base answer are correct. For an extra resistor present during measurement, the certified currents at 1.5, 3.5 and 7 Ω correctly round to 0.421053, 0.347826 and 0.266667 A. The lamp-loop and earlier-experiment D claims are consistent with the stated ideal circuit. The authors' wiring for T7719 assumes continued connection without resolving its temporal ambiguity; answer_correct is false because that sentence does not uniquely support its certified answers. I withdraw pass 1's rendering_not_minimal flag: pass 2 explicitly identifies T272F and TBEF7 as numeral-free controls, rather than claiming that they preserve their twins' numerical values. The explicitly claimed numerical minimal pairs preserve 3.5 Ω and change the intended attachment or temporal context. No information outside the supplied packets and locked review was consulted.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T19:07:16+00:00",
+  "completed_at": "2026-11-21T19:07:54+00:00",
+  "minutes_spent": 0.62,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "56079f6a9dbd8ff7413cdb350c7c2aa58557c6cf1a9fb7feeef0a289cca4eec3",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

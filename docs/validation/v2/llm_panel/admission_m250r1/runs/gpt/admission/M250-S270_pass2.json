@@ -1,0 +1,93 @@
+{
+  "item_id": "M250-S270",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Classical Doppler shifts at the moving reflecting panel and moving receiver give f_rec = f(c-w)(c-v)/[c(c+w)]. Thus the decrease is 1500[1-(337)(334)/(343·349)] = 89.58125 Hz. Current conveyor motion replaces v by v+q.",
+    "assumptions": [
+      "The recorder normally moves with the trolley.",
+      "Conveyor speeds are measured relative to the trolley.",
+      "The requested frequency is measured after the reflected steady signal arrives."
+    ],
+    "answer": 89.58125,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "TDC03": {
+      "stratum": "C",
+      "answer_with_sentence": 89.58125,
+      "regime": null
+    },
+    "T02E2": {
+      "stratum": "D",
+      "answer_with_sentence": 89.58125,
+      "regime": null
+    },
+    "TA134": {
+      "stratum": "D",
+      "answer_with_sentence": 89.58125,
+      "regime": null
+    },
+    "TA6A4": {
+      "stratum": "D",
+      "answer_with_sentence": 89.58125,
+      "regime": null
+    },
+    "T6307": {
+      "stratum": "C",
+      "answer_with_sentence": 89.58125,
+      "regime": null
+    },
+    "TBF04": {
+      "stratum": "R",
+      "answer_with_sentence": 111.96215,
+      "regime": null
+    },
+    "T4BE2": {
+      "stratum": "D",
+      "answer_with_sentence": 89.58125,
+      "regime": null
+    },
+    "TA0C8": {
+      "stratum": "R",
+      "answer_with_sentence": 111.96215,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "I withdraw the pass-1 rendering defect because pass 2 explicitly identifies TA134 and TA6A4 as deliberate numeral-free controls, rather than claiming they preserve the numerical quantity. Both expressly claimed minimal pairs preserve 5.3 m/s and change only the intended attachment. All stratum assignments agree with pass 1. The crest-arrival relations give T_(n+1)-T_n = c(c+w)/[f(c-w)(c-v)], so the initial distance cancels exactly at every listed distance. Current conveyor speeds of 4.8, 5.3 and 5.8 m/s give decreases of approximately 109.85074, 111.96215 and 114.07355 Hz, respectively, consistent with the certified rounding. Earlier recorder motion leaves no relevant state, and toolbox motion has no specified coupling to the prescribed recorder velocity. The toolbox can initially stand on the trolley and subsequently be moved by the belt; these statements do not contradict one another.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T13:49:34+00:00",
+  "completed_at": "2026-11-21T13:50:30+00:00",
+  "minutes_spent": 0.93,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "166f149c2d09301697f1047777f504e65b3da4d7f9bca731fedd93839a628dae",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch08",
+  "item_id": "M250-S280",
+  "pass_number": 2,
+  "started_at": "2026-11-21T11:03:00Z", "completed_at": "2026-11-21T11:13:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Hohmann transfer with mu = g R^2",
+    "assumptions": ["inverse-square field, impulsive tangential burns, coplanar circular orbits"],
+    "answer": 0.534221,
+    "unit": "km/s"
+  },
+  "stratum_assignments": {
+    "T53EE": {"stratum": "R", "answer_with_sentence": 0.37298, "regime": null},
+    "TE6AF": {"stratum": "D", "answer_with_sentence": 0.534221, "regime": null},
+    "TCF66": {"stratum": "R", "answer_with_sentence": 0.37298, "regime": null},
+    "TC95F": {"stratum": "C", "answer_with_sentence": 0.534221, "regime": null},
+    "T1718": {"stratum": "D", "answer_with_sentence": 0.534221, "regime": null},
+    "T88D6": {"stratum": "D", "answer_with_sentence": 0.534221, "regime": null},
+    "T4C56": {"stratum": "D", "answer_with_sentence": 0.534221, "regime": null},
+    "T6EC6": {"stratum": "C", "answer_with_sentence": 0.534221, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Verified certified answers by hand: q=350 (r1=2187 km): dv1=222.05, dv2=187.79, total 409.84 m/s (claimed 0.409836 km/s); q=470: 372.98 m/s (matches pass 1); q=590 (r1=2427 km): dv1=181.16, dv2=157.40, total 338.56 m/s (claimed 0.338555); base 534.22 m/s. Relations and mass cancellation expression are correct (Rp*sqrt(g0/r) = sqrt(mu/r)). Minimal pairs T88D6/TCF66 (relay satellite orbit vs initial orbit) and TE6AF/T53EE (earlier flight only vs before the first burn) share 470 km and differ only in attachment. T1718 and T4C56 are declared numeral-free controls, resolving my pass-1 query. Minor observation, not a defect: after T88D6 raises the relay satellite's orbit, the scene clause 'never meets the transfer ellipse' is not re-guaranteed, but any crossing would not change the burns' speed changes."
+}

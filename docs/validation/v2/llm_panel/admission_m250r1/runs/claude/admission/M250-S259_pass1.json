@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch15",
+  "item_id": "M250-S259",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:12:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Maxwell speed distribution: fraction with v > v0 is F = erfc(x) + (2/sqrt(pi)) x exp(-x^2), x = v0/v_p, v_p = sqrt(2kT/m); amount = n F",
+    "assumptions": ["ideal monatomic gas in equilibrium at the wall temperature", "1 u = 1.66054e-27 kg (not stated; standard value)", "m = 6.6471e-27 kg, T = 300 K gives v_p = 1116.5 m/s, x = 1.7913, erfc = 0.01130, second term 0.08167, F = 0.09297"],
+    "answer": 0.0465,
+    "unit": "mol"
+  },
+  "stratum_assignments": {
+    "T2124": {"stratum": "D", "answer_with_sentence": 0.0465, "regime": null},
+    "TA6B3": {"stratum": "R", "answer_with_sentence": 0.0540, "regime": null},
+    "TA645": {"stratum": "D", "answer_with_sentence": 0.0465, "regime": null},
+    "T5A1D": {"stratum": "C", "answer_with_sentence": 0.0465, "regime": null},
+    "T3034": {"stratum": "C", "answer_with_sentence": 0.0465, "regime": null},
+    "T408F": {"stratum": "D", "answer_with_sentence": 0.0465, "regime": null},
+    "T4B89": {"stratum": "D", "answer_with_sentence": 0.0465, "regime": null},
+    "TA78B": {"stratum": "R", "answer_with_sentence": 0.0540, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "T2124 and TA645 say 'a modest amount' instead of the 17 K stated in the other temperature-rise sentences; if they are meant as variants of the 17 K sentences they differ in the number (harmless here since both are disconnected)."},
+  "defect_severity": {"rendering_not_minimal": "low"},
+  "counterexamples": [],
+  "notes": "With 17 K warming of the flask, the gas reaches 317 K: v_p = 1147.7 m/s, x = 1.7426, erfc = 0.01372, second term 0.09437, F = 0.10809, amount 0.0540 mol. Pressure (62 kPa) only fixes the volume via pV = nRT and does not enter the speed distribution. The u-to-kg conversion is not stated, but the standard value is implied. The window frame line is a pure distractor. TA78B uses past tense ('were measured'), which reads slightly oddly but means the same as TA6B3."
+}

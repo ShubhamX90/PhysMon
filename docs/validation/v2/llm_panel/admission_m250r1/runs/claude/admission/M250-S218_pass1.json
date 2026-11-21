@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch05",
+  "item_id": "M250-S218",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:30:00Z", "completed_at": "2026-11-21T10:38:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Parallel-plate capacitor at fixed voltage: F = Q E_other = eps0 A V^2 / (2 d^2), with eps0 A = C0 d0", "assumptions": ["battery stays connected so V = 900 V at the final separation", "vacuum between plates, no edge effects", "eps0 A = 100 pF x 2 mm = 2e-13 F m"], "answer": 0.00324, "unit": "N"},
+  "stratum_assignments": {
+    "TD5A9": {"stratum": "D", "answer_with_sentence": 0.00324, "regime": null},
+    "T7BA3": {"stratum": "D", "answer_with_sentence": 0.00324, "regime": null},
+    "T75D2": {"stratum": "K", "answer_with_sentence": 0.00324, "regime": "breakdown matters only if the field exceeds 1900 kV/m; the largest field (at 2 mm) is 900/0.002 = 450 kV/m"},
+    "T0373": {"stratum": "R", "answer_with_sentence": 0.00729, "regime": null},
+    "TDD7D": {"stratum": "D", "answer_with_sentence": 0.00324, "regime": null},
+    "TD96B": {"stratum": "R", "answer_with_sentence": 0.00729, "regime": null},
+    "T56FA": {"stratum": "K", "answer_with_sentence": 0.00324, "regime": "same as T75D2"},
+    "TAF23": {"stratum": "D", "answer_with_sentence": 0.00324, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: F = 2e-13 * 900^2 / (2 * (5e-3)^2) = 1.62e-7 / 5e-5 = 3.24e-3 N. With 1350 V: F = 2e-13 * 1.8225e6 / 5e-5 = 7.29e-3 N; the largest field is then 1350/0.002 = 675 kV/m, still below 1900 kV/m. Breakdown sentences both state 1900 kV/m; the 450 V sentences all state 450 V. Calling the neon sign's supply 'low-voltage' and then adding 450 V to it is a little artificial but has no path to the target."
+}

@@ -1,0 +1,98 @@
+{
+  "item_id": "M250-S19",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For an unobstructed projectile returning to its launch elevation, t = 2v sin(theta)/g and R = v² sin(2theta)/g. The explicitly stated launch angle of 35° gives R = 38.3548 m.",
+    "assumptions": [
+      "The stated 35° is the actual initial velocity angle.",
+      "Launch and landing elevations are equal.",
+      "Gravity is uniform and air resistance is neglected.",
+      "The ramp does not intercept the ball."
+    ],
+    "answer": 38.3548,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "T3E32": {
+      "stratum": "R",
+      "answer_with_sentence": 27.3115,
+      "regime": null
+    },
+    "T9D35": {
+      "stratum": "D",
+      "answer_with_sentence": 38.3548,
+      "regime": null
+    },
+    "TFDC7": {
+      "stratum": "R",
+      "answer_with_sentence": 27.3115,
+      "regime": null
+    },
+    "TFC29": {
+      "stratum": "D",
+      "answer_with_sentence": 38.3548,
+      "regime": null
+    },
+    "TC550": {
+      "stratum": "D",
+      "answer_with_sentence": 38.3548,
+      "regime": null
+    },
+    "T9417": {
+      "stratum": "D",
+      "answer_with_sentence": 38.3548,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T3E32 and TFDC7 do not establish whether the stated 35° describes the direction before lowering or the actual launch direction after lowering, so they do not uniquely determine the initial velocity."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_ids": [
+        "T3E32",
+        "TFDC7"
+      ],
+      "case": "A direction lowered from 49° to 35° before launch satisfies the explicit statement that the ball is launched at 35° and gives 38.3548 m. Treating 35° as the direction before the 14° lowering instead gives a launch angle of 21° and a range of 27.3115 m."
+    }
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "The R assignments and their displayed answers are conditional on the authors' intended interpretation that 35° precedes the lowering. Under that interpretation, the wiring is correct: R(q) = (400/9.8) sin(2(35° - q)), giving 33.8383 m, 27.3115 m and 17.8927 m for q = 7°, 14° and 22°, respectively. All certified numerical values have adequate precision, and the disconnected sentences preserve the base answer under the stated unobstructed-flight interpretation. answer_correct is false because the R answers are not uniquely justified by the rendered text. The authors' wiring explains their intention but does not resolve the wording presented to the solver. I withdraw the pass-1 rendering_not_minimal flag: pass 2 explicitly identifies T9D35 and TC550 as deliberate numeral-free controls, and their claimed twin wording is accurate. Both explicitly designated numerical minimal pairs preserve 14° and change the intended attachment or event. No external information was accessed.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T19:12:33+00:00",
+  "completed_at": "2026-11-21T19:13:17+00:00",
+  "minutes_spent": 0.73,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "4f26dff44dad99281c1d54f2cd676c6602c92fa12eeb71bbbaed4c52903d6943",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

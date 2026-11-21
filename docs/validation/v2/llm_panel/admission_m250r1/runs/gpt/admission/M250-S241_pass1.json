@@ -1,0 +1,97 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S241",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:26:15+00:00",
+  "completed_at": "2026-11-21T14:27:08+00:00",
+  "minutes_spent": 0.89,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Photon energy is hc/lambda = 3.1 eV. With emission probability eta and complete collection, I = e eta P/(hc/lambda) = 0.003(0.005)/3.1 A.",
+    "assumptions": [
+      "The stated emission probability applies to all incident photons of the specified wavelength.",
+      "The stated optical power reaches the cathode, and all released electrons are collected.",
+      "The question concerns the current during the present measurement."
+    ],
+    "answer": 4.838709677e-06,
+    "unit": "A"
+  },
+  "stratum_assignments": {
+    "T9477": {
+      "stratum": "K",
+      "answer_with_sentence": 4.838709677e-06,
+      "regime": "The photon energy exceeds the work function: 3.1 eV > 1.9 eV. With emission probability specified and collection complete, the work function does not change the current within this regime."
+    },
+    "TD93A": {
+      "stratum": "R",
+      "answer_with_sentence": 8.129032258e-06,
+      "regime": null
+    },
+    "TC8F7": {
+      "stratum": "D",
+      "answer_with_sentence": 4.838709677e-06,
+      "regime": null
+    },
+    "T306C": {
+      "stratum": "D",
+      "answer_with_sentence": 4.838709677e-06,
+      "regime": null
+    },
+    "T22AD": {
+      "stratum": "R",
+      "answer_with_sentence": 8.129032258e-06,
+      "regime": null
+    },
+    "TE41A": {
+      "stratum": "D",
+      "answer_with_sentence": 4.838709677e-06,
+      "regime": null
+    },
+    "TEBFE": {
+      "stratum": "K",
+      "answer_with_sentence": 4.838709677e-06,
+      "regime": "The photon energy exceeds the work function: 3.1 eV > 1.9 eV. With emission probability specified and collection complete, the work function does not change the current within this regime."
+    },
+    "TEB4A": {
+      "stratum": "D",
+      "answer_with_sentence": 4.838709677e-06,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T306C and TE41A replace the explicit 3.4 mW used in their corresponding extra-power variants with unspecified amounts, violating the requirement that variants preserve the same number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "T306C permits an additional chart illumination of 1 mW, whereas TEB4A specifies 3.4 mW, so these renderings do not preserve the quantity.",
+    "TE41A permits an earlier additional cathode illumination of 1 mW, whereas TC8F7 specifies 3.4 mW."
+  ],
+  "notes": "The base physics and each individual current calculation are well-posed. The invalid verdict concerns the required numerical matching between sentence variants. Present additional cathode illumination raises total power to 8.4 mW; earlier illumination does not contribute to the present current. Chart illumination has no stated optical path to the cathode.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "1d35778fd0dfdf721d88ba32fb938f4f3f9976a0e4bf554aa32beb3bace77a75",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

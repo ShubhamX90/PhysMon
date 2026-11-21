@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch20",
+  "item_id": "M250-S238",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:29:00Z", "completed_at": "2026-11-21T10:40:00Z", "minutes_spent": 11,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Circular Couette flow: torque T = 4 pi mu L Omega R1^2 R2^2/(R2^2 - R1^2); power P = T Omega", "assumptions": ["Newtonian, steady, laminar, purely azimuthal flow", "no slip at both walls", "outer cylinder fixed", "end effects neglected"], "answer": 0.1829, "unit": "W"},
+  "stratum_assignments": {
+    "T2F2B": {"stratum": "K", "answer_with_sentence": 0.1829, "regime": "rotation rate below the stated onset of vortices (6500 rpm); 120 rpm is inside"},
+    "TF18F": {"stratum": "K", "answer_with_sentence": 0.1829, "regime": "rotation rate below the stated limit of purely circular flow (6500 rpm); 120 rpm is inside"},
+    "TEF4A": {"stratum": "R", "answer_with_sentence": 0.4831, "regime": null},
+    "TFDA3": {"stratum": "D", "answer_with_sentence": 0.1829, "regime": null},
+    "T564F": {"stratum": "R", "answer_with_sentence": 0.4831, "regime": null},
+    "T7A33": {"stratum": "D", "answer_with_sentence": 0.1829, "regime": null},
+    "T5A9C": {"stratum": "K", "answer_with_sentence": 0.1829, "regime": "density matters only through inertia once Taylor vortices form (Taylor number above critical); here Re = Omega R1 d/nu ~ 1.1, far below onset (~130 for this gap)"},
+    "T0105": {"stratum": "D", "answer_with_sentence": 0.1829, "regime": null},
+    "T4956": {"stratum": "D", "answer_with_sentence": 0.1829, "regime": null},
+    "TF420": {"stratum": "K", "answer_with_sentence": 0.1829, "regime": "as for T5A9C: laminar circular Couette flow, below Taylor onset"}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Omega = 120 rpm = 4 pi = 12.566 rad/s. R1^2 R2^2/(R2^2-R1^2) = (4e-4 x 4.84e-4)/8.4e-5 = 2.3048e-3 m^2. T = 4 pi x 0.4 x 0.1 x 12.566 x 2.3048e-3 = 0.014558 N m; P = T Omega = 0.18294 W. With rotor raised by 75 rpm to 195 rpm: P scales as Omega^2, factor (195/120)^2 = 2.6406, P = 0.4831 W. I read 'this rate' as the rotor's actual running rate after the raise; the base clause 'the rate given is the rate at which it first runs' supports that reading, though the question wording 'this rate' is slightly loose. Density: for circular Couette flow torque is independent of density; nu = 0.4/860 = 4.65e-4 m^2/s gives Re ~ 1.1 at 120 rpm (2.1 at 195 rpm), far below Taylor onset (narrow-gap estimate Re_c ~ 41 sqrt(R1/d) ~ 130, i.e. ~14000 rpm), so the stated 6500 rpm vortex-free limit is consistent (conservative). The stirrer and earlier-run sentences have no path to the target. Density could arguably be labelled C or K; I chose K since it enters only via the stability regime. TFDA3 and T4956 carry no number."
+}

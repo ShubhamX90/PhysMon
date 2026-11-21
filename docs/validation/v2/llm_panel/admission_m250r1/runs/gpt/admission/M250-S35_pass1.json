@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S35",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:34:41+00:00",
+  "completed_at": "2026-11-21T14:35:32+00:00",
+  "minutes_spent": 0.85,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For a conical pendulum, F cos(theta) = mg and F sin(theta) = m omega^2 L sin(theta), giving period P = 2 pi sqrt(L cos(theta)/g). With L = 1.2 m and theta = 30 degrees, P = 2.0461 s.",
+    "assumptions": [
+      "The small bob is treated as a particle.",
+      "The string's upper end is fixed, and gravity and string tension govern the bob's motion.",
+      "The requested period concerns the stated steady circular motion, after any current string-length change."
+    ],
+    "answer": 2.0461,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T41B5": {
+      "stratum": "R",
+      "answer_with_sentence": 2.5746,
+      "regime": null
+    },
+    "T3E4C": {
+      "stratum": "D",
+      "answer_with_sentence": 2.0461,
+      "regime": null
+    },
+    "T3589": {
+      "stratum": "C",
+      "answer_with_sentence": 2.0461,
+      "regime": null
+    },
+    "T8044": {
+      "stratum": "C",
+      "answer_with_sentence": 2.0461,
+      "regime": null
+    },
+    "TC5DB": {
+      "stratum": "R",
+      "answer_with_sentence": 2.5746,
+      "regime": null
+    },
+    "T5418": {
+      "stratum": "D",
+      "answer_with_sentence": 2.0461,
+      "regime": null
+    },
+    "T422F": {
+      "stratum": "D",
+      "answer_with_sentence": 2.0461,
+      "regime": null
+    },
+    "T0789": {
+      "stratum": "D",
+      "answer_with_sentence": 2.0461,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T3E4C and T0789 replace the explicit 0.7 m in their corresponding numerical variants with 'a short length', so the length variants fail the required preservation of number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The physical problems have determinate answers; the invalid verdict concerns the stipulated variant requirement. Both current extensions produce L = 1.9 m, including the extension before motion begins, because 1.2 m is explicitly the outset length. Earlier experiments do not change the specified present length. The separate reel has no coupling to the bob. Mass appears in both force equations and cancels. T8044 also adds material and shape information beyond the mass statement, without changing the answer under the small-bob idealization.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "75adfd226fe2dd34ea17eba42f81127b5128cdc176a38fa7688a66d7eb3fe2db",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

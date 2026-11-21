@@ -1,0 +1,84 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S258",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:15:24+00:00",
+  "completed_at": "2026-11-21T14:16:09+00:00",
+  "minutes_spent": 0.74,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Radioactive decay gives A(t) = [ln(2)/T_half][m/(59.93 u)] 2^(-t/T_half). With 1 u = 1.66053906660e-24 g and 365.25 days per year, the initial atom count is approximately 4.01945e19 and the surviving fraction after 8 years is approximately 0.349163.",
+    "assumptions": [
+      "The stated half-life describes constant exponential decay.",
+      "Activity counts decays in the capsule; cobalt in the vault or waste drum is outside the source.",
+      "A year is converted to seconds using 365.25 days."
+    ],
+    "answer": 58500000000,
+    "unit": "Bq"
+  },
+  "stratum_assignments": {
+    "T5915": {
+      "stratum": "R",
+      "answer_with_sentence": 98000000000,
+      "regime": null
+    },
+    "TBBB3": {
+      "stratum": "D",
+      "answer_with_sentence": 58500000000,
+      "regime": null
+    },
+    "T0809": {
+      "stratum": "D",
+      "answer_with_sentence": 58500000000,
+      "regime": null
+    },
+    "TF0FF": {
+      "stratum": "D",
+      "answer_with_sentence": 58500000000,
+      "regime": null
+    },
+    "TA788": {
+      "stratum": "R",
+      "answer_with_sentence": 98000000000,
+      "regime": null
+    },
+    "TEA82": {
+      "stratum": "D",
+      "answer_with_sentence": 58500000000,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T0809 and TF0FF replace the specified 0.0027 g with an unspecified 'small amount', so the variants do not all preserve the required number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and each individual augmented problem are well-posed. Adding cobalt to the capsule increases the initial radioactive mass to 0.0067 g and multiplies its final activity by 1.675. Cobalt placed in either separate container has no physical path to the capsule's intrinsic activity. The invalid verdict concerns the required variant construction: the four quantified sentences agree on 0.0027 g, but the two unquantified sentences do not state that value or unit.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "089a05737b6d7ced131aeb42e96f900f8a62000e4cc7dce4d39a2b66628066db",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

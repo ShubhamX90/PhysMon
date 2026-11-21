@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch05",
+  "item_id": "M250-S67",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:45:00Z", "completed_at": "2026-11-21T10:52:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Fresnel normal-incidence reflectance R = ((n-1)/(n+1))^2 at each face; incoherent multiple reflections sum to T = (1-R)^2/(1-R^2) = (1-R)/(1+R)", "assumptions": ["normal incidence", "no absorption", "incoherent addition of powers", "both faces identical glass-air interfaces"], "answer": 46.154, "unit": "mW"},
+  "stratum_assignments": {
+    "T463C": {"stratum": "K", "answer_with_sentence": 46.154, "regime": "damage matters only for beam power above 350 mW; the beam is 50 mW"},
+    "T65F1": {"stratum": "R", "answer_with_sentence": 78.462, "regime": null},
+    "TBD30": {"stratum": "R", "answer_with_sentence": 78.462, "regime": null},
+    "T146E": {"stratum": "K", "answer_with_sentence": 46.154, "regime": "rating matters only above 350 mW; the beam is 50 mW"},
+    "T094D": {"stratum": "D", "answer_with_sentence": 46.154, "regime": null},
+    "T60FB": {"stratum": "D", "answer_with_sentence": 46.154, "regime": null},
+    "T9EF0": {"stratum": "D", "answer_with_sentence": 46.154, "regime": null},
+    "T6E69": {"stratum": "D", "answer_with_sentence": 46.154, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "R = (0.5/2.5)^2 = 0.04; T = 0.96/1.04 = 0.923077; 50 mW gives 46.154 mW; 85 mW gives 78.462 mW (still below 350 mW). The 'then increased' wording in T65F1 implies the transmitted power is asked after the increase, which is the natural reading. Same-quantity sentences state 35 mW or 350 mW consistently."
+}

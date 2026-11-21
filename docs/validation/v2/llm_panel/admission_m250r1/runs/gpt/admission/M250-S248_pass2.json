@@ -1,0 +1,95 @@
+{
+  "item_id": "M250-S248",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Magnetic torque gives dS/dt = (g e/(2m)) S × B, hence f = g e B/(4 pi m). Converting 350 mT to 0.350 T gives 14.8979 MHz. Parallel additional fields of 44, 52 and 60 mT give 16.7708, 17.1113 and 17.4519 MHz, respectively. For a nonparallel spin, the sin(theta) factors in torque and perpendicular angular momentum cancel.",
+    "assumptions": [
+      "Use the stated free-proton magnetic moment and magnetic torque law.",
+      "Frequency denotes cycles per second.",
+      "Additional sample fields are parallel to the magnet field, as stated.",
+      "The stated negligible stray fields exclude an appreciable sample field from the coil acting at the compass.",
+      "A coil used only during an earlier measurement contributes no field during the current measurement."
+    ],
+    "answer": 14.8979,
+    "unit": "MHz"
+  },
+  "stratum_assignments": {
+    "T371E": {
+      "stratum": "R",
+      "answer_with_sentence": 17.1113,
+      "regime": null
+    },
+    "TCC2A": {
+      "stratum": "D",
+      "answer_with_sentence": 14.8979,
+      "regime": null
+    },
+    "T5536": {
+      "stratum": "C",
+      "answer_with_sentence": 14.8979,
+      "regime": null
+    },
+    "T5A0E": {
+      "stratum": "C",
+      "answer_with_sentence": 14.8979,
+      "regime": null
+    },
+    "TBE19": {
+      "stratum": "R",
+      "answer_with_sentence": 17.1113,
+      "regime": null
+    },
+    "T9574": {
+      "stratum": "D",
+      "answer_with_sentence": 14.8979,
+      "regime": null
+    },
+    "TA0E4": {
+      "stratum": "D",
+      "answer_with_sentence": 14.8979,
+      "regime": null
+    },
+    "TB34F": {
+      "stratum": "D",
+      "answer_with_sentence": 14.8979,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "I withdraw the pass-1 rendering_not_minimal flag: the claims identify TCC2A and T9574 as deliberately numeral-free controls, not numerical minimal pairs. The declared minimal pairs T371E/TB34F and TBE19/TA0E4 preserve 52 mT and change the intended attachment. Both angle renderings preserve 43 degrees. All certified answers agree with the governing relation at the displayed precision, including all listed field and angle values. The compass-coil disconnection relies on the stated neglect of stray fields; spatial separation alone would not establish it. The pass-1 answers were rounded approximations consistent with these more precise values.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T19:10:27+00:00",
+  "completed_at": "2026-11-21T19:11:12+00:00",
+  "minutes_spent": 0.75,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "373e046cebab0ae7762a8253e28980ebcf913f6301f0584278f08eb87216ab8a",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

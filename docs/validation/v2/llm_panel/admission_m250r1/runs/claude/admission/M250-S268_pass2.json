@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch26",
+  "item_id": "M250-S268",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:51:00Z", "completed_at": "2026-11-21T10:57:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Steady current I = emf/R1 (the zero-resistance solenoid shorts the second resistor); long-solenoid L = mu0 N^2 pi r^2 / l; all stored energy (1/2) L I^2 is dissipated in the second resistor", "assumptions": ["ideal battery", "winding resistance negligible", "long-solenoid formula (no end corrections)", "switch opens instantly, no other dissipation or radiation"], "answer": 6.397, "unit": "mJ"},
+  "stratum_assignments": {
+    "T212D": {"stratum": "D", "answer_with_sentence": 6.397, "regime": null},
+    "T000E": {"stratum": "R", "answer_with_sentence": 16.893, "regime": null},
+    "T7621": {"stratum": "C", "answer_with_sentence": 6.397, "regime": null},
+    "T200B": {"stratum": "D", "answer_with_sentence": 6.397, "regime": null},
+    "T8F98": {"stratum": "D", "answer_with_sentence": 6.397, "regime": null},
+    "T0F51": {"stratum": "R", "answer_with_sentence": 16.893, "regime": null},
+    "T5C53": {"stratum": "C", "answer_with_sentence": 6.397, "regime": null},
+    "TC1E1": {"stratum": "D", "answer_with_sentence": 6.397, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Claims match pass 1. L = 1.4216e-3 H; base 0.5*L*9 = 6.397 mJ. R answers: 15.2 V -> I = 3.8 A -> 10.264 mJ; 19.5 V -> 4.875 A -> 16.893 mJ; 23 V -> 5.75 A -> 23.501 mJ, all correct. The C cancellation of R2 (integral of I0^2 R exp(-2Rt/L) dt = L I0^2 / 2) is correct. Minimal pairs T8F98/T000E and T200B/T0F51 share 7.5 V and differ only in attachment; T212D and TC1E1 are declared numeral-free twins."
+}

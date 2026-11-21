@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch13",
+  "item_id": "M250-S254",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:07:00Z", "completed_at": "2026-11-21T10:13:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "I(r) = P/(4 pi r^2) * exp(-alpha r)", "assumptions": ["isotropic point source, no reflections", "alpha is an intensity attenuation coefficient", "microphone at siren height so the distance to the source equals the stated distance from the mast"], "answer": 6.9553e-4, "unit": "W/m^2"},
+  "stratum_assignments": {
+    "T0CF8": {"stratum": "D", "answer_with_sentence": 6.9553e-4, "regime": null},
+    "TA9C0": {"stratum": "D", "answer_with_sentence": 6.9553e-4, "regime": null},
+    "T28D8": {"stratum": "D", "answer_with_sentence": 6.9553e-4, "regime": null},
+    "T624A": {"stratum": "R", "answer_with_sentence": 1.0178e-4, "regime": null},
+    "T116D": {"stratum": "D", "answer_with_sentence": 6.9553e-4, "regime": null},
+    "T68BD": {"stratum": "R", "answer_with_sentence": 1.0178e-4, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified certified answers: r=60 m gives 6.9553e-4; r=95 m: 3.5270e-4*exp(-0.38)=2.4120e-4; r=135 m: 1.7466e-4*exp(-0.54)=1.0178e-4; r=210 m: 7.218e-5*exp(-0.84)=3.116e-5 W/m^2, all matching. Minimal pairs T0CF8/T624A and T28D8/T68BD share number and unit and differ only in attachment (earlier experiment vs. this reading; dog vs. observer). The 'modest distance' sentences are declared numeral-free controls of their D twins, which resolves my pass-1 query; they match their twins' wording with the number replaced. Slight tense difference between T624A (past) and T68BD (present) is stylistic only."
+}

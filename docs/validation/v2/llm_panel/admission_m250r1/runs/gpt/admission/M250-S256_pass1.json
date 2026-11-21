@@ -1,0 +1,104 @@
+{
+  "item_id": "M250-S256",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Q = n C_m ΔT = (m/M)(3R)(360 − 300).",
+    "assumptions": [
+      "The stated constant molar heat capacity applies throughout the heating.",
+      "The supplied heat raises the block's temperature without other energy storage or losses."
+    ],
+    "answer": 3611.293436,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "TAA2E": {
+      "stratum": "D",
+      "answer_with_sentence": 3611.293436,
+      "regime": null
+    },
+    "TD22B": {
+      "stratum": "D",
+      "answer_with_sentence": 3611.293436,
+      "regime": null
+    },
+    "T30A5": {
+      "stratum": "C",
+      "answer_with_sentence": 3611.293436,
+      "regime": null
+    },
+    "T85DA": {
+      "stratum": "D",
+      "answer_with_sentence": 3611.293436,
+      "regime": null
+    },
+    "TA290": {
+      "stratum": "D",
+      "answer_with_sentence": 3611.293436,
+      "regime": null
+    },
+    "TBFB5": {
+      "stratum": "C",
+      "answer_with_sentence": 3611.293436,
+      "regime": null
+    },
+    "T6CF0": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TC49F": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T6CF0 and TC49F do not specify the temperature of the added lead or establish that the enlarged block starts heating uniformly at 300 K, so the supplied heat is not uniquely determined.",
+    "rendering_not_minimal": "The lead-addition variants alternate between an unspecified 'small amount' and 0.18 kg, failing the required preservation of the quantity's number and unit."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_ids": [
+        "T6CF0",
+        "TC49F"
+      ],
+      "description": "If the added 0.18 kg starts at 300 K, heating the combined 0.68 kg to 360 K requires 4911.359073 J. If it starts at 360 K and mixes without heat loss with the original block, the subsequent supplied heat is 3611.293436 J."
+    }
+  ],
+  "notes": "The base problem is well-posed. For the two current block additions, 4911.359073 J is the conditional answer if the enlarged block begins heating at 300 K; null records that this initial condition is not established. 'For one heating only' makes the earlier additions temporary and disconnected from the present heating. Heater power enters Q = Pt, but t = nC_mΔT/P, so power cancels for fixed temperature endpoints. T30A5 and TBFB5 preserve 310 W; the explicit numerical lead-addition variants preserve 0.18 kg, whereas TAA2E and T85DA omit that number and unit.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:16:27+00:00",
+  "completed_at": "2026-11-21T14:17:20+00:00",
+  "minutes_spent": 0.89,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "967224da68882bfe1882a4aaf0aca1a0938ff080ddd1428fa6e1779c5fe1a8ea",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

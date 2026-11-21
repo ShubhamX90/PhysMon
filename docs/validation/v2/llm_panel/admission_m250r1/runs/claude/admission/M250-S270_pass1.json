@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch17",
+  "item_id": "M250-S270",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:34:00Z", "completed_at": "2026-11-21T10:46:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Doppler effect in still air, twice (moving reflector as receiver then source), then a moving receiver: f_rec = f (c - u)/(c + u) * (c - w)/c with u = 6 m/s (lorry receding), w = 9 m/s (recorder moving with the reflected wave); answer = f - f_rec", "assumptions": ["collinear motion", "still air, c = 343 m/s", "reflection with no frequency change in the panel's rest frame", "steady state after sound arrives"], "answer": 89.58, "unit": "Hz"},
+  "stratum_assignments": {
+    "TDC03": {"stratum": "C", "answer_with_sentence": 89.58, "regime": null},
+    "T02E2": {"stratum": "D", "answer_with_sentence": 89.58, "regime": null},
+    "TA134": {"stratum": "D", "answer_with_sentence": 89.58, "regime": null},
+    "TA6A4": {"stratum": "D", "answer_with_sentence": 89.58, "regime": null},
+    "T6307": {"stratum": "C", "answer_with_sentence": 89.58, "regime": null},
+    "TBF04": {"stratum": "R", "answer_with_sentence": 111.96, "regime": null},
+    "T4BE2": {"stratum": "D", "answer_with_sentence": 89.58, "regime": null},
+    "TA0C8": {"stratum": "R", "answer_with_sentence": 111.96, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "f_rec = 1500*337*334/(349*343) = 1500*112558/119707 = 1410.42 Hz; difference 89.58 Hz. With the recorder at 9+5.3 = 14.3 m/s relative to air: f_rec = 1500*337*328.7/119707 = 1388.04 Hz; difference 111.96 Hz. The 82 m distance belongs to the lorry but affects only arrival times, not the steady frequency; I label it C (or arguably K/D) with no change in answer. TDC03 and T6307 differ only in 'stands'/'is'. TA134 and TA6A4 carry no number (presumably controls)."
+}

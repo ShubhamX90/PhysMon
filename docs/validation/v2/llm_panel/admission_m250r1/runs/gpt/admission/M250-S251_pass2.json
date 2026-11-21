@@ -1,0 +1,100 @@
+{
+  "item_id": "M250-S251",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Conservation of mechanical energy gives v²/2 - g0 R = -g0 R²/(R+h), hence h = Rv²/(2g0 R-v²). Convert R = 1737 km to 1737000 m before using the stated SI acceleration and speeds.",
+    "assumptions": [
+      "The stated launch speed is the speed after propulsion ends; subsequent motion is governed by the stated lunar gravity.",
+      "Any catapult speed supplied to the probe at this firing adds to 1500 m/s.",
+      "The base catapult clause describes how an additional speed would combine without specifying an additional speed.",
+      "The probe follows radial motion outside the moon."
+    ],
+    "answer": 1157.01268,
+    "unit": "km"
+  },
+  "stratum_assignments": {
+    "TE544": {
+      "stratum": "C",
+      "answer_with_sentence": 1157.01268,
+      "regime": null
+    },
+    "T9571": {
+      "stratum": "D",
+      "answer_with_sentence": 1157.01268,
+      "regime": null
+    },
+    "TFA02": {
+      "stratum": "D",
+      "answer_with_sentence": 1157.01268,
+      "regime": null
+    },
+    "T9D2A": {
+      "stratum": "D",
+      "answer_with_sentence": 1157.01268,
+      "regime": null
+    },
+    "T04BD": {
+      "stratum": "R",
+      "answer_with_sentence": 1878.54104,
+      "regime": null
+    },
+    "TE24B": {
+      "stratum": "C",
+      "answer_with_sentence": 1157.01268,
+      "regime": null
+    },
+    "T9791": {
+      "stratum": "R",
+      "answer_with_sentence": 1878.54104,
+      "regime": null
+    },
+    "TAA9D": {
+      "stratum": "D",
+      "answer_with_sentence": 1157.01268,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T9571 and T9D2A omit the number and unit, so the full speed-sentence set does not meet the requested common-number/unit format, although the authors explicitly identify these as numeral-free controls rather than numerical minimal pairs."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "medium"
+  },
+  "counterexamples": [],
+  "notes": "All physical classifications, wiring explanations, energy relations and certified numerical answers agree with independent calculation. For additional probe speeds of 60, 210 and 330 m/s, the heights round to 1323.35, 1878.54 and 2552.47 km respectively. These launch speeds are below the escape speed, approximately 2372 m/s. Positive probe mass multiplies both kinetic and gravitational potential energy and cancels, validating all three listed masses. The relay capsule is excluded from acting on the probe by the stated isolation condition; earlier launches leave the present initial speed unchanged. The numerical minimal pairs TAA9D/T04BD and TFA02/T9791 preserve 210 m/s and change the relevant attachment as claimed. The mass sentences both preserve 270 kg. The numeral-free twin descriptions are accurate. I revise the pass-1 invalid verdict and high severity because pass 2 explicitly distinguishes those controls and makes no false numerical minimal-pair claim about them; the remaining common-number/unit format issue does not make the physics or any certified answer wrong. The governing expressions require consistent units: use Rm in metres internally and convert the resulting height to kilometres. The displayed answers carry extra computational digits but are correctly rounded and do not affect admission.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T13:49:30+00:00",
+  "completed_at": "2026-11-21T13:50:38+00:00",
+  "minutes_spent": 1.13,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "02a84d3346ad912d61342b8f810352d7428f97cf69b3870a4b343fffc9e4904a",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

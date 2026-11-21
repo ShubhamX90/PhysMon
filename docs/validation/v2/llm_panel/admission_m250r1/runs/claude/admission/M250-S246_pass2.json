@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch24",
+  "item_id": "M250-S246",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:06:00Z", "completed_at": "2026-11-21T10:12:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Beer-Lambert narrow-beam attenuation in series: x_Pb = (ln F - mu_c t_c)/mu_Pb", "assumptions": ["narrow beam, no buildup", "coefficients fixed for the beam energy"], "answer": 5.888, "unit": "cm"},
+  "stratum_assignments": {
+    "TC013": {"stratum": "D", "answer_with_sentence": 5.888, "regime": null},
+    "T4F30": {"stratum": "D", "answer_with_sentence": 5.888, "regime": null},
+    "TEDF2": {"stratum": "R", "answer_with_sentence": 4.444, "regime": null},
+    "T6B5C": {"stratum": "C", "answer_with_sentence": 5.888, "regime": null},
+    "TD827": {"stratum": "D", "answer_with_sentence": 5.888, "regime": null},
+    "TCC3C": {"stratum": "D", "answer_with_sentence": 5.888, "regime": null},
+    "TD192": {"stratum": "R", "answer_with_sentence": 4.444, "regime": null},
+    "T1E87": {"stratum": "C", "answer_with_sentence": 5.888, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked all certified answers: base (9.21034-4.5)/80 = 5.88793 cm; added 4.3 cm -> 4.06534/80 = 5.08168 cm; 7.7 cm -> 3.55534/80 = 4.44418 cm; 11.4 cm -> 3.00034/80 = 3.75043 cm. All match. The intensity cancels because only the ratio is fixed. Minimal pairs T4F30/TD192 and TCC3C/TEDF2 share 7.7 cm and differ only in attachment (earlier shield vs this shield; shed roof vs concrete wall). TC013 and TD827 are declared numeral-free controls of TCC3C and T4F30, which resolves my pass-1 note about their missing number. The d_rationale for T4F30 says the earlier shield 'has been replaced', which the text does not state, but 'an earlier shield' is in any case a different shield, so D holds. Agreement with pass 1."
+}

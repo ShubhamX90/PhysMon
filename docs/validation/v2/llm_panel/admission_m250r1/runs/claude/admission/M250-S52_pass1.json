@@ -1,0 +1,21 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch21",
+  "item_id": "M250-S52",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Energy conservation in an insulated calorimeter: m_w c (dT0 - T) = m_i L + m_i c T, with T the final temperature above the melting point; heat given up Q = m_w c (dT0 - T)", "assumptions": ["insulated, no heat to container", "all ice melts (checked: T = 23.48 K above melting > 0)", "constant c for water"], "answer": 34582.07, "unit": "J"},
+  "stratum_assignments": {
+    "T96AB": {"stratum": "R", "answer_with_sentence": 39489.80, "regime": null},
+    "TA38E": {"stratum": "D", "answer_with_sentence": 34582.07, "regime": null},
+    "T5D2A": {"stratum": "R", "answer_with_sentence": 39489.80, "regime": null},
+    "T2F5B": {"stratum": "D", "answer_with_sentence": 34582.07, "regime": null},
+    "T32CB": {"stratum": "D", "answer_with_sentence": 34582.07, "regime": null},
+    "T162D": {"stratum": "D", "answer_with_sentence": 34582.07, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: 0.5*4186*(40-T) = 0.08*334000 + 0.08*4186*T -> T = 57000/2427.88 = 23.4773 K above melting; Q = 34582.07 J. With the first-container water heated 17 K before ice is added (start 57 K above): T = 92581/2427.88 = 38.1324 K; Q = 26720 + 334.88*38.1324 = 39489.80 J (heat given up measured from the temperature at which ice is added). T96AB 'the water' is read as the first-container water (the base says the water is poured into the first container). T2F5B and T162D state 'a few kelvin' rather than 17 K; as distractors this does not change the answer, but they do not state the same number as their 17 K variants. Earlier-run sentences refer to a different run and are disconnected."
+}

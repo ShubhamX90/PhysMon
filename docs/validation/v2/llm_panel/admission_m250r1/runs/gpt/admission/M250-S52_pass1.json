@@ -1,0 +1,85 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S52",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:01:14+00:00",
+  "completed_at": "2026-11-21T14:01:57+00:00",
+  "minutes_spent": 0.71,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation: m_w c(T_i-T_f)=m_i L+m_i c T_f, with temperatures measured above the melting point. Thus Q=m_w m_i(L+c T_i)/(m_w+m_i). For T_i=40 K, Q=34582.07 J and T_f=23.477 K above the melting point.",
+    "assumptions": [
+      "The supplied specific heat capacity is constant over the temperature range.",
+      "All ice melts, as stated, and the resulting water has the supplied specific heat capacity.",
+      "Stirring supplies negligible energy.",
+      "The stated starting temperature precedes any additional heater operation; heat given up is evaluated during equilibration after ice addition."
+    ],
+    "answer": 34582.07,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "T96AB": {
+      "stratum": "R",
+      "answer_with_sentence": 39489.79,
+      "regime": null
+    },
+    "TA38E": {
+      "stratum": "D",
+      "answer_with_sentence": 34582.07,
+      "regime": null
+    },
+    "T5D2A": {
+      "stratum": "R",
+      "answer_with_sentence": 39489.79,
+      "regime": null
+    },
+    "T2F5B": {
+      "stratum": "D",
+      "answer_with_sentence": 34582.07,
+      "regime": null
+    },
+    "T32CB": {
+      "stratum": "D",
+      "answer_with_sentence": 34582.07,
+      "regime": null
+    },
+    "T162D": {
+      "stratum": "D",
+      "answer_with_sentence": 34582.07,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T2F5B and T162D specify 'a few kelvin' whereas the other heater-temperature variants specify 17 K, so the variants do not preserve the required numerical quantity."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base calorimetry problem has a unique answer under the stated conditions. Heating the first container's water raises its temperature before ice addition from 40 K to 57 K above melting and increases the heat it subsequently gives up by 4907.72 J. Heating the insulated second container or describing a separate earlier run has no physical path to the target. The vague temperature increments in the disconnected sentences leave their answers unchanged, but violate the stipulated requirement that variants retain the same number and unit.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "4e2db7b6d68070e31418e015b8f0815aa8c0100b4c7c70f97f82454a331dc4ff",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch25",
+  "item_id": "M250-S231",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:29:00Z", "completed_at": "2026-11-21T10:38:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Doppler reflection from a moving mirror with source and observer at rest in still air: f_echo = f (c + v)/(c - v); beat = f_echo - f = 2 f v/(c - v)", "assumptions": ["trolley at rest relative to the air (not stated; see notes)", "wall speed v relative to air = 3 m/s", "non-relativistic, still uniform air"], "answer": 7.7647, "unit": "Hz"},
+  "stratum_assignments": {
+    "T2729": {"stratum": "R", "answer_with_sentence": 11.4353, "regime": null},
+    "T544D": {"stratum": "D", "answer_with_sentence": 7.7647, "regime": null},
+    "T811A": {"stratum": "D", "answer_with_sentence": 7.7647, "regime": null},
+    "T105F": {"stratum": "D", "answer_with_sentence": 7.7647, "regime": null},
+    "T72F4": {"stratum": "C", "answer_with_sentence": 7.7647, "regime": null},
+    "T7F76": {"stratum": "R", "answer_with_sentence": 11.4353, "regime": null},
+    "TAC5B": {"stratum": "C", "answer_with_sentence": 7.7647, "regime": null},
+    "T1B41": {"stratum": "D", "answer_with_sentence": 7.7647, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["insufficient_boundary_condition"],
+  "defect_reasons": {"insufficient_boundary_condition": "The base says the 3 m/s is the wall's speed relative to the trolley but never states that the trolley is at rest, so without a trolley-speed sentence (base problem and all D/C sentences) the wall's speed relative to the air, and hence the beat frequency, is undetermined."},
+  "defect_severity": {"insufficient_boundary_condition": "high"},
+  "counterexamples": ["If the trolley moves towards the loudspeaker at 1.4 m/s (consistent with the base text), the beat is 11.435 Hz rather than 7.765 Hz."],
+  "notes": "Trolley at rest: beat = 440*6/340 = 7.7647 Hz. Trolley at 1.4 m/s towards: v = 4.4, beat = 440*8.8/338.6 = 11.4353 Hz. The 90 m distance sets the echo delay but not the frequency; it belongs to the system so I mark it C (could also be argued D). Conveyor belt stirs no air, so D. Earlier-run trolley sentences do not set the trolley's state in this run, so they leave the base ambiguity in place. T544D and T1B41 have no number ('a low speed') unlike their 1.4 m/s counterparts. T7F76 uses past tense 'was moving ... throughout the recording', which still describes this run."
+}

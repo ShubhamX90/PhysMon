@@ -1,0 +1,91 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S227",
+  "pass_number": 2,
+  "started_at": "2026-11-21T14:13:33+00:00",
+  "completed_at": "2026-11-21T14:14:17+00:00",
+  "minutes_spent": 0.73,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For the specified molecular levels, Z = 1 + 3 exp[-6000/(RT)] and U = 6[3 exp[-6000/(RT)]]/Z in kJ/mol. Evaluate at 300 K for the base problem and at 338 K after the stated warming of the gas.",
+    "assumptions": [
+      "The requested energy is the energy associated with the specified molecular levels.",
+      "The equilibrium populations obey Boltzmann statistics.",
+      "For the current-run gas-heating additions, 300 K is the temperature before heating."
+    ],
+    "answer": 1.27797,
+    "unit": "kJ/mol"
+  },
+  "stratum_assignments": {
+    "T0EF9": {
+      "stratum": "D",
+      "answer_with_sentence": 1.27797,
+      "regime": null
+    },
+    "T9DAE": {
+      "stratum": "D",
+      "answer_with_sentence": 1.27797,
+      "regime": null
+    },
+    "TCA07": {
+      "stratum": "D",
+      "answer_with_sentence": 1.27797,
+      "regime": null
+    },
+    "T5974": {
+      "stratum": "R",
+      "answer_with_sentence": 1.57093,
+      "regime": null
+    },
+    "T4CBB": {
+      "stratum": "R",
+      "answer_with_sentence": 1.57093,
+      "regime": null
+    },
+    "T86F4": {
+      "stratum": "D",
+      "answer_with_sentence": 1.27797,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T9DAE and TCA07 replace the specified 38 K with an indefinite 'few kelvin', violating the review's requirement that variants of the same quantity preserve its number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "An earlier-run warming of 3 K satisfies T9DAE's 'a few kelvin' but does not preserve T0EF9's specified 38 K; the same mismatch occurs between TCA07 and T86F4."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "The physics, stratum assignments and certified numerical answers are correct. Using consistent energy units in the exponent, warming the gas by 22, 38 and 70 K gives respectively 1.45105, 1.57093 and 1.79426 kJ/mol. Earlier-run heating and heating the disconnected water bath leave the answer at 1.27797 kJ/mol. Both explicitly claimed numbered minimal pairs preserve 38 K and change the intended attachment. The authors explain that the two unnumbered controls intentionally remove the number, but the supplied review instructions provide no exception to their requirement of numerical identity across variants; the pass-1 defect therefore remains. Pass-1 answers were expressed in J/mol and agree with the packet after conversion and rounding.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "16bfedd35d5ecb050bb7289bbc47f866d7323f07a76e8169032f3bed580b6420",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

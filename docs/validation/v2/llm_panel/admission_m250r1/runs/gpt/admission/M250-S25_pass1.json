@@ -1,0 +1,104 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S25",
+  "pass_number": 1,
+  "started_at": "2026-11-21T13:48:35+00:00",
+  "completed_at": "2026-11-21T13:49:21+00:00",
+  "minutes_spent": 0.77,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For a constant inductance, U = integral(I L dI) = L I^2/2. With L = 0.250 H and I = 3 A, U = 1.125 J. Increasing the current by 2.8 A gives I = 5.8 A and U = 4.205 J.",
+    "assumptions": [
+      "The stated ideal inductance is constant in the operating range.",
+      "The energy is evaluated after any current change described as occurring then or before measurement.",
+      "An earlier experiment does not change the explicitly specified outset current or the ideal coil's properties."
+    ],
+    "answer": 1.125,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "T5F48": {
+      "stratum": "D",
+      "answer_with_sentence": 1.125,
+      "regime": null
+    },
+    "TF595": {
+      "stratum": "K",
+      "answer_with_sentence": 1.125,
+      "regime": "The operating current, 3 A, is below the 9.5 A limit of the linear regime."
+    },
+    "T8F25": {
+      "stratum": "D",
+      "answer_with_sentence": 1.125,
+      "regime": null
+    },
+    "T9150": {
+      "stratum": "K",
+      "answer_with_sentence": 1.125,
+      "regime": "The operating current, 3 A, is below the 9.5 A saturation threshold; the stated ideal inductance applies."
+    },
+    "T9E75": {
+      "stratum": "R",
+      "answer_with_sentence": 4.205,
+      "regime": null
+    },
+    "T7035": {
+      "stratum": "D",
+      "answer_with_sentence": 1.125,
+      "regime": null
+    },
+    "TA5C2": {
+      "stratum": "R",
+      "answer_with_sentence": 4.205,
+      "regime": null
+    },
+    "T1C85": {
+      "stratum": "C",
+      "answer_with_sentence": 1.125,
+      "regime": null
+    },
+    "T80D0": {
+      "stratum": "D",
+      "answer_with_sentence": 1.125,
+      "regime": null
+    },
+    "T3774": {
+      "stratum": "C",
+      "answer_with_sentence": 1.125,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The required numerical identity across current-increase variants fails: T5F48 versus T8F25, and T7035 versus T80D0, replace an unspecified 'small amount' with 2.8 A."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and all individually rendered questions have determinate answers. The invalid verdict concerns the packet's requirement that variants preserve the same stated number and unit. Earlier experiments are temporally disconnected from the specified outset state. For the ramp sentences, V = L I/t and U = integral(V I dt); the ramp duration cancels.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "fbad7635b533f2fe76d64177ce0ab5bbabcbc29a498597b0c2c90b9160bea19e",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

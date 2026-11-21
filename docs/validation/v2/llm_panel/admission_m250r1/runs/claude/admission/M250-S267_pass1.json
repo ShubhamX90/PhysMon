@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch18",
+  "item_id": "M250-S267",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:31:30Z", "completed_at": "2026-11-21T10:40:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Thevenin equivalent seen by the capacitor: R_th = R1 R2/(R1+R2), tau = R_th C; V_C = V_f (1 - exp(-t/tau)); t_0.9 = tau ln 10", "assumptions": ["ideal battery and wires (stated/standard)", "capacitor initially uncharged (stated)", "ohmic resistors"], "answer": 0.1408, "unit": "s"},
+  "stratum_assignments": {
+    "T77C0": {"stratum": "C", "answer_with_sentence": 0.1408, "regime": null},
+    "TA387": {"stratum": "D", "answer_with_sentence": 0.1408, "regime": null},
+    "TC55C": {"stratum": "C", "answer_with_sentence": 0.1408, "regime": null},
+    "TDA93": {"stratum": "R", "answer_with_sentence": 0.2368, "regime": null},
+    "TE837": {"stratum": "R", "answer_with_sentence": 0.2368, "regime": null},
+    "T1015": {"stratum": "D", "answer_with_sentence": 0.1408, "regime": null},
+    "T7FFF": {"stratum": "D", "answer_with_sentence": 0.1408, "regime": null},
+    "T6164": {"stratum": "D", "answer_with_sentence": 0.1408, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [], "defect_flags": ["insufficient_boundary_condition"], "defect_reasons": {"insufficient_boundary_condition": "For TDA93/TE837 the added 15 uF is not stated to be uncharged; read as simply increasing the capacitance of the (uncharged) capacitor, the answer is unique, which is the natural reading of 'a further 15 uF of capacitance'."}, "defect_severity": {"insufficient_boundary_condition": "medium"},
+  "counterexamples": [],
+  "notes": "R_th = 4.7*6.8/11.5 = 2.7791 kOhm; tau = 2.7791e3*22e-6 = 61.14 ms; t = tau ln10 = 0.14078 s. With 37 uF: tau = 102.83 ms, t = 0.23677 s. Emf cancels from the fraction 0.9 (C). Flash-unit sentences: separate device, D. Earlier-run sentences: D. TDA93's past tense 'had ... before the switch was closed' slightly suggests the extra capacitance might not remain after closing; I read it as still connected (R). Variant numbers consistent (15 uF, 7.5 V)."
+}

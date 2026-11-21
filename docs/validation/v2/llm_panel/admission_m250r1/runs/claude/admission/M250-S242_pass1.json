@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch14",
+  "item_id": "M250-S242",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Exponential decay A_i(t) = A_i0 exp(-ln2 t / T_i); equal count rates with equal efficiency means A1(t) = A2(t): t = ln(A10/A20) / (ln2 (1/T1 - 1/T2)) = ln(4.8) * 72 / (11 ln2)", "assumptions": ["independent decays, no ingrowth", "equal efficiency for both isotopes, negligible background", "count rate proportional to activity"], "answer": 14.81, "unit": "h"},
+  "stratum_assignments": {
+    "T922D": {"stratum": "C", "answer_with_sentence": 14.81, "regime": null},
+    "T9D9A": {"stratum": "D", "answer_with_sentence": 14.81, "regime": null},
+    "T84B6": {"stratum": "D", "answer_with_sentence": 14.81, "regime": null},
+    "T7283": {"stratum": "R", "answer_with_sentence": 12.05, "regime": null},
+    "TADA4": {"stratum": "D", "answer_with_sentence": 14.81, "regime": null},
+    "TF3A2": {"stratum": "D", "answer_with_sentence": 14.81, "regime": null},
+    "T6BE6": {"stratum": "C", "answer_with_sentence": 14.81, "regime": null},
+    "T45EB": {"stratum": "R", "answer_with_sentence": 12.05, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: t = 1.5686*72/(11*0.69315) = 14.81 h. With 170 Bq added to the sample (T7283, T45EB) the longer-lived activity is 670 Bq: t = ln(2400/670)*72/(11 ln2) = 1.2759*72/7.6246 = 12.05 h. Efficiency 0.36 multiplies both count rates and cancels (C). Waste drum is outside the shielding but the counter detects only the sample's decays, so drum additions are D; an earlier sample is D. T9D9A and TF3A2 give no number ('small batch/amount'), unlike their numeric counterparts TADA4 and T84B6; as they are disconnected this does not change any answer. All numeric sentences consistently use 170 Bq and 0.36."
+}

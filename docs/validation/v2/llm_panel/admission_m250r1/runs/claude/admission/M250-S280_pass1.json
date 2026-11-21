@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch08",
+  "item_id": "M250-S280",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:50:00Z", "completed_at": "2026-11-21T11:02:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Hohmann transfer with mu = g R^2: dv = sqrt(mu/r1)(sqrt(2 r2/(r1+r2)) - 1) + sqrt(mu/r2)(1 - sqrt(2 r1/(r1+r2)))",
+    "assumptions": ["inverse-square field, mu = g R^2 = 4.8878e12 m^3/s^2", "impulsive tangential burns (stated)", "coplanar circular orbits, spacecraft mass negligible relative to planet"],
+    "answer": 534.22,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T53EE": {"stratum": "R", "answer_with_sentence": 372.98, "regime": null},
+    "TE6AF": {"stratum": "D", "answer_with_sentence": 534.22, "regime": null},
+    "TCF66": {"stratum": "R", "answer_with_sentence": 372.98, "regime": null},
+    "TC95F": {"stratum": "C", "answer_with_sentence": 534.22, "regime": null},
+    "T1718": {"stratum": "D", "answer_with_sentence": 534.22, "regime": null},
+    "T88D6": {"stratum": "D", "answer_with_sentence": 534.22, "regime": null},
+    "T4C56": {"stratum": "D", "answer_with_sentence": 534.22, "regime": null},
+    "T6EC6": {"stratum": "C", "answer_with_sentence": 534.22, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: r1 = 1837 km, r2 = 4237 km; v1 = 1631.18 m/s, v2 = 1074.06 m/s; dv1 = 1631.18*(1.181155-1) = 295.50, dv2 = 1074.06*(1-0.777734) = 238.73; total 534.22 m/s. With initial altitude 570 km (r1 = 2307 km): v1 = 1455.57, dv1 = 1455.57*0.137949 = 200.79, dv2 = 1074.06*(1-0.839686) = 172.19; total 372.98 m/s. Mass cancels (C). Earlier-flight and relay-satellite sentences are D. TCF66 has no explicit timing but the natural reading is that the initial orbit is higher for this transfer (R); the change in the stated 100 km altitude is the intended modification, not a contradiction. T1718 and T4C56 carry 'a small amount' instead of '470 km'; if meant as variants of numbered sentences they differ in the number, to check in pass 2."
+}

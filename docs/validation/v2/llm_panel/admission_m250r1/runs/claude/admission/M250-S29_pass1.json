@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch06",
+  "item_id": "M250-S29",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:06:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "P = T v cos(theta)", "assumptions": ["constant speed along level ground", "tension and speed unchanged when tilted (stated)"], "answer": 103.92, "unit": "W"},
+  "stratum_assignments": {
+    "T7A7D": {"stratum": "R", "answer_with_sentence": 81.84, "regime": null},
+    "TF8CB": {"stratum": "K", "answer_with_sentence": 103.92, "regime": "tension (40 N) below the rope's breaking limit (210 N)"},
+    "TD53D": {"stratum": "D", "answer_with_sentence": 103.92, "regime": null},
+    "TAAB5": {"stratum": "R", "answer_with_sentence": 81.84, "regime": null},
+    "TB8F6": {"stratum": "D", "answer_with_sentence": 103.92, "regime": null},
+    "T8FA9": {"stratum": "K", "answer_with_sentence": 103.92, "regime": "tension (40 N) below the rope's breaking limit (210 N)"},
+    "T4A60": {"stratum": "D", "answer_with_sentence": 103.92, "regime": null},
+    "T3D43": {"stratum": "D", "answer_with_sentence": 103.92, "regime": null},
+    "T012E": {"stratum": "C", "answer_with_sentence": 103.92, "regime": null},
+    "TFC2B": {"stratum": "C", "answer_with_sentence": 103.92, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base P = 40*3*cos30 = 103.92 W. With 47 deg: 120*cos47 = 120*0.6820 = 81.84 W. Earlier-trial sentences describe a past configuration and do not change the current one (D). Duration: W = T d cos(theta), d = v t, so t cancels from P = W/t (C). Variant groups share numbers: 17 deg (T7A7D, TD53D, TAAB5, T4A60), 'a few degrees' (TB8F6, T3D43), 210 N (TF8CB, T8FA9), 55 s (T012E, TFC2B)."
+}

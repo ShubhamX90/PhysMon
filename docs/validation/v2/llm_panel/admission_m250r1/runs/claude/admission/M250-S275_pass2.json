@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch01",
+  "item_id": "M250-S275",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:36:00Z", "completed_at": "2026-11-21T10:45:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Born rule, psi_n = sqrt(2/L) sin(n pi x/L): P = w/L - [sin(2 n pi (x1+w)/L) - sin(2 n pi x1/L)]/(2 n pi)", "assumptions": ["ideal infinite square well of width 3 nm", "stationary state n = 2", "slice from 0.6 nm to 1.5 nm"], "answer": 0.346774, "unit": "1"},
+  "stratum_assignments": {
+    "TE83E": {"stratum": "D", "answer_with_sentence": 0.346774, "regime": null},
+    "T0018": {"stratum": "D", "answer_with_sentence": 0.346774, "regime": null},
+    "T1E15": {"stratum": "D", "answer_with_sentence": 0.346774, "regime": null},
+    "TE382": {"stratum": "D", "answer_with_sentence": 0.346774, "regime": null},
+    "T6A0A": {"stratum": "R", "answer_with_sentence": 0.359585, "regime": null},
+    "T3E63": {"stratum": "R", "answer_with_sentence": 0.359585, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked R answers: q = 0.16 -> 1.06/3 - (sin(0.21333 pi) - sin(0.8 pi))/(4 pi) = 0.353333 - 0.002655 = 0.350678; q = 0.24 -> 0.38 - 0.020415 = 0.359585; q = 0.56 -> 0.486667 - (0.714473 - 0.587785)/(4 pi) = 0.476585. Base 0.3 + 0.587785/(4 pi) = 0.3467745, so the certified 0.346774 and my pass-1 0.346775 agree within rounding at the last digit. Moving the right edge right by q widens the slice by q (slice stays inside the well for all values, max edge 2.06 nm < 3 nm). Minimal pairs T1E15/T3E63 (metal strip vs probe slice) and TE83E/T6A0A (earlier measurement only vs before this measurement) keep 0.24 nm and differ only in attachment; T0018 and TE382 are declared numeral-free controls. The authors' internal quantity label 'a further strip' is a loose name for the edge shift but does not appear in the item text and does not affect any claim."
+}

@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch15",
+  "item_id": "M250-S232",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:23:00Z", "completed_at": "2026-11-21T10:33:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Deep-water capillary-gravity dispersion omega^2 = g k + sigma k^3/rho; group speed v_g = d omega/dk = (g + 3 sigma k^2/rho)/(2 omega)",
+    "assumptions": ["deep water (kh >> 1)", "small amplitude, inviscid linear waves", "k = 2 pi/0.03 m = 209.44 1/m; sigma k^2/rho = 3.1998 m/s^2; omega = 52.179 rad/s"],
+    "answer": 0.1859,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T1028": {"stratum": "R", "answer_with_sentence": 0.1713, "regime": null},
+    "T9415": {"stratum": "R", "answer_with_sentence": 0.1713, "regime": null},
+    "TC5E1": {"stratum": "D", "answer_with_sentence": 0.1859, "regime": null},
+    "T6703": {"stratum": "D", "answer_with_sentence": 0.1859, "regime": null},
+    "TB5C8": {"stratum": "D", "answer_with_sentence": 0.1859, "regime": null},
+    "T14D0": {"stratum": "D", "answer_with_sentence": 0.1859, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T9415 ('had reduced ... before the ripples were made') can be read as saying the stated 0.0728 N/m is already the reduced value, and it says 'the water' without naming the tank, although the bowl also holds water."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "With sigma = 0.0578 N/m: sigma k^2/rho = 2.5405 m/s^2, omega = 50.839 rad/s, v_g = (9.8 + 7.6214)/(2*50.839) = 0.1713 m/s. All number-bearing sentences state 0.015 N/m, and the bowl and earlier-run sentences are disconnected. T6703 and T14D0 use 'a small amount' with no number."
+}

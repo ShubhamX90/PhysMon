@@ -1,0 +1,96 @@
+{
+  "item_id": "M250-S210",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For underdamped motion, m*x'' + b*x' + k*x = 0 and the displacement envelope is A(t) = A(0)*exp[-bt/(2m)]. Therefore t = (2m/b)*ln(5). Parallel dampers contribute additive damping coefficients.",
+    "assumptions": [
+      "The damper opposes the block's velocity.",
+      "The stated oscillatory regime applies to each current-run configuration.",
+      "The door and equipment used only in an earlier run have no mechanical connection affecting the current oscillation."
+    ],
+    "answer": 8.047189562,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T7E76": {
+      "stratum": "D",
+      "answer_with_sentence": 8.047189562,
+      "regime": null
+    },
+    "TDAF8": {
+      "stratum": "R",
+      "answer_with_sentence": 4.126763878,
+      "regime": null
+    },
+    "T66F6": {
+      "stratum": "D",
+      "answer_with_sentence": 8.047189562,
+      "regime": null
+    },
+    "T2CC3": {
+      "stratum": "R",
+      "answer_with_sentence": 4.126763878,
+      "regime": null
+    },
+    "TF11F": {
+      "stratum": "C",
+      "answer_with_sentence": 8.047189562,
+      "regime": null
+    },
+    "T9920": {
+      "stratum": "C",
+      "answer_with_sentence": 8.047189562,
+      "regime": null
+    },
+    "TB3BF": {
+      "stratum": "D",
+      "answer_with_sentence": 8.047189562,
+      "regime": null
+    },
+    "TFF7E": {
+      "stratum": "D",
+      "answer_with_sentence": 8.047189562,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T7E76 and TB3BF specify only a 'small' damping coefficient, whereas the other extra-damper variants specify 0.19 kg/s, violating the required preservation of the numerical value and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A door damper with coefficient 0.01 kg/s can satisfy T7E76's description but does not satisfy TFF7E's specified coefficient of 0.19 kg/s; those renderings therefore do not preserve the stated quantity."
+  ],
+  "notes": "The base physics and all numerical answers above are well-posed under the stated oscillatory regime. With an additional current-run damper, b_total = 0.39 kg/s. The spring stiffness enters the motion equation and oscillation frequency but cancels from the envelope ratio, so its two synonymous renderings are C. The initial displacement is unnecessary because the question specifies a fraction of the initial envelope. The invalid verdict concerns the required numerical matching of the sentence variants.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:05:57+00:00",
+  "completed_at": "2026-11-21T14:06:32+00:00",
+  "minutes_spent": 0.59,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a39bf714710c85842d2cdff9f42492d9fbc9755c97a45979a4f4dff927b124fe",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

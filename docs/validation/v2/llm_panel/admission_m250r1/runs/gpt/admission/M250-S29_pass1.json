@@ -1,0 +1,104 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S29",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:29:45+00:00",
+  "completed_at": "2026-11-21T14:30:31+00:00",
+  "minutes_spent": 0.76,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Mechanical power is P = F·v = Tv cos(theta). Thus P = (40 N)(3 m/s)cos(30°) = 103.923 W. Tilting the pulling rope another 17° gives P = 120 cos(47°) = 81.840 W.",
+    "assumptions": [
+      "The pulled sled's velocity is horizontal along the ground.",
+      "The rope's stated angle is measured relative to the forward horizontal direction.",
+      "The stated tension and speed remain fixed when the pulling rope is tilted, as explicitly specified."
+    ],
+    "answer": 103.923,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T7A7D": {
+      "stratum": "R",
+      "answer_with_sentence": 81.84,
+      "regime": null
+    },
+    "TF8CB": {
+      "stratum": "K",
+      "answer_with_sentence": 103.923,
+      "regime": "The applied tension of 40 N remains below the rope's 210 N capacity, so the rope remains intact."
+    },
+    "TD53D": {
+      "stratum": "D",
+      "answer_with_sentence": 103.923,
+      "regime": null
+    },
+    "TAAB5": {
+      "stratum": "R",
+      "answer_with_sentence": 81.84,
+      "regime": null
+    },
+    "TB8F6": {
+      "stratum": "D",
+      "answer_with_sentence": 103.923,
+      "regime": null
+    },
+    "T8FA9": {
+      "stratum": "K",
+      "answer_with_sentence": 103.923,
+      "regime": "The applied tension of 40 N is below the stated 210 N breaking threshold."
+    },
+    "T4A60": {
+      "stratum": "D",
+      "answer_with_sentence": 103.923,
+      "regime": null
+    },
+    "T3D43": {
+      "stratum": "D",
+      "answer_with_sentence": 103.923,
+      "regime": null
+    },
+    "T012E": {
+      "stratum": "C",
+      "answer_with_sentence": 103.923,
+      "regime": null
+    },
+    "TFC2B": {
+      "stratum": "C",
+      "answer_with_sentence": 103.923,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The angular variants do not preserve the required numerical value: TB8F6 and T3D43 replace the specified 17° in the corresponding angular statements with an unspecified 'few degrees'."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and all individual target answers are well posed. Earlier-trial statements do not change the explicitly specified present configuration; tilting the separate sled's rope does not affect the pulled sled. Duration cancels because W = Tv cos(theta)t and P = W/t. The duration variants preserve 55 s, and the strength variants preserve 210 N. The invalid verdict concerns the required numerical consistency of the angular variants, even though the unspecified angles occur in statements disconnected from the target.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "24cc2edd4d0f3013b949abbae6d643ac5ccba5be060c37a1356ca880839ab834",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

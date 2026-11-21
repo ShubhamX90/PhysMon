@@ -1,0 +1,96 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S31",
+  "pass_number": 1,
+  "started_at": "2026-11-21T19:05:18+00:00",
+  "completed_at": "2026-11-21T19:05:48+00:00",
+  "minutes_spent": 0.5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Newton's second law gives m*y'' = -m*g and x'' = 0. With initial vertical velocity zero, the flight time is sqrt(2*h/g), so the horizontal distance is 15*sqrt(40/9.8) = 30.3046 m. A 14 m platform supporting the thrower increases h to 34 m, giving 15*sqrt(68/9.8) = 39.5123 m.",
+    "assumptions": [
+      "Uniform downward gravitational acceleration of 9.8 m/s².",
+      "The stated horizontal launch speed implies zero initial vertical velocity.",
+      "The ground is 20 m below the cliff edge.",
+      "A platform supporting the thrower raises the stated launch level by its height.",
+      "Air resistance is neglected as stated."
+    ],
+    "answer": 30.3046,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TA87E": {
+      "stratum": "C",
+      "answer_with_sentence": 30.3046,
+      "regime": null
+    },
+    "T09E8": {
+      "stratum": "D",
+      "answer_with_sentence": 30.3046,
+      "regime": null
+    },
+    "T4ABD": {
+      "stratum": "D",
+      "answer_with_sentence": 30.3046,
+      "regime": null
+    },
+    "TA0DB": {
+      "stratum": "C",
+      "answer_with_sentence": 30.3046,
+      "regime": null
+    },
+    "T1E37": {
+      "stratum": "R",
+      "answer_with_sentence": 39.5123,
+      "regime": null
+    },
+    "TFC1C": {
+      "stratum": "D",
+      "answer_with_sentence": 30.3046,
+      "regime": null
+    },
+    "TA432": {
+      "stratum": "R",
+      "answer_with_sentence": 39.5123,
+      "regime": null
+    },
+    "TE4A5": {
+      "stratum": "D",
+      "answer_with_sentence": 30.3046,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The platform-height variants TFC1C and TE4A5 replace the specified 14 m with 'a few metres', violating the requirement that variants preserve the same stated number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and each individual added-sentence problem have determinate answers. The defect concerns the required matching of variants: TFC1C versus T4ABD and TE4A5 versus T09E8 change the height specification as well as wording. Both mass sentences consistently state 1.8 kg; mass cancels between gravitational force and inertia. The surveyor's platform and a platform used in an earlier experiment have no physical connection to the present stone's flight.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "992f1159fd6b517d369f2a904d982e44469a9ace67106e2e417406c260e7e06e",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

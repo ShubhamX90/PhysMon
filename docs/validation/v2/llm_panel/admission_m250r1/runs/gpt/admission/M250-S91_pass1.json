@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S91",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Hydrostatic manometry gives p_w-p_t=(13600-1000)g(0.12)=14817.6 Pa. Continuity gives v_t=4v_w. Bernoulli at equal elevations gives p_w-p_t=(1000/2)(16-1)v_w^2. Thus Q=(pi*0.10^2/4)sqrt(2*14817.6/(15*1000)).",
+    "assumptions": [
+      "The manometer levels represent hydrostatic equilibrium.",
+      "The horizontal pipe places the two pressure tappings at equal elevations.",
+      "A refill explicitly occurring before the reading replaces the originally specified manometer liquid for that reading."
+    ],
+    "answer": 0.0110395,
+    "unit": "m³/s"
+  },
+  "stratum_assignments": {
+    "T6113": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0110395,
+      "regime": null
+    },
+    "T609E": {
+      "stratum": "R",
+      "answer_with_sentence": 0.00380898,
+      "regime": null
+    },
+    "TE588": {
+      "stratum": "C",
+      "answer_with_sentence": 0.0110395,
+      "regime": null
+    },
+    "T3597": {
+      "stratum": "R",
+      "answer_with_sentence": 0.00380898,
+      "regime": null
+    },
+    "T5A70": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0110395,
+      "regime": null
+    },
+    "T90FF": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0110395,
+      "regime": null
+    },
+    "T2C4F": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0110395,
+      "regime": null
+    },
+    "T7E31": {
+      "stratum": "C",
+      "answer_with_sentence": 0.0110395,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The density variants do not consistently state the same number and unit: T5A70 and T90FF merely say the density is known, whereas the other refill sentences specify 2500 kg/m³."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and all individual augmented problems are solvable; invalidity concerns the stated variant requirement. For a refill before measurement, the pressure difference is (2500-1000)*9.8*0.12=1764 Pa. Refills after measurement are temporally disconnected from the measured flow inference. The pipe's common elevation appears in Bernoulli and cancels. The explicit refill chronology allows the original and replacement densities to describe successive states without contradiction. No external information or tools were used.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T19:11:12+00:00",
+  "completed_at": "2026-11-21T19:11:52+00:00",
+  "minutes_spent": 0.67,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "8ef313f4c6a28c967bf77142e84d94d294db8e0da48e6f7b59f999c446726f86",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

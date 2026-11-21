@@ -1,0 +1,30 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch16",
+  "item_id": "M250-S236",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:08:00Z", "completed_at": "2026-11-21T10:14:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Helmholtz resonator: f = (c/2pi) sqrt(A/(V L_eff)), L_eff = l + 2*0.85 a",
+    "assumptions": ["lumped-element", "rigid walls", "adiabatic compression", "stated end correction"],
+    "answer": 121.985,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "TF775": {"stratum": "D", "answer_with_sentence": 121.985, "regime": null},
+    "TE665": {"stratum": "R", "answer_with_sentence": 98.625, "regime": null},
+    "T7D3B": {"stratum": "C", "answer_with_sentence": 121.985, "regime": null},
+    "TB582": {"stratum": "R", "answer_with_sentence": 98.625, "regime": null},
+    "T8378": {"stratum": "D", "answer_with_sentence": 121.985, "regime": null},
+    "T19EB": {"stratum": "D", "answer_with_sentence": 121.985, "regime": null},
+    "TF909": {"stratum": "D", "answer_with_sentence": 121.985, "regime": null},
+    "T4554": {"stratum": "C", "answer_with_sentence": 121.985, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 5,
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Strata agree with my pass 1. Checked certified R answers: q=1.7 cm L_eff=0.0774 m f=107.76 Hz; q=3.2 cm L_eff=0.0924 m f=98.63 Hz; q=6.3 cm L_eff=0.1234 m f=85.34 Hz. Density cancellation correct. Minimal pairs TF909/TB582 (funnel stem vs flask neck, both 3.2 cm) and T19EB/TE665 (earlier run vs whole measurement, both 3.2 cm) differ only in attachment. My pass-1 medium rendering_not_minimal flag on TF775 and T8378 is withdrawn: the authors declare them numeral-free controls (twins of TF909 and T19EB) rather than minimal-pair variants, and their wording matches their twins with only the number replaced."
+}

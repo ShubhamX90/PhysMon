@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch09",
+  "item_id": "M250-S41",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:34:00Z", "completed_at": "2026-11-21T10:42:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Coulomb's law with equal charge sharing between identical conductors", "assumptions": ["point charges", "equal sharing on contact, no leakage", "vacuum/air"], "answer": 16.0, "unit": "mN"},
+  "stratum_assignments": {
+    "T162F": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "T0EF1": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "TCCA9": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "TAA47": {"stratum": "C", "answer_with_sentence": 16.0, "regime": null},
+    "T81A0": {"stratum": "C", "answer_with_sentence": 16.0, "regime": null},
+    "TA88E": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "T2BDE": {"stratum": "R", "answer_with_sentence": 7.78799, "regime": null},
+    "TFAEF": {"stratum": "R", "answer_with_sentence": 7.78799, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TFAEF's 'Before the force was measured' could in principle be read as preceding the initial 80 mN state rather than the asked force; the base clause 'the force asked for is the one at the final separation, after all their moves' and the fact that the 80 mN is not described as a measurement make the R reading the natural one."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified: base 80*(4/5)*(30/60)^2 = 16 mN; R answers 64*(30/74)^2 = 10.519, 64*(30/86)^2 = 7.788, 64*(30/105)^2 = 5.224 mN. Authors class the radius as C (charge shared in proportion to capacitance, which cancels for equal radii); I gave K in pass 1. Either way the answer is unchanged; the C wiring through the capacitance ratio is legitimate, so I accept C and do not flag it. Minimal pairs T0EF1/TFAEF and TA88E/T2BDE share 26 cm and differ only in attachment; T162F and TCCA9 are declared numeral-free twins. I lower my pass-1 'other' ambiguity flag on TFAEF from medium to low after weighing the base clause; pass 1 is unchanged."
+}

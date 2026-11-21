@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch19",
+  "item_id": "M250-S274",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Anomalous Zeeman effect: E shift = mu_B B (g_P m_P - g_S m_S), selection rule Delta m = 0, +/-1; mu_B = e hbar/(2 m_e); Delta lambda = lambda^2 Delta E / (hc)",
+    "assumptions": ["weak-field (linear Zeeman) regime as stated", "first-order wavelength shift", "outermost components are m_P=+1/2 -> m_S=-1/2 and m_P=-1/2 -> m_S=+1/2 with shifts +/-(g_P/2+g_S/2) mu_B B = +/-1.6675 mu_B B"],
+    "answer": 0.02701,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "T63F3": {"stratum": "K", "answer_with_sentence": 0.02701, "regime": "Linear (anomalous) Zeeman regime mu_B B << fine-structure splitting; mu_B B ~ 2.9e-5 eV << 0.0036 eV"},
+    "T2090": {"stratum": "R", "answer_with_sentence": 0.02998, "regime": null},
+    "TF402": {"stratum": "D", "answer_with_sentence": 0.02701, "regime": null},
+    "TD469": {"stratum": "D", "answer_with_sentence": 0.02701, "regime": null},
+    "T664D": {"stratum": "D", "answer_with_sentence": 0.02701, "regime": null},
+    "TC894": {"stratum": "R", "answer_with_sentence": 0.02998, "regime": null},
+    "T3EF7": {"stratum": "D", "answer_with_sentence": 0.02701, "regime": null},
+    "T4FF2": {"stratum": "K", "answer_with_sentence": 0.02701, "regime": "Linear (anomalous) Zeeman regime mu_B B << fine-structure splitting; mu_B B ~ 2.9e-5 eV << 0.0036 eV"}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 4, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "mu_B = hbar/(2 m_e) in eV/T = 5.7888e-5 eV/T; mu_B B = 2.8944e-5 eV at 0.5 T. Component shifts (units mu_B B): +/-1.6675, +/-0.9985, +/-0.3345. Outer spread 3.335 mu_B B = 9.653e-5 eV; lambda^2/hc = 279.78 nm/eV; Delta lambda = 0.02701 nm. With 0.555 T: 0.02998 nm. T664D and T3EF7 carry no number ('a little'), so they are not same-number variants of the 55 mT sentences; no number is needed since they are disconnected/other-measurement. The 0.0036 eV fine-structure value is not sodium's (about 0.0021 eV), but the item says only 'alkali-metal', so no contradiction."
+}

@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch24",
+  "item_id": "M250-S42",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:28:00Z", "completed_at": "2026-11-21T10:33:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "R = rho L / A with constant volume gives R' = n^2 R = 9 * 2 = 18 ohm; P = V^2 / R' = 144/18", "assumptions": ["constant volume and resistivity (stated)", "ideal battery, negligible leads, constant temperature (stated)"], "answer": 8.0, "unit": "W"},
+  "stratum_assignments": {
+    "TE42B": {"stratum": "D", "answer_with_sentence": 8.0, "regime": null},
+    "T4F86": {"stratum": "D", "answer_with_sentence": 8.0, "regime": null},
+    "TDA6F": {"stratum": "D", "answer_with_sentence": 8.0, "regime": null},
+    "T4B85": {"stratum": "R", "answer_with_sentence": 21.125, "regime": null},
+    "TC5BC": {"stratum": "C", "answer_with_sentence": 8.0, "regime": null},
+    "TC461": {"stratum": "R", "answer_with_sentence": 21.125, "regime": null},
+    "T903C": {"stratum": "C", "answer_with_sentence": 8.0, "regime": null},
+    "TF0E0": {"stratum": "D", "answer_with_sentence": 8.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "With a 7.5 V cell aiding the battery: emf 19.5 V, P = 380.25/18 = 21.125 W. The original length enters R = rho L/A but the stretch factor and initial resistance fix R', so it cancels (C). The lamp's circuit is separate (D); 'earlier experiment only' sentences describe a state that no longer applies (D). TE42B and T4F86 carry no number ('a small cell')."
+}

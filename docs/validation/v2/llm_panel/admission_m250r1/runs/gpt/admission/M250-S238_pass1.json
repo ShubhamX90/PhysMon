@@ -1,0 +1,108 @@
+{
+  "item_id": "M250-S238",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For steady circular cylindrical Couette flow, v_theta = Ar + B/r. Applying no slip gives torque T = 4*pi*mu*L*Omega*a^2*b^2/(b^2-a^2), and power P = T*Omega. With a = 0.020 m, b = 0.022 m, L = 0.10 m, mu = 0.4 Pa·s and Omega = 4*pi rad/s, P = 0.182949 W.",
+    "assumptions": [
+      "Use the stated steady, laminar, purely circular Newtonian flow with constant viscosity and negligible end effects.",
+      "The oil satisfies no slip at both cylindrical surfaces.",
+      "The requested power is the mechanical power supplied against the oil's viscous torque.",
+      "For current-run speed increases, the actual maintained rotor speed follows the setting and reaches 195 rpm."
+    ],
+    "answer": 0.182949,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T2F2B": {
+      "stratum": "K",
+      "answer_with_sentence": 0.182949,
+      "regime": "The operating speed of 120 rpm is below the stated 6500 rpm threshold; interpret vortices as secondary Taylor vortices."
+    },
+    "TF18F": {
+      "stratum": "K",
+      "answer_with_sentence": 0.182949,
+      "regime": "The operating speed of 120 rpm is below the stated 6500 rpm limit for purely circular flow."
+    },
+    "TEF4A": {
+      "stratum": "R",
+      "answer_with_sentence": 0.4831,
+      "regime": null
+    },
+    "TFDA3": {
+      "stratum": "D",
+      "answer_with_sentence": 0.182949,
+      "regime": null
+    },
+    "T564F": {
+      "stratum": "R",
+      "answer_with_sentence": 0.4831,
+      "regime": null
+    },
+    "T7A33": {
+      "stratum": "D",
+      "answer_with_sentence": 0.182949,
+      "regime": null
+    },
+    "T5A9C": {
+      "stratum": "C",
+      "answer_with_sentence": 0.182949,
+      "regime": null
+    },
+    "T0105": {
+      "stratum": "D",
+      "answer_with_sentence": 0.182949,
+      "regime": null
+    },
+    "T4956": {
+      "stratum": "D",
+      "answer_with_sentence": 0.182949,
+      "regime": null
+    },
+    "TF420": {
+      "stratum": "C",
+      "answer_with_sentence": 0.182949,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal",
+    "other"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TFDA3 versus T0105 and T4956 versus T7A33 replace the specified increase of 75 rpm with 'a small amount', violating the required preservation of the numerical value and unit.",
+    "other": "After a current-run speed increase, 'this rate' in the question can refer either to the originally stated 120 rpm or to the updated 195 rpm."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high",
+    "other": "medium"
+  },
+  "counterexamples": [],
+  "notes": "The base physics is well posed. The current-run increase answers use 195 rpm, giving P_new/P_base = (195/120)^2. If 'this rate' retains its original referent, the requested power remains 0.182949 W. Earlier-run changes have no effect on the specified present steady state. Density enters the radial pressure balance, dp/dr = rho*v_theta^2/r, but drops out of the azimuthal velocity, viscous torque and power. The exact cylindrical solution is used rather than a narrow-gap approximation. The numerical-preservation defect concerns the packet's variant requirement; it does not make the individual flow calculations incorrect.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T19:06:05+00:00",
+  "completed_at": "2026-11-21T19:07:06+00:00",
+  "minutes_spent": 1.01,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "d3c6c4455ec5bc16f157d8df7cb03a7e2d453bc160ebed3b1f51a75472a90727",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

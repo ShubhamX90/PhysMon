@@ -1,0 +1,86 @@
+{
+  "item_id": "M250-S279",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For photons emitted toward the stationary axis, the laboratory propagation direction is perpendicular to the source velocity. The relativistic Doppler relation gives ν_abs = ν_0/γ. Thus ν_0 − ν_abs ≈ (E_0/h)(2πrf)^2/(2c^2), with the leading nonzero term quadratic in v/c.",
+    "assumptions": [
+      "Special relativity applies in the laboratory frame.",
+      "The stated source-frame photon energy remains fixed.",
+      "The stated rotation frequency remains 600 Hz when the current radius is increased, including in T1355."
+    ],
+    "answer": 3964103,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T6166": {
+      "stratum": "D",
+      "answer_with_sentence": 3964103,
+      "regime": null
+    },
+    "TCFA7": {
+      "stratum": "D",
+      "answer_with_sentence": 3964103,
+      "regime": null
+    },
+    "TC381": {
+      "stratum": "R",
+      "answer_with_sentence": 6785592,
+      "regime": null
+    },
+    "T1355": {
+      "stratum": "R",
+      "answer_with_sentence": 6785592,
+      "regime": null
+    },
+    "TA7FF": {
+      "stratum": "D",
+      "answer_with_sentence": 3964103,
+      "regime": null
+    },
+    "TCAAF": {
+      "stratum": "D",
+      "answer_with_sentence": 3964103,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The required common number and unit are not preserved across the radius-increment variants: T6166 and TA7FF say only 'a little larger', whereas the quantified sentences specify 3.7 cm."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "An earlier-run radius increase of 1 cm satisfies T6166's qualitative statement but does not satisfy TCFA7's specified increase of 3.7 cm."
+  ],
+  "notes": "The base physics is correct and well-posed. The invalid verdict concerns the stated variant-construction requirement. The qualitative sentences match each other, and all quantified increments match at 3.7 cm, but the qualitative and quantified renderings do not preserve the same numerical information. Earlier-run changes have no effect on the current measurement; the pump pulley has no stated coupling to the rotor. Increasing the current source radius from 0.120 m to 0.157 m at 600 Hz multiplies the shift by (0.157/0.120)^2.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T13:50:12+00:00",
+  "completed_at": "2026-11-21T13:51:15+00:00",
+  "minutes_spent": 1.05,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "2d71d253c5839a789874817e9f572124d48e0beef5b8d78d72084c7278870001",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S77",
+  "pass_number": 1,
+  "started_at": "2026-11-21T19:07:45+00:00",
+  "completed_at": "2026-11-21T19:08:49+00:00",
+  "minutes_spent": 1.07,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "T = exp(-2aκ), κ = sqrt(2(mc²)(U-E))/(ħc), so a = (ħc)ln(1/T)/(2sqrt(2(mc²)(U-E))). With U-E = 3 eV, κ = 8.87481 nm⁻¹ and a = 0.389178 nm.",
+    "assumptions": [
+      "Use the explicitly prescribed transmission and decay-constant model.",
+      "The target is transmission through the original barrier during the electron's encounter.",
+      "The second barrier does not enter the stipulated single-barrier transmission relation."
+    ],
+    "answer": 0.389178,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "TFB05": {
+      "stratum": "D",
+      "answer_with_sentence": 0.389178,
+      "regime": null
+    },
+    "T9848": {
+      "stratum": "D",
+      "answer_with_sentence": 0.389178,
+      "regime": null
+    },
+    "T6F0D": {
+      "stratum": "D",
+      "answer_with_sentence": 0.389178,
+      "regime": null
+    },
+    "T0D94": {
+      "stratum": "D",
+      "answer_with_sentence": 0.389178,
+      "regime": null
+    },
+    "TDA04": {
+      "stratum": "R",
+      "answer_with_sentence": 0.454462,
+      "regime": null
+    },
+    "T8282": {
+      "stratum": "R",
+      "answer_with_sentence": 0.454462,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TFB05 and T6F0D give only 'a new value', whereas their otherwise matching variants T0D94 and T9848 specify 7.2 eV, violating the requirement that variants preserve the stated number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and each individual rendering have a definite answer under the prescribed model; the invalid verdict concerns the required variant matching. Changes made after the electron leaves cannot affect its earlier transmission. Changing the second barrier likewise does not enter the supplied relation. Changing the encountered barrier before arrival gives U-E = 2.2 eV and a = 0.454462 nm.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f311eb897aa67b8ad961b799e065c49258e187fe8b2dde4ddacd21db7edf3635",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

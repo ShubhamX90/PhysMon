@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch14",
+  "item_id": "M250-S239",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:28:00Z", "completed_at": "2026-11-21T10:36:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "P = P0 sin^2(2 alpha) sin^2(pi dn d / lambda)", "assumptions": ["no absorption or reflection", "ideal polariser and analyser, crossed", "normal incidence"], "answer": 5.1196, "unit": "mW"},
+  "stratum_assignments": {
+    "T8B20": {"stratum": "R", "answer_with_sentence": 3.4385, "regime": null},
+    "T6887": {"stratum": "D", "answer_with_sentence": 5.1196, "regime": null},
+    "TD658": {"stratum": "D", "answer_with_sentence": 5.1196, "regime": null},
+    "TC0D0": {"stratum": "R", "answer_with_sentence": 3.4385, "regime": null},
+    "TDB47": {"stratum": "D", "answer_with_sentence": 5.1196, "regime": null},
+    "T4691": {"stratum": "D", "answer_with_sentence": 5.1196, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"], "defect_reasons": {"other": "T8B20's 'Polishing then thins the plate' does not fix whether the thinning precedes the light's passage; the authors' R reading (thickness d - q) is the natural one given the scene clause about thickness before polishing, but an after-the-light reading would give the base answer."}, "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "notes": "Verified certified answers: q=3.5 um -> d=20.5 um, dn d=188.6 nm, sin^2(1.00595)=0.7135, P=4.281 mW; q=6.5 -> 3.438 mW; q=11 -> d=13 um, sin^2(0.63792)=0.3547, P=2.128 mW; base 5.1196 mW. All match. Minimal pair T8B20/TDB47 differ only in plate vs lens. T6887 is explicitly not claimed as a minimal pair of TC0D0, so no rendering defect. Numeral-free controls TD658 and T4691 are declared as such. Quantity label for T4691/TDB47 says 'a thinning of the plate' though the sentence concerns the lens; this is just the shared quantity label of the D variant, not a physics error. Agree with pass 1."
+}

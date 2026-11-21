@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch19",
+  "item_id": "M250-S264",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:46:00Z", "completed_at": "2026-11-21T10:51:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Series RLC: tan(phi) = (omega L - 1/(omega C))/R",
+    "assumptions": ["ideal source, L and C", "steady sinusoidal state"],
+    "answer": 40.351,
+    "unit": "deg"
+  },
+  "stratum_assignments": {
+    "T3337": {"stratum": "D", "answer_with_sentence": 40.351, "regime": null},
+    "TA667": {"stratum": "C", "answer_with_sentence": 40.351, "regime": null},
+    "T2697": {"stratum": "D", "answer_with_sentence": 40.351, "regime": null},
+    "T4415": {"stratum": "C", "answer_with_sentence": 40.351, "regime": null},
+    "TD7F0": {"stratum": "D", "answer_with_sentence": 40.351, "regime": null},
+    "T0B12": {"stratum": "R", "answer_with_sentence": 30.083, "regime": null},
+    "TEEB4": {"stratum": "R", "answer_with_sentence": 30.083, "regime": null},
+    "T6DE7": {"stratum": "D", "answer_with_sentence": 40.351, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Agrees with pass 1 (40.35 deg; 30.08 deg with 44 ohm). Checked other R values: R = 36.5 ohm gives atan(0.6983) = 34.93 deg; R = 57 ohm gives atan(0.44716) = 24.09 deg. C cancellation of peak voltage is correct (phase independent of amplitude). Minimal pairs T2697/TEEB4 and T6DE7/T0B12 share 14 ohm and differ only in attachment/timing; numeral-free twins T3337 and TD7F0 match their D twins. The R wiring text for T0B12 says 'in series with the inductor' while the sentence says 'series resistance' of the circuit; equivalent in a single series loop."
+}

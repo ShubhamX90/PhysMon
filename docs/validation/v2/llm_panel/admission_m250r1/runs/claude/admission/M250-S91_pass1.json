@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch06",
+  "item_id": "M250-S91",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:31:00Z", "completed_at": "2026-11-21T10:40:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Bernoulli + continuity, manometer: p1 - p2 = (rho_m - rho) g h; Q = A2 sqrt(2 (p1 - p2) / (rho (1 - (A2/A1)^2)))", "assumptions": ["steady, incompressible, inviscid flow with uniform speed (stated)", "horizontal pipe", "manometer liquid immiscible and denser than flowing liquid"], "answer": 0.01104, "unit": "m^3/s"},
+  "stratum_assignments": {
+    "T6113": {"stratum": "D", "answer_with_sentence": 0.01104, "regime": null},
+    "T609E": {"stratum": "R", "answer_with_sentence": 0.003809, "regime": null},
+    "TE588": {"stratum": "C", "answer_with_sentence": 0.01104, "regime": null},
+    "T3597": {"stratum": "R", "answer_with_sentence": 0.003809, "regime": null},
+    "T5A70": {"stratum": "D", "answer_with_sentence": 0.01104, "regime": null},
+    "T90FF": {"stratum": "D", "answer_with_sentence": 0.01104, "regime": null},
+    "T2C4F": {"stratum": "D", "answer_with_sentence": 0.01104, "regime": null},
+    "T7E31": {"stratum": "C", "answer_with_sentence": 0.01104, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: dp = 12600*9.8*0.12 = 14817.6 Pa; v2^2 (1 - 1/16) = 29.635 -> v2 = 5.622 m/s; Q = 1.9635e-3*5.622 = 0.01104 m^3/s. With 2500 kg/m^3 in the U-tube when the 12 cm is read: dp = 1500*9.8*0.12 = 1764 Pa; v2^2 = 3.528*16/15 = 3.763 -> v2 = 1.940 m/s; Q = 3.809e-3 m^3/s. Refilling after the reading leaves the reading as taken with the 13600 liquid (D). Second manometer is on a different pipe (D). Height of the horizontal pipe axis enters both Bernoulli terms equally and cancels (C). Variant numbers consistent: 2500 kg/m^3 across T6113, T609E, T3597, T2C4F; 2.1 m across TE588, T7E31."
+}

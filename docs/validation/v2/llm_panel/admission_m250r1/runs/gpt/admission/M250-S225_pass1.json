@@ -1,0 +1,100 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S225",
+  "pass_number": 1,
+  "started_at": "2026-11-21T13:53:56+00:00",
+  "completed_at": "2026-11-21T13:55:02+00:00",
+  "minutes_spent": 1.11,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Steady radial conduction through homogeneous insulation without internal heat generation gives T(r)=420-120 ln(r/0.03)/ln(0.09/0.03). Thus the requested fall is 120 ln(5/3)/ln(3).",
+    "assumptions": [
+      "The insulation is homogeneous, with no internal heat generation.",
+      "The long-pipe approximation eliminates end effects.",
+      "For an added layer retained on the pipe, the stated 300 K boundary applies to the new outermost surface."
+    ],
+    "answer": 55.7968,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "T2495": {
+      "stratum": "C",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T8870": {
+      "stratum": "C",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T6641": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T21B1": {
+      "stratum": "R",
+      "answer_with_sentence": 47.855,
+      "regime": null
+    },
+    "T26FA": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T6E73": {
+      "stratum": "D",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T15F5": {
+      "stratum": "R",
+      "answer_with_sentence": 47.855,
+      "regime": null
+    },
+    "T8754": {
+      "stratum": "D",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "Whether the additional insulation mentioned in the earlier survey remains in the configuration being asked about.",
+    "The thickness in T26FA if that additional insulation remains."
+  ],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T6641 and T26FA do not establish whether the historical extra wrapping remains in the present configuration; if it remains, the outer boundary radius changes, and T26FA additionally leaves its value unspecified."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "For T6641, a historical extra wrap subsequently removed leaves the current outer radius at 9 cm and gives 55.7968 K; retaining that wrap gives an outer radius of 10.8 cm and a fall of 47.8550 K.",
+    "For T26FA with a retained extra thickness d, the fall is 120 ln(5/3)/ln((9 cm+d)/(3 cm)); different positive small thicknesses give different answers."
+  ],
+  "notes": "The base problem is well-posed. Conductivity enters the heat-current equation but cancels from the temperature profile with both surface temperatures prescribed. The tank has no physical path to the target under the stated purely radial model. T21B1 and T15F5 naturally describe a modification to the original geometry, producing an outer radius of 10.8 cm. Historical wrapping is classified provisionally as R if retained; if the earlier survey describes only a superseded configuration, it does not change the present steady solution. The conductivity variants match in number and unit, as do the explicit 1.8 cm variants. The two 'small thickness' sentences provide no numerical thickness and cannot establish numerical equivalence with the 1.8 cm sentences. Temporal wording also changes across the thickness variants, so attachment is not their only potentially consequential difference.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "b2f777f5b01873aa9ff9a51e3518800c0878345be6eaef6cbfd4687ccc6fb183",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S220",
+  "pass_number": 2,
+  "started_at": "2026-11-21T19:04:27+00:00",
+  "completed_at": "2026-11-21T19:05:18+00:00",
+  "minutes_spent": 0.84,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "At insertion depth x, C(x)=C0[1+(kappa-1)x/ell]. Including the battery's work, the inward force at fixed voltage is F=(V^2/2)dC/dx=V^2 C0(kappa-1)/(2 ell). With C0=200e-12 F and ell=0.10 m, dC/dx=6.00e-9 F/m, so F=7.50e-4 N=0.75 mN. A series-aiding additional battery replaces V by V+q.",
+    "assumptions": [
+      "The stated linear dielectric fills the plate width and separation over the inserted length.",
+      "The slab is partly inserted with its advancing edge away from the plate ends.",
+      "The connected ideal voltage source maintains the applied voltage.",
+      "Air is treated as vacuum, and fringe-field corrections and friction are neglected as instructed."
+    ],
+    "answer": 0.75,
+    "unit": "mN"
+  },
+  "stratum_assignments": {
+    "T9C5B": {
+      "stratum": "D",
+      "answer_with_sentence": 0.75,
+      "regime": null
+    },
+    "T09BD": {
+      "stratum": "D",
+      "answer_with_sentence": 0.75,
+      "regime": null
+    },
+    "TBFE0": {
+      "stratum": "R",
+      "answer_with_sentence": 2.1675,
+      "regime": null
+    },
+    "TABCB": {
+      "stratum": "D",
+      "answer_with_sentence": 0.75,
+      "regime": null
+    },
+    "TA3FF": {
+      "stratum": "K",
+      "answer_with_sentence": 0.75,
+      "regime": "Positive partial insertion with x<ell and the advancing edge away from the plate ends; all listed insertion lengths satisfy the stated geometry."
+    },
+    "TAC6D": {
+      "stratum": "K",
+      "answer_with_sentence": 0.75,
+      "regime": "Positive partial insertion with x<ell and the advancing edge away from the plate ends; all listed insertion lengths satisfy the stated geometry."
+    },
+    "TE652": {
+      "stratum": "R",
+      "answer_with_sentence": 2.1675,
+      "regime": null
+    },
+    "T8F88": {
+      "stratum": "D",
+      "answer_with_sentence": 0.75,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All governing relations, dimensions and certified numerical answers check out. For additional series-aiding emfs of 150, 350 and 700 V, the forces are respectively 1.2675, 2.1675 and 4.32 mN. Earlier-run batteries and the independently supplied Geiger counter have no stated dependency on the present capacitor voltage. The insertion lengths 2.5, 4.5 and 6.5 cm all give 0.75 mN. I accept K for these lengths because force independence holds within the partial-insertion regime; my pass-1 C classification described the same disappearance of x upon differentiating C(x), but did not emphasize the regime boundary. The stated outside-regime zero force is consistent with an ideal fully covered capacitor away from edges. I withdraw the pass-1 rendering_not_minimal flag: pass 2 explicitly identifies T9C5B and T8F88 as numeral-free controls, rather than claiming they preserve their numerical twins' number and unit. The actual minimal_pair_with claims pair T09BD with TBFE0 and TABCB with TE652, preserving 350 V while changing the battery's attachment or event.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "59fb334762d0478d2948c098008b3ad83ab9e420deb0e61a705e16b2ccc79934",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

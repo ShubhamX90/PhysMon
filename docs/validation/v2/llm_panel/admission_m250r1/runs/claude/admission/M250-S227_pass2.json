@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch27",
+  "item_id": "M250-S227",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:08:00Z", "completed_at": "2026-11-21T10:15:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Two-level Boltzmann: U = dE*g*exp(-x)/(1+g*exp(-x)), x = dE/(RT)",
+    "assumptions": ["thermal equilibrium", "only two levels accessible", "internal level energy measured from ground"],
+    "answer": 1.278,
+    "unit": "kJ/mol"
+  },
+  "stratum_assignments": {
+    "T0EF9": {"stratum": "D", "answer_with_sentence": 1.27797, "regime": null},
+    "T9DAE": {"stratum": "D", "answer_with_sentence": 1.27797, "regime": null},
+    "TCA07": {"stratum": "D", "answer_with_sentence": 1.27797, "regime": null},
+    "T5974": {"stratum": "R", "answer_with_sentence": 1.57093, "regime": null},
+    "T4CBB": {"stratum": "R", "answer_with_sentence": 1.57093, "regime": null},
+    "T86F4": {"stratum": "D", "answer_with_sentence": 1.27797, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Recomputed all certified answers: 300 K -> 1.27797; 322 K (x=2.2412, frac 0.24184) -> 1.45105; 338 K -> 1.57093; 370 K (x=1.9505, frac 0.29904) -> 1.79426 kJ/mol; all match. Minimal pairs T0EF9/T5974 and T86F4/T4CBB share 38 K and differ only in attachment (earlier run vs current run; water bath vs gas). T9DAE and TCA07 are declared numeral-free twins, which resolves the pass-1 note about 'a few kelvin'; they match their twins' wording apart from the number. No disagreement with pass 1."
+}

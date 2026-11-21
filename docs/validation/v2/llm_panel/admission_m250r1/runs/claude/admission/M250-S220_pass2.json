@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch26",
+  "item_id": "M250-S220",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:36:00Z", "completed_at": "2026-11-21T10:42:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Force on dielectric slab at constant voltage: F = (1/2) V^2 dC/dx, with C(x) = C0 [1 + (kappa-1) x/L]", "assumptions": ["no fringe fields", "constant battery voltage", "slab well inside the plate ends", "air treated as vacuum"], "answer": 0.75, "unit": "mN"},
+  "stratum_assignments": {
+    "T9C5B": {"stratum": "D", "answer_with_sentence": 0.75, "regime": null},
+    "T09BD": {"stratum": "D", "answer_with_sentence": 0.75, "regime": null},
+    "TBFE0": {"stratum": "R", "answer_with_sentence": 2.1675, "regime": null},
+    "TABCB": {"stratum": "D", "answer_with_sentence": 0.75, "regime": null},
+    "TA3FF": {"stratum": "K", "answer_with_sentence": 0.75, "regime": "0 < inserted length < plate length (10 cm), edge away from the ends"},
+    "TAC6D": {"stratum": "K", "answer_with_sentence": 0.75, "regime": "0 < inserted length < plate length (10 cm), edge away from the ends"},
+    "TE652": {"stratum": "R", "answer_with_sentence": 2.1675, "regime": null},
+    "T8F88": {"stratum": "D", "answer_with_sentence": 0.75, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Base 0.75 mN matches my 7.5e-4 N. R answers: 650 V -> 0.5*422500*6e-9 = 1.2675 mN; 850 V -> 2.1675 mN; 1200 V -> 4.32 mN, all correct. In pass 1 I classed the insertion depth as C; the authors' K, with regime q < ell, is equally or more apt, since the force vanishes once the slab fills the plates. The listed 2.5/4.5/6.5 cm all lie inside that regime. I now accept K, and the label difference is not a defect. Minimal pairs T09BD/TBFE0 and TABCB/TE652 share 350 V and differ only in attachment; T9C5B and T8F88 are declared numeral-free twins."
+}

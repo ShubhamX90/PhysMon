@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch24",
+  "item_id": "M250-S226",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:20:00Z", "completed_at": "2026-11-21T10:28:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Equal-resistance radiative network with two shields, equal emissivity: Ts^4 = (2 Th^4 + Tc^4)/3", "assumptions": ["large parallel opaque diffuse grey surfaces, equal emissivity", "steady state, radiation only"], "answer": 724.66, "unit": "K"},
+  "stratum_assignments": {
+    "TF3A9": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "T1186": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "T3B75": {"stratum": "C", "answer_with_sentence": 724.66, "regime": null},
+    "TAE28": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "TBE0E": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "T70E5": {"stratum": "C", "answer_with_sentence": 724.66, "regime": null},
+    "T0D5D": {"stratum": "R", "answer_with_sentence": 787.52, "regime": null},
+    "T7BAD": {"stratum": "R", "answer_with_sentence": 787.52, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified certified answers: 835 K -> Ts^4 = (2*4.861227e11 + 8.1e9)/3 = 3.267818e11, Ts = 756.074 K; 870 K -> 787.519 K; 940 K -> Ts^4 = 5.231993e11, Ts = 850.485 K; base 724.662 K. The relation Ts = T1*((2 + (T2/T1)^4)/3)^(1/4) matches my derivation, and emissivity cancels since every gap has resistance (2 - eps)/eps. Minimal pairs: TAE28/T7BAD differ only in kettle water vs hot plate; TF3A9/T0D5D differ in earlier run vs present run (intended attachment). T1186 and TBE0E are declared numeral-free controls. The R sentences use the problem's 800 K as the hot plate's initial temperature, which reads consistently. Agreement with pass 1."
+}

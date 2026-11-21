@@ -1,0 +1,92 @@
+{
+  "item_id": "M250-S54",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Stefan–Boltzmann law: P = εσ4πr²T⁴. Equal emissivities give P2 = P1(r2/r1)²(T2/T1)⁴. A coating of thickness q changes the second sphere's emitting radius to r2 + q.",
+    "assumptions": [
+      "The stated equal, constant emissivity applies to both emitting surfaces.",
+      "Absorbed radiation is negligible, as stated.",
+      "The specified second-sphere temperature applies to its outer surface after any coating.",
+      "The coating thickness is radial and uniform."
+    ],
+    "answer": 12.4416,
+    "unit": "kW"
+  },
+  "stratum_assignments": {
+    "T298E": {
+      "stratum": "D",
+      "answer_with_sentence": 12.4416,
+      "regime": null
+    },
+    "TA4B6": {
+      "stratum": "R",
+      "answer_with_sentence": 26.158464,
+      "regime": null
+    },
+    "TCB5F": {
+      "stratum": "D",
+      "answer_with_sentence": 12.4416,
+      "regime": null
+    },
+    "TDB9C": {
+      "stratum": "D",
+      "answer_with_sentence": 12.4416,
+      "regime": null
+    },
+    "T6222": {
+      "stratum": "R",
+      "answer_with_sentence": 26.158464,
+      "regime": null
+    },
+    "T4B8C": {
+      "stratum": "D",
+      "answer_with_sentence": 12.4416,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T298E and TDB9C replace the specified 4.5 cm thickness with 'thin', violating the review instructions' requirement that variants concerning the same quantity preserve its number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A 1 mm bracket coating satisfies T298E but not TCB5F; these renderings therefore differ in thickness specification, although their radiated-power answers agree."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "All physical classifications, wiring and certified answers check out. For either relevant sentence, thicknesses 2.5, 4.5 and 7.5 cm give 19.44, 26.158464 and 38.1024 kW respectively; 26.1585 kW is correctly rounded. Every disconnected sentence preserves 12.4416 kW. The explicitly named numerical minimal pairs preserve number, unit and wording apart from attachment. Pass 2 explains that the two numeral-free controls are intentional, and their twin descriptions are accurate. Nevertheless, the binding review instructions provide no exception to the common-number-and-unit requirement for such controls, so the pass-1 rendering defect is retained. The invalid verdict concerns that rendering requirement alone; the individual physics problems and numerical claims are correct.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T13:58:05+00:00",
+  "completed_at": "2026-11-21T13:58:43+00:00",
+  "minutes_spent": 0.63,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "86c97ba498126ac9c6d14873a00fe175c6ea0a384f1ef7ad801ce92d53267ed4",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

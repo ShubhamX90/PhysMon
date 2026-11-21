@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch26",
+  "item_id": "M250-S220",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:29:00Z", "completed_at": "2026-11-21T10:36:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Force on dielectric slab at constant voltage: F = (1/2) V^2 dC/dx, with C(x) = C0 [1 + (kappa-1) x/L]", "assumptions": ["no fringe fields", "constant battery voltage", "slab well inside the plate ends", "air treated as vacuum"], "answer": 7.5e-4, "unit": "N"},
+  "stratum_assignments": {
+    "T9C5B": {"stratum": "D", "answer_with_sentence": 7.5e-4, "regime": null},
+    "T09BD": {"stratum": "D", "answer_with_sentence": 7.5e-4, "regime": null},
+    "TBFE0": {"stratum": "R", "answer_with_sentence": 2.1675e-3, "regime": null},
+    "TABCB": {"stratum": "D", "answer_with_sentence": 7.5e-4, "regime": null},
+    "TA3FF": {"stratum": "C", "answer_with_sentence": 7.5e-4, "regime": null},
+    "TAC6D": {"stratum": "C", "answer_with_sentence": 7.5e-4, "regime": null},
+    "TE652": {"stratum": "R", "answer_with_sentence": 2.1675e-3, "regime": null},
+    "T8F88": {"stratum": "D", "answer_with_sentence": 7.5e-4, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "dC/dx = C0 (kappa-1)/L = 200e-12*3/0.10 = 6.0e-9 F/m; F = 0.5*500^2*6e-9 = 7.5e-4 N. With 850 V: F = 0.5*722500*6e-9 = 2.1675e-3 N. Insertion depth cancels from dC/dx (C), provided the slab edge stays away from the plate ends; 4.5 cm of 10 cm is consistent with 'well away from both ends'. Earlier-run and Geiger-supply batteries are D. Numeral-free 'small battery' sentences (T9C5B, T8F88) differ in carrying no number from their 350 V counterparts."
+}

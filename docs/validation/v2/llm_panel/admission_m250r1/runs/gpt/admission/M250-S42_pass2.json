@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S42",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Resistance is R = rho L/A. Conserved volume gives Anew = A0/3, hence Rnew = 9R0 = 18 ohm. Power is P = V^2/Rnew = 8 W. An aiding series cell changes this to P = (12 + q)^2/18.",
+    "assumptions": [
+      "The wire remains uniform after drawing.",
+      "Volume and resistivity remain unchanged.",
+      "The sources and connecting leads have negligible resistance.",
+      "The lamp has its own separate electrical circuit."
+    ],
+    "answer": 8.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "TE42B": {
+      "stratum": "D",
+      "answer_with_sentence": 8.0,
+      "regime": null
+    },
+    "T4F86": {
+      "stratum": "D",
+      "answer_with_sentence": 8.0,
+      "regime": null
+    },
+    "TDA6F": {
+      "stratum": "D",
+      "answer_with_sentence": 8.0,
+      "regime": null
+    },
+    "T4B85": {
+      "stratum": "R",
+      "answer_with_sentence": 21.125,
+      "regime": null
+    },
+    "TC5BC": {
+      "stratum": "C",
+      "answer_with_sentence": 8.0,
+      "regime": null
+    },
+    "TC461": {
+      "stratum": "R",
+      "answer_with_sentence": 21.125,
+      "regime": null
+    },
+    "T903C": {
+      "stratum": "C",
+      "answer_with_sentence": 8.0,
+      "regime": null
+    },
+    "TF0E0": {
+      "stratum": "D",
+      "answer_with_sentence": 8.0,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All physical classifications agree with pass 1. The relevant-cell answers at 3.5, 7.5 and 16 V are respectively 13.347222..., 21.125 and 43.555556... W, consistent with the certified precision. Original length cancels for every listed positive length. Both explicitly claimed minimal pairs preserve 7.5 V and change the intended circuit or temporal attachment. I withdraw the pass-1 rendering_not_minimal flag: the additional claims identify TE42B and T4F86 as deliberate numeral-free controls, rather than numbered minimal-pair counterparts. Their wording matches their specified twins after replacing '7.5 V' with 'small'. No outside information was consulted.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T19:09:04+00:00",
+  "completed_at": "2026-11-21T19:09:36+00:00",
+  "minutes_spent": 0.54,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "87ee06f6266086afeeb564cd8deb159db52792d2c0fdc88b240665eca3ce3c8f",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

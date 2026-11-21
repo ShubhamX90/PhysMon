@@ -1,0 +1,113 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S233",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Snell's law gives theta_t = asin(sin(75 degrees)/1.5). The Fresnel power reflectance for p-polarised light is R = [(1.5 cos(75 degrees) - cos(theta_t))/(1.5 cos(75 degrees) + cos(theta_t))]^2 = 0.1067651. Conservation of power gives P_entering = (1-R) P_incident.",
+    "assumptions": [
+      "Air has refractive index one.",
+      "The glass follows the Fresnel model for a transparent, nonmagnetic dielectric.",
+      "The base beam reaches the interface without an intervening change in power.",
+      "Only transmission through the first surface is counted."
+    ],
+    "answer": 4.46617,
+    "unit": "mW"
+  },
+  "stratum_assignments": {
+    "T6A28": {
+      "stratum": "C",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "TBC5B": {
+      "stratum": "R",
+      "answer_with_sentence": 7.50317,
+      "regime": null
+    },
+    "T38E1": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "T8526": {
+      "stratum": "C",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "T01A0": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "T6921": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "TAC23": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TA9F7": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TAC23 does not place the amplifier before the first glass surface, so its claimed incident power P0 + q and its certified transmitted powers are not uniquely established."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "TAC23",
+      "case": "The amplifier acts between the laser and the first glass surface and adds 3.4 mW.",
+      "answer": 7.50317,
+      "unit": "mW"
+    },
+    {
+      "sentence_id": "TAC23",
+      "case": "The amplifier acts on the transmitted beam downstream of the first surface, adding 3.4 mW without optical feedback.",
+      "answer": 4.46617,
+      "unit": "mW"
+    }
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "The base Fresnel relations and answer are correct. For amplification before incidence, the certified powers at additions of 1.7, 3.4 and 6.2 mW are correctly rounded to 5.98467, 7.50317 and 10.0042 mW. TBC5B explicitly establishes that placement; TAC23 does not. Its R assignment describes the intended upstream attachment, and its null answer records the missing unique result. The authors' wiring supplies a condition absent from that sentence. All D answers and area-cancellation answers are correct under the stated model. If 'covers an area' means the surface footprint, the cancellation can be expressed using power flux normal to the surface; the resulting total power is unchanged. I withdraw the pass-1 rendering_not_minimal flag because pass 2 explicitly identifies T01A0 and TA9F7 as intentional numeral-free controls rather than numerical minimal pairs. The actual claimed numerical minimal pairs preserve 3.4 mW. answer_correct is false because TAC23's certified answers are conditional on an unstated placement, not because their arithmetic is wrong.",
+  "started_at": "2026-11-21T19:04:11+00:00",
+  "completed_at": "2026-11-21T19:04:46+00:00",
+  "minutes_spent": 0.58,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "d3115544b7cda85dac16ca0a6cfa603b77ac1fb9e9591da0208ebbe654c6c4bc",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

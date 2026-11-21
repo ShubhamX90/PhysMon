@@ -1,0 +1,83 @@
+{
+  "item_id": "M250-S249",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For perpendicular circular motion, e v B = gamma m v^2/r, giving f = e B/(2 pi gamma m), where gamma = 1 + K/(m c^2). Convert c to 2.998e8 m/s and kinetic energies to joules. The base frequency is 16.5271 MHz. An additional kinetic energy q before the current injection replaces K by K + q.",
+    "assumptions": [
+      "Frequency is measured in the laboratory frame.",
+      "The stated uniform magnetic field, perpendicular motion, relativistic mechanics and negligible radiation apply.",
+      "The separate machine and completed earlier injections do not change the current proton's state."
+    ],
+    "answer": 16.5271,
+    "unit": "MHz"
+  },
+  "stratum_assignments": {
+    "TE2A4": {
+      "stratum": "D",
+      "answer_with_sentence": 16.5271,
+      "regime": null
+    },
+    "T836B": {
+      "stratum": "D",
+      "answer_with_sentence": 16.5271,
+      "regime": null
+    },
+    "T13DE": {
+      "stratum": "D",
+      "answer_with_sentence": 16.5271,
+      "regime": null
+    },
+    "T8739": {
+      "stratum": "R",
+      "answer_with_sentence": 15.414,
+      "regime": null
+    },
+    "T30C5": {
+      "stratum": "D",
+      "answer_with_sentence": 16.5271,
+      "regime": null
+    },
+    "TAC96": {
+      "stratum": "R",
+      "answer_with_sentence": 15.414,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "I revise the pass-1 rendering objection because the authors explicitly identify T13DE and T30C5 as numeral-free controls, rather than numerical minimal pairs. The actual claimed minimal pairs, TE2A4/T8739 and T836B/TAC96, preserve 75 MeV and change the physical attachment as intended. All disconnected cases retain the base answer at every listed value. For both relevant sentences, adding 60, 75 or 130 MeV gives 15.6244, 15.4140 or 14.6885 MHz, respectively, agreeing with the certificates. Recalculation also corrects the small arithmetic discrepancies in my pass-1 frequencies. The relations require the ordinary conversions from km/s to m/s, MeV to joules and Hz to MHz. No K regime or cancelling-variable claim is present.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:32:22+00:00",
+  "completed_at": "2026-11-21T14:33:18+00:00",
+  "minutes_spent": 0.92,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "3f9c408e6aa108c300dee06eac96e4f477d06db7d145158430c702b553da6379",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

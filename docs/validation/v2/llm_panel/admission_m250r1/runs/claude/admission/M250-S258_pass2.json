@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch20",
+  "item_id": "M250-S258",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:08:00Z", "completed_at": "2026-11-21T10:14:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Radioactive decay: N0 = m/(M u); lambda = ln2/T_half; A = lambda N0 2^(-t/T_half)", "assumptions": ["capsule initially holds only the stated isotope mass", "1 yr = 365.25 d", "u = 1.66054e-24 g"], "answer": 5.849e10, "unit": "Bq"},
+  "stratum_assignments": {
+    "T5915": {"stratum": "R", "answer_with_sentence": 9.798e10, "regime": null},
+    "TBBB3": {"stratum": "D", "answer_with_sentence": 5.849e10, "regime": null},
+    "T0809": {"stratum": "D", "answer_with_sentence": 5.849e10, "regime": null},
+    "TF0FF": {"stratum": "D", "answer_with_sentence": 5.849e10, "regime": null},
+    "TA788": {"stratum": "R", "answer_with_sentence": 9.798e10, "regime": null},
+    "TEA82": {"stratum": "D", "answer_with_sentence": 5.849e10, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Base 5.84933e10 Bq matches my 5.849e10. R answers are base x (0.004+q)/0.004: q=0.0013 -> x1.325 = 7.7504e10; q=0.0027 -> x1.675 = 9.7976e10; q=0.0056 -> x2.4 = 1.40384e11; all match. Minimal pairs TBBB3/TA788 (same 'When the source is made' wording, vault vs capsule) and TEA82/T5915 (same 'In making the source' wording, waste drum vs capsule) differ only in attachment, same 0.0027 g. T0809 and TF0FF are declared numeral-free controls of TBBB3 and TEA82, not minimal pairs, so the missing number noted in pass 1 is by design and not a defect. Scene clause introduces vault and drum, so D sentences do not contradict the base."
+}

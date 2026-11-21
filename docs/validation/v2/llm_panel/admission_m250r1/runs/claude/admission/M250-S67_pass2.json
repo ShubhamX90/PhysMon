@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch05",
+  "item_id": "M250-S67",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:52:00Z", "completed_at": "2026-11-21T10:58:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Fresnel normal-incidence reflectance R = ((n-1)/(n+1))^2; incoherent multiple reflections give T = (1-R)/(1+R)", "assumptions": ["normal incidence", "no absorption", "incoherent addition of powers"], "answer": 46.154, "unit": "mW"},
+  "stratum_assignments": {
+    "T463C": {"stratum": "K", "answer_with_sentence": 46.154, "regime": "incident power 50 mW below the 350 mW damage threshold"},
+    "T65F1": {"stratum": "R", "answer_with_sentence": 78.462, "regime": null},
+    "TBD30": {"stratum": "R", "answer_with_sentence": 78.462, "regime": null},
+    "T146E": {"stratum": "K", "answer_with_sentence": 46.154, "regime": "incident power 50 mW below the 350 mW rating"},
+    "T094D": {"stratum": "D", "answer_with_sentence": 46.154, "regime": null},
+    "T60FB": {"stratum": "D", "answer_with_sentence": 46.154, "regime": null},
+    "T9EF0": {"stratum": "D", "answer_with_sentence": 46.154, "regime": null},
+    "T6E69": {"stratum": "D", "answer_with_sentence": 46.154, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Checked: R = 0.04, T = 0.923077; base 46.1538 mW; incident 75, 85, 120 mW give 69.2308, 78.4615, 110.769 mW, all correct. K regime P0 = 50 mW < q holds for 250, 350, 450 mW. Minimal pairs T094D/T65F1 (lamp vs beam source, 35 mW) and T9EF0/TBD30 (earlier experiment vs this one, 35 mW) share number and unit and differ only in attachment; numeral-free twins T6E69 and T60FB match their D twins. Agrees with pass 1.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

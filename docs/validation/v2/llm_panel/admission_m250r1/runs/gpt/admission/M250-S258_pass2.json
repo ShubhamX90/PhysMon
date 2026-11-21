@@ -1,0 +1,83 @@
+{
+  "item_id": "M250-S258",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "A(t) = [ln(2)/T_half][m/(59.93 u)] 2^(-t/T_half), converting atomic mass to grams and half-life to seconds.",
+    "assumptions": [
+      "The isotope follows exponential decay with the stated half-life.",
+      "Only radioactive cobalt inside the capsule contributes to the source's activity.",
+      "A year is converted using 365.25 days."
+    ],
+    "answer": 58493300000.0,
+    "unit": "Bq"
+  },
+  "stratum_assignments": {
+    "T5915": {
+      "stratum": "R",
+      "answer_with_sentence": 97976200000.0,
+      "regime": null
+    },
+    "TBBB3": {
+      "stratum": "D",
+      "answer_with_sentence": 58493300000.0,
+      "regime": null
+    },
+    "T0809": {
+      "stratum": "D",
+      "answer_with_sentence": 58493300000.0,
+      "regime": null
+    },
+    "TF0FF": {
+      "stratum": "D",
+      "answer_with_sentence": 58493300000.0,
+      "regime": null
+    },
+    "TA788": {
+      "stratum": "R",
+      "answer_with_sentence": 97976200000.0,
+      "regime": null
+    },
+    "TEA82": {
+      "stratum": "D",
+      "answer_with_sentence": 58493300000.0,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "I withdraw the pass-1 rendering_not_minimal flag: the newly supplied metadata identifies T0809 and TF0FF as deliberate numeral-free controls, rather than members of the claimed numerical minimal pairs. Both explicitly claimed minimal pairs preserve 0.0027 g and change only its destination. The control sentences match their twins after the stated replacement. For either relevant sentence, added masses of 0.0013, 0.0027 and 0.0056 g give approximately 7.75036e10, 9.79762e10 and 1.40384e11 Bq, respectively, agreeing with every certified answer. All disconnected variants preserve the base activity. The relations require the conventional conversions from u to grams and years to seconds. Addition during manufacture does not contradict the prohibition on additions while the source stands.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:16:09+00:00",
+  "completed_at": "2026-11-21T14:16:55+00:00",
+  "minutes_spent": 0.77,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "1e87059a47592db09a642d41f6aac8ea9451e8d558f8fa059a8e783471b491a8",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "item_id": "M250-S57",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For reversible heat extraction, dW = (1 - T_lake/T) dQ, with dQ = -mc dT for the cooling water. Thus W_max = mc[(T_i - T_lake) - T_lake ln(T_i/T_lake)].",
+    "assumptions": [
+      "The tank's heat capacity is negligible under the usual ideal apparatus convention.",
+      "The engine operates reversibly throughout cooling and the lake remains at 290 K.",
+      "The second tank has no thermal connection to the engine or the first tank."
+    ],
+    "answer": 61076.24,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "T9CCB": {
+      "stratum": "R",
+      "answer_with_sentence": 103829.61,
+      "regime": null
+    },
+    "T630C": {
+      "stratum": "R",
+      "answer_with_sentence": 103829.61,
+      "regime": null
+    },
+    "TE3D6": {
+      "stratum": "D",
+      "answer_with_sentence": 61076.24,
+      "regime": null
+    },
+    "TC03C": {
+      "stratum": "D",
+      "answer_with_sentence": 61076.24,
+      "regime": null
+    },
+    "T24C4": {
+      "stratum": "D",
+      "answer_with_sentence": 61076.24,
+      "regime": null
+    },
+    "T557D": {
+      "stratum": "D",
+      "answer_with_sentence": 61076.24,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TC03C and T557D replace the explicit 1.4 kg in their respective variants TE3D6 and T24C4 with an unspecified 'small amount', violating the requirement that variants preserve the same number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics is well-posed under standard apparatus idealisations. Either current-experiment addition to the first tank increases its water mass to 3.4 kg without changing its initial temperature. 'For an earlier experiment only' is read as excluding that addition from the present experiment. Water added to the separate second tank cannot affect the target. The unspecified amounts in TC03C and T557D do not prevent calculation because those additions are disconnected, but they fail the stipulated numerical equivalence of variants.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:23:10+00:00",
+  "completed_at": "2026-11-21T14:23:50+00:00",
+  "minutes_spent": 0.67,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "6a22708beb6749e664b66c54937d98dd99cd2de614a30e2cdbc0036ed1119a30",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

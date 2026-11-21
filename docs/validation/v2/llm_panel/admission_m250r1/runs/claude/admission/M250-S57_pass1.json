@@ -1,0 +1,21 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch13",
+  "item_id": "M250-S57",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:14:00Z", "completed_at": "2026-11-21T10:21:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Reversible engine with finite hot body: total entropy change zero, W = m c [(T1 - T0) - T0 ln(T1/T0)]", "assumptions": ["constant c", "lake temperature fixed at 290 K", "tank insulated so heat leaves only via the engine", "'same temperature' for the first tank means 360 K"], "answer": 61077, "unit": "J"},
+  "stratum_assignments": {
+    "T9CCB": {"stratum": "R", "answer_with_sentence": 103831, "regime": null},
+    "T630C": {"stratum": "R", "answer_with_sentence": 103831, "regime": null},
+    "TE3D6": {"stratum": "D", "answer_with_sentence": 61077, "regime": null},
+    "TC03C": {"stratum": "D", "answer_with_sentence": 61077, "regime": null},
+    "T24C4": {"stratum": "D", "answer_with_sentence": 61077, "regime": null},
+    "T557D": {"stratum": "D", "answer_with_sentence": 61077, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "ln(360/290) = 0.216223; T0 ln = 62.705 K; 70 - 62.705 = 7.2954 K. m c = 8372 J/K gives W = 61077 J (about 61.1 kJ). With 3.4 kg: 14232.4 J/K * 7.2954 = 103831 J. Second-tank sentences: the second tank is not connected to the engine, so D; 'the same temperature' for the second tank is somewhat vague (the second tank's water temperature is not given) but cannot affect the answer. The 'small amount' sentences carry no number; treated as non-numeric controls."
+}

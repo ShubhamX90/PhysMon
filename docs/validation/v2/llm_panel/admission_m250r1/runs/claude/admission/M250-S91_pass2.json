@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch06",
+  "item_id": "M250-S91",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:41:00Z", "completed_at": "2026-11-21T10:47:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Bernoulli + continuity, manometer: p1 - p2 = (rho_m - rho) g h; Q = A2 sqrt(2 (p1 - p2) / (rho (1 - (A2/A1)^2)))", "assumptions": ["steady, incompressible, inviscid flow with uniform speed (stated)", "horizontal pipe", "manometer liquid immiscible and denser than flowing liquid"], "answer": 11.04, "unit": "L/s"},
+  "stratum_assignments": {
+    "T6113": {"stratum": "D", "answer_with_sentence": 11.04, "regime": null},
+    "T609E": {"stratum": "R", "answer_with_sentence": 3.809, "regime": null},
+    "TE588": {"stratum": "C", "answer_with_sentence": 11.04, "regime": null},
+    "T3597": {"stratum": "R", "answer_with_sentence": 3.809, "regime": null},
+    "T5A70": {"stratum": "D", "answer_with_sentence": 11.04, "regime": null},
+    "T90FF": {"stratum": "D", "answer_with_sentence": 11.04, "regime": null},
+    "T2C4F": {"stratum": "D", "answer_with_sentence": 11.04, "regime": null},
+    "T7E31": {"stratum": "C", "answer_with_sentence": 11.04, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All strata agree with pass 1 (pass 1 answers were in m^3/s; 0.01104 m^3/s = 11.04 L/s). R checks: 1590 -> dp = 693.84 Pa, Q = 2.389 L/s; 2500 -> 3.809 L/s; 3100 -> dp = 2469.6 Pa, Q = 4.507 L/s. All replacement densities exceed 1000 kg/m^3, so the manometer reading is physical. Wide-section form Q = (pi d1^2/4) sqrt(2 dp/(rho((d1/d2)^4 - 1))) is equivalent to my throat form. Minimal pairs T2C4F/T3597 and T6113/T609E share 2500 kg/m^3 and differ only in attachment or timing; numeral-free twins match."
+}

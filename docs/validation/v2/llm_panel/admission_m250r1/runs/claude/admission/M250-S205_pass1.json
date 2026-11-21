@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch12",
+  "item_id": "M250-S205",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:28:00Z", "completed_at": "2026-11-21T10:36:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Newton's second law in the plane of the turntable for a coin co-rotating: F = m r sqrt(omega^4 + alpha^2), omega = alpha t", "assumptions": ["coin does not slip (stated)", "static friction supplies both centripetal and tangential acceleration", "rigid fixed axis"], "answer": 12.47, "unit": "mN"},
+  "stratum_assignments": {
+    "T93E5": {"stratum": "D", "answer_with_sentence": 12.47, "regime": null},
+    "TA974": {"stratum": "D", "answer_with_sentence": 12.47, "regime": null},
+    "T0819": {"stratum": "K", "answer_with_sentence": 12.47, "regime": "maximum static friction at or above the required force (no slipping); 95 mN > 12.47 mN"},
+    "TF803": {"stratum": "R", "answer_with_sentence": 17.67, "regime": null},
+    "T02AF": {"stratum": "R", "answer_with_sentence": 17.67, "regime": null},
+    "T47DA": {"stratum": "D", "answer_with_sentence": 12.47, "regime": null},
+    "T2F1F": {"stratum": "K", "answer_with_sentence": 12.47, "regime": "maximum static friction at or above the required force (no slipping); 95 mN > 12.47 mN"},
+    "T8DDD": {"stratum": "D", "answer_with_sentence": 12.47, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "omega = 0.9 x 4 = 3.6 rad/s; a_c = 12.96 x 0.08 = 1.0368 m/s^2; a_t = 0.9 x 0.08 = 0.072 m/s^2; |a| = sqrt(1.07495 + 0.00518) = 1.03930 m/s^2. F = 0.012 x 1.0393 = 12.47 mN. With a 5 g washer taped on (coin+washer 17 g, washer at the same radius, treated as one small body): F = 0.017 x 1.0393 = 17.67 mN (friction from the turntable on the coin-washer assembly). With either sentence, required force stays below 95 mN, so the friction limit sentences are K. Dish/washer-in-dish and earlier-trial sentences are D."
+}

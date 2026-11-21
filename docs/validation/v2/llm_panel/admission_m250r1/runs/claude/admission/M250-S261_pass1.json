@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch07",
+  "item_id": "M250-S261",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:15:00Z", "completed_at": "2026-11-21T10:22:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Terminal velocity under Stokes drag: 6 pi eta r v = (m - rho_l V) g, V = (4/3) pi r^3",
+    "assumptions": ["Stokes drag as stated (Re ~ 0.27, consistent)", "liquid at rest, far from walls", "sphere volume fixed by its 2 mm radius"],
+    "answer": 0.05401,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TEAB4": {"stratum": "D", "answer_with_sentence": 0.05401, "regime": null},
+    "T9846": {"stratum": "D", "answer_with_sentence": 0.05401, "regime": null},
+    "TFAF0": {"stratum": "D", "answer_with_sentence": 0.05401, "regime": null},
+    "T122F": {"stratum": "R", "answer_with_sentence": 0.07741, "regime": null},
+    "T3D94": {"stratum": "D", "answer_with_sentence": 0.05401, "regime": null},
+    "TB5DB": {"stratum": "R", "answer_with_sentence": 0.07741, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "TEAB4 and T3D94 say 'a small amount' where their counterparts state 0.09 g, so they do not carry the same number if meant as variants."},
+  "defect_severity": {"rendering_not_minimal": "low"},
+  "counterexamples": [],
+  "notes": "V = 3.35103e-8 m^3; buoyant mass 0.042223 g; net mass 0.207777 g; net force 2.03622e-3 N; 6 pi eta r = 0.0376991 N s/m; v = 0.054013 m/s. With +0.09 g: net 0.297777 g, v = 0.077408 m/s (Re ~ 0.39, still Stokes). TB5DB 'just before this release ... for one release only' applies to the current release, so R. TEAB4/TFAF0 refer to an earlier release only (D)."
+}

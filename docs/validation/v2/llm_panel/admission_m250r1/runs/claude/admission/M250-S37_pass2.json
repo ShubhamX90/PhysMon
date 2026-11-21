@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch10",
+  "item_id": "M250-S37",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:53:00Z", "completed_at": "2026-11-21T10:59:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "T = 2 pi sqrt(r^3/(g R^2)), r = R + h", "assumptions": ["uniform spherical Earth, GM = gR^2", "circular orbit, no drag, no other bodies", "satellite mass negligible relative to Earth"], "answer": 92.51, "unit": "min"},
+  "stratum_assignments": {
+    "T829A": {"stratum": "D", "answer_with_sentence": 92.5097, "regime": null},
+    "T4F19": {"stratum": "D", "answer_with_sentence": 92.5097, "regime": null},
+    "TF747": {"stratum": "D", "answer_with_sentence": 92.5097, "regime": null},
+    "TDE51": {"stratum": "R", "answer_with_sentence": 109.38, "regime": null},
+    "T2454": {"stratum": "R", "answer_with_sentence": 109.38, "regime": null},
+    "T5F43": {"stratum": "D", "answer_with_sentence": 92.5097, "regime": null},
+    "TA5FD": {"stratum": "C", "answer_with_sentence": 92.5097, "regime": null},
+    "T469A": {"stratum": "C", "answer_with_sentence": 92.5097, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Strata and answers agree with pass 1. Verified R answers: r = 7071 km -> T = 5923.5 s = 98.726 min; r = 7171 km -> 109.38 min; r = 8171 km -> T = 7358.2 s = 122.637 min. Satellite mass cancels (C). Minimal pairs T4F19/TDE51 (station vs satellite, 'then raised by 800 km') and TF747/T2454 (earlier mission vs before period measured, 800 km) differ only in attachment/timing. Numeral-free controls by design. The outset clause makes the 'earlier mission' sentence unambiguously D."
+}

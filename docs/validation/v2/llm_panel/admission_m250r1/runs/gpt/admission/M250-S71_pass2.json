@@ -1,0 +1,104 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S71",
+  "pass_number": 2,
+  "started_at": "2026-11-21T14:11:33+00:00",
+  "completed_at": "2026-11-21T14:12:36+00:00",
+  "minutes_spent": 1.04,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Einstein's photoelectric equation gives Kmax = hc/lambda - phi. Converting mc² to 511000 eV, v = 300000 sqrt(2Kmax/511000) km/s. At 250 nm, Kmax = 2.66 eV and v = 967.981 km/s. Shortenings of 35, 55 and 80 nm give wavelengths 215, 195 and 170 nm and speeds 1105.17, 1195.73 and 1326.34 km/s, respectively.",
+    "assumptions": [
+      "The stated single-photon photoelectric model applies.",
+      "The fastest emitted electrons lose energy only through the work function.",
+      "The non-relativistic kinetic-energy relation applies, as explicitly requested.",
+      "The measured electrons in T860D are emitted after the source is tuned.",
+      "The second lamp illuminates the screen independently of the metal illumination."
+    ],
+    "answer": 967.981,
+    "unit": "km/s"
+  },
+  "stratum_assignments": {
+    "TB26A": {
+      "stratum": "C",
+      "answer_with_sentence": 967.981,
+      "regime": null
+    },
+    "TF3E8": {
+      "stratum": "D",
+      "answer_with_sentence": 967.981,
+      "regime": null
+    },
+    "TEF5E": {
+      "stratum": "D",
+      "answer_with_sentence": 967.981,
+      "regime": null
+    },
+    "TA8F1": {
+      "stratum": "D",
+      "answer_with_sentence": 967.981,
+      "regime": null
+    },
+    "T94D8": {
+      "stratum": "R",
+      "answer_with_sentence": 1195.73,
+      "regime": null
+    },
+    "TCF8E": {
+      "stratum": "D",
+      "answer_with_sentence": 967.981,
+      "regime": null
+    },
+    "T860D": {
+      "stratum": "R",
+      "answer_with_sentence": 1195.73,
+      "regime": null
+    },
+    "T5707": {
+      "stratum": "C",
+      "answer_with_sentence": 967.981,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TA8F1 and TCF8E omit the 55 nm value carried by the other wavelength-shift sentences, violating the review instructions' numerical-matching requirement even though the packet explicitly identifies these omissions as intentional numeral-free controls."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "An earlier wavelength of 249 nm satisfies TA8F1's 'slightly shorter' wording but does not represent the 55 nm shortening stated in TF3E8.",
+    "Shortening the second lamp's wavelength by 1 nm satisfies TCF8E's 'a small amount' wording but does not represent TEF5E's 55 nm shortening."
+  ],
+  "notes": "All certified numerical answers check out, including every listed wavelength shift and intensity. The energy ratio in the speed equation requires compatible energy units; using 511000 eV for mc² reproduces the certified answers. The positive intensity values permit the stated cancellation without a zero-flux singularity. I revise my pass-1 intensity classifications from K to C: under the packet's explicit single-photon assumptions, intensity enters the supplied flux relations and cancels algebraically. The explicitly claimed minimal pairs TEF5E/T94D8 and TF3E8/T860D preserve 55 nm and change the relevant attachment as intended. Pass 2 explains that TA8F1 and TCF8E are deliberately numeral-free and does not falsely label them numerical minimal pairs; nevertheless, the binding review instructions provide no exception to their numerical-matching requirement for such controls. The invalid verdict concerns that requirement, not the photoelectric calculations.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "5fadfbc710656ee3d9e47195ff24684591b9eb8924bf3a01f7051cff9a9b8755",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch27",
+  "item_id": "M250-S227",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Boltzmann distribution for a two-level system: U_m = N_A*eps * g*exp(-x)/(1+g*exp(-x)), x = E_m/(RT), E_m = 6000 J/mol, g = 3",
+    "assumptions": ["thermal equilibrium at T", "only the two stated levels are populated", "mean energy refers to the internal (level) energy measured from the ground level"],
+    "answer": 1278.0,
+    "unit": "J/mol"
+  },
+  "stratum_assignments": {
+    "T0EF9": {"stratum": "D", "answer_with_sentence": 1278.0, "regime": null},
+    "T9DAE": {"stratum": "D", "answer_with_sentence": 1278.0, "regime": null},
+    "TCA07": {"stratum": "D", "answer_with_sentence": 1278.0, "regime": null},
+    "T5974": {"stratum": "R", "answer_with_sentence": 1570.9, "regime": null},
+    "T4CBB": {"stratum": "R", "answer_with_sentence": 1570.9, "regime": null},
+    "T86F4": {"stratum": "D", "answer_with_sentence": 1278.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: x = 6000/(8.314*300) = 2.4056, 3e^-x = 0.27064, fraction 0.21300, U = 1278.0 J/mol. At 338 K: x = 2.1351, 3e^-x = 0.35469, fraction 0.26182, U = 1570.9 J/mol. Earlier-run heating of the gas leaves the current state at 300 K (D); heating the isolated water bath has no path (D). T9DAE and TCA07 say 'a few kelvin' rather than 38 K; if they are meant as variants of the 38 K sentences, they do not state the same number (to be checked against pass-2 pairings). Slight reading risk: 'mean energy of the molecules' could be taken to include translational energy, but the two-level framing makes the internal-energy reading the intended one."
+}

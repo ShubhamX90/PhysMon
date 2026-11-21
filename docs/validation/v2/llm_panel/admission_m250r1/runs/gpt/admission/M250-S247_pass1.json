@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S247",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "The intercepted power is IA cos(theta). Absorption transfers normal momentum E cos(theta)/c per photon, and specular reflection transfers twice that. Thus F = (1 + r)IA cos²(theta)/c and v = Ft/m. With c = 2.998 × 10^8 m/s and t = 86400 s, F = 6.65444 × 10^-4 N.",
+    "assumptions": [
+      "The stated illumination, incidence angle and reflection fraction remain constant throughout the exposure.",
+      "Nonrelativistic radiation pressure applies, consistent with the stated speed restriction.",
+      "Neglected heating contributes no additional recoil force."
+    ],
+    "answer": 114.988659,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "TE4B6": {
+      "stratum": "R",
+      "answer_with_sentence": 153.591995,
+      "regime": null
+    },
+    "T532A": {
+      "stratum": "C",
+      "answer_with_sentence": 114.988659,
+      "regime": null
+    },
+    "T76D3": {
+      "stratum": "D",
+      "answer_with_sentence": 114.988659,
+      "regime": null
+    },
+    "T8261": {
+      "stratum": "D",
+      "answer_with_sentence": 114.988659,
+      "regime": null
+    },
+    "TB1C7": {
+      "stratum": "D",
+      "answer_with_sentence": 114.988659,
+      "regime": null
+    },
+    "TFEB0": {
+      "stratum": "R",
+      "answer_with_sentence": 153.591995,
+      "regime": null
+    },
+    "T5DB2": {
+      "stratum": "C",
+      "answer_with_sentence": 114.988659,
+      "regime": null
+    },
+    "T56A5": {
+      "stratum": "D",
+      "answer_with_sentence": 114.988659,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T8261 and TB1C7 replace the specified intensity increment of 470 W/m² with the unquantified phrase 'a little', so the intensity variants do not preserve the required number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and all individual augmented problems have unique answers. The invalid verdict concerns the required numerical matching between sentence variants. Photon energy cancels because photon arrival rate is proportional to 1/E while momentum transfer per photon is proportional to E. Earlier illumination cannot affect this exposure because the mirror explicitly starts at rest and heating is neglected. Screen illumination has no physical path to the mirror. For both relevant additions, the setup specifies that the added light travels along the beam and its intensity is measured perpendicular to it, giving total intensity 1870 W/m².",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:12:11+00:00",
+  "completed_at": "2026-11-21T14:12:59+00:00",
+  "minutes_spent": 0.79,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "d2cd540c4cdf70c34a7ff6f6257ae3a009af83e69805e09162ea1318cea189ca",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch21",
+  "item_id": "M250-S52",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:08:00Z", "completed_at": "2026-11-21T10:15:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "m_w c (dT0 - T) = m_i L + m_i c T; Q = m_w c (dT0 - T)", "assumptions": ["insulated", "all ice melts", "constant c"], "answer": 34.5821, "unit": "kJ"},
+  "stratum_assignments": {
+    "T96AB": {"stratum": "R", "answer_with_sentence": 39.4898, "regime": null},
+    "TA38E": {"stratum": "D", "answer_with_sentence": 34.5821, "regime": null},
+    "T5D2A": {"stratum": "R", "answer_with_sentence": 39.4898, "regime": null},
+    "T2F5B": {"stratum": "D", "answer_with_sentence": 34.5821, "regime": null},
+    "T32CB": {"stratum": "D", "answer_with_sentence": 34.5821, "regime": null},
+    "T162D": {"stratum": "D", "answer_with_sentence": 34.5821, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Verified certified answers: q=6 -> T=69558/2427.88=28.650 K, Q=36.314 kJ; q=17 -> 39.490 kJ; q=29 -> T=117697/2427.88=48.477 K, Q=42.954 kJ; base 34.582 kJ. All ice melts in every case. Relations are consistent provided Lf is converted to J/kg (inputs list Lf in kJ/kg and c in J/(kg*K)); answers are in kJ correctly. Minimal pairs T32CB/T96AB and TA38E/T5D2A share 17 K and differ only in attachment. T2F5B and T162D are declared numeral-free controls, which resolves my pass-1 observation about 'a few kelvin'. Agreement with pass 1."
+}

@@ -1,0 +1,30 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch16",
+  "item_id": "M250-S276",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:58:00Z", "completed_at": "2026-11-21T11:06:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "I_p/I_d = T_p/T_d = exp(2 a (kappa_d - kappa_p)), kappa = sqrt(2 m V)/hbar",
+    "assumptions": ["stated transmission formula with no prefactor", "equal particle rates, both charge e", "standard u and eV conversions"],
+    "answer": 31.42,
+    "unit": "1"
+  },
+  "stratum_assignments": {
+    "TC752": {"stratum": "C", "answer_with_sentence": 31.42, "regime": null},
+    "TF273": {"stratum": "D", "answer_with_sentence": 31.42, "regime": null},
+    "TE9A5": {"stratum": "D", "answer_with_sentence": 31.42, "regime": null},
+    "T1B32": {"stratum": "D", "answer_with_sentence": 31.42, "regime": null},
+    "TF88C": {"stratum": "R", "answer_with_sentence": 56.98, "regime": null},
+    "TEED5": {"stratum": "C", "answer_with_sentence": 31.42, "regime": null},
+    "T7B68": {"stratum": "D", "answer_with_sentence": 31.42, "regime": null},
+    "T87E1": {"stratum": "R", "answer_with_sentence": 56.98, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Strata match pass 1. Base: my exponent difference 3.4477 (ratio 31.43) vs certified ln(31.4246) = 3.4476; agreement to 0.01%, attributable to rounding of unit conversions. R answers verified by scaling the exponent difference by sqrt((0.4+q)/0.4): q = 0.07 -> 3.7371, 41.98; q = 0.15 -> 4.0427, 56.98; q = 0.23 -> 4.3267, 75.69. Incident current cancels as claimed and 5.2 nA for each beam is consistent with the stated equal particle rates (both charge e). Minimal pairs T7B68/TF88C (earlier run vs this run) and TF273/T87E1 (guard-electrode step vs the barrier) share 0.15 eV and differ only in attachment; T1B32 and TE9A5 are declared numeral-free controls with matching wording. The u-to-kg and eV-to-J conversions are not stated but are standard constants that affect only the fourth figure."
+}

@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch22",
+  "item_id": "M250-S230",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:24:00Z", "completed_at": "2026-11-21T10:33:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Tf = (m1T1 + m2T2)/(m1 + m2); S_gen = m1 c ln(Tf/T1) + m2 c ln(Tf/T2)", "assumptions": ["isolated system", "constant c, incompressible solids"], "answer": 25.5655, "unit": "J/K"},
+  "stratum_assignments": {
+    "T04A3": {"stratum": "D", "answer_with_sentence": 25.5655, "regime": null},
+    "T33C5": {"stratum": "D", "answer_with_sentence": 25.5655, "regime": null},
+    "T7053": {"stratum": "D", "answer_with_sentence": 25.5655, "regime": null},
+    "TFF07": {"stratum": "D", "answer_with_sentence": 25.5655, "regime": null},
+    "TC78D": {"stratum": "R", "answer_with_sentence": 31.9753, "regime": null},
+    "T8625": {"stratum": "R", "answer_with_sentence": 31.9753, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "The d_rationale for T7053 and T33C5 speaks of 'metal poured into the mould', but the sentences and scene place the metal in a warming cabinet; the stratum conclusion is still right, so this is a stale rationale wording, not a wrong claim about the item."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All certified answers verified: base Tf = 318 K, 25.5655 J/K; q = 0.6 kg: Tf = 322.5 K, 900(2.6 ln(43/48) + 3 ln(129/116)) = 29.398; q = 1.1 kg: Tf = 325.574 K, 31.975; q = 3.4 kg: Tf = 335 K, 900(5.4 ln(67/72) + 3 ln(67/58)) = 39.683. Declared minimal pairs T04A3/TC78D and T7053/T8625 share 1.1 kg and differ in attachment (and tense/timing, as intended). T33C5 and TFF07 are declared numeral-free controls. Consistent with pass 1. If the panel treats the mould wording as a false authors' claim it would rise to high; I judge it an inapplicable rationale phrase that does not misstate the item's physics."
+}

@@ -1,0 +1,84 @@
+{
+  "item_id": "M250-S65",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Snell's law at the entrance and total internal reflection at the core–cladding interface give n_external sin(theta_max) = sqrt(n_core^2 - n_cladding^2) = 0.42. In air, theta_max = arcsin(0.42) = 24.8346 degrees.",
+    "assumptions": [
+      "Use geometrical optics for the specified meridional rays and the straight step-index fibre.",
+      "The entrance medium is air unless an added sentence explicitly replaces it.",
+      "Use the conventional limiting acceptance angle at the critical condition."
+    ],
+    "answer": 24.8346,
+    "unit": "degrees"
+  },
+  "stratum_assignments": {
+    "TBDB7": {
+      "stratum": "D",
+      "answer_with_sentence": 24.8346,
+      "regime": null
+    },
+    "T5FB3": {
+      "stratum": "D",
+      "answer_with_sentence": 24.8346,
+      "regime": null
+    },
+    "T55EF": {
+      "stratum": "R",
+      "answer_with_sentence": 20.4873,
+      "regime": null
+    },
+    "T494E": {
+      "stratum": "R",
+      "answer_with_sentence": 20.4873,
+      "regime": null
+    },
+    "T6797": {
+      "stratum": "D",
+      "answer_with_sentence": 24.8346,
+      "regime": null
+    },
+    "T38EB": {
+      "stratum": "D",
+      "answer_with_sentence": 24.8346,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T5FB3 and T38EB substitute 'well known' for the numerical refractive index 1.2, violating the requirement that variants state the same number and unit and differ only in wording and attachment."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and all six augmented problems have determinate answers. For either current liquid-entrance sentence, theta_max = arcsin(0.42/1.2) = 20.4873 degrees. Explicit replacement of air is interpreted as updating the entrance medium. Liquid in the separate trough and conditions restricted to an earlier experiment have no physical path to the present target. The omitted numerical indices in the disconnected sentences do not prevent solving those problems, but they invalidate the stated numerical matching of variants. Refractive indices are dimensionless.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:00:12+00:00",
+  "completed_at": "2026-11-21T14:01:02+00:00",
+  "minutes_spent": 0.84,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "2d5f5e74cf19fa2af1ad97eecea62b4c2ccc8a755de692ceda80fbdfc6eb565f",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

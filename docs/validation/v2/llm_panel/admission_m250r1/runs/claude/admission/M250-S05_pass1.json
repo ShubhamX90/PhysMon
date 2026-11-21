@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch22",
+  "item_id": "M250-S05",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:50:00Z", "completed_at": "2026-11-21T10:57:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Rotational Newton's second law: (tau_drive - tau_friction) = I alpha, I = (1/2) M R^2 for a uniform solid disc", "assumptions": ["fixed axis through the centre", "torques constant as stated", "I = 0.5 * 4 * 0.25^2 = 0.125 kg m^2"], "answer": 36.0, "unit": "rad/s^2"},
+  "stratum_assignments": {
+    "TADD2": {"stratum": "R", "answer_with_sentence": 24.0, "regime": null},
+    "T3FE1": {"stratum": "C", "answer_with_sentence": 36.0, "regime": null},
+    "TFEA1": {"stratum": "R", "answer_with_sentence": 24.0, "regime": null},
+    "TDFCA": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T5207": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "T8323": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null},
+    "TA851": {"stratum": "C", "answer_with_sentence": 36.0, "regime": null},
+    "TCF7E": {"stratum": "D", "answer_with_sentence": 36.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Net torque 4.5 N m; alpha = 4.5/0.125 = 36 rad/s^2. With a coaxial 2 kg uniform disc of the same radius: I = 0.5 * 6 * 0.0625 = 0.1875 kg m^2, alpha = 24 rad/s^2 (friction torque taken as the stated constant). Thickness belongs to the disc but does not enter I = (1/2)MR^2 once M is given (it would enter only through M = rho pi R^2 t, which cancels with the stated mass); I label it C, though D-like. The two thickness sentences share 3.5 cm. The 'small disc' sentences carry no number, unlike their 2 kg counterparts, and are disconnected."
+}

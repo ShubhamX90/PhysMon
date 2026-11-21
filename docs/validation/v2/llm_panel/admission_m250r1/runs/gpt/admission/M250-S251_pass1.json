@@ -1,0 +1,95 @@
+{
+  "item_id": "M250-S251",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Conservation of mechanical energy with GM = gR² gives v₀²/2 = gR²(1/R − 1/(R+h)), hence h = Rv₀²/(2gR − v₀²).",
+    "assumptions": [
+      "The base launch speed is 1500 m/s; the final catapult sentence states how an added speed would combine if supplied.",
+      "Propulsion ends at launch, after which only the moon's gravity acts."
+    ],
+    "answer": 1157012.68,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TE544": {
+      "stratum": "C",
+      "answer_with_sentence": 1157012.68,
+      "regime": null
+    },
+    "T9571": {
+      "stratum": "D",
+      "answer_with_sentence": 1157012.68,
+      "regime": null
+    },
+    "TFA02": {
+      "stratum": "D",
+      "answer_with_sentence": 1157012.68,
+      "regime": null
+    },
+    "T9D2A": {
+      "stratum": "D",
+      "answer_with_sentence": 1157012.68,
+      "regime": null
+    },
+    "T04BD": {
+      "stratum": "R",
+      "answer_with_sentence": 1878541.04,
+      "regime": null
+    },
+    "TE24B": {
+      "stratum": "C",
+      "answer_with_sentence": 1157012.68,
+      "regime": null
+    },
+    "T9791": {
+      "stratum": "R",
+      "answer_with_sentence": 1878541.04,
+      "regime": null
+    },
+    "TAA9D": {
+      "stratum": "D",
+      "answer_with_sentence": 1157012.68,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The speed variants do not all preserve the specified number and unit: T9571 and T9D2A replace '210 m/s' with an unspecified 'small amount,' changing more than wording and attachment."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "T9571 permits a capsule speed increment of 1 m/s, whereas TAA9D explicitly specifies 210 m/s; these are not variants preserving the same numerical quantity."
+  ],
+  "notes": "The individual numerical problems are solvable under the stated reading of the base catapult clause. Probe mass multiplies both kinetic and gravitational potential energy and cancels. Earlier test launches do not determine the present launch speed, and the relay capsule cannot act on the probe under the explicit isolation condition. Both relevant additions give v₀ = 1710 m/s. The two mass sentences consistently specify 270 kg, and all numerical speed sentences consistently specify 210 m/s. Heights are approximately 1.16 × 10^6 m and 1.88 × 10^6 m at the input precision. The invalid verdict concerns the required preservation of number and unit across speed variants.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T13:48:35+00:00",
+  "completed_at": "2026-11-21T13:49:30+00:00",
+  "minutes_spent": 0.92,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "073a327b257deffd6385e2634c7cc4f9ec170245b259e382302d96dbbc3ebb17",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

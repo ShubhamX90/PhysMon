@@ -1,0 +1,106 @@
+{
+  "item_id": "M250-S11",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "On the level road, N = mg, friction is μmg, and the deceleration magnitude is μg. Therefore d = v_brake²/(2μg). With v_brake = 20 m/s, d = 400/9.8 = 40.8163265306 m.",
+    "assumptions": [
+      "The car's speed when braking starts is 20 m/s, as explicitly stated in the packet's assumptions and input definition.",
+      "All wheels remain locked throughout braking.",
+      "The coefficient of kinetic friction remains constant.",
+      "The bus does not interact with the car."
+    ],
+    "answer": 40.8163265306,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "T8720": {
+      "stratum": "R",
+      "answer_with_sentence": 61.25,
+      "regime": null
+    },
+    "TFCB8": {
+      "stratum": "D",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "T0C0C": {
+      "stratum": "C",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "TF039": {
+      "stratum": "C",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "TD024": {
+      "stratum": "D",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "T5FC7": {
+      "stratum": "D",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "T4983": {
+      "stratum": "D",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "TB9A5": {
+      "stratum": "R",
+      "answer_with_sentence": 61.25,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "other"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The rendered T8720 and TB9A5 problems do not establish whether the stated 20 m/s occurs before or after the added speed gain, so their braking-onset speeds are not uniquely determined.",
+    "other": "The authors explicitly define v0 as the braking-onset speed but then calculate the R answers by treating v0 as the speed before an additional acceleration, making their wiring and certified answers inconsistent with their stated input and assumption."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "other": "high"
+  },
+  "counterexamples": [
+    "The car can accelerate from 15.5 m/s to 20 m/s before braking, satisfying T8720 or TB9A5 and the packet's explicit braking-onset assumption; its stopping distance is 40.8163265306 m rather than the certified 61.25 m.",
+    "If instead the car first travels at 20 m/s and subsequently gains 4.5 m/s before braking, its stopping distance is 61.25 m; this requires the alternative interpretation that 20 m/s is the pre-acceleration speed."
+  ],
+  "notes": "The R assignments and their displayed answers retain the authors' intended interpretation and are conditional, not uniquely established by the rendered problems. Under the packet's explicit assumption that braking starts at 20 m/s, all preceding speed gains leave the stopping distance at 40.8163265306 m. The R arithmetic is correct if braking instead starts at 23, 24.5, or 31 m/s: the respective distances are 53.9796, 61.25, and 98.0612 m. The mass cancellation, D answers, units, and numerical rounding are correct. The explicitly claimed minimal pairs preserve 4.5 m/s. I withdraw pass 1's rendering_not_minimal flag: pass 2 identifies the numeral-free sentences as deliberate controls and accurately discloses their difference, rather than claiming that they preserve the numerical value and unit. No tools or external information were used.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T13:56:38+00:00",
+  "completed_at": "2026-11-21T13:57:30+00:00",
+  "minutes_spent": 0.86,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "45036c2b1133f44abd37e257a5f8450b16bdecedfb0cbb5639e0c22b88d634e2",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

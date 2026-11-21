@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch08",
+  "item_id": "M250-S34",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:27:00Z", "completed_at": "2026-11-21T10:35:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Rolling without slipping, energy conservation: d = 0.7 v^2/(g sin theta)",
+    "assumptions": ["uniform solid sphere, I = (2/5)mR^2", "no slipping, no air or rolling resistance", "incline at its set angle during the roll"],
+    "answer": 6.08452,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TACA4": {"stratum": "C", "answer_with_sentence": 6.08452, "regime": null},
+    "T1332": {"stratum": "D", "answer_with_sentence": 6.08452, "regime": null},
+    "TDEF6": {"stratum": "R", "answer_with_sentence": 4.17669, "regime": null},
+    "T4182": {"stratum": "D", "answer_with_sentence": 6.08452, "regime": null},
+    "T96D5": {"stratum": "R", "answer_with_sentence": 4.17669, "regime": null},
+    "T7B54": {"stratum": "D", "answer_with_sentence": 6.08452, "regime": null},
+    "T741D": {"stratum": "D", "answer_with_sentence": 6.08452, "regime": null},
+    "T55FE": {"stratum": "C", "answer_with_sentence": 6.08452, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T96D5 'The incline is then tilted 13 degrees more steeply' does not fix when the tilt happens relative to the launch, and following the scene clause's 'clamped before the sphere is launched' it can be read as occurring after the clamping/launch, so the certified R reading (tilt before the roll) is the intended but not the only reading."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Verified certified answers: 7 deg -> 32 deg, 25.2/(9.8*0.529919) = 4.85249 m; 13 deg -> 38 deg, 4.17669 m; 18 deg -> 43 deg, 25.2/(9.8*0.681998) = 3.77043 m; base 6.08452 m. Radius cancellation expression correct. Minimal pairs: T7B54/T96D5 differ only in solar panel vs incline; T4182/TDEF6 differ only in 'In an earlier experiment' vs 'Before the sphere was set rolling'; same number and unit. T1332 and T741D are declared numeral-free controls, resolving my pass-1 query. TDEF6 is unambiguous. Pass-1 medium ambiguity flag on T96D5 is retained; I do not consider it high because the most natural reading of 'then' in a setup narrative ('set at the stated angle at first') is a change before the roll, and the scene clause says the angle is set 'at first', which avoids a contradiction with the 25 degrees."
+}

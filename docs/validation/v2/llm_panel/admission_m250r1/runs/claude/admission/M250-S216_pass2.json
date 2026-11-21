@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch07",
+  "item_id": "M250-S216",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:54:30Z", "completed_at": "2026-11-21T10:59:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Lossless LC charge exchange: V_eq = (C1 V1 + C2 V2)/(C1 + C2), V2_max = 2 V_eq - V2(0)",
+    "assumptions": ["no resistance (stated)", "zero initial inductor current (stated)", "positive plates joined"],
+    "answer": 148.0,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "T94A9": {"stratum": "D", "answer_with_sentence": 148.0, "regime": null},
+    "T3614": {"stratum": "D", "answer_with_sentence": 148.0, "regime": null},
+    "T6868": {"stratum": "R", "answer_with_sentence": 157.778, "regime": null},
+    "T47FC": {"stratum": "D", "answer_with_sentence": 148.0, "regime": null},
+    "TF693": {"stratum": "C", "answer_with_sentence": 148.0, "regime": null},
+    "T0EC0": {"stratum": "R", "answer_with_sentence": 157.778, "regime": null},
+    "T7B75": {"stratum": "C", "answer_with_sentence": 148.0, "regime": null},
+    "T3A64": {"stratum": "D", "answer_with_sentence": 148.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Verified: base 148 V; +7 uF: 4900/57 = 85.965 V -> 151.93 V; +22 uF: 6400/72 = 88.889 V -> 157.778 V; +35 uF: 7700/85 = 90.588 V -> 161.176 V. Inductance cancellation (w t = pi at first maximum) is correct. Minimal pairs T3614/T6868 and T94A9/T0EC0 share 22 uF and differ only in attachment/timing. My pass-1 low rendering_not_minimal flag on T47FC and T3A64 is withdrawn: they are declared numeral-free controls. Strata agree with pass 1.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

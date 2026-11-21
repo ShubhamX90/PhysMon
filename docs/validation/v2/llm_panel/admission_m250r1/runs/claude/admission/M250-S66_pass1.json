@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch18",
+  "item_id": "M250-S66",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Grating equation d sin(theta) = m lambda at normal incidence; separation = asin(2*650/4000) - asin(2*450/4000)", "assumptions": ["normal incidence (stated)", "far-field (Fraunhofer) maxima", "angles measured from the grating normal"], "answer": 5.96, "unit": "degree"},
+  "stratum_assignments": {
+    "TD8FB": {"stratum": "R", "answer_with_sentence": 2.71, "regime": null},
+    "T19FA": {"stratum": "R", "answer_with_sentence": 2.71, "regime": null},
+    "T9433": {"stratum": "D", "answer_with_sentence": 5.96, "regime": null},
+    "T8CA3": {"stratum": "D", "answer_with_sentence": 5.96, "regime": null},
+    "T30F6": {"stratum": "D", "answer_with_sentence": 5.96, "regime": null},
+    "T2E60": {"stratum": "C", "answer_with_sentence": 5.96, "regime": null},
+    "TFEEC": {"stratum": "D", "answer_with_sentence": 5.96, "regime": null},
+    "TBC0D": {"stratum": "C", "answer_with_sentence": 5.96, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"], "defect_reasons": {"other": "The screen sentences refer to 'the screen' although no screen is introduced in the problem; harmless since the angular separation does not depend on the screen distance."}, "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base: theta(450)=asin(0.225)=13.003 deg, theta(650)=asin(0.325)=18.966 deg, separation 5.963 deg. With 560 nm replacing 450 nm: asin(0.28)=16.260 deg, separation 2.705 deg. Earlier-measurement sentences (T30F6 with 560 nm, T9433 with no number) do not apply to the asked measurement; second-spectrometer sentences are disconnected. T9433 and T8CA3 state no number, so they cannot be numeric variants of the 560 nm sentences; T19FA/T30F6/TD8FB/TFEEC share 560 nm. Screen distance enters only the linear positions y = L tan(theta), not the angles, hence C."
+}

@@ -1,0 +1,85 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S252",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:18:06+00:00",
+  "completed_at": "2026-11-21T14:18:53+00:00",
+  "minutes_spent": 0.79,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For a circular orbit, E = -GMm/(2r). With GM = gR², the work done by the engines is ΔE = (mgR²/2)[1/(R+h_initial) - 1/(R+h_final)].",
+    "assumptions": [
+      "The Earth supplies the prescribed fixed gravitational field.",
+      "Gravity and engine thrust are the only forces doing appreciable work on the satellite.",
+      "The satellite's mass remains constant during the orbital transfer, as stipulated.",
+      "Instruments added to the satellite are aboard before the transfer and remain aboard throughout it."
+    ],
+    "answer": 2638240000,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "T1748": {
+      "stratum": "D",
+      "answer_with_sentence": 2638240000,
+      "regime": null
+    },
+    "TFABF": {
+      "stratum": "R",
+      "answer_with_sentence": 2933100000,
+      "regime": null
+    },
+    "TB6C9": {
+      "stratum": "D",
+      "answer_with_sentence": 2638240000,
+      "regime": null
+    },
+    "T6B07": {
+      "stratum": "D",
+      "answer_with_sentence": 2638240000,
+      "regime": null
+    },
+    "TF8C4": {
+      "stratum": "R",
+      "answer_with_sentence": 2933100000,
+      "regime": null
+    },
+    "T2ED2": {
+      "stratum": "D",
+      "answer_with_sentence": 2638240000,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T1748 and TB6C9 specify only 'a further small amount', whereas the corresponding numerical variants specify 95 kg, violating the requirement that variants retain the same stated number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and each individual addition are solvable. The numerical variants concerning the current satellite increase its mass from 850 kg to 945 kg. Recovery-ship cargo and cargo mentioned only for an earlier flight do not enter the present orbital-energy calculation. T1748/T6B07 and TB6C9/T2ED2 change numerical specificity while retaining the same attachment, so the full sentence set fails the required minimal-variant structure. Answers retain calculation digits; to two significant figures they are 2.6e9 J and 2.9e9 J.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "6dd9a6bf80646cef7fce58e8b0d00c9008d82a28f7a5432be513b6661b1de9a9",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

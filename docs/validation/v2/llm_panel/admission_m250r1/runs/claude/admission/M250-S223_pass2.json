@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch26",
+  "item_id": "M250-S223",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:23:00Z", "completed_at": "2026-11-21T10:29:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Entropy as a state function: dS = m L / T_m + m c ln(T_f / T_m)", "assumptions": ["melting at constant T = 273 K", "constant c of liquid water", "no evaporation; water stays liquid", "system = ice/water only"], "answer": 359.16, "unit": "J/K"},
+  "stratum_assignments": {
+    "T51E5": {"stratum": "R", "answer_with_sentence": 592.61, "regime": null},
+    "TA643": {"stratum": "R", "answer_with_sentence": 592.61, "regime": null},
+    "T3730": {"stratum": "C", "answer_with_sentence": 359.16, "regime": null},
+    "T4A5B": {"stratum": "D", "answer_with_sentence": 359.16, "regime": null},
+    "T4B97": {"stratum": "D", "answer_with_sentence": 359.16, "regime": null},
+    "T8603": {"stratum": "C", "answer_with_sentence": 359.16, "regime": null},
+    "T6035": {"stratum": "K", "answer_with_sentence": 359.16, "regime": "Tw = 313 K < boiling point"},
+    "TF01D": {"stratum": "D", "answer_with_sentence": 359.16, "regime": null},
+    "T3F4A": {"stratum": "D", "answer_with_sentence": 359.16, "regime": null},
+    "T5693": {"stratum": "K", "answer_with_sentence": 359.16, "regime": "Tw = 313 K < boiling point"}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Claims match pass 1. Base 359.16 J/K; R answers scale linearly with mass: 0.27 kg -> 484.87, 0.33 kg -> 592.61, 0.56 kg -> 1005.65 J/K, all correct. Heater power C cancellation (t = m Lf / P) is correct, and the result is a state function in any case. K boiling-point values 366/371/378 K all exceed 313 K. Minimal pairs T4A5B/TA643 and TF01D/T51E5 share 0.13 kg and differ only in attachment; T3F4A and T4B97 are declared numeral-free twins. Minor naturalness point: a 450 W heater is not obviously 'slow', but the entropy change of the ice/water does not depend on that."
+}

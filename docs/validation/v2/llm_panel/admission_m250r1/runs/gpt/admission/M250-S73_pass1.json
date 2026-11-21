@@ -1,0 +1,85 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S73",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:02:45+00:00",
+  "completed_at": "2026-11-21T14:03:35+00:00",
+  "minutes_spent": 0.82,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For an infinite square well, E_n = n²(hc)²/[8(mc²)L²]. Thus the emitted photon has energy E_4 - E_1 = 15(hc)²/[8(mc²)L²], and wavelength λ = 8(mc²)L²/(15hc). At L = 0.5 nm, the energy gap is 22.5675 eV and λ = 54.9462 nm.",
+    "assumptions": [
+      "Use the nonrelativistic infinite-well spectrum; the relevant energies are much smaller than the electron rest energy.",
+      "The stated quantum numbers identify the levels at the time of emission.",
+      "The photon energy equals the level spacing, with negligible recoil of the confining apparatus.",
+      "The separately defined dot does not alter the specified well potential."
+    ],
+    "answer": 54.9462,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "T3D51": {
+      "stratum": "R",
+      "answer_with_sentence": 1848.3914,
+      "regime": null
+    },
+    "TEDF7": {
+      "stratum": "D",
+      "answer_with_sentence": 54.9462,
+      "regime": null
+    },
+    "T8EF5": {
+      "stratum": "R",
+      "answer_with_sentence": 1848.3914,
+      "regime": null
+    },
+    "T7B70": {
+      "stratum": "D",
+      "answer_with_sentence": 54.9462,
+      "regime": null
+    },
+    "T425C": {
+      "stratum": "D",
+      "answer_with_sentence": 54.9462,
+      "regime": null
+    },
+    "T6BE7": {
+      "stratum": "D",
+      "answer_with_sentence": 54.9462,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T425C and T6BE7 replace the explicit widening increment of 2.4 nm with an unspecified 'small amount', violating the required same-number-and-unit condition for variants."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics is well posed at the supplied precision. Widening the well before emission gives L = 2.9 nm and increases the wavelength by (2.9/0.5)² = 33.64. Widening it after emission has no causal path to the emitted wavelength, so this is D rather than cancellation. Changing the separately defined dot is also D in the stated model. All four numerical increments agree at 2.4 nm; the two qualitative increments prevent the complete sentence family from satisfying the explicit variant requirement. No unspecified increment is needed to calculate either qualitative sentence's target answer.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "c9f07613201f6a2e2f7e29ff6cb82d81a44be0ea5a2439090b23963333ed31cb",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

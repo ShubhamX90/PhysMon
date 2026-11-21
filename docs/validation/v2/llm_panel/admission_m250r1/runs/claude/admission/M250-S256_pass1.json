@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch21",
+  "item_id": "M250-S256",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:15:00Z", "completed_at": "2026-11-21T10:25:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Q = n * 3R * dT with n = m/M (Dulong-Petit)", "assumptions": ["constant molar heat capacity 3R over 300-360 K", "no heat loss", "no phase change"], "answer": 3611.29, "unit": "J"},
+  "stratum_assignments": {
+    "TAA2E": {"stratum": "D", "answer_with_sentence": 3611.29, "regime": null},
+    "TD22B": {"stratum": "D", "answer_with_sentence": 3611.29, "regime": null},
+    "T30A5": {"stratum": "C", "answer_with_sentence": 3611.29, "regime": null},
+    "T85DA": {"stratum": "D", "answer_with_sentence": 3611.29, "regime": null},
+    "TA290": {"stratum": "D", "answer_with_sentence": 3611.29, "regime": null},
+    "TBFB5": {"stratum": "C", "answer_with_sentence": 3611.29, "regime": null},
+    "T6CF0": {"stratum": "R", "answer_with_sentence": 4911.36, "regime": null},
+    "TC49F": {"stratum": "R", "answer_with_sentence": 4911.36, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["insufficient_boundary_condition"],
+  "defect_reasons": {"insufficient_boundary_condition": "For TC49F and T6CF0 the initial temperature of the added 0.18 kg of lead is not stated; only the original 0.5 kg is said to be at 300 K, and the heat needed to reach 360 K depends on the added lead's starting temperature."},
+  "defect_severity": {"insufficient_boundary_condition": "high"},
+  "counterexamples": ["If the added 0.18 kg of lead is at 360 K already, the heat supplied is 0.68 kg mixture from about 315.9 K to 360 K, about 3611 J rather than 4911 J; only if it is at 300 K is the answer 4911.36 J."],
+  "notes": "Base: n = 500/207.2 = 2.41313 mol; Q = 2.41313*24.942*60 = 3611.29 J. With 0.18 kg added (and assumed at 300 K): n = 3.28185 mol, Q = 4911.36 J. Heater power (T30A5, TBFB5) enters Q = P t but the time is not asked or given; heat supplied is fixed by the temperature change, so C (could also be read as D-like). T85DA and TAA2E use 'a small amount' instead of 0.18 kg, not the same number as their 0.18 kg variants. T6CF0 'just before the heating began ... for one heating only' is read as referring to the stated heating."
+}

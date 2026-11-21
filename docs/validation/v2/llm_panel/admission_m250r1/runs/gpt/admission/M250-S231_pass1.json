@@ -1,0 +1,100 @@
+{
+  "item_id": "M250-S231",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For a wall approaching through still air at speed u, reflection produces f_echo = f0(c+u)/(c-u), so the beat frequency is 2*f0*u/(c-u). Here u = 3 m/s + v_trolley, with trolley velocity positive towards the loudspeaker. The base problem does not specify v_trolley, so no unique numerical answer follows.",
+    "assumptions": [
+      "The microphone remains at rest beside the loudspeaker.",
+      "The recording includes the returned echo.",
+      "Reflection preserves frequency in the wall's frame.",
+      "The wall's speed through the air is constant and subsonic."
+    ],
+    "answer": null,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T2729": {
+      "stratum": "R",
+      "answer_with_sentence": 11.4353,
+      "regime": null
+    },
+    "T544D": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T811A": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T105F": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T72F4": {
+      "stratum": "C",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T7F76": {
+      "stratum": "R",
+      "answer_with_sentence": 11.4353,
+      "regime": null
+    },
+    "TAC5B": {
+      "stratum": "C",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T1B41": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The stated 3 m/s is relative to the trolley, whose velocity during the recording is unspecified in the base problem and remains unspecified with every addition except T2729 and T7F76.",
+    "rendering_not_minimal": "The variants do not consistently preserve the required number and unit: T544D replaces the conveyor's 1.4 m/s with 'a low speed', and T1B41 similarly replaces the earlier trolley speed of 1.4 m/s."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A stationary trolley gives wall speed 3 m/s through the air and beat frequency 7.7647 Hz; a trolley approaching at 1.4 m/s gives wall speed 4.4 m/s and beat frequency 11.4353 Hz. Both satisfy the base problem's explicit relative-speed specification."
+  ],
+  "notes": "Null answers indicate underdetermination, not zero beats. T2729 and T7F76 supply the missing trolley velocity and give 880*4.4/(343-4.4) Hz. Earlier-run velocities do not constrain the recording under review. The explicitly non-air-stirring conveyor has no physical path to the sound frequencies. Initial wall distance enters propagation delay and echo phase but cancels from the steady beat frequency once the echo arrives. T72F4 and TAC5B preserve the same 90 m value. The opening speed wording initially suggests an air-frame speed, but the later sentence explicitly specifies the trolley frame.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T13:57:54+00:00",
+  "completed_at": "2026-11-21T13:58:43+00:00",
+  "minutes_spent": 0.82,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "458c8e046971204985ee7d1301ec0d9eac42a5502b379a0b31c6cf1d977b3030",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

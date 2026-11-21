@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch04",
+  "item_id": "M250-S219",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Non-relativistic Lorentz force: cyclotron period T = 2*pi*m/(qB); pitch p = v_parallel * T = 2*pi*m*v_parallel/(qB)", "assumptions": ["only magnetic force acts (gravity neglected, vacuum)", "uniform static field", "non-relativistic", "charge constant during the motion"], "answer": 9.4248, "unit": "m"},
+  "stratum_assignments": {
+    "TB95D": {"stratum": "D", "answer_with_sentence": 9.4248, "regime": null},
+    "T71C4": {"stratum": "R", "answer_with_sentence": 5.6100, "regime": null},
+    "T8046": {"stratum": "R", "answer_with_sentence": 5.6100, "regime": null},
+    "T6E3B": {"stratum": "D", "answer_with_sentence": 9.4248, "regime": null},
+    "T58CB": {"stratum": "C", "answer_with_sentence": 9.4248, "regime": null},
+    "TBA52": {"stratum": "D", "answer_with_sentence": 9.4248, "regime": null},
+    "T5675": {"stratum": "C", "answer_with_sentence": 9.4248, "regime": null},
+    "TAE48": {"stratum": "D", "answer_with_sentence": 9.4248, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: T = 2*pi*(0.5e-3)/(5e-3*0.8) = 0.785398 s; p = 12*0.785398 = 9.4248 m. With 3.4 mC added (q = 8.4 mC): T = 2*pi*0.5e-3/(6.72e-3) = 0.467499 s, p = 5.6100 m. Perpendicular speed enters the radius and speed but not the pitch (period is speed-independent), so C. Earlier-run charge and electroscope charge have no path to the target (D). The charge sentences with a number (T71C4, T8046, T6E3B, TAE48) all state 3.4 mC; TB95D and TBA52 state only 'a small amount', so if they are meant as variants of the 3.4 mC sentences they differ in number (not checkable as minimal pairs in pass 1). A 5 mC charge on a 0.5 g bead is physically extreme (unrealistic), hence slightly_artificial; it does not change the idealised answer."
+}

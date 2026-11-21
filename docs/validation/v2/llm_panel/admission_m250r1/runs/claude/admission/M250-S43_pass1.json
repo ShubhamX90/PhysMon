@@ -1,0 +1,21 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch12",
+  "item_id": "M250-S43",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:15:00Z", "completed_at": "2026-11-21T10:22:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Partially filled parallel-plate capacitor C = eps0 A / (d - t + t/kappa) = C0 d / (d - t(1 - 1/kappa)); at fixed V, dQ = (C - C0) V", "assumptions": ["battery remains connected so V fixed", "edge effects negligible", "slab fills full area"], "answer": 720, "unit": "pC"},
+  "stratum_assignments": {
+    "T27DA": {"stratum": "D", "answer_with_sentence": 720, "regime": null},
+    "T8799": {"stratum": "D", "answer_with_sentence": 720, "regime": null},
+    "T0DBA": {"stratum": "D", "answer_with_sentence": 720, "regime": null},
+    "T9341": {"stratum": "R", "answer_with_sentence": 1170, "regime": null},
+    "T6AD3": {"stratum": "R", "answer_with_sentence": 1170, "regime": null},
+    "T970C": {"stratum": "D", "answer_with_sentence": 720, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "C = 100 pF x 6/(6 - 3 x 0.75) = 600/3.75 = 160 pF; dQ = 60 pF x 12 V = 720 pC = 0.72 nC. With a 7.5 V cell in series aiding the battery (connected before first charging and, by implication, still in place), V = 19.5 V and dQ = 60 x 19.5 = 1170 pC. T9341 and T6AD3 read as the cell remaining in the circuit; a reader might wonder whether it was later removed, but 'was connected ... before' with nothing about removal implies it stays. Earlier-experiment-only cell and cells on the lamp's battery are D. 'Small cell' sentences carry no number (apparent numeral-free controls)."
+}

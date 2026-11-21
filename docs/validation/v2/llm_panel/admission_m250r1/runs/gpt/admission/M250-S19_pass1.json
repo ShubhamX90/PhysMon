@@ -1,0 +1,96 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S19",
+  "pass_number": 1,
+  "started_at": "2026-11-21T19:11:39+00:00",
+  "completed_at": "2026-11-21T19:12:33+00:00",
+  "minutes_spent": 0.89,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Projectile motion gives flight time t = 2v sin(theta)/g and horizontal range R = v² sin(2theta)/g. With v = 20 m/s and theta = 35°, R = 38.3548 m.",
+    "assumptions": [
+      "The stated launch angle is the actual initial velocity angle.",
+      "The ball returns to its launch elevation.",
+      "The ramp does not intercept the trajectory.",
+      "Gravity is uniform and air resistance is neglected."
+    ],
+    "answer": 38.3548,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "T3E32": {
+      "stratum": "R",
+      "answer_with_sentence": 27.3115,
+      "regime": null
+    },
+    "T9D35": {
+      "stratum": "D",
+      "answer_with_sentence": 38.3548,
+      "regime": null
+    },
+    "TFDC7": {
+      "stratum": "R",
+      "answer_with_sentence": 27.3115,
+      "regime": null
+    },
+    "TFC29": {
+      "stratum": "D",
+      "answer_with_sentence": 38.3548,
+      "regime": null
+    },
+    "TC550": {
+      "stratum": "D",
+      "answer_with_sentence": 38.3548,
+      "regime": null
+    },
+    "T9417": {
+      "stratum": "D",
+      "answer_with_sentence": 38.3548,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T3E32 and TFDC7 do not specify whether 35° is the direction before or after the lowering, leaving the actual launch angle ambiguous between 21° and 35°.",
+    "rendering_not_minimal": "The variants do not consistently preserve the numerical angular change: T9D35 and TC550 say 'a few degrees', whereas the other sentences specify 14°."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_ids": [
+        "T3E32",
+        "TFDC7"
+      ],
+      "case": "If 35° is the direction before lowering, the launch angle becomes 21° and the range is 27.3115 m; if the explicitly stated 35° is the final launch direction, lowering from 49° to 35° gives a range of 38.3548 m."
+    }
+  ],
+  "notes": "The base problem is well-posed. The R assignments and their numerical answers use the apparent intended interpretation that lowering modifies the stated 35° angle to 21°; that interpretation needs explicit wording. Statements about an earlier trial are disconnected from this launch. The ramp statements have no effect on the described unobstructed flight to level ground. Both angular wordings use degrees, but 'a few degrees' does not specify the same number as 14°. No external information was accessed.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "ce7cd62f8408ad04c4e3d4ac503a93a907b0e8eed99356907dd4b474c682c972",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch05",
+  "item_id": "M250-S218",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:38:00Z", "completed_at": "2026-11-21T10:45:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "F = eps0 A V^2 / (2 d^2) at fixed voltage, eps0 A = C0 d0", "assumptions": ["battery stays connected", "vacuum gap, no edge effects"], "answer": 3.24, "unit": "mN"},
+  "stratum_assignments": {
+    "TD5A9": {"stratum": "D", "answer_with_sentence": 3.24, "regime": null},
+    "T7BA3": {"stratum": "D", "answer_with_sentence": 3.24, "regime": null},
+    "T75D2": {"stratum": "K", "answer_with_sentence": 3.24, "regime": "largest field V/d0 = 450 kV/m below the breakdown field"},
+    "T0373": {"stratum": "R", "answer_with_sentence": 7.29, "regime": null},
+    "TDD7D": {"stratum": "D", "answer_with_sentence": 3.24, "regime": null},
+    "TD96B": {"stratum": "R", "answer_with_sentence": 7.29, "regime": null},
+    "T56FA": {"stratum": "K", "answer_with_sentence": 3.24, "regime": "largest field V/d0 = 450 kV/m below the breakdown field"},
+    "TAF23": {"stratum": "D", "answer_with_sentence": 3.24, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Checked: relations F = Qc E1/2 with C1 = C0 d0/d1 give F = C0 d0 V^2/(2 d1^2) = 3.24 mN for 900 V; V = 1150, 1350, 1550 V give 5.29, 7.29, 9.61 mN, all correct. The K regime V/d0 = 450 kV/m < q holds for 1200, 1900, 2700 kV/m (and the breakdown sentences are not combined with the R sentences). Minimal pairs TD5A9/T0373 (neon supply vs capacitor's battery) and TDD7D/TD96B (earlier run vs before pulling apart) keep 450 V and differ only in attachment; numeral-free twins match. Target unit mN agrees with my pass-1 answer of 3.24e-3 N. Agrees with pass 1.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED"
+}

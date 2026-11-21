@@ -1,0 +1,93 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S14",
+  "pass_number": 1,
+  "started_at": "2026-11-21T19:11:59+00:00",
+  "completed_at": "2026-11-21T19:12:40+00:00",
+  "minutes_spent": 0.68,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "At constant speed, the kinetic energy is unchanged, so the motor supplies gravitational work mgh. Average mechanical power is P = mgh/t = 80 × 9.8 × 6 / 10 = 470.4 W.",
+    "assumptions": [
+      "The stated height is the vertical displacement during the lift.",
+      "A box strapped onto the load before the current lift moves with it, adding to the mass supported by the motor."
+    ],
+    "answer": 470.4,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T920A": {
+      "stratum": "R",
+      "answer_with_sentence": 540.96,
+      "regime": null
+    },
+    "T8A2F": {
+      "stratum": "R",
+      "answer_with_sentence": 540.96,
+      "regime": null
+    },
+    "T7CD8": {
+      "stratum": "C",
+      "answer_with_sentence": 470.4,
+      "regime": null
+    },
+    "T4034": {
+      "stratum": "D",
+      "answer_with_sentence": 470.4,
+      "regime": null
+    },
+    "T3979": {
+      "stratum": "D",
+      "answer_with_sentence": 470.4,
+      "regime": null
+    },
+    "TAAAC": {
+      "stratum": "D",
+      "answer_with_sentence": 470.4,
+      "regime": null
+    },
+    "TBE39": {
+      "stratum": "D",
+      "answer_with_sentence": 470.4,
+      "regime": null
+    },
+    "T6E69": {
+      "stratum": "C",
+      "answer_with_sentence": 470.4,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "natural",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T4034 and T3979 replace the explicit mass '12 kg' with 'small', so they do not preserve the number and unit appearing in their corresponding variants TAAAC and TBE39."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and each individual augmented problem have determinate answers; invalidity concerns the required variant matching. For either currently attached 12 kg box, P = (80 + 12) × 9.8 × 6 / 10 = 540.96 W. Initial elevation cancels through mg[(z_initial + 6) - z_initial]. Boxes attached to the stationary crate or used only in an earlier lift have no physical path to the current lifting power.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "ac25892accb422c0345ea3c3c89b0a1556ce358ea811b984d896a6aac639eba0",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

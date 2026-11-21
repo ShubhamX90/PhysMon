@@ -1,0 +1,93 @@
+{
+  "item_id": "M250-S52",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Energy conservation gives mw*c*(Ti-Tf)=mi*Lf+mi*c*Tf, hence Qlost=mw*mi*(Lf+c*Ti)/(mw+mi). Using c=4.186 kJ/(kg*K) and Lf=334 kJ/kg gives Tf=23.4773 K above melting and Qlost=34.5821 kJ. Heating the original water by q changes Ti to 40+q.",
+    "assumptions": [
+      "The stated specific heat capacity is constant.",
+      "All ice melts and the final mixture remains liquid.",
+      "Stirring supplies negligible energy.",
+      "Heater operation precedes ice addition; the requested heat loss occurs during subsequent equilibration."
+    ],
+    "answer": 34.5820689655,
+    "unit": "kJ"
+  },
+  "stratum_assignments": {
+    "T96AB": {
+      "stratum": "R",
+      "answer_with_sentence": 39.4897931034,
+      "regime": null
+    },
+    "TA38E": {
+      "stratum": "D",
+      "answer_with_sentence": 34.5820689655,
+      "regime": null
+    },
+    "T5D2A": {
+      "stratum": "R",
+      "answer_with_sentence": 39.4897931034,
+      "regime": null
+    },
+    "T2F5B": {
+      "stratum": "D",
+      "answer_with_sentence": 34.5820689655,
+      "regime": null
+    },
+    "T32CB": {
+      "stratum": "D",
+      "answer_with_sentence": 34.5820689655,
+      "regime": null
+    },
+    "T162D": {
+      "stratum": "D",
+      "answer_with_sentence": 34.5820689655,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal",
+    "inconsistent_units"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T2F5B and T162D replace the specified 17 K with an unspecified 'few kelvin', violating the review requirement that variants preserve the same numerical quantity.",
+    "inconsistent_units": "For T2F5B and T162D, the authors report unit=null and claim that the unit was replaced, although both rendered sentences explicitly retain the unit kelvin."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high",
+    "inconsistent_units": "high"
+  },
+  "counterexamples": [],
+  "notes": "The calorimetry, causal classifications, numerical answers and two explicitly identified minimal pairs are correct. Relevant heating by 6, 17 and 29 K gives respectively 36.3142, 39.4898 and 42.9541 kJ; disconnected variants retain 34.5821 kJ. The governing relations are consistent when energies are converted to a common unit. The authors explain that the unspecified increments are intentional numeral-free controls, but the review instructions provide no exception to the same-number requirement. This preserves the pass-1 finding. The additional unit-metadata defect concerns the control claims, not the calorimetry. Pass-1 answers were expressed in joules; the answers here use the specified target unit, kilojoules.",
+  "equation_consistent": true,
+  "units_consistent": false,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:01:57+00:00",
+  "completed_at": "2026-11-21T14:02:45+00:00",
+  "minutes_spent": 0.81,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "fa821c63fda39e56a45040d91e41963ca0a247ee74734a9ef48341dd8fa7ac32",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

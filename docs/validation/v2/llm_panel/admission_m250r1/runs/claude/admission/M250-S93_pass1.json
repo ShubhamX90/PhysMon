@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch02",
+  "item_id": "M250-S93",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:15:00Z", "completed_at": "2026-11-21T10:22:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Torricelli efflux v = sqrt(2 g h) with continuity A dh/dt = -a v, giving t = (A/a) sqrt(2/g) (sqrt(h1) - sqrt(h2))", "assumptions": ["ideal, quasi-steady flow; surface speed negligible (stated)", "jet area = hole area (stated)", "open tank, atmospheric pressure at surface and jet"], "answer": 323.25, "unit": "s"},
+  "stratum_assignments": {
+    "T8938": {"stratum": "C", "answer_with_sentence": 323.25, "regime": null},
+    "T5A35": {"stratum": "D", "answer_with_sentence": 323.25, "regime": null},
+    "T1199": {"stratum": "D", "answer_with_sentence": 323.25, "regime": null},
+    "T5BC7": {"stratum": "R", "answer_with_sentence": 253.15, "regime": null},
+    "T5A43": {"stratum": "D", "answer_with_sentence": 323.25, "regime": null},
+    "T68EC": {"stratum": "D", "answer_with_sentence": 323.25, "regime": null},
+    "T1C18": {"stratum": "R", "answer_with_sentence": 253.15, "regime": null},
+    "T41BC": {"stratum": "C", "answer_with_sentence": 323.25, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "A/a = (400/10)^2 = 1600; sqrt(2/9.8) = 0.45175; sqrt(0.8) - sqrt(0.2) = 0.44721; t = 1600 x 0.20203 = 323.25 s. With hole 11.3 mm: A/a = (400/11.3)^2 = 1253.0; t = 253.15 s. Density appears in Bernoulli (rho g h = rho v^2/2) and cancels (C). Barrel hole is a separate object (D). Reaming after timing leaves the timed drain unchanged (D). Variant checks: density pair same 962 kg/m^3; T1199/T5BC7/T5A43/T1C18 all 1.3 mm; T5A35 and T68EC say 'slightly larger' without a number (fine only if intended as numeral-free controls). T5BC7 (present tense) and T1C18 (past tense) differ only in tense."
+}

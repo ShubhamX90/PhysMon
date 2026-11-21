@@ -1,0 +1,85 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S273",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:00:37+00:00",
+  "completed_at": "2026-11-21T14:01:27+00:00",
+  "minutes_spent": 0.82,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation gives hc/lambda = K + |E_2|. With mu/m_e = 206.77*1836.15/(206.77+1836.15) = 185.84219, the two-body Bohr binding energy is |E_2| = (mu/m_e)*1.44/(2*0.05292*2^2) = 632.11631 eV. Thus the photon energy is 782.11631 eV and lambda = 1240/782.11631.",
+    "assumptions": [
+      "The stated kinetic energy is the energy of relative motion available for capture.",
+      "The supplied hydrogen Bohr radius supplies the electron-mass Bohr length scale.",
+      "Atom recoil is neglected as instructed.",
+      "For either current-muon accelerating-gap sentence, 150 eV is the energy before the additional 116 eV gain."
+    ],
+    "answer": 1.58544,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "T325A": {
+      "stratum": "D",
+      "answer_with_sentence": 1.58544,
+      "regime": null
+    },
+    "TE47C": {
+      "stratum": "D",
+      "answer_with_sentence": 1.58544,
+      "regime": null
+    },
+    "T4CEB": {
+      "stratum": "D",
+      "answer_with_sentence": 1.58544,
+      "regime": null
+    },
+    "TCB0F": {
+      "stratum": "R",
+      "answer_with_sentence": 1.38067,
+      "regime": null
+    },
+    "TE652": {
+      "stratum": "R",
+      "answer_with_sentence": 1.38067,
+      "regime": null
+    },
+    "T2E00": {
+      "stratum": "D",
+      "answer_with_sentence": 1.58544,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T4CEB and T2E00 replace the specified 116 eV gain with an unquantified 'a little', so these variants do not retain the required identical number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base capture calculation is well-posed under the stated two-body Bohr model. Both current-muon gap sentences increase the capture kinetic energy to 266 eV, giving photon energy 898.11631 eV. The separate electron apparatus and an earlier capture have no stated physical connection to this photon. The unquantified gains in T4CEB and T2E00 do not affect the target, but they fail the packet's quantitative matching requirement.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "7dc5d661e54b3e6e8ccda54ad512c3d0f767fcad27b8d5aba71cea78675de25f",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

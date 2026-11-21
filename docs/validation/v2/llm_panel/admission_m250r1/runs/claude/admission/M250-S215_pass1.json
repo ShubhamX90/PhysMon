@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch20",
+  "item_id": "M250-S215",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:15:00Z", "completed_at": "2026-11-21T10:22:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Transmission-line step response: Z0 = sqrt(L/C) (totals, uniform line); V+ = E Z0/(Z0+Rs); V_load = V+ (1+Gamma_L), Gamma_L = (RL-Z0)/(RL+Z0)", "assumptions": ["lossless uniform line", "ideal step source with stated internal resistance", "resistive load"], "answer": 10.0, "unit": "V"},
+  "stratum_assignments": {
+    "TAB4E": {"stratum": "D", "answer_with_sentence": 10.0, "regime": null},
+    "TBEAE": {"stratum": "D", "answer_with_sentence": 10.0, "regime": null},
+    "T9B6E": {"stratum": "C", "answer_with_sentence": 10.0, "regime": null},
+    "T2129": {"stratum": "C", "answer_with_sentence": 10.0, "regime": null},
+    "T6BEA": {"stratum": "R", "answer_with_sentence": 6.410, "regime": null},
+    "TADD9": {"stratum": "R", "answer_with_sentence": 6.410, "regime": null},
+    "T0205": {"stratum": "D", "answer_with_sentence": 10.0, "regime": null},
+    "T8F3D": {"stratum": "D", "answer_with_sentence": 10.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Z0 = sqrt(0.025e-3 H / 10e-9 F) = 50 ohm. V+ = 10 x 50/75 = 6.667 V; Gamma_L = 100/200 = 0.5; V_load = 6.667 x 1.5 = 10.0 V. Length: L' = L/l and C' = C/l, so Z0 = sqrt(L'/C') = sqrt(L/C) and length cancels (it only sets the delay) -> C. Extra 42 ohm in series with source: Rs = 67 ohm, V+ = 500/117 = 4.274 V, V_load = 6.410 V. Lamp resistor and earlier-test resistor have no path to the line -> D. TBEAE and T0205 state 'a small resistor' with no number, unlike the numbered sentences."
+}

@@ -1,0 +1,99 @@
+{
+  "item_id": "M250-S24",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Reversibility gives Q_C/Q_H = T_C/T_H, and energy conservation gives W = Q_H - Q_C. Thus W = 800(1 - 300/600) = 400 kJ.",
+    "assumptions": [
+      "The reservoirs maintain their operating temperatures during each cycle.",
+      "Heat input remains 800 kJ per cycle when the hot reservoir is warmed before operation.",
+      "The earlier experiment precedes the stated initial reservoir temperatures."
+    ],
+    "answer": 400,
+    "unit": "kJ"
+  },
+  "stratum_assignments": {
+    "T82B8": {
+      "stratum": "R",
+      "answer_with_sentence": 480,
+      "regime": null
+    },
+    "TB635": {
+      "stratum": "C",
+      "answer_with_sentence": 400,
+      "regime": null
+    },
+    "TD300": {
+      "stratum": "D",
+      "answer_with_sentence": 400,
+      "regime": null
+    },
+    "TF51D": {
+      "stratum": "D",
+      "answer_with_sentence": 400,
+      "regime": null
+    },
+    "T9558": {
+      "stratum": "R",
+      "answer_with_sentence": 480,
+      "regime": null
+    },
+    "TC060": {
+      "stratum": "D",
+      "answer_with_sentence": 400,
+      "regime": null
+    },
+    "T77C1": {
+      "stratum": "D",
+      "answer_with_sentence": 400,
+      "regime": null
+    },
+    "TBF70": {
+      "stratum": "C",
+      "answer_with_sentence": 400,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TF51D and T77C1 replace the specified 150 K rise with 'a few kelvin', violating the review instructions' requirement that same-quantity variants preserve the number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "All physical strata and certified answers agree with pass 1. For reservoir heating, W = 800[1 - 300/(600 + q)] kJ gives 441.791, 480, and 517.647 kJ at q = 70, 150, and 250 K. The disconnected block and earlier experiment leave the answer at 400 kJ. The ideal-gas cancellation is algebraically correct; consistent energy units must be used for Qh and R. Both explicitly declared minimal pairs preserve their numerical value and unit. Pass 2 explains that TF51D and T77C1 are intentionally numeral-free controls, rather than claimed numerical minimal pairs. This clarifies the authors' intent but does not satisfy the frozen instructions' unqualified same-quantity variant requirement, so the pass-1 rendering flag is retained. No physics or numerical-answer defect was found.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:22:06+00:00",
+  "completed_at": "2026-11-21T14:22:54+00:00",
+  "minutes_spent": 0.81,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "5a7c5da5ee7276917f209bded7b58b9af7dcbbeca6def15a2da5c7208438d46b",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

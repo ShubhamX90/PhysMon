@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch20",
+  "item_id": "M250-S238",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:40:00Z", "completed_at": "2026-11-21T10:48:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Circular Couette flow: T = 4 pi mu L Omega R1^2 R2^2/(R2^2 - R1^2); P = T Omega", "assumptions": ["Newtonian, steady, laminar, purely azimuthal flow", "no slip", "outer cylinder fixed", "end effects neglected"], "answer": 0.1829, "unit": "W"},
+  "stratum_assignments": {
+    "T2F2B": {"stratum": "K", "answer_with_sentence": 0.1829, "regime": "rotor rate below 6500 rpm"},
+    "TF18F": {"stratum": "K", "answer_with_sentence": 0.1829, "regime": "rotor rate below 6500 rpm"},
+    "TEF4A": {"stratum": "R", "answer_with_sentence": 0.4831, "regime": null},
+    "TFDA3": {"stratum": "D", "answer_with_sentence": 0.1829, "regime": null},
+    "T564F": {"stratum": "R", "answer_with_sentence": 0.4831, "regime": null},
+    "T7A33": {"stratum": "D", "answer_with_sentence": 0.1829, "regime": null},
+    "T5A9C": {"stratum": "C", "answer_with_sentence": 0.1829, "regime": null},
+    "T0105": {"stratum": "D", "answer_with_sentence": 0.1829, "regime": null},
+    "T4956": {"stratum": "D", "answer_with_sentence": 0.1829, "regime": null},
+    "TF420": {"stratum": "C", "answer_with_sentence": 0.1829, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Base 0.182943 W matches my 0.18294 W. R checks: (155/120)^2 x 0.182943 = 0.30522; (195/120)^2 x = 0.48308; (280/120)^2 x = 0.99602; all match. K: the vortex-free limits 3500, 6500, 9000 rpm all lie above 120 rpm and below my estimate of actual Taylor onset (~1.4e4 rpm with nu = 4.65e-4 m^2/s), so none of the stated thresholds is physically false. Density: in pass 1 I labelled it K (it would matter only through inertia beyond Taylor onset); the authors label it C, writing eta = rho nu so that rho cancels. Density does enter the momentum equations (rho Du/Dt) and drops from the torque for purely azimuthal flow, so C is defensible; the shown cancellation through nu = eta/rho is somewhat contrived since eta is given directly, but not wrong. Either label gives the same invariant answer; I accept C. Minimal pairs T7A33/T564F (stirrer vs rotor) and T0105/TEF4A (earlier run only vs before the power was measured) keep 75 rpm and differ only in attachment. TFDA3 and T4956 are declared numeral-free controls."
+}

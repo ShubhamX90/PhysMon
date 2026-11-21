@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S264",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:13:54+00:00",
+  "completed_at": "2026-11-21T14:14:33+00:00",
+  "minutes_spent": 0.66,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For a series RLC circuit, Z = R + i(ωL − 1/(ωC)), so |φ| = arctan(|ωL − 1/(ωC)|/R). Here ω = 2π(500) rad/s, XL = 78.5398 Ω and XC = 53.0516 Ω, giving |φ| = 40.35°.",
+    "assumptions": [
+      "The resistor is ohmic.",
+      "The separately battery-powered fan has no coupling to the RLC circuit.",
+      "The stated ideal components and steady sinusoidal operation apply."
+    ],
+    "answer": 40.35,
+    "unit": "degree"
+  },
+  "stratum_assignments": {
+    "T3337": {
+      "stratum": "D",
+      "answer_with_sentence": 40.35,
+      "regime": null
+    },
+    "TA667": {
+      "stratum": "C",
+      "answer_with_sentence": 40.35,
+      "regime": null
+    },
+    "T2697": {
+      "stratum": "D",
+      "answer_with_sentence": 40.35,
+      "regime": null
+    },
+    "T4415": {
+      "stratum": "C",
+      "answer_with_sentence": 40.35,
+      "regime": null
+    },
+    "TD7F0": {
+      "stratum": "D",
+      "answer_with_sentence": 40.35,
+      "regime": null
+    },
+    "T0B12": {
+      "stratum": "R",
+      "answer_with_sentence": 30.08,
+      "regime": null
+    },
+    "TEEB4": {
+      "stratum": "R",
+      "answer_with_sentence": 30.08,
+      "regime": null
+    },
+    "T6DE7": {
+      "stratum": "D",
+      "answer_with_sentence": 40.35,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T3337 and TD7F0 specify only an unspecified 'small amount' of resistance, whereas their corresponding resistance variants specify 14 Ω, violating the required matching number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The physics problems are individually solvable; invalidity concerns the required numerical matching across variants. Adding 14 Ω to the RLC series path gives Rtotal = 44 Ω and |φ| = arctan(25.4882/44) = 30.08°. Source amplitude cancels because Vpeak = Ipeak|Z| and the phase is determined by Z. Resistance used for an earlier run only is absent from the measured circuit and has no remaining influence in the stated steady state. No external information was accessed.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "15b2c02912f1b053ed68576b4d626dfea49032512ac31c1693cd0b591e030099",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

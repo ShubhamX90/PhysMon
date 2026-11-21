@@ -1,0 +1,107 @@
+{
+  "item_id": "M250-S256",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Q = (m/M)3R(T2-T1), using M = 0.2072 kg/mol. With added lead initially at temperature Ta, Q = (3R/M)[m(360-300) + q(360-Ta)].",
+    "assumptions": [
+      "The stated constant molar heat capacity applies throughout.",
+      "Heating and any equilibration conserve energy except for the supplied heat.",
+      "The authors' added-mass answers additionally require the added lead to start at 300 K."
+    ],
+    "answer": 3.611293436,
+    "unit": "kJ"
+  },
+  "stratum_assignments": {
+    "TAA2E": {
+      "stratum": "D",
+      "answer_with_sentence": 3.611293436,
+      "regime": null
+    },
+    "TD22B": {
+      "stratum": "D",
+      "answer_with_sentence": 3.611293436,
+      "regime": null
+    },
+    "T30A5": {
+      "stratum": "C",
+      "answer_with_sentence": 3.611293436,
+      "regime": null
+    },
+    "T85DA": {
+      "stratum": "D",
+      "answer_with_sentence": 3.611293436,
+      "regime": null
+    },
+    "TA290": {
+      "stratum": "D",
+      "answer_with_sentence": 3.611293436,
+      "regime": null
+    },
+    "TBFB5": {
+      "stratum": "C",
+      "answer_with_sentence": 3.611293436,
+      "regime": null
+    },
+    "T6CF0": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TC49F": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T6CF0 and TC49F specify the added mass but not its initial temperature or that the combined block begins heating at 300 K, so their certified heat inputs require an unstated initial condition."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_ids": [
+        "T6CF0",
+        "TC49F"
+      ],
+      "description": "For 0.18 kg added at 300 K, the required heat is 4.911359073 kJ. If that lead instead starts at 360 K and equilibrates without heat loss with the original 0.5 kg block at 300 K, the combined initial temperature becomes 315.882353 K and the subsequent supplied heat is 3.611293436 kJ. Both cases permit slow, uniform heating to 360 K while remaining solid."
+    }
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "The base answer and all D/C certified answers are correct. Heater power cancels through Q = Pt and t = Q/P. With the additional assumption that the added lead starts at 300 K, the R answers for 0.07, 0.18 and 0.52 kg are respectively 4.116874517, 4.911359073 and 7.367038609 kJ, matching the certified rounding. The equations are dimensionally valid when mass units are reconciled and joules are converted to kilojoules, but the added-mass wiring omits the added lead's initial thermal state. I withdraw pass 1's rendering_not_minimal flag because pass 2 explicitly identifies the numeral-free sentences as controls rather than numerical minimal pairs; the declared minimal pairs TD22B/T6CF0 and TA290/TC49F preserve 0.18 kg. The unresolved initial-temperature defect remains.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:17:20+00:00",
+  "completed_at": "2026-11-21T14:18:05+00:00",
+  "minutes_spent": 0.76,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "c230002eb02b8f234ccafbfbc75661c24f12fb74d9c0ff7a8edde99d698fd590",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

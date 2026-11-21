@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch23",
+  "item_id": "M250-S235",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:27:00Z", "completed_at": "2026-11-21T10:34:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Archimedes; T = 2 pi sqrt(d0/g), d0 = rho_b h/rho_l", "assumptions": ["no added mass or drag (stated)", "stays upright, partly submerged"], "answer": 0.886307, "unit": "s"},
+  "stratum_assignments": {
+    "T11DC": {"stratum": "C", "answer_with_sentence": 0.886307, "regime": null},
+    "T7EFE": {"stratum": "D", "answer_with_sentence": 0.886307, "regime": null},
+    "T315E": {"stratum": "R", "answer_with_sentence": 1.017, "regime": null},
+    "T4379": {"stratum": "R", "answer_with_sentence": 1.017, "regime": null},
+    "T30BA": {"stratum": "C", "answer_with_sentence": 0.886307, "regime": null},
+    "TFE49": {"stratum": "D", "answer_with_sentence": 0.886307, "regime": null},
+    "T7F78": {"stratum": "D", "answer_with_sentence": 0.886307, "regime": null},
+    "TF10E": {"stratum": "D", "answer_with_sentence": 0.886307, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified R answers: q=3.5 cm -> 2 pi sqrt(0.65*0.335/9.8) = 0.93658 s; 9.5 -> 1.0170 s; 14 -> 2 pi sqrt(0.65*0.44/9.8) = 1.07337 s. Radius cancellation correct for 24/32/42 cm; upright stability holds for all listed radii (r/L >= 0.8 > 0.67). Minimal pairs TF10E/T4379 (earlier-run vs current-run attachment) and TFE49/T315E (raft vs cylinder) share 9.5 cm and differ only in attachment. Numeral-free controls declared. Agrees with pass 1."
+}

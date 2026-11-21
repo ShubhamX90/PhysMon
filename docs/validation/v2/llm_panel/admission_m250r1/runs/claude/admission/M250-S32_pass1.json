@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch05",
+  "item_id": "M250-S32",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:16:00Z", "completed_at": "2026-11-21T10:24:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Work-energy theorem: (1/2) k x^2 = mu_k m g d (friction acts over the whole path, including while the spring pushes)", "assumptions": ["block starts from rest and does move (spring force 80 N exceeds friction)", "ideal massless spring, block separates at natural length", "kinetic friction over the whole slide"], "answer": 3.265, "unit": "m"},
+  "stratum_assignments": {
+    "TDC1D": {"stratum": "D", "answer_with_sentence": 3.265, "regime": null},
+    "TFBC0": {"stratum": "D", "answer_with_sentence": 3.265, "regime": null},
+    "TB3C0": {"stratum": "R", "answer_with_sentence": 0.816, "regime": null},
+    "T92B0": {"stratum": "K", "answer_with_sentence": 3.265, "regime": "Hooke's-law limit matters only if the compression exceeds 28 cm; the stated compression is 10 cm"},
+    "T9B94": {"stratum": "K", "answer_with_sentence": 3.265, "regime": "elastic limit matters only if the compression exceeds 28 cm; the stated compression is 10 cm"},
+    "T1533": {"stratum": "D", "answer_with_sentence": 3.265, "regime": null},
+    "T9D09": {"stratum": "D", "answer_with_sentence": 3.265, "regime": null},
+    "TC18C": {"stratum": "R", "answer_with_sentence": 0.816, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: E = 0.5*800*0.1^2 = 4 J; friction force 0.25*0.5*9.8 = 1.225 N; d = 3.265 m. With 1.5 kg added (m = 2.0 kg): friction 4.9 N, d = 4/4.9 = 0.816 m; the block still has 4 - 0.49 = 3.51 J at the spring's natural length, so it leaves the spring and the energy balance holds. Static friction is not given, but the text states that the spring pushes the block along, and 80 N greatly exceeds plausible static friction. Variant sentences carry the same 1.5 kg and 28 cm values."
+}

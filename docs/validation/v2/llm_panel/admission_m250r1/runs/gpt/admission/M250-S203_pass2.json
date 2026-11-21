@@ -1,0 +1,100 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S203",
+  "pass_number": 2,
+  "started_at": "2026-11-21T14:06:09+00:00",
+  "completed_at": "2026-11-21T14:06:54+00:00",
+  "minutes_spent": 0.75,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For theta measured from the downward vertical, theta_ddot = sin(theta)[Om^2 cos(theta) - g_eff/R]. The off-axis equilibrium obeys cos(theta0) = g_eff/(Om^2 R). Linearization gives ws^2 = Om^2 sin^2(theta0), hence T = 2*pi/[Om*sqrt(1-(g_eff/(Om^2 R))^2)]. With g_eff = 9.8 m/s², T = 1.03646 s. Upward platform acceleration q gives g_eff = g + q; q = 1.2, 2.1 and 5.6 m/s² yield 1.08450, 1.12963 and 1.45104 s, respectively.",
+    "assumptions": [
+      "The bead is a point mass constrained to the frictionless rigid hoop.",
+      "The motor maintains the stated angular speed.",
+      "The equilibrium and small oscillations refer to the current platform acceleration.",
+      "Gravity is uniform and air resistance is negligible."
+    ],
+    "answer": 1.03646,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T30AD": {
+      "stratum": "C",
+      "answer_with_sentence": 1.03646,
+      "regime": null
+    },
+    "TD316": {
+      "stratum": "D",
+      "answer_with_sentence": 1.03646,
+      "regime": null
+    },
+    "T9510": {
+      "stratum": "D",
+      "answer_with_sentence": 1.03646,
+      "regime": null
+    },
+    "T8E51": {
+      "stratum": "D",
+      "answer_with_sentence": 1.03646,
+      "regime": null
+    },
+    "T4B28": {
+      "stratum": "R",
+      "answer_with_sentence": 1.12963,
+      "regime": null
+    },
+    "T3B23": {
+      "stratum": "C",
+      "answer_with_sentence": 1.03646,
+      "regime": null
+    },
+    "T319B": {
+      "stratum": "R",
+      "answer_with_sentence": 1.12963,
+      "regime": null
+    },
+    "T9186": {
+      "stratum": "D",
+      "answer_with_sentence": 1.03646,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T9510 and T9186 specify 'a few metres per second squared' instead of 2.1 m/s², violating the review instructions' requirement that variants concerning the same quantity preserve its number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "All physical classifications, governing relations, cancellation expressions and certified numerical answers are correct. Every listed acceleration satisfies g + q < Om^2 R = 19.6 m/s², so the stable off-axis equilibrium exists. Both explicitly claimed minimal pairs, TD316/T319B and T8E51/T4B28, preserve the stated acceleration and change its attachment or timing as intended. Pass 2 explains that T9510 and T9186 are deliberately numeral-free controls rather than failed attempts to reproduce 2.1; this clarifies author intent but does not supply an exception to the frozen review instructions' numerical-identity requirement. The pass-1 verdict therefore remains unchanged. The defect concerns rendering requirements, not uniqueness or correctness of the physical periods.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "1edaf528092c681e540f1b9933949685f08d3b1d981452e574f3cf4546d79d12",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

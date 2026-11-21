@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch03",
+  "item_id": "M250-S249",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:08:00Z", "completed_at": "2026-11-21T10:14:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Relativistic cyclotron frequency f = eB/(2 pi gamma m), gamma = 1 + K/(m c^2)", "assumptions": ["velocity perpendicular to B", "uniform constant B, no E field", "no radiation"], "answer": 16.527, "unit": "MHz"},
+  "stratum_assignments": {
+    "TE2A4": {"stratum": "D", "answer_with_sentence": 16.527, "regime": null},
+    "T836B": {"stratum": "D", "answer_with_sentence": 16.527, "regime": null},
+    "T13DE": {"stratum": "D", "answer_with_sentence": 16.527, "regime": null},
+    "T8739": {"stratum": "R", "answer_with_sentence": 15.414, "regime": null},
+    "T30C5": {"stratum": "D", "answer_with_sentence": 16.527, "regime": null},
+    "TAC96": {"stratum": "R", "answer_with_sentence": 15.414, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked certified answers: K=100 -> 16.527 MHz; K=160 -> 15.625; K=175 -> 15.414; K=230 -> 14.689. Differences in the 4th-5th significant figure (e.g. 16.5273 vs 16.5271) come from the MeV-to-J conversion (stated e vs exact eV) and are negligible. Minimal pairs TE2A4/T8739 and T836B/TAC96 share 75 MeV and differ only in attachment. T13DE and T30C5 are declared numeral-free controls, so my pass-1 low rendering_not_minimal flag is withdrawn."
+}

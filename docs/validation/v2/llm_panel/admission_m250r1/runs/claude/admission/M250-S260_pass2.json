@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch18",
+  "item_id": "M250-S260",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:57:30Z", "completed_at": "2026-11-21T11:04:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Kinetic-theory collision frequency z = sqrt(2) pi d^2 n v_mean, with n = P/(kT) and v_mean = sqrt(8kT/(pi m))", "assumptions": ["ideal gas (stated)", "hard spheres, Maxwell speeds (stated)", "1 u = 1.66054e-27 kg"], "answer": 5.5946, "unit": "GHz (1e9 collisions per second)"},
+  "stratum_assignments": {
+    "TE094": {"stratum": "D", "answer_with_sentence": 5.5946, "regime": null},
+    "T7923": {"stratum": "D", "answer_with_sentence": 5.5946, "regime": null},
+    "TE998": {"stratum": "R", "answer_with_sentence": 7.9023, "regime": null},
+    "TA9C7": {"stratum": "D", "answer_with_sentence": 5.5946, "regime": null},
+    "T4C04": {"stratum": "C", "answer_with_sentence": 5.5946, "regime": null},
+    "T5675": {"stratum": "C", "answer_with_sentence": 5.5946, "regime": null},
+    "T8E4F": {"stratum": "R", "answer_with_sentence": 7.9023, "regime": null},
+    "T62EC": {"stratum": "D", "answer_with_sentence": 5.5946, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [], "defect_flags": ["other"], "defect_reasons": {"other": "T8E4F (claimed R) keeps the phrase 'for one run only' from its D twin TA9C7, so a reader could take it as another run; the authors' R reading (the counted run) is the more natural one."}, "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "notes": "Verified base z = 5.5946e9 s^-1 (n = 1.9310e25 m^-3, sigma*sqrt(2) = 6.0823e-19 m^2, v_mean = 476.35 m/s). Pressure additions scale z linearly at fixed T: 97 kPa -> 6.7834, 113 kPa -> 7.9023, 138 kPa -> 9.6507 GHz, matching the certified values. Volume cancellation (n = N/V = p/kT) is correct. Minimal pairs T7923/TE998 and TA9C7/T8E4F share 33 kPa; numeral-free twins T62EC/T7923 and TE094/TA9C7 match. 'GHz' as the unit for a collision rate is conventional (s^-1). The value of u is not stated but is a standard constant. Agrees with pass 1."
+}

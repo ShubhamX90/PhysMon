@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch12",
+  "item_id": "M250-S205",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:36:30Z", "completed_at": "2026-11-21T10:42:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "F = m r sqrt((alpha t)^4 + alpha^2) for a co-rotating coin", "assumptions": ["no slipping (stated)", "rigid turntable, fixed axis"], "answer": 12.47, "unit": "mN"},
+  "stratum_assignments": {
+    "T93E5": {"stratum": "D", "answer_with_sentence": 12.47, "regime": null},
+    "TA974": {"stratum": "D", "answer_with_sentence": 12.47, "regime": null},
+    "T0819": {"stratum": "K", "answer_with_sentence": 12.47, "regime": "required friction below the maximum (no slipping)"},
+    "TF803": {"stratum": "R", "answer_with_sentence": 17.67, "regime": null},
+    "T02AF": {"stratum": "R", "answer_with_sentence": 17.67, "regime": null},
+    "T47DA": {"stratum": "D", "answer_with_sentence": 12.47, "regime": null},
+    "T2F1F": {"stratum": "K", "answer_with_sentence": 12.47, "regime": "required friction below the maximum (no slipping)"},
+    "T8DDD": {"stratum": "D", "answer_with_sentence": 12.47, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "|a| = 1.03930 m/s^2. Checked: 12 g -> 12.472 mN; 14 g -> 14.550; 17 g -> 17.668; 19 g -> 19.747; all match. K values 65, 95, 135 mN all exceed 12.47 mN (and exceed even the 19.7 mN of the heaviest R case), so the regime f < q holds for every listed value. Minimal pairs T47DA/TF803 and TA974/T02AF share 5 g and differ only in attachment/timing; T93E5 and T8DDD are declared numeral-free controls. Minor point, not flagged: for the taped-washer R sentences the answer treats the turntable's friction as acting on the coin-plus-washer unit, which is the natural reading. Agree with pass 1."
+}

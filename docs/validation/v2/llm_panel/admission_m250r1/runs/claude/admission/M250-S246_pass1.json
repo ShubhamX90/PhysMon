@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch24",
+  "item_id": "M250-S246",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:06:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Beer-Lambert narrow-beam attenuation in series: I/I0 = exp(-mu_c x_c - mu_Pb x_Pb); x_Pb = (ln 10000 - mu_c x_c)/mu_Pb = (9.21034 - 4.5)/80 m", "assumptions": ["narrow-beam geometry, no buildup (scattered photons lost, as stated)", "coefficients constant over thickness (monoenergetic beam)"], "answer": 5.888, "unit": "cm"},
+  "stratum_assignments": {
+    "TC013": {"stratum": "D", "answer_with_sentence": 5.888, "regime": null},
+    "T4F30": {"stratum": "D", "answer_with_sentence": 5.888, "regime": null},
+    "TEDF2": {"stratum": "R", "answer_with_sentence": 4.444, "regime": null},
+    "T6B5C": {"stratum": "C", "answer_with_sentence": 5.888, "regime": null},
+    "TD827": {"stratum": "D", "answer_with_sentence": 5.888, "regime": null},
+    "TCC3C": {"stratum": "D", "answer_with_sentence": 5.888, "regime": null},
+    "TD192": {"stratum": "R", "answer_with_sentence": 4.444, "regime": null},
+    "T1E87": {"stratum": "C", "answer_with_sentence": 5.888, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "With 7.7 cm extra concrete: mu_c x_c = 15*0.377 = 5.655; x_Pb = 3.55534/80 = 0.044442 m = 4.444 cm. The source intensity cancels because only the ratio is specified (C). TC013 and TD827 state 'a little' with no number, whereas the other 7.7 cm sentences state a value; if they are meant to be variants of 7.7 cm sentences they differ in the number. Shed sentences and earlier-shield sentences have no path to this shield (D)."
+}

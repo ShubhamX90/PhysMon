@@ -1,0 +1,104 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S34",
+  "pass_number": 2,
+  "started_at": "2026-11-21T14:11:25+00:00",
+  "completed_at": "2026-11-21T14:12:11+00:00",
+  "minutes_spent": 0.77,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For a stationary incline, conservation of mechanical energy gives (1/2)mv0² + (1/2)(2mR²/5)(v0/R)² = mgd sin(theta), hence d = 7v0²/[10g sin(theta)].",
+    "assumptions": [
+      "The incline remains stationary throughout the ascent.",
+      "Rolling without slipping holds throughout the ascent.",
+      "For either tilt sentence to give the certified changed answer, the tilt must be completed before launch and before final clamping."
+    ],
+    "answer": 6.08452,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TACA4": {
+      "stratum": "C",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "T1332": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "TDEF6": {
+      "stratum": "R",
+      "answer_with_sentence": 4.17669,
+      "regime": null
+    },
+    "T4182": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "T96D5": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T7B54": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "T741D": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "T55FE": {
+      "stratum": "C",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "T96D5 does not explicitly place the tilt before launch and final clamping, so its certified distance requires an additional timing condition."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "T96D5",
+      "description": "Completing the 13° tilt before launch and final clamping gives a stationary 38° incline and a distance of 4.17669 m; performing that tilt after the sphere has stopped leaves its ascent distance at 6.08452 m. The sentence does not explicitly locate the tilt relative to the ascent."
+    }
+  ],
+  "notes": "The governing equations, radius cancellation, units and numerical precision are correct. For a tilt completed before launch, q = 7°, 13° and 18° gives distances 4.85249 m, 4.17669 m and 3.77043 m, respectively. Every listed radius gives 6.08452 m because I/(mR²) = 2/5. The disconnected sentences leave the answer unchanged. The stated minimal pairs have matching numbers and units and change the intended attachment or experimental context. The numeral-free sentences are explicitly identified as controls, resolving the pairing uncertainty recorded in pass 1 without creating a rendering defect. The initial-angle and clamping language supports the intended reading of T96D5, but does not expressly specify when its subsequent tilt occurs. I retain the pass-1 timing objection. The false answer_correct value concerns unconditional certification of T96D5, rather than arithmetic.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "d26eb122e651449167acb2b0324408d9d2413170ef6219bbea32615b0b03a380",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

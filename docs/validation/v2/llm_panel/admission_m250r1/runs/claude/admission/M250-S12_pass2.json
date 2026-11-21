@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch25",
+  "item_id": "M250-S12",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:09:00Z", "completed_at": "2026-11-21T10:15:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "v_max = sqrt(mu g r) from mu m g = m v^2 / r on a flat curve", "assumptions": ["car's path radius is the stated 50 m (inner edge) unless a sentence moves it", "flat road, uniform friction", "point-mass car"], "answer": 17.1464, "unit": "m/s"},
+  "stratum_assignments": {
+    "T02CA": {"stratum": "D", "answer_with_sentence": 17.1464, "regime": null},
+    "T82EB": {"stratum": "R", "answer_with_sentence": 18.3875, "regime": null},
+    "T7092": {"stratum": "D", "answer_with_sentence": 17.1464, "regime": null},
+    "T5A6E": {"stratum": "D", "answer_with_sentence": 17.1464, "regime": null},
+    "T9AEC": {"stratum": "D", "answer_with_sentence": 17.1464, "regime": null},
+    "TFE1E": {"stratum": "C", "answer_with_sentence": 17.1464, "regime": null},
+    "T79A4": {"stratum": "C", "answer_with_sentence": 17.1464, "regime": null},
+    "TF5BA": {"stratum": "R", "answer_with_sentence": 18.3875, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "The base says the 50 m radius is the inner edge of the road but does not say in so many words that the car follows the inner edge; the natural reading (car's path radius 50 m) is the one certified."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked answers: r=50: sqrt(294)=17.146; r=54: sqrt(317.52)=17.819; r=57.5: sqrt(338.1)=18.388; r=61.5: sqrt(361.62)=19.016. All match. Mass cancels for all values. Minimal pairs T02CA/T82EB (cyclist vs car, same 7.5 m) and T9AEC/TF5BA (earlier run vs this run, same 7.5 m) differ only in attachment. Disagreement with pass 1: I flagged rendering_not_minimal for T7092 and T5A6E; the claims show these are declared numeral-free controls twinned with T9AEC and T02CA, differing only by replacing '7.5 m' with 'a little', so I withdraw that flag. The cyclist's lane is on a path beside the road, so no physical coupling to the car."
+}

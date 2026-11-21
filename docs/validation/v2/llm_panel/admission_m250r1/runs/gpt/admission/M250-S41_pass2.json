@@ -1,0 +1,102 @@
+{
+  "item_id": "M250-S41",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Coulomb's law and conservation of charge. Write the initial charges as +5Q and -Q. The initial force gives kQ^2 = F0*d0^2/5. Contact gives each identical sphere charge +2Q. Thus F1 = F0*(4/5)*(d0/d1)^2 = 16 mN. An additional final displacement x gives F1(x) = 16*(60/(60+x))^2 mN, with x in cm.",
+    "assumptions": [
+      "The insulated spheres conserve their combined charge during contact.",
+      "Identical conducting spheres share the total charge equally at equilibrium.",
+      "The prescribed point-charge approximation applies at the measurement separations."
+    ],
+    "answer": 16,
+    "unit": "mN"
+  },
+  "stratum_assignments": {
+    "T162F": {
+      "stratum": "D",
+      "answer_with_sentence": 16,
+      "regime": null
+    },
+    "T0EF1": {
+      "stratum": "D",
+      "answer_with_sentence": 16,
+      "regime": null
+    },
+    "TCCA9": {
+      "stratum": "D",
+      "answer_with_sentence": 16,
+      "regime": null
+    },
+    "TAA47": {
+      "stratum": "C",
+      "answer_with_sentence": 16,
+      "regime": null
+    },
+    "T81A0": {
+      "stratum": "C",
+      "answer_with_sentence": 16,
+      "regime": null
+    },
+    "TA88E": {
+      "stratum": "D",
+      "answer_with_sentence": 16,
+      "regime": null
+    },
+    "T2BDE": {
+      "stratum": "R",
+      "answer_with_sentence": 7.78799351,
+      "regime": null
+    },
+    "TFAEF": {
+      "stratum": "D",
+      "answer_with_sentence": 16,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TFAEF does not specify whether its displacement precedes the initial 80 mN measurement or follows the stated 60 cm separation, so its claimed final separation and certified answer are not uniquely determined."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "For TFAEF at 26 cm, the spheres can move from 4 cm to 30 cm before the stated initial force measurement, subsequently touch, and finally separate to 60 cm; the answer is then 16 mN.",
+    "If TFAEF instead describes an additional move from 60 cm to 86 cm before a final force measurement, the answer is 7.78799351 mN."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "The base relations are algebraically and dimensionally correct. For T2BDE, additional final separations of 14, 26 and 45 cm give 10.5186267, 7.78799351 and 5.22448980 mN, agreeing with the certified values. The same values apply to TFAEF only under the authors' intended chronology; its past-tense reference to a measured force also permits the initial-measurement reading used in pass 1. The clause specifying the target after all moves does not locate that displacement relative to the initial measurement. TFAEF's D assignment and 16 mN entry record this initial-measurement reading. The other D claims hold. Both radius variants cancel by equal charge sharing and the prescribed point-charge model, giving 16 mN at every listed radius; solid construction adds no relevant dependency. All listed numerical rounding is adequate. I withdraw pass 1's rendering_not_minimal flag because the packet explicitly identifies T162F and TCCA9 as intentional numeral-free controls, rather than numerical minimal pairs. The explicitly claimed minimal pairs preserve their numerical values and units. No information outside the supplied material was accessed.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:14:32+00:00",
+  "completed_at": "2026-11-21T14:15:24+00:00",
+  "minutes_spent": 0.87,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f1a84902c17b87c5560b5e66da8ca77f5f5d4b6b40bf5eab1299fb6595a49fac",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

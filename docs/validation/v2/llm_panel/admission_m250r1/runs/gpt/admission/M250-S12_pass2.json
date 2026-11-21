@@ -1,0 +1,102 @@
+{
+  "item_id": "M250-S12",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Static friction supplies centripetal force: mv²/R ≤ μ_s mg, so v_max = sqrt(μ_s g R), where R is the radius of the car's path.",
+    "assumptions": [
+      "Static friction alone supplies the centripetal force.",
+      "The car follows a circular path on the horizontal road.",
+      "The car's path radius must be specified separately from the road's inner-edge radius."
+    ],
+    "answer": null,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T02CA": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T82EB": {
+      "stratum": "R",
+      "answer_with_sentence": 18.3875,
+      "regime": null
+    },
+    "T7092": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T5A6E": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T9AEC": {
+      "stratum": "D",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TFE1E": {
+      "stratum": "C",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T79A4": {
+      "stratum": "C",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TF5BA": {
+      "stratum": "R",
+      "answer_with_sentence": 18.3875,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The stated 50 m radius describes the road's inner edge, while the car's path radius and the road's outer boundary are unspecified, so the base problem and the D and C variants have no unique maximum speed."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "A road with inner-edge radius 50 m can accommodate car paths of radii 52 m and 57.5 m; their friction-limited speeds are approximately 17.4860 m/s and 18.3875 m/s, respectively, although both satisfy the base description.",
+    "With a car-path radius of 57.5 m, every listed positive car mass gives 18.3875 m/s, rather than the certified 17.1464 m/s."
+  ],
+  "notes": "The D classifications and mass cancellations are physically sound, but invariance does not establish the certified numerical answer when the current path radius is missing. The authors incorrectly identify the inner-edge radius with the car's path radius. The displayed equation is valid for the car's path radius, but its application to the packet's stated radius is unsupported. All certified arithmetic and rounding are correct conditional on the authors' assumed radii: 50 m for the base, D and C cases, and 54, 57.5 and 61.5 m for the R cases. The R answers shown here interpret 'further' as measured from the inner edge; that reference should be explicit. I withdraw pass 1's rendering_not_minimal flag because pass 2 explicitly identifies T7092 and T5A6E as intentional numeral-free controls, rather than claiming they preserve the numerical quantity. Both explicitly claimed minimal pairs preserve 7.5 m and change the intended attachment or event.",
+  "equation_consistent": false,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T19:08:48+00:00",
+  "completed_at": "2026-11-21T19:09:21+00:00",
+  "minutes_spent": 0.55,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "813a887f6519c6df2e18d37173df080adc0c70543b2cb0e8920210e9a567ca82",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

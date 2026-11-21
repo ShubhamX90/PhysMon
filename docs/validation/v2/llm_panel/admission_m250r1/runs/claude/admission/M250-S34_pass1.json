@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch08",
+  "item_id": "M250-S34",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:17:00Z", "completed_at": "2026-11-21T10:26:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation for rolling without slipping: (1/2)mv^2(1 + 2/5) = m g d sin(theta), so d = 0.7 v^2/(g sin theta)",
+    "assumptions": ["rolling without slipping, so static friction does no work (stated)", "uniform solid sphere I = (2/5)mR^2 (stated)", "no air or rolling resistance (stated)", "incline fixed at 25 degrees during the motion"],
+    "answer": 6.0845,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TACA4": {"stratum": "C", "answer_with_sentence": 6.0845, "regime": null},
+    "T1332": {"stratum": "D", "answer_with_sentence": 6.0845, "regime": null},
+    "TDEF6": {"stratum": "R", "answer_with_sentence": 4.1767, "regime": null},
+    "T4182": {"stratum": "D", "answer_with_sentence": 6.0845, "regime": null},
+    "T96D5": {"stratum": "R", "answer_with_sentence": 4.1767, "regime": null},
+    "T7B54": {"stratum": "D", "answer_with_sentence": 6.0845, "regime": null},
+    "T741D": {"stratum": "D", "answer_with_sentence": 6.0845, "regime": null},
+    "T55FE": {"stratum": "C", "answer_with_sentence": 6.0845, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T96D5 'The incline is then tilted 13 degrees more steeply' does not say whether the tilt happens before the launch (answer 4.18 m) or after the sphere is set rolling/clamped (answer 6.08 m or ill-defined), so its timing is ambiguous."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: d = 0.7*36/(9.8*sin25) = 25.2/4.14166 = 6.0845 m. At 38 degrees: d = 25.2/(9.8*0.615661) = 25.2/6.03348 = 4.1767 m. Radius cancels (C). Solar panel and earlier-experiment sentences have no path to this run (D). TDEF6 explicitly places the extra tilt before the sphere is set rolling, consistent with the scene clause that the board is set at the stated angle at first and clamped before launch, so R at 38 degrees. T96D5 I read as R on the same basis (the 'then' following the 'set at first' setup), but the timing is not explicit; if 'then' were after the launch it would conflict with the clamping. T1332 and T741D carry 'a few degrees' rather than '13 degrees', so if meant as variants of numbered sentences they differ in the number; check in pass 2. Note also the base states 'a fixed incline that makes an angle of 25 degrees', which a 'tilted 13 degrees more' sentence softens only via 'set at the stated angle at first'."
+}

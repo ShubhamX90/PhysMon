@@ -1,0 +1,93 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S82",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:36:20+00:00",
+  "completed_at": "2026-11-21T14:37:01+00:00",
+  "minutes_spent": 0.7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Wien's displacement law gives lambda_max T = constant; photon energy is E = hc/lambda_max. Thus lambda_max,2 = 500(5800/2900) = 1000 nm and E = 1240/1000 = 1.24 eV.",
+    "assumptions": [
+      "The specified maximum is per unit wavelength.",
+      "For assignments involving outbursts, the target is interpreted as the peak in the second star's recorded spectrum.",
+      "A temperature increase before recording persists until recording, starting from 2900 K.",
+      "The third star does not physically affect the second star's emission."
+    ],
+    "answer": 1.24,
+    "unit": "eV"
+  },
+  "stratum_assignments": {
+    "TEFF6": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    },
+    "T80FF": {
+      "stratum": "R",
+      "answer_with_sentence": 1.6462068966,
+      "regime": null
+    },
+    "TF04F": {
+      "stratum": "R",
+      "answer_with_sentence": 1.6462068966,
+      "regime": null
+    },
+    "T099E": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    },
+    "T2C66": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    },
+    "TFD41": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The question does not specify whether the target peak belongs to the recorded spectrum or to emission after the described outburst, allowing different answers for the post-recording variants.",
+    "rendering_not_minimal": "T2C66 and TFD41 replace the explicit temperature increase of 950 K with an unspecified 'small amount', so the temperature-increase variants do not preserve the required number and unit."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "T099E",
+      "description": "A spectrum recorded at 2900 K has peak-photon energy 1.24 eV; emission after the stated rise to 3850 K has peak wavelength 753.25 nm and peak-photon energy approximately 1.6462 eV. The question does not explicitly select the recording epoch."
+    }
+  ],
+  "notes": "The base problem is solvable and gives 1.24 eV. The numerical pre-recording variants give T = 3850 K and E = 1240(3850)/(500(5800)) eV, approximately 1.65 eV. Post-recording D assignments are conditional on interpreting the question as referring to the recorded spectrum; they are temporally disconnected under that interpretation, rather than cancelling or conditionally irrelevant. The unspecified small increases do not affect the recorded target under the same interpretation, but they fail the required numerical matching between variants. No external information was consulted.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "fca88088669a8a5cdda0cf365b51009befcfb14c7359325e2fe8df98715c3048",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

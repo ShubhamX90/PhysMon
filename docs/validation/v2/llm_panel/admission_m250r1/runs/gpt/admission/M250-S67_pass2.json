@@ -1,0 +1,106 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S67",
+  "pass_number": 2,
+  "started_at": "2026-11-21T13:55:33+00:00",
+  "completed_at": "2026-11-21T13:56:25+00:00",
+  "minutes_spent": 0.86,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The normal-incidence surface power reflectance is R=((1.5-1)/(1.5+1))^2=0.04. Summing all incoherent forward-emerging beams gives Pt=P0(1-R)^2/(1-R^2)=P0(1-R)/(1+R)=12P0/13.",
+    "assumptions": [
+      "Ordinary uncoated dielectric interfaces obey the normal-incidence Fresnel formula.",
+      "All forward-emerging transmitted beams are included.",
+      "The stated source-output increase increases incident beam power by the same amount.",
+      "The wall-directed lamp does not contribute to the beam being measured.",
+      "The earlier experiment is separate from the current experiment."
+    ],
+    "answer": 46.1538461538,
+    "unit": "mW"
+  },
+  "stratum_assignments": {
+    "T463C": {
+      "stratum": "K",
+      "answer_with_sentence": 46.1538461538,
+      "regime": "P0 < q, so the incident beam is below the stated damage threshold."
+    },
+    "T65F1": {
+      "stratum": "R",
+      "answer_with_sentence": 78.4615384615,
+      "regime": null
+    },
+    "TBD30": {
+      "stratum": "R",
+      "answer_with_sentence": 78.4615384615,
+      "regime": null
+    },
+    "T146E": {
+      "stratum": "K",
+      "answer_with_sentence": 46.1538461538,
+      "regime": "P0 < q places operation within the stated rating; this classification does not establish that q is a physical damage threshold."
+    },
+    "T094D": {
+      "stratum": "D",
+      "answer_with_sentence": 46.1538461538,
+      "regime": null
+    },
+    "T60FB": {
+      "stratum": "D",
+      "answer_with_sentence": 46.1538461538,
+      "regime": null
+    },
+    "T9EF0": {
+      "stratum": "D",
+      "answer_with_sentence": 46.1538461538,
+      "regime": null
+    },
+    "T6E69": {
+      "stratum": "D",
+      "answer_with_sentence": 46.1538461538,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "other"
+  ],
+  "defect_reasons": {
+    "other": "For T146E, the authors incorrectly identify an operating power rating as a physical damage threshold and assert changed physics outside that rating, neither of which follows from the sentence."
+  },
+  "defect_severity": {
+    "other": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "T146E",
+      "case": "A plate conservatively rated for 20 mW can remain undamaged, nonabsorbing, and of refractive index 1.5 under a 50 mW beam; its transmitted power remains 46.153846 mW even though P0 < q is false."
+    }
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "All certified numerical answers agree with the Fresnel calculation under the intended attachments. Incident-power increases of 25, 35, and 70 mW give transmitted powers of 69.230769, 78.461538, and 110.769231 mW. Both listed minimal pairs preserve 35 mW and change the intended attachment. I withdraw my pass-1 rendering_not_minimal flag: pass 2 explicitly identifies T60FB and T6E69 as numeral-free controls, rather than claiming that they preserve their twins' number and unit. The earlier-experiment sentences retain a wording ambiguity about which measurement is referenced, but the authors' separate-experiment interpretation is reasonable and matches my pass-1 assignments. All listed threshold or rating values exceed 50 mW. T463C supports the stated damage-threshold interpretation; T146E supports only an operating rating. The unsupported outside-regime assertion for T146E is a physics-claim defect even though its certified in-regime answers are correct.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "0cec2cbceb3b225479321d0e8d31d234d1c0121f3c43e46a29b3b8cfe79a2977",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

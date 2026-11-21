@@ -1,0 +1,21 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch17",
+  "item_id": "M250-S273",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:16:00Z", "completed_at": "2026-11-21T10:26:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Energy conservation in radiative capture with Bohr levels scaled by reduced mass: E_photon = K + mu/m_e * (ke^2/(2 a0)) * Z^2/n^2; lambda = hc/E_photon", "assumptions": ["Z = 1", "reduced mass mu = 206.77*1836.15/2042.92 = 185.84 m_e", "recoil neglected", "single photon carries all energy", "K = 150 eV is the initial kinetic energy"], "answer": 1.5854, "unit": "nm"},
+  "stratum_assignments": {
+    "T325A": {"stratum": "D", "answer_with_sentence": 1.5854, "regime": null},
+    "TE47C": {"stratum": "D", "answer_with_sentence": 1.5854, "regime": null},
+    "T4CEB": {"stratum": "D", "answer_with_sentence": 1.5854, "regime": null},
+    "TCB0F": {"stratum": "R", "answer_with_sentence": 1.3807, "regime": null},
+    "TE652": {"stratum": "R", "answer_with_sentence": 1.3807, "regime": null},
+    "T2E00": {"stratum": "D", "answer_with_sentence": 1.5854, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Rydberg-like energy ke^2/(2a0) = 1.44/0.10584 = 13.6054 eV; times 185.842 = 2528.46 eV; n=2 binding 632.11 eV. E_photon = 782.11 eV, lambda = 1240/782.11 = 1.5854 nm. With 116 eV more: 898.11 eV, lambda = 1.3807 nm. TCB0F is read as the gap acting before capture on top of the stated 150 eV. T4CEB and T2E00 carry no number (presumably controls for TE47C and T325A)."
+}

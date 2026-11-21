@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch01",
+  "item_id": "M250-S14",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:45:00Z", "completed_at": "2026-11-21T10:52:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Work-energy at constant speed: W = m g h, P = m g h / t", "assumptions": ["constant speed so no change in kinetic energy", "g = 9.8 m/s^2 uniform", "no losses counted (power delivered to the load)"], "answer": 470.4, "unit": "W"},
+  "stratum_assignments": {
+    "T920A": {"stratum": "R", "answer_with_sentence": 540.96, "regime": null},
+    "T8A2F": {"stratum": "R", "answer_with_sentence": 540.96, "regime": null},
+    "T7CD8": {"stratum": "C", "answer_with_sentence": 470.4, "regime": null},
+    "T4034": {"stratum": "D", "answer_with_sentence": 470.4, "regime": null},
+    "T3979": {"stratum": "D", "answer_with_sentence": 470.4, "regime": null},
+    "TAAAC": {"stratum": "D", "answer_with_sentence": 470.4, "regime": null},
+    "TBE39": {"stratum": "D", "answer_with_sentence": 470.4, "regime": null},
+    "T6E69": {"stratum": "C", "answer_with_sentence": 470.4, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "With a box strapped onto the load (T920A, T8A2F), 'power delivered to the load' could be read as power to the 80 kg load alone (470.4 W) rather than to load plus box (540.96 W); the strapped box most naturally becomes part of what is lifted, but the wording admits the other reading."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base P = 80 * 9.8 * 6 / 10 = 470.4 W. Box on load: 92 * 9.8 * 6 / 10 = 540.96 W. Starting height enters the potential energies m g h_i and m g (h_i + 6) but cancels in the difference, so C. Box on the crate and box on an earlier lift have no path to this lift. T4034 and T3979 carry no number ('a small box') and appear to be numeral-free controls; pairing checked in pass 2."
+}

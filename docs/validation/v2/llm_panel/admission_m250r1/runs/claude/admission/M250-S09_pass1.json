@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch08",
+  "item_id": "M250-S09",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:36:00Z", "completed_at": "2026-11-21T10:43:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Calorimetry, heat lost by copper = heat gained by water: dT_water = m_c c_c (T_c - T_w)/(m_c c_c + m_w c_w)",
+    "assumptions": ["perfectly insulated container that absorbs no heat (stated)", "no phase change (stated)", "constant specific heats", "single final temperature after stirring (stated)"],
+    "answer": 8.24897,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "T128A": {"stratum": "D", "answer_with_sentence": 8.24897, "regime": null},
+    "TD942": {"stratum": "D", "answer_with_sentence": 8.24897, "regime": null},
+    "TC375": {"stratum": "D", "answer_with_sentence": 8.24897, "regime": null},
+    "TDD5D": {"stratum": "R", "answer_with_sentence": 3.69375, "regime": null},
+    "TCCED": {"stratum": "D", "answer_with_sentence": 8.24897, "regime": null},
+    "T4800": {"stratum": "R", "answer_with_sentence": 3.69375, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "m_c c_c = 192.5 J/K, m_w c_w = 1674.4 J/K; rise = 192.5*80/1866.9 = 8.24897 K (final 301.249 K). With 0.95 kg water: m_w c_w = 3976.7 J/K, rise = 15400/4169.2 = 3.69375 K. Earlier-experiment sentences are D (the problem states nothing from any other experiment is left); second-container sentences are D. TDD5D and T4800 add water at 293 K to the first container before the block, so R. T128A/TDD5D and TCCED/T4800 are word-level variants with the same 0.55 kg. TD942 and TC375 say 'a small amount' with no number; if meant as variants of numbered sentences they differ in the number, to check in pass 2."
+}

@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch13",
+  "item_id": "M250-S208",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:30:00Z", "completed_at": "2026-11-21T10:37:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Conservation of angular momentum about the axle; heat = KE lost = (1/2) I1 w^2 * I2/(I1+I2)", "assumptions": ["I1 = (1/2) M R^2 = 0.04 kg m^2", "w = 600 rpm = 20 pi rad/s", "no external torque about the axle", "second disc initially at rest"], "answer": 33.84, "unit": "J"},
+  "stratum_assignments": {
+    "T3181": {"stratum": "D", "answer_with_sentence": 33.84, "regime": null},
+    "T7B9A": {"stratum": "D", "answer_with_sentence": 33.84, "regime": null},
+    "T3F66": {"stratum": "C", "answer_with_sentence": 33.84, "regime": null},
+    "T145A": {"stratum": "R", "answer_with_sentence": 50.25, "regime": null},
+    "TE735": {"stratum": "D", "answer_with_sentence": 33.84, "regime": null},
+    "TBE70": {"stratum": "C", "answer_with_sentence": 33.84, "regime": null},
+    "T1AC4": {"stratum": "D", "answer_with_sentence": 33.84, "regime": null},
+    "T9108": {"stratum": "R", "answer_with_sentence": 50.25, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "KE1 = 0.5*0.04*(20 pi)^2 = 78.957 J; heat = 78.957*0.03/0.07 = 33.839 J. With ring, I2 = 0.07: heat = 78.957*0.07/0.11 = 50.245 J. The friction torque sets the slipping time (and the angle slipped) but heat = torque * relative slip angle = the same KE loss, so it cancels (C). T145A has no explicit timing, but present-tense 'is glued' in a static description reads as part of the setup, so R. 'Small' sentences carry no number; treated as non-numeric controls."
+}

@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch01",
+  "item_id": "M250-S28",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:08:00Z", "completed_at": "2026-11-21T10:15:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "x_truck = v t, x_car = a t^2/2; t = 2v/a; with top speed q (v < q < a t): t = q^2/(2a(q - v))", "assumptions": ["car starts from rest level with the truck", "constant a until top speed", "constant truck speed"], "answer": 15.0, "unit": "s"},
+  "stratum_assignments": {
+    "TB52F": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "T9424": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "T56E0": {"stratum": "R", "answer_with_sentence": 18.375, "regime": null},
+    "T8C0C": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "T35DB": {"stratum": "K", "answer_with_sentence": 15.0, "regime": "q >= a t = 30 m/s"},
+    "T0812": {"stratum": "D", "answer_with_sentence": 15.0, "regime": null},
+    "T5651": {"stratum": "R", "answer_with_sentence": 18.375, "regime": null},
+    "T76A7": {"stratum": "K", "answer_with_sentence": 15.0, "regime": "q >= a t = 30 m/s"},
+    "TE8F1": {"stratum": "R", "answer_with_sentence": 9.09091, "regime": null},
+    "TEA52": {"stratum": "R", "answer_with_sentence": 9.09091, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked: K regime q > a t = 30 m/s holds for 38, 46, 58; out-of-regime R answers 17 -> 289/8 = 36.125 s and 21 -> 441/24 = 18.375 s (both q > v = 15, so the car still catches up). R kit answers 30/2.6 = 11.5385, 30/3.3 = 9.0909, 30/4.5 = 6.6667 s. Minimal pairs T8C0C/TEA52 (motorbike vs car) and T9424/TE8F1 (earlier run vs before the start) state the same 1.3 m/s^2 and differ only in attachment. TB52F and T0812 are declared numeral-free controls of T8C0C and T9424, not number-preserving variants, so the medium rendering_not_minimal flag I raised in pass 1 (where the pairing was unknown) is withdrawn."
+}

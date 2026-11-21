@@ -1,0 +1,95 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S32",
+  "pass_number": 2,
+  "started_at": "2026-11-21T14:30:42+00:00",
+  "completed_at": "2026-11-21T14:31:37+00:00",
+  "minutes_spent": 0.92,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy balance over the entire slide gives k*x^2/2 = mu*M*g*s. The initial spring energy is 4 J, so s = 4/(0.25*M*9.8). With M = 0.5 kg, s = 3.2653061224 m. With an additional attached mass q, M = 0.5 kg + q.",
+    "assumptions": [
+      "The spring is supported by stationary apparatus.",
+      "The stated kinetic friction coefficient applies throughout the slide, including contact with the spring.",
+      "A weight attached to the block moves with it and contributes to the normal force.",
+      "Weights used for an earlier experiment only are absent during the present experiment.",
+      "The block starts from rest and separates from the spring at its natural length."
+    ],
+    "answer": 3.2653061224,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TDC1D": {
+      "stratum": "D",
+      "answer_with_sentence": 3.2653061224,
+      "regime": null
+    },
+    "TFBC0": {
+      "stratum": "D",
+      "answer_with_sentence": 3.2653061224,
+      "regime": null
+    },
+    "TB3C0": {
+      "stratum": "R",
+      "answer_with_sentence": 0.8163265306,
+      "regime": null
+    },
+    "T92B0": {
+      "stratum": "K",
+      "answer_with_sentence": 3.2653061224,
+      "regime": "The limiting compression q exceeds the initial compression x = 10 cm; every listed limit satisfies q > x."
+    },
+    "T9B94": {
+      "stratum": "K",
+      "answer_with_sentence": 3.2653061224,
+      "regime": "The limiting compression q exceeds the initial compression x = 10 cm; every listed limit satisfies q > x."
+    },
+    "T1533": {
+      "stratum": "D",
+      "answer_with_sentence": 3.2653061224,
+      "regime": null
+    },
+    "T9D09": {
+      "stratum": "D",
+      "answer_with_sentence": 3.2653061224,
+      "regime": null
+    },
+    "TC18C": {
+      "stratum": "R",
+      "answer_with_sentence": 0.8163265306,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All certified numerical answers agree with the energy balance. For attached masses 0.7, 1.5 and 2.2 kg, the distances are respectively 1.360544, 0.816327 and 0.604686 m. Both explicitly claimed minimal pairs preserve the displayed number and unit and change the physical attachment or temporal context as intended. I withdraw the pass-1 rendering_not_minimal flag: pass 2 identifies TDC1D and T1533 as deliberate numeral-free controls, rather than claiming they are numerical minimal pairs. Their stated twin transformations accurately describe the texts. The capped-energy statements specify limits outside the compression range reached in this experiment; all listed limits leave the answer unchanged. The outside-regime reference expression agrees with the explicitly stated energy cap when q is expressed in metres. No outside information was accessed.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "c70a0018abb9cdb50e53db36c248b8f0d5003130601a6e77d95e6474feeef996",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

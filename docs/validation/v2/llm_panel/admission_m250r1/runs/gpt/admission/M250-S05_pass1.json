@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S05",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:27:40+00:00",
+  "completed_at": "2026-11-21T14:28:32+00:00",
+  "minutes_spent": 0.85,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Rotational dynamics: alpha = tau_net/I. For a uniform solid disc about its central symmetry axis, I = MR^2/2 = 0.125 kg*m^2. Thus alpha = (6 - 1.5)/0.125 = 36 rad/s^2. Adding a coaxially bolted 2 kg disc gives I_total = (4 + 2)(0.25)^2/2 = 0.1875 kg*m^2 and alpha = 24 rad/s^2.",
+    "assumptions": [
+      "The driving torque acts along the rotation and the stated friction torque opposes it.",
+      "Bolted discs rotate rigidly together about their common symmetry axis.",
+      "The flywheel's separate shaft has no stated mechanical connection to the disc."
+    ],
+    "answer": 36.0,
+    "unit": "rad/s^2"
+  },
+  "stratum_assignments": {
+    "TADD2": {
+      "stratum": "R",
+      "answer_with_sentence": 24.0,
+      "regime": null
+    },
+    "T3FE1": {
+      "stratum": "C",
+      "answer_with_sentence": 36.0,
+      "regime": null
+    },
+    "TFEA1": {
+      "stratum": "R",
+      "answer_with_sentence": 24.0,
+      "regime": null
+    },
+    "TDFCA": {
+      "stratum": "D",
+      "answer_with_sentence": 36.0,
+      "regime": null
+    },
+    "T5207": {
+      "stratum": "D",
+      "answer_with_sentence": 36.0,
+      "regime": null
+    },
+    "T8323": {
+      "stratum": "D",
+      "answer_with_sentence": 36.0,
+      "regime": null
+    },
+    "TA851": {
+      "stratum": "C",
+      "answer_with_sentence": 36.0,
+      "regime": null
+    },
+    "TCF7E": {
+      "stratum": "D",
+      "answer_with_sentence": 36.0,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TDFCA and T8323 replace the explicit 2 kg mass in the corresponding variants T5207 and TCF7E with 'small', so the variants do not preserve the required numerical quantity and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and every individual rendering have determinate angular accelerations; the invalid verdict concerns the required matching of numerical quantities across variants. 'Small' specifies neither a mass nor a numerical value. Both thickness statements give 3.5 cm: thickness enters the mass and inertia integrals but cancels when inertia is expressed using the given total mass and radius. An attachment used for an earlier run only is absent from the current rotating system.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "c3f6123b37c3700b979869cc582b8f4484761e8b037710c544dad748ad507e46",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

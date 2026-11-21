@@ -1,0 +1,85 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S252",
+  "pass_number": 2,
+  "started_at": "2026-11-21T14:18:53+00:00",
+  "completed_at": "2026-11-21T14:19:49+00:00",
+  "minutes_spent": 0.93,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Circular-orbit energy is E = -GMm/(2r), with GM = g0 Re². Therefore W = (m g0 Re²/2)[1/(Re+h1) - 1/(Re+h2)].",
+    "assumptions": [
+      "The stated inverse-square gravitational field is fixed.",
+      "The initial and final orbits are circular.",
+      "Engine work supplies the change in orbital mechanical energy.",
+      "Propellant mass loss is neglected.",
+      "Additional instruments carried by the satellite remain aboard throughout the transfer."
+    ],
+    "answer": 2638240,
+    "unit": "kJ"
+  },
+  "stratum_assignments": {
+    "T1748": {
+      "stratum": "D",
+      "answer_with_sentence": 2638240,
+      "regime": null
+    },
+    "TFABF": {
+      "stratum": "R",
+      "answer_with_sentence": 2933100,
+      "regime": null
+    },
+    "TB6C9": {
+      "stratum": "D",
+      "answer_with_sentence": 2638240,
+      "regime": null
+    },
+    "T6B07": {
+      "stratum": "D",
+      "answer_with_sentence": 2638240,
+      "regime": null
+    },
+    "TF8C4": {
+      "stratum": "R",
+      "answer_with_sentence": 2933100,
+      "regime": null
+    },
+    "T2ED2": {
+      "stratum": "D",
+      "answer_with_sentence": 2638240,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All certified answers agree with the orbital-energy calculation: additional satellite loads of 45, 95 and 170 kg give approximately 2777910, 2933100 and 3165890 kJ, respectively; every disconnected addition preserves 2638240 kJ. Using lengths numerically in km and g0 in m/s² makes the displayed relation return kJ, since kg·m·km/s² equals kJ. The pass-1 answers expressed in J agree after conversion. I withdraw the pass-1 high rendering flag: pass 2 identifies T1748 and TB6C9 explicitly as numeral-free controls, rather than claiming they retain the numerical value of their twins. Both expressly claimed minimal pairs retain 95 kg and change the intended attachment or event.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "abf51b9094b9f1477280a3fd8c3d95aec7bb367a9d151afd68aa407f3d126904",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

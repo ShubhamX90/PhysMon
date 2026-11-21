@@ -1,0 +1,95 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S218",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "C1 = C0*d0/d1 and F = C1*V^2/(2*d1) = C0*d0*V^2/(2*d1^2). Thus C1 = 40 pF and F = 3.24 mN. With an aiding series battery of emf q, replace V by V+q.",
+    "assumptions": [
+      "The stated capacitance applies at the initial separation.",
+      "The plate area remains constant.",
+      "The connected ideal voltage source maintains the applied potential difference.",
+      "Air has vacuum permittivity for the calculation, and edge effects are neglected.",
+      "Each added sentence is considered independently."
+    ],
+    "answer": 3.24,
+    "unit": "mN"
+  },
+  "stratum_assignments": {
+    "TD5A9": {
+      "stratum": "D",
+      "answer_with_sentence": 3.24,
+      "regime": null
+    },
+    "T7BA3": {
+      "stratum": "D",
+      "answer_with_sentence": 3.24,
+      "regime": null
+    },
+    "T75D2": {
+      "stratum": "K",
+      "answer_with_sentence": 3.24,
+      "regime": "V/d0 < q: the maximum field during separation is 450 kV/m, below every listed breakdown threshold."
+    },
+    "T0373": {
+      "stratum": "R",
+      "answer_with_sentence": 7.29,
+      "regime": null
+    },
+    "TDD7D": {
+      "stratum": "D",
+      "answer_with_sentence": 3.24,
+      "regime": null
+    },
+    "TD96B": {
+      "stratum": "R",
+      "answer_with_sentence": 7.29,
+      "regime": null
+    },
+    "T56FA": {
+      "stratum": "K",
+      "answer_with_sentence": 3.24,
+      "regime": "V/d0 < q: the maximum field during separation is 450 kV/m, below every listed withstand threshold."
+    },
+    "TAF23": {
+      "stratum": "D",
+      "answer_with_sentence": 3.24,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All certified answers are correct in mN. The aiding battery gives 5.29, 7.29 and 9.61 mN for 250, 450 and 650 V respectively. The disconnected additions preserve 3.24 mN. All listed breakdown thresholds exceed the maximum field of 450 kV/m. The optional outside-regime reference value of zero is not generally established by the stated model, but is explicitly excluded from the certified predictions. I withdraw the pass-1 rendering_not_minimal flag: pass 2 identifies T7BA3 and TAF23 as deliberate numeral-free controls, rather than numerical minimal pairs. The explicitly claimed numerical pairs preserve their numbers and units and change the intended attachment. No physical answer from pass 1 changes; 0.00324 N equals 3.24 mN.",
+  "started_at": "2026-11-21T14:20:17+00:00",
+  "completed_at": "2026-11-21T14:20:58+00:00",
+  "minutes_spent": 0.67,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f846473ba95f145dc482db3e2c00d315fe25fef526414012e6285a11bdd29e96",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

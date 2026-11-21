@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch24",
+  "item_id": "M250-S247",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:47:00Z", "completed_at": "2026-11-21T10:55:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "F = (1 + R) I A cos^2(theta)/c along the normal; v = F t/m", "assumptions": ["partly specular reflection, rest absorbed", "rail normal to mirror takes no tangential force; v << c"], "answer": 114.99, "unit": "m/s"},
+  "stratum_assignments": {
+    "TE4B6": {"stratum": "R", "answer_with_sentence": 153.59, "regime": null},
+    "T532A": {"stratum": "C", "answer_with_sentence": 114.99, "regime": null},
+    "T76D3": {"stratum": "D", "answer_with_sentence": 114.99, "regime": null},
+    "T8261": {"stratum": "D", "answer_with_sentence": 114.99, "regime": null},
+    "TB1C7": {"stratum": "D", "answer_with_sentence": 114.99, "regime": null},
+    "TFEB0": {"stratum": "R", "answer_with_sentence": 153.59, "regime": null},
+    "T5DB2": {"stratum": "C", "answer_with_sentence": 114.99, "regime": null},
+    "T56A5": {"stratum": "D", "answer_with_sentence": 114.99, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"], "defect_reasons": {"other": "TFEB0 says the lamp adds intensity to 'the light that reaches the mirror' without saying it enters the beam or lasts the whole exposure; the problem's clause on lamp light put into the beam makes the intended reading (along the beam, throughout) the natural one."}, "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified: base 1.9*1400*100*0.75/2.998e8 = 6.6544e-4 N, a = 1.33089e-3 m/s^2, v = 114.989 m/s; scaling with intensity gives 1660 -> 136.344, 1870 -> 153.592, 2280 -> 187.267 m/s (matches). Photon energy cancels. Minimal pairs T56A5/TFEB0 (screen vs mirror) and T76D3/TE4B6 (earlier vs this exposure) share 470 W/m^2 and differ only in attachment; T8261 and TB1C7 are declared numeral-free controls. Agreement with pass 1."
+}

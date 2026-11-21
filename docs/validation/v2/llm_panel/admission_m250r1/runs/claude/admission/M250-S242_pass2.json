@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch14",
+  "item_id": "M250-S242",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:09:00Z", "completed_at": "2026-11-21T10:16:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "A1 exp(-lam1 t) = A2 exp(-lam2 t), t = ln(A1/A2)/(lam1 - lam2), lam = ln2/T", "assumptions": ["independent exponential decays", "equal, constant efficiency; negligible background"], "answer": 14.8126, "unit": "h"},
+  "stratum_assignments": {
+    "T922D": {"stratum": "C", "answer_with_sentence": 14.8126, "regime": null},
+    "T9D9A": {"stratum": "D", "answer_with_sentence": 14.8126, "regime": null},
+    "T84B6": {"stratum": "D", "answer_with_sentence": 14.8126, "regime": null},
+    "T7283": {"stratum": "R", "answer_with_sentence": 12.0489, "regime": null},
+    "TADA4": {"stratum": "D", "answer_with_sentence": 14.8126, "regime": null},
+    "TF3A2": {"stratum": "D", "answer_with_sentence": 14.8126, "regime": null},
+    "T6BE6": {"stratum": "C", "answer_with_sentence": 14.8126, "regime": null},
+    "T45EB": {"stratum": "R", "answer_with_sentence": 12.0489, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked certified answers: q=110 -> ln(2400/610)*72/(11 ln2) = 1.36977*72/7.62462 = 12.935 h; q=170 -> 12.049 h; q=360 -> ln(2400/860)=1.02629 -> 9.691 h; base 14.8126 h. All match. Efficiency cancels exactly in the ratio. Minimal pairs T84B6/T7283 and TADA4/T45EB share 170 Bq and differ only in attachment (earlier sample vs this sample; waste drum vs sample). T9D9A and TF3A2 are declared numeral-free controls, which explains my pass-1 observation; no defect. Agree with pass 1."
+}

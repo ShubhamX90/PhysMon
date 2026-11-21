@@ -1,0 +1,106 @@
+{
+  "item_id": "M250-S53",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Steady conduction through layers in series: Q_dot = A ΔT / (L_brick/k_brick + L_foam/k_foam). The resistance per unit area is 0.20/0.8 + 0.05/0.04 = 1.50 m²·K/W, giving Q_dot = 12×20/1.50 = 160 W.",
+    "assumptions": [
+      "The stated steady, perpendicular heat flow applies to the requested measurement.",
+      "The given thermal conductivities are constant over the temperatures involved.",
+      "Perfect thermal contact and insulated edges eliminate contact resistance and lateral heat loss."
+    ],
+    "answer": 160,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "TA69F": {
+      "stratum": "D",
+      "answer_with_sentence": 160,
+      "regime": null
+    },
+    "TFB61": {
+      "stratum": "R",
+      "answer_with_sentence": 264,
+      "regime": null
+    },
+    "T9459": {
+      "stratum": "D",
+      "answer_with_sentence": 160,
+      "regime": null
+    },
+    "T91A5": {
+      "stratum": "R",
+      "answer_with_sentence": 264,
+      "regime": null
+    },
+    "T2BD1": {
+      "stratum": "C",
+      "answer_with_sentence": 160,
+      "regime": null
+    },
+    "T0538": {
+      "stratum": "C",
+      "answer_with_sentence": 160,
+      "regime": null
+    },
+    "T6A3F": {
+      "stratum": "K",
+      "answer_with_sentence": 160,
+      "regime": "The foam remains intact when the wall's temperature difference does not exceed 75 K; the stated difference is 20 K."
+    },
+    "TC890": {
+      "stratum": "D",
+      "answer_with_sentence": 160,
+      "regime": null
+    },
+    "T3307": {
+      "stratum": "D",
+      "answer_with_sentence": 160,
+      "regime": null
+    },
+    "TB011": {
+      "stratum": "K",
+      "answer_with_sentence": 160,
+      "regime": "The foam remains intact when the wall's temperature difference does not exceed 75 K; the stated difference is 20 K."
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The temperature-increment variants do not preserve the specified numerical quantity: TA69F and TC890 say an unspecified 'few kelvin', whereas T3307 and T9459 respectively specify 13 K."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "An increase of 3 K satisfies 'a few kelvin' but differs from 13 K, so the corresponding renderings need not describe the same increment."
+  ],
+  "notes": "For TFB61 and T91A5, applying the explicitly stated steady-flow condition after the increase gives ΔT = 33 K and a rate of 264 W. TFB61's 'just before' wording can instead suggest a transient measurement; that reading would require elapsed time and thermal storage data. The earlier-test statements do not affect the specified present steady state. For T2BD1 and T0538, writing the hotter surface temperature as 276 K + 20 K shows that the absolute temperature offset cancels. The stipulated destruction threshold is mathematically usable but physically artificial, particularly the assertion that a temperature difference alone determines whether foam burns away.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "started_at": "2026-11-21T14:01:30+00:00",
+  "completed_at": "2026-11-21T14:02:27+00:00",
+  "minutes_spent": 0.95,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "e48d0f8485ed871bb25c0cc3a4df2d3708e01d2b0711309078ad180b5f084d2f",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

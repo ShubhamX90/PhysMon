@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch14",
+  "item_id": "M250-S03",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:44:00Z", "completed_at": "2026-11-21T10:49:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "v1f = ((m1 - m2) v1 + 2 m2 v2)/(m1 + m2)", "assumptions": ["perfectly elastic 1D collision", "frictionless track", "speeds given just before impact"], "answer": 2.0, "unit": "m/s"},
+  "stratum_assignments": {
+    "T9B35": {"stratum": "R", "answer_with_sentence": 2.8254, "regime": null},
+    "T1828": {"stratum": "D", "answer_with_sentence": 2.0, "regime": null},
+    "TFB40": {"stratum": "D", "answer_with_sentence": 2.0, "regime": null},
+    "T2689": {"stratum": "D", "answer_with_sentence": 2.0, "regime": null},
+    "T8516": {"stratum": "R", "answer_with_sentence": 2.8254, "regime": null},
+    "T180A": {"stratum": "D", "answer_with_sentence": 2.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": ["other"], "defect_reasons": {"other": "'Collides head-on' for an overtaking collision is unusual wording, though the meaning (central 1D collision) is clear."}, "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified: q=0.7 -> (1.7*6+4)/5.7 = 2.4912; q=1.3 -> 17.8/6.3 = 2.8254; q=2.2 -> 23.2/7.2 = 3.2222 m/s; base 2.0 m/s. The scene clause fixing the speeds just before impact makes the R wiring (mass only) correct. Minimal pairs T180A/T8516 and TFB40/T9B35 share 1.3 kg and differ only in attachment. Numeral-free controls declared. Agree with pass 1."
+}

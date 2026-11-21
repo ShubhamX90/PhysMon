@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch25",
+  "item_id": "M250-S231",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:39:00Z", "completed_at": "2026-11-21T10:46:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Moving-reflector Doppler: beat = 2 f v/(c - v), v = wall speed relative to the air", "assumptions": ["trolley at rest (unstated in the text)", "still air, c = 343 m/s"], "answer": 7.76471, "unit": "Hz"},
+  "stratum_assignments": {
+    "T2729": {"stratum": "R", "answer_with_sentence": 11.4353, "regime": null},
+    "T544D": {"stratum": "D", "answer_with_sentence": 7.76471, "regime": null},
+    "T811A": {"stratum": "D", "answer_with_sentence": 7.76471, "regime": null},
+    "T105F": {"stratum": "D", "answer_with_sentence": 7.76471, "regime": null},
+    "T72F4": {"stratum": "C", "answer_with_sentence": 7.76471, "regime": null},
+    "T7F76": {"stratum": "R", "answer_with_sentence": 11.4353, "regime": null},
+    "TAC5B": {"stratum": "C", "answer_with_sentence": 7.76471, "regime": null},
+    "T1B41": {"stratum": "D", "answer_with_sentence": 7.76471, "regime": null}
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["insufficient_boundary_condition"],
+  "defect_reasons": {"insufficient_boundary_condition": "The text defines the 3 m/s as the wall's speed relative to the trolley but never states that the trolley is at rest, yet the base answer and every D and C certified answer (7.76471 Hz) require a stationary trolley; the authors' own d_rationale ('a trolley that has no such motion') supplies this condition, which the problem does not."},
+  "defect_severity": {"insufficient_boundary_condition": "high"},
+  "counterexamples": ["Base problem with the trolley moving towards the loudspeaker at 1.4 m/s, consistent with all stated text: beat = 440*8.8/338.6 = 11.435 Hz, not 7.765 Hz.", "With T811A (trolley moved at 1.4 m/s in an earlier run) the trolley's state in this run is still unstated, so the D claim of 7.76471 Hz is not forced."],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": false, "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "notes": "Arithmetic of all certified answers checks out under the trolley-at-rest reading: v=3: 2640/340=7.7647; v=3.7: 3256/339.3=9.5962; v=4.4: 3872/338.6=11.4353; v=5.2: 4576/337.8=13.5465 Hz. The distance cancellation is correct (echo period depends only on c, v, f). Minimal pairs T105F/T2729 and T811A/T7F76 keep 1.4 m/s and differ only in attachment; T544D and T1B41 are declared numeral-free twins. The only defect is the unstated trolley state, which makes the base answer and the non-R answers non-unique; adding 'the trolley is at rest' (or wording such that only R sentences set the trolley moving) would fix it. answer_correct is false in the sense that the certified base answer is not uniquely determined by the text. Consistent with pass 1."
+}

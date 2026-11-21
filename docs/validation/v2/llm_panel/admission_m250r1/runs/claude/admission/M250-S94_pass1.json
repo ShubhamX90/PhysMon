@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch17",
+  "item_id": "M250-S94",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:56:00Z", "completed_at": "2026-11-21T11:05:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Hagen-Poiseuille: dP = 32 mu L vbar / D^2, Q = pi D^2 vbar / 4, so P = dP*Q = 8 pi mu L vbar^2", "assumptions": ["steady laminar fully developed Newtonian incompressible flow", "entrance effects neglected", "average speed fixed at 0.20 m/s"], "answer": 0.008042, "unit": "W"},
+  "stratum_assignments": {
+    "TB900": {"stratum": "C", "answer_with_sentence": 0.008042, "regime": null},
+    "T1EF8": {"stratum": "D", "answer_with_sentence": 0.008042, "regime": null},
+    "T0EC4": {"stratum": "D", "answer_with_sentence": 0.008042, "regime": null},
+    "TC7C1": {"stratum": "D", "answer_with_sentence": 0.008042, "regime": null},
+    "TF825": {"stratum": "R", "answer_with_sentence": 0.028551, "regime": null},
+    "T0FF6": {"stratum": "R", "answer_with_sentence": 0.028551, "regime": null},
+    "T9141": {"stratum": "C", "answer_with_sentence": 0.008042, "regime": null},
+    "T4C1C": {"stratum": "D", "answer_with_sentence": 0.008042, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "P = 8*pi*0.004*2*0.04 = 8.042e-3 W. With the pipe lengthened to 7.1 m at the same average speed: 8*pi*0.004*7.1*0.04 = 2.855e-2 W. The outlet pressure fixes only the pressure level, not the drop, so it does not affect the answer (labelled C; arguably K with regime 'pressure stays above the vapour pressure', which 96 kPa satisfies). With water-like density Re ~ 200, consistent with the stated laminar flow. T0EC4 and T4C1C carry no number (presumably controls)."
+}

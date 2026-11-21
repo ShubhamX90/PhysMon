@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch23",
+  "item_id": "M250-S54",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:09:00Z", "completed_at": "2026-11-21T10:15:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Stefan-Boltzmann law; P2 = P1 (r2/r1)^2 (T2/T1)^4", "assumptions": ["same constant emissivity", "negligible absorption from surroundings"], "answer": 12.4416, "unit": "kW"},
+  "stratum_assignments": {
+    "T298E": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "TA4B6": {"stratum": "R", "answer_with_sentence": 26.1585, "regime": null},
+    "TCB5F": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "TDB9C": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "T6222": {"stratum": "R", "answer_with_sentence": 26.1585, "regime": null},
+    "T4B8C": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked R answers: q=2.5 -> 1.5*6.25*2.0736 = 19.44; q=4.5 -> 1.5*8.41*2.0736 = 26.1585; q=7.5 -> 1.5*12.25*2.0736 = 38.1024 kW; all match. Base 12.4416 kW matches. Minimal pairs TA4B6/TCB5F (present tense) and T6222/T4B8C (past tense) differ only in attachment, same 4.5 cm. Numeral-free D controls T298E/TDB9C are declared as such, resolving my pass-1 remark. Authors' rationales say 'plated' while sentences say 'cast'; cosmetic only. Agrees with pass 1."
+}

@@ -1,0 +1,95 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S259",
+  "pass_number": 1,
+  "started_at": "2026-11-21T19:04:54+00:00",
+  "completed_at": "2026-11-21T19:05:52+00:00",
+  "minutes_spent": 0.97,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For the Maxwell speed distribution, the fraction above v0 is erfc(x) + 2*x*exp(-x^2)/sqrt(pi), where x = v0*sqrt(m/(2*k*T)). With m = 4.003 u = 6.64614e-27 kg, T = 300 K and v0 = 2000 m/s, x = 1.79119 and the fraction is approximately 0.0930. Multiplying by 0.5 mol gives the requested amount.",
+    "assumptions": [
+      "The base equilibrium temperature is 300 K.",
+      "For sentences heating the flask before measurement, the stated thermal equilibration occurs after heating, giving a gas temperature of 317 K.",
+      "The separate window frame has no specified thermal coupling to the flask.",
+      "An earlier experiment does not alter the explicitly stated initial conditions of this experiment."
+    ],
+    "answer": 0.0465,
+    "unit": "mol"
+  },
+  "stratum_assignments": {
+    "T2124": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0465,
+      "regime": null
+    },
+    "TA6B3": {
+      "stratum": "R",
+      "answer_with_sentence": 0.0541,
+      "regime": null
+    },
+    "TA645": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0465,
+      "regime": null
+    },
+    "T5A1D": {
+      "stratum": "C",
+      "answer_with_sentence": 0.0465,
+      "regime": null
+    },
+    "T3034": {
+      "stratum": "C",
+      "answer_with_sentence": 0.0465,
+      "regime": null
+    },
+    "T408F": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0465,
+      "regime": null
+    },
+    "T4B89": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0465,
+      "regime": null
+    },
+    "TA78B": {
+      "stratum": "R",
+      "answer_with_sentence": 0.0541,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The temperature-change variants do not consistently state the same number and unit: T2124 and TA645 say only 'a modest amount', whereas their quantitative counterparts T408F and T4B89 specify 17 K."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and the individual numerical variants are solvable under the stated equilibration condition; the invalid verdict concerns the required matching of variant quantities. Pressure sets the volume through pV = nRT, but volume and number density cancel when normalizing the Maxwell distribution, leaving the amount above the threshold dependent on total amount, atomic mass and temperature. Both pressure variants specify 62 kPa. The qualitative heating statements concern disconnected objects or an earlier experiment, so their unspecified temperature changes do not prevent calculating their individual answers.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "6fb364835711df52c54876d645528b079064c87aed10eeabf9791b90dc659e65",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

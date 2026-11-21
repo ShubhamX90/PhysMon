@@ -1,0 +1,24 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch25",
+  "item_id": "M250-S19",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:47:00Z", "completed_at": "2026-11-21T10:53:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Projectile range on level ground without drag: R = v^2 sin(2 theta)/g", "assumptions": ["no air resistance", "uniform g", "launch and landing at the same height"], "answer": 38.355, "unit": "m"},
+  "stratum_assignments": {
+    "T3E32": {"stratum": "R", "answer_with_sentence": 27.311, "regime": null},
+    "T9D35": {"stratum": "D", "answer_with_sentence": 38.355, "regime": null},
+    "TFDC7": {"stratum": "R", "answer_with_sentence": 27.311, "regime": null},
+    "TFC29": {"stratum": "D", "answer_with_sentence": 38.355, "regime": null},
+    "TC550": {"stratum": "D", "answer_with_sentence": 38.355, "regime": null},
+    "T9417": {"stratum": "D", "answer_with_sentence": 38.355, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The R sentences say the launch direction is lowered by 14 degrees before launch while the base says the ball is launched at 35 degrees; the intended reading (35 degrees was the setting, actual launch at 21 degrees) is clear, but the wording sits close to a contradiction."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "Base: 400*sin70/9.8 = 400*0.939693/9.8 = 38.355 m. Lowered to 21 degrees: 400*sin42/9.8 = 400*0.669131/9.8 = 27.311 m. The ramp is beside the launch point and the ball lands on level ground, so ramp tilt is D. Earlier-trial sentences do not change this launch. T9D35 and TC550 use 'a few degrees' instead of 14 degrees, presumably numeral-free versions."
+}

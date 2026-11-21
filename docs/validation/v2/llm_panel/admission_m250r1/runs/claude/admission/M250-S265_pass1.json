@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch23",
+  "item_id": "M250-S265",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:35:00Z", "completed_at": "2026-11-21T10:48:00Z", "minutes_spent": 13,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Ideal transformer V2 = V1/n; full-wave bridge with two constant-drop diodes in series: v_L = Vm|sin| - 2Vd when Vm|sin| > 2Vd, else 0; average = (1/pi)[2 Vm cos(th0) - 2Vd(pi - 2 th0)], sin th0 = 2Vd/Vm", "assumptions": ["ideal transformer (stated)", "constant-drop diode model (stated)", "purely resistive load, no capacitor (stated)", "sinusoidal supply (stated)"], "answer": 50.376, "unit": "V"},
+  "stratum_assignments": {
+    "T5D4E": {"stratum": "D", "answer_with_sentence": 50.376, "regime": null},
+    "TAC9C": {"stratum": "D", "answer_with_sentence": 50.376, "regime": null},
+    "T8158": {"stratum": "R", "answer_with_sentence": 53.527, "regime": null},
+    "TF8ED": {"stratum": "D", "answer_with_sentence": 50.376, "regime": null},
+    "T697F": {"stratum": "C", "answer_with_sentence": 50.376, "regime": null},
+    "T4891": {"stratum": "R", "answer_with_sentence": 53.527, "regime": null},
+    "T9978": {"stratum": "C", "answer_with_sentence": 50.376, "regime": null},
+    "T644B": {"stratum": "D", "answer_with_sentence": 50.376, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: secondary 57.5 V rms, Vm = 81.3173 V, 2Vd = 1.4 V, th0 = asin(1.4/81.3173) = 0.017217 rad; average = (162.6105 - 1.4*3.107158)/pi = (162.6105 - 4.3500)/pi = 50.376 V (naive 2Vm/pi - 1.4 = 50.373 V, close). With mains 244 V: secondary 61 V rms, Vm = 86.2670 V, th0 = 0.016229 rad; average = (172.5113 - 4.3528)/pi = 53.527 V. Load resistance cancels: with the constant-drop diode model and ideal transformer the load voltage waveform is independent of R (it sets only the current); classed C. Lamp supply and earlier-run sentences have no path to the target: D. Variants consistent at 14 V and 47 ohm; 'small amount' sentences carry no number."
+}

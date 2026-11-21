@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch08",
+  "item_id": "M250-S251",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:09:00Z", "completed_at": "2026-11-21T10:16:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation in inverse-square gravity: h = R v^2/(2gR - v^2)",
+    "assumptions": ["no atmosphere, non-rotating moon, inverse-square field (stated)", "launch speed below escape speed (2372 m/s)"],
+    "answer": 1157.01,
+    "unit": "km"
+  },
+  "stratum_assignments": {
+    "TE544": {"stratum": "C", "answer_with_sentence": 1157.01, "regime": null},
+    "T9571": {"stratum": "D", "answer_with_sentence": 1157.01, "regime": null},
+    "TFA02": {"stratum": "D", "answer_with_sentence": 1157.01, "regime": null},
+    "T9D2A": {"stratum": "D", "answer_with_sentence": 1157.01, "regime": null},
+    "T04BD": {"stratum": "R", "answer_with_sentence": 1878.54, "regime": null},
+    "TE24B": {"stratum": "C", "answer_with_sentence": 1157.01, "regime": null},
+    "T9791": {"stratum": "R", "answer_with_sentence": 1878.54, "regime": null},
+    "TAA9D": {"stratum": "D", "answer_with_sentence": 1157.01, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Verified certified answers: q=60 -> v=1560, h=1.737e6*2,433,600/3,194,280 = 1323.35 km; q=210 -> 1878.54 km; q=330 -> v=1830, h=1.737e6*3,348,900/2,278,980 = 2552.47 km; all below escape speed sqrt(2gR)=2372 m/s. Mass cancellation expression is correct. T9571 and T9D2A are declared numeral-free controls (twins of TAA9D and TFA02), which resolves my pass-1 query about their missing number; they are not claimed as minimal pairs of numbered sentences. TAA9D/T04BD differ only in probe vs relay capsule; TFA02/T9791 share number and unit and differ in time attachment (earlier test vs this firing) plus 'also' and tense, which is the intended attachment change. Minor: 'small moon' with a 1737 km radius is slightly odd wording."
+}

@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch12",
+  "item_id": "M250-S36",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:43:00Z", "completed_at": "2026-11-21T10:52:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Physical pendulum, small angles: T = 2 pi sqrt(I_p/(M g x)), I_p = M L^2/12 + M x^2 (parallel-axis theorem)", "assumptions": ["thin uniform rod", "small amplitude", "frictionless pivot"], "answer": 1.679, "unit": "s"},
+  "stratum_assignments": {
+    "TA36F": {"stratum": "C", "answer_with_sentence": 1.679, "regime": null},
+    "TFD4F": {"stratum": "D", "answer_with_sentence": 1.679, "regime": null},
+    "T1443": {"stratum": "D", "answer_with_sentence": 1.679, "regime": null},
+    "TF2C6": {"stratum": "D", "answer_with_sentence": 1.679, "regime": null},
+    "T2919": {"stratum": "C", "answer_with_sentence": 1.679, "regime": null},
+    "T7714": {"stratum": "D", "answer_with_sentence": 1.679, "regime": null},
+    "TFE49": {"stratum": "R", "answer_with_sentence": 2.339, "regime": null},
+    "T1D34": {"stratum": "R", "answer_with_sentence": 2.339, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: L^2/12 = 0.12 m^2, x = 0.3 m: (0.12 + 0.09)/(9.8 x 0.3) = 0.071429 s^2; sqrt = 0.26726; T = 1.6793 s. With pivot moved 20.5 cm closer, x = 0.095 m: (0.12 + 0.009025)/(9.8 x 0.095) = 0.129025/0.931 = 0.138588; sqrt = 0.372273; T = 2.3391 s. Mass cancels (C). Wording issues (not flagged high): T1D34 says the pivot of the swinging rod is 'then' moved, which leaves open whether the period asked is before or after the move (natural reading: the oscillations after the move); TFE49 modifies the stated pivot position 0.3 m, so the reader must take the 0.3 m as the position before the move. 'Earlier experiment' sentences are D since the problem states the present pivot position. Second-rod sentences are D. 'A few centimetres' sentences carry no number."
+}

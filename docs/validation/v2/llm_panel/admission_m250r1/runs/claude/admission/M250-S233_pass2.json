@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch03",
+  "item_id": "M250-S233",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:52:00Z", "completed_at": "2026-11-21T10:58:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Fresnel p-polarisation reflectance with Snell's law; P_t = P0 (1 - r_p^2)", "assumptions": ["n_air = 1", "non-absorbing, non-magnetic glass, first surface only"], "answer": 4.466, "unit": "mW"},
+  "stratum_assignments": {
+    "T6A28": {"stratum": "C", "answer_with_sentence": 4.466, "regime": null},
+    "TBC5B": {"stratum": "R", "answer_with_sentence": 7.503, "regime": null},
+    "T38E1": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null},
+    "T8526": {"stratum": "C", "answer_with_sentence": 4.466, "regime": null},
+    "T01A0": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null},
+    "T6921": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null},
+    "TAC23": {"stratum": "R", "answer_with_sentence": 7.503, "regime": null},
+    "TA9F7": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Transmittance 0.893235 confirmed; P0 = 6.7 -> 5.9847 mW, 8.4 -> 7.5032 mW, 11.2 -> 10.004 mW, all matching. Area cancellation (C) is correct. Minimal pairs T38E1/TBC5B (earlier run vs before striking the glass) and T6921/TAC23 (second laser vs the beam) share 3.4 mW and differ only in attachment. T01A0 and TA9F7 are declared numeral-free controls, so my pass-1 low rendering_not_minimal flag is withdrawn. TAC23 does not locate the amplifier, but with the stated power defined at the laser the reading 'before the glass' is the natural one."
+}

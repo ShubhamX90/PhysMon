@@ -1,0 +1,103 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S67",
+  "pass_number": 1,
+  "started_at": "2026-11-21T13:54:42+00:00",
+  "completed_at": "2026-11-21T13:55:33+00:00",
+  "minutes_spent": 0.84,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "At each air–glass interface, the normal-incidence power reflectance is R=((1.5-1)/(1.5+1))^2=0.04. Summing the incoherent transmitted beams gives P_transmitted=P_incident*(1-R)^2/(1-R^2)=P_incident*(12/13). Thus the base transmitted power is 50*(12/13)=46.153846 mW.",
+    "assumptions": [
+      "The plate has ordinary uncoated dielectric interfaces.",
+      "All emerging forward beams are included in the measured transmitted power.",
+      "An increase in the beam source's output increases the incident beam power by the same amount.",
+      "The separate lamp aimed at the wall does not illuminate the plate.",
+      "Statements explicitly assigned to an earlier experiment do not alter the current experiment's stated incident power."
+    ],
+    "answer": 46.1538461538,
+    "unit": "mW"
+  },
+  "stratum_assignments": {
+    "T463C": {
+      "stratum": "K",
+      "answer_with_sentence": 46.1538461538,
+      "regime": "The incident power is below the 350 mW damage threshold, so the plate remains undamaged with its stated optical properties."
+    },
+    "T65F1": {
+      "stratum": "R",
+      "answer_with_sentence": 78.4615384615,
+      "regime": null
+    },
+    "TBD30": {
+      "stratum": "R",
+      "answer_with_sentence": 78.4615384615,
+      "regime": null
+    },
+    "T146E": {
+      "stratum": "K",
+      "answer_with_sentence": 46.1538461538,
+      "regime": "The 50 mW incident beam is within the stated 350 mW operating rating; the rating does not enter the optical transmission calculation."
+    },
+    "T094D": {
+      "stratum": "D",
+      "answer_with_sentence": 46.1538461538,
+      "regime": null
+    },
+    "T60FB": {
+      "stratum": "D",
+      "answer_with_sentence": 46.1538461538,
+      "regime": null
+    },
+    "T9EF0": {
+      "stratum": "D",
+      "answer_with_sentence": 46.1538461538,
+      "regime": null
+    },
+    "T6E69": {
+      "stratum": "D",
+      "answer_with_sentence": 46.1538461538,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "Whether T60FB and T9EF0 intend the measurement in an earlier experiment or the measurement asked about in the current problem."
+  ],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T094D/T6E69 and T9EF0/T60FB replace the specified increase of 35 mW with an unspecified 'small amount', so these variants do not preserve the required number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "T60FB",
+      "case": "If this sentence is intended to describe the current measurement, increases of 1 mW and 2 mW are both compatible with 'a small amount' but yield transmitted powers of 47.076923 mW and 48 mW respectively."
+    }
+  ],
+  "notes": "The base optical problem is well-posed under ordinary textbook interface idealizations. The current-experiment increases in T65F1 and TBD30 change the incident power to 85 mW. I interpret 'in an earlier experiment' in T60FB and T9EF0 as separating those changes from the present 50 mW experiment, hence D. However, the reference to 'the transmitted power' permits another reading: T9EF0 would then give 78.461538 mW, while T60FB would lack a numerical increase and therefore a unique numerical answer. A power rating also does not itself establish a physical damage threshold, so T146E and T463C are not strictly equivalent assertions about behavior above 350 mW.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "6b7fa129c417325cf65db8d2ab6aa1fe18ff456c9384e1ce7064d64541ba20ba",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

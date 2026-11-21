@@ -1,0 +1,95 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r1_admission",
+  "item_id": "M250-S32",
+  "pass_number": 1,
+  "started_at": "2026-11-21T14:29:47+00:00",
+  "completed_at": "2026-11-21T14:30:42+00:00",
+  "minutes_spent": 0.92,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The initial spring energy is dissipated by kinetic friction over the entire sliding distance: (1/2)kx² = μMg d. Thus d = 4 J/(0.25 × 0.5 kg × 9.8 m/s²) = 3.265306 m.",
+    "assumptions": [
+      "The spring's other end is supported by the stationary apparatus.",
+      "The stated kinetic friction coefficient applies throughout the slide.",
+      "A weight fixed to the block moves with it and contributes to the table's normal force.",
+      "An attachment made before release remains present unless explicitly restricted to an earlier experiment."
+    ],
+    "answer": 3.2653061224,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TDC1D": {
+      "stratum": "D",
+      "answer_with_sentence": 3.2653061224,
+      "regime": null
+    },
+    "TFBC0": {
+      "stratum": "D",
+      "answer_with_sentence": 3.2653061224,
+      "regime": null
+    },
+    "TB3C0": {
+      "stratum": "R",
+      "answer_with_sentence": 0.8163265306,
+      "regime": null
+    },
+    "T92B0": {
+      "stratum": "K",
+      "answer_with_sentence": 3.2653061224,
+      "regime": "The spring remains Hookean throughout contact: its compression decreases from 10 cm to zero and never reaches the 28 cm limit."
+    },
+    "T9B94": {
+      "stratum": "K",
+      "answer_with_sentence": 3.2653061224,
+      "regime": "The ideal spring operates within its stated elastic range, with maximum compression 10 cm < 28 cm."
+    },
+    "T1533": {
+      "stratum": "D",
+      "answer_with_sentence": 3.2653061224,
+      "regime": null
+    },
+    "T9D09": {
+      "stratum": "D",
+      "answer_with_sentence": 3.2653061224,
+      "regime": null
+    },
+    "TC18C": {
+      "stratum": "R",
+      "answer_with_sentence": 0.8163265306,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The weight variants do not all state the same number and unit: TDC1D and T1533 specify only a 'small weight', whereas the other weight sentences specify 1.5 kg."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and the individual augmented problems have determinate answers; the invalid verdict concerns the stipulated numerical matching of variants. With an attached 1.5 kg weight, the moving mass is 2.0 kg, so the distance is 4/4.9 m. Friction during spring expansion is included in the total energy balance. The earlier-experiment-only weights are absent during the present motion. The 28 cm statements are interpreted as specifying the domain of the ideal spring model; neither limit is approached in this experiment.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "bc2aa2c3e588ba5641137aff0d8e50692c38c8416e61d0a4c12dcd7d95645735",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

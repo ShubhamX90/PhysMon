@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch12",
+  "item_id": "M250-S210",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:08:30Z", "completed_at": "2026-11-21T10:14:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Lightly damped oscillator; envelope A0 exp(-b t/(2m)); t = (2m/b) ln(1/f)", "assumptions": ["linear viscous damping", "underdamped", "dampers in parallel add coefficients"], "answer": 8.047, "unit": "s"},
+  "stratum_assignments": {
+    "T7E76": {"stratum": "D", "answer_with_sentence": 8.047, "regime": null},
+    "TDAF8": {"stratum": "R", "answer_with_sentence": 4.127, "regime": null},
+    "T66F6": {"stratum": "D", "answer_with_sentence": 8.047, "regime": null},
+    "T2CC3": {"stratum": "R", "answer_with_sentence": 4.127, "regime": null},
+    "TF11F": {"stratum": "C", "answer_with_sentence": 8.047, "regime": null},
+    "T9920": {"stratum": "C", "answer_with_sentence": 8.047, "regime": null},
+    "TB3BF": {"stratum": "D", "answer_with_sentence": 8.047, "regime": null},
+    "TFF7E": {"stratum": "D", "answer_with_sentence": 8.047, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked: base 2(0.5)/0.2 * ln5 = 8.0472 s. R values: q=0.15 -> 1.60944/0.35 = 4.5984; q=0.19 -> 1.60944/0.39 = 4.1268; q=0.29 -> 1.60944/0.49 = 3.2846; all match. k values 30, 60, 110 N/m give omega0 = 7.7, 11.0, 14.8 rad/s, all >> gamma (<= 0.49 s^-1), so light damping holds and k cancels from the envelope. The cancellation relation written with q as 'energy' is loose but the conclusion is right. Minimal pairs T66F6/T2CC3 and TFF7E/TDAF8 share number and unit and differ only in attachment. The numeral-free sentences T7E76 and TB3BF are declared controls, which resolves my pass-1 remark about 'small'. Agree with pass 1 throughout."
+}

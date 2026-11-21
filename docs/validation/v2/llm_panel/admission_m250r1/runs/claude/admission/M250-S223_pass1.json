@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch26",
+  "item_id": "M250-S223",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:14:00Z", "completed_at": "2026-11-21T10:23:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Entropy as a state function: dS = m L / T_m + m c ln(T_f / T_m)", "assumptions": ["melting at constant T = 273 K", "constant c of liquid water", "no evaporation; water stays liquid", "system = ice/water only"], "answer": 359.16, "unit": "J/K"},
+  "stratum_assignments": {
+    "T51E5": {"stratum": "R", "answer_with_sentence": 592.61, "regime": null},
+    "TA643": {"stratum": "R", "answer_with_sentence": 592.61, "regime": null},
+    "T3730": {"stratum": "C", "answer_with_sentence": 359.16, "regime": null},
+    "T4A5B": {"stratum": "D", "answer_with_sentence": 359.16, "regime": null},
+    "T4B97": {"stratum": "D", "answer_with_sentence": 359.16, "regime": null},
+    "T8603": {"stratum": "C", "answer_with_sentence": 359.16, "regime": null},
+    "T6035": {"stratum": "K", "answer_with_sentence": 359.16, "regime": "final temperature 313 K below the boiling point (water remains liquid)"},
+    "TF01D": {"stratum": "D", "answer_with_sentence": 359.16, "regime": null},
+    "T3F4A": {"stratum": "D", "answer_with_sentence": 359.16, "regime": null},
+    "T5693": {"stratum": "K", "answer_with_sentence": 359.16, "regime": "final temperature 313 K below the boiling point (water remains liquid)"}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Melting: 0.2*334000/273 = 244.69 J/K. Heating: 0.2*4186*ln(313/273) = 837.2*0.136731 = 114.47 J/K. Total 359.16 J/K. With 0.33 kg total: 403.74 + 188.88 = 592.61 J/K. Heater power: entropy change of the ice/water is a state function, so the power fixes only the heating time (Q = P t), which cancels; classed C (could also be argued D). '450 W' sits somewhat oddly with 'heated slowly' but does not change the state-function answer. Boiling point 371 K is above 313 K (K). Earlier-run and dispenser sentences are D; the numeral-free 'small amount' sentences (T4B97, T3F4A) carry no number versus their 0.13 kg counterparts."
+}

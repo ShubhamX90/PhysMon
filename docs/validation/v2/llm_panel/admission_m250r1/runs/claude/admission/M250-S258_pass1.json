@@ -1,0 +1,21 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch20",
+  "item_id": "M250-S258",
+  "pass_number": 1,
+  "started_at": "2026-11-21T10:00:00Z", "completed_at": "2026-11-21T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Radioactive decay: N0 = m/(M u); lambda = ln2/T_half; A = lambda N0 2^(-t/T_half)", "assumptions": ["capsule initially holds only the stated isotope mass", "1 yr = 365.25 d = 3.15576e7 s", "u = 1.66054e-24 g"], "answer": 5.849e10, "unit": "Bq"},
+  "stratum_assignments": {
+    "T5915": {"stratum": "R", "answer_with_sentence": 9.798e10, "regime": null},
+    "TBBB3": {"stratum": "D", "answer_with_sentence": 5.849e10, "regime": null},
+    "T0809": {"stratum": "D", "answer_with_sentence": 5.849e10, "regime": null},
+    "TF0FF": {"stratum": "D", "answer_with_sentence": 5.849e10, "regime": null},
+    "TA788": {"stratum": "R", "answer_with_sentence": 9.798e10, "regime": null},
+    "TEA82": {"stratum": "D", "answer_with_sentence": 5.849e10, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "N0 = 0.004 g / (59.93 x 1.66054e-24 g) = 4.019e19; lambda = 0.693147/(5.27 x 3.15576e7 s) = 4.168e-9 /s; A0 = 1.675e11 Bq; factor 2^(-8/5.27) = 0.3492; A = 5.849e10 Bq. With 0.0027 g more in the capsule: total 0.0067 g, A = 5.849e10 x 6.7/4 = 9.798e10 Bq. Choice of year length (365 vs 365.25 d) changes the answer by under 0.1%. T0809 and TF0FF state 'a small amount' rather than 0.0027 g; if they are claimed as variants of numbered sentences that would be a rendering difference in the number (to check in pass 2)."
+}

@@ -1,0 +1,27 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r1_admission:batch10",
+  "item_id": "M250-S271",
+  "pass_number": 2,
+  "started_at": "2026-11-21T10:23:00Z", "completed_at": "2026-11-21T10:30:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "c_rod = sqrt(E/rho); f = c_rod/(2L); dust spacing = v_air/(2f) = v_air*L/c_rod", "assumptions": ["thin rod", "light disc does not load the rod", "dust at air displacement nodes, half a wavelength apart"], "answer": 8.0837, "unit": "cm"},
+  "stratum_assignments": {
+    "TA297": {"stratum": "D", "answer_with_sentence": 8.08366, "regime": null},
+    "T94AF": {"stratum": "K", "answer_with_sentence": 8.08366, "regime": "thin rod: diameter much smaller than rod length/wavelength (authors: 10*d < L)"},
+    "T641F": {"stratum": "C", "answer_with_sentence": 8.08366, "regime": null},
+    "TFBD6": {"stratum": "D", "answer_with_sentence": 8.08366, "regime": null},
+    "TD83B": {"stratum": "R", "answer_with_sentence": 10.2393, "regime": null},
+    "T9574": {"stratum": "K", "answer_with_sentence": 8.08366, "regime": "thin rod: diameter much smaller than rod length/wavelength (authors: 10*d < L)"},
+    "T1BAE": {"stratum": "C", "answer_with_sentence": 8.08366, "regime": null},
+    "T3295": {"stratum": "R", "answer_with_sentence": 10.2393, "regime": null},
+    "T2604": {"stratum": "D", "answer_with_sentence": 8.08366, "regime": null},
+    "TFE55": {"stratum": "D", "answer_with_sentence": 8.08366, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Base 8.08366 cm matches my 0.080837 m. R answers verified: 343*1.34/5091.75 = 9.0268 cm, 343*1.52/5091.75 = 10.2393 cm, 343*1.75/5091.75 = 11.7887 cm. In pass 1 I labelled the diameter sentences C; the authors label them K with a thin-rod regime (10 d < L). Both readings are defensible: the area cancels from sqrt(E/rho) only while the rod is thin (Rayleigh lateral-inertia correction scales as (d/lambda)^2, negligible at 8 mm vs 2.4 m), so K with that regime is acceptable; the regime threshold is a crude but correct-side criterion and all listed values (6.5-13 mm) lie well inside it. Minimal pairs T2604/TD83B (railing vs rod) and TA297/T3295 (earlier run vs before clamp) carry the same 32 cm and differ only in attachment. Numeral-free controls TFBD6/TFE55 are by design. Different area and diameter values (1.6 cm^2 vs 8.21 mm -> 0.53 cm^2) never appear together, so no contradiction."
+}
