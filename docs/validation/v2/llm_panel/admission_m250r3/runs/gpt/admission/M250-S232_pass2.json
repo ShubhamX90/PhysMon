@@ -1,0 +1,89 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r3_admission",
+  "item_id": "M250-S232",
+  "pass_number": 2,
+  "started_at": "2026-11-22T18:24:41+00:00",
+  "completed_at": "2026-11-22T18:25:27+00:00",
+  "minutes_spent": 0.76,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Linear deep-water gravity-capillary waves obey omega^2 = g*k + sigma*k^3/rho, with k = 2*pi/lambda. Differentiation gives cg = (g + 3*sigma*k^2/rho)/(2*sqrt(g*k + sigma*k^3/rho)). For lambda = 0.03 m, k = 209.4395 m^-1 and cg = 0.185891 m/s. Replacing sigma by sigma - q gives 0.177237, 0.171340 and 0.163309 m/s for q = 0.009, 0.015 and 0.023 N/m, respectively.",
+    "assumptions": [
+      "Small-amplitude waves in the stated deep-water, negligible-viscosity regime, with uniform surface tension.",
+      "The reduction specified for the current tank water applies when the ripples propagate.",
+      "Emptying, rinsing and refilling removes the earlier run's detergent effects."
+    ],
+    "answer": 0.185891,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T1028": {
+      "stratum": "R",
+      "answer_with_sentence": 0.17134,
+      "regime": null
+    },
+    "T9415": {
+      "stratum": "R",
+      "answer_with_sentence": 0.17134,
+      "regime": null
+    },
+    "TC5E1": {
+      "stratum": "D",
+      "answer_with_sentence": 0.185891,
+      "regime": null
+    },
+    "T6703": {
+      "stratum": "D",
+      "answer_with_sentence": 0.185891,
+      "regime": null
+    },
+    "TB5C8": {
+      "stratum": "D",
+      "answer_with_sentence": 0.185891,
+      "regime": null
+    },
+    "T14D0": {
+      "stratum": "D",
+      "answer_with_sentence": 0.185891,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The deliberately numeral-free controls T6703 and T14D0 omit the number and unit required by the general rendering instructions, although the authors explicitly identify this difference and do not claim these controls are numerical minimal pairs."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "medium"
+  },
+  "counterexamples": [],
+  "notes": "All governing relations, dimensions, numerical answers and stratum claims are correct. Each dispersion-relation term has units s^-2, and the differentiated expression has units m/s. All listed reductions leave positive surface tension. The explicitly claimed minimal pairs TB5C8/T1028 and TC5E1/T9415 preserve the number and unit and change the intended attachment. Pass 2 clarifies that the numeral-free sentences are intentional controls rather than claimed numerical minimal pairs. I therefore revise pass 1's high-severity assessment to a medium rendering-format issue: there is no false physics or false minimal-pair claim. The pass-1 counterexamples illustrate differing renderings, not failed invariance.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "70b6c8e1e976a5165d72937fd0fa037c266554e063fc988cb85dfd083a9b7702",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

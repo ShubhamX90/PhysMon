@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S272",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "The resonance condition is L + e = (2n+1)c/(4f). Subtracting successive conditions gives ΔL = c/(2f), so Δt = c/(2fv). With v = 0.015 m/s, Δt = 22.330729 s. An additional operating tap gives v = 0.015 + q/100 m/s when q is expressed in cm/s.",
+    "assumptions": [
+      "The stated sound speed, fork frequency and fixed end correction remain constant.",
+      "The stipulated steady discharge rates add when both taps drain the sounding tube.",
+      "An opened tap remains open during the resonance interval.",
+      "The neighbouring tube is hydraulically separate from the sounding tube."
+    ],
+    "answer": 22.330729,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TF4FF": {
+      "stratum": "D",
+      "answer_with_sentence": 22.330729,
+      "regime": null
+    },
+    "TEA1B": {
+      "stratum": "R",
+      "answer_with_sentence": 13.956706,
+      "regime": null
+    },
+    "T49F8": {
+      "stratum": "D",
+      "answer_with_sentence": 22.330729,
+      "regime": null
+    },
+    "TFF60": {
+      "stratum": "C",
+      "answer_with_sentence": 22.330729,
+      "regime": null
+    },
+    "TBEDA": {
+      "stratum": "C",
+      "answer_with_sentence": 22.330729,
+      "regime": null
+    },
+    "T9749": {
+      "stratum": "R",
+      "answer_with_sentence": 13.956706,
+      "regime": null
+    },
+    "T3D7A": {
+      "stratum": "D",
+      "answer_with_sentence": 22.330729,
+      "regime": null
+    },
+    "TB8E5": {
+      "stratum": "D",
+      "answer_with_sentence": 22.330729,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "I revise the pass-1 minimality objection: pass 2 explicitly identifies T3D7A and TB8E5 as numeral-free controls, not numerical minimal pairs. Their changes match that declared design. The claimed numerical minimal pairs retain 0.9 cm/s and change only the temporal or physical attachment. All certified answers check: additional rates of 0.4, 0.9 and 1.37 cm/s give 17.629523, 13.956706 and 11.671113 s. Initial lengths of 85, 130 and 190 cm cancel from the interval, as does the fixed end correction. Although individual resonance times require the end-correction term, its omission from both terms of the displayed difference leaves that difference exactly correct. The governing relations are dimensionally consistent when the stated centimetre and metre units are converted consistently.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r3_admission",
+  "started_at": "2026-11-22T18:23:19+00:00",
+  "completed_at": "2026-11-22T18:24:05+00:00",
+  "minutes_spent": 0.78,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "5657c717e5fd120878b5863bb50568aaec10291922792caca4ad4997cc9cc464",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

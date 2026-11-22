@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r3_admission",
+  "item_id": "M250-S41",
+  "pass_number": 2,
+  "started_at": "2026-11-22T18:24:39+00:00",
+  "completed_at": "2026-11-22T18:25:19+00:00",
+  "minutes_spent": 0.67,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Coulomb's law and conservation of charge. For initial charges +5Q and -Q, each identical sphere has charge +2Q after contact. Thus F1 = 80*(4/5)*(30/60)^2 = 16 mN. An additional separation x gives F(x) = 16*[60/(60+x)]^2 mN, with x in centimetres.",
+    "assumptions": [
+      "Contact establishes electrostatic equilibrium, sharing the conserved charge equally between identical spheres.",
+      "The explicitly prescribed point-charge model applies.",
+      "The distant wooden blocks do not disturb the field within the stated idealization.",
+      "The earlier experiment precedes the fully specified initial state."
+    ],
+    "answer": 16.0,
+    "unit": "mN"
+  },
+  "stratum_assignments": {
+    "T162F": {
+      "stratum": "D",
+      "answer_with_sentence": 16.0,
+      "regime": null
+    },
+    "T0EF1": {
+      "stratum": "D",
+      "answer_with_sentence": 16.0,
+      "regime": null
+    },
+    "TCCA9": {
+      "stratum": "D",
+      "answer_with_sentence": 16.0,
+      "regime": null
+    },
+    "TAA47": {
+      "stratum": "C",
+      "answer_with_sentence": 16.0,
+      "regime": null
+    },
+    "T81A0": {
+      "stratum": "C",
+      "answer_with_sentence": 16.0,
+      "regime": null
+    },
+    "TA88E": {
+      "stratum": "D",
+      "answer_with_sentence": 16.0,
+      "regime": null
+    },
+    "T2BDE": {
+      "stratum": "R",
+      "answer_with_sentence": 7.78799351,
+      "regime": null
+    },
+    "TFAEF": {
+      "stratum": "R",
+      "answer_with_sentence": 7.78799351,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "I withdraw the pass-1 rendering_not_minimal flag: pass 2 explicitly identifies T162F and TCCA9 as numeral-free controls, rather than numerical minimal pairs. The actual claimed minimal pairs, T0EF1/TFAEF and TA88E/T2BDE, preserve 26 cm and change the intended temporal or object attachment. All certified answers check: additional separations of 14, 26 and 45 cm give 10.5186267, 7.78799351 and 5.22448980 mN. Equal radii cancel in the supplied charge-sharing relation; equal sharing also follows directly from symmetry. All listed radius values give 16 mN under the prescribed point-charge model. The claims about the wooden blocks are understood within the supplied assumption that nothing else disturbs the field.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "3045008d1906a3bc7e0e90db13a11f67d58ed7b169dfd9a738084d1ed03c79ce",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

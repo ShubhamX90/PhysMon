@@ -1,0 +1,95 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r3_admission",
+  "item_id": "M250-S281",
+  "pass_number": 1,
+  "started_at": "2026-11-22T18:22:13+00:00",
+  "completed_at": "2026-11-22T18:23:13+00:00",
+  "minutes_spent": 0.99,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of Newtonian mechanical energy gives m v_esc^2/2 = GMm/R. With M = 4πρR^3/3, v_esc = R sqrt(8πGρ/3). Using Earth as the reference, v_esc = 11.19(3390/6371)sqrt(3.93/5.51) = 5.02855 km/s, or 5.03 km/s.",
+    "assumptions": [
+      "Newtonian gravity applies.",
+      "The probe's mass is negligible compared with the planet's mass.",
+      "After launch the probe coasts without further propulsion and approaches infinity with zero speed.",
+      "An added planetary layer has the planet's density, preserves spherical symmetry, and places the launch surface at the enlarged radius."
+    ],
+    "answer": 5.03,
+    "unit": "km/s"
+  },
+  "stratum_assignments": {
+    "T3112": {
+      "stratum": "D",
+      "answer_with_sentence": 5.03,
+      "regime": null
+    },
+    "TE270": {
+      "stratum": "C",
+      "answer_with_sentence": 5.03,
+      "regime": null
+    },
+    "T09DC": {
+      "stratum": "D",
+      "answer_with_sentence": 5.03,
+      "regime": null
+    },
+    "TC598": {
+      "stratum": "D",
+      "answer_with_sentence": 5.03,
+      "regime": null
+    },
+    "TE752": {
+      "stratum": "C",
+      "answer_with_sentence": 5.03,
+      "regime": null
+    },
+    "T39C4": {
+      "stratum": "D",
+      "answer_with_sentence": 5.03,
+      "regime": null
+    },
+    "T3AA6": {
+      "stratum": "R",
+      "answer_with_sentence": 5.49,
+      "regime": null
+    },
+    "T8A9F": {
+      "stratum": "R",
+      "answer_with_sentence": 5.49,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TC598 and T39C4 replace the specified radius increment of 310 km with the unquantified phrase 'a little', so the radius-increment variants do not retain the required same number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics is well-posed. The moon is disconnected because all other bodies' gravitational pulls are explicitly ignored; an earlier simulation is also disconnected from the present launch. Probe mass appears in both kinetic and potential energy and cancels. For either added planetary layer, the new radius is 3700 km and the density remains unchanged, giving 5.02855(3700/3390) = 5.48812 km/s. The unquantified sentences do not prevent these disconnected cases from having unique answers, but they violate the stipulated numerical matching of variants.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "280962ed7730d57051202d62ce52410ab9918741db6c7c6b6c16f57b01adc00e",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

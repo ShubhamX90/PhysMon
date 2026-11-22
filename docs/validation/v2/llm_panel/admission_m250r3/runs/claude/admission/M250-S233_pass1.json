@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch03",
+  "item_id": "M250-S233",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:00:00Z", "completed_at": "2026-11-22T10:12:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Fresnel equations, p-polarisation: t-power fraction T_p = 1 - R_p, r_p = (n2 cos i - n1 cos t)/(n2 cos i + n1 cos t), Snell n1 sin i = n2 sin t",
+    "assumptions": ["n_air = 1", "no absorption in glass", "single surface", "power at laser equals power at glass (no losses in between)", "narrow parallel beam (plane-wave Fresnel)"],
+    "answer": 4.466,
+    "unit": "mW"
+  },
+  "stratum_assignments": {
+    "T6A28": {"stratum": "C", "answer_with_sentence": 4.466, "regime": null},
+    "TBC5B": {"stratum": "R", "answer_with_sentence": 7.503, "regime": null},
+    "T38E1": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null},
+    "T8526": {"stratum": "C", "answer_with_sentence": 4.466, "regime": null},
+    "T01A0": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null},
+    "T6921": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null},
+    "TAC23": {"stratum": "R", "answer_with_sentence": 7.503, "regime": null},
+    "TA9F7": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TAC23 ('Before the experiment starts, an optical amplifier adds 3.4 mW to the power of the beam') is temporally ambiguous: it may be read as amplifying the beam that strikes the glass (R, 7.50 mW) or as a preparatory step outside the experiment."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "sin t = 0.96593/1.5 = 0.64395, cos t = 0.76507, cos i = 0.25882; r_p = (0.38823-0.76507)/(0.38823+0.76507) = -0.32675; R_p = 0.10676; T_p = 0.89324; P = 5 x 0.89324 = 4.466 mW. With amplifier: 8.4 x 0.89324 = 7.503 mW. Beam area cancels (power given directly; intensity x area). T01A0 and TA9F7 state 'a small amount' instead of 3.4 mW; if they are meant as variants of T38E1/T6921 they differ in the number. Area sentences T6A28/T8526 state the same 5.5 mm^2."
+}

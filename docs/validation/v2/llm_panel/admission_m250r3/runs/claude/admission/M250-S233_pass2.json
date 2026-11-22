@@ -1,0 +1,37 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch03",
+  "item_id": "M250-S233",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:12:00Z", "completed_at": "2026-11-22T10:20:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Fresnel equations, p-polarisation, with Snell's law",
+    "assumptions": ["n_air = 1", "no absorption", "single surface", "power at laser reaches the glass"],
+    "answer": 4.466,
+    "unit": "mW"
+  },
+  "stratum_assignments": {
+    "T6A28": {"stratum": "C", "answer_with_sentence": 4.46617, "regime": null},
+    "TBC5B": {"stratum": "R", "answer_with_sentence": 7.50317, "regime": null},
+    "T38E1": {"stratum": "D", "answer_with_sentence": 4.46617, "regime": null},
+    "T8526": {"stratum": "C", "answer_with_sentence": 4.46617, "regime": null},
+    "T01A0": {"stratum": "D", "answer_with_sentence": 4.46617, "regime": null},
+    "T6921": {"stratum": "D", "answer_with_sentence": 4.46617, "regime": null},
+    "TAC23": {"stratum": "R", "answer_with_sentence": 7.50317, "regime": null},
+    "TA9F7": {"stratum": "D", "answer_with_sentence": 4.46617, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TAC23's 'Before the experiment starts' phrasing is mildly open to a reading in which the amplification is not part of the run; the present tense 'adds' and the R claim make the intended reading the natural one."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Certified answers checked: T_p = 0.893234; 5 x T_p = 4.46617; 6.7 x T_p = 5.98467; 8.4 x T_p = 7.50317; 11.2 x T_p = 10.0042 mW. All agree with my pass-1 values. Area cancels as claimed. Minimal pairs T38E1/TBC5B and T6921/TAC23 share 3.4 mW and differ only in attachment (earlier run vs this run; second laser vs beam). Numeral-free sentences T01A0 and TA9F7 are declared numeral-free twins by design, which resolves my pass-1 remark about their missing number. On reflection I now rate clarity 'clear' rather than pass-1 'ambiguous'; the TAC23 concern is low severity only."
+}

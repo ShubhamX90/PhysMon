@@ -1,0 +1,97 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r3_admission",
+  "item_id": "M250-S41",
+  "pass_number": 1,
+  "started_at": "2026-11-22T18:23:38+00:00",
+  "completed_at": "2026-11-22T18:24:39+00:00",
+  "minutes_spent": 1.01,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Coulomb's law and conservation of charge. Write the initial charges as +5q and -q. Contact gives each identical sphere charge +2q. Therefore F_final/F_initial = (4/5)(30/60)^2 = 1/5, giving 16 mN. A subsequent increase of 26 cm makes the separation 86 cm and gives 16(60/86)^2 = 7.78799 mN.",
+    "assumptions": [
+      "The spheres reach electrostatic equilibrium when touched and share the conserved total charge equally by symmetry.",
+      "The explicitly prescribed point-charge model applies at the stated separations.",
+      "Earlier experiments precede the fully specified initial state.",
+      "In TFAEF, 'Afterwards' places the additional displacement after the separation to 60 cm and before the requested force."
+    ],
+    "answer": 16,
+    "unit": "mN"
+  },
+  "stratum_assignments": {
+    "T162F": {
+      "stratum": "D",
+      "answer_with_sentence": 16,
+      "regime": null
+    },
+    "T0EF1": {
+      "stratum": "D",
+      "answer_with_sentence": 16,
+      "regime": null
+    },
+    "TCCA9": {
+      "stratum": "D",
+      "answer_with_sentence": 16,
+      "regime": null
+    },
+    "TAA47": {
+      "stratum": "C",
+      "answer_with_sentence": 16,
+      "regime": null
+    },
+    "T81A0": {
+      "stratum": "C",
+      "answer_with_sentence": 16,
+      "regime": null
+    },
+    "TA88E": {
+      "stratum": "D",
+      "answer_with_sentence": 16,
+      "regime": null
+    },
+    "T2BDE": {
+      "stratum": "R",
+      "answer_with_sentence": 7.78799351,
+      "regime": null
+    },
+    "TFAEF": {
+      "stratum": "R",
+      "answer_with_sentence": 7.78799351,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The distance variants fail the required preservation of number and unit: T162F and TCCA9 specify only 'a few centimetres', whereas their corresponding numerical renderings T0EF1 and TA88E specify 26 cm."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "Moving the wooden blocks 3 cm further apart satisfies TCCA9's 'a few centimetres' but does not satisfy TA88E's specified 26 cm, so these renderings do not preserve the same displacement."
+  ],
+  "notes": "The base problem and each individual force calculation are well-posed; the invalid verdict concerns the required numerical matching between variants. The common sphere radius cancels from the equal-potential charge-sharing relation by symmetry, and the prescribed point-charge force model introduces no remaining radius dependence. Making the conducting spheres solid does not change their equilibrium charge sharing. Earlier displacements have no effect because the present initial charges and separation are specified independently.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "d49abcd2e9a351b7e4e7a5096b4a8885cf4b68eae1172deca4e59eb66df29750",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

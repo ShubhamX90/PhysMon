@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch04",
+  "item_id": "M250-S238",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:53:00Z", "completed_at": "2026-11-22T11:03:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Circular Couette flow: G = 4 pi mu L Omega R1^2 R2^2/(R2^2 - R1^2), P = G Omega",
+    "assumptions": ["Newtonian, isothermal, constant viscosity (stated)", "steady laminar purely azimuthal flow (stated)", "no slip at both walls (stated)", "end effects negligible (stated)"],
+    "answer": 0.182943,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T7A33": {"stratum": "D", "answer_with_sentence": 0.182943, "regime": null},
+    "T564F": {"stratum": "R", "answer_with_sentence": 0.483084, "regime": null},
+    "T4956": {"stratum": "D", "answer_with_sentence": 0.182943, "regime": null},
+    "T5A9C": {"stratum": "C", "answer_with_sentence": 0.182943, "regime": null},
+    "TEF4A": {"stratum": "R", "answer_with_sentence": 0.483084, "regime": null},
+    "T0105": {"stratum": "D", "answer_with_sentence": 0.182943, "regime": null},
+    "TFDA3": {"stratum": "D", "answer_with_sentence": 0.182943, "regime": null},
+    "TF420": {"stratum": "C", "answer_with_sentence": 0.182943, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The density cancellation exhibit is circular (it writes eta as rho*(eta/rho)); the relations are true and the C label is defensible because rho appears in the Navier-Stokes momentum balance and drops out of the azimuthal balance for purely circular flow, but the exhibit does not show that physical mechanism."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Base 0.182943 W and +75 rpm answer 0.483084 W match pass 1. Checked other R values: 155 rpm -> 0.182943*(155/120)^2 = 0.182943*1.668403 = 0.305222 W (certified 0.305223); 280 rpm -> 0.182943*(280/120)^2 = 0.182943*5.444444 = 0.996023 W (certified 0.996023). Laminar regime holds up to 280 rpm (Taylor number about 0.64, far below about 1700). In pass 1 I labelled the density sentences K; the authors say C. I accept C as equally defensible: density does appear in the governing momentum equation and cancels from the torque for purely azimuthal steady flow, and the answer is the same either way. I do not change pass 1. Minimal pairs hold: T0105/TEF4A differ only in 'In an earlier run' vs 'Before the power was measured' (same 75 rpm); T7A33/T564F differ only in stirrer vs rotor; T4956 and TFDA3 are numeral-free twins of T7A33 and T0105. T5A9C and TF420 both state 860 kg/m^3 with no claimed pairing conflict. The 'earlier run' qualifier in T0105/TFDA3 makes clear that no change of the current speed setting is stated, so the D label is consistent with the final-rate clause."
+}

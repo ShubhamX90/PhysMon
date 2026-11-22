@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch04",
+  "item_id": "M250-S238",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:39:00Z", "completed_at": "2026-11-22T10:52:00Z", "minutes_spent": 13,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Circular Couette flow of a Newtonian fluid between a rotating inner and fixed outer cylinder: torque G = 4 pi mu L Omega R1^2 R2^2/(R2^2 - R1^2); power P = G Omega",
+    "assumptions": ["Newtonian, isothermal, constant viscosity (stated)", "steady laminar purely azimuthal flow (stated)", "no slip at both walls (stated)", "end effects negligible (stated)", "final rate = 120 rpm unless a speed-setting change is stated (stated)"],
+    "answer": 0.18294,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T7A33": {"stratum": "D", "answer_with_sentence": 0.18294, "regime": null},
+    "T564F": {"stratum": "R", "answer_with_sentence": 0.48308, "regime": null},
+    "T4956": {"stratum": "D", "answer_with_sentence": 0.18294, "regime": null},
+    "T5A9C": {"stratum": "K", "answer_with_sentence": 0.18294, "regime": "Density would matter only if the flow left the stable laminar circular-Couette regime (Taylor number above about 1700, or inertial/end effects); here Ta = Omega^2 R1 d^3/nu^2 is about 0.12 at 120 rpm and about 0.31 at 195 rpm, far inside the laminar regime, which the problem also states."},
+    "TEF4A": {"stratum": "R", "answer_with_sentence": 0.48308, "regime": null},
+    "T0105": {"stratum": "D", "answer_with_sentence": 0.18294, "regime": null},
+    "TFDA3": {"stratum": "D", "answer_with_sentence": 0.18294, "regime": null},
+    "TF420": {"stratum": "K", "answer_with_sentence": 0.18294, "regime": "Same as T5A9C: laminar Couette regime, Taylor number far below critical."}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Omega = 120 rpm = 4 pi rad/s; R1 = 0.020 m, R2 = 0.022 m, R1^2 R2^2/(R2^2-R1^2) = 1.936e-7/8.4e-5 = 2.30476e-3 m^2; P = 4 pi mu L Omega^2 * 2.30476e-3 = 2.56 pi^3 * 2.30476e-3 = 79.3761*2.30476e-3 = 0.182943 W. With +75 rpm (195 rpm) P scales as Omega^2: 0.182943*(195/120)^2 = 0.182943*2.640625 = 0.483084 W. Density does not enter the torque of circular Couette flow (it enters only the radial pressure balance, which does not affect torque, and the stability criterion); it could be read as C or K, I assign K with the laminar regime. Variant check: T7A33/T564F differ only in stirrer vs rotor; TEF4A/T0105 differ in 'Before the power was measured' vs 'In an earlier run' (same 75 rpm); T5A9C/TF420 both 860 kg/m^3; T4956 and TFDA3 have no number. Minor wording point: T0105 states a change of the rotor's speed setting, which the clause 'unless a change of its speed setting is stated' might be read to catch; the 'earlier run' qualifier makes the D reading the natural one."
+}

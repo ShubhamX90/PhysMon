@@ -1,0 +1,37 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch02",
+  "item_id": "M250-S232",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:12:00Z", "completed_at": "2026-11-22T10:22:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Deep-water capillary-gravity dispersion omega^2 = g k + sigma k^3/rho; v_g = (g + 3 sigma k^2/rho)/(2 omega)",
+    "assumptions": ["linear small-amplitude waves", "deep water", "inviscid flow", "clean-water surface tension 0.0728 N/m"],
+    "answer": 0.1859,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T1028": {"stratum": "R", "answer_with_sentence": 0.1713, "regime": null},
+    "T9415": {"stratum": "R", "answer_with_sentence": 0.1713, "regime": null},
+    "TC5E1": {"stratum": "D", "answer_with_sentence": 0.1859, "regime": null},
+    "T6703": {"stratum": "D", "answer_with_sentence": 0.1859, "regime": null},
+    "TB5C8": {"stratum": "D", "answer_with_sentence": 0.1859, "regime": null},
+    "T14D0": {"stratum": "D", "answer_with_sentence": 0.1859, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Relations match my pass-1 solution. Recomputed certified answers: q=0.009 -> sigma 0.0638, omega 51.379, v_g 18.213/102.758 = 0.17724 m/s; q=0.015 -> 0.17134 m/s; q=0.023 -> sigma 0.0498, omega 50.109, v_g 16.367/100.219 = 0.16331 m/s; base 0.18589 m/s. All agree. Minimal pairs TB5C8/T1028 (tank -> bowl) and TC5E1/T9415 ('before the ripples were made' -> 'in an earlier run') both keep 0.015 N/m and differ only in attachment. T6703 and T14D0 are declared numeral-free twins, so the absent number is by design, resolving my pass-1 query; no rendering_not_minimal flag. The refill-after-every-run clause makes TC5E1/T14D0 genuinely disconnected. The base text's 'before any detergent is added' does not contradict R sentences: the stated value is the clean-water value and the R sentence states the reduction."
+}

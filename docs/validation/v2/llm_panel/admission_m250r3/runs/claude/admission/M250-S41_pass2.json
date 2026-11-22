@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch02",
+  "item_id": "M250-S41",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:50:00Z", "completed_at": "2026-11-22T10:58:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Coulomb's law with charge conservation and equal sharing between identical conductors",
+    "assumptions": ["point charges", "identical spheres share charge equally", "isolated, no leakage"],
+    "answer": 16.0,
+    "unit": "mN"
+  },
+  "stratum_assignments": {
+    "T162F": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "T0EF1": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "TCCA9": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "TAA47": {"stratum": "C", "answer_with_sentence": 16.0, "regime": null},
+    "T81A0": {"stratum": "C", "answer_with_sentence": 16.0, "regime": null},
+    "TA88E": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "T2BDE": {"stratum": "R", "answer_with_sentence": 7.788, "regime": null},
+    "TFAEF": {"stratum": "R", "answer_with_sentence": 7.788, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Recomputed R answers: 16*(60/74)^2 = 10.5186, 16*(60/86)^2 = 7.7880, 16*(60/105)^2 = 5.2245 mN; base 16 mN. Relations F = F0*((rq-1)/2)^2/rq*(d0/d1)^2 give 80*0.2 = 16 mN. In pass 1 I labelled the radius sentences K (point-charge regime); the authors' C (radius enters the capacitance-proportional charge sharing and cancels for equal radii) is also correct, and with the point-charge instruction given in the text both labels give the same invariant answer; I accept C. For radii up to 4 cm at 30-60 cm the point-charge treatment the problem instructs is reasonable. Minimal pairs TA88E/T2BDE (blocks vs spheres) and T0EF1/TFAEF (earlier experiment vs afterwards) keep 26 cm and differ only in attachment. Numeral-free twins T162F, TCCA9 are by design."
+}

@@ -1,0 +1,92 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r3_admission",
+  "item_id": "M250-S82",
+  "pass_number": 1,
+  "started_at": "2026-11-22T18:26:53+00:00",
+  "completed_at": "2026-11-22T18:27:57+00:00",
+  "minutes_spent": 1.08,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Wien's wavelength displacement law gives lambda_max*T = 500*5800 = 2900000 nm K. Thus the second star has lambda_max = 1000 nm and photon energy E = hc/lambda_max = 1.24 eV.",
+    "assumptions": [
+      "The base question refers to the second star at its stated interoutburst temperature.",
+      "For sentences specifying the recording time, the requested peak is that at recording.",
+      "Between outbursts, the second star has the specified temperature of 2900 K."
+    ],
+    "answer": 1.24,
+    "unit": "eV"
+  },
+  "stratum_assignments": {
+    "TEFF6": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    },
+    "T80FF": {
+      "stratum": "R",
+      "answer_with_sentence": 1.6462068966,
+      "regime": null
+    },
+    "TF04F": {
+      "stratum": "R",
+      "answer_with_sentence": 1.6462068966,
+      "regime": null
+    },
+    "T099E": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    },
+    "T2C66": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    },
+    "TFD41": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T2C66 and TFD41 replace the specified temperature increase of 950 K with an unspecified 'small amount', violating the requirement that variants preserve the same number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_ids": [
+        "TEFF6",
+        "T2C66"
+      ],
+      "description": "A rise of 1 K satisfies 'a small amount' but differs from the 950 K stated in TEFF6, so these renderings do not specify the same quantity value."
+    }
+  ],
+  "notes": "An ongoing outburst of the second star gives T = 3850 K, lambda_max = 753.246753 nm, and E approximately 1.65 eV. Earlier completed outbursts are classified D because their temperature increments have no path to the recording-time temperature once the star is between outbursts at the explicitly specified 2900 K. The first star's supplied peak is consistent with Wien's law at the stated precision. The physical answers remain computable despite the defective variant matching.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "8e0cb67334d755682f05cd4f11c93b2b393915e7deba96fde0f069ccbb8f034c",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

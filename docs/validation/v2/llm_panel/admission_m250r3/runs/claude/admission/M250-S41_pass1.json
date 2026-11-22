@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch02",
+  "item_id": "M250-S41",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:40:00Z", "completed_at": "2026-11-22T10:50:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Coulomb's law F = k q1 q2/r^2 with charge conservation and equal sharing between identical conductors on contact",
+    "assumptions": ["point charges", "identical spheres share total charge equally", "isolated system, charge conserved", "no other charges nearby"],
+    "answer": 16.0,
+    "unit": "mN"
+  },
+  "stratum_assignments": {
+    "T162F": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "T0EF1": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "TCCA9": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "TAA47": {"stratum": "K", "answer_with_sentence": 16.0, "regime": "point-charge regime: sphere radius much smaller than separation (2.5 cm vs 30-60 cm), as the problem instructs"},
+    "T81A0": {"stratum": "K", "answer_with_sentence": 16.0, "regime": "point-charge regime: sphere radius much smaller than separation (2.5 cm vs 30-60 cm), as the problem instructs"},
+    "TA88E": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "T2BDE": {"stratum": "R", "answer_with_sentence": 7.788, "regime": null},
+    "TFAEF": {"stratum": "R", "answer_with_sentence": 7.788, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Charges +5q and -q (or reverse): F1 = 5kq^2/(0.30)^2 = 80 mN. After contact each has 2q (same sign, repulsive): F2 = 4kq^2/(0.60)^2 = 80*(4/5)*(0.09/0.36) = 16 mN. With a further 26 cm (86 cm): 16*(0.36/0.7396) = 7.788 mN. TFAEF ('Afterwards, ... were moved') is read as after reaching 60 cm, before 'now'; its past tense is slightly less clear than T2BDE but the reading is the natural one. Radius sentences: the equal sharing does not depend on the radius (identical spheres), and the point-charge instruction makes the radius irrelevant; could also be labelled C. Earlier-experiment and wooden-block sentences are disconnected. T162F and TCCA9 carry no number (likely numeral-free controls)."
+}

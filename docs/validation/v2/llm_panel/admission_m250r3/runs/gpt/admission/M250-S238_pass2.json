@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r3_admission",
+  "item_id": "M250-S238",
+  "pass_number": 2,
+  "started_at": "2026-11-22T18:28:01+00:00",
+  "completed_at": "2026-11-22T18:28:51+00:00",
+  "minutes_spent": 0.83,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For steady circular Newtonian Couette flow, v_theta = Ar + B/r with v_theta(a) = Omega*a and v_theta(b) = 0. The required torque magnitude is T = 4*pi*mu*L*Omega*a^2*b^2/(b^2-a^2), and P = T*Omega. With a = 0.020 m, b = 0.022 m, L = 0.10 m, mu = 0.4 Pa*s and Omega = 4*pi rad/s, P = 0.18294494 W.",
+    "assumptions": [
+      "The stated steady, laminar, purely circular Newtonian flow and no-slip conditions apply at the final speed.",
+      "End effects are negligible as stated.",
+      "The requested power balances the viscous torque.",
+      "The earlier run does not alter the explicitly specified starting rate of the present run."
+    ],
+    "answer": 0.18294494,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T7A33": {
+      "stratum": "D",
+      "answer_with_sentence": 0.18294494,
+      "regime": null
+    },
+    "T564F": {
+      "stratum": "R",
+      "answer_with_sentence": 0.4830896,
+      "regime": null
+    },
+    "T4956": {
+      "stratum": "D",
+      "answer_with_sentence": 0.18294494,
+      "regime": null
+    },
+    "T5A9C": {
+      "stratum": "C",
+      "answer_with_sentence": 0.18294494,
+      "regime": null
+    },
+    "TEF4A": {
+      "stratum": "R",
+      "answer_with_sentence": 0.4830896,
+      "regime": null
+    },
+    "T0105": {
+      "stratum": "D",
+      "answer_with_sentence": 0.18294494,
+      "regime": null
+    },
+    "TFDA3": {
+      "stratum": "D",
+      "answer_with_sentence": 0.18294494,
+      "regime": null
+    },
+    "TF420": {
+      "stratum": "C",
+      "answer_with_sentence": 0.18294494,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "I withdraw the pass-1 rendering_not_minimal defect: pass 2 explicitly identifies T4956 and TFDA3 as numeral-free controls and accurately describes the deliberate replacement of the number and unit. They are not claimed as number-preserving minimal pairs. The actual minimal_pair_with claims preserve 75 rpm and change the intended object or temporal attachment. All stratum assignments agree with pass 1. Density cancels through rho*nu = mu; it also affects radial pressure but not the requested torque under the stated circular-flow model. For rotor increments of 35, 75 and 160 rpm, my powers are approximately 0.305226, 0.483090 and 0.996034 W. The certified values differ by approximately 0.0011%, immaterial at the precision of the supplied inputs. The stated conversion convention makes omega = rot consistent, and the torque expression requires conversion of all lengths to metres.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a9de149f93aa3772d0ebdb621df233e30303c23901bde529a9506ffbffaadf49",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

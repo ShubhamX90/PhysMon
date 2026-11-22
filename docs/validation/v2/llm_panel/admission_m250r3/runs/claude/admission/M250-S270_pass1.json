@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch01",
+  "item_id": "M250-S270",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:16:00Z", "completed_at": "2026-11-22T10:27:00Z", "minutes_spent": 11,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Doppler effect in still air, applied twice: lorry panel as receding observer f1 = f (v - u)/v, then as receding source f2 = f1 v/(v + u); recorder as observer moving with the sound (away from the lorry) f3 = f2 (v - w)/v. Shift = f - f3 = f [1 - (v - u)(v - w)/(v (v + u))].",
+    "assumptions": ["collinear motion along the road", "still air, no wind", "speeds below the speed of sound", "steady-state frequency (independent of distances)"],
+    "answer": 89.58,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "TDC03": {"stratum": "C", "answer_with_sentence": 89.58, "regime": null},
+    "T02E2": {"stratum": "D", "answer_with_sentence": 89.58, "regime": null},
+    "TA134": {"stratum": "D", "answer_with_sentence": 89.58, "regime": null},
+    "TA6A4": {"stratum": "D", "answer_with_sentence": 89.58, "regime": null},
+    "T6307": {"stratum": "C", "answer_with_sentence": 89.58, "regime": null},
+    "TBF04": {"stratum": "R", "answer_with_sentence": 96.34, "regime": null},
+    "T4BE2": {"stratum": "D", "answer_with_sentence": 89.58, "regime": null},
+    "TA0C8": {"stratum": "R", "answer_with_sentence": 96.34, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "v = 343, u = 6, w = 9: f3 = 1500 * 337 * 334 / (349 * 343) = 1500 * 112558/119707 = 1410.419 Hz, shift 89.581 Hz. With the recorder carried at 1.6 m/s relative to the trolley deck (ground speed 10.6 m/s away from the lorry): f3 = 1500 * 337 * 332.4 / 119707 = 1403.662 Hz, shift 96.338 Hz. The 82 m distance sets arrival time but cancels from the steady-state frequency (it enters a wavefront-timing derivation and drops out), so C; it could arguably be called D since it does not appear in the Doppler formula. Toolbox-carrying and earlier-run sentences have no path to the recorder's speed now. All 1.6 m/s sentences state 1.6 m/s; walking-pace sentences are numeral-free; both 82 m sentences match. I read 1.6 m/s as relative to the deck, the natural reading of 'walks along its deck'."
+}

@@ -1,0 +1,84 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r3_admission",
+  "item_id": "M250-S82",
+  "pass_number": 2,
+  "started_at": "2026-11-22T18:27:57+00:00",
+  "completed_at": "2026-11-22T18:28:32+00:00",
+  "minutes_spent": 0.58,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Wien's wavelength displacement law gives lambda_max*T = 500*5800 = 2900000 nm K. At 2900 K, lambda_max = 1000 nm and E = hc/lambda_max = 1.24 eV. During an ongoing temperature rise q, E = 1240*(2900+q)/2900000 eV.",
+    "assumptions": [
+      "The base question concerns the stated 2900 K interoutburst state.",
+      "For sentences specifying recording conditions, the target is evaluated at recording.",
+      "The stated blackbody model applies at the instantaneous surface temperature.",
+      "After a completed outburst, the second star has its explicitly stated interoutburst temperature."
+    ],
+    "answer": 1.24,
+    "unit": "eV"
+  },
+  "stratum_assignments": {
+    "TEFF6": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    },
+    "T80FF": {
+      "stratum": "R",
+      "answer_with_sentence": 1.6462068966,
+      "regime": null
+    },
+    "TF04F": {
+      "stratum": "R",
+      "answer_with_sentence": 1.6462068966,
+      "regime": null
+    },
+    "T099E": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    },
+    "T2C66": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    },
+    "TFD41": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All certified answers agree with the governing relations. For ongoing outbursts, q = 300, 950 and 1500 K gives respectively 1.3682758621, 1.6462068966 and 1.8813793103 eV; the displayed answers are adequately rounded. The baseline relations require the temperature substitution explicitly supplied in the relevant sentences' wiring. Changes to the third star have no physical path to the second star's intrinsic spectral peak. Completed outbursts leave the second star in its stated interoutburst state. Both claimed numeric minimal pairs preserve 950 K and change only the intended object or temporal attachment. I withdraw the pass-1 rendering_not_minimal flag because pass 2 explicitly identifies T2C66 and TFD41 as deliberate numeral-free controls, rather than claiming they are numeric minimal pairs. Their stated twin transformations accurately describe the text.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "e138833fc4291f761828841da5db040485b6c977f7b22d0d72cdd678e4359e12",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r3_admission",
+  "item_id": "M250-S232",
+  "pass_number": 1,
+  "started_at": "2026-11-22T18:24:01+00:00",
+  "completed_at": "2026-11-22T18:24:41+00:00",
+  "minutes_spent": 0.67,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For linear deep-water gravity-capillary waves, omega^2 = g*k + (sigma/rho)*k^3 and v_g = d(omega)/dk = [g + 3*(sigma/rho)*k^2]/[2*sqrt(g*k + (sigma/rho)*k^3)]. With k = 2*pi/0.03 = 209.4395 m^-1, the base group speed is 0.18589 m/s. Reducing sigma to 0.0578 N/m gives 0.17134 m/s.",
+    "assumptions": [
+      "Linear waves with uniform surface tension, using the stated deep-water and negligible-viscosity limits.",
+      "A stated current reduction in surface tension applies during ripple propagation.",
+      "Emptying, rinsing and refilling removes the effects of detergent from earlier runs."
+    ],
+    "answer": 0.18589,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T1028": {
+      "stratum": "R",
+      "answer_with_sentence": 0.17134,
+      "regime": null
+    },
+    "T9415": {
+      "stratum": "R",
+      "answer_with_sentence": 0.17134,
+      "regime": null
+    },
+    "TC5E1": {
+      "stratum": "D",
+      "answer_with_sentence": 0.18589,
+      "regime": null
+    },
+    "T6703": {
+      "stratum": "D",
+      "answer_with_sentence": 0.18589,
+      "regime": null
+    },
+    "TB5C8": {
+      "stratum": "D",
+      "answer_with_sentence": 0.18589,
+      "regime": null
+    },
+    "T14D0": {
+      "stratum": "D",
+      "answer_with_sentence": 0.18589,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T6703 and T14D0 replace the specified reduction of 0.015 N/m with 'a small amount', so the sentence variants do not preserve the required number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "T6703 permits a bowl surface-tension reduction of 0.001 N/m, whereas TB5C8 explicitly specifies 0.015 N/m; the renderings therefore do not fix the same quantity value.",
+    "T14D0 likewise permits an earlier-run reduction of 0.001 N/m, whereas TC5E1 specifies 0.015 N/m."
+  ],
+  "notes": "The individual physics problems have determinate answers. The invalid verdict concerns the required consistency of the sentence variants. Earlier-run detergent is disconnected from the current clean refill; detergent confined to the separate bowl is also disconnected.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "b3da3ffbdaeba69f92680dea89a285a3e5083fa5dfac19eaca1eb08ec4dca0c2",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

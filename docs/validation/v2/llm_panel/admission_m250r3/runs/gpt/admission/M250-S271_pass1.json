@@ -1,0 +1,108 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r3_admission",
+  "item_id": "M250-S271",
+  "pass_number": 1,
+  "started_at": "2026-11-22T18:24:05+00:00",
+  "completed_at": "2026-11-22T18:24:50+00:00",
+  "minutes_spent": 0.74,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Longitudinal rod waves obey rho*A*u_tt = E*A*u_xx, giving v = sqrt(E/rho). The central clamp is a displacement node and each free end an antinode, so the fundamental frequency is f = v/(2L). Adjacent air nodes are separated by c_air/(2f) = c_air*L*sqrt(rho/E). With E = 7.0e10 Pa, v = 5091.75 m/s and f = 2121.56 Hz.",
+    "assumptions": [
+      "Use the small-amplitude, slender elastic rod model implicit in the stated thin rod and longitudinal mode.",
+      "The light driving disc negligibly loads the rod.",
+      "For the current-run extensions, 1.2 m is the initial length, the joined rod behaves as a uniform continuous rod, and the clamp is fitted at its new midpoint.",
+      "Changes explicitly confined to an earlier run do not persist into the described run."
+    ],
+    "answer": 0.0808366,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TA297": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "T94AF": {
+      "stratum": "C",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "T641F": {
+      "stratum": "C",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "TFBD6": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "TD83B": {
+      "stratum": "R",
+      "answer_with_sentence": 0.1023931,
+      "regime": null
+    },
+    "T9574": {
+      "stratum": "C",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "T1BAE": {
+      "stratum": "C",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "T3295": {
+      "stratum": "R",
+      "answer_with_sentence": 0.1023931,
+      "regime": null
+    },
+    "T2604": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "TFE55": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The extension-length variants fail the required numerical match: TFBD6 says only 'an extra small amount' where T2604 specifies 32 cm, and TFE55 says only 'a short length' where TA297 specifies 32 cm."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "TFBD6 permits a 1 cm extension of the detached bar, whereas T2604 specifies 32 cm; their stated quantities therefore need not match.",
+    "TFE55 permits a 2 cm extension during the earlier run, whereas TA297 specifies 32 cm."
+  ],
+  "notes": "The base physics and the individual target answers are sound. Current-run extension gives L = 1.52 m and heap spacing 0.1023931 m. Cross-sectional area cancels between elastic stiffness and inertia; specifying diameter fixes that same cancelling area, so both diameter sentences receive C. The specified diameters and areas occur in separate renderings and do not contradict one another. Earlier-run modifications and the separate bar have no physical path to the current target. The invalid verdict concerns the explicit requirement that quantity variants preserve their number and unit.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "9690b8a176201a2919a7ed8b5df7bf236bea0e571a692355846a247eadd14960",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

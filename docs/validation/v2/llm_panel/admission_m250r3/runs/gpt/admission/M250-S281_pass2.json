@@ -1,0 +1,113 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r3_admission",
+  "item_id": "M250-S281",
+  "pass_number": 2,
+  "started_at": "2026-11-22T18:23:13+00:00",
+  "completed_at": "2026-11-22T18:24:01+00:00",
+  "minutes_spent": 0.8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of energy gives v_esc = sqrt(2GM/R). Substituting M = 4πρR^3/3 and normalizing to Earth gives v_esc = 11.19(3390/6371)sqrt(3.93/5.51) = 5.02855 km/s. A same-density layer of thickness q changes this to v_esc(q) = 5.02855(3390 + q)/3390.",
+    "assumptions": [
+      "Newtonian gravity applies.",
+      "The probe's mass is negligible compared with the planet's mass.",
+      "Escape means unpowered motion to infinity with zero limiting speed.",
+      "An added planetary layer preserves spherical symmetry and the stated density, and launch occurs from the enlarged surface."
+    ],
+    "answer": 5.02855,
+    "unit": "km/s"
+  },
+  "stratum_assignments": {
+    "T3112": {
+      "stratum": "D",
+      "answer_with_sentence": 5.02855,
+      "regime": null
+    },
+    "TE270": {
+      "stratum": "C",
+      "answer_with_sentence": 5.02855,
+      "regime": null
+    },
+    "T09DC": {
+      "stratum": "D",
+      "answer_with_sentence": 5.02855,
+      "regime": null
+    },
+    "TC598": {
+      "stratum": "D",
+      "answer_with_sentence": 5.02855,
+      "regime": null
+    },
+    "TE752": {
+      "stratum": "C",
+      "answer_with_sentence": 5.02855,
+      "regime": null
+    },
+    "T39C4": {
+      "stratum": "D",
+      "answer_with_sentence": 5.02855,
+      "regime": null
+    },
+    "T3AA6": {
+      "stratum": "R",
+      "answer_with_sentence": 5.48812,
+      "regime": null
+    },
+    "T8A9F": {
+      "stratum": "R",
+      "answer_with_sentence": 5.48812,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "failed_transformation_identity"
+  ],
+  "defect_reasons": {
+    "failed_transformation_identity": "For both relevant sentences at q = 310 km, the stated relation gives 5.48812 km/s, whereas the certified answer is 5.48839 km/s, a discrepancy beyond rounding at the displayed precision."
+  },
+  "defect_severity": {
+    "failed_transformation_identity": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_ids": [
+        "T3AA6",
+        "T8A9F"
+      ],
+      "quantity_value": 310,
+      "quantity_unit": "km",
+      "calculation": "11.19(3700/6371)sqrt(3.93/5.51)",
+      "correct_answer": 5.48812,
+      "certified_answer": 5.48839,
+      "unit": "km/s"
+    }
+  ],
+  "notes": "The governing relations, dimensions, attachments, and stratum claims are correct. The relevant answers at 120 km and 470 km are respectively 5.20655 and 5.72572 km/s; all disconnected and cancelling answers equal the base answer. The probe mass cancels between kinetic and gravitational potential energy. No K regime is claimed. I withdraw the pass-1 rendering_not_minimal flag because pass 2 explicitly identifies TC598 and T39C4 as numeral-free controls, rather than numbered minimal-pair variants; the actual minimal_pair_with claims preserve 310 km. The erroneous 310 km certified answer is an arithmetic discrepancy, not inadequate numerical precision.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "b24abe248c1dccbc0090bd1b96fadfaa83173549fe1dea28fa124a9ca38e3f48",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

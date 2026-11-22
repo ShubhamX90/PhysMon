@@ -1,0 +1,85 @@
+{
+  "item_id": "M250-S54",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Stefan–Boltzmann law: P = emissivity × sigma × 4πR²T⁴. Thus P2 = P1(R2/R1)²(T2/T1)⁴ = 1500(10/5)²(1200/1000)⁴ = 12441.6 W.",
+    "assumptions": [
+      "Each stated surface temperature applies uniformly over the radiating surface.",
+      "The common constant emissivity and negligible absorbed radiation are as stated.",
+      "The second sphere's as-made radius is its original radius before an added layer.",
+      "The stated 1200 K applies to the outer radiating surface after any added layer."
+    ],
+    "answer": 12441.6,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T298E": {
+      "stratum": "D",
+      "answer_with_sentence": 12441.6,
+      "regime": null
+    },
+    "TA4B6": {
+      "stratum": "R",
+      "answer_with_sentence": 26158.464,
+      "regime": null
+    },
+    "TCB5F": {
+      "stratum": "D",
+      "answer_with_sentence": 12441.6,
+      "regime": null
+    },
+    "TDB9C": {
+      "stratum": "D",
+      "answer_with_sentence": 12441.6,
+      "regime": null
+    },
+    "T6222": {
+      "stratum": "R",
+      "answer_with_sentence": 26158.464,
+      "regime": null
+    },
+    "T4B8C": {
+      "stratum": "D",
+      "answer_with_sentence": 12441.6,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T298E and TDB9C specify only a 'thin layer', whereas the other layer statements specify 4.5 cm, so the layer-thickness variants do not consistently preserve the required number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The radiation calculation itself is well-posed. A 4.5 cm coating on the second sphere makes its outer radius 14.5 cm, giving 1500(14.5/5)^2(1200/1000)^4 = 26158.464 W. Changing 'is cast' to 'was cast' does not eliminate the coating's effect on radiating area. Coatings on the separate ball or disc have no effect under the stated negligible-absorption condition. All explicitly quantified coatings use the same 4.5 cm thickness, but the two unquantified 'thin' coatings prevent the entire set from satisfying the stipulated numerical-variant requirement. Numerical answers retain calculation digits; approximately 12 kW and 26 kW are appropriate rounded results.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r3_admission",
+  "started_at": "2026-11-22T18:22:12+00:00",
+  "completed_at": "2026-11-22T18:23:09+00:00",
+  "minutes_spent": 0.94,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "ae949e762548b611bc8542efa67d79a9249d7246dadedcc08e3e7dd078362a72",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

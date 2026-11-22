@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S272",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Successive odd-quarter-wave resonances satisfy L_n + e = (2n+1)c/(4f), so their length separation is c/(2f). Thus Δt = c/(2fv) = 343/(2×512×0.015) = 22.330729 s.",
+    "assumptions": [
+      "The stated sound speed, frequency, end correction and water-surface descent rate remain constant between resonances.",
+      "For the sentences introducing an operating second tap on the sounding tube, the two stipulated discharge rates add and both taps remain open between resonances.",
+      "The neighbouring tube has no hydraulic connection to the sounding tube."
+    ],
+    "answer": 22.330729,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TF4FF": {
+      "stratum": "D",
+      "answer_with_sentence": 22.330729,
+      "regime": null
+    },
+    "TEA1B": {
+      "stratum": "R",
+      "answer_with_sentence": 13.956706,
+      "regime": null
+    },
+    "T49F8": {
+      "stratum": "D",
+      "answer_with_sentence": 22.330729,
+      "regime": null
+    },
+    "TFF60": {
+      "stratum": "C",
+      "answer_with_sentence": 22.330729,
+      "regime": null
+    },
+    "TBEDA": {
+      "stratum": "C",
+      "answer_with_sentence": 22.330729,
+      "regime": null
+    },
+    "T9749": {
+      "stratum": "R",
+      "answer_with_sentence": 13.956706,
+      "regime": null
+    },
+    "T3D7A": {
+      "stratum": "D",
+      "answer_with_sentence": 22.330729,
+      "regime": null
+    },
+    "TB8E5": {
+      "stratum": "D",
+      "answer_with_sentence": 22.330729,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T3D7A and TB8E5 replace the explicit 0.9 cm/s in their otherwise corresponding variants TF4FF and T49F8 with an unspecified steady rate, violating the requirement that quantity variants preserve the number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and all eight individual renderings yield determinate intervals under the stated constant-rate model. With a second operating tap on the sounding tube, v = 0.024 m/s and Δt = 13.956706 s. Initial air-column length enters individual resonance times but cancels from their difference. The two 130 cm sentences preserve the same quantity and attachment and differ only in wording. The invalid verdict concerns the required numerical matching of rate variants; the omitted rates do not themselves affect the answers in those disconnected cases.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r3_admission",
+  "started_at": "2026-11-22T18:22:32+00:00",
+  "completed_at": "2026-11-22T18:23:19+00:00",
+  "minutes_spent": 0.78,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "cc0fdef24e7911b6c0a1d126a444d3fe76f1ea5033bc8b01279cc149da409708",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

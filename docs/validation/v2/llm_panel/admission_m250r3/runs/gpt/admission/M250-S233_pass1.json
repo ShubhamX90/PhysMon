@@ -1,0 +1,96 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r3_admission",
+  "item_id": "M250-S233",
+  "pass_number": 1,
+  "started_at": "2026-11-22T18:27:01+00:00",
+  "completed_at": "2026-11-22T18:27:51+00:00",
+  "minutes_spent": 0.84,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law gives sin(theta_t)=sin(75 degrees)/1.5. For p-polarised light, R_p=[(1.5 cos(75 degrees)-cos(theta_t))/(1.5 cos(75 degrees)+cos(theta_t))]^2=0.1067651. The transmitted power is P_t=(1-R_p)P_inc.",
+    "assumptions": [
+      "The refractive index of air is approximately 1.",
+      "The interface follows the standard Fresnel model for transparent dielectric media.",
+      "In the base problem, the laser's 5 mW reaches the interface without intervening power changes."
+    ],
+    "answer": 4.46617,
+    "unit": "mW"
+  },
+  "stratum_assignments": {
+    "T6A28": {
+      "stratum": "C",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "TBC5B": {
+      "stratum": "R",
+      "answer_with_sentence": 7.50317,
+      "regime": null
+    },
+    "T38E1": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "T8526": {
+      "stratum": "C",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "T01A0": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "T6921": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "TAC23": {
+      "stratum": "R",
+      "answer_with_sentence": 7.50317,
+      "regime": null
+    },
+    "TA9F7": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T01A0 and TA9F7 replace the specified amplifier increment of 3.4 mW with an unspecified 'small amount', so the amplifier variants do not all preserve the required number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "An increment of 0.1 mW satisfies 'a small amount' in T01A0 or TA9F7 but does not preserve the 3.4 mW specified in the numerical amplifier variants."
+  ],
+  "notes": "The base problem and all individual augmented problems have determinate transmitted powers. The invalid verdict concerns the required numerical identity between variants. Beam area enters the conversion between intensity and power but cancels from the transmitted-power fraction; interpreting 'covers an area' as the surface footprint does not change this conclusion. Earlier-run amplification is disconnected from the specified current run, and amplification of the second laser has no optical path to the target.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "c9a4c2e07284fdc9b0873d44e30c77670f80154468d74498efbe6f4d9e486ec6",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

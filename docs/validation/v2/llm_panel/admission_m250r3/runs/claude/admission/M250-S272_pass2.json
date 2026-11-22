@@ -1,0 +1,37 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch03",
+  "item_id": "M250-S272",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:30:00Z", "completed_at": "2026-11-22T10:38:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Closed-open pipe resonances spaced by lambda/2; t = (lambda/2)/u",
+    "assumptions": ["constant level-fall speed", "fixed end correction", "c = 343 m/s"],
+    "answer": 22.33,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TF4FF": {"stratum": "D", "answer_with_sentence": 22.3307, "regime": null},
+    "TEA1B": {"stratum": "R", "answer_with_sentence": 13.9567, "regime": null},
+    "T49F8": {"stratum": "D", "answer_with_sentence": 22.3307, "regime": null},
+    "TFF60": {"stratum": "C", "answer_with_sentence": 22.3307, "regime": null},
+    "TBEDA": {"stratum": "C", "answer_with_sentence": 22.3307, "regime": null},
+    "T9749": {"stratum": "R", "answer_with_sentence": 13.9567, "regime": null},
+    "T3D7A": {"stratum": "D", "answer_with_sentence": 22.3307, "regime": null},
+    "TB8E5": {"stratum": "D", "answer_with_sentence": 22.3307, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The C cancellation expression omits the end correction and picks the 13/4 and 15/4 resonances, which are not the first ones after the start for q = 85 cm (7 lam/4 = 117 cm comes first) or q = 130 cm; both points cancel and do not affect the certified interval."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Checked: lam/2 = 33.4961 cm; 33.4961/1.5 = 22.3307 s; /1.9 = 17.6295; /2.4 = 13.9567; /2.87 = 11.6711 s. All match the certified answers and my pass 1. Minimal pairs TF4FF/TEA1B and T49F8/T9749 share 0.9 cm/s and differ only in attachment (earlier run vs this run; neighbouring tube vs this tube). Numeral-free twins T3D7A and TB8E5 are declared by design. The C sentences TFF60/TBEDA state the same 130 cm."
+}

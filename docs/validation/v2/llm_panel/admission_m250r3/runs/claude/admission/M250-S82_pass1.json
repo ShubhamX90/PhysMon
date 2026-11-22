@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch01",
+  "item_id": "M250-S82",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:37:00Z", "completed_at": "2026-11-22T10:44:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Wien's displacement law lambda_max T = const, calibrated by the first star: lambda_2 = 500 nm * 5800/2900 = 1000 nm; E = hc/lambda_2.",
+    "assumptions": ["both stars are ideal blackbodies", "maximum is per unit wavelength (stated)", "temperature of the second star at the time in question is the stated one unless an ongoing outburst changes it"],
+    "answer": 1.24,
+    "unit": "eV"
+  },
+  "stratum_assignments": {
+    "TEFF6": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "T80FF": {"stratum": "R", "answer_with_sentence": 1.6462, "regime": null},
+    "TF04F": {"stratum": "R", "answer_with_sentence": 1.6462, "regime": null},
+    "T099E": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "T2C66": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "TFD41": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "With an ongoing outburst the second star is at 2900 + 950 = 3850 K: lambda = 500*5800/3850 = 753.25 nm, E = 1240*3850/(500*5800) = 1.6462 eV. Earlier, finished outbursts and outbursts of the third star have no path to the target. All numeric sentences state 950 K; the 'small amount' sentences are numeral-free. The data are consistent with Wien's constant (2.898e-3 m K / 5800 K = 499.7 nm, within the precision of 500 nm). The question carries no explicit time reference, but with an ongoing outburst stated at the recording the natural reading is the star's current peak."
+}

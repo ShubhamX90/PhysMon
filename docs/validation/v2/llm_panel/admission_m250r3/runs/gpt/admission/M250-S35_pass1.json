@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S35",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For string tension F, F cos(theta) = mg and F sin(theta) = m omega^2 L sin(theta). Therefore omega^2 = g/(L cos(theta)) and the period is 2 pi sqrt(L cos(theta)/g).",
+    "assumptions": [
+      "The requested revolution is that of the first, moving bob.",
+      "The small bob is treated as a point mass.",
+      "The stated initial length describes the current setup; an extension in an earlier experiment does not change that specified length."
+    ],
+    "answer": 2.04608,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T41B5": {
+      "stratum": "R",
+      "answer_with_sentence": 2.5746,
+      "regime": null
+    },
+    "T3E4C": {
+      "stratum": "D",
+      "answer_with_sentence": 2.04608,
+      "regime": null
+    },
+    "T3589": {
+      "stratum": "C",
+      "answer_with_sentence": 2.04608,
+      "regime": null
+    },
+    "T8044": {
+      "stratum": "C",
+      "answer_with_sentence": 2.04608,
+      "regime": null
+    },
+    "TC5DB": {
+      "stratum": "R",
+      "answer_with_sentence": 2.5746,
+      "regime": null
+    },
+    "T5418": {
+      "stratum": "D",
+      "answer_with_sentence": 2.04608,
+      "regime": null
+    },
+    "T422F": {
+      "stratum": "D",
+      "answer_with_sentence": 2.04608,
+      "regime": null
+    },
+    "T0789": {
+      "stratum": "D",
+      "answer_with_sentence": 2.04608,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The extension variants do not consistently preserve the specified number and unit: T3E4C and T0789 say only 'a short length', whereas the corresponding numerical variants specify 0.7 m."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics is well-posed. Extending the first string gives L = 1.9 m at the unchanged angle. The mass cancels between the vertical force balance and centripetal-force equation. Changing the independent second string has no mechanical path to the first bob's period. Earlier-experiment statements are historical and do not override the stated initial length of this setup. Both mass variants consistently specify 1.4 kg. The invalid verdict concerns the required numerical consistency of the extension variants.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r3_admission",
+  "started_at": "2026-11-22T18:25:27+00:00",
+  "completed_at": "2026-11-22T18:26:12+00:00",
+  "minutes_spent": 0.76,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "23e189f9ca5dfe3265080ec65c2f0d856d445aa556c31e4282023ab0a8215266",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

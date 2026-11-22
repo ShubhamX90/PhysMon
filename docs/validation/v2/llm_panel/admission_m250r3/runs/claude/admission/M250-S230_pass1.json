@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch04",
+  "item_id": "M250-S230",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:16:00Z", "completed_at": "2026-11-22T10:28:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation in an isolated rigid enclosure (m1 c (T1-Tf) = m2 c (Tf-T2)) and entropy change of incompressible solids, S_gen = c [m1 ln(Tf/T1) + m2 ln(Tf/T2)]",
+    "assumptions": ["isolated, rigid enclosure (stated)", "constant specific heat (stated)", "negligible volume change, so dU = m c dT (stated)", "each block internally uniform in initial state"],
+    "answer": 25.57,
+    "unit": "J/K"
+  },
+  "stratum_assignments": {
+    "T04A3": {"stratum": "D", "answer_with_sentence": 25.57, "regime": null},
+    "T33C5": {"stratum": "D", "answer_with_sentence": 25.57, "regime": null},
+    "T7053": {"stratum": "D", "answer_with_sentence": 25.57, "regime": null},
+    "TFF07": {"stratum": "D", "answer_with_sentence": 25.57, "regime": null},
+    "TC78D": {"stratum": "R", "answer_with_sentence": 31.98, "regime": null},
+    "T8625": {"stratum": "R", "answer_with_sentence": 31.98, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: Tf = (2*360 + 3*290)/5 = 318 K; S_gen = 900*[2 ln(318/360) + 3 ln(318/290)] = 900*[2(-0.124053) + 3(0.092171)] = 900*0.028407 = 25.566 J/K. With 1.1 kg at 360 K joined to the hotter block before contact (TC78D, T8625): hot mass 3.1 kg, Tf = (3.1*360 + 3*290)/6.1 = 1986/6.1 = 325.574 K; S_gen = 900*[3.1 ln(0.904372) + 3 ln(1.122668)] = 900*[-0.311596 + 0.347125] = 900*0.035529 = 31.976 J/K. The extra metal is at the hotter block's temperature, so joining it generates no entropy itself. Metal left in the warming cabinet (no heat exchange with the enclosure) and metal attached for an earlier run only have no path to the target. Variant check: T7053 (cabinet) and T8625 (joined) share wording, number 1.1 kg and 'Before the blocks touch'; T04A3 (earlier run only) and TC78D (just before blocks touch) share wording and 1.1 kg; T33C5 and TFF07 are 'small amount' versions with no number. Minor wording: 'at the same temperature' in T04A3/TFF07/TC78D presumably means the hotter block's temperature; it is the natural reading."
+}

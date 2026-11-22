@@ -1,0 +1,41 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch02",
+  "item_id": "M250-S271",
+  "pass_number": 2,
+  "started_at": "2026-11-22T11:10:00Z", "completed_at": "2026-11-22T11:20:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "v_rod = sqrt(E/rho); free-free fundamental f = v_rod/(2L); dust spacing = v_air/(2f) = L v_air/v_rod",
+    "assumptions": ["thin rod", "fundamental mode with node at central clamp", "air driven at rod frequency", "heaps at displacement nodes half a wavelength apart"],
+    "answer": 8.0837,
+    "unit": "cm"
+  },
+  "stratum_assignments": {
+    "TA297": {"stratum": "D", "answer_with_sentence": 8.0837, "regime": null},
+    "T94AF": {"stratum": "K", "answer_with_sentence": 8.0837, "regime": "thin-rod regime: diameter much smaller than the rod length and wavelength (authors' predicate 10*d < L)"},
+    "T641F": {"stratum": "C", "answer_with_sentence": 8.0837, "regime": null},
+    "TFBD6": {"stratum": "D", "answer_with_sentence": 8.0837, "regime": null},
+    "TD83B": {"stratum": "R", "answer_with_sentence": 10.2393, "regime": null},
+    "T9574": {"stratum": "K", "answer_with_sentence": 8.0837, "regime": "thin-rod regime: diameter much smaller than the rod length and wavelength (authors' predicate 10*d < L)"},
+    "T1BAE": {"stratum": "C", "answer_with_sentence": 8.0837, "regime": null},
+    "T3295": {"stratum": "R", "answer_with_sentence": 10.2393, "regime": null},
+    "T2604": {"stratum": "D", "answer_with_sentence": 8.0837, "regime": null},
+    "TFE55": {"stratum": "D", "answer_with_sentence": 8.0837, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TFBD6/T2604 attach the timing clause 'Before the clamp is fitted' to the bar on the rack, which has no clamp; the wording is slightly odd though the rod/bar distinction is clear."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Recomputed: v_rod = 5091.75 m/s; base spacing 1.2*343/5091.75 = 8.0837 cm; R answers 1.34 -> 9.0268, 1.52 -> 10.2393, 1.75 -> 11.7887 cm; all match. In pass 1 I labelled the diameter sentences C (area cancels); the authors label them K with a thin-rod regime. Both are defensible: in elementary theory the area cancels, and the diameter matters only through the Rayleigh lateral-inertia correction outside the thin-rod regime; the listed 6.5-13 mm are deep inside it (correction ~ (nu pi r/lambda)^2 ~ 1e-5). The 10*d < L predicate is crude but correctly classifies the listed values. Minimal pairs T2604/TD83B (bar vs rod) and TA297/T3295 (earlier run vs before clamping) keep 32 cm and differ only in attachment; diameter and area variants each keep their own number. Numeral-free twins TFBD6, TFE55 by design."
+}

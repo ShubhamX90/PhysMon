@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r3_admission",
+  "item_id": "M250-S268",
+  "pass_number": 1,
+  "started_at": "2026-11-22T18:20:31+00:00",
+  "completed_at": "2026-11-22T18:21:32+00:00",
+  "minutes_spent": 1.02,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For a long solenoid, L = μ₀N²πr²/l = 0.00142163 H. At steady state the ideal winding shorts the parallel resistor, so I₀ = 12/4 = 3 A. After opening, L dI/dt + R₂I = 0, and the total resistor heat is ∫R₂I²dt = LI₀²/2 = 0.00639735 J.",
+    "assumptions": [
+      "Use the stated long-solenoid model with constant inductance.",
+      "The second resistor has finite positive resistance.",
+      "The stated discharge loop dissipates all the initial magnetic energy in the second resistor."
+    ],
+    "answer": 0.00639735,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "T212D": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00639735,
+      "regime": null
+    },
+    "T000E": {
+      "stratum": "R",
+      "answer_with_sentence": 0.016893,
+      "regime": null
+    },
+    "T7621": {
+      "stratum": "C",
+      "answer_with_sentence": 0.00639735,
+      "regime": null
+    },
+    "T200B": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00639735,
+      "regime": null
+    },
+    "T8F98": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00639735,
+      "regime": null
+    },
+    "T0F51": {
+      "stratum": "R",
+      "answer_with_sentence": 0.016893,
+      "regime": null
+    },
+    "T5C53": {
+      "stratum": "C",
+      "answer_with_sentence": 0.00639735,
+      "regime": null
+    },
+    "TC1E1": {
+      "stratum": "D",
+      "answer_with_sentence": 0.00639735,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T212D and TC1E1 replace the explicit 7.5 V emf of the corresponding battery variants with unspecified 'modest emf', violating the required matching of numerical value and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and all individual numerical answers are well posed. The invalid verdict concerns the required matching of variants. For T000E and T0F51, the aiding supply becomes 19.5 V, giving I₀ = 4.875 A and heat 0.016893 J. In T0F51, 'the battery' refers naturally to the main 12 V battery. The dump resistance enters the decay time L/R₂ but cancels from the integrated heat. The unspecified emf in the two 'modest emf' sentences does not prevent solving those individual renderings because each battery is disconnected from the present experiment.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "27870bcdd2c1f42b623f8279eb42b985a63b9c48084c2f8e92657ce966e455d6",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

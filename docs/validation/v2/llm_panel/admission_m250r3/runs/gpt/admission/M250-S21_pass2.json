@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r3_admission",
+  "item_id": "M250-S21",
+  "pass_number": 2,
+  "started_at": "2026-11-22T18:26:31+00:00",
+  "completed_at": "2026-11-22T18:27:12+00:00",
+  "minutes_spent": 0.68,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Successive wavefront arrivals are separated by (1/f)(1-vs/c), giving fo = f*c/(c-vs). The base answer is 440*343/323 = 467.244582 Hz. Increasing the siren frequency by q gives fo = (440+q)*343/323: 476.801858 Hz for q=9 Hz, 484.235294 Hz for q=16 Hz, and 492.730650 Hz for q=24 Hz. Initial distance contributes the same propagation-delay term to successive arrival times and cancels.",
+    "assumptions": [
+      "The stated source speed applies during emission of the measured sound.",
+      "The listener is stationary in still air and the source is approaching directly.",
+      "The measured tone is steady after tuning finishes.",
+      "The ordinary acoustic Doppler model applies."
+    ],
+    "answer": 467.244582,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T5688": {
+      "stratum": "D",
+      "answer_with_sentence": 467.244582,
+      "regime": null
+    },
+    "TE5DD": {
+      "stratum": "C",
+      "answer_with_sentence": 467.244582,
+      "regime": null
+    },
+    "TD410": {
+      "stratum": "R",
+      "answer_with_sentence": 484.235294,
+      "regime": null
+    },
+    "TEDCB": {
+      "stratum": "D",
+      "answer_with_sentence": 467.244582,
+      "regime": null
+    },
+    "T8B99": {
+      "stratum": "R",
+      "answer_with_sentence": 484.235294,
+      "regime": null
+    },
+    "T4EE7": {
+      "stratum": "C",
+      "answer_with_sentence": 467.244582,
+      "regime": null
+    },
+    "T62DC": {
+      "stratum": "D",
+      "answer_with_sentence": 467.244582,
+      "regime": null
+    },
+    "TEE83": {
+      "stratum": "D",
+      "answer_with_sentence": 467.244582,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "I revise the pass-1 rendering judgement because pass 2 explicitly identifies TEDCB and T62DC as numeral-free controls, rather than numbered minimal-pair variants. Both explicitly claimed minimal pairs preserve 16 Hz and change only the attachment of the tuning event. The control descriptions accurately disclose their deliberate omission of the number and unit. All certified answers at every listed value round correctly to three decimal places. The cancellation relations are dimensionally correct and eliminate initial distance exactly. Earlier-run tuning cannot alter the explicitly specified current switch-on frequency, and the measurement timing provisions correctly select the post-tuning sound for current-run tuning.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "d8f29e1f6f25b0466725e5f48a02772e660e756468c70e55ffecb7fb96f77a08",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

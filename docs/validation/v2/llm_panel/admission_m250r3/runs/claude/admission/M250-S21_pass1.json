@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch02",
+  "item_id": "M250-S21",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:22:00Z", "completed_at": "2026-11-22T10:32:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Doppler effect, moving source, stationary listener, still air: f' = f v/(v - v_s)",
+    "assumptions": ["source moves directly toward listener along the line joining them", "still air, stationary listener", "constant source speed", "non-relativistic"],
+    "answer": 467.245,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T5688": {"stratum": "D", "answer_with_sentence": 467.245, "regime": null},
+    "TE5DD": {"stratum": "C", "answer_with_sentence": 467.245, "regime": null},
+    "TD410": {"stratum": "R", "answer_with_sentence": 484.235, "regime": null},
+    "TEDCB": {"stratum": "D", "answer_with_sentence": 467.245, "regime": null},
+    "T8B99": {"stratum": "R", "answer_with_sentence": 484.235, "regime": null},
+    "T4EE7": {"stratum": "C", "answer_with_sentence": 467.245, "regime": null},
+    "T62DC": {"stratum": "D", "answer_with_sentence": 467.245, "regime": null},
+    "TEE83": {"stratum": "D", "answer_with_sentence": 467.245, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: 440*343/323 = 467.245 Hz. Tuned siren: 456*343/323 = 484.235 Hz (measurement is after the sound emitted post-tuning arrives, as the base states). The 300 m distance enters the wave-front travel times of the Doppler derivation but cancels for straight-line constant-velocity approach; it could also be called K (matters only once the siren passes the listener, which the base excludes by 'still approaching'). TE5DD and T4EE7 are variants with the same 300 m. Earlier-run tuning (T62DC, TEE83) is disconnected because the base fixes the tone as emitted at switch-on in this run. Violin sentences are disconnected. T62DC and TEDCB carry no number (presumably numeral-free controls)."
+}

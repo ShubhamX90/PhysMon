@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch01",
+  "item_id": "M250-S234",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:08:30Z", "completed_at": "2026-11-22T10:15:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "t = n L / (c cos r), sin r = sin 40 / n",
+    "assumptions": ["meridional ray", "non-dispersive glass", "lossless TIR"],
+    "answer": 12.8471,
+    "unit": "ns"
+  },
+  "stratum_assignments": {
+    "T507D": {"stratum": "D", "answer_with_sentence": 12.8471, "regime": null},
+    "TB902": {"stratum": "R", "answer_with_sentence": 21.1977, "regime": null},
+    "T97AD": {"stratum": "D", "answer_with_sentence": 12.8471, "regime": null},
+    "TE2F0": {"stratum": "D", "answer_with_sentence": 12.8471, "regime": null},
+    "T29E2": {"stratum": "C", "answer_with_sentence": 12.8471, "regime": null},
+    "T2524": {"stratum": "R", "answer_with_sentence": 21.1977, "regime": null},
+    "TACC7": {"stratum": "D", "answer_with_sentence": 12.8471, "regime": null},
+    "TF3EE": {"stratum": "C", "answer_with_sentence": 12.8471, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The authors' scene_clause_note speaks of 'a coil of optical cable on the bench' whereas the item text has a glass tube; this is a metadata slip that does not affect the item text or answers."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Agrees with pass 1. Checked certified answers: q = 0.7 m gives 4.86/2.802195 = 17.344 ns; 1.3 m gives 21.198 ns; 2.2 m gives 7.56/2.802195 = 26.979 ns; base 12.847 ns. TIR holds (cos r = 0.934 > 1/1.8). Cancellation relations are right: axial advance per leg d/tan r, leg length d/sin r, total L/cos r independent of d. Minimal pairs T507D/T2524 and TE2F0/TB902 share 1.3 m and differ only in attachment (tube vs rod, earlier run vs this run). Numeral-free twins T97AD and TACC7 match their D twins' wording."
+}

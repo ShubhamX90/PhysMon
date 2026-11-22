@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch03",
+  "item_id": "M250-S268",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:57:00Z", "completed_at": "2026-11-22T11:08:00Z", "minutes_spent": 11,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Long-solenoid inductance L = mu0 N^2 pi r^2 / l; steady current I = emf/R1 (zero-resistance winding shorts the second resistor); all stored energy L I^2/2 is dissipated in the second resistor after the switch opens",
+    "assumptions": ["ideal battery and switch", "long-solenoid formula valid", "winding resistance negligible", "no radiation or arc losses"],
+    "answer": 0.006397,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "T212D": {"stratum": "D", "answer_with_sentence": 0.006397, "regime": null},
+    "T000E": {"stratum": "R", "answer_with_sentence": 0.016893, "regime": null},
+    "T7621": {"stratum": "C", "answer_with_sentence": 0.006397, "regime": null},
+    "T200B": {"stratum": "D", "answer_with_sentence": 0.006397, "regime": null},
+    "T8F98": {"stratum": "D", "answer_with_sentence": 0.006397, "regime": null},
+    "T0F51": {"stratum": "R", "answer_with_sentence": 0.016893, "regime": null},
+    "T5C53": {"stratum": "C", "answer_with_sentence": 0.006397, "regime": null},
+    "TC1E1": {"stratum": "D", "answer_with_sentence": 0.006397, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "L = 1.257e-6 x 800^2 x pi x 0.015^2 / 0.40 = 1.42164e-3 H. I = 12/4 = 3 A; E = 0.5 x 1.42164e-3 x 9 = 6.397e-3 J. With a 7.5 V battery added in series: I = 19.5/4 = 4.875 A, E = 0.5 x 1.42164e-3 x 23.7656 = 1.6893e-2 J. The second resistor's value sets only the decay time constant L/R2 (and carries no current in the steady state because the winding shorts it), so it cancels from the total heat. Earlier-run and torch-cell batteries are disconnected."
+}

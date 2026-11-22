@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch02",
+  "item_id": "M250-S271",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:58:00Z", "completed_at": "2026-11-22T11:10:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Thin-rod longitudinal wave speed v_rod = sqrt(E/rho); free-free fundamental (clamped at middle) lambda_rod = 2L, f = v_rod/(2L); in air lambda_air = v_air/f; node spacing = lambda_air/2 = L v_air/v_rod",
+    "assumptions": ["thin rod (diameter << wavelength), no lateral-inertia correction", "fundamental free-free mode with node at the clamp", "air column resonates at rod frequency", "dust heaps at displacement nodes, spaced half a wavelength"],
+    "answer": 0.08084,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TA297": {"stratum": "D", "answer_with_sentence": 0.08084, "regime": null},
+    "T94AF": {"stratum": "C", "answer_with_sentence": 0.08084, "regime": null},
+    "T641F": {"stratum": "C", "answer_with_sentence": 0.08084, "regime": null},
+    "TFBD6": {"stratum": "D", "answer_with_sentence": 0.08084, "regime": null},
+    "TD83B": {"stratum": "R", "answer_with_sentence": 0.10239, "regime": null},
+    "T9574": {"stratum": "C", "answer_with_sentence": 0.08084, "regime": null},
+    "T1BAE": {"stratum": "C", "answer_with_sentence": 0.08084, "regime": null},
+    "T3295": {"stratum": "R", "answer_with_sentence": 0.10239, "regime": null},
+    "T2604": {"stratum": "D", "answer_with_sentence": 0.08084, "regime": null},
+    "TFE55": {"stratum": "D", "answer_with_sentence": 0.08084, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "v_rod = sqrt(7.0e10/2700) = 5091.75 m/s; f = 5091.75/2.4 = 2121.6 Hz; lambda_air = 0.16167 m; spacing 0.08084 m (8.08 cm). With the rod lengthened to 1.52 m before clamping (clamp at the new middle): spacing = 1.52*343/5091.75 = 0.10239 m. Cross-section/diameter: area enters both stiffness EA and mass per length rho A and cancels in v = sqrt(E/rho); a K label (thin-rod regime, 8.2-14 mm diameter << 2.4 m wavelength) would also be defensible. Note that 8.21 mm diameter gives 0.529 cm^2, not 1.6 cm^2, but the diameter and area sentences are never added together, so no contradiction arises. TFBD6/T2604 lengthen the bar on the rack, not the rod: disconnected; the clause 'before the clamp is fitted' attached to the bar reads a little oddly but the rod/bar distinction is explicit in the base text. TA297/TFE55 apply only to an earlier run."
+}

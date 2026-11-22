@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch01",
+  "item_id": "M250-S234",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:00:00Z", "completed_at": "2026-11-22T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law at entry: sin r = sin 40 / n; meridional zig-zag path length L / cos r travelled at speed c/n; t = n L / (c cos r). TIR check: angle at side 90 - r with sin = cos r = 0.934 > 1/n = 0.556.",
+    "assumptions": ["ray entering at centre of end face is meridional", "non-dispersive glass, single group/phase speed c/n", "side reflections lossless and do not change path length per unit axial length"],
+    "answer": 1.2847e-8,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T507D": {"stratum": "D", "answer_with_sentence": 1.2847e-8, "regime": null},
+    "TB902": {"stratum": "R", "answer_with_sentence": 2.1198e-8, "regime": null},
+    "T97AD": {"stratum": "D", "answer_with_sentence": 1.2847e-8, "regime": null},
+    "TE2F0": {"stratum": "D", "answer_with_sentence": 1.2847e-8, "regime": null},
+    "T29E2": {"stratum": "C", "answer_with_sentence": 1.2847e-8, "regime": null},
+    "T2524": {"stratum": "R", "answer_with_sentence": 2.1198e-8, "regime": null},
+    "TACC7": {"stratum": "D", "answer_with_sentence": 1.2847e-8, "regime": null},
+    "TF3EE": {"stratum": "C", "answer_with_sentence": 1.2847e-8, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "sin r = 0.357104, cos r = 0.934065; t = 3.6/(3e8*0.934065) = 12.847 ns. With rod at 3.3 m: t = 5.94/(2.802195e8) = 21.198 ns. Diameter enters the zig-zag geometry (reflection count, segment length) but cancels from total path length, hence C. Earlier-run lengthening (TE2F0, TACC7) has no path to the present run; could also be read as K-like temporal irrelevance, but I classify D. 1.3 m sentences all state 1.3 m; short-length sentences consistently give no number; diameter sentences both 2.5 cm. The 'length as first cut' sentence keeps the lengthening sentences non-contradictory."
+}

@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch01",
+  "item_id": "M250-S82",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:44:30Z", "completed_at": "2026-11-22T10:50:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Wien's displacement law: lambda_2 = lambda_1 T_1 / T_2; E = hc / lambda_2",
+    "assumptions": ["ideal blackbodies", "peak per unit wavelength"],
+    "answer": 1.24,
+    "unit": "eV"
+  },
+  "stratum_assignments": {
+    "TEFF6": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "T80FF": {"stratum": "R", "answer_with_sentence": 1.64621, "regime": null},
+    "TF04F": {"stratum": "R", "answer_with_sentence": 1.64621, "regime": null},
+    "T099E": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "T2C66": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "TFD41": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Agrees with pass 1. Checked R answers: q = 300 K gives 1240*3200/(500*5800) = 1.36828 eV; 950 K gives 1.64621 eV; 1500 K gives 1240*4400/2.9e6 = 1.88138 eV. Minimal pairs T099E/T80FF (finished vs ongoing outburst of the second star) and TEFF6/TF04F (third vs second star) state the same 950 K and differ only in attachment. Numeral-free twins match their D twins."
+}

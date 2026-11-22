@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch03",
+  "item_id": "M250-S281",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:38:00Z", "completed_at": "2026-11-22T10:50:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Escape speed v = sqrt(2GM/R) = R sqrt(8 pi G rho / 3), scaled from Earth: v = v_E (R/R_E) sqrt(rho/rho_E)",
+    "assumptions": ["uniform spheres", "no rotation, no atmosphere", "other bodies (incl. the moon) ignored", "Newtonian gravity"],
+    "answer": 5.029,
+    "unit": "km/s"
+  },
+  "stratum_assignments": {
+    "T3112": {"stratum": "D", "answer_with_sentence": 5.029, "regime": null},
+    "TE270": {"stratum": "C", "answer_with_sentence": 5.029, "regime": null},
+    "T09DC": {"stratum": "D", "answer_with_sentence": 5.029, "regime": null},
+    "TC598": {"stratum": "D", "answer_with_sentence": 5.029, "regime": null},
+    "TE752": {"stratum": "C", "answer_with_sentence": 5.029, "regime": null},
+    "T39C4": {"stratum": "D", "answer_with_sentence": 5.029, "regime": null},
+    "T3AA6": {"stratum": "R", "answer_with_sentence": 5.488, "regime": null},
+    "T8A9F": {"stratum": "R", "answer_with_sentence": 5.488, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Scaling: 3390/6371 = 0.53210; sqrt(3.93/5.51) = sqrt(0.71325) = 0.84454; v = 11.19 x 0.44938 = 5.0285 km/s. Direct with G = 6.674e-11 gives 5.025 km/s and Earth 11.18 km/s; the stated 11.19 km/s is consistent with the stated Earth data within their 3-4 significant figures, so no contradiction. With a 310 km same-density layer on the planet R = 3700 km and v = 5.0285 x 3700/3390 = 5.488 km/s (direct: 5.485). The moon's pull is ignored per the problem, so moon sentences are D; probe mass cancels from the energy balance."
+}

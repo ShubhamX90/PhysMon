@@ -1,0 +1,37 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch04",
+  "item_id": "M250-S54",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:09:00Z", "completed_at": "2026-11-22T10:15:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Stefan-Boltzmann law for a grey body: P2/P1 = (r2/r1)^2 (T2/T1)^4",
+    "assumptions": ["same constant emissivity (stated)", "absorbed radiation negligible (stated)", "uniform surface temperature"],
+    "answer": 12.4416,
+    "unit": "kW"
+  },
+  "stratum_assignments": {
+    "T298E": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "TA4B6": {"stratum": "R", "answer_with_sentence": 26.158464, "regime": null},
+    "TCB5F": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "TDB9C": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "T6222": {"stratum": "R", "answer_with_sentence": 26.158464, "regime": null},
+    "T4B8C": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All claims agree with pass 1. Checked R answers: q=2.5 cm -> 1.5*(12.5/5)^2*2.0736 = 19.44 kW; q=4.5 cm -> 26.158464 (shown 26.1585); q=7.5 cm -> 1.5*3.5^2*2.0736 = 38.1024 kW. Stated clauses fix the outer-surface temperature and finish, so r2 -> r2+q is the only change. Minimal pairs hold: T4B8C/T6222 (both 'was cast', 4.5 cm, disc vs second sphere) and TCB5F/TA4B6 (both 'is cast', 4.5 cm, ball vs second sphere). The 'thin layer' sentences T298E and TDB9C are declared numeral-free twins of TCB5F and T4B8C, which resolves my pass-1 query. Minor: the wiring text says 'plated' while the sentences say 'cast'; the scene-clause note asserts the ball and disc are at the surroundings' temperature, which the text does not state, but this has no bearing on the answer since absorption is stated negligible. Neither is a defect in the item text."
+}

@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch01",
+  "item_id": "M250-S270",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:27:30Z", "completed_at": "2026-11-22T10:36:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Double Doppler: f_rec = f (c - w)(c - v) / (c (c + w)); shift = f - f_rec",
+    "assumptions": ["collinear motion", "still air", "subsonic speeds"],
+    "answer": 89.5812,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "TDC03": {"stratum": "C", "answer_with_sentence": 89.5812, "regime": null},
+    "T02E2": {"stratum": "D", "answer_with_sentence": 89.5812, "regime": null},
+    "TA134": {"stratum": "D", "answer_with_sentence": 89.5812, "regime": null},
+    "TA6A4": {"stratum": "D", "answer_with_sentence": 89.5812, "regime": null},
+    "T6307": {"stratum": "C", "answer_with_sentence": 89.5812, "regime": null},
+    "TBF04": {"stratum": "R", "answer_with_sentence": 96.3377, "regime": null},
+    "T4BE2": {"stratum": "D", "answer_with_sentence": 89.5812, "regime": null},
+    "TA0C8": {"stratum": "R", "answer_with_sentence": 96.3377, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Agrees with pass 1. The authors' relations (w = lorry speed, v = trolley speed) give the same product as mine. Checked R answers: recorder ground speed 10.1 m/s gives 1500*337*332.9/119707 = 1405.774 Hz, shift 94.226 Hz; 10.6 m/s gives 96.338 Hz; 11.4 m/s gives 1500*337*331.6/119707 = 1400.284 Hz, shift 99.716 Hz. The crest-timing cancellation relations are correct: t_h = (q + c t)/(c - w), T = (q + (c + w) t_h)/(c - v), and the difference T_(n+1) - T_n = (c + w)/(f (c - w)) * c/(c - v)... i.e. independent of q, inverse reproduces f (c - w)(c - v)/(c (c + w)). Minimal pairs T02E2/TBF04 (earlier run vs this run) and T4BE2/TA0C8 (toolbox vs recorder) all state 1.6 m/s and differ only in attachment. Numeral-free twins match wording."
+}

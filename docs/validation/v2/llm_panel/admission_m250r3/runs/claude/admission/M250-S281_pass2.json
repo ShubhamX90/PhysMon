@@ -1,0 +1,37 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r3_admission:batch03",
+  "item_id": "M250-S281",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:50:00Z", "completed_at": "2026-11-22T10:57:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "v_esc = v_E (R/R_E) sqrt(rho/rho_E) for uniform spheres",
+    "assumptions": ["uniform spheres", "no rotation or atmosphere", "other bodies ignored", "Newtonian gravity"],
+    "answer": 5.029,
+    "unit": "km/s"
+  },
+  "stratum_assignments": {
+    "T3112": {"stratum": "D", "answer_with_sentence": 5.02855, "regime": null},
+    "TE270": {"stratum": "C", "answer_with_sentence": 5.02855, "regime": null},
+    "T09DC": {"stratum": "D", "answer_with_sentence": 5.02855, "regime": null},
+    "TC598": {"stratum": "D", "answer_with_sentence": 5.02855, "regime": null},
+    "TE752": {"stratum": "C", "answer_with_sentence": 5.02855, "regime": null},
+    "T39C4": {"stratum": "D", "answer_with_sentence": 5.02855, "regime": null},
+    "T3AA6": {"stratum": "R", "answer_with_sentence": 5.48839, "regime": null},
+    "T8A9F": {"stratum": "R", "answer_with_sentence": 5.48839, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The scene note calls the moon 'small', which the problem does not state; harmless because the problem says the pull of any other body is ignored."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Checked: 5.02855 x 3510/3390 = 5.20655, x 3700/3390 = 5.48839, x 3860/3390 = 5.72572 km/s, matching the certified answers and my pass 1. Probe mass cancels. Minimal pairs T09DC/T3AA6 and T3112/T8A9F share 310 km and differ only in attachment (earlier simulation vs this launch; moon vs planet). Numeral-free twins TC598 and T39C4 are declared by design. The stated Earth escape speed is consistent with the stated Earth radius and density to within rounding (direct calculation 11.18 km/s), so the scaling answer and a direct G-based answer (5.025) agree to the stated precision."
+}

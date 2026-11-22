@@ -1,0 +1,86 @@
+{
+  "item_id": "M250-S230",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Energy conservation gives Tf = (2×360 + 3×290)/(2+3) = 318 K. Because the enclosure is insulated, entropy generation equals the total entropy change: Sgen = 900[2 ln(318/360) + 3 ln(318/290)].",
+    "assumptions": [
+      "The enclosure is treated as an ideal insulating boundary with negligible thermal energy storage.",
+      "The blocks exchange no energy with external bodies and perform negligible work.",
+      "The metal retains its stated constant specific heat capacity."
+    ],
+    "answer": 25.57,
+    "unit": "J/K"
+  },
+  "stratum_assignments": {
+    "T04A3": {
+      "stratum": "D",
+      "answer_with_sentence": 25.57,
+      "regime": null
+    },
+    "T33C5": {
+      "stratum": "D",
+      "answer_with_sentence": 25.57,
+      "regime": null
+    },
+    "T7053": {
+      "stratum": "D",
+      "answer_with_sentence": 25.57,
+      "regime": null
+    },
+    "TFF07": {
+      "stratum": "D",
+      "answer_with_sentence": 25.57,
+      "regime": null
+    },
+    "TC78D": {
+      "stratum": "R",
+      "answer_with_sentence": 31.98,
+      "regime": null
+    },
+    "T8625": {
+      "stratum": "R",
+      "answer_with_sentence": 31.98,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T33C5 and TFF07 specify only a 'small amount', whereas the other mass variants specify 1.1 kg, so the variants do not preserve the required number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A 'small amount' could be 0.01 kg rather than 1.1 kg; therefore T33C5 and T7053 do not specify identical quantities, even though both leave the requested entropy generation unchanged."
+  ],
+  "notes": "The base physics is well-posed under the standard ideal insulating-boundary interpretation. For TC78D and T8625, the hotter mass becomes 3.1 kg at 360 K, giving Tf = 325.57377 K and Sgen = 900[3.1 ln(Tf/360) + 3 ln(Tf/290)] = approximately 31.98 J/K. Material used only in an earlier run or isolated in the cabinet has no physical path to the present process.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r3_admission",
+  "started_at": "2026-11-22T18:20:31+00:00",
+  "completed_at": "2026-11-22T18:21:42+00:00",
+  "minutes_spent": 1.18,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "b13ad8bec2f0f29894a4fc104af3910367040c45e0e5c13be61a59d9ce85f31e",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}
