@@ -1,0 +1,96 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S253",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:15:27+00:00",
+  "completed_at": "2026-11-21T20:16:11+00:00",
+  "minutes_spent": 0.74,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For acoustic impedances Za = rho_a c_a = 411.6 Pa s/m and Zw = rho_w c_w = 1479036 Pa s/m, continuity of pressure and normal velocity gives transmitted pressure amplitude pt = [2Zw/(Za + Zw)] pi. The incident intensity satisfies I = pi^2/(2Za), so pt = [2Zw/(Za + Zw)] sqrt(2Za I).",
+    "assumptions": [
+      "Pressure amplitude means peak amplitude, and intensity means time-averaged intensity.",
+      "Use linear plane-wave acoustics and the stated lossless media and interface conditions.",
+      "Evaluate the steady harmonic wave at the incident intensity specified for the current measurement; an earlier trial is a separate measurement."
+    ],
+    "answer": 6.28424,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {
+    "T9B4F": {
+      "stratum": "R",
+      "answer_with_sentence": 7.69659,
+      "regime": null
+    },
+    "TCC99": {
+      "stratum": "R",
+      "answer_with_sentence": 7.69659,
+      "regime": null
+    },
+    "T43F7": {
+      "stratum": "C",
+      "answer_with_sentence": 6.28424,
+      "regime": null
+    },
+    "TF89B": {
+      "stratum": "D",
+      "answer_with_sentence": 6.28424,
+      "regime": null
+    },
+    "TA783": {
+      "stratum": "D",
+      "answer_with_sentence": 6.28424,
+      "regime": null
+    },
+    "TEFDB": {
+      "stratum": "D",
+      "answer_with_sentence": 6.28424,
+      "regime": null
+    },
+    "TBD48": {
+      "stratum": "D",
+      "answer_with_sentence": 6.28424,
+      "regime": null
+    },
+    "TC617": {
+      "stratum": "C",
+      "answer_with_sentence": 6.28424,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TF89B and TBD48 specify only 'a small amount', whereas the other intensity-change variants specify 0.006 W/m², violating the required common numerical value and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "An increase of 0.001 W/m² can satisfy 'a small amount' in TF89B or TBD48, although the corresponding explicit numerical variants require 0.006 W/m²."
+  ],
+  "notes": "The base physics and all individual requested pressure amplitudes are well-posed under the stated steady-wave interpretation; the invalid verdict concerns the required numerical matching between variants. The current first-loudspeaker increase makes the incident intensity 0.018 W/m². The second loudspeaker cannot affect the water, and an earlier trial does not change the current trial's specified intensity. Frequency cancels through the plane-wave impedance relation Z = rho omega/k = rho c; the two frequency sentences both specify 640 Hz.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "431ea5cd9c37536c541e39530bc3c2dfd6e9d5a16d1216f23e3360a7fc44e209",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

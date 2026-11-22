@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch05",
+  "item_id": "M250-S270",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:42:00Z", "completed_at": "2026-11-22T10:52:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Two-step Doppler in still air: lorry (receding observer) receives f1 = f (v - u_L)/v; lorry re-emits as a source receding from the recorder, recorder moves away from the lorry (with the sound): f2 = f1 (v - u_R)/(v + u_L); shift = f - f2",
+    "assumptions": ["still uniform air, v = 343 m/s", "speeds subsonic, motions collinear", "reflection preserves frequency in lorry frame (stated)", "recorder on the opposite side of the post from the lorry, so it moves in the direction of the reflected sound"],
+    "answer": 89.581,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "TDC03": {"stratum": "D", "answer_with_sentence": 89.581, "regime": null},
+    "T02E2": {"stratum": "D", "answer_with_sentence": 89.581, "regime": null},
+    "TA134": {"stratum": "D", "answer_with_sentence": 89.581, "regime": null},
+    "TA6A4": {"stratum": "D", "answer_with_sentence": 89.581, "regime": null},
+    "T6307": {"stratum": "D", "answer_with_sentence": 89.581, "regime": null},
+    "TBF04": {"stratum": "R", "answer_with_sentence": 96.338, "regime": null},
+    "T4BE2": {"stratum": "D", "answer_with_sentence": 89.581, "regime": null},
+    "TA0C8": {"stratum": "R", "answer_with_sentence": 96.338, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "f2/f = (337 x 334)/(343 x 349) = 112558/119707 = 0.9402791; shift = 1500 x 0.0597209 = 89.581 Hz. With the recorder carried at 1.6 m/s relative to the trolley away from the lorry, recorder speed 10.6 m/s: ratio = 337 x 332.4/119707 = 112018.8/119707 = 0.9357749; shift = 96.338 Hz. The 82 m separation affects only the arrival time, not the steady-state Doppler frequency; it appears in no governing relation, so I label it D (one could argue C/no-role; the answer is unchanged either way). Toolbox-carrying and earlier-run sentences have no path to the recorder's frequency. Numbered variants all state 1.6 m/s; TA134 and TA6A4 are numeral-free. Minor idealisation: the technician is assumed to keep walking for as long as the measurement lasts (trolley long enough)."
+}

@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S11",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For locked wheels on a level road, N = mg, kinetic friction is μmg, and the deceleration magnitude is μg. Therefore d = v_brake²/(2μg). The base braking speed is 20 m/s, giving d = 400/9.8 = 40.8163265306 m. A further speed gain q gives d = (20 + q)²/9.8.",
+    "assumptions": [
+      "In the base problem, braking begins at the stated cruising speed.",
+      "The relevant speed gains occur after cruising at 20 m/s and before braking.",
+      "The stated kinetic friction coefficient applies throughout sliding.",
+      "The bus and the earlier run have no stated interaction with the current braking event."
+    ],
+    "answer": 40.8163265306,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "T8720": {
+      "stratum": "R",
+      "answer_with_sentence": 61.25,
+      "regime": null
+    },
+    "TFCB8": {
+      "stratum": "D",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "T0C0C": {
+      "stratum": "C",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "TF039": {
+      "stratum": "C",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "TD024": {
+      "stratum": "D",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "T5FC7": {
+      "stratum": "D",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "T4983": {
+      "stratum": "D",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "TB9A5": {
+      "stratum": "R",
+      "answer_with_sentence": 61.25,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All certified answers agree with the governing physics. Relevant speed gains of 3, 4.5 and 11 m/s give stopping distances of 53.9795918367, 61.25 and 98.0612244898 m, respectively. All listed positive masses cancel between friction and inertia. The claimed numerical minimal pairs preserve 4.5 m/s and change the event or vehicle attachment as described. I revise my pass-1 rendering objection because pass 2 explicitly identifies TD024 and T4983 as numeral-free controls, rather than claiming they are number-preserving minimal pairs; their stated twin transformations accurately describe the replacement of the number and unit. No physics assignments or calculated answers from pass 1 change. In the relevant transformations, the symbol v0 denotes the original cruising-speed input before q is added; the governing stopping-distance relation uses the resulting braking speed.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:10:27+00:00",
+  "completed_at": "2026-11-21T20:11:05+00:00",
+  "minutes_spent": 0.64,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "bebc58e78096931c763e055f2540a8bd953304d36b46d99c745607b16126be0c",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

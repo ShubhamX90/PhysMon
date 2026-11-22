@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S268",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "L = μ₀N²πa²/ℓ = 0.0014216335076 H after converting lengths to metres. At steady state the solenoid shorts the parallel resistor, so I₀ = 12/4 = 3 A. During discharge, I(t) = I₀ exp(-R₂t/L), and integrating R₂I(t)² gives E = LI₀²/2 = 6.397350784 mJ. An aiding additional emf q changes the energy to L(12 + q)²/(2·4²).",
+    "assumptions": [
+      "Use the stated long, air-cored solenoid approximation with negligible winding resistance.",
+      "Use ideal circuit elements and complete discharge through the second resistor alone.",
+      "The discharge resistor has finite positive resistance.",
+      "Convert the supplied centimetre dimensions to metres when evaluating the inductance."
+    ],
+    "answer": 6.397350784,
+    "unit": "mJ"
+  },
+  "stratum_assignments": {
+    "T212D": {
+      "stratum": "D",
+      "answer_with_sentence": 6.397350784,
+      "regime": null
+    },
+    "T000E": {
+      "stratum": "R",
+      "answer_with_sentence": 16.893004415,
+      "regime": null
+    },
+    "T7621": {
+      "stratum": "C",
+      "answer_with_sentence": 6.397350784,
+      "regime": null
+    },
+    "T200B": {
+      "stratum": "D",
+      "answer_with_sentence": 6.397350784,
+      "regime": null
+    },
+    "T8F98": {
+      "stratum": "D",
+      "answer_with_sentence": 6.397350784,
+      "regime": null
+    },
+    "T0F51": {
+      "stratum": "R",
+      "answer_with_sentence": 16.893004415,
+      "regime": null
+    },
+    "T5C53": {
+      "stratum": "C",
+      "answer_with_sentence": 6.397350784,
+      "regime": null
+    },
+    "TC1E1": {
+      "stratum": "D",
+      "answer_with_sentence": 6.397350784,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "The stated relations, circuit dependencies and cancellation are correct. For added emfs 3.2, 7.5 and 11 V, the energies are respectively 10.264193925, 16.893004415 and 23.501378923 mJ, agreeing with the certified answers at their displayed precision. The claimed quantitative minimal pairs preserve 7.5 V and change only the attachment or event. I withdraw pass 1's rendering defect: pass 2 explicitly identifies T212D and TC1E1 as numeral-free controls, rather than claiming they preserve the quantitative variants' number and unit. Their stated twin transformations are accurate. Pass 1 also contained a small arithmetic error for the 7.5 V case; the corrected result is 0.016893004415 J. The centimetre inputs require ordinary SI conversion in the inductance relation.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:08:45+00:00",
+  "completed_at": "2026-11-21T20:09:33+00:00",
+  "minutes_spent": 0.8,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "eb2cc21bf086f22047ceab3d6dde4b255b44b0c01c81beef0e7792a947b4719e",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

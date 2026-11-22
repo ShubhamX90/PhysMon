@@ -1,0 +1,30 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch01",
+  "item_id": "M250-S268",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:36:30Z", "completed_at": "2026-11-22T10:41:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "E = (1/2) L I0^2, L = mu0 N^2 pi a^2/ell, I0 = V/R1",
+    "assumptions": ["long ideal solenoid, zero winding resistance", "steady current before opening; all stored energy dissipated in the second resistor"],
+    "answer": 6.3974,
+    "unit": "mJ"
+  },
+  "stratum_assignments": {
+    "T212D": {"stratum": "D", "answer_with_sentence": 6.3974, "regime": null},
+    "T000E": {"stratum": "R", "answer_with_sentence": 16.893, "regime": null},
+    "T7621": {"stratum": "C", "answer_with_sentence": 6.3974, "regime": null},
+    "T200B": {"stratum": "D", "answer_with_sentence": 6.3974, "regime": null},
+    "T8F98": {"stratum": "D", "answer_with_sentence": 6.3974, "regime": null},
+    "T0F51": {"stratum": "R", "answer_with_sentence": 16.893, "regime": null},
+    "T5C53": {"stratum": "C", "answer_with_sentence": 6.3974, "regime": null},
+    "TC1E1": {"stratum": "D", "answer_with_sentence": 6.3974, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "L = 1.42163 mH. Emf 15.2 V: I = 3.8 A, E = 0.5*1.42163*14.44 = 10.264 mJ; 19.5 V: 4.875 A, 16.893 mJ; 23 V: 5.75 A, 23.501 mJ; base 6.3974 mJ; all match the claims. The C claim for the second resistor is correct: the integral of R i^2 over the exponential decay is L I0^2/2 independent of R; the second resistor also carries no steady current because the zero-resistance winding shorts it, so it does not affect I0 either. Minimal pairs hold: T200B vs T0F51 differ only 'the battery' -> 'the cell of the doorbell'; T8F98 vs T000E differ only 'before the switch was closed' -> 'for an earlier run only'; same 7.5 V. T212D and TC1E1 are declared numeral-free twins by design. Agrees with my pass 1."
+}

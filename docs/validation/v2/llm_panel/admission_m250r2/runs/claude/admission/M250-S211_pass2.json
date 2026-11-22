@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch06",
+  "item_id": "M250-S211",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:08:00Z", "completed_at": "2026-11-22T10:14:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Uniform cavity field E = rho*d/(3 eps0) = E0*d/R = 12 kV/m; a = q0*E/m",
+    "assumptions": ["charge fixed and uniform", "cavity wholly inside", "bead does not perturb charge", "gravity neglected"],
+    "answer": 48.0,
+    "unit": "m/s^2"
+  },
+  "stratum_assignments": {
+    "TAF10": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null},
+    "T1D94": {"stratum": "R", "answer_with_sentence": 20.0, "regime": null},
+    "TEFF1": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null},
+    "T052D": {"stratum": "C", "answer_with_sentence": 48.0, "regime": null},
+    "TD82F": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null},
+    "T4613": {"stratum": "C", "answer_with_sentence": 48.0, "regime": null},
+    "T2176": {"stratum": "R", "answer_with_sentence": 20.0, "regime": null},
+    "T7F8C": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked: holder masses 0.25/0.7/1.4 g give total 0.75/1.2/1.9 g and a = 0.024 N / m = 32/20/12.6316 m/s^2, matching. Cavity radii 3.5/5.5/8.5 cm all satisfy a + d < R (max 14.5 cm < 20 cm), so the cavity stays wholly inside and the answer 48 m/s^2 is independent of a; the C claim's cancellation relations are somewhat contrived but correct. Minimal pairs TAF10-T1D94 and TEFF1-T2176 share 0.7 g and differ only in attachment. TD82F and T7F8C are declared numeral-free controls of TEFF1 and TAF10, which resolves my pass-1 remark about their missing mass; they are not claimed as same-number variants. Flag scene clause is disconnected. Agreement with pass 1."
+}

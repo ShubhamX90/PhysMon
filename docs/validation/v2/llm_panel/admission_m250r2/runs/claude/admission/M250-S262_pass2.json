@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch01",
+  "item_id": "M250-S262",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:08:30Z", "completed_at": "2026-11-22T10:14:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "t = (8 mu L A/(pi rho g r^4)) ln(h0/h1)",
+    "assumptions": ["Poiseuille flow at every depth (Re about 4 at most)", "driving pressure rho g h only", "constant tank area"],
+    "answer": 16.753,
+    "unit": "min"
+  },
+  "stratum_assignments": {
+    "T3C55": {"stratum": "R", "answer_with_sentence": 26.784, "regime": null},
+    "TD265": {"stratum": "R", "answer_with_sentence": 26.784, "regime": null},
+    "T7B4A": {"stratum": "D", "answer_with_sentence": 16.753, "regime": null},
+    "TFF4D": {"stratum": "D", "answer_with_sentence": 16.753, "regime": null},
+    "T75EB": {"stratum": "D", "answer_with_sentence": 16.753, "regime": null},
+    "T7A3F": {"stratum": "D", "answer_with_sentence": 16.753, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "tau = 8*0.12*0.5*0.01/(pi*900*9.8*8.1e-11) = 2138.6 s. Base 2138.6*ln(1.6) = 1005.2 s = 16.753 min (claimed 16.7528). R values: h0 = 47 cm: ln(1.88)*tau = 1350.1 s = 22.501 min; 53 cm: ln(2.12)*tau = 1607.0 s = 26.784 min; 61 cm: ln(2.44)*tau = 1907.7 s = 31.794 min; all match the claims. Minimal pairs hold: T7B4A vs T3C55 differ only tank -> bucket with the same number, unit and tense; TFF4D vs TD265 differ only 'Just before the draining started' -> 'In an earlier experiment' with the same number and unit. T75EB and T7A3F are declared numeral-free twins, which resolves my pass-1 note that they carry no number; this is by design, not a rendering defect. Pass 1 answers were in seconds; the authors' target unit is minutes and the values agree. The question gives no unit, so either is acceptable."
+}

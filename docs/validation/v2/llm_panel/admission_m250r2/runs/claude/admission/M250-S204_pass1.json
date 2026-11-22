@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch13",
+  "item_id": "M250-S204",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:24:00Z", "completed_at": "2026-11-22T10:28:00Z", "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Momentum conservation in a perfectly inelastic 2D collision; KE lost = (1/2) mu v_rel^2 with mu = m1 m2/(m1+m2), v_rel^2 = v1^2 + v2^2 for perpendicular velocities",
+    "assumptions": ["frictionless ice, no external horizontal impulse", "skaters as particles", "perfectly inelastic (they move off together)"],
+    "answer": 416.67,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "T3B70": {"stratum": "D", "answer_with_sentence": 416.67, "regime": null},
+    "T081E": {"stratum": "R", "answer_with_sentence": 459.18, "regime": null},
+    "T9E17": {"stratum": "D", "answer_with_sentence": 416.67, "regime": null},
+    "T3DB2": {"stratum": "D", "answer_with_sentence": 416.67, "regime": null},
+    "TAD96": {"stratum": "D", "answer_with_sentence": 416.67, "regime": null},
+    "T90B7": {"stratum": "R", "answer_with_sentence": 459.18, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: mu = 60*75/135 = 33.333 kg, v_rel^2 = 16+9 = 25 m^2/s^2, KE lost = 416.67 J (check: initial KE = 480+337.5 = 817.5 J; p = (240,225), |p|^2 = 108225, final KE = 108225/270 = 400.83 J; loss 416.67 J). With the 12 kg bag held by the east skater (moving with it at 4 m/s): m1 = 72 kg, mu = 5400/147 = 36.735 kg, loss = 459.18 J. The R reading assumes the 60 kg is the skater alone and the bag adds to it, which the wording supports. All 12 kg sentences consistent; 'small bag' sentences are non-numeric D sentences."
+}

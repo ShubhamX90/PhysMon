@@ -1,0 +1,37 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch07",
+  "item_id": "M250-S54",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:50:00Z", "completed_at": "2026-11-22T10:57:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Stefan-Boltzmann law: P2 = P1 (R2/R1)^2 (T2/T1)^4",
+    "assumptions": ["same constant emissivity", "negligible absorption from surroundings"],
+    "answer": 12.4416,
+    "unit": "kW"
+  },
+  "stratum_assignments": {
+    "T298E": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "TA4B6": {"stratum": "R", "answer_with_sentence": 26.1585, "regime": null},
+    "TCB5F": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "TDB9C": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "T6222": {"stratum": "R", "answer_with_sentence": 26.1585, "regime": null},
+    "T4B8C": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["missing_assumption"],
+  "defect_reasons": {"missing_assumption": "For the R sentences the cast layer is taken to have the stated common emissivity; the text says the spheres share an emissivity and that the layer is the same metal, but does not say the new surface has the same finish (minor, the natural reading)."},
+  "defect_severity": {"missing_assumption": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked: base 1.5*4*2.0736 = 12.4416 kW. Layer 2.5 cm: 1.5*6.25*2.0736 = 19.44. Layer 4.5 cm: 1.5*8.41*2.0736 = 26.1585. Layer 7.5 cm: 1.5*12.25*2.0736 = 38.1024 kW. All match. The scene clause fixes 1200 K as the outer-surface temperature, so the R answers are well-defined. The pairs hold: TCB5F/TA4B6 (bracket versus second sphere, present tense) and T4B8C/T6222 (disc versus second sphere, past tense). Both carry 4.5 cm. T298E and TDB9C are declared numeral-free twins. Two minor points in the authors' text: the rationales say 'plated' where the sentences say 'cast', and the scene note says the bracket and disc sit at the temperature of the surroundings, which the problem does not state (it does not matter, because absorption is declared negligible). This agrees with pass 1."
+}

@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch12",
+  "item_id": "M250-S34",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:54:30Z", "completed_at": "2026-11-22T11:00:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "d = v0^2 / (2 a), a = (5/7) g sin(theta) for a solid sphere rolling without slipping.",
+    "assumptions": ["I = (2/5) m R^2", "rolling without slipping", "negligible air and rolling resistance"],
+    "answer": 6.08452,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TACA4": {"stratum": "C", "answer_with_sentence": 6.08452, "regime": null},
+    "T1332": {"stratum": "D", "answer_with_sentence": 6.08452, "regime": null},
+    "TDEF6": {"stratum": "R", "answer_with_sentence": 4.17669, "regime": null},
+    "T4182": {"stratum": "D", "answer_with_sentence": 6.08452, "regime": null},
+    "T96D5": {"stratum": "R", "answer_with_sentence": 4.17669, "regime": null},
+    "T7B54": {"stratum": "D", "answer_with_sentence": 6.08452, "regime": null},
+    "T741D": {"stratum": "D", "answer_with_sentence": 6.08452, "regime": null},
+    "T55FE": {"stratum": "C", "answer_with_sentence": 6.08452, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All certified answers verified: 25.2/(9.8 sin 32) = 4.85249, /(9.8 sin 38) = 4.17669, /(9.8 sin 43) = 3.77043, base 6.08452 m. Radius cancellation expression reduces to v0^2 (7/5)/(2 g sin theta). Minimal pairs T4182/TDEF6 and T7B54/T96D5 share 13 deg and differ only in attachment (earlier experiment vs this run; second board vs incline). Earlier-experiment tilt leaves no state since the problem states the incline is set at the stated angle at first and clamped before launch. Numeral-free controls T1332 and T741D are declared as such. Agrees with pass 1."
+}

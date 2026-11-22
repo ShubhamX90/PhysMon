@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch11",
+  "item_id": "M250-S226",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:54:00Z", "completed_at": "2026-11-22T11:02:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Series radiative exchange between parallel grey surfaces with equal emissivity: equal T^4 drops across the three gaps, Ts^4 = (2 Th^4 + Tc^4)/3",
+    "assumptions": ["large parallel diffuse grey opaque surfaces of equal emissivity", "vacuum, radiation only, steady state", "thin shields at uniform temperature"],
+    "answer": 724.66,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "TF3A9": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "T1186": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "T3B75": {"stratum": "C", "answer_with_sentence": 724.66, "regime": null},
+    "TAE28": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "TBE0E": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "T70E5": {"stratum": "C", "answer_with_sentence": 724.66, "regime": null},
+    "T0D5D": {"stratum": "R", "answer_with_sentence": 787.52, "regime": null},
+    "T7BAD": {"stratum": "R", "answer_with_sentence": 787.52, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Relations Ts = T1 ((2 + (T2/T1)^4)/3)^(1/4) agree with mine; base 724.662 K matches. R answers checked: 835 K -> Ts^4 = (2 x 4.86123e11 + 8.1e9)/3 = 3.26782e11, Ts = 756.07 K; 870 K -> 787.52 K; 940 K -> (2 x 7.80745e11 + 8.1e9)/3 = 5.23197e11, Ts = 850.48 K. Emissivity cancellation uses the correct parallel-plate factor eps/(2 - eps), identical for every gap. Strata match pass 1. Minimal pairs TAE28/T7BAD (bath vs hot plate) and TF3A9/T0D5D (earlier run vs this run) share 70 K; T0D5D says 'reach steady temperatures' where T7BAD says 'settle', which is fine since they are not claimed as each other's pair. Numeral-free twins declared."
+}

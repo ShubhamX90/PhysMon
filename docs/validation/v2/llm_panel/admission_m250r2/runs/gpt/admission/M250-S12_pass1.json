@@ -1,0 +1,93 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S12",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:28:48+00:00",
+  "completed_at": "2026-11-21T20:29:32+00:00",
+  "minutes_spent": 0.74,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Vertical balance gives N = mg. Static friction supplies the centripetal force: mv²/r ≤ μsN. Hence vmax = sqrt(μsgr) = sqrt(0.6 × 9.8 × 50).",
+    "assumptions": [
+      "The car follows the stated circular trajectory at steady speed.",
+      "The standard particle model applies, with tyre-road static friction supplying the horizontal centripetal force."
+    ],
+    "answer": 17.1464,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T02CA": {
+      "stratum": "D",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    },
+    "T82EB": {
+      "stratum": "R",
+      "answer_with_sentence": 18.3875,
+      "regime": null
+    },
+    "T7092": {
+      "stratum": "D",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    },
+    "T5A6E": {
+      "stratum": "D",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    },
+    "T9AEC": {
+      "stratum": "D",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    },
+    "TFE1E": {
+      "stratum": "C",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    },
+    "T79A4": {
+      "stratum": "C",
+      "answer_with_sentence": 17.1464,
+      "regime": null
+    },
+    "TF5BA": {
+      "stratum": "R",
+      "answer_with_sentence": 18.3875,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The lane-offset sentences T7092 and T5A6E specify only 'a little further', whereas the other lane-offset sentences specify 7.5 m, so these renderings do not preserve the required common numerical value and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and each individual augmented problem have determinate physical answers. The invalid verdict concerns the stipulated numerical matching of lane-offset variants. For T82EB and TF5BA, the current trajectory radius is 57.5 m and vmax = sqrt(338.1) = 18.3875 m/s. Earlier runs and the cyclist's trajectory do not affect the current car trajectory. Both mass statements cancel through mv²/r = μsmg.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a24982515250834389acffa9e67b0282ff42fe3f416b96ac7d5b2c5ccc6ab86b",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

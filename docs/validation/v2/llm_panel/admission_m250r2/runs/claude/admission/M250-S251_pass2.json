@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch07",
+  "item_id": "M250-S251",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:36:00Z", "completed_at": "2026-11-22T10:43:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation in inverse-square gravity: h = R v^2 / (2 g R - v^2)",
+    "assumptions": ["no atmosphere, non-rotating moon, no other bodies", "launch speed below escape speed (2372 m/s)"],
+    "answer": 1157.0,
+    "unit": "km"
+  },
+  "stratum_assignments": {
+    "TE544": {"stratum": "C", "answer_with_sentence": 1157.0, "regime": null},
+    "T9571": {"stratum": "D", "answer_with_sentence": 1157.0, "regime": null},
+    "TFA02": {"stratum": "D", "answer_with_sentence": 1157.0, "regime": null},
+    "T9D2A": {"stratum": "D", "answer_with_sentence": 1157.0, "regime": null},
+    "T04BD": {"stratum": "R", "answer_with_sentence": 1878.5, "regime": null},
+    "TE24B": {"stratum": "C", "answer_with_sentence": 1157.0, "regime": null},
+    "T9791": {"stratum": "R", "answer_with_sentence": 1878.5, "regime": null},
+    "TAA9D": {"stratum": "D", "answer_with_sentence": 1157.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "The claimed pair TFA02/T9791 differs by the word 'also' in T9791 as well as by the time attachment and tense; this is harmless, and the number and unit (210 m/s) match."},
+  "defect_severity": {"rendering_not_minimal": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "2gR = 5.62788e6 m^2/s^2. 60 m/s: v = 1560, h = 1737*2.4336/3.19428 = 1323.35 km. 210 m/s: v = 1710, h = 1878.54 km. 330 m/s: v = 1830, h = 1737*3.3489/2.27898 = 2552.47 km. All match, and all speeds (up to 1830 m/s) are below escape speed (2372 m/s). Mass cancels from the energy balance, as the given expression shows (C correct). TAA9D/T04BD differ only in 'relay capsule' versus 'probe'. T9571 and T9D2A are declared numeral-free twins of TAA9D and TFA02. The relation list mixes Rm in km with g0 in m/s^2, so a unit conversion is implied; the stated answers are consistent once it is done. This agrees with pass 1."
+}

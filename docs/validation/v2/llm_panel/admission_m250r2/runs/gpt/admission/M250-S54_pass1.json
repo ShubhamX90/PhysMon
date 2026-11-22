@@ -1,0 +1,87 @@
+{
+  "item_id": "M250-S54",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Stefan–Boltzmann law: P = emissivity × sigma × 4πr²T⁴. Thus P2 = P1(r2/r1)²(T2/T1)⁴ = 1.5 × (10/5)² × (1200/1000)⁴ = 12.4416 kW. A uniform 4.5 cm coating increases the second sphere's outer radius to 14.5 cm, giving P2 = 1.5 × (14.5/5)² × (1200/1000)⁴ = 26.158464 kW.",
+    "assumptions": [
+      "The stated common constant emissivity applies to the final radiating surfaces.",
+      "A layer cast around the second sphere is a uniform coating whose stated thickness adds to its original radius.",
+      "The stated 1200 K remains the temperature of the final outer surface.",
+      "The nearby bracket and disc do not alter the prescribed sphere temperatures or emissivities; absorbed radiation is negligible as stated."
+    ],
+    "answer": 12.4416,
+    "unit": "kW"
+  },
+  "stratum_assignments": {
+    "T298E": {
+      "stratum": "D",
+      "answer_with_sentence": 12.4416,
+      "regime": null
+    },
+    "TA4B6": {
+      "stratum": "R",
+      "answer_with_sentence": 26.158464,
+      "regime": null
+    },
+    "TCB5F": {
+      "stratum": "D",
+      "answer_with_sentence": 12.4416,
+      "regime": null
+    },
+    "TDB9C": {
+      "stratum": "D",
+      "answer_with_sentence": 12.4416,
+      "regime": null
+    },
+    "T6222": {
+      "stratum": "R",
+      "answer_with_sentence": 26.158464,
+      "regime": null
+    },
+    "T4B8C": {
+      "stratum": "D",
+      "answer_with_sentence": 12.4416,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T298E and TDB9C specify only a 'thin' layer, whereas the other thickness variants specify 4.5 cm, so the variants do not all state the same number and unit as required."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A 1 mm coating satisfies an ordinary reading of 'a thin layer' on a sufficiently large bracket or disc, but does not satisfy the corresponding statement specifying a 4.5 cm coating."
+  ],
+  "notes": "The base physics and the individual augmented problems are solvable. The invalid verdict concerns the required matching of thickness variants. The explicitly quantified sentences all agree on 4.5 cm; the present/past wording does not change the final geometry. Numerical answers above retain intermediate precision; to two significant figures they are 12 kW and 26 kW.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:11:05+00:00",
+  "completed_at": "2026-11-21T20:11:41+00:00",
+  "minutes_spent": 0.6,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a2a5788d27ab553db962f079b16720a903f2c2d688b9adcda022c0d0a7b3f7d9",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

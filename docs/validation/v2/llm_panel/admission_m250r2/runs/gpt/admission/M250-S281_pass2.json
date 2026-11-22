@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S281",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Energy conservation gives mv²/2 = GMm/R. With M = (4π/3)ρR³, comparison with Earth gives v = ve(R/RE)sqrt(ρ/ρE) = 11.19(3390/6371)sqrt(3.93/5.51) = 5.02855 km/s. A same-density planetary coating replaces R with R + q.",
+    "assumptions": [
+      "The probe travels ballistically after launch.",
+      "The probe's mass is negligible compared with the planet's mass.",
+      "After a planetary coating is added, launch occurs from the new outer surface.",
+      "The stated spherical, nonrotating, atmosphere-free model applies, with other bodies' gravity ignored."
+    ],
+    "answer": 5.02855,
+    "unit": "km/s"
+  },
+  "stratum_assignments": {
+    "T3112": {
+      "stratum": "D",
+      "answer_with_sentence": 5.02855,
+      "regime": null
+    },
+    "TE270": {
+      "stratum": "C",
+      "answer_with_sentence": 5.02855,
+      "regime": null
+    },
+    "T09DC": {
+      "stratum": "D",
+      "answer_with_sentence": 5.02855,
+      "regime": null
+    },
+    "TC598": {
+      "stratum": "D",
+      "answer_with_sentence": 5.02855,
+      "regime": null
+    },
+    "TE752": {
+      "stratum": "C",
+      "answer_with_sentence": 5.02855,
+      "regime": null
+    },
+    "T39C4": {
+      "stratum": "D",
+      "answer_with_sentence": 5.02855,
+      "regime": null
+    },
+    "T3AA6": {
+      "stratum": "R",
+      "answer_with_sentence": 5.48839,
+      "regime": null
+    },
+    "T8A9F": {
+      "stratum": "R",
+      "answer_with_sentence": 5.48839,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All certified answers agree with energy conservation: planetary radius increments of 120, 310 and 470 km give 5.20655, 5.48839 and 5.72572 km/s, respectively. Probe mass cancels, and the moon and earlier simulation have no influence under the stated model. The explicitly claimed minimal pairs preserve 310 km and change only the intended attachment or event. I retract my pass-1 rendering defect: pass 2 identifies TC598 and T39C4 as deliberately numeral-free controls, not as numerical minimal pairs. Their numeral-free descriptions and unchanged answers are accurately claimed. The governing relations, cancellation expressions, units and parameter domains are consistent.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:11:59+00:00",
+  "completed_at": "2026-11-21T20:12:39+00:00",
+  "minutes_spent": 0.67,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "8d44df57e8aba128e314d063c4644e4a8c03173b06f81bd0cba0f0beb39ef89e",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

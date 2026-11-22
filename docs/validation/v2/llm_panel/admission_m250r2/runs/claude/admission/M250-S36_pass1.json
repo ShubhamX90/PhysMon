@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch08",
+  "item_id": "M250-S36",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:36:00Z", "completed_at": "2026-11-22T10:44:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Physical pendulum, small amplitude: T = 2 pi sqrt(I/(m g d)), I = m L^2/12 + m d^2 (parallel-axis theorem)", "assumptions": ["thin uniform rod (stated)", "small amplitude (stated)", "frictionless pivot, no air resistance (stated)", "g = 9.8 m/s^2 (stated)"], "answer": 1.67925, "unit": "s"},
+  "stratum_assignments": {
+    "TA36F": {"stratum": "C", "answer_with_sentence": 1.67925, "regime": null},
+    "TFD4F": {"stratum": "D", "answer_with_sentence": 1.67925, "regime": null},
+    "T1443": {"stratum": "D", "answer_with_sentence": 1.67925, "regime": null},
+    "TF2C6": {"stratum": "D", "answer_with_sentence": 1.67925, "regime": null},
+    "T2919": {"stratum": "C", "answer_with_sentence": 1.67925, "regime": null},
+    "T7714": {"stratum": "D", "answer_with_sentence": 1.67925, "regime": null},
+    "TFE49": {"stratum": "R", "answer_with_sentence": 2.33907, "regime": null},
+    "T1D34": {"stratum": "R", "answer_with_sentence": 2.33907, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: I/m = 1.44/12 + 0.09 = 0.21 m^2; T = 2 pi sqrt(0.21/(9.8*0.3)) = 2 pi * 0.267261 = 1.67925 s. With pivot 20.5 cm closer, d = 0.095 m: I/m = 0.12 + 0.009025 = 0.129025; T = 2 pi sqrt(0.129025/0.931) = 2 pi * 0.372274 = 2.33907 s. Mass cancels (C). Second rod and earlier experiment have no path (D). The 'distance at the outset' clause makes the pre-swing pivot move consistent with the stated 0.3 m. 20.5 cm sentences share number and unit; mass sentences both 1.1 kg (T2919 adds 'steel strip', which does not change the answer since the rod is stated uniform and thin). TF2C6 and T7714 carry no number."
+}

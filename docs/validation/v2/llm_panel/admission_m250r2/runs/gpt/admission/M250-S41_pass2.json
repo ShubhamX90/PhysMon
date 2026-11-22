@@ -1,0 +1,93 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S41",
+  "pass_number": 2,
+  "started_at": "2026-11-21T20:17:49+00:00",
+  "completed_at": "2026-11-21T20:18:36+00:00",
+  "minutes_spent": 0.78,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Coulomb's law and conservation of charge. Write the initial charges as +5Q and -Q. Initially F0 = 5kQ^2/d0^2. Contact gives each identical sphere charge +2Q, so F1 = F0(4/5)(d0/d1)^2 = 80(4/5)(30/60)^2 = 16 mN. An additional separation s gives F(s) = 16[60/(60+s)]^2 mN when s is expressed in centimetres.",
+    "assumptions": [
+      "The identical conducting spheres share their conserved total charge equally on contact.",
+      "The stipulated point-charge model applies at both force measurements.",
+      "The remote rods do not disturb the field in the stated model."
+    ],
+    "answer": 16.0,
+    "unit": "mN"
+  },
+  "stratum_assignments": {
+    "T162F": {
+      "stratum": "D",
+      "answer_with_sentence": 16.0,
+      "regime": null
+    },
+    "T0EF1": {
+      "stratum": "D",
+      "answer_with_sentence": 16.0,
+      "regime": null
+    },
+    "TCCA9": {
+      "stratum": "D",
+      "answer_with_sentence": 16.0,
+      "regime": null
+    },
+    "TAA47": {
+      "stratum": "C",
+      "answer_with_sentence": 16.0,
+      "regime": null
+    },
+    "T81A0": {
+      "stratum": "C",
+      "answer_with_sentence": 16.0,
+      "regime": null
+    },
+    "TA88E": {
+      "stratum": "D",
+      "answer_with_sentence": 16.0,
+      "regime": null
+    },
+    "T2BDE": {
+      "stratum": "R",
+      "answer_with_sentence": 7.78799351,
+      "regime": null
+    },
+    "TFAEF": {
+      "stratum": "R",
+      "answer_with_sentence": 7.78799351,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "I withdraw the pass-1 rendering_not_minimal flag: the authors explicitly identify T162F and TCCA9 as numeral-free controls, rather than numerical minimal pairs. The declared minimal pairs T0EF1/TFAEF and TA88E/T2BDE each preserve 26 cm and change the event or object attachment. All certified answers agree with the governing relation: additional separations of 14, 26 and 45 cm give 10.5186267, 7.78799351 and 5.22448980 mN. Equal radii cancel from charge sharing for every listed radius; the stipulated point-charge approximation removes finite-size force corrections. The solid-ball wording adds no dependency in that model. Disconnection of the remote glass rods uses the explicit assumption that nothing else disturbs the field; electrical neutrality alone would not generally exclude dielectric polarization.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "d6a96a7a68d87b5941c17bc084935a65d2176c479e12baea1403d74eba348dd6",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

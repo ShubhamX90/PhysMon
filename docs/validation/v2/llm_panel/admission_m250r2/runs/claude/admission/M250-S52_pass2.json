@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch01",
+  "item_id": "M250-S52",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:50:30Z", "completed_at": "2026-11-22T10:56:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "m_w c (dTw - T) = m_i L + m_i c T; Q = m_w c (dTw - T)",
+    "assumptions": ["insulated container, only ice and water exchange heat", "all ice melts", "constant c"],
+    "answer": 34.582,
+    "unit": "kJ"
+  },
+  "stratum_assignments": {
+    "T96AB": {"stratum": "R", "answer_with_sentence": 39.490, "regime": null},
+    "TA38E": {"stratum": "D", "answer_with_sentence": 34.582, "regime": null},
+    "T5D2A": {"stratum": "R", "answer_with_sentence": 39.490, "regime": null},
+    "T2F5B": {"stratum": "D", "answer_with_sentence": 34.582, "regime": null},
+    "T32CB": {"stratum": "D", "answer_with_sentence": 34.582, "regime": null},
+    "T162D": {"stratum": "D", "answer_with_sentence": 34.582, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T96AB (and its twin T32CB) say 'the water' without naming the container while the scene has warm water in two containers; the context makes the first container the natural reading."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "The authors' relations are equivalent to mine: dTf = (Qw - Qm)/((mi+mw)c). Checks: dTw = 40 K: T = 23.477 K, Q = 34.582 kJ; 46 K: T = 28.650 K, Q = 36.314 kJ; 57 K: T = 38.132 K, Q = 39.490 kJ; 69 K: T = 48.477 K, Q = 42.954 kJ; all match, and all ice melts in every case. Minimal pairs hold: T32CB vs T96AB differ only 'Before the ice was added' -> 'In an earlier run'; TA38E vs T5D2A differ only 'first' -> 'second' container; same 17 K. T2F5B and T162D are declared numeral-free twins by design. Agrees with my pass 1; the only flag is the low-severity wording point."
+}

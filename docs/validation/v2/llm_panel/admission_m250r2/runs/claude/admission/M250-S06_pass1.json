@@ -1,0 +1,21 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch08",
+  "item_id": "M250-S06",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:15:00Z", "completed_at": "2026-11-22T10:20:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Ohm's law with series/parallel combination and current division", "assumptions": ["ideal battery (stated)", "ideal wires (stated)", "ohmic resistors (stated)", "lamp circuit electrically separate"], "answer": 0.5, "unit": "A"},
+  "stratum_assignments": {
+    "T272F": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null},
+    "T3DE4": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null},
+    "T7E58": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null},
+    "T115C": {"stratum": "R", "answer_with_sentence": 0.347826, "regime": null},
+    "T7719": {"stratum": "R", "answer_with_sentence": 0.347826, "regime": null},
+    "TBEF7": {"stratum": "D", "answer_with_sentence": 0.5, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "6||12 = 4 ohm; total 8 ohm; I = 1.5 A; V across pair = 6 V; I(12 ohm) = 0.5 A. With extra 3.5 ohm in series: total 11.5 ohm, I = 1.043478 A, V pair = 4.173913 V, I(12 ohm) = 0.347826 A (= 8/23 A). Lamp circuit has its own cell, so lamp-attached resistors are disconnected; 'earlier experiment only' resistors are removed. 3.5 ohm sentences share number and unit; T272F and TBEF7 state no number ('small resistor')."
+}

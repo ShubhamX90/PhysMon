@@ -1,0 +1,21 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch04",
+  "item_id": "M250-S82",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:00:00Z", "completed_at": "2026-11-22T10:06:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Wien displacement law lambda_max*T = const (calibrated from first star: 500 nm * 5800 K); E = hc/lambda", "assumptions": ["both stars ideal blackbodies", "Wien constant fixed by first star's data", "temperature at the time of interest is the stated 2900 K"], "answer": 1.24, "unit": "eV"},
+  "stratum_assignments": {
+    "TEFF6": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "T80FF": {"stratum": "R", "answer_with_sentence": 1.6462, "regime": null},
+    "TF04F": {"stratum": "R", "answer_with_sentence": 1.6462, "regime": null},
+    "T099E": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "T2C66": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "TFD41": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: lambda2 = 500*5800/2900 = 1000 nm, E = 1240/1000 = 1.24 eV. With the second star at 2900+950 = 3850 K during recording: E = 1.24*3850/2900 = 1.6462 eV (lambda = 753.2 nm). T099E refers to the second star but to a finished outburst, so its temperature at recording is the stated quiescent 2900 K; I classify it D (no physical path to the current peak) rather than C. TF04F implies the outburst persists through recording; the question asks for the second star's peak, read as at the time of observation. Variant checks: TEFF6/TF04F and T80FF/T099E state the same 950 K; T2C66/TFD41 both 'a small amount'."
+}

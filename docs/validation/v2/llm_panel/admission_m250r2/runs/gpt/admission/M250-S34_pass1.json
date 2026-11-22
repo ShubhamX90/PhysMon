@@ -1,0 +1,95 @@
+{
+  "item_id": "M250-S34",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Conservation of mechanical energy: (1/2)mv² + (1/2)Iω² = mgs sinθ. For a uniform solid sphere, I = (2/5)mr² and ω = v/r, giving s = 7v²/(10g sinθ). At θ = 25°, s = 6.08 m; at θ = 38°, s = 4.18 m.",
+    "assumptions": [
+      "The sphere maintains rolling without slipping throughout its ascent.",
+      "The clamped incline remains stationary during the motion, so static friction does no work.",
+      "A specified prelaunch increase in the incline angle occurs after its initial 25° setting and before clamping.",
+      "The specified initial centre speed remains 6 m/s for each added sentence."
+    ],
+    "answer": 6.08,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TACA4": {
+      "stratum": "C",
+      "answer_with_sentence": 6.08,
+      "regime": null
+    },
+    "T1332": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08,
+      "regime": null
+    },
+    "TDEF6": {
+      "stratum": "R",
+      "answer_with_sentence": 4.18,
+      "regime": null
+    },
+    "T4182": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08,
+      "regime": null
+    },
+    "T96D5": {
+      "stratum": "R",
+      "answer_with_sentence": 4.18,
+      "regime": null
+    },
+    "T7B54": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08,
+      "regime": null
+    },
+    "T741D": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08,
+      "regime": null
+    },
+    "T55FE": {
+      "stratum": "C",
+      "answer_with_sentence": 6.08,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The angle variants do not preserve the required numerical quantity: T1332 and T741D say 'a few degrees', whereas the other tilt sentences specify 13°."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and the individual numerical answers are well-posed under the stated rolling constraint. Radius cancels between rotational inertia and angular speed. The second board has no stated coupling to the sphere, and an earlier experiment does not change the current launch conditions. The initial-setting language permits a current prelaunch tilt to change the incline from 25° to 38°. The invalid verdict concerns the required matching of numerical quantities across sentence variants; the vague angles occur in disconnected statements and therefore do not prevent solving those individual renderings.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:15:34+00:00",
+  "completed_at": "2026-11-21T20:16:31+00:00",
+  "minutes_spent": 0.94,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "c5b9a00804780da134f0c3614253a7ee511a9ae7464d5bdf04d28533b4a50b43",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

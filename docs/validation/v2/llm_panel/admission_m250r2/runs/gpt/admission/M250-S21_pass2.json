@@ -1,0 +1,101 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S21",
+  "pass_number": 2,
+  "started_at": "2026-11-21T20:24:44+00:00",
+  "completed_at": "2026-11-21T20:25:32+00:00",
+  "minutes_spent": 0.79,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For a source approaching a stationary listener in still air, fo = f*c/(c-vs). The base answer is 440*343/323 = 467.2446 Hz. After sound emitted following a tuning increase q reaches the listener, fo = (440+q)*343/323; q = 9, 16, 24 Hz gives 476.8019, 484.2353, 492.7307 Hz, respectively.",
+    "assumptions": [
+      "The source maintains its stated approach velocity during the relevant emission interval.",
+      "The received sound was emitted while the source was approaching the listener.",
+      "Applying the retuned-frequency answer requires the measured sound to have been emitted after retuning."
+    ],
+    "answer": 467.2446,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T5688": {
+      "stratum": "D",
+      "answer_with_sentence": 467.2446,
+      "regime": null
+    },
+    "TE5DD": {
+      "stratum": "C",
+      "answer_with_sentence": 467.2446,
+      "regime": null
+    },
+    "TD410": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "TEDCB": {
+      "stratum": "D",
+      "answer_with_sentence": 467.2446,
+      "regime": null
+    },
+    "T8B99": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T4EE7": {
+      "stratum": "C",
+      "answer_with_sentence": 467.2446,
+      "regime": null
+    },
+    "T62DC": {
+      "stratum": "D",
+      "answer_with_sentence": 467.2446,
+      "regime": null
+    },
+    "TEE83": {
+      "stratum": "D",
+      "answer_with_sentence": 467.2446,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "Neither tuning sentence ensures that sound emitted after retuning has reached the listener at measurement, so the authors' retuned received frequencies are not uniquely determined."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "Let the siren switch on 300 m away at t=0, approach at 20 m/s, and retune from 440 Hz to 456 Hz at t=1 s. The first retuned sound reaches the listener at t=1+280/343=1.8163 s. Measurements at t=1.1 s and t=2 s both occur after retuning, while the source is approaching, but yield 467.2446 Hz and 484.2353 Hz, respectively. Thus even TD410's explicit 'before the measurement' does not establish its certified answer."
+  ],
+  "notes": "The Doppler equation, all listed numerical calculations, units, and rounding are correct when applied to the appropriate emitted tone. The distance-cancellation expression is dimensionally correct and reduces to f*c/(c-vs); all listed distances permit the stated approaching-wavefront construction. The disconnected-source and earlier-run classifications hold, and both explicitly claimed minimal pairs preserve 16 Hz with the intended attachment change. I withdraw pass 1's rendering_not_minimal flag: pass 2 explicitly identifies TEDCB and T62DC as numeral-free controls and does not claim that they are number-preserving minimal pairs. The unresolved timing defect remains: the authors supply no measurement or reception condition that selects the retuned wave train. answer_correct is false for the unconditional certificates, although their conditional arithmetic is correct.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "05103f867f170a000b8b05b8d04cf84b09e629125aaddc5836f895c91bb2623c",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

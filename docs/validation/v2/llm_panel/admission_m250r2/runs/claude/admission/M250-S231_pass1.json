@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch06",
+  "item_id": "M250-S231",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:41:00Z", "completed_at": "2026-11-22T10:49:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Doppler effect for reflection from a moving wall: wall receives f(c+v)/c and re-emits as a moving source, echo f' = f(c+v)/(c-v); beat = f' - f = 2fv/(c-v) = 2*440*3/340",
+    "assumptions": ["still air", "stationary loudspeaker and microphone", "wall moves at 3 m/s relative to a stationary trolley", "plane reflection straight back", "v << c, non-relativistic"],
+    "answer": 7.7647,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T2729": {"stratum": "R", "answer_with_sentence": 11.4353, "regime": null},
+    "T544D": {"stratum": "D", "answer_with_sentence": 7.7647, "regime": null},
+    "T811A": {"stratum": "D", "answer_with_sentence": 7.7647, "regime": null},
+    "T105F": {"stratum": "D", "answer_with_sentence": 7.7647, "regime": null},
+    "T72F4": {"stratum": "C", "answer_with_sentence": 7.7647, "regime": null},
+    "T7F76": {"stratum": "R", "answer_with_sentence": 11.4353, "regime": null},
+    "TAC5B": {"stratum": "C", "answer_with_sentence": 7.7647, "regime": null},
+    "T1B41": {"stratum": "D", "answer_with_sentence": 7.7647, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Trolley moving towards the loudspeaker at 1.4 m/s makes the wall's ground speed 4.4 m/s: beat = 2*440*4.4/(343-4.4) = 3872/338.6 = 11.4353 Hz. Conveyor stirs no air, so D. Wall distance 90 m sets the echo delay but not the echo frequency in steady state, so it drops out (C; one might also call it D for the frequency). T72F4 and TAC5B both state 90 m; the 1.4 m/s sentences agree; T544D and T1B41 carry no number ('a low speed')."
+}

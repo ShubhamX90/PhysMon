@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch10",
+  "item_id": "M250-S56",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:34:00Z", "completed_at": "2026-11-22T10:42:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Refrigerator COP: COP = eta * T_c/(T_h - T_c); P = Q_c_dot / COP", "assumptions": ["steady operation", "fractional Carnot COP 0.3", "electrical power = compressor work input only"], "answer": 60.61, "unit": "W"},
+  "stratum_assignments": {
+    "T2CD6": {"stratum": "K", "answer_with_sentence": 60.61, "regime": "the rating matters only if the required compressor input exceeds 330 W; required input 60.6 W is below it"},
+    "TC1B7": {"stratum": "R", "answer_with_sentence": 77.27, "regime": null},
+    "T3A68": {"stratum": "D", "answer_with_sentence": 60.61, "regime": null},
+    "T0E77": {"stratum": "D", "answer_with_sentence": 60.61, "regime": null},
+    "T9447": {"stratum": "D", "answer_with_sentence": 60.61, "regime": null},
+    "T2BAE": {"stratum": "D", "answer_with_sentence": 60.61, "regime": null},
+    "TB1B6": {"stratum": "D", "answer_with_sentence": 60.61, "regime": null},
+    "T50E9": {"stratum": "K", "answer_with_sentence": 60.61, "regime": "the rating matters only if the required compressor input exceeds 330 W; required input 60.6 W is below it"},
+    "T5601": {"stratum": "D", "answer_with_sentence": 60.61, "regime": null},
+    "T5F2C": {"stratum": "R", "answer_with_sentence": 77.27, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "With a lamp inside, the base sentence 'the refrigerator must remove heat from it at a steady rate of 200 W' no longer describes the total removal rate (255 W); the clause 'Heat leaks in through its walls at the rate given' supports reading 200 W as the wall leak only, but the wording is strained."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "notes": "COP_Carnot = 275/25 = 11; actual COP = 3.3; P = 200/3.3 = 60.61 W. With a 55 W lamp inside, heat to be removed = 255 W, P = 255/3.3 = 77.27 W (lamp's own electricity excluded since only compressor power is asked). Rating 330 W is a capacity limit, not a draw: K. Test/monitor duration 90 min has no path to a steady power (could also be argued C via E = P t). Earlier-test lamp and lamp above the chest freezer are disconnected (kitchen stated at 300 K). TB1B6/T9447 use 'small lamp' without number; fine as numeral-free distractors."
+}

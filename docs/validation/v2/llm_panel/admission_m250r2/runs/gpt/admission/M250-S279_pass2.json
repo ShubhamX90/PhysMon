@@ -1,0 +1,90 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S279",
+  "pass_number": 2,
+  "started_at": "2026-11-21T20:07:31+00:00",
+  "completed_at": "2026-11-21T20:08:07+00:00",
+  "minutes_spent": 0.59,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The laboratory photon direction is perpendicular to the source velocity. The Lorentz transformation gives f_abs = f0/gamma, so the decrease is df = f0[1-sqrt(1-v^2/c^2)] = f0*v^2/(2*c^2) to leading nonzero order, with f0 = E0/h and v = 2*pi*frot*R. Converting energy to eV and radius to metres gives v = 452.389 m/s and df = 3.9641 MHz.",
+    "assumptions": [
+      "Special relativity describes the photon frequency transformation.",
+      "The source occupies the outermost edge of the rotor, including the added ring in the relevant variants.",
+      "The absorber is stationary in the laboratory, and the photon follows the stated straight path to the axis.",
+      "Terms beyond leading order in (v/c)^2 are neglected."
+    ],
+    "answer": 3.9641,
+    "unit": "MHz"
+  },
+  "stratum_assignments": {
+    "T6166": {
+      "stratum": "D",
+      "answer_with_sentence": 3.9641,
+      "regime": null
+    },
+    "TCFA7": {
+      "stratum": "D",
+      "answer_with_sentence": 3.9641,
+      "regime": null
+    },
+    "TC381": {
+      "stratum": "R",
+      "answer_with_sentence": 6.7855,
+      "regime": null
+    },
+    "T1355": {
+      "stratum": "R",
+      "answer_with_sentence": 6.7855,
+      "regime": null
+    },
+    "TA7FF": {
+      "stratum": "D",
+      "answer_with_sentence": 3.9641,
+      "regime": null
+    },
+    "TCAAF": {
+      "stratum": "D",
+      "answer_with_sentence": 3.9641,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T6166 and TA7FF replace the numerical twins' 3.7 cm with 'a little', violating the review's stipulated preservation of the same number and unit across sentence variants, even though the authors explicitly identify these omissions as intentional controls."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The physics, dependency claims and certified answers are correct. For relevant additions q = 1.9, 3.7 and 5.6 cm, df scales as (12+q)^2/12^2, giving 5.31878, 6.78550 and 8.52723 MHz. The disconnected variants retain 3.9641 MHz. The explicitly designated minimal pairs TCFA7/TC381 and TCAAF/T1355 preserve the number and unit and change the intended attachment. The authors disclose that the other two sentences are numeral-free controls rather than numerical minimal pairs; this explains their design but does not satisfy the review's general same-number-and-unit requirement. The pass-1 verdict therefore remains unchanged. Pass-1 answers expressed in Hz agree with the present MHz answers within their rounding.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "2f8803cbfefb75ac4e8e54f9f099c164e02c58d9a8939634ff7cd00bc597dac7",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

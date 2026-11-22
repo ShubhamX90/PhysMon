@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch04",
+  "item_id": "M250-S256",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:10:00Z", "completed_at": "2026-11-22T10:17:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Q = n * 3R * dT with n = m/M (Dulong-Petit, stated)", "assumptions": ["constant molar heat capacity 3R as stated", "no heat loss", "no phase change", "added lead on the block starts at the block's temperature"], "answer": 3611.3, "unit": "J"},
+  "stratum_assignments": {
+    "TAA2E": {"stratum": "D", "answer_with_sentence": 3611.3, "regime": null},
+    "TD22B": {"stratum": "D", "answer_with_sentence": 3611.3, "regime": null},
+    "T30A5": {"stratum": "C", "answer_with_sentence": 3611.3, "regime": null},
+    "T85DA": {"stratum": "D", "answer_with_sentence": 3611.3, "regime": null},
+    "TA290": {"stratum": "D", "answer_with_sentence": 3611.3, "regime": null},
+    "TBFB5": {"stratum": "C", "answer_with_sentence": 3611.3, "regime": null},
+    "T6CF0": {"stratum": "R", "answer_with_sentence": 4911.4, "regime": null},
+    "TC49F": {"stratum": "R", "answer_with_sentence": 4911.4, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "n = 500/207.2 = 2.41313 mol; Q = 2.41313 * 24.942 * 60 = 3611.3 J. With 0.68 kg: Q = 3611.3*0.68/0.5 = 4911.4 J. Heater power: Q = P t only fixes the heating time (not asked), so the power does not enter the answer; I label it C (it belongs to the system's energy balance but drops out); could also be argued D. Variant checks: TA290/TC49F/T6CF0/TD22B all 0.18 kg; T30A5/TBFB5 both 310 W; TAA2E/T85DA 'a small amount'."
+}

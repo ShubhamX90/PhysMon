@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch12",
+  "item_id": "M250-S38",
+  "pass_number": 2,
+  "started_at": "2026-11-22T11:09:30Z", "completed_at": "2026-11-22T11:15:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Static equilibrium of ladder against smooth wall: N = (m+M) g, F_wall = (m/2 + M x) g / tan(theta), |F_ground| = sqrt(N^2 + F_wall^2).",
+    "assumptions": ["Smooth wall", "uniform ladder", "no slipping"],
+    "answer": 841.624,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T1EB2": {"stratum": "D", "answer_with_sentence": 841.624, "regime": null},
+    "T49C6": {"stratum": "D", "answer_with_sentence": 841.624, "regime": null},
+    "T5690": {"stratum": "C", "answer_with_sentence": 841.624, "regime": null},
+    "T038B": {"stratum": "C", "answer_with_sentence": 841.624, "regime": null},
+    "TA81B": {"stratum": "D", "answer_with_sentence": 841.624, "regime": null},
+    "TCE71": {"stratum": "R", "answer_with_sentence": 939.709, "regime": null},
+    "TD573": {"stratum": "R", "answer_with_sentence": 939.709, "regime": null},
+    "TEA7A": {"stratum": "D", "answer_with_sentence": 841.624, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Verified: theta=48: F_wall = 470.4*0.90040 = 423.55 N, |F| = 908.39 N; theta=44: 939.71 N; theta=40: F_wall = 470.4*1.19175 = 560.60 N, |F| = 979.82 N; base 841.62 N. Length cancellation expression correct. Minimal pairs T49C6/TCE71 (earlier experiment vs before person stood, both 18 deg) and TEA7A/TD573 (shutter vs ladder, both 18 deg) differ only in attachment. Earlier-experiment tilt leaves no state because the stated angle is the outset angle of this experiment. Numeral-free controls T1EB2 and TA81B are declared. Non-slipping at 40 deg requires mu >= 0.70, covered by the stated 'does not slip'. Agrees with pass 1."
+}

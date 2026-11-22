@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch01",
+  "item_id": "M250-S268",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:29:00Z", "completed_at": "2026-11-22T10:36:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Long-solenoid inductance L = mu0 N^2 pi r^2 / l; steady current I = emf/R1 (the zero-resistance winding shorts the second resistor); all stored energy (1/2) L I^2 is dissipated in the second resistor after the switch opens",
+    "assumptions": ["ideal long-solenoid formula (l/r about 27)", "winding resistance negligible, so the second resistor carries no steady current and receives all of the stored energy", "no radiation or other losses"],
+    "answer": 0.0063974,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "T212D": {"stratum": "D", "answer_with_sentence": 0.0063974, "regime": null},
+    "T000E": {"stratum": "R", "answer_with_sentence": 0.016893, "regime": null},
+    "T7621": {"stratum": "C", "answer_with_sentence": 0.0063974, "regime": null},
+    "T200B": {"stratum": "D", "answer_with_sentence": 0.0063974, "regime": null},
+    "T8F98": {"stratum": "D", "answer_with_sentence": 0.0063974, "regime": null},
+    "T0F51": {"stratum": "R", "answer_with_sentence": 0.016893, "regime": null},
+    "T5C53": {"stratum": "C", "answer_with_sentence": 0.0063974, "regime": null},
+    "TC1E1": {"stratum": "D", "answer_with_sentence": 0.0063974, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "L = 1.257e-6*800^2*pi*(0.015)^2/0.40 = 1.42163e-3 H. I = 12/4 = 3 A; E = 0.5*1.42163e-3*9 = 6.3974e-3 J. With 7.5 V added in series (19.5 V): I = 4.875 A; E = 0.5*1.42163e-3*23.7656 = 0.016893 J. The second resistor's value sets the decay time but not the total energy dissipated in it (C): it enters L di/dt = -R2 i and the integral of R2 i^2 dt = (1/2) L I^2 independent of R2. Doorbell-cell batteries (T200B, TC1E1) are a separate circuit (D). Earlier-run batteries (T212D, T8F98) leave no state (D). T212D and TC1E1 state no number ('modest emf')."
+}

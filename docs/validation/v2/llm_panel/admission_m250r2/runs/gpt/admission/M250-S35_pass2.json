@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S35",
+  "pass_number": 2,
+  "started_at": "2026-11-21T20:23:52+00:00",
+  "completed_at": "2026-11-21T20:24:34+00:00",
+  "minutes_spent": 0.7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Writing the tension as F, vertical balance gives F cos(theta) = mg and horizontal centripetal acceleration gives F sin(theta) = m omega^2 L sin(theta). Therefore the period is P = 2 pi sqrt(L cos(theta)/g). For an extension q of the moving bob's string, replace L by L + q.",
+    "assumptions": [
+      "The small bob is treated as a point mass on a light, inextensible string with a fixed suspension point.",
+      "The stated steady circular motion and angle apply after the specified change.",
+      "The separate bob does not interact with the moving bob.",
+      "The stated initial length describes the present experiment independently of the earlier experiment."
+    ],
+    "answer": 2.04608,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T41B5": {
+      "stratum": "R",
+      "answer_with_sentence": 2.5746,
+      "regime": null
+    },
+    "T3E4C": {
+      "stratum": "D",
+      "answer_with_sentence": 2.04608,
+      "regime": null
+    },
+    "T3589": {
+      "stratum": "C",
+      "answer_with_sentence": 2.04608,
+      "regime": null
+    },
+    "T8044": {
+      "stratum": "C",
+      "answer_with_sentence": 2.04608,
+      "regime": null
+    },
+    "TC5DB": {
+      "stratum": "R",
+      "answer_with_sentence": 2.5746,
+      "regime": null
+    },
+    "T5418": {
+      "stratum": "D",
+      "answer_with_sentence": 2.04608,
+      "regime": null
+    },
+    "T422F": {
+      "stratum": "D",
+      "answer_with_sentence": 2.04608,
+      "regime": null
+    },
+    "T0789": {
+      "stratum": "D",
+      "answer_with_sentence": 2.04608,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "I withdraw the pass-1 rendering_not_minimal finding: pass 2 explicitly identifies T3E4C and T0789 as intentional numeral-free controls, rather than claiming they preserve the numerical content of their twins. The explicitly claimed minimal pairs, T422F with TC5DB and T5418 with T41B5, preserve 0.7 m and change the event or object to which the extension applies. All certified answers agree with the governing equations: extensions of 0.4, 0.7 and 1.1 m give periods of 2.36261, 2.57460 and 2.83267 s. All listed masses cancel, and all disconnected variants retain 2.04608 s. The cancellation expression, dimensions, positive parameter domains and displayed numerical precision are consistent. No K claim is present.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "76b595344feb13e011db7bdb6c84b461808ae655e7676bb6400536f78dee6c24",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

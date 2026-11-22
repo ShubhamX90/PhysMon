@@ -1,0 +1,37 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch02",
+  "item_id": "M250-S279",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:08:00Z", "completed_at": "2026-11-22T10:15:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Transverse Doppler shift: Delta f = f0 v^2/(2c^2), v = 2 pi r f_rot, f0 = E/h.",
+    "assumptions": ["absorber at rest on axis", "clock hypothesis", "leading order"],
+    "answer": 3.9641,
+    "unit": "MHz"
+  },
+  "stratum_assignments": {
+    "T6166": {"stratum": "D", "answer_with_sentence": 3.9641, "regime": null},
+    "TCFA7": {"stratum": "D", "answer_with_sentence": 3.9641, "regime": null},
+    "TC381": {"stratum": "R", "answer_with_sentence": 6.7855, "regime": null},
+    "T1355": {"stratum": "R", "answer_with_sentence": 6.7855, "regime": null},
+    "TA7FF": {"stratum": "D", "answer_with_sentence": 3.9641, "regime": null},
+    "TCAAF": {"stratum": "D", "answer_with_sentence": 3.9641, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All certified answers verified: base 3.9641 MHz; R answers scale by ((12+q)/12)^2: q=1.9 -> 1.341736 x 3.9641 = 5.3188; q=3.7 -> 1.711736 x 3.9641 = 6.7855; q=5.6 -> 2.151111 x 3.9641 = 8.5272 MHz. Strata agree with my pass 1. Minimal pairs TCAAF/T1355 (pump pulley vs rotor disc) and TCFA7/TC381 (earlier run vs before this run) carry the same number and unit and differ only in attachment/timing. T6166 and TA7FF are declared numeral-free controls twinned with their D sentences, which resolves my pass-1 query about 'a little'. Minor wording points (not defects): 'leading order in v/c' means the leading non-vanishing (second) order; TC381's 'Before the rotor is set turning' is best read as the ring being fitted before and kept during the run, and the source at the outermost edge tracks the ring, as the authors intend."
+}

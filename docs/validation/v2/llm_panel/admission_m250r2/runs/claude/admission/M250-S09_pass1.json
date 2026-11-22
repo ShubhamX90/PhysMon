@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch02",
+  "item_id": "M250-S09",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:30:00Z", "completed_at": "2026-11-22T10:36:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Calorimetry (energy conservation in an insulated container): m_c c_c (T_c - T_f) = m_w c_w (T_f - T_w); rise = m_c c_c (T_c - T_w)/(m_c c_c + m_w c_w).",
+    "assumptions": ["perfectly insulated, container absorbs no heat (stated)", "constant specific heats", "no phase change (stated)", "single final temperature (stated)"],
+    "answer": 8.249,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "T128A": {"stratum": "D", "answer_with_sentence": 8.249, "regime": null},
+    "TD942": {"stratum": "D", "answer_with_sentence": 8.249, "regime": null},
+    "TC375": {"stratum": "D", "answer_with_sentence": 8.249, "regime": null},
+    "TDD5D": {"stratum": "R", "answer_with_sentence": 3.6938, "regime": null},
+    "TCCED": {"stratum": "D", "answer_with_sentence": 8.249, "regime": null},
+    "T4800": {"stratum": "R", "answer_with_sentence": 3.6938, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "m_c c_c = 192.5 J/K, m_w c_w = 1674.4 J/K; rise = 192.5 x 80 / 1866.9 = 8.2490 K (T_f = 301.249 K). With 0.95 kg water: m_w c_w = 3976.7 J/K; rise = 15400/4169.2 = 3.6938 K. Earlier-experiment sentences are excluded by 'Nothing from any other experiment is left in the first container'; second-container sentences have no path. TD942 and TC375 use 'a small amount' instead of 0.55 kg, so they do not carry the same number as their apparent twins."
+}

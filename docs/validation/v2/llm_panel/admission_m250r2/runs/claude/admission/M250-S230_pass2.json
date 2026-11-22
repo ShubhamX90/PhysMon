@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch11",
+  "item_id": "M250-S230",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:36:00Z", "completed_at": "2026-11-22T10:43:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Tf = (m1 T1 + m2 T2)/(m1 + m2); S_gen = c [m1 ln(Tf/T1) + m2 ln(Tf/T2)]",
+    "assumptions": ["isolated rigid enclosure", "constant c, negligible volume change", "same metal for both blocks"],
+    "answer": 25.566,
+    "unit": "J/K"
+  },
+  "stratum_assignments": {
+    "T04A3": {"stratum": "D", "answer_with_sentence": 25.566, "regime": null},
+    "T33C5": {"stratum": "D", "answer_with_sentence": 25.566, "regime": null},
+    "T7053": {"stratum": "D", "answer_with_sentence": 25.566, "regime": null},
+    "TFF07": {"stratum": "D", "answer_with_sentence": 25.566, "regime": null},
+    "TC78D": {"stratum": "R", "answer_with_sentence": 31.975, "regime": null},
+    "T8625": {"stratum": "R", "answer_with_sentence": 31.975, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base 25.5655 J/K matches my 25.566. R answers checked by hand: q=0.6 -> Tf=322.5 K, S=900(2.6 ln(0.89583)+3 ln(1.11207)) = 29.398; q=1.1 -> Tf=325.574 K, 31.98; q=3.4 -> Tf=335 K, 900(5.4 ln(0.93056)+3 ln(1.15517)) = 39.68 J/K. Strata match pass 1. Minimal pairs T04A3/TC78D and T7053/T8625 both carry 1.1 kg and differ only in attachment (earlier run; cabinet vs block). Numeral-free twins declared. 'At the same temperature' in TC78D/T04A3 reads naturally as the hotter block's temperature."
+}

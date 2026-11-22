@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch12",
+  "item_id": "M250-S274",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:12:30Z", "completed_at": "2026-11-22T10:20:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Weak-field anomalous Zeeman effect; outermost-component separation dE = (g_P + g_S) mu_B B; d(lambda) = lambda^2 dE / hc.",
+    "assumptions": ["Linear Zeeman regime with J-level g-factors", "hyperfine structure not considered", "first-order wavelength shift"],
+    "answer": 27.0031,
+    "unit": "pm"
+  },
+  "stratum_assignments": {
+    "T63F3": {"stratum": "K", "answer_with_sentence": 27.0031, "regime": "Weak-field regime: Zeeman splittings (~1e-4 eV) << fine-structure splitting; holds for 0.0018, 0.0036, 0.004 eV."},
+    "T2090": {"stratum": "R", "answer_with_sentence": 29.9735, "regime": null},
+    "TF402": {"stratum": "D", "answer_with_sentence": 27.0031, "regime": null},
+    "TD469": {"stratum": "D", "answer_with_sentence": 27.0031, "regime": null},
+    "T664D": {"stratum": "D", "answer_with_sentence": 27.0031, "regime": null},
+    "TC894": {"stratum": "R", "answer_with_sentence": 29.9735, "regime": null},
+    "T3EF7": {"stratum": "D", "answer_with_sentence": 27.0031, "regime": null},
+    "T4FF2": {"stratum": "K", "answer_with_sentence": 27.0031, "regime": "Same as T63F3."}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base answer 27.0031 pm matches my pass-1 0.027003 nm. R answers check: 27.0031*(0.536/0.5)=28.9473, *(0.555/0.5)=29.9735, *(0.583/0.5)=31.4856. Relation dE=(gu+gl)Eb equals the separation between the m_P=+/-1/2 -> m_S=-/+1/2 components. K predicate 10*dE < q: 10*9.65e-5 eV = 9.65e-4 eV < 0.0018 eV, so all listed values are in regime. Minimal pairs TD469/T2090 and TF402/TC894 share 55 mT and differ only in attachment; T664D and T3EF7 are declared numeral-free controls, which resolves my pass-1 note about 'a little'. The 0.0036 eV value is not sodium's real D-doublet splitting, but the element is not named and the value is used only as a K distractor; no flag."
+}

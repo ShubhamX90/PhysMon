@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S11",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "On the level road, N = mg and the kinetic friction force is μmg. Thus the deceleration is μg = 4.9 m/s², and the stopping distance is v_initial²/(2μg) = 20²/9.8.",
+    "assumptions": [
+      "Without an added acceleration statement, braking begins at the stated cruising speed of 20 m/s.",
+      "The coefficient of kinetic friction remains constant throughout braking.",
+      "For the statements about the car speeding up before braking, the stated increase is relative to its cruising speed."
+    ],
+    "answer": 40.8163265306,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "T8720": {
+      "stratum": "R",
+      "answer_with_sentence": 61.25,
+      "regime": null
+    },
+    "TFCB8": {
+      "stratum": "D",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "T0C0C": {
+      "stratum": "C",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "TF039": {
+      "stratum": "C",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "TD024": {
+      "stratum": "D",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "T5FC7": {
+      "stratum": "D",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "T4983": {
+      "stratum": "D",
+      "answer_with_sentence": 40.8163265306,
+      "regime": null
+    },
+    "TB9A5": {
+      "stratum": "R",
+      "answer_with_sentence": 61.25,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The speed-increase variants do not consistently preserve the number and unit: TD024 and T4983 say only 'a small amount', whereas the other speed-increase sentences specify 4.5 m/s."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The stopping-distance physics is well-posed under the stated cruising-speed interpretation. The relevant additions give a braking speed of 24.5 m/s and a stopping distance of 61.25 m. Both mass statements specify 1350 kg, which cancels between friction and inertia. The bus's acceleration and acceleration on an earlier run have no stated physical connection to the present stopping distance. The validity defect concerns the required numerical matching of variants; the unspecified amounts do not prevent solving their individual renderings.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:09:50+00:00",
+  "completed_at": "2026-11-21T20:10:27+00:00",
+  "minutes_spent": 0.61,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "dea05259355b7a49a3d3806a2a7444d9e3c7245ae2dbbfcbf7a598c59091200c",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

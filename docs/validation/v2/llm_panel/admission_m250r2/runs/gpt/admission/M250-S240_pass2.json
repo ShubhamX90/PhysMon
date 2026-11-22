@@ -1,0 +1,110 @@
+{
+  "item_id": "M250-S240",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Bernoulli between the reservoir surface and atmospheric outlet gives v² = 2gh. Uniform bore and continuity give the same speed at the crest. Thus pc = p0 - rho*g*(H+h) = 101.3 - 1000*9.8*2.3/1000 = 78.76 kPa.",
+    "assumptions": [
+      "The large reservoir has negligible surface speed.",
+      "The stated steady, frictionless, incompressible flow fills the uniform tube.",
+      "The reservoir surface and outlet are at atmospheric pressure.",
+      "Pressure terms are converted to consistent units before addition."
+    ],
+    "answer": 78.76,
+    "unit": "kPa"
+  },
+  "stratum_assignments": {
+    "T45C6": {
+      "stratum": "D",
+      "answer_with_sentence": 78.76,
+      "regime": null
+    },
+    "T7E69": {
+      "stratum": "K",
+      "answer_with_sentence": 78.76,
+      "regime": "Vapour pressure must remain below the minimum liquid pressure, 78.76 kPa at the crest; all listed values satisfy this."
+    },
+    "TED68": {
+      "stratum": "K",
+      "answer_with_sentence": 78.76,
+      "regime": "Vapour pressure must remain below the minimum liquid pressure, 78.76 kPa at the crest; all listed values satisfy this."
+    },
+    "TC9D2": {
+      "stratum": "C",
+      "answer_with_sentence": 78.76,
+      "regime": null
+    },
+    "T5FCB": {
+      "stratum": "R",
+      "answer_with_sentence": 74.7028,
+      "regime": null
+    },
+    "T15A1": {
+      "stratum": "R",
+      "answer_with_sentence": 74.7028,
+      "regime": null
+    },
+    "TCBA8": {
+      "stratum": "D",
+      "answer_with_sentence": 78.76,
+      "regime": null
+    },
+    "T3DC9": {
+      "stratum": "D",
+      "answer_with_sentence": 78.76,
+      "regime": null
+    },
+    "T6788": {
+      "stratum": "C",
+      "answer_with_sentence": 78.76,
+      "regime": null
+    },
+    "T2061": {
+      "stratum": "D",
+      "answer_with_sentence": 78.76,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The intentional numeral-free controls TCBA8 and T2061 omit their twins' number and unit, departing from the review prompt's matching-number convention, although the authors explicitly disclose this and do not claim these controls as minimal pairs."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "low"
+  },
+  "counterexamples": [],
+  "notes": "All physical classifications, governing relations, cancellation expressions and certified answers agree with my independent solution. For either relevant replacement, densities 760, 1180 and 1340 kg/m³ give 84.1696, 74.7028 and 71.0964 kPa respectively. Tube area cancels through continuity; the bore values are positive and consistent with the stipulated ideal flow. Vapour pressures 3.2, 12 and 31 kPa are below the crest pressure. The 110 kPa example lies outside that regime and is not presented as a certified operating solution. The beaker replacements and explicitly earlier-run replacements have no effect on the stated flow. Both explicitly claimed minimal pairs preserve the density value and unit and change only the relevant object or event attachment. I revise my pass-1 severity: pass 2 identifies the numeral-free sentences as intentional controls rather than falsely claiming that they preserve their twins' number and unit. Their departure from the general rendering convention therefore does not justify a high flag or invalidate the physics. No additional information about the item was accessed.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:30:58+00:00",
+  "completed_at": "2026-11-21T20:31:51+00:00",
+  "minutes_spent": 0.88,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "710d8e4c46fa9f9bb4aa027444211ff4633cfc3f6e34a8e7bffb748a2ecbaf60",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

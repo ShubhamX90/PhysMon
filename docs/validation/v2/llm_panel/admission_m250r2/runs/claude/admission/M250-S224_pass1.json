@@ -1,0 +1,34 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch02",
+  "item_id": "M250-S224",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:15:00Z", "completed_at": "2026-11-22T10:23:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Entropy of mixing of distinct ideal gases initially at equal T and P: Delta S = -R sum n_i ln x_i (each gas expands isothermally into the whole volume; no energy change on mixing ideal gases in an insulated rigid container).",
+    "assumptions": ["ideal, distinct, non-reacting gases", "equal initial T and P (stated)", "insulated rigid container so T unchanged on mixing"],
+    "answer": 22.001,
+    "unit": "J/K"
+  },
+  "stratum_assignments": {
+    "TD9D8": {"stratum": "D", "answer_with_sentence": 22.001, "regime": null},
+    "TA337": {"stratum": "D", "answer_with_sentence": 22.001, "regime": null},
+    "T2667": {"stratum": "R", "answer_with_sentence": 30.472, "regime": null},
+    "T4FE0": {"stratum": "C", "answer_with_sentence": 22.001, "regime": null},
+    "TBB89": {"stratum": "D", "answer_with_sentence": 22.001, "regime": null},
+    "T7A1E": {"stratum": "C", "answer_with_sentence": 22.001, "regime": null},
+    "T6DA3": {"stratum": "R", "answer_with_sentence": 30.472, "regime": null},
+    "TA9C4": {"stratum": "D", "answer_with_sentence": 22.001, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: x_He = 0.375, x_Ar = 0.625; Delta S = 8.314 (1.5 x 0.980829 + 2.5 x 0.470004) = 8.314 x 2.646253 = 22.001 J/K. With 1.3 mol more He in the helium compartment: n_He = 2.8, n = 5.3; Delta S = 8.314 (2.8 x 0.638087 + 2.5 x 0.751416) = 8.314 x 3.665184 = 30.472 J/K. The volume (T4FE0, T7A1E) enters each gas's ln(V_f/V_i) but cancels because at equal T and P the volume fractions equal the mole fractions: C. Balloon and earlier-run sentences have no path: D. I read 'the total entropy change of the two gases' as the change on mixing (partition removal), the process the problem describes; for T2667/T6DA3 the stated settling condition fixes equal T and P before mixing, so only the new amounts matter. TA337 and TA9C4 say 'a small amount' instead of 1.3 mol, so they do not carry the same number as their apparent twins."
+}

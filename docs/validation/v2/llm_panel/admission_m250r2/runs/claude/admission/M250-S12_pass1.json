@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch13",
+  "item_id": "M250-S12",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:15:00Z", "completed_at": "2026-11-22T10:19:00Z", "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Static friction supplies centripetal force on a flat curve: m v^2 / r <= mu_s m g, so v_max = sqrt(mu_s g r)",
+    "assumptions": ["flat (unbanked) road", "car treated as a point mass moving on a circle of the stated radius", "uniform circular motion, no tangential acceleration", "no aerodynamic downforce"],
+    "answer": 17.15,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T02CA": {"stratum": "D", "answer_with_sentence": 17.15, "regime": null},
+    "T82EB": {"stratum": "R", "answer_with_sentence": 18.39, "regime": null},
+    "T7092": {"stratum": "D", "answer_with_sentence": 17.15, "regime": null},
+    "T5A6E": {"stratum": "D", "answer_with_sentence": 17.15, "regime": null},
+    "T9AEC": {"stratum": "D", "answer_with_sentence": 17.15, "regime": null},
+    "TFE1E": {"stratum": "C", "answer_with_sentence": 17.15, "regime": null},
+    "T79A4": {"stratum": "C", "answer_with_sentence": 17.15, "regime": null},
+    "TF5BA": {"stratum": "R", "answer_with_sentence": 18.39, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TF5BA uses past tense ('On this run, the car kept to a lane') while the question is in the present, a minor wording mismatch that does not change the reading."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "v_max = sqrt(0.6*9.8*50) = sqrt(294) = 17.146 m/s. With r = 57.5 m: sqrt(338.1) = 18.388 m/s. Mass cancels (TFE1E, T79A4, both 1350 kg). 7.5 m sentences (T02CA, T82EB, T9AEC, TF5BA) consistent in number and unit; 'a little further' sentences (T7092, T5A6E) are non-numeric D sentences."
+}

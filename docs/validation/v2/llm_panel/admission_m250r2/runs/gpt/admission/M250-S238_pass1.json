@@ -1,0 +1,100 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S238",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:26:56+00:00",
+  "completed_at": "2026-11-21T20:27:55+00:00",
+  "minutes_spent": 1.0,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For steady circular cylindrical Couette flow, v_theta = Ar + B/r. No slip gives torque T = 4*pi*mu*L*Omega*a^2*b^2/(b^2-a^2), hence P = T*Omega. With a = 0.020 m, b = 0.022 m, L = 0.10 m and mu = 0.4 Pa*s, P at 120 rpm is 0.182943 W. At 195 rpm it is 0.483084 W.",
+    "assumptions": [
+      "The reported power is the mechanical power required to overcome oil shear.",
+      "The numerical base answer assumes the final rotor rate remains 120 rpm; the packet explicitly specifies only its initial rate.",
+      "A rotor speed-setting increase is realized as an equal increase in actual rotor speed, and power is evaluated after steady flow is established.",
+      "An earlier run does not determine the current run's final speed."
+    ],
+    "answer": 0.182943,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T7A33": {
+      "stratum": "D",
+      "answer_with_sentence": 0.182943,
+      "regime": null
+    },
+    "T564F": {
+      "stratum": "R",
+      "answer_with_sentence": 0.483084,
+      "regime": null
+    },
+    "T4956": {
+      "stratum": "D",
+      "answer_with_sentence": 0.182943,
+      "regime": null
+    },
+    "T5A9C": {
+      "stratum": "C",
+      "answer_with_sentence": 0.182943,
+      "regime": null
+    },
+    "TEF4A": {
+      "stratum": "R",
+      "answer_with_sentence": 0.483084,
+      "regime": null
+    },
+    "T0105": {
+      "stratum": "D",
+      "answer_with_sentence": 0.182943,
+      "regime": null
+    },
+    "TFDA3": {
+      "stratum": "D",
+      "answer_with_sentence": 0.182943,
+      "regime": null
+    },
+    "TF420": {
+      "stratum": "C",
+      "answer_with_sentence": 0.182943,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The problem expressly identifies 120 rpm as the initial rate but asks about the final rate without specifying that it remains unchanged or giving a subsequent speed history.",
+    "rendering_not_minimal": "The same-quantity variants T7A33/T4956 and T0105/TFDA3 replace '75 rpm' with an unspecified 'small amount', so they do not preserve the required number and unit."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A rotor initially running at 120 rpm can subsequently settle at either 120 rpm or 195 rpm while satisfying the stated steady final-flow model; the required powers are respectively 0.182943 W and 0.483084 W."
+  ],
+  "notes": "The numerical answers are conditional on interpreting an otherwise unspecified final speed as unchanged, or as 195 rpm for the two current-run rotor increases. Density enters the radial pressure balance, dp/dr = rho*v_theta^2/r, but drops out of the azimuthal flow and torque calculation; both density sentences are therefore classified C. The separate stirrer has no stated coupling to the rotor. Earlier-run changes do not specify a change during the current run. Both density variants preserve 860 kg/m³, and the explicitly numerical speed variants preserve 75 rpm.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "7fd60ea41f129336a4e2c2230f5e136377e0e259095738887ba866519a259118",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

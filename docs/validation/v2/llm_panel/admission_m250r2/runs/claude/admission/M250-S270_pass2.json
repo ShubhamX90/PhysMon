@@ -1,0 +1,35 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch05",
+  "item_id": "M250-S270",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:52:00Z", "completed_at": "2026-11-22T11:00:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Two-step Doppler: f2 = f (c - w)(c - v)/(c (c + w)); shift f - f2",
+    "assumptions": ["still air, c = 343 m/s", "collinear subsonic motion", "frequency-preserving reflection in lorry frame", "recorder moves with the reflected sound"],
+    "answer": 89.5812,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "TDC03": {"stratum": "C", "answer_with_sentence": 89.5812, "regime": null},
+    "T02E2": {"stratum": "D", "answer_with_sentence": 89.5812, "regime": null},
+    "TA134": {"stratum": "D", "answer_with_sentence": 89.5812, "regime": null},
+    "TA6A4": {"stratum": "D", "answer_with_sentence": 89.5812, "regime": null},
+    "T6307": {"stratum": "C", "answer_with_sentence": 89.5812, "regime": null},
+    "TBF04": {"stratum": "R", "answer_with_sentence": 96.3377, "regime": null},
+    "T4BE2": {"stratum": "D", "answer_with_sentence": 89.5812, "regime": null},
+    "TA0C8": {"stratum": "R", "answer_with_sentence": 96.3377, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "The scene_clause_note refers to 'a belt that moves' the toolbox, which appears nowhere in the item (the sentences use a walking technician); a stale explanatory note that does not affect any answer or stratum."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified: base 1500 x (1 - 112558/119707) = 89.581 Hz; recorder speed 10.1 -> 94.226, 10.6 -> 96.338, 11.4 -> 99.716 Hz. The crest-timing cancellation for the initial distance is correct: t_h = (q + c t)/(c - w), T = (q + (c + w) t_h)/(c - v), so T_(n+1) - T_n = c(c + w)/(f (c - w)(c - v)) and q cancels. In pass 1 I labelled the 82 m sentences D because they enter no steady-state Doppler relation; given the authors' crest-timing relations, in which the distance does appear and cancels, C is a defensible label, and the answer is the same either way. Minimal pairs T02E2/TBF04 and T4BE2/TA0C8 share 1.6 m/s and differ only in time or in what is carried; numeral-free twins match."
+}

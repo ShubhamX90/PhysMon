@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch02",
+  "item_id": "M250-S279",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:00:00Z", "completed_at": "2026-11-22T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Transverse (time-dilation) Doppler shift: photons emitted radially toward an absorber on the axis are perpendicular to the source velocity in the lab, so f_abs = f0/gamma, Delta f = f0 (1 - 1/gamma) ~ f0 v^2/(2c^2), with v = 2 pi r f_rot and f0 = E/h.",
+    "assumptions": ["absorber at rest on the axis (inertial lab frame)", "clock hypothesis: acceleration does not affect source clock rate", "leading order in v/c as stated"],
+    "answer": 3.964e6,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T6166": {"stratum": "D", "answer_with_sentence": 3.964e6, "regime": null},
+    "TCFA7": {"stratum": "D", "answer_with_sentence": 3.964e6, "regime": null},
+    "TC381": {"stratum": "R", "answer_with_sentence": 6.786e6, "regime": null},
+    "T1355": {"stratum": "R", "answer_with_sentence": 6.786e6, "regime": null},
+    "TA7FF": {"stratum": "D", "answer_with_sentence": 3.964e6, "regime": null},
+    "TCAAF": {"stratum": "D", "answer_with_sentence": 3.964e6, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "f0 = 14400 eV / 4.1357e-15 eV s = 3.48188e18 Hz; v = 2 pi (0.12 m)(600 Hz) = 452.39 m/s; v^2/(2c^2) = 1.13850e-12; Delta f = 3.9641e6 Hz. With the ring (r = 0.157 m): factor (15.7/12)^2 = 1.71174, Delta f = 6.7855e6 Hz. Readings: T1355 and TC381 are taken as the ring being present during the run and the source sitting at the new outermost edge of the rotor; this relies on 'fixed at the outermost edge of the rotor' tracking the ring, which is somewhat implicit. TC381's 'Before the rotor is set turning' could also be read as a state that holds only before the run, which would make it irrelevant; I take the more natural reading that the ring is fitted before the run and stays. T6166 and TA7FF say 'a little' rather than 3.7 cm, so they do not state the same number and unit as their apparent twins TCFA7 and TCAAF; if they are claimed as minimal pairs with those, that would be a rendering mismatch (checked in pass 2). Earlier-run and pump-pulley sentences have no path to the target."
+}

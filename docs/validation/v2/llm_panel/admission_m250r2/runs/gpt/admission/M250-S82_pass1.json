@@ -1,0 +1,89 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S82",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:24:34+00:00",
+  "completed_at": "2026-11-21T20:25:17+00:00",
+  "minutes_spent": 0.71,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Wien's displacement law gives lambda_max T = (500 nm)(5800 K). At 2900 K, lambda_max = 1000 nm, so E = hc/lambda_max = 1.24 eV. If the second star is observed at 3850 K during an outburst, lambda_max = 753.247 nm and E = 1.64621 eV.",
+    "assumptions": [
+      "The base answer refers to the second star between outbursts, at the supplied temperature of 2900 K.",
+      "The stated blackbody model also applies during an outburst.",
+      "The maximum is defined using spectral radiance per unit wavelength."
+    ],
+    "answer": 1.24,
+    "unit": "eV"
+  },
+  "stratum_assignments": {
+    "TEFF6": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    },
+    "T80FF": {
+      "stratum": "R",
+      "answer_with_sentence": 1.6462068966,
+      "regime": null
+    },
+    "TF04F": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T099E": {
+      "stratum": "K",
+      "answer_with_sentence": 1.24,
+      "regime": "The outburst has ended before observation, and the second star is between outbursts at 2900 K."
+    },
+    "T2C66": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    },
+    "TFD41": {
+      "stratum": "K",
+      "answer_with_sentence": 1.24,
+      "regime": "The outburst has ended before observation, and the second star is between outbursts at 2900 K."
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TF04F states that the outburst starts before recording but does not establish whether it remains underway when the spectrum is recorded, allowing different observed temperatures and photon energies.",
+    "rendering_not_minimal": "The temperature-rise variants do not consistently state the same number and unit: T2C66 and TFD41 replace the specified 950 K increase with an unspecified 'small amount'."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "For TF04F, an outburst lasting three days could begin one day before recording and remain underway with a 950 K temperature increase, giving 1.64621 eV; alternatively, it could begin five days before recording and finish before observation, giving 1.24 eV."
+  ],
+  "notes": "The base numerical answer uses the supplied between-outburst temperature; the question would be clearer if it explicitly specified the observation state. TF04F is assigned R because the second star's temperature increase can affect the target, but its observation-time answer is not unique. The earlier, completed outbursts are classified K because their irrelevance depends on observation occurring between outbursts. The third star's temperature has no stated physical path to the target; using the same spectrometer does not itself establish spectral blending or instrumental coupling.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "679459cf81e2c05cd6ba52403fda89ea4b47b4105729c079c067da2245f0fe76",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

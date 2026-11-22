@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch13",
+  "item_id": "M250-S12",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:19:00Z", "completed_at": "2026-11-22T10:23:00Z", "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "v_max = sqrt(mu_s g r) on a flat curve",
+    "assumptions": ["unbanked road", "car as point mass on circle of stated radius", "friction alone supplies centripetal force"],
+    "answer": 17.15,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T02CA": {"stratum": "D", "answer_with_sentence": 17.15, "regime": null},
+    "T82EB": {"stratum": "R", "answer_with_sentence": 18.39, "regime": null},
+    "T7092": {"stratum": "D", "answer_with_sentence": 17.15, "regime": null},
+    "T5A6E": {"stratum": "D", "answer_with_sentence": 17.15, "regime": null},
+    "T9AEC": {"stratum": "D", "answer_with_sentence": 17.15, "regime": null},
+    "TFE1E": {"stratum": "C", "answer_with_sentence": 17.15, "regime": null},
+    "T79A4": {"stratum": "C", "answer_with_sentence": 17.15, "regime": null},
+    "TF5BA": {"stratum": "R", "answer_with_sentence": 18.39, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 1, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "TF5BA is in the past tense ('On this run, the car kept') while the question is in the present; a minor wording point that does not change the reading."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Checked certified answers: r=50: 17.146; r=54: sqrt(317.52)=17.819; r=57.5: sqrt(338.1)=18.388; r=61.5: sqrt(361.62)=19.016 m/s; all match. Mass cancels. Minimal pairs hold: T02CA vs T82EB differ only in cyclist vs car (7.5 m both); T9AEC vs TF5BA differ only in 'an earlier run' vs 'this run' (7.5 m both). Numeral-free twins T5A6E and T7092 match their D twins. Agrees with pass 1."
+}

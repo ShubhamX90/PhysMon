@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch10",
+  "item_id": "M250-S65",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:18:00Z", "completed_at": "2026-11-22T10:22:00Z", "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Snell's law at the end face plus total internal reflection at core-cladding: n0 sin(theta_max) = sqrt(n_core^2 - n_clad^2)", "assumptions": ["meridional rays", "end face perpendicular to axis", "straight fibre", "outside medium n0 = 1"], "answer": 24.83, "unit": "degree"},
+  "stratum_assignments": {
+    "TBDB7": {"stratum": "D", "answer_with_sentence": 24.83, "regime": null},
+    "T5FB3": {"stratum": "D", "answer_with_sentence": 24.83, "regime": null},
+    "T55EF": {"stratum": "R", "answer_with_sentence": 20.49, "regime": null},
+    "T494E": {"stratum": "R", "answer_with_sentence": 20.49, "regime": null},
+    "T6797": {"stratum": "D", "answer_with_sentence": 24.83, "regime": null},
+    "T38EB": {"stratum": "D", "answer_with_sentence": 24.83, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Strata match my pass 1. Relations equivalent to n0 sin(thm) = sqrt(n1^2 - n2^2) = 0.42. Checked: n0=1 -> 24.835 deg; 1.2 -> asin(0.35) = 20.487; 1.33 -> asin(0.3158) = 18.41; 1.38 -> asin(0.3043) = 17.72. All values give sin < 1, so a guided cone exists. Minimal pairs TBDB7/T494E and T6797/T55EF share value 1.2 and differ only in attachment."
+}

@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch07",
+  "item_id": "M250-S266",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:15:00Z", "completed_at": "2026-11-22T10:22:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Ideal-transformer current ratio I1 = I2 N2/N1 (negligible magnetising current), I2 = P_load / V_load, copper loss P = I1^2 R1 + I2^2 R2",
+    "assumptions": ["resistive (unity power factor) load", "load voltage held at 24 V rms", "negligible magnetising current, leakage and core loss as stated"],
+    "answer": 32.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "TEC29": {"stratum": "R", "answer_with_sentence": 53.39, "regime": null},
+    "TDD45": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null},
+    "T2665": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null},
+    "TA1EB": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null},
+    "TD2EC": {"stratum": "R", "answer_with_sentence": 53.39, "regime": null},
+    "T3C5C": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: I2 = 480/24 = 20 A, I1 = 2 A; loss = 4*3 + 400*0.05 = 12 + 20 = 32 W. With the extra 140 W resistive load at the held 24 V: I2 = 620/24 = 25.833 A, I1 = 2.5833 A; loss = 6.6736*3 + 667.36*0.05 = 20.021 + 33.368 = 53.389 W. Sentences about the charger or an earlier run do not affect the windings during the measurement (D). TA1EB and T3C5C have no number ('small'); they look like numeral-free controls for T2665 and TDD45 and are fine as D statements."
+}

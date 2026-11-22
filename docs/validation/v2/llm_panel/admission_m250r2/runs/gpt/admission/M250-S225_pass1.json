@@ -1,0 +1,87 @@
+{
+  "item_id": "M250-S225",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Steady radial Fourier conduction gives T(r)=420-120 ln(r/3)/ln(9/3), with radii expressed in the same unit. The requested fall is 120 ln(5/3)/ln(3)=55.7968 K.",
+    "assumptions": [
+      "The uniform insulation is homogeneous and has no internal heat generation.",
+      "For sentences adding insulation to the pipe in the present configuration, the stated 300 K boundary condition applies to the new outermost surface."
+    ],
+    "answer": 55.7968,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "T2495": {
+      "stratum": "C",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T8870": {
+      "stratum": "C",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T6641": {
+      "stratum": "D",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T21B1": {
+      "stratum": "R",
+      "answer_with_sentence": 47.855,
+      "regime": null
+    },
+    "T26FA": {
+      "stratum": "D",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T6E73": {
+      "stratum": "D",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    },
+    "T15F5": {
+      "stratum": "R",
+      "answer_with_sentence": 47.855,
+      "regime": null
+    },
+    "T8754": {
+      "stratum": "D",
+      "answer_with_sentence": 55.7968,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Conductivity appears in the heat-rate relation but cancels from the temperature profile with both surface temperatures prescribed. Present additions to the pipe increase the outer radius to 10.8 cm, giving a fall of 120 ln(5/3)/ln(10.8/3)=47.855 K. Material used for an earlier survey only is disconnected from the present configuration. Tank insulation has no path to the prescribed pipe temperature profile. Both conductivity sentences specify 0.07 W/(m*K), and all explicitly quantified thickness sentences specify 1.8 cm. The two 'small thickness' sentences both leave its magnitude unspecified; neither requires that magnitude for the answer.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:08:29+00:00",
+  "completed_at": "2026-11-21T20:09:24+00:00",
+  "minutes_spent": 0.91,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "e15edc57c2c1ff039340de198babaed6d9a95bd9a9d64a9aabf997cd7884bd40",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

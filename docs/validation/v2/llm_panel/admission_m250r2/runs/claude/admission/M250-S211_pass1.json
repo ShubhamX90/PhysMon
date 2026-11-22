@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch06",
+  "item_id": "M250-S211",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:00:00Z", "completed_at": "2026-11-22T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Gauss's law + superposition: inside an off-centre spherical cavity in a uniformly charged sphere the field is uniform, E = rho*d/(3 eps0); surface field E_s = rho*R/(3 eps0), so E_cav = E_s*d/R = 40 kV/m * 6/20 = 12 kV/m; a = qE/m = 2e-6*1.2e4/5e-4",
+    "assumptions": ["charge density uniform and fixed", "cavity wholly inside the ball", "bead does not perturb the charge distribution", "gravity neglected", "electrostatics, non-relativistic"],
+    "answer": 48.0,
+    "unit": "m/s^2"
+  },
+  "stratum_assignments": {
+    "TAF10": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null},
+    "T1D94": {"stratum": "R", "answer_with_sentence": 20.0, "regime": null},
+    "TEFF1": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null},
+    "T052D": {"stratum": "C", "answer_with_sentence": 48.0, "regime": null},
+    "TD82F": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null},
+    "T4613": {"stratum": "C", "answer_with_sentence": 48.0, "regime": null},
+    "T2176": {"stratum": "R", "answer_with_sentence": 20.0, "regime": null},
+    "T7F8C": {"stratum": "D", "answer_with_sentence": 48.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Holder attached to bead: total mass 1.2 g, a = 0.024 N / 1.2e-3 kg = 20 m/s^2. Cavity radius 5.5 cm: the removed-sphere charge rho*(4/3)pi*a^3 enters the superposition but the field at points inside the cavity, -rho*r'/(3 eps0), is independent of a, so it cancels (C); 6+5.5 = 11.5 cm < 20 cm so the cavity is wholly inside as stated (one could also call it K with regime a < 14 cm, but the base text already fixes 'wholly inside'). T052D and T4613 state the same 5.5 cm. TAF10/T1D94/TEFF1/T2176 all state 0.7 g; TD82F and T7F8C state no mass ('small') and so are not same-number variants of the 0.7 g sentences; if they are claimed as minimal pairs with the 0.7 g sentences that would be a rendering mismatch. All D sentences leave 48 m/s^2."
+}

@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch05",
+  "item_id": "M250-S234",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:08:00Z", "completed_at": "2026-11-22T10:14:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law at entry face; path L/cos r; speed c/n; t = n L/(c cos r)",
+    "assumptions": ["meridional ray", "TIR at sides (69.08 deg > 33.75 deg critical)", "no dispersion", "seamless joints"],
+    "answer": 12.8471,
+    "unit": "ns"
+  },
+  "stratum_assignments": {
+    "T507D": {"stratum": "D", "answer_with_sentence": 12.8471, "regime": null},
+    "TB902": {"stratum": "R", "answer_with_sentence": 21.1977, "regime": null},
+    "T97AD": {"stratum": "D", "answer_with_sentence": 12.8471, "regime": null},
+    "TE2F0": {"stratum": "D", "answer_with_sentence": 12.8471, "regime": null},
+    "T29E2": {"stratum": "C", "answer_with_sentence": 12.8471, "regime": null},
+    "T2524": {"stratum": "R", "answer_with_sentence": 21.1977, "regime": null},
+    "TACC7": {"stratum": "D", "answer_with_sentence": 12.8471, "regime": null},
+    "TF3EE": {"stratum": "C", "answer_with_sentence": 12.8471, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked all certified values: cos r = 0.934065, c cos r = 2.802195e8 m/s; t = 1.8(2+q)/(2.802195e8): q=0.7 -> 17.3436 ns, 1.3 -> 21.1977 ns, 2.2 -> 26.9789 ns; base 12.8471 ns. Diameter cancellation expression is correct (L tan r/d * d/sin r = L/cos r). Minimal pairs T507D/T2524 and TE2F0/TB902 share 1.3 m and differ only in attachment/time; numeral-free twins T97AD/T507D and TACC7/TE2F0 match. Agrees with pass 1 (pass 1 gave seconds; same values)."
+}

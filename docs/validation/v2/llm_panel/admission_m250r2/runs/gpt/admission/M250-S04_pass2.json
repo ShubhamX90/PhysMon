@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S04",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Conservation of mechanical energy gives kx^2/2 = Mv_max^2/2, hence v_max = x sqrt(k/M). With x = 0.15 m, k = 200 N/m and M = 0.5 kg, v_max = 3.0 m/s. An attached additional mass q changes M to 0.5 kg + q.",
+    "assumptions": [
+      "The spring obeys Hooke's law over the stated excursion.",
+      "A weight stuck to the block remains attached and moves with it.",
+      "The earlier trial leaves no change to the spring or the stated initial conditions.",
+      "The spring's other end is fixed, and friction and air resistance are negligible."
+    ],
+    "answer": 3.0,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T8A4D": {
+      "stratum": "C",
+      "answer_with_sentence": 3.0,
+      "regime": null
+    },
+    "TAF2C": {
+      "stratum": "C",
+      "answer_with_sentence": 3.0,
+      "regime": null
+    },
+    "T780C": {
+      "stratum": "R",
+      "answer_with_sentence": 1.860521019,
+      "regime": null
+    },
+    "T95EE": {
+      "stratum": "D",
+      "answer_with_sentence": 3.0,
+      "regime": null
+    },
+    "T1436": {
+      "stratum": "D",
+      "answer_with_sentence": 3.0,
+      "regime": null
+    },
+    "T8C06": {
+      "stratum": "D",
+      "answer_with_sentence": 3.0,
+      "regime": null
+    },
+    "TDAD6": {
+      "stratum": "R",
+      "answer_with_sentence": 1.860521019,
+      "regime": null
+    },
+    "T2898": {
+      "stratum": "D",
+      "answer_with_sentence": 3.0,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "I withdraw the pass-1 rendering_not_minimal finding because the authors explicitly identify T95EE and T8C06 as numeral-free controls, rather than claiming that they preserve the numerical content of their twins. The actual claimed minimal pairs, T1436/T780C and T2898/TDAD6, preserve 0.8 kg and change the attachment or trial as intended. For either relevant sentence, q = 0.6, 0.8 and 1.2 kg gives respectively 2.0225996, 1.8605210 and 1.6269784 m/s, agreeing with every certified answer at its displayed precision. All disconnected and cancelling answers are 3.0 m/s. Natural length cancels because the specified displacement is measured from equilibrium. The force relation F = k(l - L0) is consistent when F denotes restoring-force magnitude; its signed component toward increasing length would carry a minus sign. The speed expression has units m/s, all listed masses and lengths are admissible, and no K regime is claimed.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:20:31+00:00",
+  "completed_at": "2026-11-21T20:21:06+00:00",
+  "minutes_spent": 0.58,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "670e7814952798d2af11a4cdda45df8f6100eb9e2b28d9eb4b117e3920360975",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

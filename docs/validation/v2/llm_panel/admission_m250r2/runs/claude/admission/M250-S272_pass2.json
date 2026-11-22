@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch09",
+  "item_id": "M250-S272",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:21:00Z", "completed_at": "2026-11-22T10:26:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Successive closed-pipe resonant lengths differ by lambda/2 = c/(2f); t = (lambda/2)/vw",
+    "assumptions": ["constant end correction", "constant fall speed", "c = 343 m/s"],
+    "answer": 22.33,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TF4FF": {"stratum": "D", "answer_with_sentence": 22.3307, "regime": null},
+    "TEA1B": {"stratum": "R", "answer_with_sentence": 13.9567, "regime": null},
+    "T49F8": {"stratum": "D", "answer_with_sentence": 22.3307, "regime": null},
+    "TFF60": {"stratum": "C", "answer_with_sentence": 22.3307, "regime": null},
+    "TBEDA": {"stratum": "C", "answer_with_sentence": 22.3307, "regime": null},
+    "T9749": {"stratum": "R", "answer_with_sentence": 13.9567, "regime": null},
+    "T3D7A": {"stratum": "D", "answer_with_sentence": 22.3307, "regime": null},
+    "TB8E5": {"stratum": "D", "answer_with_sentence": 22.3307, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The C cancellation names the 13 lam/4 and 15 lam/4 resonances as 'the' successive pair, but for an initial length of 85 or 130 cm earlier resonances (7 lam/4 = 117 cm, 9 lam/4 = 151 cm, minus e) come first; the spacing and the invariance are unaffected."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Base 22.3307 s matches pass 1. R answers: 33.4961/1.9 = 17.6295, /2.4 = 13.9567, /2.87 = 11.6711 s, all correct. Strata agree with pass 1 for all eight sentences. Minimal pairs T49F8/T9749 and TF4FF/TEA1B both carry 0.9 cm/s and differ only in attachment; T3D7A and TB8E5 are declared numeral-free twins. Rate additivity is supported by 'alone draws down'."
+}

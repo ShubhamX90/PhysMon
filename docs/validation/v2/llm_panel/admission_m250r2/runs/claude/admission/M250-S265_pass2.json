@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch03",
+  "item_id": "M250-S265",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:43:00Z", "completed_at": "2026-11-22T10:52:00Z", "minutes_spent": 9,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Vp = sqrt(2) Vm / n; th0 = asin(2Vd/Vp); Vavg = (2/pi)(Vp cos th0 - 2Vd (pi/2 - th0))", "assumptions": ["ideal transformer", "constant-drop ideal-switch diodes, two conducting", "resistive load, no smoothing", "230 V rms is the nominal mains value"], "answer": 50.38, "unit": "V"},
+  "stratum_assignments": {
+    "T5D4E": {"stratum": "D", "answer_with_sentence": 50.38, "regime": null},
+    "TAC9C": {"stratum": "D", "answer_with_sentence": 50.38, "regime": null},
+    "T8158": {"stratum": "R", "answer_with_sentence": 53.53, "regime": null},
+    "TF8ED": {"stratum": "D", "answer_with_sentence": 50.38, "regime": null},
+    "T697F": {"stratum": "C", "answer_with_sentence": 50.38, "regime": null},
+    "T4891": {"stratum": "R", "answer_with_sentence": 53.53, "regime": null},
+    "T9978": {"stratum": "C", "answer_with_sentence": 50.38, "regime": null},
+    "T644B": {"stratum": "D", "answer_with_sentence": 50.38, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "T4891 says the mains was 14 V above its nominal value at the measurement, which presupposes that the problem's 'mains supply of 230 V rms' is the nominal rating; the problem never says 'nominal', a minor wording point rather than a contradiction."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "All strata agree with pass 1. Checked certified R answers: q=8 V: Vp=84.1457, th0=0.016639, Vavg=163.9165/pi=52.176 V; q=14 V: 53.527 V; q=21 V: Vp=88.7419, th0=0.015777, Vavg=173.1077/pi=55.102 V; base 50.376 V. Load resistance cancels exactly with ideal constant-drop diodes. Minimal pairs: T5D4E/T8158 differ only in lamp vs transformer; TF8ED/T4891 differ only in 'for an earlier run only' vs 'when the load voltage was measured'. Numeral-free twins T644B (of T5D4E) and TAC9C (of TF8ED) match. Input Vm is described as the rms mains voltage, consistent with the relation Vp = sqrt(2) Vm / n."
+}

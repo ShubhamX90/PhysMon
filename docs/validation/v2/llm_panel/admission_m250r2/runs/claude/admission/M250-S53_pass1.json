@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch10",
+  "item_id": "M250-S53",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:00:00Z", "completed_at": "2026-11-22T10:06:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Steady 1D Fourier conduction through series layers: Q = A*dT / sum(L_i/k_i)", "assumptions": ["steady state", "1D heat flow perpendicular to layers", "perfect contact, no edge losses", "constant conductivities"], "answer": 160.0, "unit": "W"},
+  "stratum_assignments": {
+    "T9459": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null},
+    "T91A5": {"stratum": "R", "answer_with_sentence": 264.0, "regime": null},
+    "TFB61": {"stratum": "R", "answer_with_sentence": 264.0, "regime": null},
+    "T0538": {"stratum": "C", "answer_with_sentence": 160.0, "regime": null},
+    "TC890": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null},
+    "T3307": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null},
+    "T2BD1": {"stratum": "C", "answer_with_sentence": 160.0, "regime": null},
+    "TA69F": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "R_total/A = 0.20/0.8 + 0.05/0.04 = 0.25 + 1.25 = 1.5 m^2K/W; Q = 12*20/1.5 = 160 W. With dT = 33 K, Q = 12*33/1.5 = 264 W. T91A5 ('then raised') is read as the question asking about the state after the raise; slight temporal ambiguity. The cold-surface temperature 276 K enters as T_hot - T_cold and cancels (k constant); could also be classed K (k temperature-independent near ambient). T3307/TA69F describe an earlier test and do not affect the current steady flow. TC890 and TA69F state 'a few kelvin' rather than 13 K; if they are meant as variants of the 13 K sentences they would not be minimal in number, but as vague-quantity distractors they are fine."
+}

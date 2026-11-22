@@ -1,0 +1,37 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch02",
+  "item_id": "M250-S09",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:36:00Z", "completed_at": "2026-11-22T10:41:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Calorimetry: rise = m_c c_c (T_c - T_w)/(m_c c_c + m_w c_w).",
+    "assumptions": ["insulated, container absorbs no heat", "constant specific heats", "no phase change"],
+    "answer": 8.24897,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "T128A": {"stratum": "D", "answer_with_sentence": 8.24897, "regime": null},
+    "TD942": {"stratum": "D", "answer_with_sentence": 8.24897, "regime": null},
+    "TC375": {"stratum": "D", "answer_with_sentence": 8.24897, "regime": null},
+    "TDD5D": {"stratum": "R", "answer_with_sentence": 3.69375, "regime": null},
+    "TCCED": {"stratum": "D", "answer_with_sentence": 8.24897, "regime": null},
+    "T4800": {"stratum": "R", "answer_with_sentence": 3.69375, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Verified certified answers: q=0.2 -> 15400/2704.1 = 5.69506 K; q=0.55 -> 15400/4169.2 = 3.69375 K; q=0.85 -> 15400/5425 = 2.83871 K; base 15400/1866.9 = 8.24897 K. Strata match my pass 1. Minimal pairs T128A/TDD5D (earlier experiment vs before the block was added) and TCCED/T4800 (second vs first container) carry the same 0.55 kg and differ only in attachment. TC375 and TD942 are declared numeral-free controls, resolving my pass-1 query. The clause 'Nothing from any other experiment is left in the first container' makes the earlier-experiment D sentences unambiguous."
+}

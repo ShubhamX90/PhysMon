@@ -1,0 +1,96 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S274",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:29:58+00:00",
+  "completed_at": "2026-11-21T20:30:47+00:00",
+  "minutes_spent": 0.82,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Linear Zeeman shifts are ΔE = μB B(gP mP − gS mS), with μB = eħ/(2me) and allowed electric-dipole transitions Δm = 0, ±1. The largest absolute transition shift is (gP + gS)μB B/2 = 1.6675 μB B, so the outermost energy separation is 3.335 μB B. To first order, the wavelength separation is λ0²(3.335 μB B)/(hc), converting joules to electronvolts using the exact elementary charge.",
+    "assumptions": [
+      "The stated linear Zeeman regime permits using the supplied level Landé factors.",
+      "The six observed components correspond to the allowed magnetic-sublevel transitions.",
+      "The wavelength shifts are treated to first order, as instructed."
+    ],
+    "answer": 0.0270031,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "T63F3": {
+      "stratum": "K",
+      "answer_with_sentence": 0.0270031,
+      "regime": "The Zeeman energy scale must be much smaller than the fine-structure splitting. At 0.5 T, μB B is approximately 2.89e-5 eV, well below 0.0036 eV."
+    },
+    "T2090": {
+      "stratum": "R",
+      "answer_with_sentence": 0.0299735,
+      "regime": null
+    },
+    "TF402": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0270031,
+      "regime": null
+    },
+    "TD469": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0270031,
+      "regime": null
+    },
+    "T664D": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0270031,
+      "regime": null
+    },
+    "TC894": {
+      "stratum": "R",
+      "answer_with_sentence": 0.0299735,
+      "regime": null
+    },
+    "T3EF7": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0270031,
+      "regime": null
+    },
+    "T4FF2": {
+      "stratum": "K",
+      "answer_with_sentence": 0.0270031,
+      "regime": "The Zeeman energy scale must be much smaller than the fine-structure splitting. At 0.5 T, μB B is approximately 2.89e-5 eV, well below 0.0036 eV."
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T664D and T3EF7 replace the specified magnetic-field increment of 55 mT with the unquantified phrase 'a little', violating the requirement that variants preserve the same stated number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "An increment of 1 mT satisfies 'adds a little' but differs from 55 mT, so T664D and T3EF7 do not preserve the numerical information in their corresponding quantified sentences."
+  ],
+  "notes": "The base physics problem has a unique answer under its stated model. Adding 55 mT at the vapour gives a total field of 0.555 T and increases the wavelength separation by 11%. The fine-structure sentences both state 0.0036 eV, and the quantified coil sentences consistently state 55 mT. The invalid verdict concerns the required matching of numerical information across variants.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "c5d65f0b9c7af1a6623a7ffc8520c37f6db659ca4210fc6bfbcb9222046235fd",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

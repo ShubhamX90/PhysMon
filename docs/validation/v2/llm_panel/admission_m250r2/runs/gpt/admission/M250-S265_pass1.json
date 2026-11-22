@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S265",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:13:48+00:00",
+  "completed_at": "2026-11-21T20:14:31+00:00",
+  "minutes_spent": 0.71,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "The secondary rms voltage is 230/4 = 57.5 V. Let Vm = sqrt(2)*57.5 V, d = 1.4 V and alpha = asin(d/Vm). The instantaneous load voltage is max(Vm*abs(sin(theta))-d, 0). Its cycle average is (2/pi)*(Vm*cos(alpha)-d*(pi/2-alpha)) = 50.3759 V.",
+    "assumptions": [
+      "The requested average is over a complete mains cycle.",
+      "The stated ideal transformer and constant-drop diode models apply.",
+      "The lamp's variable supply has no specified connection to the rectifier circuit."
+    ],
+    "answer": 50.3759,
+    "unit": "V"
+  },
+  "stratum_assignments": {
+    "T5D4E": {
+      "stratum": "D",
+      "answer_with_sentence": 50.3759,
+      "regime": null
+    },
+    "TAC9C": {
+      "stratum": "D",
+      "answer_with_sentence": 50.3759,
+      "regime": null
+    },
+    "T8158": {
+      "stratum": "R",
+      "answer_with_sentence": 53.5265,
+      "regime": null
+    },
+    "TF8ED": {
+      "stratum": "D",
+      "answer_with_sentence": 50.3759,
+      "regime": null
+    },
+    "T697F": {
+      "stratum": "C",
+      "answer_with_sentence": 50.3759,
+      "regime": null
+    },
+    "T4891": {
+      "stratum": "R",
+      "answer_with_sentence": 53.5265,
+      "regime": null
+    },
+    "T9978": {
+      "stratum": "C",
+      "answer_with_sentence": 50.3759,
+      "regime": null
+    },
+    "T644B": {
+      "stratum": "D",
+      "answer_with_sentence": 50.3759,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TAC9C and T644B replace the explicit 14 V in their corresponding quantitative variants with an unspecified 'small amount', violating the required preservation of number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The electrical problem itself is correct and well-posed; the invalid verdict concerns the required variant identity. TAC9C versus TF8ED and T644B versus T5D4E change numerical specificity without changing attachment. The two 47 Ω sentences preserve number and unit. For either relevant mains modification, the primary becomes 244 V rms and the secondary becomes 61 V rms. Resistance cancels because current is max(|Vs|-1.4 V,0)/R and load voltage is R times that current. Earlier-run voltages have no effect in the stated memoryless circuit. The average calculation includes the nonconducting intervals near each zero crossing.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "45864fff24eb96de8fbad0bd31210c8da04d43686dd753ec1ac4de024012a8d7",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch11",
+  "item_id": "M250-S19",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:15:00Z", "completed_at": "2026-11-22T10:20:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Projectile range on level ground: R = v^2 sin(2 theta) / g",
+    "assumptions": ["no air resistance", "launch and landing at the same level", "uniform g = 9.8 m/s^2"],
+    "answer": 38.36,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "T3E32": {"stratum": "R", "answer_with_sentence": 27.31, "regime": null},
+    "T9D35": {"stratum": "D", "answer_with_sentence": 38.36, "regime": null},
+    "TFDC7": {"stratum": "R", "answer_with_sentence": 27.31, "regime": null},
+    "TFC29": {"stratum": "D", "answer_with_sentence": 38.36, "regime": null},
+    "TC550": {"stratum": "D", "answer_with_sentence": 38.36, "regime": null},
+    "T9417": {"stratum": "D", "answer_with_sentence": 38.36, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: 400 x sin70 / 9.8 = 400 x 0.93969 / 9.8 = 38.355 m. Lowered by 14 deg to 21 deg: 400 x sin42 / 9.8 = 400 x 0.66913 / 9.8 = 27.311 m. Earlier-trial lowering is undone because the launcher returns to its initial setting after every trial (stated), so D. Ramp lowering: the ball lands on level ground (stated), ramp has no path to the range, so D. Numbered sentences all state 14 deg; T9D35 and TC550 say 'a few degrees' with no number."
+}

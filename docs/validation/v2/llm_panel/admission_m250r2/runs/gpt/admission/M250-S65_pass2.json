@@ -1,0 +1,89 @@
+{
+  "item_id": "M250-S65",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Snell's law gives n0 sin(theta) = n1 sin(r). At the limiting core-cladding incidence angle, sin(r) = sqrt(n1^2-n2^2)/n1. Therefore theta_max = asin(sqrt(n1^2-n2^2)/n0). Here sqrt(1.5^2-1.44^2) = 0.42.",
+    "assumptions": [
+      "Geometrical optics for meridional rays in the stated straight step-index fibre.",
+      "The acceptance angle denotes the limiting angle for total internal reflection.",
+      "The separate trough does not alter the entrance medium."
+    ],
+    "answer": 24.8346,
+    "unit": "deg"
+  },
+  "stratum_assignments": {
+    "TBDB7": {
+      "stratum": "D",
+      "answer_with_sentence": 24.8346,
+      "regime": null
+    },
+    "T5FB3": {
+      "stratum": "D",
+      "answer_with_sentence": 24.8346,
+      "regime": null
+    },
+    "T55EF": {
+      "stratum": "R",
+      "answer_with_sentence": 20.4873,
+      "regime": null
+    },
+    "T494E": {
+      "stratum": "R",
+      "answer_with_sentence": 20.4873,
+      "regime": null
+    },
+    "T6797": {
+      "stratum": "D",
+      "answer_with_sentence": 24.8346,
+      "regime": null
+    },
+    "T38EB": {
+      "stratum": "D",
+      "answer_with_sentence": 24.8346,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The explicitly numeral-free controls T5FB3 and T38EB omit the value required by the general same-number variant instruction, although the authors accurately disclose this construction and do not designate these controls as numerical minimal pairs."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "medium"
+  },
+  "counterexamples": [],
+  "notes": "The governing relations, dependency claims, strata and all certified answers are correct. For either relevant sentence, entrance indices 1.2, 1.33 and 1.38 give 20.4873, 18.4085 and 17.7189 degrees, respectively. All disconnected sentences retain 24.8346 degrees. Refractive indices are dimensionless; the trigonometric relations produce radians before conversion to the target unit. The designated minimal pairs TBDB7/T494E and T6797/T55EF preserve the number and unit and change the liquid's attachment as claimed. The initially empty trough is subsequently filled, so there is no contradiction. I revise my pass-1 high-severity construction verdict: pass 2 explicitly identifies the numeral-free sentences as intentional controls, and their descriptions are accurate. Their departure from the general variant instruction remains a construction issue, but it establishes neither a false authors' claim nor incorrect or underdetermined physics.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:13:08+00:00",
+  "completed_at": "2026-11-21T20:13:48+00:00",
+  "minutes_spent": 0.66,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "7151af2da0e51d65cecab4e44eb55cf411bea8b7affc8e1cb97d6605d56a040a",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

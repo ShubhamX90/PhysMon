@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch11",
+  "item_id": "M250-S226",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:44:00Z", "completed_at": "2026-11-22T10:54:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Radiative exchange between infinite parallel grey plates in series: q = sigma (Ti^4 - Tj^4) / (1/eps + 1/eps - 1) per gap; equal emissivities give equal gap resistances, so T1^4 = (2 Th^4 + Tc^4)/3",
+    "assumptions": ["large parallel diffuse grey opaque surfaces, all with the same emissivity", "vacuum, radiation only, steady state", "thin shields (same temperature on both faces), no edge losses"],
+    "answer": 724.66,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "TF3A9": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "T1186": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "T3B75": {"stratum": "C", "answer_with_sentence": 724.66, "regime": null},
+    "TAE28": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "TBE0E": {"stratum": "D", "answer_with_sentence": 724.66, "regime": null},
+    "T70E5": {"stratum": "C", "answer_with_sentence": 724.66, "regime": null},
+    "T0D5D": {"stratum": "R", "answer_with_sentence": 787.52, "regime": null},
+    "T7BAD": {"stratum": "R", "answer_with_sentence": 787.52, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: T1^4 = (2 x 4.096e11 + 8.1e9)/3 = 2.75767e11 K^4, T1 = 724.66 K. Hot plate held 70 K higher (870 K): 870^4 = 5.72898e11; T1^4 = (1.145795e12 + 8.1e9)/3 = 3.84632e11, T1 = 787.52 K. Emissivity enters each gap resistance identically and cancels when all are equal; both emissivity sentences state 0.6. Water-bath sentences are D because no heat passes between bath and apparatus (stated). Earlier-run sentences D. R sentences T0D5D and T7BAD differ only in 'reach steady temperatures' vs 'settle', same 70 K. Numeral-free sentences T1186, TBE0E carry 'a few kelvin'."
+}

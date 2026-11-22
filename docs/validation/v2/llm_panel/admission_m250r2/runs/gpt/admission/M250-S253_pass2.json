@@ -1,0 +1,93 @@
+{
+  "item_id": "M250-S253",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "The acoustic impedances are Z1 = rho1*c1 = 411.6 Pa s/m and Z2 = rho2*c2 = 1479036 Pa s/m. Pressure and normal-velocity continuity give pt = [2Z2/(Z1+Z2)]sqrt(2Z1*Ii). Equivalently, It = [4Z1Z2/(Z1+Z2)^2]Ii and pt = sqrt(2Z2*It).",
+    "assumptions": [
+      "Use small-amplitude plane-wave acoustics with the stated uniform, lossless fluids and interface conditions.",
+      "Pressure amplitude denotes peak amplitude and intensity denotes time-averaged intensity.",
+      "The requested measurement concerns the steady wave at the current incident intensity; an earlier trial is separate."
+    ],
+    "answer": 6.28424,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {
+    "T9B4F": {
+      "stratum": "R",
+      "answer_with_sentence": 7.69659,
+      "regime": null
+    },
+    "TCC99": {
+      "stratum": "R",
+      "answer_with_sentence": 7.69659,
+      "regime": null
+    },
+    "T43F7": {
+      "stratum": "C",
+      "answer_with_sentence": 6.28424,
+      "regime": null
+    },
+    "TF89B": {
+      "stratum": "D",
+      "answer_with_sentence": 6.28424,
+      "regime": null
+    },
+    "TA783": {
+      "stratum": "D",
+      "answer_with_sentence": 6.28424,
+      "regime": null
+    },
+    "TEFDB": {
+      "stratum": "D",
+      "answer_with_sentence": 6.28424,
+      "regime": null
+    },
+    "TBD48": {
+      "stratum": "D",
+      "answer_with_sentence": 6.28424,
+      "regime": null
+    },
+    "TC617": {
+      "stratum": "C",
+      "answer_with_sentence": 6.28424,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All certified numerical answers agree with the acoustic transmission relations. Increasing the current incident intensity by 0.003, 0.006 or 0.009 W/m² gives respectively 7.02599, 7.69659 or 8.31326 Pa. The second source has no path to the water, and a change on an earlier trial does not alter the stated current-trial intensity. Frequency cancels because Z = rho*(c/f)*f = rho*c; the supplied cancellation expressions correctly reproduce the transmission calculation at all listed positive frequencies. The declared numerical minimal pairs TA783/TCC99 and TEFDB/T9B4F preserve the number and unit while changing the source or trial attachment. I withdraw the pass-1 rendering_not_minimal flag: pass 2 explicitly identifies TF89B and TBD48 as deliberate numeral-free controls, rather than claiming that they are numerical minimal pairs. Each control matches its identified numerical twin with only the number and unit replaced by 'a small amount'. No physical solution or stratum assignment changes from pass 1.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:16:11+00:00",
+  "completed_at": "2026-11-21T20:17:02+00:00",
+  "minutes_spent": 0.85,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "d931e821569d8d6a3c642a0e3d45749570281839e8748900101d44af8efbd916",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

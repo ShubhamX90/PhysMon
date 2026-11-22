@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch04",
+  "item_id": "M250-S271",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:21:00Z", "completed_at": "2026-11-22T10:29:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Thin-rod longitudinal wave speed v = sqrt(E/rho); free-free fundamental lambda_rod = 2L, f = v/(2L); air nodes spaced lambda_air/2 = v_air/(2f) = v_air L / v", "assumptions": ["thin-rod (1D) longitudinal wave theory", "clamp at the middle is a node, ends free", "air columns resonate at the rod's frequency"], "answer": 0.080837, "unit": "m"},
+  "stratum_assignments": {
+    "TA297": {"stratum": "D", "answer_with_sentence": 0.080837, "regime": null},
+    "T94AF": {"stratum": "C", "answer_with_sentence": 0.080837, "regime": null},
+    "T641F": {"stratum": "C", "answer_with_sentence": 0.080837, "regime": null},
+    "TFBD6": {"stratum": "D", "answer_with_sentence": 0.080837, "regime": null},
+    "TD83B": {"stratum": "R", "answer_with_sentence": 0.102393, "regime": null},
+    "T9574": {"stratum": "C", "answer_with_sentence": 0.080837, "regime": null},
+    "T1BAE": {"stratum": "C", "answer_with_sentence": 0.080837, "regime": null},
+    "T3295": {"stratum": "R", "answer_with_sentence": 0.102393, "regime": null},
+    "T2604": {"stratum": "D", "answer_with_sentence": 0.080837, "regime": null},
+    "TFE55": {"stratum": "D", "answer_with_sentence": 0.080837, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "v = sqrt(7e10/2700) = 5091.75 m/s; f = 5091.75/2.4 = 2121.6 Hz; spacing = 343*1.2/5091.75 = 0.080837 m (8.08 cm). Lengthened to 1.52 m with the clamp then fitted at the new middle: 343*1.52/5091.75 = 0.102393 m. Cross-section/diameter cancel (mass and stiffness both scale with area); both values keep the rod thin. The diameter (8.21 mm -> 0.529 cm^2) and the 1.6 cm^2 cross-section are inconsistent with each other, but they are separate sentences never added together, so no contradiction within any single item. Variant checks: TD83B/T3295/TA297/T2604 all 32 cm; T94AF/T9574 8.21 mm; T641F/T1BAE 1.6 cm^2; TFBD6/TFE55 numeral-free."
+}

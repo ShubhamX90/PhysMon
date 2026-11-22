@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch12",
+  "item_id": "M250-S38",
+  "pass_number": 1,
+  "started_at": "2026-11-22T11:01:00Z", "completed_at": "2026-11-22T11:09:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Static equilibrium: vertical N = (m+M) g; torques about foot give wall force N_w = g cot(theta) (m/2 + M f); friction F = N_w; ground force = sqrt(N^2 + F^2).",
+    "assumptions": ["Smooth wall (horizontal wall reaction only)", "uniform ladder, centre of mass at midpoint", "no slipping (static equilibrium)"],
+    "answer": 841.62,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T1EB2": {"stratum": "D", "answer_with_sentence": 841.62, "regime": null},
+    "T49C6": {"stratum": "D", "answer_with_sentence": 841.62, "regime": null},
+    "T5690": {"stratum": "C", "answer_with_sentence": 841.62, "regime": null},
+    "T038B": {"stratum": "C", "answer_with_sentence": 841.62, "regime": null},
+    "TA81B": {"stratum": "D", "answer_with_sentence": 841.62, "regime": null},
+    "TCE71": {"stratum": "R", "answer_with_sentence": 939.71, "regime": null},
+    "TD573": {"stratum": "R", "answer_with_sentence": 939.71, "regime": null},
+    "TEA7A": {"stratum": "D", "answer_with_sentence": 841.62, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "N = 82*9.8 = 803.6 N; N_w = 9.8*(6 + 42)*cot62 = 470.4*0.53171 = 250.12 N; |F_ground| = sqrt(803.6^2 + 250.12^2) = sqrt(708331) = 841.62 N. At 44 deg: N_w = 470.4*1.03553 = 487.11 N; |F| = sqrt(645773 + 237279) = 939.71 N (needs mu >= 0.61; non-slipping is stated). Length cancels from the torque balance. The earlier-experiment tilt leaves no state since the stated angle is the angle at the outset of this experiment."
+}

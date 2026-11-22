@@ -1,0 +1,84 @@
+{
+  "item_id": "M250-S275",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Born rule for an infinite well: psi_2(x)=sqrt(2/L) sin(2*pi*x/L), so P(a<=x<=b)=(b-a)/L-[sin(4*pi*b/L)-sin(4*pi*a/L)]/(4*pi). With L=3 nm, a=0.6 nm and b=1.5 nm, P=0.346774464.",
+    "assumptions": [
+      "The probe performs an ideal position measurement over its stated response interval.",
+      "The stated n=2 stationary state describes the electron immediately before the measurement.",
+      "Moving a probe-window edge changes the detection interval without changing the well or the prepared state."
+    ],
+    "answer": 0.346774464,
+    "unit": "dimensionless"
+  },
+  "stratum_assignments": {
+    "TE83E": {
+      "stratum": "D",
+      "answer_with_sentence": 0.346774464,
+      "regime": null
+    },
+    "T0018": {
+      "stratum": "D",
+      "answer_with_sentence": 0.346774464,
+      "regime": null
+    },
+    "T1E15": {
+      "stratum": "D",
+      "answer_with_sentence": 0.346774464,
+      "regime": null
+    },
+    "TE382": {
+      "stratum": "D",
+      "answer_with_sentence": 0.346774464,
+      "regime": null
+    },
+    "T6A0A": {
+      "stratum": "R",
+      "answer_with_sentence": 0.359584983,
+      "regime": null
+    },
+    "T3E63": {
+      "stratum": "R",
+      "answer_with_sentence": 0.359584983,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T0018 and TE382 specify only 'a little', whereas the other displacement variants specify 0.24 nm, violating the requirement that variants state the same number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and all six individual renderings have definite answers. Extending the current response interval moves its upper endpoint to 1.74 nm. Changes confined to an earlier measurement do not change the current interval or the explicitly stated current stationary state; the neighbouring probe's window is also disconnected. The invalid verdict concerns the stipulated numerical matching of sentence variants.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:27:25+00:00",
+  "completed_at": "2026-11-21T20:28:13+00:00",
+  "minutes_spent": 0.8,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "5c49935fba77a6cdadccf2f17014dca50e973f6c1f15c6b725ea59394e2fe8de",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

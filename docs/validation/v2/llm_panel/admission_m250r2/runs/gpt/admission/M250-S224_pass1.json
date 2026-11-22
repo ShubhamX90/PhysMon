@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S224",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:18:36+00:00",
+  "completed_at": "2026-11-21T20:19:20+00:00",
+  "minutes_spent": 0.74,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of internal energy gives unchanged temperature during mixing. Equal initial pressures and temperatures imply V_i/V = n_i/(n_He+n_Ar). Thus ΔS = R Σ_i n_i ln[(n_He+n_Ar)/n_i].",
+    "assumptions": [
+      "Both gases are ideal and do not react, as stated.",
+      "The entropy change concerns partition removal and mixing, after any specified addition and equilibration.",
+      "The partition contributes negligible energy and entropy."
+    ],
+    "answer": 22.000947,
+    "unit": "J/K"
+  },
+  "stratum_assignments": {
+    "TD9D8": {
+      "stratum": "D",
+      "answer_with_sentence": 22.000947,
+      "regime": null
+    },
+    "TA337": {
+      "stratum": "D",
+      "answer_with_sentence": 22.000947,
+      "regime": null
+    },
+    "T2667": {
+      "stratum": "R",
+      "answer_with_sentence": 30.472348,
+      "regime": null
+    },
+    "T4FE0": {
+      "stratum": "C",
+      "answer_with_sentence": 22.000947,
+      "regime": null
+    },
+    "TBB89": {
+      "stratum": "D",
+      "answer_with_sentence": 22.000947,
+      "regime": null
+    },
+    "T7A1E": {
+      "stratum": "C",
+      "answer_with_sentence": 22.000947,
+      "regime": null
+    },
+    "T6DA3": {
+      "stratum": "R",
+      "answer_with_sentence": 30.472348,
+      "regime": null
+    },
+    "TA9C4": {
+      "stratum": "D",
+      "answer_with_sentence": 22.000947,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TA337 and TA9C4 replace the explicit quantity 1.3 mol in their corresponding variants with an unspecified 'small amount', violating the required preservation of number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The mixing physics is well-posed. Adding helium to the compartment changes its amount to 2.8 mol, giving ΔS = 8.314[2.8 ln(5.3/2.8) + 2.5 ln(5.3/2.5)]. Container volume enters the initial and final volumes but cancels from their ratios. Balloon filling and an earlier run have no stated physical connection to the current mixing process. The two volume sentences preserve 42 L, and T2667/T6DA3 preserve 1.3 mol. The unspecified amounts in TA337 and TA9C4 do not affect their disconnected status, but prevent the required numerical matching.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "30b43521b78b06c9d749072f0de71a12d8d6cd64330ebcdb818c573fb0c140e6",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

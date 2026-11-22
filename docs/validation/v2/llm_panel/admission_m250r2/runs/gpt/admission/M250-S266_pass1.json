@@ -1,0 +1,85 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S266",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:14:23+00:00",
+  "completed_at": "2026-11-21T20:14:58+00:00",
+  "minutes_spent": 0.58,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Negligible magnetising current gives N_p I_p = N_s I_s. The secondary current is I_s = P_load/V_load = 480/24 = 20 A, so I_p = 2 A. Winding heating is I_p^2 R_p + I_s^2 R_s = 2^2(3) + 20^2(0.05) = 32 W.",
+    "assumptions": [
+      "The stated transformer model applies at the operating point.",
+      "The supply maintains the secondary load voltage at 24 V as stated.",
+      "An additional secondary load is connected across the secondary and draws its stated power at the maintained voltage.",
+      "The charger has no electrical connection to the transformer secondary."
+    ],
+    "answer": 32,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "TEC29": {
+      "stratum": "R",
+      "answer_with_sentence": 53.3888888889,
+      "regime": null
+    },
+    "TDD45": {
+      "stratum": "D",
+      "answer_with_sentence": 32,
+      "regime": null
+    },
+    "T2665": {
+      "stratum": "D",
+      "answer_with_sentence": 32,
+      "regime": null
+    },
+    "TA1EB": {
+      "stratum": "D",
+      "answer_with_sentence": 32,
+      "regime": null
+    },
+    "TD2EC": {
+      "stratum": "R",
+      "answer_with_sentence": 53.3888888889,
+      "regime": null
+    },
+    "T3C5C": {
+      "stratum": "D",
+      "answer_with_sentence": 32,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TA1EB and T3C5C replace the specified additional load of 140 W with an unquantified 'small' load, violating the required preservation of the quantity's number and unit across variants."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and each individual augmented problem have a determinate heating answer. For TEC29 and TD2EC, the total secondary power is 620 W, giving I_s = 620/24 A and winding heating [0.05 + 3(120/1200)^2](620/24)^2 = 53.3888888889 W. Earlier-run loads do not affect the present measurement under the stated fixed-resistance model. Charger loads are disconnected from the target. The unspecified powers in TA1EB and T3C5C therefore do not prevent solving those individual problems, but they defeat the packet's stated numerical matching requirement.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "4893726629046744b131809ecb380f03e2e60c4406ee3c8f2f5da1662f339454",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

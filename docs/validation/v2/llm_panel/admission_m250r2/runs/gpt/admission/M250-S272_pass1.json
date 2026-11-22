@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S272",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:14:59+00:00",
+  "completed_at": "2026-11-21T20:15:41+00:00",
+  "minutes_spent": 0.69,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Successive odd-quarter-wavelength resonances differ in air-column length by lambda/2 = c/(2f). The fixed end correction cancels. Thus delta_t = c/(2fv) = 343/(2*512*0.015).",
+    "assumptions": [
+      "The specified sound speed, frequency and fixed end correction remain constant.",
+      "The stated drawdown rates apply throughout the measured interval, and simultaneous tube outflows add.",
+      "The pond is hydraulically separate from the tube."
+    ],
+    "answer": 22.3307291667,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TF4FF": {
+      "stratum": "D",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "TEA1B": {
+      "stratum": "R",
+      "answer_with_sentence": 13.9567057292,
+      "regime": null
+    },
+    "T49F8": {
+      "stratum": "D",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "TFF60": {
+      "stratum": "C",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "TBEDA": {
+      "stratum": "C",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "T9749": {
+      "stratum": "R",
+      "answer_with_sentence": 13.9567057292,
+      "regime": null
+    },
+    "T3D7A": {
+      "stratum": "D",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    },
+    "TB8E5": {
+      "stratum": "D",
+      "answer_with_sentence": 22.3307291667,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T3D7A and TB8E5 omit the numerical rate and unit supplied as 0.9 cm/s in their corresponding numerical renderings TF4FF and T49F8, violating the stated requirement that variants preserve the number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and all individual augmented problems have determinate answers. With both tube taps operating, the drawdown rate is 2.4 cm/s. The initial air-column length enters the individual resonance times but cancels from their difference. An earlier-run tap has no effect on the current interval. The omitted numerical rates in T3D7A and TB8E5 do not affect their answers, but they break the packet's matched-value requirement.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "f226db9917ea6f2a7732b1342b1bad1fba3a44628b53f8cf4064b30c9ca9a020",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

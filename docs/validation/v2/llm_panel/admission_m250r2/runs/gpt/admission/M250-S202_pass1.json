@@ -1,0 +1,95 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S202",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:25:51+00:00",
+  "completed_at": "2026-11-21T20:26:47+00:00",
+  "minutes_spent": 0.93,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of momentum gives the rocket equation v = u ln(m_initial/m_final). Without an added payload, v = 3000 ln(3200/800) = 4158.883 m/s. With a retained 190 kg payload, v = 3000 ln(3390/990) = 3692.641 m/s.",
+    "assumptions": [
+      "Use classical mechanics, adequate at the stated speeds.",
+      "The base rocket carries only the specified body, engine and fuel.",
+      "A payload bolted to the rocket remains attached throughout the burn.",
+      "Exhaust speed and direction are as stated, and external forces are negligible."
+    ],
+    "answer": 4158.883,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T5A37": {
+      "stratum": "R",
+      "answer_with_sentence": 3692.641,
+      "regime": null
+    },
+    "T2DD9": {
+      "stratum": "C",
+      "answer_with_sentence": 4158.883,
+      "regime": null
+    },
+    "T5460": {
+      "stratum": "R",
+      "answer_with_sentence": 3692.641,
+      "regime": null
+    },
+    "T3A6F": {
+      "stratum": "D",
+      "answer_with_sentence": 4158.883,
+      "regime": null
+    },
+    "TB855": {
+      "stratum": "C",
+      "answer_with_sentence": 4158.883,
+      "regime": null
+    },
+    "T357D": {
+      "stratum": "D",
+      "answer_with_sentence": 4158.883,
+      "regime": null
+    },
+    "T23F7": {
+      "stratum": "D",
+      "answer_with_sentence": 4158.883,
+      "regime": null
+    },
+    "T2E45": {
+      "stratum": "D",
+      "answer_with_sentence": 4158.883,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "natural",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T357D and T23F7 describe only a 'small payload', omitting the 190 kg value supplied in the other payload variants and therefore violating the stipulated common-number-and-unit requirement."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The physics and numerical answers are otherwise sound. Fuel consumption rate enters both thrust and burn duration but cancels after integration over the fixed fuel mass. The tug's payload is disconnected under the explicit external-force condition, and a payload carried on the previous flight only contributes no mass during this burn. All quantified payload sentences use 190 kg, and both quantified consumption-rate sentences use 27 kg/s; the two unquantified payload sentences prevent the complete set from satisfying the stated variant requirement.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "bc3f1aad7efb6b93b4c4b20092cccdead925ff2c02e812bea2263429b5854ad6",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

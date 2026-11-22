@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch11",
+  "item_id": "M250-S233",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:08:00Z", "completed_at": "2026-11-22T10:14:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law plus Fresnel p-polarisation reflection coefficient; P_in = P0 (1 - r_p^2)",
+    "assumptions": ["n_air = 1", "non-absorbing, non-magnetic glass", "narrow parallel beam", "power at laser equals power at surface"],
+    "answer": 4.466,
+    "unit": "mW"
+  },
+  "stratum_assignments": {
+    "T6A28": {"stratum": "C", "answer_with_sentence": 4.466, "regime": null},
+    "TBC5B": {"stratum": "R", "answer_with_sentence": 7.503, "regime": null},
+    "T38E1": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null},
+    "T8526": {"stratum": "C", "answer_with_sentence": 4.466, "regime": null},
+    "T01A0": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null},
+    "T6921": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null},
+    "TAC23": {"stratum": "R", "answer_with_sentence": 7.503, "regime": null},
+    "TA9F7": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base answer 4.46617 mW matches my 4.466 (T = 0.893234). R answers checked: 6.7 x 0.893234 = 5.9847, 8.4 x 0.893234 = 7.5032, 11.2 x 0.893234 = 10.0042 mW. Strata agree with pass 1. Minimal pairs T38E1/TBC5B and T6921/TAC23 share 3.4 mW and differ only in attachment (earlier run, second laser). The number-free sentences T01A0 and TA9F7 are declared numeral-free twins rather than minimal pairs, so the concern I noted in pass 1 does not apply. Area sentences T6A28/T8526 both state 5.5 mm^2 and correctly cancel."
+}

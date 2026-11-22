@@ -1,0 +1,92 @@
+{
+  "item_id": "M250-S54",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Stefan–Boltzmann law gives P2 = P1(r2/r1)^2(T2/T1)^4. Without a coating, P2 = 1.5(10/5)^2(1200/1000)^4 = 12.4416 kW. For a uniform coating of thickness q, replace r2 by 10 + q, with both lengths in cm. At q = 2.5, 4.5 and 7.5 cm, the powers are respectively 19.44, 26.158464 and 38.1024 kW.",
+    "assumptions": [
+      "The stated common constant emissivity applies to the final outer surfaces.",
+      "The cast layer has uniform radial thickness.",
+      "The specified 1200 K is the final outer-surface temperature.",
+      "Absorbed radiation is negligible as stated."
+    ],
+    "answer": 12.4416,
+    "unit": "kW"
+  },
+  "stratum_assignments": {
+    "T298E": {
+      "stratum": "D",
+      "answer_with_sentence": 12.4416,
+      "regime": null
+    },
+    "TA4B6": {
+      "stratum": "R",
+      "answer_with_sentence": 26.158464,
+      "regime": null
+    },
+    "TCB5F": {
+      "stratum": "D",
+      "answer_with_sentence": 12.4416,
+      "regime": null
+    },
+    "TDB9C": {
+      "stratum": "D",
+      "answer_with_sentence": 12.4416,
+      "regime": null
+    },
+    "T6222": {
+      "stratum": "R",
+      "answer_with_sentence": 26.158464,
+      "regime": null
+    },
+    "T4B8C": {
+      "stratum": "D",
+      "answer_with_sentence": 12.4416,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T298E and TDB9C omit the thickness number and unit supplied in their quantified twins, violating the review instructions' requirement that variants state the same number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A 1 mm coating can satisfy the numeral-free description 'a thin layer' but cannot satisfy the corresponding description specifying a 4.5 cm layer."
+  ],
+  "notes": "All physical classifications, governing relations, units and certified numerical answers check out. The two explicitly claimed minimal pairs, TCB5F/TA4B6 and T4B8C/T6222, preserve the number and unit and change only the attachment. The authors explain that the numeral-free controls are deliberate; this establishes intent but does not provide an exception to the frozen instructions' same-number-and-unit requirement. I therefore retain the pass-1 rendering defect. No additional physical defect was found.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:11:41+00:00",
+  "completed_at": "2026-11-21T20:12:22+00:00",
+  "minutes_spent": 0.68,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "284dfc638315f40c3875d05689c307117d64f395ea9837587faf212fd58d37ec",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

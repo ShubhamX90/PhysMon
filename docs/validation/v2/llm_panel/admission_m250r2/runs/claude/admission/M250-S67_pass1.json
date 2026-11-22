@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch03",
+  "item_id": "M250-S67",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:15:00Z", "completed_at": "2026-11-22T10:22:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Fresnel normal-incidence reflectance R = ((n-1)/(n+1))^2 = 0.04 at each face; incoherent summation of multiple reflections in a lossless slab gives T_total = (1-R)^2/(1-R^2) = (1-R)/(1+R) = 0.96/1.04", "assumptions": ["normal incidence", "no absorption", "incoherent addition of powers", "both faces air-glass with n = 1.5"], "answer": 46.15, "unit": "mW"},
+  "stratum_assignments": {
+    "T463C": {"stratum": "K", "answer_with_sentence": 46.15, "regime": "plate undamaged: beam power below 350 mW (50 mW is inside)"},
+    "T65F1": {"stratum": "R", "answer_with_sentence": 78.46, "regime": null},
+    "TBD30": {"stratum": "R", "answer_with_sentence": 78.46, "regime": null},
+    "T146E": {"stratum": "K", "answer_with_sentence": 46.15, "regime": "plate undamaged: beam power at most 350 mW (50 mW is inside)"},
+    "T094D": {"stratum": "D", "answer_with_sentence": 46.15, "regime": null},
+    "T60FB": {"stratum": "D", "answer_with_sentence": 46.15, "regime": null},
+    "T9EF0": {"stratum": "D", "answer_with_sentence": 46.15, "regime": null},
+    "T6E69": {"stratum": "D", "answer_with_sentence": 46.15, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: 50 mW * 0.96/1.04 = 46.154 mW. With source raised by 35 mW (T65F1, TBD30): 85 * 0.923077 = 78.46 mW; 85 mW is still below the 350 mW damage threshold. T9EF0/T60FB place the increase in an earlier experiment, so the present beam remains 50 mW (D); the phrase 'before the transmitted power was measured' refers to that earlier experiment's measurement, though a hasty reader might tie it to the present one (minor wording point). Lamp sentences have no path (D). Number check: all numeric beam-change sentences say 35 mW; both threshold sentences say 350 mW; T60FB and T6E69 are numeral-free."
+}

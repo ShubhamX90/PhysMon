@@ -1,0 +1,94 @@
+{
+  "item_id": "M250-S226",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "For adjacent opaque grey surfaces, F = sigma*(Ta^4-Tb^4)/(2/epsilon-1). Steady energy balance makes the flux identical through all three gaps. Their equal radiative resistances give Ts^4 = (2*T_hot^4 + T_cold^4)/3.",
+    "assumptions": [
+      "Adjacent large parallel surfaces have unit view factors.",
+      "Each thin shield is isothermal and in radiative equilibrium.",
+      "The common emissivity is positive.",
+      "In the current-run heating variants, 800 K denotes the hot plate's temperature before the specified increase."
+    ],
+    "answer": 724.662,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "TF3A9": {
+      "stratum": "D",
+      "answer_with_sentence": 724.662,
+      "regime": null
+    },
+    "T1186": {
+      "stratum": "D",
+      "answer_with_sentence": 724.662,
+      "regime": null
+    },
+    "T3B75": {
+      "stratum": "C",
+      "answer_with_sentence": 724.662,
+      "regime": null
+    },
+    "TAE28": {
+      "stratum": "D",
+      "answer_with_sentence": 724.662,
+      "regime": null
+    },
+    "TBE0E": {
+      "stratum": "D",
+      "answer_with_sentence": 724.662,
+      "regime": null
+    },
+    "T70E5": {
+      "stratum": "C",
+      "answer_with_sentence": 724.662,
+      "regime": null
+    },
+    "T0D5D": {
+      "stratum": "R",
+      "answer_with_sentence": 787.519,
+      "regime": null
+    },
+    "T7BAD": {
+      "stratum": "R",
+      "answer_with_sentence": 787.519,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "The governing relations, cancellation expression and all certified answers agree with radiative equilibrium. Raising the hot plate from 800 K by 35, 70 and 140 K gives respectively 756.074, 787.519 and 850.485 K. Historical heating has no remaining dependency once the current plate temperatures are specified; the bath is explicitly thermally disconnected. All listed emissivities are inside the physical positive-emissivity domain, and their common factor cancels. The declared minimal pairs TF3A9/T0D5D and TAE28/T7BAD preserve 70 K while changing the event or object receiving the heating. I withdraw pass 1's rendering_not_minimal flag: the additional claims explicitly identify T1186 and TBE0E as deliberate numeral-free controls, rather than numerical minimal pairs. Their wording accurately replaces '70 K' with 'a few kelvin'. No physics conclusion or numerical answer from pass 1 changes.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:18:00+00:00",
+  "completed_at": "2026-11-21T20:18:52+00:00",
+  "minutes_spent": 0.87,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "425d653f95ab8b39870de560c2a9c2d313dc9ea527abfa0cb6f84f042db21836",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

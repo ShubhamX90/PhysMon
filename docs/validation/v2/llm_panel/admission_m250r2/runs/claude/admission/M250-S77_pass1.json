@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch07",
+  "item_id": "M250-S77",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:00:00Z", "completed_at": "2026-11-22T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "T = exp(-2 kappa a), hbar*kappa = sqrt(2 m (V0 - E)); a = ln(1/T) / (2 kappa), with kappa = sqrt(2 mc^2 (V0-E)) / (hbar c)",
+    "assumptions": ["non-relativistic electron (5 eV << 511 keV)", "opaque-barrier approximation T = exp(-2 kappa a) as stated", "V0 - E = 3 eV"],
+    "answer": 0.3892,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "TFB05": {"stratum": "D", "answer_with_sentence": 0.3892, "regime": null},
+    "T9848": {"stratum": "D", "answer_with_sentence": 0.3892, "regime": null},
+    "T6F0D": {"stratum": "D", "answer_with_sentence": 0.3892, "regime": null},
+    "T0D94": {"stratum": "D", "answer_with_sentence": 0.3892, "regime": null},
+    "TDA04": {"stratum": "R", "answer_with_sentence": 0.4545, "regime": null},
+    "T8282": {"stratum": "R", "answer_with_sentence": 0.4545, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["rendering_not_minimal"],
+  "defect_reasons": {"rendering_not_minimal": "TFB05 and T6F0D say 'a new value' with no number, whereas the other height sentences state 7.2 eV, so not all height sentences state the same number and unit."},
+  "defect_severity": {"rendering_not_minimal": "medium"},
+  "counterexamples": [],
+  "notes": "Base: V0-E = 3 eV; hbar*kappa*c = sqrt(2*511000*3) = 1751.0 eV; kappa = 8.8748 nm^-1; a = ln(1000)/(2*8.8748) = 6.9078/17.7496 = 0.38918 nm. With height 7.2 eV: V0-E = 2.2 eV; sqrt(2*511000*2.2) = 1499.47 eV; kappa = 7.5999 nm^-1; a = 6.9078/15.1999 = 0.45446 nm. Second-barrier and earlier-run sentences do not affect the barrier the electron meets now (D). TDA04 and T8282 replace the barrier the electron meets, so R. The numberless 'new value' sentences are acceptable as D statements but are not same-number variants of the 7.2 eV ones; whether this is a defect depends on which pairs the authors claim."
+}

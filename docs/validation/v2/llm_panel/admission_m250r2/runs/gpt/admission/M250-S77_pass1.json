@@ -1,0 +1,83 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S77",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:28:41+00:00",
+  "completed_at": "2026-11-21T20:29:16+00:00",
+  "minutes_spent": 0.59,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "T = exp(-2aκ), κ = sqrt(2(mc²)(V-E))/(ħc), so a = (ħc)ln(1/T)/(2sqrt(2(mc²)(V-E))). Using mc² = 511000 eV and V-E = 3 eV gives κ = 8.87481 nm⁻¹.",
+    "assumptions": [
+      "Use the stipulated exponential transmission model for the barrier approached by the electron.",
+      "The supplied electron mass and kinetic energy apply after any barrier replacement."
+    ],
+    "answer": 0.389178,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "TFB05": {
+      "stratum": "D",
+      "answer_with_sentence": 0.389178,
+      "regime": null
+    },
+    "T9848": {
+      "stratum": "D",
+      "answer_with_sentence": 0.389178,
+      "regime": null
+    },
+    "T6F0D": {
+      "stratum": "D",
+      "answer_with_sentence": 0.389178,
+      "regime": null
+    },
+    "T0D94": {
+      "stratum": "D",
+      "answer_with_sentence": 0.389178,
+      "regime": null
+    },
+    "TDA04": {
+      "stratum": "R",
+      "answer_with_sentence": 0.454462,
+      "regime": null
+    },
+    "T8282": {
+      "stratum": "R",
+      "answer_with_sentence": 0.454462,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TFB05 and T6F0D omit the numerical height and unit, stating only 'a new value', whereas the other height variants specify 7.2 eV, violating the required preservation of number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and every individual rendering have determinate answers under the supplied model; invalidity concerns the required variant construction. Changing the second barrier or a barrier used for an earlier run only does not change the target barrier's parameters. Both TDA04 and T8282 replace the target barrier before the relevant electron encounter, giving V-E = 2.2 eV and a = 0.454462 nm. Replacement explicitly describes a change over time, so the new height does not contradict the original height.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a19209b104a8d54f84152f41296ad0fac2c359e953fd099afa09895e35867e00",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

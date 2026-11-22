@@ -1,0 +1,107 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S271",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:21:53+00:00",
+  "completed_at": "2026-11-21T20:22:50+00:00",
+  "minutes_spent": 0.95,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For the fundamental longitudinal mode, the free ends are displacement antinodes and the midpoint is a node: f = sqrt(E/rho)/(2L). Adjacent dust heaps are separated by half the air wavelength, so spacing = c_air/(2f) = c_air L sqrt(rho/E). With E = 7.0e10 Pa, the rod wave speed is 5091.75 m/s and f = 2121.56 Hz.",
+    "assumptions": [
+      "The thin rod is uniform and obeys linear elasticity.",
+      "The light driving disc negligibly changes the rod's natural frequency.",
+      "An added segment forms a mechanically continuous rod, and the clamp is placed at the midpoint of the resulting rod."
+    ],
+    "answer": 0.0808366,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TA297": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "T94AF": {
+      "stratum": "C",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "T641F": {
+      "stratum": "C",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "TFBD6": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "TD83B": {
+      "stratum": "R",
+      "answer_with_sentence": 0.1023931,
+      "regime": null
+    },
+    "T9574": {
+      "stratum": "C",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "T1BAE": {
+      "stratum": "C",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "T3295": {
+      "stratum": "R",
+      "answer_with_sentence": 0.1023931,
+      "regime": null
+    },
+    "T2604": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    },
+    "TFE55": {
+      "stratum": "D",
+      "answer_with_sentence": 0.0808366,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The length-addition variants do not preserve the stated number and unit: TFBD6 replaces 32 cm with an unspecified 'extra small amount', and TFE55 replaces 32 cm with an unspecified 'short length'."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "A 1 cm wire extension satisfies TFBD6 but does not satisfy T2604, which specifies 32 cm.",
+    "An earlier rod extension of 5 cm satisfies TFE55 but does not satisfy TA297, which specifies 32 cm."
+  ],
+  "notes": "The base physics and all individually rendered problems have determinate answers. The invalid verdict concerns the required preservation of numerical values across variants. Cross-sectional area cancels between axial stiffness and inertia: rho A u_tt = E A u_xx; diameter enters through that same area and also cancels. Each sentence is evaluated separately, so the diameter and area statements do not contradict one another. Current rod extensions give a total length of 1.52 m; extensions used only in an earlier run do not change the present experiment.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "e0140ddfa7faaf7a96a92a8ab00629e5c47dc75b1a1ca58dbeda5b03d0458921",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "item_id": "M250-S56",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "COP_Carnot = T_c/(T_h-T_c) = 275/25 = 11. The refrigerator COP is 0.3 × 11 = 3.3, so compressor electrical power is P = Q_c/COP = 200/3.3 = 60.606 W.",
+    "assumptions": [
+      "The explicitly identified 200 W wall heat leak is the base cooling load.",
+      "The stated refrigerator COP relates cooling power to compressor electrical input.",
+      "Temperatures and the stated COP remain fixed when each sentence is added.",
+      "A continuously illuminated interior lamp ultimately adds its electrical power to the interior heat load.",
+      "Steady operation eliminates dependence on earlier thermal transients."
+    ],
+    "answer": 60.6060606061,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T2CD6": {
+      "stratum": "K",
+      "answer_with_sentence": 60.6060606061,
+      "regime": "The required continuous electrical input is below the 330 W motor rating; the rating is a capacity limit, not the actual consumption."
+    },
+    "TC1B7": {
+      "stratum": "R",
+      "answer_with_sentence": 77.2727272727,
+      "regime": null
+    },
+    "T3A68": {
+      "stratum": "D",
+      "answer_with_sentence": 60.6060606061,
+      "regime": null
+    },
+    "T0E77": {
+      "stratum": "C",
+      "answer_with_sentence": 60.6060606061,
+      "regime": null
+    },
+    "T9447": {
+      "stratum": "D",
+      "answer_with_sentence": 60.6060606061,
+      "regime": null
+    },
+    "T2BAE": {
+      "stratum": "C",
+      "answer_with_sentence": 60.6060606061,
+      "regime": null
+    },
+    "TB1B6": {
+      "stratum": "D",
+      "answer_with_sentence": 60.6060606061,
+      "regime": null
+    },
+    "T50E9": {
+      "stratum": "K",
+      "answer_with_sentence": 60.6060606061,
+      "regime": "The required continuous electrical input is below the 330 W motor rating."
+    },
+    "T5601": {
+      "stratum": "D",
+      "answer_with_sentence": 60.6060606061,
+      "regime": null
+    },
+    "T5F2C": {
+      "stratum": "R",
+      "answer_with_sentence": 77.2727272727,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "The later explicit identification of 200 W as wall leakage supports adding the interior lamp load: (200 + 55)/3.3 = 77.273 W. For either 90 min duration, COP = (200t)/(Pt), so duration cancels. The kitchen temperature is prescribed, so an exterior lamp does not change the thermal reservoir temperature in this model. Quantified lamp variants consistently state 55 W, motor variants state 330 W, and duration variants state 90 min. T9447 and TB1B6 omit lamp power; they cannot serve as number-preserving minimal pairs with the quantified lamp sentences, although no specific pair mapping is supplied in this packet.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:12:22+00:00",
+  "completed_at": "2026-11-21T20:13:05+00:00",
+  "minutes_spent": 0.73,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "3886cbb580160db2e060324b1fdcbe4fd2d5430027f88afb2eecdafac2c10476",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

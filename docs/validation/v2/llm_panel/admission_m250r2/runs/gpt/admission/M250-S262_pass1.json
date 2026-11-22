@@ -1,0 +1,87 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S262",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:19:27+00:00",
+  "completed_at": "2026-11-21T20:20:07+00:00",
+  "minutes_spent": 0.67,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Hagen–Poiseuille flow gives Q = πr⁴ρgh/(8μL). Conservation of volume gives A dh/dt = −Q, hence t = [8μLA/(πr⁴ρg)] ln(h_initial/h_final). Using A = 0.0100 m², L = 0.50 m, r = 0.003 m, and depths 0.40 m and 0.25 m gives a time constant of 2138.64 s.",
+    "assumptions": [
+      "Use the stipulated steady laminar, pressure-driven tube-flow model at each instantaneous tank depth.",
+      "The hydrostatic pressure difference is ρgh, as specified.",
+      "The oil's density and viscosity remain constant.",
+      "The bucket does not exchange oil with the tank during draining."
+    ],
+    "answer": 1005.17,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T3C55": {
+      "stratum": "R",
+      "answer_with_sentence": 1607.01,
+      "regime": null
+    },
+    "TD265": {
+      "stratum": "R",
+      "answer_with_sentence": 1607.01,
+      "regime": null
+    },
+    "T7B4A": {
+      "stratum": "D",
+      "answer_with_sentence": 1005.17,
+      "regime": null
+    },
+    "TFF4D": {
+      "stratum": "D",
+      "answer_with_sentence": 1005.17,
+      "regime": null
+    },
+    "T75EB": {
+      "stratum": "D",
+      "answer_with_sentence": 1005.17,
+      "regime": null
+    },
+    "T7A3F": {
+      "stratum": "D",
+      "answer_with_sentence": 1005.17,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T75EB and T7A3F replace the specified increase of 13 cm with an unspecified 'a little deeper', violating the requirement that variants preserve the same numerical quantity and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "An increase of 1 cm satisfies 'a little deeper' but does not equal 13 cm, so the numerical content of these variants is not preserved."
+  ],
+  "notes": "The base problem and each individually augmented physics problem have unique answers under the stated model. T3C55 and TD265 increase the starting depth to 53 cm; their tense difference does not change the physics. Changes to the separate bucket or an earlier experiment have no physical path to the current draining time. The invalid verdict concerns the required numerical consistency between sentence variants.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "3f6eaecb342c77546c30f42f5b5d3ec2052fd78ba45bdfbb56ec229fb6f62ac9",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S06",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:27:45+00:00",
+  "completed_at": "2026-11-21T20:28:17+00:00",
+  "minutes_spent": 0.55,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Ohm's law and series/parallel resistance reduction: R_parallel = (1/6 + 1/12)^(-1) = 4 Ω. The total resistance is 8 Ω, giving total current 1.5 A and parallel-pair voltage 6 V. The second-resistor current is 6/12 = 0.5 A.",
+    "assumptions": [
+      "The question concerns steady direct current.",
+      "The lamp and its own cell form an electrically separate circuit.",
+      "A resistor stated to be connected in series with the battery is an additional resistor."
+    ],
+    "answer": 0.5,
+    "unit": "A"
+  },
+  "stratum_assignments": {
+    "T272F": {
+      "stratum": "D",
+      "answer_with_sentence": 0.5,
+      "regime": null
+    },
+    "T3DE4": {
+      "stratum": "D",
+      "answer_with_sentence": 0.5,
+      "regime": null
+    },
+    "T7E58": {
+      "stratum": "D",
+      "answer_with_sentence": 0.5,
+      "regime": null
+    },
+    "T115C": {
+      "stratum": "R",
+      "answer_with_sentence": 0.34782608695652173,
+      "regime": null
+    },
+    "T7719": {
+      "stratum": "R",
+      "answer_with_sentence": 0.34782608695652173,
+      "regime": null
+    },
+    "TBEF7": {
+      "stratum": "D",
+      "answer_with_sentence": 0.5,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The required preservation of number and unit across variants fails: T272F and TBEF7 describe a 'small resistor' without specifying 3.5 Ω, unlike the corresponding numerical sentences T7E58 and T3DE4."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and all six augmented problems have unique current answers; the invalid verdict concerns the required variant consistency. For T115C and T7719, the total resistance becomes 4 + 4 + 3.5 = 11.5 Ω, so the second-resistor current is (12/11.5)(4/12) = 8/23 A. Earlier-experiment-only resistors have no present electrical connection, and resistors in the separately powered lamp circuit cannot affect the target.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "2bbfc62392cd627828aec6881a6ac48b138b836362a6d65ef45c834ab90dcd94",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

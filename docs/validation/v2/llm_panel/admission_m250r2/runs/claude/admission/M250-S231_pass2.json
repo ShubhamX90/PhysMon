@@ -1,0 +1,33 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch06",
+  "item_id": "M250-S231",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:49:00Z", "completed_at": "2026-11-22T10:55:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Doppler reflection from a moving wall: echo f(c+v)/(c-v); beat = 2fv/(c-v)",
+    "assumptions": ["still air", "stationary source and microphone", "wall speed relative to a stationary trolley", "straight-back reflection", "non-relativistic"],
+    "answer": 7.7647,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "T2729": {"stratum": "R", "answer_with_sentence": 11.4353, "regime": null},
+    "T544D": {"stratum": "D", "answer_with_sentence": 7.7647, "regime": null},
+    "T811A": {"stratum": "D", "answer_with_sentence": 7.7647, "regime": null},
+    "T105F": {"stratum": "D", "answer_with_sentence": 7.7647, "regime": null},
+    "T72F4": {"stratum": "C", "answer_with_sentence": 7.7647, "regime": null},
+    "T7F76": {"stratum": "R", "answer_with_sentence": 11.4353, "regime": null},
+    "TAC5B": {"stratum": "C", "answer_with_sentence": 7.7647, "regime": null},
+    "T1B41": {"stratum": "D", "answer_with_sentence": 7.7647, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Agrees with pass 1. Checked R answers: 2*440*3.7/339.3 = 9.5962, 2*440*4.4/338.6 = 11.4353, 2*440*5.2/337.8 = 13.5465 Hz. The crest-timing cancellation gives T_(n+1) - T_n = (1/f)(c-v)/(c+v), independent of the initial distance, so the echo frequency is f(c+v)/(c-v) for any distance; the C claim holds. Minimal pairs T105F-T2729 and T811A-T7F76 share 1.4 m/s and differ only in attachment/occasion; T544D and T1B41 are declared numeral-free twins. The trolley clause makes the base wall speed relative to a stationary trolley, so trolley motion adds to the wall's speed through the air."
+}

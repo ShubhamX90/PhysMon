@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch01",
+  "item_id": "M250-S262",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:00:00Z", "completed_at": "2026-11-22T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Hagen-Poiseuille Q = pi r^4 (rho g h)/(8 mu L) with continuity A dh/dt = -Q, giving h(t) = h0 exp(-k t), k = pi r^4 rho g/(8 mu L A); t = ln(h0/h)/k",
+    "assumptions": ["steady laminar Poiseuille flow at every depth (Re about 4 at most, consistent)", "driving pressure rho g h only, end effects and outflow kinetic energy neglected", "tank walls vertical, constant A = 0.01 m^2", "time measured from the start of draining"],
+    "answer": 1005.2,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T3C55": {"stratum": "R", "answer_with_sentence": 1607.0, "regime": null},
+    "TD265": {"stratum": "R", "answer_with_sentence": 1607.0, "regime": null},
+    "T7B4A": {"stratum": "D", "answer_with_sentence": 1005.2, "regime": null},
+    "TFF4D": {"stratum": "D", "answer_with_sentence": 1005.2, "regime": null},
+    "T75EB": {"stratum": "D", "answer_with_sentence": 1005.2, "regime": null},
+    "T7A3F": {"stratum": "D", "answer_with_sentence": 1005.2, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "k = pi*(3e-3)^4*900*9.8/(8*0.12*0.5*0.01) = 4.6759e-4 s^-1. Base: ln(40/25)/k = 0.47000/4.6759e-4 = 1005.2 s. With 13 cm added (h0 = 53 cm): ln(53/25)/k = 0.75142/4.6759e-4 = 1607.0 s. T3C55 and TD265 differ only in tense; both add oil to the tank before draining and are relevant. T7B4A and T7A3F attach the addition to the bucket (no path to the target). TFF4D and T75EB concern an earlier experiment and do not change this run. T75EB and T7A3F state no number ('a little deeper') rather than '13 cm'; if they are meant as variants of the 13 cm sentences they do not state the same number and unit, which I will check against the authors' pairing in pass 2. The base problem's statement that the given depth is that when the tank is first filled is consistent with later additions."
+}

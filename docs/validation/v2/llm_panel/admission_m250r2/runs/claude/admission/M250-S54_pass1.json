@@ -1,0 +1,32 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch07",
+  "item_id": "M250-S54",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:43:00Z", "completed_at": "2026-11-22T10:50:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Stefan-Boltzmann law P = e sigma 4 pi R^2 T^4, so P2 = P1 (R2/R1)^2 (T2/T1)^4",
+    "assumptions": ["same constant emissivity (stated)", "absorption from surroundings negligible (stated)", "uniform surface temperature"],
+    "answer": 12.4416,
+    "unit": "kW"
+  },
+  "stratum_assignments": {
+    "T298E": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "TA4B6": {"stratum": "R", "answer_with_sentence": 26.1585, "regime": null},
+    "TCB5F": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "TDB9C": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null},
+    "T6222": {"stratum": "R", "answer_with_sentence": 26.1585, "regime": null},
+    "T4B8C": {"stratum": "D", "answer_with_sentence": 12.4416, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: P2 = 1.5 kW * (10/5)^2 * (1.2)^4 = 1.5*4*2.0736 = 12.4416 kW. With a 4.5 cm layer on the second sphere, its outer radius is 14.5 cm, and by the scene clause 1200 K is the outer-surface temperature: P = 1.5*(2.9)^2*2.0736 = 1.5*8.41*2.0736 = 26.1585 kW. T6222 ('was cast') leaves the layer in place, so it is also R. The bracket and disc sentences are D. T298E and TDB9C ('thin layer') carry no number, apparently numeral-free controls. I assume the cast layer of the same metal keeps the stated emissivity; the problem implies this but does not say it outright (minor)."
+}

@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch13",
+  "item_id": "M250-S255",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:08:00Z", "completed_at": "2026-11-22T10:14:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Timoshenko bimetal curvature with m=1: kappa = 24 dAlpha dT / (h [12 + (1+n)(1+1/n)]); delta = kappa L^2/2",
+    "assumptions": ["small curvature, linear elastic, perfect bonding", "equal widths (cancels)", "magnitude of deflection"],
+    "answer": 12.22,
+    "unit": "mm"
+  },
+  "stratum_assignments": {
+    "T90F6": {"stratum": "D", "answer_with_sentence": 12.22, "regime": null},
+    "TC665": {"stratum": "D", "answer_with_sentence": 12.22, "regime": null},
+    "TB206": {"stratum": "C", "answer_with_sentence": 12.22, "regime": null},
+    "TE1D7": {"stratum": "D", "answer_with_sentence": 12.22, "regime": null},
+    "T1A9F": {"stratum": "R", "answer_with_sentence": 29.35, "regime": null},
+    "T374D": {"stratum": "D", "answer_with_sentence": 12.22, "regime": null},
+    "T6C9F": {"stratum": "C", "answer_with_sentence": 12.22, "regime": null},
+    "T9949": {"stratum": "R", "answer_with_sentence": 29.35, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 4, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "Which layer is on top is not stated, so only the magnitude of the deflection is fixed; also the quantity label for TE1D7/TC665 ('a further length of strip') actually describes tape length, a metadata mislabel that does not affect any answer."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Checked: kappa = 24*4.2e-4/(16.5*1e-3) = 0.61091 1/m; base 12.218 mm; L=26 cm: 20.649 mm; L=31 cm: 29.354 mm; L=35 cm: 37.418 mm, all matching the certified answers. Width cancels (moment and stiffness both proportional to width). Minimal pairs hold: T374D vs T1A9F differ only in timing (earlier experiment vs just before measurement), same 11 cm; TE1D7 vs T9949 differ only in the object pulled out (tape vs strip), same 11 cm. Numeral-free twins T90F6 and TC665 match their D twins' wording. Agrees with pass 1."
+}

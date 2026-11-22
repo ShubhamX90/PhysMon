@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch11",
+  "item_id": "M250-S19",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:20:00Z", "completed_at": "2026-11-22T10:25:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Projectile range on level ground: R = v^2 sin(2 theta) / g",
+    "assumptions": ["no air resistance", "launch and landing at the same level", "uniform g = 9.8 m/s^2"],
+    "answer": 38.355,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "T3E32": {"stratum": "R", "answer_with_sentence": 27.311, "regime": null},
+    "T9D35": {"stratum": "D", "answer_with_sentence": 38.355, "regime": null},
+    "TFDC7": {"stratum": "R", "answer_with_sentence": 27.311, "regime": null},
+    "TFC29": {"stratum": "D", "answer_with_sentence": 38.355, "regime": null},
+    "TC550": {"stratum": "D", "answer_with_sentence": 38.355, "regime": null},
+    "T9417": {"stratum": "D", "answer_with_sentence": 38.355, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All certified answers check: q=7 -> 28 deg, 400 x sin56/9.8 = 33.838 m; q=14 -> 21 deg, 27.311 m; q=22 -> 13 deg, 400 x sin26/9.8 = 17.893 m; base 38.355 m. Strata match pass 1. Minimal pairs TFC29/T3E32 and T9417/TFDC7 share 14 deg and differ only in attachment; numeral-free twins are declared as such. The ramp-lowering sentences describe a ramp angle change, labelled by the authors as 'a lowering of the launch direction' quantity; the label is loose but the D claim holds because the ball neither touches the ramp nor lands on it."
+}

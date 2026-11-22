@@ -1,0 +1,30 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch04",
+  "item_id": "M250-S271",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:29:00Z", "completed_at": "2026-11-22T10:37:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "v = sqrt(Y/rho), f = v/(2L), d = c/(2f) = c L / v", "assumptions": ["thin rod", "middle clamp node, free ends", "stated speed of sound"], "answer": 8.08366, "unit": "cm"},
+  "stratum_assignments": {
+    "TA297": {"stratum": "D", "answer_with_sentence": 8.08366, "regime": null},
+    "T94AF": {"stratum": "K", "answer_with_sentence": 8.08366, "regime": "thin-rod regime: diameter much smaller than rod length and wavelength (authors: 10*d < L)"},
+    "T641F": {"stratum": "C", "answer_with_sentence": 8.08366, "regime": null},
+    "TFBD6": {"stratum": "D", "answer_with_sentence": 8.08366, "regime": null},
+    "TD83B": {"stratum": "R", "answer_with_sentence": 10.2393, "regime": null},
+    "T9574": {"stratum": "K", "answer_with_sentence": 8.08366, "regime": "thin-rod regime: diameter much smaller than rod length and wavelength (authors: 10*d < L)"},
+    "T1BAE": {"stratum": "C", "answer_with_sentence": 8.08366, "regime": null},
+    "T3295": {"stratum": "R", "answer_with_sentence": 10.2393, "regime": null},
+    "T2604": {"stratum": "D", "answer_with_sentence": 8.08366, "regime": null},
+    "TFE55": {"stratum": "D", "answer_with_sentence": 8.08366, "regime": null}
+  },
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "validity": "invalid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 3,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The d_rationale for T2604 and its numeral-free twin TFBD6 says 'Metal welded onto the railing lengthens the railing only', but the item has no railing: the sentences and the scene clause concern a metal wire hanging from a hook, so the authors' stated rationale is false of this item."},
+  "defect_severity": {"other": "high"},
+  "counterexamples": [],
+  "notes": "All strata and numerical answers are correct: base 343*1.2/5091.75 = 8.08366 cm; R at q = 14, 32, 55 cm gives 9.02676, 10.2393, 11.7887 cm (checked); cross-section cancels (C) as claimed; diameter as K inside the thin-rod regime (10*q < Lr holds for 6.5-13 mm) is a better label than my pass-1 C, since the diameter does not enter any governing relation and matters only for a thick rod (lateral-inertia correction); I accept K. Minimal pairs T2604/TD83B (wire vs rod) and TA297/T3295 (earlier run vs before clamp) share 32 cm; T94AF/T9574 share 8.21 mm; T641F/T1BAE share 1.6 cm^2. The only defect is the stale 'railing' rationale for the wire sentences (and 'welded' where the text says 'joined', minor). Under rule 3 a false authors' claim is high whatever it is about, so I mark the item invalid; if rationale text is not considered a certified claim, the item would otherwise be valid."
+}

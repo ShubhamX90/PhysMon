@@ -1,0 +1,83 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S230",
+  "pass_number": 2,
+  "started_at": "2026-11-21T20:09:13+00:00",
+  "completed_at": "2026-11-21T20:09:51+00:00",
+  "minutes_spent": 0.64,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conservation of energy gives Tf=(m1*T1+m2*T2)/(m1+m2)=318 K. For the adiabatic system, Sgen=c[m1 ln(Tf/T1)+m2 ln(Tf/T2)]=25.5655 J/K. Adding mass q at the hotter block's temperature replaces m1 by m1+q in both expressions.",
+    "assumptions": [
+      "The enclosure has negligible thermal storage.",
+      "There is no phase change or appreciable mechanical work.",
+      "The attached metal participates in the final thermal equilibrium."
+    ],
+    "answer": 25.5655,
+    "unit": "J/K"
+  },
+  "stratum_assignments": {
+    "T04A3": {
+      "stratum": "D",
+      "answer_with_sentence": 25.5655,
+      "regime": null
+    },
+    "T33C5": {
+      "stratum": "D",
+      "answer_with_sentence": 25.5655,
+      "regime": null
+    },
+    "T7053": {
+      "stratum": "D",
+      "answer_with_sentence": 25.5655,
+      "regime": null
+    },
+    "TFF07": {
+      "stratum": "D",
+      "answer_with_sentence": 25.5655,
+      "regime": null
+    },
+    "TC78D": {
+      "stratum": "R",
+      "answer_with_sentence": 31.9753,
+      "regime": null
+    },
+    "T8625": {
+      "stratum": "R",
+      "answer_with_sentence": 31.9753,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "The claimed relations, dependencies and certified answers are consistent. For either relevant sentence, q=0.6, 1.1 and 3.4 kg gives final temperatures 322.5, 325.5737705 and 335 K, respectively, and entropy generation 29.3979, 31.9753 and 39.6827 J/K. All disconnected sentences leave the answer at 25.5655 J/K. The historical attachment leaves no additional mass in the current run, and the cabinet is thermally disconnected. The claimed minimal pairs T04A3/TC78D and T7053/T8625 preserve the numerical quantity and unit while changing its causal attachment. I revise the pass-1 rendering defect because pass 2 explicitly identifies T33C5 and TFF07 as deliberate numeral-free controls, rather than claiming that they preserve the numbered quantity. Their stated twin transformations accurately describe the textual differences. The locked pass-1 review remains unchanged.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "74f2f53feedfc80adb31370b73f3776c740a1c8cd89872633bf1538e90c12515",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

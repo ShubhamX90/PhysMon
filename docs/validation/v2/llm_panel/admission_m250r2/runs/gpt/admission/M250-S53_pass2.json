@@ -1,0 +1,99 @@
+{
+  "item_id": "M250-S53",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Steady Fourier conduction through layers in series: P = A ΔT/(L1/k1 + L2/k2). The thermal resistances are R1 = 0.0208333 K/W and R2 = 0.104167 K/W, giving P = 160 W. Increasing ΔT by q gives P = 8(20 + q) W, yielding 208, 264 and 376 W for q = 6, 13 and 27 K.",
+    "assumptions": [
+      "The stated thermal conductivities apply throughout the temperature ranges considered.",
+      "Heat flow is steady and perpendicular to the layers, with perfect thermal contact and insulated edges.",
+      "For the relevant temperature changes, the stated steady-flow condition applies to the requested measurement."
+    ],
+    "answer": 160.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T9459": {
+      "stratum": "D",
+      "answer_with_sentence": 160.0,
+      "regime": null
+    },
+    "T91A5": {
+      "stratum": "R",
+      "answer_with_sentence": 264.0,
+      "regime": null
+    },
+    "TFB61": {
+      "stratum": "R",
+      "answer_with_sentence": 264.0,
+      "regime": null
+    },
+    "T0538": {
+      "stratum": "C",
+      "answer_with_sentence": 160.0,
+      "regime": null
+    },
+    "TC890": {
+      "stratum": "D",
+      "answer_with_sentence": 160.0,
+      "regime": null
+    },
+    "T3307": {
+      "stratum": "D",
+      "answer_with_sentence": 160.0,
+      "regime": null
+    },
+    "T2BD1": {
+      "stratum": "C",
+      "answer_with_sentence": 160.0,
+      "regime": null
+    },
+    "TA69F": {
+      "stratum": "D",
+      "answer_with_sentence": 160.0,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "other"
+  ],
+  "defect_reasons": {
+    "other": "T91A5's 'this wall' has a competing shed-wall antecedent, while TFB61's 'Just before' suggests a possible transient despite the explicit steady-flow condition."
+  },
+  "defect_severity": {
+    "other": "medium"
+  },
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "notes": "All certified numerical answers follow from the stated relations. Absolute cold-surface temperatures of 270, 276 and 285 K cancel because the temperature difference and conductivities are fixed. Earlier tests do not affect the specified present steady state, and changing the shed-wall temperature difference does not change the prescribed boundary temperatures of the composite wall. The explicitly claimed minimal pairs preserve their numbers and units. I withdraw pass 1's rendering_not_minimal flag: pass 2 identifies TC890 and TA69F as deliberate numeral-free controls, not numbered minimal pairs. The remaining wording concerns are medium severity because the explicit steady-flow condition supports the certified interpretation. Reading 'this wall' as the shed wall would instead give 160 W; interpreting TFB61 as a transient would require thermal storage properties and elapsed time, but that interpretation conflicts with the stated steady condition.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:14:21+00:00",
+  "completed_at": "2026-11-21T20:14:59+00:00",
+  "minutes_spent": 0.63,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "6c28d96fc5ce563e9a40b84bc06e4bc15481d41dd1d21fc0c1d509662233821a",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

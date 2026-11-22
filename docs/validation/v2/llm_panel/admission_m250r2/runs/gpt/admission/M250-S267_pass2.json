@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S267",
+  "pass_number": 2,
+  "started_at": "2026-11-21T20:19:35+00:00",
+  "completed_at": "2026-11-21T20:20:22+00:00",
+  "minutes_spent": 0.78,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Kirchhoff's current law gives C dV/dt=(E-V)/R1-V/R2. With V(0)=0, V(t)=V_final[1-exp(-t/tau)], where V_final=E R2/(R1+R2) and tau=(R1 R2/(R1+R2))C. Consequently t_90=ln(10)(4700*6800/11500)(22e-6)=0.140782 s=140.782 ms.",
+    "assumptions": [
+      "The capacitor is initially uncharged, as stated.",
+      "The switch stays closed during charging.",
+      "The flash unit powered by its own cell is a separate circuit.",
+      "An added capacitor wired across the main capacitor remains connected during charging and shares its zero initial voltage."
+    ],
+    "answer": 140.782,
+    "unit": "ms"
+  },
+  "stratum_assignments": {
+    "T77C0": {
+      "stratum": "C",
+      "answer_with_sentence": 140.782,
+      "regime": null
+    },
+    "TA387": {
+      "stratum": "D",
+      "answer_with_sentence": 140.782,
+      "regime": null
+    },
+    "TC55C": {
+      "stratum": "C",
+      "answer_with_sentence": 140.782,
+      "regime": null
+    },
+    "TDA93": {
+      "stratum": "R",
+      "answer_with_sentence": 236.77,
+      "regime": null
+    },
+    "TE837": {
+      "stratum": "R",
+      "answer_with_sentence": 236.77,
+      "regime": null
+    },
+    "T1015": {
+      "stratum": "D",
+      "answer_with_sentence": 140.782,
+      "regime": null
+    },
+    "T7FFF": {
+      "stratum": "D",
+      "answer_with_sentence": 140.782,
+      "regime": null
+    },
+    "T6164": {
+      "stratum": "D",
+      "answer_with_sentence": 140.782,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "I retract the pass-1 rendering_not_minimal finding: pass 2 explicitly identifies TA387 and T7FFF as numeral-free controls, rather than quantitative minimal pairs. The actual minimal_pair_with claims preserve 15 μF and change its attachment or run. The controls correctly replace the quantitative phrases with nonnumeric phrases. All strata and certified answers agree with the circuit solution. Additional capacitances of 6.2, 15 and 33 μF give total capacitances of 28.2, 37 and 55 μF, yielding 180.457, 236.770 and 351.955 ms respectively. Every listed battery emf is positive, and its magnitude cancels when the target is a fraction of the final capacitor voltage. Earlier-run capacitance leaves no initial-voltage dependency because the present capacitor is explicitly uncharged. The grammatical typo 'a its own' does not affect interpretation. No external information was consulted.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "dc7760e797e08902b0f2c2bedac30a2a779718400fb559a3208c1f0a7c5ff708",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

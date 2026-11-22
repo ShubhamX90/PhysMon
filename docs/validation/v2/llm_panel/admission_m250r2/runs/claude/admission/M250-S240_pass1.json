@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch02",
+  "item_id": "M250-S240",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:41:00Z", "completed_at": "2026-11-22T10:48:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Bernoulli along the streamline from reservoir surface (P_atm, v=0) to outlet (P_atm): v^2 = 2 g d; uniform bore gives the same v at the top, so P_top = P_atm - rho g (h + d).",
+    "assumptions": ["steady, inviscid, incompressible flow (stated)", "large reservoir so surface velocity negligible", "outlet at atmospheric pressure", "no cavitation at the top"],
+    "answer": 78.76,
+    "unit": "kPa"
+  },
+  "stratum_assignments": {
+    "T45C6": {"stratum": "D", "answer_with_sentence": 78.76, "regime": null},
+    "T7E69": {"stratum": "K", "answer_with_sentence": 78.76, "regime": "Vapour pressure matters only if the computed top pressure would fall below it (cavitation, column breaks); 78.76 kPa > 12 kPa, so it is inside the regime where it is irrelevant."},
+    "TED68": {"stratum": "K", "answer_with_sentence": 78.76, "regime": "Same as T7E69: irrelevant while P_top > 12 kPa."},
+    "TC9D2": {"stratum": "C", "answer_with_sentence": 78.76, "regime": null},
+    "T5FCB": {"stratum": "R", "answer_with_sentence": 74.70, "regime": null},
+    "T15A1": {"stratum": "R", "answer_with_sentence": 74.70, "regime": null},
+    "TCBA8": {"stratum": "D", "answer_with_sentence": 78.76, "regime": null},
+    "T3DC9": {"stratum": "D", "answer_with_sentence": 78.76, "regime": null},
+    "T6788": {"stratum": "C", "answer_with_sentence": 78.76, "regime": null},
+    "T2061": {"stratum": "D", "answer_with_sentence": 78.76, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "P_top = 101300 - 1000 x 9.8 x 2.3 = 101300 - 22540 = 78760 Pa = 78.76 kPa. With rho = 1180 kg/m^3: 101300 - 26597.2 = 74702.8 Pa = 74.70 kPa (v is independent of rho). Bore (TC9D2, T6788): the uniform area enters continuity A v_top = A v_out and cancels, so C. Beaker and earlier-run sentences: D. T5FCB's present-tense replacement is read as applying to the run in question, consistent with the clause that the given density is that of the liquid first put in. TCBA8 and T2061 say 'different density' without a number, so they do not carry the same number as their apparent twins."
+}

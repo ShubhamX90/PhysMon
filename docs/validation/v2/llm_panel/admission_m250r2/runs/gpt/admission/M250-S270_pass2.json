@@ -1,0 +1,102 @@
+{
+  "item_id": "M250-S270",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Acoustic Doppler shifts at reflection and reception give f_received = f(c-w)(c-v)/[c(c+w)]. Thus f_received = 1500(337)(334)/(343×349) = 1410.4188 Hz, and the decrease is 89.5812 Hz. Carrying the recorder away from the lorry replaces v by v+q.",
+    "assumptions": [
+      "The recorder travels with the trolley unless the added sentence specifies that it is being carried.",
+      "Walking speeds along the trolley are measured relative to the trolley.",
+      "The stated constant velocities apply throughout emission, reflection and reception.",
+      "The reflected wave preserves frequency in the rear panel's rest frame, as stated."
+    ],
+    "answer": 89.5812,
+    "unit": "Hz"
+  },
+  "stratum_assignments": {
+    "TDC03": {
+      "stratum": "C",
+      "answer_with_sentence": 89.5812,
+      "regime": null
+    },
+    "T02E2": {
+      "stratum": "D",
+      "answer_with_sentence": 89.5812,
+      "regime": null
+    },
+    "TA134": {
+      "stratum": "D",
+      "answer_with_sentence": 89.5812,
+      "regime": null
+    },
+    "TA6A4": {
+      "stratum": "D",
+      "answer_with_sentence": 89.5812,
+      "regime": null
+    },
+    "T6307": {
+      "stratum": "C",
+      "answer_with_sentence": 89.5812,
+      "regime": null
+    },
+    "TBF04": {
+      "stratum": "R",
+      "answer_with_sentence": 96.3377,
+      "regime": null
+    },
+    "T4BE2": {
+      "stratum": "D",
+      "answer_with_sentence": 89.5812,
+      "regime": null
+    },
+    "TA0C8": {
+      "stratum": "R",
+      "answer_with_sentence": 96.3377,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "contradictory_distractor_statement"
+  ],
+  "defect_reasons": {
+    "contradictory_distractor_statement": "TA134 and T4BE2 say the toolbox is carried along the trolley from departure, conflicting with the unqualified base description that it stands on the trolley beside the recorder."
+  },
+  "defect_severity": {
+    "contradictory_distractor_statement": "high"
+  },
+  "counterexamples": [
+    "In T4BE2, after one second the carried toolbox has moved 1.6 m relative to the trolley, whereas a toolbox standing on the trolley beside its stationary recorder retains its trolley-relative position."
+  ],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_INVALID",
+  "notes": "All supplied Doppler equations and numerical answers are correct under their intended motion assignments. For recorder walking speeds 1.1, 1.6 and 2.4 m/s, the decreases are respectively 94.2263, 96.3377 and 99.7160 Hz. The earlier-run recorder speeds and current toolbox speeds do not affect the prescribed present recorder velocity. Both distance statements correctly receive C: the supplied crest interception and reception equations are consistent, and subtracting successive arrival times cancels q, yielding the same 89.5812 Hz at 45, 82 and 180 m. All listed speeds are within the acoustic domain, and dimensions and rounding are adequate. The explicitly claimed minimal pairs T02E2/TBF04 and T4BE2/TA0C8 preserve the shown number and unit and change the intended event or object attachment. I withdraw the pass-1 rendering_not_minimal flag because pass 2 explicitly identifies TA134 and TA6A4 as numeral-free controls rather than numerical minimal pairs; their missing numerical values are intentional and accurately disclosed. The toolbox contradiction remains under the admission rule requiring every statement to be consistent, even when disconnected from the answer. Saying that the toolbox initially stands on the trolley and is then picked up would resolve it. The D assignments and numerical answers for those contradictory renderings describe the intended physical interpretation.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:07:45+00:00",
+  "completed_at": "2026-11-21T20:08:29+00:00",
+  "minutes_spent": 0.73,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "c61b085882dffb667cd9c1661c4d5dd7b96285534a7a3b70bacb5f028e543fb2",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

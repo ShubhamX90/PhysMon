@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch03",
+  "item_id": "M250-S241",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:53:00Z", "completed_at": "2026-11-22T10:59:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Photon energy E = hc/lambda = 3.1 eV; photon rate N = P/E; current I = eta N e = eta P / (E/e) = 0.003 * 5e-3 W / 3.1 V", "assumptions": ["all light reaches the cathode (stated)", "every released electron is collected (stated)", "quantum yield 0.003 per photon (stated)", "photoemission is energetically possible at 400 nm"], "answer": 4.839e-6, "unit": "A"},
+  "stratum_assignments": {
+    "T9477": {"stratum": "K", "answer_with_sentence": 4.839e-6, "regime": "photoemission occurs while the work function is below the photon energy 3.1 eV (1.9 eV is inside)"},
+    "TD93A": {"stratum": "R", "answer_with_sentence": 8.129e-6, "regime": null},
+    "TC8F7": {"stratum": "D", "answer_with_sentence": 4.839e-6, "regime": null},
+    "T306C": {"stratum": "D", "answer_with_sentence": 4.839e-6, "regime": null},
+    "T22AD": {"stratum": "R", "answer_with_sentence": 8.129e-6, "regime": null},
+    "TE41A": {"stratum": "D", "answer_with_sentence": 4.839e-6, "regime": null},
+    "TEBFE": {"stratum": "K", "answer_with_sentence": 4.839e-6, "regime": "photoemission occurs while the work function is below the photon energy 3.1 eV (1.9 eV is inside)"},
+    "TEB4A": {"stratum": "D", "answer_with_sentence": 4.839e-6, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: E = 1240/400 = 3.1 eV = 4.9662e-19 J; N = 5e-3/4.9662e-19 = 1.0068e16 /s; I = 0.003 * 1.0068e16 * 1.602e-19 = 4.839e-6 A (e cancels: I = 1.5e-5/3.1 A). With 3.4 mW extra on the cathode: 0.003 * 8.4e-3/3.1 = 8.129e-6 A. Wall-chart lamps are shielded from the window (D); earlier-measurement sentences leave no state (D). Work function 1.9 eV is below 3.1 eV, so it matters only for the threshold (K); the stated yield already fixes the emission rate. Number check: all 3.4 mW sentences agree; both work-function sentences say 1.9 eV; T306C and TE41A are numeral-free."
+}

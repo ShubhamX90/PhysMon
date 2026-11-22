@@ -1,0 +1,95 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S233",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:25:32+00:00",
+  "completed_at": "2026-11-21T20:26:15+00:00",
+  "minutes_spent": 0.72,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law gives sin(theta_t)=sin(75 degrees)/1.5, hence cos(theta_t)=0.765067. For p-polarised light, R_p=[(1.5 cos(75 degrees)-cos(theta_t))/(1.5 cos(75 degrees)+cos(theta_t))]^2=0.106765. Conservation of energy at the nonabsorbing interface gives P_transmitted=P_incident(1-R_p).",
+    "assumptions": [
+      "Air has refractive index approximately 1.",
+      "The glass is an ordinary homogeneous, isotropic, nonmagnetic optical medium with a smooth interface.",
+      "Propagation from the laser to the interface has negligible loss.",
+      "An amplifier acting on the current incident beam supplies its stated additional power before the interface."
+    ],
+    "answer": 4.46617,
+    "unit": "mW"
+  },
+  "stratum_assignments": {
+    "T6A28": {
+      "stratum": "C",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "TBC5B": {
+      "stratum": "R",
+      "answer_with_sentence": 7.50317,
+      "regime": null
+    },
+    "T38E1": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "T8526": {
+      "stratum": "C",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "T01A0": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "T6921": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    },
+    "TAC23": {
+      "stratum": "R",
+      "answer_with_sentence": 7.50317,
+      "regime": null
+    },
+    "TA9F7": {
+      "stratum": "D",
+      "answer_with_sentence": 4.46617,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T01A0 and TA9F7 replace the amplifier increment of 3.4 mW with 'a small amount', violating the requirement that variants preserve the same stated number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and all individual added-sentence problems have determinate transmitted powers. The invalid verdict concerns the required variant construction. Both area sentences specify 5.5 mm²; area cancels when irradiance is integrated to obtain total transmitted power, whether the area denotes the beam cross section or its footprint. The numerical amplifier sentences consistently specify 3.4 mW. The two vague amplifier sentences omit that value and unit, although their disconnected attachments make their numerical magnitude unnecessary for solving their individual problems. Amplification in an earlier run does not affect the current beam, and amplification of the second laser has no stated optical path to the block.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "efd70f3d79c451b3ad7774af8513f37562aa788bade56c7c3cd306556e8825b2",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S211",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:09:51+00:00",
+  "completed_at": "2026-11-21T20:10:33+00:00",
+  "minutes_spent": 0.69,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Gauss's law gives |rho|/(3 epsilon_0) = E_surface/R. Superposing the original charged sphere and a sphere of opposite charge density representing the cavity gives a uniform cavity field of magnitude E_surface d/R = 12000 V/m. Newton's second law gives a = |q|E/m = 48 m/s^2.",
+    "assumptions": [
+      "Use electrostatic superposition for the prescribed fixed charge distribution.",
+      "Treat the bead as a test charge.",
+      "An attached holder moves with the bead and contributes its mass; its uncharged material is treated as electrically passive."
+    ],
+    "answer": 48,
+    "unit": "m/s^2"
+  },
+  "stratum_assignments": {
+    "TAF10": {
+      "stratum": "D",
+      "answer_with_sentence": 48,
+      "regime": null
+    },
+    "T1D94": {
+      "stratum": "R",
+      "answer_with_sentence": 20,
+      "regime": null
+    },
+    "TEFF1": {
+      "stratum": "D",
+      "answer_with_sentence": 48,
+      "regime": null
+    },
+    "T052D": {
+      "stratum": "C",
+      "answer_with_sentence": 48,
+      "regime": null
+    },
+    "TD82F": {
+      "stratum": "D",
+      "answer_with_sentence": 48,
+      "regime": null
+    },
+    "T4613": {
+      "stratum": "C",
+      "answer_with_sentence": 48,
+      "regime": null
+    },
+    "T2176": {
+      "stratum": "R",
+      "answer_with_sentence": 20,
+      "regime": null
+    },
+    "T7F8C": {
+      "stratum": "D",
+      "answer_with_sentence": 48,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TD82F and T7F8C replace the explicit 0.7 g holder mass with 'small', unlike their corresponding quantitative renderings TEFF1 and TAF10, violating the required preservation of number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics is well-posed. With a holder attached to the bead, the moving mass is 1.2 g and the acceleration is 0.024 N / 0.0012 kg = 20 m/s^2. The cavity radius enters both sphere-field expressions through the displacement from the cavity centre and cancels upon subtraction; both 5.5 cm statements satisfy containment because 6 + 5.5 < 20 cm. All four explicitly quantified holder statements agree on 0.7 g, and both cavity statements agree on 5.5 cm. The invalid verdict concerns the sentence-variant requirement, not the acceleration calculation.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "aa25b59d7caff145ceb6f1596bb54944d37165ee57bcad379fc29cb8726cbc26",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

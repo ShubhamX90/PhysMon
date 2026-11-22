@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch10",
+  "item_id": "M250-S53",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:06:00Z", "completed_at": "2026-11-22T10:11:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Steady 1D Fourier conduction through series layers: Q = A*dT / sum(L_i/k_i)", "assumptions": ["steady state", "1D heat flow perpendicular to layers", "perfect contact, no edge losses", "constant conductivities"], "answer": 160.0, "unit": "W"},
+  "stratum_assignments": {
+    "T9459": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null},
+    "T91A5": {"stratum": "R", "answer_with_sentence": 264.0, "regime": null},
+    "TFB61": {"stratum": "R", "answer_with_sentence": 264.0, "regime": null},
+    "T0538": {"stratum": "C", "answer_with_sentence": 160.0, "regime": null},
+    "TC890": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null},
+    "T3307": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null},
+    "T2BD1": {"stratum": "C", "answer_with_sentence": 160.0, "regime": null},
+    "TA69F": {"stratum": "D", "answer_with_sentence": 160.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The D rationale for T3307/TA69F refers to an 'earlier survey' while the sentences say 'earlier test'; a wording mismatch in the authors' rationale only, not in the item."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All strata match my pass 1. Checked R answers: Q = 8 W/K * (20 + q): q=6 -> 208, 13 -> 264, 27 -> 376 W. C cancellation for T_cold at 270/276/285 K holds with constant k. Minimal pairs T9459/T91A5 (shed wall vs this wall) and T3307/TFB61 (earlier test vs just before measurement) differ only in attachment, same 13 K. TC890 and TA69F are declared numeral-free controls, resolving my pass-1 note."
+}

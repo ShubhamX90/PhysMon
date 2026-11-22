@@ -1,0 +1,97 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S36",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:23:38+00:00",
+  "completed_at": "2026-11-21T20:24:25+00:00",
+  "minutes_spent": 0.78,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "For a physical pendulum, T = 2π√(I_p/(mgd)), where I_p = m(L²/12 + d²). With L = 1.2 m and d = 0.3 m, T = 2π√(0.21/2.94) = 1.67925 s.",
+    "assumptions": [
+      "The rod oscillates about its stable equilibrium with its centre below the pivot.",
+      "The rod is rigid and the stated thin-rod approximation applies.",
+      "The pivot remains fixed during each oscillation.",
+      "The outset distance precedes any subsequently described relocation for the present experiment."
+    ],
+    "answer": 1.67925,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "TA36F": {
+      "stratum": "C",
+      "answer_with_sentence": 1.67925,
+      "regime": null
+    },
+    "TFD4F": {
+      "stratum": "D",
+      "answer_with_sentence": 1.67925,
+      "regime": null
+    },
+    "T1443": {
+      "stratum": "D",
+      "answer_with_sentence": 1.67925,
+      "regime": null
+    },
+    "TF2C6": {
+      "stratum": "D",
+      "answer_with_sentence": 1.67925,
+      "regime": null
+    },
+    "T2919": {
+      "stratum": "C",
+      "answer_with_sentence": 1.67925,
+      "regime": null
+    },
+    "T7714": {
+      "stratum": "D",
+      "answer_with_sentence": 1.67925,
+      "regime": null
+    },
+    "TFE49": {
+      "stratum": "R",
+      "answer_with_sentence": 2.33906,
+      "regime": null
+    },
+    "T1D34": {
+      "stratum": "R",
+      "answer_with_sentence": 2.33906,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The displacement variants do not preserve the stated quantity: TFD4F and T1443 specify 20.5 cm, whereas their corresponding historical and second-rod renderings TF2C6 and T7714 specify only 'a few centimetres'."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "TFD4F specifies a displacement of 0.205 m, while TF2C6 permits, for example, 0.03 m; these are not renderings of the same numerical input."
+  ],
+  "notes": "The base physics and the individual numerical answers are sound. Moving the present rod's pivot gives d = 0.300 − 0.205 = 0.095 m and T = 2π√[(0.12 + 0.095²)/(9.8 × 0.095)] = 2.33906 s. An earlier experiment does not supersede the explicitly supplied outset distance for the present experiment. Changes to the separate second rod have no mechanical path to the target under the stated apparatus model. Mass cancels between rotational inertia and gravitational torque; the steel description does not change the stipulated thin, uniform rod model. The invalid verdict concerns the required numerical matching of variants.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "7c819d3d132035dbe372843a6dce0753cfb6fb7e9134cc973c895fcc2d10afa1",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

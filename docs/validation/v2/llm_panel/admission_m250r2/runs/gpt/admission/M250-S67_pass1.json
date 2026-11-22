@@ -1,0 +1,99 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S67",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:09:33+00:00",
+  "completed_at": "2026-11-21T20:10:35+00:00",
+  "minutes_spent": 1.04,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "At either interface, normal-incidence Fresnel power reflectance is R=((1.5-1)/(1.5+1))^2=0.04. Summing the incoherent transmitted beams gives P_trans=P_inc(1-R)^2/(1-R^2)=P_inc(1-R)/(1+R)=12P_inc/13.",
+    "assumptions": [
+      "Ordinary nonmagnetic glass and air, with lossless interfaces.",
+      "The requested total includes all forward-emerging transmitted beams.",
+      "An increase in the beam source output produces the same increase in incident beam power.",
+      "The lamp aimed at the wall does not illuminate the plate."
+    ],
+    "answer": 46.1538461538,
+    "unit": "mW"
+  },
+  "stratum_assignments": {
+    "T463C": {
+      "stratum": "K",
+      "answer_with_sentence": 46.1538461538,
+      "regime": "The incident beam power remains below the 350 mW damage threshold, so the plate retains its stated optical properties."
+    },
+    "T65F1": {
+      "stratum": "R",
+      "answer_with_sentence": 78.4615384615,
+      "regime": null
+    },
+    "TBD30": {
+      "stratum": "R",
+      "answer_with_sentence": 78.4615384615,
+      "regime": null
+    },
+    "T146E": {
+      "stratum": "K",
+      "answer_with_sentence": 46.1538461538,
+      "regime": "The incident beam power remains below the 350 mW damage threshold, so the plate retains its stated optical properties."
+    },
+    "T094D": {
+      "stratum": "D",
+      "answer_with_sentence": 46.1538461538,
+      "regime": null
+    },
+    "T60FB": {
+      "stratum": "D",
+      "answer_with_sentence": 46.1538461538,
+      "regime": null
+    },
+    "T9EF0": {
+      "stratum": "D",
+      "answer_with_sentence": 46.1538461538,
+      "regime": null
+    },
+    "T6E69": {
+      "stratum": "D",
+      "answer_with_sentence": 46.1538461538,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [
+    "The intended temporal scope of T60FB and T9EF0."
+  ],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T60FB and T6E69 replace the specified 35 mW output increase with an unspecified 'small amount', violating the requirement that variants retain the same number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "An increase of 1 mW satisfies 'a small amount' without equalling 35 mW, so the numerical content of these variants is not preserved."
+  ],
+  "notes": "The base problem is well-posed and its transmitted power is approximately 46.2 mW. The two damage statements preserve the same 350 mW threshold, and the explicitly numerical output-increase statements preserve 35 mW. For T60FB and T9EF0, the assignments use the reading that an earlier experiment is separate and the present incident power is the stated 50 mW. However, 'before the transmitted power was measured' can suggest that the historical adjustment applies to the measurement being asked about. Under that reading T9EF0 is R with transmitted power 78.4615384615 mW, while T60FB is R with transmitted power 12(50+delta_P)/13 mW for an unspecified increase delta_P in mW. Their temporal wording should be clarified.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "4dba95bbf5a7d18ccf5e4426ddafa1c5b4cc68922a3fde6f7e40050019a70595",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

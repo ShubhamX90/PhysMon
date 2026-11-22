@@ -1,0 +1,100 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S241",
+  "pass_number": 2,
+  "started_at": "2026-11-21T20:21:02+00:00",
+  "completed_at": "2026-11-21T20:21:53+00:00",
+  "minutes_spent": 0.84,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Eph = hc/lambda = 3.1 eV = 4.9662e-19 J; I = eta*e*P/Eph. Thus I = 4.838709677 μA. Additional incident power q gives I = 0.9677419355*(5 + q) μA when q is expressed in mW.",
+    "assumptions": [
+      "The stated emission probability applies to all incident photons, including those from the additional lamp.",
+      "Every released electron is collected, as stated.",
+      "The shielding excludes chart illumination from the cathode.",
+      "Photon energies and optical powers are converted to consistent units before calculating photon flux."
+    ],
+    "answer": 4.838709677,
+    "unit": "μA"
+  },
+  "stratum_assignments": {
+    "T9477": {
+      "stratum": "K",
+      "answer_with_sentence": 4.838709677,
+      "regime": "The work function is below the 3.1 eV photon energy; emission probability is specified and collection is complete."
+    },
+    "TD93A": {
+      "stratum": "R",
+      "answer_with_sentence": 8.129032258,
+      "regime": null
+    },
+    "TC8F7": {
+      "stratum": "D",
+      "answer_with_sentence": 4.838709677,
+      "regime": null
+    },
+    "T306C": {
+      "stratum": "D",
+      "answer_with_sentence": 4.838709677,
+      "regime": null
+    },
+    "T22AD": {
+      "stratum": "R",
+      "answer_with_sentence": 8.129032258,
+      "regime": null
+    },
+    "TE41A": {
+      "stratum": "D",
+      "answer_with_sentence": 4.838709677,
+      "regime": null
+    },
+    "TEBFE": {
+      "stratum": "K",
+      "answer_with_sentence": 4.838709677,
+      "regime": "The work function is below the 3.1 eV photon energy; emission probability is specified and collection is complete."
+    },
+    "TEB4A": {
+      "stratum": "D",
+      "answer_with_sentence": 4.838709677,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T306C and TE41A omit the numerical power and unit required by the general rendering instruction, although the authors explicitly identify them as intentional numeral-free controls and do not claim they are numerical minimal pairs."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "medium"
+  },
+  "counterexamples": [],
+  "notes": "The physics, dependencies, K regimes, and explicitly claimed minimal pairs are correct. All listed work functions are below 3.1 eV. Using the stated constants gives relevant-sentence answers of 6.483870968, 8.129032258, and 10.838709677 μA for additional powers of 1.7, 3.4, and 6.2 mW. The certified values differ by approximately 0.011%, below the precision supported by the inputs, so this is not a substantive numerical defect. The photon-flux relation requires converting Eph to joules and P to watts. I revise the pass-1 rendering flag from high to medium: pass 2 explicitly distinguishes the numeral-free controls from the numerical minimal pairs, so there is no false minimal-pair claim or incorrect physical answer.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "c8229e4d612f27903561593cd03b4d7d5f17a7f12efa4bc39c88fa0392841302",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

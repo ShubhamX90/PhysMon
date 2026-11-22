@@ -1,0 +1,84 @@
+{
+  "item_id": "M250-S09",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Conservation of energy: m_Cu c_Cu (373 - T_f) = m_w c_w (T_f - 293). Thus the water temperature rise is 15400/(192.5 + 1674.4).",
+    "assumptions": [
+      "The stated specific heats apply throughout the temperature interval.",
+      "Only the copper and water in the first container exchange heat.",
+      "The copper and water reach the stated common temperature without phase changes."
+    ],
+    "answer": 8.24896888,
+    "unit": "K"
+  },
+  "stratum_assignments": {
+    "T128A": {
+      "stratum": "D",
+      "answer_with_sentence": 8.24896888,
+      "regime": null
+    },
+    "TD942": {
+      "stratum": "D",
+      "answer_with_sentence": 8.24896888,
+      "regime": null
+    },
+    "TC375": {
+      "stratum": "D",
+      "answer_with_sentence": 8.24896888,
+      "regime": null
+    },
+    "TDD5D": {
+      "stratum": "R",
+      "answer_with_sentence": 3.6937542,
+      "regime": null
+    },
+    "TCCED": {
+      "stratum": "D",
+      "answer_with_sentence": 8.24896888,
+      "regime": null
+    },
+    "T4800": {
+      "stratum": "R",
+      "answer_with_sentence": 3.6937542,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 1,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TC375 and TD942 specify only a 'small amount' rather than the 0.55 kg stated in the corresponding historical-addition and second-container variants, violating the required preservation of number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base problem and each individual addition yield a unique temperature rise; invalidity concerns the required numerical matching between variants. Historical additions are absent because nothing from earlier experiments remains. Additions to the second insulated container have no thermal path to the target. For either current addition to the first container, the water mass becomes 0.95 kg and its rise is 15400/(192.5 + 0.95*4186) K.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:26:30+00:00",
+  "completed_at": "2026-11-21T20:27:07+00:00",
+  "minutes_spent": 0.63,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "0d69f8fd2a1c50b00492d007c3935fb5583ae68da33cb3f51d59cc125fb97629",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

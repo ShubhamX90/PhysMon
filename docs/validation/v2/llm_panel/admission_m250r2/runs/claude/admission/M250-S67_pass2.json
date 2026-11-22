@@ -1,0 +1,25 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch03",
+  "item_id": "M250-S67",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:22:30Z", "completed_at": "2026-11-22T10:28:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "R = ((n-na)/(n+na))^2 = 0.04; incoherent lossless slab T = (1-R)/(1+R); Pt = T*P0", "assumptions": ["normal incidence", "no absorption", "incoherent multiple reflections"], "answer": 46.15, "unit": "mW"},
+  "stratum_assignments": {
+    "T463C": {"stratum": "K", "answer_with_sentence": 46.15, "regime": "beam power below the damage threshold (50 mW < 350 mW)"},
+    "T65F1": {"stratum": "R", "answer_with_sentence": 78.46, "regime": null},
+    "TBD30": {"stratum": "R", "answer_with_sentence": 78.46, "regime": null},
+    "T146E": {"stratum": "K", "answer_with_sentence": 46.15, "regime": "beam power below the damage threshold (50 mW < 350 mW)"},
+    "T094D": {"stratum": "D", "answer_with_sentence": 46.15, "regime": null},
+    "T60FB": {"stratum": "D", "answer_with_sentence": 46.15, "regime": null},
+    "T9EF0": {"stratum": "D", "answer_with_sentence": 46.15, "regime": null},
+    "T6E69": {"stratum": "D", "answer_with_sentence": 46.15, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All strata agree with pass 1. Checked R answers: (50+25)*0.923077=69.23, (50+35)*0.923077=78.46, (50+70)*0.923077=110.77 mW; base 46.154 mW. K regime P0 < q holds for all listed thresholds 250, 350, 450 mW with P0 = 50 mW (K sentences are added alone). Minimal pairs: T094D/T65F1 differ only in lamp vs source of the beam; T9EF0/TBD30 share 'before the transmitted power was measured, the output of the source of the beam was increased by 35 mW' and differ only in the temporal attachment. Numeral-free twins T60FB and T6E69 match their twins. Minor wording note: in T9EF0/T60FB 'before the transmitted power was measured' refers to the earlier experiment; acceptable."
+}

@@ -1,0 +1,35 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch05",
+  "item_id": "M250-S35",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:21:00Z", "completed_at": "2026-11-22T10:26:00Z", "minutes_spent": 5,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Conical pendulum period 2 pi sqrt(L cos(theta)/g)",
+    "assumptions": ["light inextensible string", "point bob", "steady horizontal circle at stated angle", "no air resistance"],
+    "answer": 2.04608,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T41B5": {"stratum": "R", "answer_with_sentence": 2.5746, "regime": null},
+    "T3E4C": {"stratum": "D", "answer_with_sentence": 2.04608, "regime": null},
+    "T3589": {"stratum": "C", "answer_with_sentence": 2.04608, "regime": null},
+    "T8044": {"stratum": "C", "answer_with_sentence": 2.04608, "regime": null},
+    "TC5DB": {"stratum": "R", "answer_with_sentence": 2.5746, "regime": null},
+    "T5418": {"stratum": "D", "answer_with_sentence": 2.04608, "regime": null},
+    "T422F": {"stratum": "D", "answer_with_sentence": 2.04608, "regime": null},
+    "T0789": {"stratum": "D", "answer_with_sentence": 2.04608, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": ["other"],
+  "defect_reasons": {"other": "In T5418/T0789 'before the bob is set moving' is slightly ambiguous about which bob, since the second bob hangs at rest; the answer is unaffected."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified certified answers: L = 1.6 m -> 2.3626 s, 1.9 m -> 2.5746 s, 2.3 m -> 2.8327 s; base 2.04608 s. Mass cancellation expression reduces to 2 pi sqrt(L cos(theta)/g). Minimal pairs T5418/T41B5 and T422F/TC5DB share 0.7 m and differ in attachment/time only; numeral-free twins match their numbered D twins. Agrees with pass 1."
+}

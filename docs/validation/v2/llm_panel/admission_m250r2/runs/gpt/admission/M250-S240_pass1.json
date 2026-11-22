@@ -1,0 +1,105 @@
+{
+  "item_id": "M250-S240",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "Bernoulli's equation from the reservoir surface to the outlet gives v²/(2g) = 0.8 m. Continuity makes the crest and outlet speeds equal, so Bernoulli between them gives p_crest = p_atm - ρg(1.5 + 0.8) = 78.76 kPa.",
+    "assumptions": [
+      "The large reservoir has negligible surface speed.",
+      "The stated steady, frictionless, incompressible flow applies throughout the tube.",
+      "The uniform bore gives equal speeds at the crest and outlet.",
+      "Replacement statements describe the liquid used in the stated steady flow unless explicitly restricted to an earlier run."
+    ],
+    "answer": 78.76,
+    "unit": "kPa"
+  },
+  "stratum_assignments": {
+    "T45C6": {
+      "stratum": "D",
+      "answer_with_sentence": 78.76,
+      "regime": null
+    },
+    "T7E69": {
+      "stratum": "K",
+      "answer_with_sentence": 78.76,
+      "regime": "Single-phase flow is consistent because the minimum pressure, at the crest, is 78.76 kPa, above the 12 kPa boiling threshold."
+    },
+    "TED68": {
+      "stratum": "K",
+      "answer_with_sentence": 78.76,
+      "regime": "Single-phase flow is consistent because the minimum pressure, at the crest, is 78.76 kPa, above the 12 kPa vaporisation threshold."
+    },
+    "TC9D2": {
+      "stratum": "C",
+      "answer_with_sentence": 78.76,
+      "regime": null
+    },
+    "T5FCB": {
+      "stratum": "R",
+      "answer_with_sentence": 74.7028,
+      "regime": null
+    },
+    "T15A1": {
+      "stratum": "R",
+      "answer_with_sentence": 74.7028,
+      "regime": null
+    },
+    "TCBA8": {
+      "stratum": "D",
+      "answer_with_sentence": 78.76,
+      "regime": null
+    },
+    "T3DC9": {
+      "stratum": "D",
+      "answer_with_sentence": 78.76,
+      "regime": null
+    },
+    "T6788": {
+      "stratum": "C",
+      "answer_with_sentence": 78.76,
+      "regime": null
+    },
+    "T2061": {
+      "stratum": "D",
+      "answer_with_sentence": 78.76,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TCBA8 and T2061 omit the numerical density and unit supplied in their respective counterparts T45C6 and T3DC9, violating the stated requirement that quantity variants retain the same number and unit."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The physical problem and all individual additions admit the answers given above; the invalid verdict concerns the stated variant requirement. The unspecified densities in TCBA8 and T2061 do not prevent calculating the target because those changes are disconnected. The historical replacements in T3DC9 and T2061 do not change the current liquid. Tube area enters continuity through Q = Av but cancels from the pressure calculation. The initial-density qualification makes the current replacement sentences consistent with the base description.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:30:15+00:00",
+  "completed_at": "2026-11-21T20:30:58+00:00",
+  "minutes_spent": 0.71,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "edefc2015ab8e82a07cf12722db708aa5e64933b2d572eebb29c42748e32183e",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

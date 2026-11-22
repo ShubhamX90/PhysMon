@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch03",
+  "item_id": "M250-S225",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:00:00Z", "completed_at": "2026-11-22T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Steady radial conduction in a cylindrical shell with constant k: T(r) = T1 - (T1 - T2) ln(r/r1)/ln(r2/r1); drop to r = 5 cm is 120 K * ln(5/3)/ln(3)", "assumptions": ["steady, purely radial conduction", "constant k (stated)", "boundary temperatures fixed at r1 = 3 cm (420 K) and r2 = 9 cm (300 K)", "tank is thermally separate from the pipe"], "answer": 55.80, "unit": "K"},
+  "stratum_assignments": {
+    "T2495": {"stratum": "C", "answer_with_sentence": 55.80, "regime": null},
+    "T8870": {"stratum": "C", "answer_with_sentence": 55.80, "regime": null},
+    "T6641": {"stratum": "D", "answer_with_sentence": 55.80, "regime": null},
+    "T21B1": {"stratum": "R", "answer_with_sentence": 47.86, "regime": null},
+    "T26FA": {"stratum": "D", "answer_with_sentence": 55.80, "regime": null},
+    "T6E73": {"stratum": "D", "answer_with_sentence": 55.80, "regime": null},
+    "T15F5": {"stratum": "R", "answer_with_sentence": 47.86, "regime": null},
+    "T8754": {"stratum": "D", "answer_with_sentence": 55.80, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: ln(5/3)=0.51083, ln3=1.09861, ratio 0.46497, x120 K = 55.80 K. With an extra 1.8 cm on the pipe (T21B1, T15F5), the outermost insulation surface is at 10.8 cm and is the one held at 300 K: 120*0.51083/ln(3.6)=120*0.51083/1.28093=47.86 K. Reading relies on 'outermost surface of the insulation' moving to the new outer radius; a reader could alternatively keep 9 cm as the 300 K surface, but 'outermost' makes the moved boundary the natural reading. k cancels from the temperature profile (C). Earlier-survey and tank sentences have no path (D). Number check: T6641, T21B1, T15F5, T8754 all state 1.8 cm; T26FA and T6E73 both state 'a further small thickness' (no number) and match each other."
+}

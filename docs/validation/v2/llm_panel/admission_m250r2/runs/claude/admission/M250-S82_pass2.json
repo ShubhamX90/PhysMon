@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch04",
+  "item_id": "M250-S82",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:06:00Z", "completed_at": "2026-11-22T10:10:00Z", "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Wien displacement law calibrated by first star; E = hc/lambda", "assumptions": ["ideal blackbodies", "hc = 1240 eV nm"], "answer": 1.24, "unit": "eV"},
+  "stratum_assignments": {
+    "TEFF6": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "T80FF": {"stratum": "R", "answer_with_sentence": 1.64621, "regime": null},
+    "TF04F": {"stratum": "R", "answer_with_sentence": 1.64621, "regime": null},
+    "T099E": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "T2C66": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null},
+    "TFD41": {"stratum": "D", "answer_with_sentence": 1.24, "regime": null}
+  },
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "All claims agree with pass 1. Checked R answers: 1.24*(2900+q)/2900 gives 1.36828 (q=300), 1.64621 (950), 1.88138 (1500). D answers 1.24 at all values. Minimal pairs T099E/T80FF and TEFF6/TF04F share 950 K and differ only in attachment (finished vs ongoing outburst; third vs second star). Numeral-free twins T2C66 and TFD41 match their D twins' wording."
+}

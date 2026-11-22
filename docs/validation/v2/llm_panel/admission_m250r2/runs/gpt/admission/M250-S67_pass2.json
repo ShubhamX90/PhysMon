@@ -1,0 +1,103 @@
+{
+  "item_id": "M250-S67",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Normal-incidence Fresnel reflectance is R=((1.5-1)/(1.5+1))^2=0.04. Adding the incoherent transmitted powers gives Pt=P0(1-R)^2/(1-R^2)=12P0/13.",
+    "assumptions": [
+      "Ordinary nonmagnetic glass and air with lossless interfaces.",
+      "All forward-emerging transmitted beams are included.",
+      "Increasing the beam source output by q increases incident beam power by q.",
+      "The earlier experiment is separate from the stated experiment, whose incident beam power is 50 mW.",
+      "The wall-directed lamp does not illuminate the plate in the intended optical model."
+    ],
+    "answer": 46.1538461538,
+    "unit": "mW"
+  },
+  "stratum_assignments": {
+    "T463C": {
+      "stratum": "K",
+      "answer_with_sentence": 46.1538461538,
+      "regime": "Incident beam power P0 is below damage threshold q; 50 mW is below all listed thresholds."
+    },
+    "T65F1": {
+      "stratum": "R",
+      "answer_with_sentence": 78.4615384615,
+      "regime": null
+    },
+    "TBD30": {
+      "stratum": "R",
+      "answer_with_sentence": 78.4615384615,
+      "regime": null
+    },
+    "T146E": {
+      "stratum": "K",
+      "answer_with_sentence": 46.1538461538,
+      "regime": "Incident beam power P0 is below damage threshold q; 50 mW is below all listed thresholds."
+    },
+    "T094D": {
+      "stratum": "D",
+      "answer_with_sentence": 46.1538461538,
+      "regime": null
+    },
+    "T60FB": {
+      "stratum": "D",
+      "answer_with_sentence": 46.1538461538,
+      "regime": null
+    },
+    "T9EF0": {
+      "stratum": "D",
+      "answer_with_sentence": 46.1538461538,
+      "regime": null
+    },
+    "T6E69": {
+      "stratum": "D",
+      "answer_with_sentence": 46.1538461538,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "other"
+  ],
+  "defect_reasons": {
+    "other": "In T60FB and T9EF0, 'before the transmitted power was measured' can suggest the current measurement despite the intended attachment to a separate earlier experiment."
+  },
+  "defect_severity": {
+    "other": "medium"
+  },
+  "counterexamples": [
+    "Under the alternative temporal reading that T9EF0 describes an adjustment after establishing the current 50 mW beam and before its measurement, the transmitted power would be 78.4615384615 mW instead of 46.1538461538 mW."
+  ],
+  "notes": "The equations, dimensions, and all certified numerical answers are correct under the intended readings. For either R sentence, q=25, 35, and 70 mW gives 69.2307692308, 78.4615384615, and 110.7692307692 mW, respectively. All D and in-regime K answers equal 46.1538461538 mW. The K thresholds 250, 350, and 450 mW all exceed P0=50 mW; behavior after damage is unspecified and is not needed for these certifications. Both explicitly claimed numerical minimal pairs preserve 35 mW and change the intended attachment. I withdraw the pass-1 high-severity rendering_not_minimal flag: pass 2 explicitly identifies T60FB and T6E69 as deliberate numeral-free controls, not numerical minimal pairs. Their stated transformation from their respective twins is accurate. The temporal wording concern from pass 1 remains a medium clarity issue; the separate-earlier-experiment reading supports the authors' D classifications.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:10:35+00:00",
+  "completed_at": "2026-11-21T20:11:22+00:00",
+  "minutes_spent": 0.78,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "aa1457f8f4af0e4039f65a8858b75b9a7b1c6cca4aad64a5001ffd2b308ff7ab",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

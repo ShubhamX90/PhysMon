@@ -1,0 +1,26 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch11",
+  "item_id": "M250-S230",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:26:00Z", "completed_at": "2026-11-22T10:36:00Z", "minutes_spent": 10,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation in an isolated rigid enclosure: Tf = (m1 T1 + m2 T2)/(m1 + m2); entropy generated S_gen = c [m1 ln(Tf/T1) + m2 ln(Tf/T2)]",
+    "assumptions": ["isolated system, no heat or work exchange", "constant specific heat, negligible volume change (c_p = c_v)", "both blocks uniform in temperature initially"],
+    "answer": 25.57,
+    "unit": "J/K"
+  },
+  "stratum_assignments": {
+    "T04A3": {"stratum": "D", "answer_with_sentence": 25.57, "regime": null},
+    "T33C5": {"stratum": "D", "answer_with_sentence": 25.57, "regime": null},
+    "T7053": {"stratum": "D", "answer_with_sentence": 25.57, "regime": null},
+    "TFF07": {"stratum": "D", "answer_with_sentence": 25.57, "regime": null},
+    "TC78D": {"stratum": "R", "answer_with_sentence": 31.98, "regime": null},
+    "T8625": {"stratum": "R", "answer_with_sentence": 31.98, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: Tf = 1590/5 = 318 K; S = 900 [2 ln(318/360) + 3 ln(318/290)] = 900 [2(-0.124053) + 3(0.092171)] = 900 x 0.028407 = 25.566 J/K. With 1.1 kg at 360 K added to the hotter block: Tf = (3.1 x 360 + 870)/6.1 = 325.574 K; S = 900 [3.1 ln(0.904372) + 3 ln(1.122669)] = 900 [-0.311594 + 0.347127] = 900 x 0.035532 = 31.98 J/K. Cabinet sentences are D because no heat passes between cabinet and enclosure (stated); earlier-run sentences are D. Numbered sentences all use 1.1 kg; T33C5 and TFF07 use 'a small amount' without a number."
+}

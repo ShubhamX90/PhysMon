@@ -1,0 +1,30 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch10",
+  "item_id": "M250-S56",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:42:00Z", "completed_at": "2026-11-22T10:49:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Refrigerator COP: COP = eta * T_c/(T_h - T_c); P = Q_c_dot / COP", "assumptions": ["steady operation", "fractional Carnot COP 0.3", "electrical power = compressor work input only"], "answer": 60.61, "unit": "W"},
+  "stratum_assignments": {
+    "T2CD6": {"stratum": "K", "answer_with_sentence": 60.61, "regime": "irrelevant while the required input 60.6 W is below the 330 W rating"},
+    "TC1B7": {"stratum": "R", "answer_with_sentence": 77.27, "regime": null},
+    "T3A68": {"stratum": "D", "answer_with_sentence": 60.61, "regime": null},
+    "T0E77": {"stratum": "C", "answer_with_sentence": 60.61, "regime": null},
+    "T9447": {"stratum": "D", "answer_with_sentence": 60.61, "regime": null},
+    "T2BAE": {"stratum": "C", "answer_with_sentence": 60.61, "regime": null},
+    "TB1B6": {"stratum": "D", "answer_with_sentence": 60.61, "regime": null},
+    "T50E9": {"stratum": "K", "answer_with_sentence": 60.61, "regime": "irrelevant while the required input 60.6 W is below the 330 W rating"},
+    "T5601": {"stratum": "D", "answer_with_sentence": 60.61, "regime": null},
+    "T5F2C": {"stratum": "R", "answer_with_sentence": 77.27, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "ambiguous", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The base sentence 'the refrigerator must remove heat from it at a steady rate of 200 W' reads as the total removal rate, which the R lamp sentences make 255 W; the later clause fixing 200 W as the wall leak resolves it, but the wording is strained (also, the scene_clause_note speaks of a lamp inside the freezer while the sentences put it above the freezer)."},
+  "defect_severity": {"other": "medium"},
+  "counterexamples": [],
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "SOLVER_VALID_LANGUAGE_AMBIGUOUS",
+  "notes": "Checked: COP = 0.3*11 = 3.3; 200/3.3 = 60.606; 235/3.3 = 71.21; 255/3.3 = 77.27; 290/3.3 = 87.88 W. K regime Pw < rating holds for 260/330/480 W (and also for the lamp-loaded cases). Duration sentences: authors call C via E = P t; my pass-1 D is a classification nuance, the answer is invariant either way and I accept C. Minimal pairs T3A68/T5F2C and T5601/TC1B7 keep 55 W and differ only in attachment."
+}

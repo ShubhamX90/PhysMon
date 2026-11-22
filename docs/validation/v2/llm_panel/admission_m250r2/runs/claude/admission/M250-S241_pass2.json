@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch03",
+  "item_id": "M250-S241",
+  "pass_number": 2,
+  "started_at": "2026-11-22T11:00:00Z", "completed_at": "2026-11-22T11:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Eph = hc/lambda = 3.1 eV; Ndot = P/Eph; I = eta e Ndot", "assumptions": ["all light reaches the cathode", "all released electrons collected", "stated constants hc = 1240 eV nm, e = 1.602e-19 C"], "answer": 4.839, "unit": "μA"},
+  "stratum_assignments": {
+    "T9477": {"stratum": "K", "answer_with_sentence": 4.839, "regime": "work function below photon energy 3.1 eV"},
+    "TD93A": {"stratum": "R", "answer_with_sentence": 8.129, "regime": null},
+    "TC8F7": {"stratum": "D", "answer_with_sentence": 4.839, "regime": null},
+    "T306C": {"stratum": "D", "answer_with_sentence": 4.839, "regime": null},
+    "T22AD": {"stratum": "R", "answer_with_sentence": 8.129, "regime": null},
+    "TE41A": {"stratum": "D", "answer_with_sentence": 4.839, "regime": null},
+    "TEBFE": {"stratum": "K", "answer_with_sentence": 4.839, "regime": "work function below photon energy 3.1 eV"},
+    "TEB4A": {"stratum": "D", "answer_with_sentence": 4.839, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "natural", "confidence": 4,
+  "equation_consistent": true, "units_consistent": true, "answer_correct": true, "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "uncertain_fields": [],
+  "defect_flags": ["invalid_numerical_precision"],
+  "defect_reasons": {"invalid_numerical_precision": "With the stated constants the current is exactly eta*P/(3.1 V) = 4.83871 μA (e cancels), but the certified 4.83818 μA (and 6.48316, 8.12814, 10.8375) is 0.011% low, consistent with converting eV to J with the exact 1.602176634e-19 while using the stated e = 1.602e-19 for charge; the discrepancy is far below the precision of the inputs."},
+  "defect_severity": {"invalid_numerical_precision": "low"},
+  "counterexamples": [],
+  "notes": "Strata agree with pass 1. Using the stated constants: base 1.5e-5/3.1 = 4.8387 μA; q=1.7: 0.003*6.7e-3/3.1 = 6.4839 μA; q=3.4: 8.1290 μA; q=6.2: 0.003*11.2e-3/3.1 = 10.8387 μA. The certified values are all 0.011% lower (ratio 1.602/1.602177), a mixed-constant artefact; they agree with the correct values to 3 significant figures (4.84, 6.48, 8.13, 10.8 μA), so I treat it as low severity. K regime Eph > q holds for 1.7, 1.9, 2.1 eV (Eph = 3.1 eV). Minimal pairs: TC8F7/TD93A differ only in the temporal attachment ('For an earlier measurement only ... put' vs 'During this measurement ... puts'); TEB4A/T22AD differ only in wall chart vs cathode. Numeral-free twins T306C (of TEB4A) and TE41A (of TC8F7) match. Process note: my run was interrupted once by a usage limit; I resumed from my own record of the files already written and did not list the output directory."
+}

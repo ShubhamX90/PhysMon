@@ -1,0 +1,92 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S82",
+  "pass_number": 2,
+  "started_at": "2026-11-21T20:25:17+00:00",
+  "completed_at": "2026-11-21T20:25:51+00:00",
+  "minutes_spent": 0.57,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Wien's displacement law gives lambda_max*T = (500 nm)(5800 K), and E = hc/lambda_max. Thus E = 1240*T/(500*5800) eV. At 2900 K, lambda_max = 1000 nm and E = 1.24 eV. During an ongoing outburst with temperature increase q, E = 1240*(2900+q)/2900000 eV, giving 1.36828, 1.64621 and 1.88138 eV for q = 300, 950 and 1500 K.",
+    "assumptions": [
+      "The answer 1.24 eV requires observation between outbursts.",
+      "For the outburst answers, the second star remains a blackbody and its temperature at observation is 2900 K plus the stated increase.",
+      "The peak is defined per unit wavelength."
+    ],
+    "answer": 1.24,
+    "unit": "eV"
+  },
+  "stratum_assignments": {
+    "TEFF6": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    },
+    "T80FF": {
+      "stratum": "R",
+      "answer_with_sentence": 1.6462068966,
+      "regime": null
+    },
+    "TF04F": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T099E": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    },
+    "T2C66": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    },
+    "TFD41": {
+      "stratum": "D",
+      "answer_with_sentence": 1.24,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "insufficient_boundary_condition"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "The base does not specify the second star's observation state, and TF04F establishes only that an outburst began before recording, so its certified answers require an unstated condition that the outburst remains underway at observation."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high"
+  },
+  "counterexamples": [
+    "For TF04F with q = 950 K, an outburst lasting three days that begins one day before recording is still underway and gives 1.64621 eV; an otherwise identical outburst beginning five days before recording has ended and gives 1.24 eV.",
+    "For the base problem, observation between outbursts gives 1.24 eV, whereas observation during an outburst at 3850 K gives 1.64621 eV; the base does not select the observation state."
+  ],
+  "notes": "The equations, dimensions and numerical calculations are correct when evaluated using the temperature at observation. All three listed outburst answers have adequate precision, but TF04F does not uniquely establish that temperature. The third star has no stated physical coupling to the second star's intrinsic spectral peak. I revise the completed-outburst assignments from K in pass 1 to D: the supplied between-outburst temperature fixes the present state after the separate earlier event. I also withdraw the pass-1 rendering_not_minimal flag: pass 2 explicitly identifies T2C66 and TFD41 as numeral-free controls, not number-preserving minimal pairs. Their stated twin transformations are accurate. The explicitly claimed minimal pairs preserve 950 K and change the relevant object or event timing as intended. Answers of 1.24 eV for TEFF6 and T2C66 assume the base's intended between-outburst observation state, which remains unstated.",
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": false,
+  "precision_adequate": true,
+  "admission_category": "ANSWER_AMBIGUOUS",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "e96f8ff84ea071381b8737b6d2d70271d61ae20b5e29c4b16729ed81f7b8f7a9",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

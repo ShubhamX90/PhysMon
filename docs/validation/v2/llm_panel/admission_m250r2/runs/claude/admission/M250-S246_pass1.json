@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch13",
+  "item_id": "M250-S246",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:33:00Z", "completed_at": "2026-11-22T10:37:00Z", "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Narrow-beam exponential attenuation (Beer-Lambert): I = I0 exp(-mu_c x_c - mu_Pb x_Pb); x_Pb = (ln(I0/I) - mu_c x_c)/mu_Pb",
+    "assumptions": ["narrow-beam geometry, no buildup (scattered photons lost)", "monoenergetic coefficients as stated", "attenuation factor of 10000 relative to the unshielded beam"],
+    "answer": 5.888,
+    "unit": "cm"
+  },
+  "stratum_assignments": {
+    "TC013": {"stratum": "D", "answer_with_sentence": 5.888, "regime": null},
+    "T4F30": {"stratum": "D", "answer_with_sentence": 5.888, "regime": null},
+    "TEDF2": {"stratum": "R", "answer_with_sentence": 4.444, "regime": null},
+    "T6B5C": {"stratum": "C", "answer_with_sentence": 5.888, "regime": null},
+    "TD827": {"stratum": "D", "answer_with_sentence": 5.888, "regime": null},
+    "TCC3C": {"stratum": "D", "answer_with_sentence": 5.888, "regime": null},
+    "TD192": {"stratum": "R", "answer_with_sentence": 4.444, "regime": null},
+    "T1E87": {"stratum": "C", "answer_with_sentence": 5.888, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "ln(10000) = 9.21034; concrete contributes 15*0.30 = 4.5; x_Pb = 4.71034/80 = 0.058879 m = 5.888 cm. With 37.7 cm concrete: 15*0.377 = 5.655; x_Pb = 3.55534/80 = 0.044442 m = 4.444 cm. Unshielded intensity 3.5 W/m^2 cancels in the required ratio. All 7.7 cm sentences consistent; 3.5 W/m^2 sentences consistent; 'a little' sentences are non-numeric D sentences. TD192 is read as the concrete being in place for the shield in question."
+}

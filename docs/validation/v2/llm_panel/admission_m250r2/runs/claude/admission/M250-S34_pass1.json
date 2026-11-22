@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch12",
+  "item_id": "M250-S34",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:46:00Z", "completed_at": "2026-11-22T10:54:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Energy conservation for rolling without slipping: (1/2) m v^2 (1 + 2/5) = m g d sin(theta), so d = 0.7 v^2 / (g sin theta).",
+    "assumptions": ["Uniform solid sphere, I = (2/5) m r^2", "rolling without slipping, static friction does no work", "negligible air and rolling resistance", "incline long enough"],
+    "answer": 6.0845,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TACA4": {"stratum": "C", "answer_with_sentence": 6.0845, "regime": null},
+    "T1332": {"stratum": "D", "answer_with_sentence": 6.0845, "regime": null},
+    "TDEF6": {"stratum": "R", "answer_with_sentence": 4.1767, "regime": null},
+    "T4182": {"stratum": "D", "answer_with_sentence": 6.0845, "regime": null},
+    "T96D5": {"stratum": "R", "answer_with_sentence": 4.1767, "regime": null},
+    "T7B54": {"stratum": "D", "answer_with_sentence": 6.0845, "regime": null},
+    "T741D": {"stratum": "D", "answer_with_sentence": 6.0845, "regime": null},
+    "T55FE": {"stratum": "C", "answer_with_sentence": 6.0845, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "d = 0.7*36/(9.8*sin25) = 25.2/(9.8*0.42262) = 25.2/4.14166 = 6.0845 m. At 38 deg: 25.2/(9.8*0.61566) = 25.2/6.03348 = 4.1767 m. Radius enters I = (2/5) m r^2 and v = omega r but cancels. The earlier-experiment tilt leaves no lasting state because the problem says the incline is set at the stated angle at first and clamped before launch. The 'a few degrees' sentences are numeral-free and attached to D objects, so no number is needed."
+}

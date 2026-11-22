@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch03",
+  "item_id": "M250-S265",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:29:00Z", "completed_at": "2026-11-22T10:42:00Z", "minutes_spent": 13,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Ideal transformer Vs = Vp/4; bridge rectifier with two diodes of 0.7 V in the path: v = Vm|sin wt| - 1.4 V when Vm|sin wt| > 1.4 V, else 0; average = (1/pi)[2 Vm cos(th0) - 1.4 (pi - 2 th0)], th0 = asin(1.4/Vm)", "assumptions": ["ideal transformer, no winding resistance", "constant-drop ideal-switch diodes, two in series in each half-cycle", "purely resistive load, no smoothing", "230 V rms is the actual (nominal) mains voltage"], "answer": 50.38, "unit": "V"},
+  "stratum_assignments": {
+    "T5D4E": {"stratum": "D", "answer_with_sentence": 50.38, "regime": null},
+    "TAC9C": {"stratum": "D", "answer_with_sentence": 50.38, "regime": null},
+    "T8158": {"stratum": "R", "answer_with_sentence": 53.53, "regime": null},
+    "TF8ED": {"stratum": "D", "answer_with_sentence": 50.38, "regime": null},
+    "T697F": {"stratum": "C", "answer_with_sentence": 50.38, "regime": null},
+    "T4891": {"stratum": "R", "answer_with_sentence": 53.53, "regime": null},
+    "T9978": {"stratum": "C", "answer_with_sentence": 50.38, "regime": null},
+    "T644B": {"stratum": "D", "answer_with_sentence": 50.38, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: Vs = 57.5 V rms, Vm = 81.3173 V; th0 = asin(0.0172164) = 0.0172173 rad; 2Vm cos th0 = 162.6105; 1.4(pi - 2th0) = 4.3500; average = 158.2604/pi = 50.376 V. With 244 V rms: Vs = 61 V, Vm = 86.2670 V, th0 = 0.0162294, 2Vm cos th0 = 172.5113, 1.4(pi - 2th0) = 4.3528, average = 168.1586/pi = 53.527 V. Load resistance enters the current but cancels from the voltage with ideal constant-drop diodes (C). Lamp and earlier-run sentences have no path (D). T4891 ('14 V above its nominal value when the load voltage was measured') reads the stated 230 V rms as the nominal value; this is the usual reading of a mains rating, so I do not treat it as a contradiction, though the problem does not say 'nominal' explicitly. Number check: all 14 V sentences agree; both load sentences say 47 ohm; TAC9C and T644B are numeral-free."
+}

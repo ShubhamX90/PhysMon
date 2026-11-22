@@ -1,0 +1,94 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S41",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:17:02+00:00",
+  "completed_at": "2026-11-21T20:17:49+00:00",
+  "minutes_spent": 0.78,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Coulomb's law and conservation of charge. Write the initial charges as +5q and -q, so 0.080 = 5kq^2/(0.30)^2. Contact between identical conducting spheres gives each charge +2q. The final force is k(2q)^2/(0.60)^2 = 0.080(4/5)(0.30/0.60)^2 = 0.016 N, repulsive.",
+    "assumptions": [
+      "Contact permits charge equilibration between the identical conductors.",
+      "Total charge is conserved because the spheres are insulated.",
+      "The stated point-charge approximation applies at the specified separations."
+    ],
+    "answer": 0.016,
+    "unit": "N"
+  },
+  "stratum_assignments": {
+    "T162F": {
+      "stratum": "D",
+      "answer_with_sentence": 0.016,
+      "regime": null
+    },
+    "T0EF1": {
+      "stratum": "D",
+      "answer_with_sentence": 0.016,
+      "regime": null
+    },
+    "TCCA9": {
+      "stratum": "D",
+      "answer_with_sentence": 0.016,
+      "regime": null
+    },
+    "TAA47": {
+      "stratum": "C",
+      "answer_with_sentence": 0.016,
+      "regime": null
+    },
+    "T81A0": {
+      "stratum": "C",
+      "answer_with_sentence": 0.016,
+      "regime": null
+    },
+    "TA88E": {
+      "stratum": "D",
+      "answer_with_sentence": 0.016,
+      "regime": null
+    },
+    "T2BDE": {
+      "stratum": "R",
+      "answer_with_sentence": 0.00778799351,
+      "regime": null
+    },
+    "TFAEF": {
+      "stratum": "R",
+      "answer_with_sentence": 0.00778799351,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The displacement variants do not preserve the same stated numerical value: T162F and TCCA9 say 'a few centimetres', whereas the other displacement sentences specify 26 cm."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [],
+  "notes": "The base physics and all individual numerical answers are well-posed. The invalid verdict concerns the required matching of quantities across variants. Historical movements do not alter the explicitly specified present initial conditions; the remote glass rods are disconnected under the stated model. For either radius sentence, equal radii give equal capacitances, which cancel in the charge-sharing relation Q1/C = Q2/C; the radius also does not enter the stipulated point-charge force. For T2BDE and TFAEF, the final separation becomes 0.86 m, giving F = 0.016(0.60/0.86)^2 N. The solid-ball wording introduces no additional dependency under this model.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a5ce21674942c9357422da547646d39ebffaacb5b130b54edd37332988cf20bd",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

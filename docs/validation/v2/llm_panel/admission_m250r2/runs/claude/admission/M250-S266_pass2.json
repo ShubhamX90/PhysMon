@@ -1,0 +1,37 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch07",
+  "item_id": "M250-S266",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:22:00Z", "completed_at": "2026-11-22T10:28:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "I1 = I2 N2/N1, I2 = P/V, loss = I1^2 R1 + I2^2 R2 = I2^2 (R2 + R1 (N2/N1)^2)",
+    "assumptions": ["resistive load", "load voltage held at 24 V rms", "ideal coupling as stated"],
+    "answer": 32.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "TEC29": {"stratum": "R", "answer_with_sentence": 53.39, "regime": null},
+    "TDD45": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null},
+    "T2665": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null},
+    "TA1EB": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null},
+    "TD2EC": {"stratum": "R", "answer_with_sentence": 53.39, "regime": null},
+    "T3C5C": {"stratum": "D", "answer_with_sentence": 32.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Loss = 0.08 * I2^2 with I2 = P/24. Base: 400*0.08 = 32 W. 65 W: (545/24)^2 = 515.67, times 0.08 = 41.25. 140 W: (620/24)^2 = 667.36, times 0.08 = 53.39. 310 W: (790/24)^2 = 1083.51, times 0.08 = 86.68. All match the certified values. The minimal pairs hold: T2665/TEC29 differ only in 'charger' versus 'secondary winding'; TDD45/TD2EC differ only in 'for an earlier run only' versus 'while the winding losses were measured'. Both carry 140 W. TA1EB and T3C5C are declared numeral-free twins. This agrees with pass 1."
+}

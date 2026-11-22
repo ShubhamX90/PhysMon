@@ -1,0 +1,97 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S53",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:13:39+00:00",
+  "completed_at": "2026-11-21T20:14:21+00:00",
+  "minutes_spent": 0.71,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Steady Fourier conduction through layers in series: Q_dot = A ΔT / (L_brick/k_brick + L_foam/k_foam). Thus Q_dot = 12×20/(0.20/0.8 + 0.05/0.04) = 160 W.",
+    "assumptions": [
+      "The given thermal conductivities apply throughout their respective layers.",
+      "The stated steady, perpendicular heat flow, perfect thermal contact and insulated edges apply.",
+      "For sentences changing the current temperature difference, the requested rate is interpreted as the steady rate after that change."
+    ],
+    "answer": 160.0,
+    "unit": "W"
+  },
+  "stratum_assignments": {
+    "T9459": {
+      "stratum": "D",
+      "answer_with_sentence": 160.0,
+      "regime": null
+    },
+    "T91A5": {
+      "stratum": "R",
+      "answer_with_sentence": 264.0,
+      "regime": null
+    },
+    "TFB61": {
+      "stratum": "R",
+      "answer_with_sentence": 264.0,
+      "regime": null
+    },
+    "T0538": {
+      "stratum": "C",
+      "answer_with_sentence": 160.0,
+      "regime": null
+    },
+    "TC890": {
+      "stratum": "D",
+      "answer_with_sentence": 160.0,
+      "regime": null
+    },
+    "T3307": {
+      "stratum": "D",
+      "answer_with_sentence": 160.0,
+      "regime": null
+    },
+    "T2BD1": {
+      "stratum": "C",
+      "answer_with_sentence": 160.0,
+      "regime": null
+    },
+    "TA69F": {
+      "stratum": "D",
+      "answer_with_sentence": 160.0,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal",
+    "other"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "TC890 and TA69F replace the specified increase of 13 K in their corresponding variants with the unspecified amount 'a few kelvin', violating the requirement that variants preserve the number and unit.",
+    "other": "The reference 'this wall' in T91A5 is less explicit than naming the composite wall, and 'just before' in TFB61 creates uncertainty about whether the measurement precedes thermal equilibration despite the stated steady-flow condition."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high",
+    "other": "medium"
+  },
+  "counterexamples": [],
+  "notes": "For the relevant additions, the new temperature difference is 33 K and the steady heat rate is 264 W. T91A5 is classified assuming 'this wall' means the composite wall; attachment to the shed wall would instead leave the answer at 160 W. TFB61's numerical answer uses the explicitly stated steady-flow condition; a genuinely transient measurement immediately following a change would require thermal storage properties and elapsed time. For the 276 K additions, T_hot = 276 K + 20 K, so the absolute temperature cancels from the conduction relation. Earlier tests have no effect on the present steady solution under the stated material properties.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "232588dccab596b4b01669d134e8b260f494a3221ec5adb83b3d7802252da15c",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

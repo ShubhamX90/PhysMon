@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch05",
+  "item_id": "M250-S275",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:35:00Z", "completed_at": "2026-11-22T10:41:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "P = (b-a)/L - [sin(4 pi b/L) - sin(4 pi a/L)]/(4 pi) for n = 2 infinite well",
+    "assumptions": ["ideal infinite well", "ideal probe responding only in the slice", "Born rule"],
+    "answer": 0.346774,
+    "unit": "1"
+  },
+  "stratum_assignments": {
+    "TE83E": {"stratum": "D", "answer_with_sentence": 0.346774, "regime": null},
+    "T0018": {"stratum": "D", "answer_with_sentence": 0.346774, "regime": null},
+    "T1E15": {"stratum": "D", "answer_with_sentence": 0.346774, "regime": null},
+    "TE382": {"stratum": "D", "answer_with_sentence": 0.346774, "regime": null},
+    "T6A0A": {"stratum": "R", "answer_with_sentence": 0.359585, "regime": null},
+    "T3E63": {"stratum": "R", "answer_with_sentence": 0.359585, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Verified: q = 0.16 (b = 1.66 nm): 0.353333 - (sin 38.4 deg 0.621148 - 0.587785)/4pi = 0.350678; q = 0.24: 0.359585; q = 0.56 (b = 2.06 nm, still inside the well): 0.486667 - (sin 45.6 deg 0.714473 - 0.587785)/4pi = 0.476585. Relations with n = 2 match my formula. Minimal pairs T1E15/T3E63 and TE83E/T6A0A share 0.24 nm and differ only in attachment/time; numeral-free twins match. Agrees with pass 1."
+}

@@ -1,0 +1,103 @@
+{
+  "item_id": "M250-S232",
+  "pass_number": 1,
+  "own_solution": {
+    "law": "For linear deep-water gravity-capillary waves, omega^2 = gk + (sigma/rho)k^3, k = 2*pi/lambda, and v_g = d(omega)/dk = [g + 3(sigma/rho)k^2]/[2*sqrt(gk + (sigma/rho)k^3)]. With lambda = 0.030 m, k = 209.4395 m^-1.",
+    "assumptions": [
+      "The base problem uses the stated clean-water surface tension.",
+      "Group speed is measured relative to the water.",
+      "Linear, inviscid, deep-water gravity-capillary wave theory applies; detergent additions are modeled through their stated surface-tension change."
+    ],
+    "answer": 0.18589,
+    "unit": "m/s"
+  },
+  "stratum_assignments": {
+    "T1028": {
+      "stratum": "R",
+      "answer_with_sentence": 0.17134,
+      "regime": null
+    },
+    "T9415": {
+      "stratum": "R",
+      "answer_with_sentence": 0.17134,
+      "regime": null
+    },
+    "TC5E1": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    },
+    "T6703": {
+      "stratum": "D",
+      "answer_with_sentence": 0.18589,
+      "regime": null
+    },
+    "TB5C8": {
+      "stratum": "D",
+      "answer_with_sentence": 0.18589,
+      "regime": null
+    },
+    "T14D0": {
+      "stratum": "R",
+      "answer_with_sentence": null,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "ambiguous",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [
+    "Whether the earlier-run detergent remains in the tank for TC5E1 and T14D0.",
+    "The magnitude of the surface-tension reduction in T14D0 if it persists."
+  ],
+  "defect_flags": [
+    "insufficient_boundary_condition",
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "insufficient_boundary_condition": "TC5E1 and T14D0 do not specify whether the tank water was replaced or its surface tension restored after the earlier run, so its present surface tension and group speed are not uniquely determined.",
+    "rendering_not_minimal": "T6703 and T14D0 replace the specified 0.015 N/m reduction with an unspecified 'small amount', violating the requirement that variants preserve the same number and unit."
+  },
+  "defect_severity": {
+    "insufficient_boundary_condition": "high",
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    {
+      "sentence_id": "TC5E1",
+      "case": "The tank retains the detergent-treated water from the earlier run, with surface tension 0.0578 N/m.",
+      "answer": 0.17134,
+      "unit": "m/s"
+    },
+    {
+      "sentence_id": "TC5E1",
+      "case": "The tank is emptied and refilled with clean water after the earlier run, restoring surface tension to 0.0728 N/m.",
+      "answer": 0.18589,
+      "unit": "m/s"
+    }
+  ],
+  "notes": "The R assignments for TC5E1 and T14D0 indicate a potentially persistent change to the target system; neither sentence establishes a uniquely computable current state. If the water was restored, these historical facts are disconnected from the current ripples. For T1028 and T9415, the current surface tension is 0.0728 - 0.015 = 0.0578 N/m. The bowl statements have no physical connection to the tank under the stated arrangement. No external information or tools were used.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:21:41+00:00",
+  "completed_at": "2026-11-21T20:22:37+00:00",
+  "minutes_spent": 0.93,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "e5aa5efca9e48710721d183ca7d4a6205d38d8a92fb750f924afcd687f6abb73",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

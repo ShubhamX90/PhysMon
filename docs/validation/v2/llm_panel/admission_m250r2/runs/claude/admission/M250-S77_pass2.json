@@ -1,0 +1,37 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch07",
+  "item_id": "M250-S77",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:08:00Z", "completed_at": "2026-11-22T10:15:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "T = exp(-2 kappa a), hbar*kappa = sqrt(2 m (V0 - E)); a = ln(1/T) / (2 kappa)",
+    "assumptions": ["non-relativistic electron", "opaque-barrier approximation as stated", "V0 - E = 3 eV"],
+    "answer": 0.3892,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "TFB05": {"stratum": "D", "answer_with_sentence": 0.3892, "regime": null},
+    "T9848": {"stratum": "D", "answer_with_sentence": 0.3892, "regime": null},
+    "T6F0D": {"stratum": "D", "answer_with_sentence": 0.3892, "regime": null},
+    "T0D94": {"stratum": "D", "answer_with_sentence": 0.3892, "regime": null},
+    "TDA04": {"stratum": "R", "answer_with_sentence": 0.4545, "regime": null},
+    "T8282": {"stratum": "R", "answer_with_sentence": 0.4545, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Checked the certified answers: base 0.389178 nm (kappa = 1751.0/197.3 = 8.8748 nm^-1); 6 eV: kappa = 1010.94/197.3 = 5.1239, a = 0.67408; 7.2 eV: kappa = 7.5999, a = 0.45446; 9.6 eV: kappa = 2168.22/197.3 = 10.9895, a = 0.31429. All agree. The pairs hold: T0D94/T8282 differ only in 'second barrier' versus 'the barrier'; T9848/TDA04 differ only in 'For an earlier run only' versus 'Before the electron was sent in'. Both share 7.2 eV. My pass-1 rendering_not_minimal flag is withdrawn. TFB05 and T6F0D are declared numeral-free controls, twins of T0D94 and T9848, so leaving out the number is intended and is not a minimal-pair claim. All values (6, 7.2, 9.6 eV) are above E = 5 eV, so tunnelling applies throughout."
+}

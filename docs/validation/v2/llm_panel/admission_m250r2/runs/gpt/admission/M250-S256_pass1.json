@@ -1,0 +1,96 @@
+{
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "item_id": "M250-S256",
+  "pass_number": 1,
+  "started_at": "2026-11-21T20:18:13+00:00",
+  "completed_at": "2026-11-21T20:19:01+00:00",
+  "minutes_spent": 0.79,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Q = n C_m ΔT = (m/M)(3R)(360 − 300). With M = 0.2072 kg/mol, Q = 3611.2934 J. Adding 0.18 kg to the block gives Q = (0.68/0.2072)(3 × 8.314)(60) = 4911.3591 J.",
+    "assumptions": [
+      "Use the stated constant molar heat capacity of 3R throughout the heating.",
+      "All lead joined to the block undergoes the same temperature increase.",
+      "Lead on the scale pan and lead used only in an earlier experiment do not participate in the present heating."
+    ],
+    "answer": 3611.2934,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "TAA2E": {
+      "stratum": "D",
+      "answer_with_sentence": 3611.2934,
+      "regime": null
+    },
+    "TD22B": {
+      "stratum": "D",
+      "answer_with_sentence": 3611.2934,
+      "regime": null
+    },
+    "T30A5": {
+      "stratum": "C",
+      "answer_with_sentence": 3611.2934,
+      "regime": null
+    },
+    "T85DA": {
+      "stratum": "D",
+      "answer_with_sentence": 3611.2934,
+      "regime": null
+    },
+    "TA290": {
+      "stratum": "D",
+      "answer_with_sentence": 3611.2934,
+      "regime": null
+    },
+    "TBFB5": {
+      "stratum": "C",
+      "answer_with_sentence": 3611.2934,
+      "regime": null
+    },
+    "T6CF0": {
+      "stratum": "R",
+      "answer_with_sentence": 4911.3591,
+      "regime": null
+    },
+    "TC49F": {
+      "stratum": "R",
+      "answer_with_sentence": 4911.3591,
+      "regime": null
+    }
+  },
+  "validity": "invalid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "The added-lead variants do not consistently preserve the specified number and unit: TAA2E and T85DA say only 'a further small amount', whereas the other added-lead sentences specify 0.18 kg."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "high"
+  },
+  "counterexamples": [
+    "TAA2E permits, for example, 0.01 kg on the scale pan, whereas TA290 explicitly specifies 0.18 kg; the sentences therefore do not preserve the same numerical quantity."
+  ],
+  "notes": "The base problem and each individual augmented problem have a determinate heat requirement. The invalid verdict concerns the required numerical matching between sentence variants. The unspecified amounts occur only in disconnected statements, so they do not make the heat answer ambiguous. Heater power sets the heating duration: Q = Pt with t = (m/M)(3R)ΔT/P, so P cancels at the fixed temperature endpoints. Both heater sentences consistently specify 310 W; all explicitly numerical added-lead sentences consistently specify 0.18 kg.",
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "a141e353e2201e2d35427022765fca6d57d1ba76e4d5d7bafd39211ebc54ac4b",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

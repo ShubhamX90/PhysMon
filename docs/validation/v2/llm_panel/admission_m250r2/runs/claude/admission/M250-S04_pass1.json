@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch08",
+  "item_id": "M250-S04",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:25:00Z", "completed_at": "2026-11-22T10:31:00Z", "minutes_spent": 6,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Energy conservation for an ideal horizontal spring-mass oscillator: (1/2)kA^2 = (1/2)m v_max^2, v_max = A sqrt(k/m)", "assumptions": ["frictionless table (stated)", "massless spring (stated)", "released from rest (stated)", "linear (Hookean) spring over the 0.15 m displacement"], "answer": 3.0, "unit": "m/s"},
+  "stratum_assignments": {
+    "T8A4D": {"stratum": "C", "answer_with_sentence": 3.0, "regime": null},
+    "TAF2C": {"stratum": "C", "answer_with_sentence": 3.0, "regime": null},
+    "T780C": {"stratum": "R", "answer_with_sentence": 1.86052, "regime": null},
+    "T95EE": {"stratum": "D", "answer_with_sentence": 3.0, "regime": null},
+    "T1436": {"stratum": "D", "answer_with_sentence": 3.0, "regime": null},
+    "T8C06": {"stratum": "D", "answer_with_sentence": 3.0, "regime": null},
+    "TDAD6": {"stratum": "R", "answer_with_sentence": 1.86052, "regime": null},
+    "T2898": {"stratum": "D", "answer_with_sentence": 3.0, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Base: 0.15*sqrt(200/0.5) = 0.15*20 = 3.0 m/s. With 0.8 kg added (total 1.3 kg): 0.15*sqrt(200/1.3) = 0.15*12.4035 = 1.86052 m/s. Natural length enters only through the extension x = L - L0, which is given directly as 0.15 m, so it drops out (C; could also be called D-like since it is not in the energy relation); 0.15 m stretch of a 0.45 m spring is physically reasonable. Trolley weights have no path; earlier-trial weights are removed. 0.8 kg sentences share number and unit; T95EE and T8C06 carry no number. 'Stuck on top' implies the weight moves with the block."
+}

@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch12",
+  "item_id": "M250-S274",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:00:00Z", "completed_at": "2026-11-22T10:12:00Z", "minutes_spent": 12,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Anomalous Zeeman effect (weak field): component shift dE = mu_B B (g_P m_P - g_S m_S) with Delta m = 0, +/-1; mu_B = e hbar / (2 m_e); first-order wavelength shift d(lambda) = lambda^2 dE / (hc).",
+    "assumptions": ["Weak-field (linear Zeeman) regime with J-level g-factors as given", "nuclear spin/hyperfine structure not considered (implied by six components and J-level g-factors)", "first-order wavelength shift"],
+    "answer": 0.02700,
+    "unit": "nm"
+  },
+  "stratum_assignments": {
+    "T63F3": {"stratum": "K", "answer_with_sentence": 0.02700, "regime": "Matters only if Zeeman splittings approach the fine-structure splitting (Paschen-Back); 0.0036 eV >> ~1e-4 eV Zeeman splittings, so inside the weak-field regime."},
+    "T2090": {"stratum": "R", "answer_with_sentence": 0.02997, "regime": null},
+    "TF402": {"stratum": "D", "answer_with_sentence": 0.02700, "regime": null},
+    "TD469": {"stratum": "D", "answer_with_sentence": 0.02700, "regime": null},
+    "T664D": {"stratum": "D", "answer_with_sentence": 0.02700, "regime": null},
+    "TC894": {"stratum": "R", "answer_with_sentence": 0.02997, "regime": null},
+    "T3EF7": {"stratum": "D", "answer_with_sentence": 0.02700, "regime": null},
+    "T4FF2": {"stratum": "K", "answer_with_sentence": 0.02700, "regime": "Same as T63F3: weak-field regime, Zeeman splittings << 0.0036 eV."}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Outermost components: m_P=+1/2 -> m_S=-1/2 and m_P=-1/2 -> m_S=+1/2, shifts +/-(1.333*0.5+2.002*0.5) mu_B B = +/-1.6675 mu_B B; spread 3.335 mu_B B. mu_B = 1.602e-19*1.0546e-34/(2*9.109e-31) = 9.2736e-24 J/T = 5.7881e-5 eV/T (exact e). dE = 3.335*5.7881e-5*0.5 = 9.6517e-5 eV; d(lambda) = 589^2*9.6517e-5/1240 = 0.027003 nm. With 0.555 T: 0.029973 nm. Sentences T664D and T3EF7 state 'a little' rather than 55 mT; if they are meant as variants of the 55 mT sentences, they differ in the number (checked in pass 2). The 0.0036 eV fine-structure value is not sodium's actual value (about 0.0021 eV) though 589 nm suggests sodium; the item does not name the element, so no contradiction."
+}

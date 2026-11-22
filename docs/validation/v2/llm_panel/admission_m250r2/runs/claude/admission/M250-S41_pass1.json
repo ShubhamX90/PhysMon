@@ -1,0 +1,23 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch04",
+  "item_id": "M250-S41",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:37:00Z", "completed_at": "2026-11-22T10:44:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {"law": "Coulomb's law F = k|q1 q2|/r^2; charge conservation and equal sharing between identical conducting spheres on contact", "assumptions": ["point charges as stated", "identical spheres share total charge equally", "isolated system, no leakage"], "answer": 16.0, "unit": "mN"},
+  "stratum_assignments": {
+    "T162F": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "T0EF1": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "TCCA9": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "TAA47": {"stratum": "K", "answer_with_sentence": 16.0, "regime": "point-charge regime: radius small compared with the centre separation (2.5 cm << 30-60 cm), as the problem instructs"},
+    "T81A0": {"stratum": "K", "answer_with_sentence": 16.0, "regime": "point-charge regime: radius small compared with the centre separation (2.5 cm << 30-60 cm), as the problem instructs"},
+    "TA88E": {"stratum": "D", "answer_with_sentence": 16.0, "regime": null},
+    "T2BDE": {"stratum": "R", "answer_with_sentence": 7.788, "regime": null},
+    "TFAEF": {"stratum": "R", "answer_with_sentence": 7.788, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "Charges -5q and q: k*5q^2/0.09 = 0.08 N gives kq^2 = 1.44e-3 N m^2. After contact each carries -2q: F = 4*1.44e-3/0.36 = 0.016 N = 16 mN. Moved 26 cm further to 86 cm: F = 5.76e-3/0.7396 = 7.788 mN. Radius: equal sharing needs only identical spheres, and the point-charge model is stated, so the radius is K (irrelevant while r << separation). TFAEF ('Afterwards ... were moved') is past tense and slightly less direct than T2BDE but reads as following the 60 cm placement, so 'now' is at 86 cm. Variant checks: all 26 cm sentences agree; radius sentences both 2.5 cm; T162F/TCCA9 'a few centimetres'."
+}

@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch05",
+  "item_id": "M250-S234",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:00:00Z", "completed_at": "2026-11-22T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law at the entry face (sin 40 = 1.8 sin r); meridional zig-zag ray path length L/cos r; speed in glass c/n; t = n L / (c cos r)",
+    "assumptions": ["meridional ray (enters at centre of face)", "TIR at sides holds: side incidence 90-20.92 = 69.08 deg > critical 33.75 deg", "no dispersion, uniform n", "joints (if any) optically seamless"],
+    "answer": 1.2847e-8,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T507D": {"stratum": "D", "answer_with_sentence": 1.2847e-8, "regime": null},
+    "TB902": {"stratum": "R", "answer_with_sentence": 2.1198e-8, "regime": null},
+    "T97AD": {"stratum": "D", "answer_with_sentence": 1.2847e-8, "regime": null},
+    "TE2F0": {"stratum": "D", "answer_with_sentence": 1.2847e-8, "regime": null},
+    "T29E2": {"stratum": "C", "answer_with_sentence": 1.2847e-8, "regime": null},
+    "T2524": {"stratum": "R", "answer_with_sentence": 2.1198e-8, "regime": null},
+    "TACC7": {"stratum": "D", "answer_with_sentence": 1.2847e-8, "regime": null},
+    "TF3EE": {"stratum": "C", "answer_with_sentence": 1.2847e-8, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "sin r = 0.642788/1.8 = 0.357104, cos r = 0.934065; t = 3.6/(3e8*0.934065) = 12.847 ns; with 3.3 m rod t = 5.94/2.802195e8 = 21.198 ns. Diameter sets the reflection spacing/number (N = L tan r / d, segment d/sin r) but cancels from total path L/cos r, hence C. Earlier-run lengthening has no effect on the present pulse (rod is at its stated 2 m as first cut); I label it D (temporal detachment) rather than K. Variant sets: 1.3 m on rod (now) / rod (earlier) / cable share number and unit; the 'short length' sentences (T97AD, TACC7) carry no number and are variants of each other only. The 'as first cut' clause keeps the lengthening sentences consistent with the stated 2 m."
+}

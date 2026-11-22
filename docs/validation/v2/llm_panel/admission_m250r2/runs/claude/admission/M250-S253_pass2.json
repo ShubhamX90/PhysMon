@@ -1,0 +1,39 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch09",
+  "item_id": "M250-S253",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:46:00Z", "completed_at": "2026-11-22T10:50:00Z", "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "I = p^2/(2 rho c); normal-incidence transmission between fluids with Z = rho c",
+    "assumptions": ["plane harmonic wave, normal incidence", "lossless uniform fluids, no return from below", "pressure and normal velocity continuous"],
+    "answer": 6.28424,
+    "unit": "Pa"
+  },
+  "stratum_assignments": {
+    "T9B4F": {"stratum": "R", "answer_with_sentence": 7.69659, "regime": null},
+    "TCC99": {"stratum": "R", "answer_with_sentence": 7.69659, "regime": null},
+    "T43F7": {"stratum": "C", "answer_with_sentence": 6.28424, "regime": null},
+    "TF89B": {"stratum": "D", "answer_with_sentence": 6.28424, "regime": null},
+    "TA783": {"stratum": "D", "answer_with_sentence": 6.28424, "regime": null},
+    "TEFDB": {"stratum": "D", "answer_with_sentence": 6.28424, "regime": null},
+    "TBD48": {"stratum": "D", "answer_with_sentence": 6.28424, "regime": null},
+    "TC617": {"stratum": "C", "answer_with_sentence": 6.28424, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 3,
+  "naturalness": "slightly_artificial",
+  "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": [],
+  "defect_reasons": {},
+  "defect_severity": {},
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "Base 6.28424 Pa matches pass 1 (6.2842). The authors' route (intensity transmission then p = sqrt(2 Z2 It)) is equivalent to my pressure-transmission route. R answers: 6.28424*sqrt(1.25) = 7.02599, *sqrt(1.5) = 7.69659, *sqrt(1.75) = 8.31326 Pa, correct. All strata agree with pass 1. Minimal pairs TA783/TCC99 and TEFDB/T9B4F carry 0.006 W/m^2 and differ only in attachment (T9B4F uses past tense 'Just before ... was measured' vs TCC99 present tense, both R, harmless). TF89B and TBD48 are declared numeral-free twins."
+}

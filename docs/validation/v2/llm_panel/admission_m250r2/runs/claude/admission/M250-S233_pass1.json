@@ -1,0 +1,28 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch11",
+  "item_id": "M250-S233",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:00:00Z", "completed_at": "2026-11-22T10:08:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Snell's law plus Fresnel p-polarisation reflection coefficient: r_p = (n cos(thi) - cos(tht))/(n cos(thi) + cos(tht)); P_in = P (1 - r_p^2) for a lossless interface",
+    "assumptions": ["n_air = 1", "lossless, non-absorbing glass; energy conservation T = 1 - R", "narrow parallel beam (plane-wave Fresnel)", "power at laser equals power at the surface (no losses in air)"],
+    "answer": 4.466,
+    "unit": "mW"
+  },
+  "stratum_assignments": {
+    "T6A28": {"stratum": "C", "answer_with_sentence": 4.466, "regime": null},
+    "TBC5B": {"stratum": "R", "answer_with_sentence": 7.503, "regime": null},
+    "T38E1": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null},
+    "T8526": {"stratum": "C", "answer_with_sentence": 4.466, "regime": null},
+    "T01A0": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null},
+    "T6921": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null},
+    "TAC23": {"stratum": "R", "answer_with_sentence": 7.503, "regime": null},
+    "TA9F7": {"stratum": "D", "answer_with_sentence": 4.466, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [], "defect_flags": [], "defect_reasons": {}, "defect_severity": {},
+  "counterexamples": [],
+  "notes": "sin(tht) = sin75/1.5 = 0.64395, cos(tht) = 0.76507, cos75 = 0.25882; r_p = (0.38823-0.76507)/(0.38823+0.76507) = -0.32675; R = 0.10677, T = 0.89323. P_in = 5 x 0.89323 = 4.466 mW; with amplifier on the beam, 8.4 x 0.89323 = 7.503 mW. Beam area cancels (intensity times area is power; Fresnel coefficients are independent of area). Area variants T6A28/T8526 both state 5.5 mm^2. The amplifier sentences TBC5B, T38E1, TAC23, T6921 all state 3.4 mW; T01A0 and TA9F7 state 'a small amount' with no number, so if they are meant as minimal-pair variants of the 3.4 mW sentences they differ in the value, not only in attachment. Their attachments (earlier run, second laser) make them D anyway."
+}

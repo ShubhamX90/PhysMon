@@ -1,0 +1,31 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch01",
+  "item_id": "M250-S267",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:15:00Z", "completed_at": "2026-11-22T10:22:00Z", "minutes_spent": 7,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Thevenin equivalent seen by the capacitor: R_th = R1 R2/(R1+R2); V_C(t) = V_f (1 - exp(-t/(R_th C))); t_90 = R_th C ln 10",
+    "assumptions": ["ideal battery, ideal capacitor initially uncharged, no leakage", "R1 in series from battery, capacitor in parallel with R2"],
+    "answer": 0.14078,
+    "unit": "s"
+  },
+  "stratum_assignments": {
+    "T77C0": {"stratum": "C", "answer_with_sentence": 0.14078, "regime": null},
+    "TC55C": {"stratum": "C", "answer_with_sentence": 0.14078, "regime": null},
+    "TA387": {"stratum": "D", "answer_with_sentence": 0.14078, "regime": null},
+    "TDA93": {"stratum": "R", "answer_with_sentence": 0.23677, "regime": null},
+    "TE837": {"stratum": "R", "answer_with_sentence": 0.23677, "regime": null},
+    "T1015": {"stratum": "D", "answer_with_sentence": 0.14078, "regime": null},
+    "T7FFF": {"stratum": "D", "answer_with_sentence": 0.14078, "regime": null},
+    "T6164": {"stratum": "D", "answer_with_sentence": 0.14078, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "Typo in the problem text: 'charged from a its own small cell'."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "R_th = 4.7*6.8/11.5 kOhm = 2.7791 kOhm; tau = 2.7791e3*22e-6 = 0.061141 s; t = tau ln10 = 0.14078 s. With 15 uF added in parallel (37 uF, presumably uncharged like the original): tau = 0.10283 s, t = 0.23677 s. The emf sets the final voltage but cancels from the fraction-of-final time (C). The flash-unit capacitors (TA387, T6164) are in a separate circuit (D). T1015, T7FFF concern an earlier run only (D). TDA93 and TE837 are wordings of the same 15 uF addition; the added capacitor's initial charge is not stated, but 'uncharged at first' in the base reasonably covers the combined capacitor since they are in parallel and the base capacitor is uncharged (if the extra one held charge they would share it at connection, so with no stated charge and parallel wiring before closure the combined voltage would be nonzero only if it were charged; this is a minor gap). TA387 and T7FFF carry no number ('small')."
+}

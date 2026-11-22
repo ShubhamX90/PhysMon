@@ -1,0 +1,101 @@
+{
+  "item_id": "M250-S34",
+  "pass_number": 2,
+  "own_solution": {
+    "law": "Conservation of mechanical energy gives (1/2)mv0^2 + (1/2)I(v0/R)^2 = mgd sin(theta). With I = (2/5)mR^2, d = 7v0^2/(10g sin(theta)). A prelaunch increase q replaces theta by theta + q.",
+    "assumptions": [
+      "Rolling without slipping holds throughout the ascent.",
+      "The incline is stationary and clamped during the ascent.",
+      "Any current prelaunch tilt occurs before final clamping.",
+      "Air resistance and rolling resistance are negligible.",
+      "The stated initial centre speed applies to every rendering."
+    ],
+    "answer": 6.08452,
+    "unit": "m"
+  },
+  "stratum_assignments": {
+    "TACA4": {
+      "stratum": "C",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "T1332": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "TDEF6": {
+      "stratum": "R",
+      "answer_with_sentence": 4.17669,
+      "regime": null
+    },
+    "T4182": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "T96D5": {
+      "stratum": "R",
+      "answer_with_sentence": 4.17669,
+      "regime": null
+    },
+    "T7B54": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "T741D": {
+      "stratum": "D",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    },
+    "T55FE": {
+      "stratum": "C",
+      "answer_with_sentence": 6.08452,
+      "regime": null
+    }
+  },
+  "validity": "valid",
+  "clarity": "clear",
+  "difficulty": 2,
+  "naturalness": "slightly_artificial",
+  "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": [
+    "rendering_not_minimal"
+  ],
+  "defect_reasons": {
+    "rendering_not_minimal": "T1332 and T741D replace the numerical angle with 'a few degrees', departing from the review instructions' requested matching of numbers and units across renderings, although the authors explicitly and accurately identify these as numeral-free controls."
+  },
+  "defect_severity": {
+    "rendering_not_minimal": "medium"
+  },
+  "counterexamples": [],
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "notes": "All physics claims and certified answers hold. Relevant tilts of 7, 13 and 18 degrees produce final angles of 32, 38 and 43 degrees and distances of 4.85249, 4.17669 and 3.77043 m, respectively. Radius cancels for every listed positive radius; consistent conversion from centimetres to metres leaves the cancellation unchanged. The second board and the earlier experiment have no stated coupling to the present motion. Both explicitly claimed minimal pairs preserve 13 degrees and change the attachment or event as intended. I revise pass 1's high severity and invalid verdict: pass 2 identifies the nonnumeric sentences as deliberate controls, rather than falsely claiming they preserve the numerical quantity. The remaining mismatch with the review instructions is a presentation defect and does not make the physics or an authors' claim wrong.",
+  "reviewer_id": "codex:gpt-6.1-sol:gpt_m250r2_admission",
+  "started_at": "2026-11-21T20:16:31+00:00",
+  "completed_at": "2026-11-21T20:17:13+00:00",
+  "minutes_spent": 0.7,
+  "blinding_attestation": true,
+  "transport": {
+    "runner_version": "1",
+    "codex_version": "codex-cli 0.169.0",
+    "model_requested": "gpt-6.1-sol",
+    "reasoning_effort": "high",
+    "attempt": 1,
+    "prompt_sha256": "c9fa9ed27077d26319f7ad4b8eca8b62278d145d9c6b2a3c7188d057b55d8655",
+    "frozen_prompt_sha256": "5558530837c8148c5966f052eb9604a2f37ba339c8d119c87ef0353c62ad8715",
+    "transport_note_sha256": "41c76954ab4ec20569f3e6183037727a70d39a5be0390af262459b0a696a6fe1",
+    "event_types": {
+      "thread.started": 1,
+      "turn.started": 1,
+      "item.completed:agent_message": 1,
+      "turn.completed": 1
+    }
+  }
+}

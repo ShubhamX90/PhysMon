@@ -1,0 +1,36 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch13",
+  "item_id": "M250-S246",
+  "pass_number": 2,
+  "started_at": "2026-11-22T10:37:00Z", "completed_at": "2026-11-22T10:41:00Z", "minutes_spent": 4,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Narrow-beam exponential attenuation: x_Pb = (ln F - mu_c x_c)/mu_Pb",
+    "assumptions": ["narrow beam, no buildup", "stated coefficients for the beam energy", "F = 10000 relative to the unshielded beam"],
+    "answer": 5.888,
+    "unit": "cm"
+  },
+  "stratum_assignments": {
+    "TC013": {"stratum": "D", "answer_with_sentence": 5.888, "regime": null},
+    "T4F30": {"stratum": "D", "answer_with_sentence": 5.888, "regime": null},
+    "TEDF2": {"stratum": "R", "answer_with_sentence": 4.444, "regime": null},
+    "T6B5C": {"stratum": "C", "answer_with_sentence": 5.888, "regime": null},
+    "TD827": {"stratum": "D", "answer_with_sentence": 5.888, "regime": null},
+    "TCC3C": {"stratum": "D", "answer_with_sentence": 5.888, "regime": null},
+    "TD192": {"stratum": "R", "answer_with_sentence": 4.444, "regime": null},
+    "T1E87": {"stratum": "C", "answer_with_sentence": 5.888, "regime": null}
+  },
+  "equation_consistent": true,
+  "units_consistent": true,
+  "answer_correct": true,
+  "precision_adequate": true,
+  "admission_category": "CERTIFIED_AND_VALIDATED",
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 2, "naturalness": "slightly_artificial", "confidence": 5,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "The claims label the quantity of the shed-roof sentences TCC3C/TC013 as 'a further layer of concrete', though the sentences do not say the roof layer is concrete; a metadata label only, with no effect on any answer."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Checked certified answers: tc=30 cm: (9.21034-4.5)/80 = 5.8879 cm; tc=34.3: (9.21034-5.145)/80 = 5.0817 cm; tc=37.7: (9.21034-5.655)/80 = 4.4442 cm; tc=41.4: (9.21034-6.21)/80 = 3.7504 cm. All match. Unshielded intensity cancels in the ratio. Minimal pairs hold: T4F30 vs TD192 differ only in 'earlier design only' vs 'final design', both 7.7 cm; TCC3C vs TEDF2 differ only in shed roof vs concrete wall, both 7.7 cm. Numeral-free twins TC013 and TD827 match. Agrees with pass 1."
+}

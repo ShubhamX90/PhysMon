@@ -1,0 +1,29 @@
+{
+  "reviewer_id": "claude-opus-5-5:m250r2_admission:batch01",
+  "item_id": "M250-S52",
+  "pass_number": 1,
+  "started_at": "2026-11-22T10:42:00Z", "completed_at": "2026-11-22T10:50:00Z", "minutes_spent": 8,
+  "blinding_attestation": true,
+  "own_solution": {
+    "law": "Calorimetry energy balance: m_w c (dT0 - T) = m_i L + m_i c T, with T measured above the melting point; heat given up Q = m_w c (dT0 - T)",
+    "assumptions": ["insulated, no heat to container or surroundings", "all ice melts (checked: 83.7 kJ available > 26.7 kJ needed)", "constant c and L, no evaporation"],
+    "answer": 34582,
+    "unit": "J"
+  },
+  "stratum_assignments": {
+    "T96AB": {"stratum": "R", "answer_with_sentence": 39490, "regime": null},
+    "TA38E": {"stratum": "D", "answer_with_sentence": 34582, "regime": null},
+    "T5D2A": {"stratum": "R", "answer_with_sentence": 39490, "regime": null},
+    "T2F5B": {"stratum": "D", "answer_with_sentence": 34582, "regime": null},
+    "T32CB": {"stratum": "D", "answer_with_sentence": 34582, "regime": null},
+    "T162D": {"stratum": "D", "answer_with_sentence": 34582, "regime": null}
+  },
+  "validity": "valid",
+  "clarity": "clear", "difficulty": 3, "naturalness": "slightly_artificial", "confidence": 4,
+  "uncertain_fields": [],
+  "defect_flags": ["other"],
+  "defect_reasons": {"other": "In T96AB 'the water' is not tied to a container while the scene has warm water in two containers; context (the ice is added to the first) makes the first the natural reading."},
+  "defect_severity": {"other": "low"},
+  "counterexamples": [],
+  "notes": "Base: 0.5*4186*(40 - T) = 0.08*334000 + 0.08*4186*T gives 57000 = 2427.88 T, T = 23.477 K above melting; Q = 2093*(40 - 23.477) = 34582 J. With 17 K heating (57 K): 92581 = 2427.88 T, T = 38.132 K; Q = 26720 + 334.88*38.132 = 39490 J. 'Starts 40 K above' refers to the temperature when poured, before anything is done, so a later heating before the ice is added is consistent. Second-container heating (TA38E, T162D) and earlier-run heating (T2F5B, T32CB) are disconnected. T2F5B and T162D state no number ('a small amount')."
+}
