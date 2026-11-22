@@ -230,9 +230,18 @@ R2_SOURCES: tuple[tuple[str, str, str, str | None], ...] = tuple(
 # Repair round 3 (J15.1-063): the `roles_m250r3*` modules, which re-export the r2 specs.
 R3_SOURCES: tuple[tuple[str, str, str, str | None], ...] = tuple(
     (key, module.replace("roles_m250r2", "roles_m250r3", 1), kind, lib) for key, module, kind, lib in R2_SOURCES)
+# Phase 3 (J15.1-065): NEW structures S301 onward toward 250, batch modules `lib_m250p3_<batch>` + `roles_m250p3_<batch>`, added on top of
+# the round-3 sources. Their libraries join the overlap pool (1.1/1.2) and the plan pool only in this round, so that rebuilding an earlier
+# round reproduces it exactly.
+P3_BATCHES = ("optics", "fluids", "acwaves", "em", "thermostat", "nucatom", "qsolid", "grav", "rel", "circ", "mixed")
+P3_LIBS = tuple(f"lib_m250p3_{b}" for b in P3_BATCHES)
+P3_SOURCES: tuple[tuple[str, str, str, str | None], ...] = R3_SOURCES + tuple(
+    (f"m250p3_{b}", f"roles_m250p3_{b}", "NEW", f"lib_m250p3_{b}") for b in P3_BATCHES)
 ROUNDS: dict[str, tuple[tuple[tuple[str, str, str, str | None], ...], str, str]] = {
     "v1": (SOURCES, "m250_explore_v1", "s198 v1"), "r1": (R1_SOURCES, "m250_explore_v2", "s198 v2"),
-    "r2": (R2_SOURCES, "m250_explore_v3", "s198 v3"), "r3": (R3_SOURCES, "m250_explore_v4", "s198 v4")}
+    "r2": (R2_SOURCES, "m250_explore_v3", "s198 v3"), "r3": (R3_SOURCES, "m250_explore_v4", "s198 v4"),
+    "p3": (P3_SOURCES, "m250_explore_v5", "s198 v5")}
+ROUND_EXTRA_LIBS = {"p3": P3_LIBS}
 
 
 def discover(sources: tuple[tuple[str, str, str, str | None], ...] = SOURCES) -> list[Source]:
@@ -1169,7 +1178,7 @@ def readme(results: list[Result], sources: list[Source], not_built: list, comp: 
 
 
 def main(argv: list[str] | None = None) -> int:
-    global SOURCES, DATASET_ID, GENERATOR_VERSION
+    global SOURCES, DATASET_ID, GENERATOR_VERSION, LIB_MODULES, PLAN_MODULES
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--out", default=f"data/v2/dataset/{DATASET_ID}")
     parser.add_argument("--dataset", default=V1_DATASET)
@@ -1179,6 +1188,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--only", default="", help="comma-separated structure ids: build only these (a check build, never a dataset)")
     args = parser.parse_args(argv)
     SOURCES, DATASET_ID, GENERATOR_VERSION = ROUNDS[args.round]
+    LIB_MODULES = LIB_MODULES + ROUND_EXTRA_LIBS.get(args.round, ())
+    PLAN_MODULES = PLAN_MODULES + ROUND_EXTRA_LIBS.get(args.round, ())
     if args.out == f"data/v2/dataset/{ROUNDS['v1'][1]}" and args.round != "v1":
         args.out = f"data/v2/dataset/{DATASET_ID}"
     only = {x.strip() for x in args.only.split(",") if x.strip()}
